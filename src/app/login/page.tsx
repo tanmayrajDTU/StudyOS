@@ -83,20 +83,6 @@ export default function LoginPage() {
           </p>
         </div>
 
-        {/* Info / Restriction Alerts */}
-        <div className="bg-secondary/40 border border-border rounded-xl p-3 text-4xs font-mono leading-normal text-muted-foreground space-y-1">
-          <p className="font-extrabold uppercase text-foreground">Important Note for Developers:</p>
-          <p>
-            1. Access is restricted to <span className="text-foreground underline">tanmayraj1705@gmail.com</span>.
-          </p>
-          <p>
-            2. If you are logging in for the first time, use the **Sign Up** option to register this email on your Supabase project.
-          </p>
-          <p>
-            3. You can disable email verification in your Supabase Dashboard under *Authentication → Providers → Email → Confirm email*.
-          </p>
-        </div>
-
         {/* Success / Error Banners */}
         {errorMsg && (
           <div className="rounded-lg bg-destructive/10 p-3 text-2xs text-destructive border border-destructive/20 text-center animate-in fade-in duration-200">
