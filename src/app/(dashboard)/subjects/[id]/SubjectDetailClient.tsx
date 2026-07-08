@@ -1,7 +1,8 @@
 'use client'
 
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useCallback } from 'react'
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query'
+import { useBatchToggle } from '@/hooks/useBatchToggle'
 import {
   getSubjectDetail,
   updateSubject,
@@ -63,6 +64,8 @@ export default function SubjectDetailClient({ subjectId }: SubjectDetailClientPr
   const [newModuleName, setNewModuleName] = useState('')
   const [isAddingModule, setIsAddingModule] = useState(false)
   const [collapsedModules, setCollapsedModules] = useState<Record<string, boolean>>({})
+
+  const { toggleLecture, syncing, syncError, retry } = useBatchToggle(subjectId)
 
   // 1. Fetch complete subject detail
   const { data: detail = null, isLoading } = useQuery({
@@ -189,6 +192,58 @@ export default function SubjectDetailClient({ subjectId }: SubjectDetailClientPr
     },
   })
 
+  // Memoized action handlers
+  const handleToggleCollapse = useCallback((moduleId: string) => {
+    setCollapsedModules((prev) => ({ ...prev, [moduleId]: !prev[moduleId] }))
+  }, [])
+
+  const handleRenameModule = useCallback((moduleId: string, newName: string) => {
+    updateModuleMutation.mutate({ id: moduleId, updates: { name: newName } })
+  }, [updateModuleMutation])
+
+  const handleDeleteModule = useCallback((moduleId: string) => {
+    deleteModuleMutation.mutate(moduleId)
+  }, [deleteModuleMutation])
+
+  const handleDuplicateModule = useCallback((moduleId: string) => {
+    duplicateModuleMutation.mutate(moduleId)
+  }, [duplicateModuleMutation])
+
+  const handleAddLecture = useCallback((moduleId: string, title: string) => {
+    createLectureMutation.mutate({ moduleId, title })
+  }, [createLectureMutation])
+
+  const handleUpdateLecture = useCallback((lecId: string, updates: Record<string, unknown>) => {
+    if (updates && 'completed_hours' in updates) {
+      const newCompletedHours = Number(updates.completed_hours)
+      const targetLec = detail?.modules
+        .flatMap((m) => m.lectures)
+        .find((l) => l.id === lecId)
+      if (targetLec) {
+        const isCompleted = newCompletedHours > 0
+        toggleLecture(lecId, isCompleted, Number(targetLec.estimated_hours), Number(targetLec.completed_hours) > 0)
+        return
+      }
+    }
+    updateLectureMutation.mutate({ id: lecId, updates })
+  }, [detail, toggleLecture, updateLectureMutation])
+
+  const handleDeleteLecture = useCallback((lecId: string) => {
+    deleteLectureMutation.mutate(lecId)
+  }, [deleteLectureMutation])
+
+  const handleDuplicateLecture = useCallback((lecId: string) => {
+    duplicateLectureMutation.mutate(lecId)
+  }, [duplicateLectureMutation])
+
+  const handleCreateLink = useCallback((lecId: string, title: string, url: string) => {
+    createLinkMutation.mutate({ lectureId: lecId, title, url })
+  }, [createLinkMutation])
+
+  const handleDeleteLink = useCallback((linkId: string) => {
+    deleteLinkMutation.mutate(linkId)
+  }, [deleteLinkMutation])
+
   // 3. Drag and Drop handlers
   const sensors = useSensors(
     useSensor(PointerSensor, {
@@ -283,11 +338,22 @@ export default function SubjectDetailClient({ subjectId }: SubjectDetailClientPr
           </div>
 
           <div className="min-w-0 flex-1 space-y-1">
-            <InlineEdit
-              value={detail.name}
-              onSave={(newName) => updateSubjectMutation.mutate({ name: newName })}
-              className="text-2xl font-extrabold text-foreground tracking-tight"
-            />
+            <div className="flex items-center gap-3">
+              <InlineEdit
+                value={detail.name}
+                onSave={(newName) => updateSubjectMutation.mutate({ name: newName })}
+                className="text-2xl font-extrabold text-foreground tracking-tight"
+              />
+              {syncing && <span className="text-4xs text-muted-foreground animate-pulse font-mono">Saving...</span>}
+              {syncError && (
+                <span className="text-4xs text-red-500 font-semibold flex items-center gap-1.5 font-mono">
+                  {syncError}
+                  <button onClick={retry} className="text-primary hover:underline font-bold cursor-pointer">
+                    Retry
+                  </button>
+                </span>
+              )}
+            </div>
             <p className="text-xs text-muted-foreground font-mono uppercase tracking-wider">
               {totalLectures} Lectures across {detail.modules.length} Modules
             </p>
@@ -401,18 +467,16 @@ export default function SubjectDetailClient({ subjectId }: SubjectDetailClientPr
                   module={module}
                   subjectColor={detail.color}
                   isCollapsed={collapsedModules[module.id] ?? false}
-                  onToggleCollapse={() =>
-                    setCollapsedModules((prev) => ({ ...prev, [module.id]: !prev[module.id] }))
-                  }
-                  onRename={(newName) => updateModuleMutation.mutate({ id: module.id, updates: { name: newName } })}
-                  onDelete={() => deleteModuleMutation.mutate(module.id)}
-                  onDuplicate={() => duplicateModuleMutation.mutate(module.id)}
-                  onAddLecture={(title) => createLectureMutation.mutate({ moduleId: module.id, title })}
-                  onUpdateLecture={(lecId, updates) => updateLectureMutation.mutate({ id: lecId, updates })}
-                  onDeleteLecture={(lecId) => deleteLectureMutation.mutate(lecId)}
-                  onDuplicateLecture={(lecId) => duplicateLectureMutation.mutate(lecId)}
-                  onCreateLink={(lecId, title, url) => createLinkMutation.mutate({ lectureId: lecId, title, url })}
-                  onDeleteLink={(linkId) => deleteLinkMutation.mutate(linkId)}
+                  onToggleCollapse={() => handleToggleCollapse(module.id)}
+                  onRename={(newName) => handleRenameModule(module.id, newName)}
+                  onDelete={() => handleDeleteModule(module.id)}
+                  onDuplicate={() => handleDuplicateModule(module.id)}
+                  onAddLecture={(title) => handleAddLecture(module.id, title)}
+                  onUpdateLecture={handleUpdateLecture}
+                  onDeleteLecture={handleDeleteLecture}
+                  onDuplicateLecture={handleDuplicateLecture}
+                  onCreateLink={handleCreateLink}
+                  onDeleteLink={handleDeleteLink}
                 />
               ))}
             </div>

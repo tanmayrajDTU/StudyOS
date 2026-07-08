@@ -55,7 +55,7 @@ interface SortableModuleContainerProps {
   onDeleteLink: (linkId: string) => void
 }
 
-export function SortableModuleContainer({
+export const SortableModuleContainer = React.memo(function SortableModuleContainer({
   module,
   subjectColor,
   isCollapsed,
@@ -256,4 +256,4 @@ export function SortableModuleContainer({
       )}
     </div>
   )
-}
+})

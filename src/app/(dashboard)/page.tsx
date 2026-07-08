@@ -2,7 +2,7 @@
 
 import React from 'react'
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query'
-import { getSubjects, getAppStats, getProfile, toggleLectureComplete, updateLectureCompletedHours } from '@/actions/db'
+import { getSubjects, getAppStats, getProfile, updateLectureCompletedHours } from '@/actions/db'
 import { getTodayRoadmap, getRoadmapDetails } from '@/actions/roadmap'
 import {
   Sparkles,
@@ -18,6 +18,8 @@ import {
 import Link from 'next/link'
 import { getSubjectIcon } from '@/components/subjects/SortableSubjectCard'
 import { format, parseISO } from 'date-fns'
+import CountdownTimer from '@/components/dashboard/CountdownTimer'
+import { useBatchToggle } from '@/hooks/useBatchToggle'
 
 interface Subject {
   id: string
@@ -84,16 +86,7 @@ export default function DashboardPage() {
 
   const todayLectures = todayLecturesData as unknown as RoadmapItem[]
 
-  const toggleMutation = useMutation({
-    mutationFn: (variables: { lectureId: string; isCompleted: boolean }) =>
-      toggleLectureComplete(variables.lectureId, variables.isCompleted),
-    onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ['today-roadmap'] })
-      queryClient.invalidateQueries({ queryKey: ['roadmap'] })
-      queryClient.invalidateQueries({ queryKey: ['app-stats'] })
-      queryClient.invalidateQueries({ queryKey: ['subjects'] })
-    }
-  })
+  const { toggleLecture, syncing, syncError, retry } = useBatchToggle()
 
   const sliderMutation = useMutation({
     mutationFn: (variables: { lectureId: string; hours: number }) =>
@@ -150,6 +143,9 @@ export default function DashboardPage() {
           </p>
         </div>
       </div>
+
+      {/* GATE Countdown Timer */}
+      <CountdownTimer />
 
       {/* 2. Overall Progress Widget */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
@@ -238,10 +234,21 @@ export default function DashboardPage() {
       {/* 3. Today's Plan */}
       <div className="rounded-2xl border border-border bg-card p-6 shadow-sm space-y-4">
         <div className="flex items-center justify-between">
-          <h3 className="text-sm font-extrabold uppercase text-muted-foreground tracking-widest flex items-center gap-2">
-            <Award className="h-4.5 w-4.5 text-primary" />
-            Today&apos;s Plan
-          </h3>
+          <div className="flex items-center gap-2">
+            <h3 className="text-sm font-extrabold uppercase text-muted-foreground tracking-widest flex items-center gap-2">
+              <Award className="h-4.5 w-4.5 text-primary" />
+              Today&apos;s Plan
+            </h3>
+            {syncing && <span className="text-4xs text-muted-foreground animate-pulse ml-2 font-mono">Saving...</span>}
+            {syncError && (
+              <span className="text-4xs text-red-500 font-semibold flex items-center gap-1.5 ml-2 font-mono">
+                {syncError}
+                <button onClick={retry} className="text-primary hover:underline font-bold cursor-pointer">
+                  Retry
+                </button>
+              </span>
+            )}
+          </div>
           <Link href="/roadmap" className="text-xs font-semibold text-primary hover:underline flex items-center gap-0.5">
             <span>View Calendar</span>
             <ChevronRight className="h-3 w-3" />
@@ -274,9 +281,8 @@ export default function DashboardPage() {
                   <div className="flex items-start justify-between gap-4">
                     <div className="flex items-start gap-3">
                       <button
-                        onClick={() => toggleMutation.mutate({ lectureId: lec.id, isCompleted: !isCompleted })}
-                        disabled={toggleMutation.isPending}
-                        className="mt-0.5 text-muted-foreground hover:text-primary transition-all disabled:opacity-50 cursor-pointer"
+                        onClick={() => toggleLecture(lec.id, !isCompleted, Number(lec.estimated_hours), isCompleted)}
+                        className="mt-0.5 text-muted-foreground hover:text-primary transition-all cursor-pointer"
                       >
                         {isCompleted ? (
                           <CheckCircle2 className="h-4.5 w-4.5 text-primary" />
