@@ -42,7 +42,7 @@ interface SortableLectureItemProps {
   onDeleteLink: (linkId: string) => void
 }
 
-export function SortableLectureItem({
+export const SortableLectureItem = React.memo(function SortableLectureItem({
   lecture,
   moduleId,
   onUpdate,
@@ -331,4 +331,4 @@ export function SortableLectureItem({
       )}
     </div>
   )
-}
+})

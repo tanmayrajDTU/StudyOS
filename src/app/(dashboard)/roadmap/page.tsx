@@ -3,7 +3,8 @@
 import React, { useState } from 'react'
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query'
 import { generateRoadmap, getRoadmapDetails } from '@/actions/roadmap'
-import { toggleLectureComplete, updateLectureCompletedHours } from '@/actions/db'
+
+import { useBatchToggle } from '@/hooks/useBatchToggle'
 import {
   Calendar,
   Sparkles,
@@ -67,25 +68,9 @@ export default function RoadmapPage() {
     }
   })
 
-  // 3. Toggle checklist item mutation
-  const toggleMutation = useMutation({
-    mutationFn: (variables: { lectureId: string; isCompleted: boolean }) =>
-      toggleLectureComplete(variables.lectureId, variables.isCompleted),
-    onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ['roadmap'] })
-      queryClient.invalidateQueries({ queryKey: ['app-stats'] })
-    }
-  })
+  const { toggleLecture, syncing, syncError, retry } = useBatchToggle()
 
-  // 4. Update completed hours slider mutation
-  const sliderMutation = useMutation({
-    mutationFn: (variables: { lectureId: string; hours: number }) =>
-      updateLectureCompletedHours(variables.lectureId, variables.hours),
-    onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ['roadmap'] })
-      queryClient.invalidateQueries({ queryKey: ['app-stats'] })
-    }
-  })
+
 
   const handleGenerate = (e: React.FormEvent) => {
     e.preventDefault()
@@ -245,9 +230,20 @@ export default function RoadmapPage() {
 
           {/* Grouped Calendar Days */}
           <div className="space-y-6">
-            <h3 className="text-xs font-extrabold uppercase text-muted-foreground tracking-widest">
-              Daily Schedule View
-            </h3>
+            <div className="flex items-center gap-2">
+              <h3 className="text-xs font-extrabold uppercase text-muted-foreground tracking-widest">
+                Daily Schedule View
+              </h3>
+              {syncing && <span className="text-4xs text-muted-foreground animate-pulse ml-2 font-mono">Saving...</span>}
+              {syncError && (
+                <span className="text-4xs text-red-500 font-semibold flex items-center gap-1.5 ml-2 font-mono">
+                  {syncError}
+                  <button onClick={retry} className="text-primary hover:underline font-bold cursor-pointer">
+                    Retry
+                  </button>
+                </span>
+              )}
+            </div>
 
             {sortedDates.map((dateStr, idx) => {
               const dayItems = grouped[dateStr]
@@ -280,7 +276,6 @@ export default function RoadmapPage() {
                       const sub = mod?.subjects
                       
                       const isCompleted = Number(lec.completed_hours) >= Number(lec.estimated_hours)
-                      const isSliderPending = sliderMutation.isPending && sliderMutation.variables?.lectureId === lec.id
 
                       return (
                         <div key={item.id} className="p-5 space-y-4 hover:bg-secondary/10 transition-colors">
@@ -288,9 +283,8 @@ export default function RoadmapPage() {
                             <div className="flex items-start gap-3">
                               {/* Custom Checkbox button */}
                               <button
-                                onClick={() => toggleMutation.mutate({ lectureId: lec.id, isCompleted: !isCompleted })}
-                                disabled={toggleMutation.isPending}
-                                className="mt-0.5 text-muted-foreground hover:text-primary transition-all disabled:opacity-50 cursor-pointer"
+                                onClick={() => toggleLecture(lec.id, !isCompleted, Number(lec.estimated_hours), isCompleted)}
+                                className="mt-0.5 text-muted-foreground hover:text-primary transition-all cursor-pointer"
                               >
                                 {isCompleted ? (
                                   <CheckCircle2 className="h-5 w-5 text-primary" />
@@ -326,25 +320,6 @@ export default function RoadmapPage() {
                                 {Number(lec.completed_hours).toFixed(1)} / {Number(lec.estimated_hours).toFixed(1)} hrs
                               </p>
                             </div>
-                          </div>
-
-                          {/* Dynamic Manual Hours Completed Slider Override */}
-                          <div className="pl-8 space-y-1.5 max-w-sm">
-                            <div className="flex items-center justify-between text-4xs font-mono text-muted-foreground">
-                              <span>Override Completed Time</span>
-                              {isSliderPending && <span className="text-primary animate-pulse">Saving...</span>}
-                            </div>
-                            <input
-                              type="range"
-                              min="0"
-                              max={Number(lec.estimated_hours)}
-                              step="0.1"
-                              value={Number(lec.completed_hours)}
-                              onChange={(e) => {
-                                sliderMutation.mutate({ lectureId: lec.id, hours: parseFloat(e.target.value) })
-                              }}
-                              className="w-full h-1 bg-secondary rounded-lg appearance-none cursor-pointer accent-primary border border-border/40 focus:outline-none"
-                            />
                           </div>
                         </div>
                       )

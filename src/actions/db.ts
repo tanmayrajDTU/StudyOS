@@ -1288,3 +1288,48 @@ export async function getActivityLogs() {
   if (error) throw error
   return data || []
 }
+
+export async function batchToggleLectures(updates: Array<{ id: string; isCompleted: boolean }>) {
+  const supabase = await createClient()
+  await getAuthUser(supabase)
+
+  const results = await Promise.all(
+    updates.map(async (u) => {
+      const { data: lec } = await supabase
+        .from('lectures')
+        .select('estimated_hours, module_id, modules(subject_id)')
+        .eq('id', u.id)
+        .single()
+
+      if (!lec) return null
+
+      const compHrs = u.isCompleted ? Number(lec.estimated_hours) : 0.00
+
+      const { data: updatedLec, error } = await supabase
+        .from('lectures')
+        .update({ completed_hours: compHrs, updated_at: new Date().toISOString() })
+        .eq('id', u.id)
+        .select()
+        .single()
+
+      if (error) throw error
+
+      await supabase
+        .from('roadmap_items')
+        .update({ completed: u.isCompleted })
+        .eq('lecture_id', u.id)
+
+      return {
+        updatedLec,
+        subjectId: getSubjectIdFromRelation(lec.modules)
+      }
+    })
+  )
+
+  const subjectIds = Array.from(new Set(results.map((r) => r?.subjectId).filter(Boolean)))
+  subjectIds.forEach((id) => revalidatePath(`/subjects/${id}`))
+  revalidatePath('/')
+  revalidatePath('/roadmap')
+
+  return { success: true }
+}

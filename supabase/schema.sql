@@ -28,6 +28,7 @@ CREATE TABLE public.profiles (
   email text NOT NULL,
   full_name text,
   avatar_url text,
+  daily_target_hours numeric(4,2) NOT NULL DEFAULT 4.00,
   created_at timestamp with time zone DEFAULT now() NOT NULL,
   updated_at timestamp with time zone DEFAULT now() NOT NULL
 );
