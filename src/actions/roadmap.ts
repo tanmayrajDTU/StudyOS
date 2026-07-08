@@ -274,8 +274,12 @@ export async function getRoadmapDetails() {
     lecture_id: item.lecture_id,
     scheduled_date: dateMap.get(item.roadmap_day_id) || '',
     study_order: item.display_order,
-    completed_hours: item.completed ? Number(item.lectures?.estimated_hours || 0) : 0,
-    lectures: item.lectures
+    completed_hours: item.completed ? Number(item.planned_hours || 0) : 0,
+    lectures: item.lectures ? {
+      ...item.lectures,
+      estimated_hours: Number(item.planned_hours || 0),
+      completed_hours: item.completed ? Number(item.planned_hours || 0) : 0
+    } : null
   }))
 
   return {
@@ -347,7 +351,11 @@ export async function getTodayRoadmap() {
     lecture_id: item.lecture_id,
     scheduled_date: dateMap.get(item.roadmap_day_id) || '',
     study_order: item.display_order,
-    completed_hours: item.completed ? Number(item.lectures?.estimated_hours || 0) : 0,
-    lectures: item.lectures
+    completed_hours: item.completed ? Number(item.planned_hours || 0) : 0,
+    lectures: item.lectures ? {
+      ...item.lectures,
+      estimated_hours: Number(item.planned_hours || 0),
+      completed_hours: item.completed ? Number(item.planned_hours || 0) : 0
+    } : null
   }))
 }
