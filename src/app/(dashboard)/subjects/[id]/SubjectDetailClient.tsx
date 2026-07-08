@@ -18,7 +18,8 @@ import {
   reorderLectures,
   moveLecture,
   createLink,
-  deleteLink
+  deleteLink,
+  bulkImportModules
 } from '@/actions/db'
 import {
   DndContext,
@@ -64,6 +65,9 @@ export default function SubjectDetailClient({ subjectId }: SubjectDetailClientPr
   const [newModuleName, setNewModuleName] = useState('')
   const [isAddingModule, setIsAddingModule] = useState(false)
   const [collapsedModules, setCollapsedModules] = useState<Record<string, boolean>>({})
+  const [isBulkImporting, setIsBulkImporting] = useState(false)
+  const [bulkJson, setBulkJson] = useState('')
+  const [importError, setImportError] = useState<string | null>(null)
 
   const { toggleLecture, syncing, syncError, retry } = useBatchToggle(subjectId)
 
@@ -244,6 +248,76 @@ export default function SubjectDetailClient({ subjectId }: SubjectDetailClientPr
     deleteLinkMutation.mutate(linkId)
   }, [deleteLinkMutation])
 
+  const bulkImportMutation = useMutation({
+    mutationFn: (jsonData: Array<{ module: string; lectures: Array<{ title: string; hours: number }> }>) =>
+      bulkImportModules(subjectId, jsonData),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['subject-detail', subjectId] })
+      queryClient.invalidateQueries({ queryKey: ['subjects'] })
+      setIsBulkImporting(false)
+      setBulkJson('')
+      setImportError(null)
+    },
+    onError: (err: Error) => {
+      setImportError(err.message || 'Import failed. Check logs.')
+    }
+  })
+
+  const handleImportSubmit = useCallback(() => {
+    setImportError(null)
+    const trimmed = bulkJson.trim()
+    if (!trimmed) {
+      setImportError('Please paste some JSON data first.')
+      return
+    }
+
+    try {
+      const parsed = JSON.parse(trimmed)
+      
+      if (!Array.isArray(parsed)) {
+        setImportError('Root element must be a JSON array.')
+        return
+      }
+
+      for (let i = 0; i < parsed.length; i++) {
+        const item = parsed[i]
+        if (typeof item !== 'object' || item === null) {
+          setImportError(`Element at index ${i} must be a JSON object.`)
+          return
+        }
+        if (typeof item.module !== 'string' || !item.module.trim()) {
+          setImportError(`Element at index ${i} is missing a valid "module" string.`)
+          return
+        }
+        if (!Array.isArray(item.lectures)) {
+          setImportError(`Element at index ${i} ("${item.module}") is missing a "lectures" array.`)
+          return
+        }
+
+        for (let j = 0; j < item.lectures.length; j++) {
+          const lec = item.lectures[j]
+          if (typeof lec !== 'object' || lec === null) {
+            setImportError(`Lecture at index ${j} in module "${item.module}" must be an object.`)
+            return
+          }
+          if (typeof lec.title !== 'string' || !lec.title.trim()) {
+            setImportError(`Lecture at index ${j} in module "${item.module}" is missing a valid "title" string.`)
+            return
+          }
+          if (typeof lec.hours !== 'number' || isNaN(lec.hours) || lec.hours < 0) {
+            setImportError(`Lecture "${lec.title}" in module "${item.module}" has an invalid "hours" value (must be a positive number).`)
+            return
+          }
+        }
+      }
+
+      bulkImportMutation.mutate(parsed)
+    } catch (e: unknown) {
+      const err = e as Error
+      setImportError(`Invalid JSON syntax: ${err.message}`)
+    }
+  }, [bulkJson, bulkImportMutation])
+
   // 3. Drag and Drop handlers
   const sensors = useSensors(
     useSensor(PointerSensor, {
@@ -400,14 +474,80 @@ export default function SubjectDetailClient({ subjectId }: SubjectDetailClientPr
           </button>
         </div>
 
-        <button
-          onClick={() => setIsAddingModule(true)}
-          className="flex items-center gap-1.5 rounded-lg bg-primary hover:bg-primary/95 text-primary-foreground font-medium px-4.5 py-1.5 text-xs shadow-sm cursor-pointer transition-all"
-        >
-          <Plus className="h-3.5 w-3.5" />
-          <span>Add Module</span>
-        </button>
+        <div className="flex items-center gap-2">
+          <button
+            onClick={() => setIsBulkImporting(true)}
+            className="flex items-center gap-1.5 rounded-lg border border-border bg-card text-foreground hover:bg-secondary font-medium px-4 py-1.5 text-xs shadow-sm cursor-pointer transition-all"
+          >
+            Bulk Import JSON
+          </button>
+          <button
+            onClick={() => setIsAddingModule(true)}
+            className="flex items-center gap-1.5 rounded-lg bg-primary hover:bg-primary/95 text-primary-foreground font-medium px-4.5 py-1.5 text-xs shadow-sm cursor-pointer transition-all"
+          >
+            <Plus className="h-3.5 w-3.5" />
+            <span>Add Module</span>
+          </button>
+        </div>
       </div>
+
+      {/* Bulk Import JSON Form */}
+      {isBulkImporting && (
+        <div className="rounded-xl border border-border bg-card p-6 shadow-md animate-in slide-in-from-top duration-150 space-y-4">
+          <div className="flex items-center justify-between border-b border-border/50 pb-2">
+            <h3 className="text-sm font-bold text-foreground">
+              Bulk Import Modules & Lectures
+            </h3>
+            <span className="text-4xs text-muted-foreground font-mono">JSON Format</span>
+          </div>
+
+          <p className="text-3xs text-muted-foreground leading-normal">
+            Paste a JSON array representing modules and lectures. Keys must match exactly: 
+            <code className="bg-secondary px-1 py-0.5 rounded text-foreground font-mono ml-1">
+              [{"{"} &quot;module&quot;: &quot;Name&quot;, &quot;lectures&quot;: [{"{"} &quot;title&quot;: &quot;Name&quot;, &quot;hours&quot;: 1.50 {"}"}] {"}"}]
+            </code>
+          </p>
+
+          <div className="space-y-2">
+            <textarea
+              placeholder='[{"module": "Module 1", "lectures": [{"title": "Lec 1", "hours": 1.5}]}]'
+              value={bulkJson}
+              onChange={(e) => {
+                setBulkJson(e.target.value)
+                setImportError(null)
+              }}
+              rows={8}
+              className="w-full bg-secondary border border-border rounded-xl p-3 text-2xs text-foreground font-mono focus:outline-none focus:border-primary placeholder-muted-foreground/40 resize-y"
+            />
+            {importError && (
+              <p className="text-3xs text-red-500 font-semibold font-mono bg-red-500/5 border border-red-500/10 rounded-lg p-2">
+                ⚠️ {importError}
+              </p>
+            )}
+          </div>
+
+          <div className="flex justify-end gap-3 border-t border-border/50 pt-3 border-dashed">
+            <button
+              onClick={() => {
+                setIsBulkImporting(false)
+                setBulkJson('')
+                setImportError(null)
+              }}
+              disabled={bulkImportMutation.isPending}
+              className="rounded-lg border border-border px-4 py-2 hover:bg-secondary text-foreground text-xs cursor-pointer transition-colors disabled:opacity-50"
+            >
+              Cancel
+            </button>
+            <button
+              onClick={handleImportSubmit}
+              disabled={bulkImportMutation.isPending}
+              className="rounded-lg bg-foreground text-background font-bold px-4 py-2 hover:opacity-90 active:scale-95 transition-all text-xs cursor-pointer disabled:opacity-50 flex items-center gap-1.5"
+            >
+              {bulkImportMutation.isPending ? 'Importing...' : 'Validate & Import'}
+            </button>
+          </div>
+        </div>
+      )}
 
       {/* Add Module Inline Form */}
       {isAddingModule && (

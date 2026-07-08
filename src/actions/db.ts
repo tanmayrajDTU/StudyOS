@@ -1333,3 +1333,70 @@ export async function batchToggleLectures(updates: Array<{ id: string; isComplet
 
   return { success: true }
 }
+
+export async function bulkImportModules(
+  subjectId: string,
+  modulesData: Array<{ module: string; lectures: Array<{ title: string; hours: number }> }>
+) {
+  const supabase = await createClient()
+  await getAuthUser(supabase)
+
+  // Get max display order for modules of this subject
+  const { data: maxObj } = await supabase
+    .from('modules')
+    .select('display_order')
+    .eq('subject_id', subjectId)
+    .order('display_order', { ascending: false })
+    .limit(1)
+
+  const startModuleOrder = maxObj && maxObj[0] ? maxObj[0].display_order + 1 : 0
+
+  for (let mIdx = 0; mIdx < modulesData.length; mIdx++) {
+    const modItem = modulesData[mIdx]
+    const moduleName = modItem.module || `Module ${mIdx + 1}`
+    const lectures = modItem.lectures || []
+
+    const estHours = lectures.reduce((sum, l) => sum + (Number(l.hours) || 0), 0)
+
+    // Insert module
+    const { data: insertedMod, error: modErr } = await supabase
+      .from('modules')
+      .insert({
+        subject_id: subjectId,
+        name: moduleName,
+        display_order: startModuleOrder + mIdx,
+        is_collapsed: false,
+        is_important: false,
+        estimated_hours: estHours,
+        completed_hours: 0.00
+      })
+      .select()
+      .single()
+
+    if (modErr || !insertedMod) throw modErr || new Error('Failed to insert module')
+
+    if (lectures.length > 0) {
+      const lecturesToInsert = lectures.map((lec, lIdx) => ({
+        module_id: insertedMod.id,
+        title: lec.title || `Lecture ${lIdx + 1}`,
+        estimated_hours: Number(lec.hours) || 1.0,
+        completed_hours: 0.00,
+        display_order: lIdx,
+        is_marked_for_revision: false,
+        importance_level: 'NONE'
+      }))
+
+      const { error: lecErr } = await supabase
+        .from('lectures')
+        .insert(lecturesToInsert)
+
+      if (lecErr) throw lecErr
+    }
+  }
+
+  revalidatePath(`/subjects/${subjectId}`)
+  revalidatePath('/')
+  revalidatePath('/roadmap')
+
+  return { success: true, count: modulesData.length }
+}
