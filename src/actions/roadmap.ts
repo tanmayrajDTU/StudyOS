@@ -17,36 +17,25 @@ export async function generateRoadmap(startDateStr: string) {
   const supabase = await createClient()
   const user = await getAuthUser(supabase)
 
-  // 1. Get profile daily target
-  const { data: profile } = await supabase
-    .from('profiles')
-    .select('daily_target_hours')
-    .eq('id', user.id)
-    .single()
+  // 1. Fetch user subjects
+  const { data: subjects } = await supabase
+    .from('subjects')
+    .select('id, name, display_order')
+    .eq('user_id', user.id)
+    .order('display_order', { ascending: true })
 
-  const dailyTarget = Number(profile?.daily_target_hours) || 4.0
+  if (!subjects || subjects.length === 0) {
+    throw new Error('No subjects found to generate roadmap for. Please add subjects first.')
+  }
+  const subjectIds = subjects.map((s) => s.id)
 
-  // 2. Delete existing roadmap (cascade drops roadmap_items)
+  // 2. Delete existing roadmap days for the user's subjects (cascades to roadmap_items)
   await supabase
     .from('roadmap')
     .delete()
-    .eq('user_id', user.id)
+    .in('subject_id', subjectIds)
 
-  // 3. Insert new roadmap base
-  const { data: newRoadmap, error: roadmapErr } = await supabase
-    .from('roadmap')
-    .insert({
-      user_id: user.id,
-      start_date: startDateStr,
-      daily_target_hours: dailyTarget,
-    })
-    .select()
-    .single()
-
-  if (roadmapErr || !newRoadmap) throw roadmapErr
-
-  // 4. Fetch all subjects, modules, and incomplete lectures
-  // In order: subject display_order -> module display_order -> lecture display_order
+  // 3. Fetch all lectures
   const { data: lecturesData, error: lecErr } = await supabase
     .from('lectures')
     .select(`
@@ -59,113 +48,201 @@ export async function generateRoadmap(startDateStr: string) {
       modules (
         id,
         display_order,
-        subject_id,
-        subjects (
-          id,
-          display_order
-        )
+        subject_id
       )
     `)
 
   if (lecErr || !lecturesData) throw lecErr
 
-  // Filter out complete lectures and sort dynamically
+  // 4. Filter out completed lectures and map them
   const incompleteLectures = lecturesData
-    .filter((l) => Number(l.completed_hours) < Number(l.estimated_hours))
+    .filter((l) => {
+      const rawMod = Array.isArray(l.modules) ? l.modules[0] : l.modules
+      const mod = rawMod as { id: string; display_order: number; subject_id: string } | null
+      return mod && subjectIds.includes(mod.subject_id) && Number(l.completed_hours) < Number(l.estimated_hours)
+    })
     .map((l) => {
-      const modObj = Array.isArray(l.modules) ? l.modules[0] : l.modules
-      const mod = modObj as { display_order: number; subjects: unknown } | null
-      const sub = (Array.isArray(mod?.subjects) ? mod?.subjects[0] : mod?.subjects) as { display_order: number } | null
+      const rawMod = Array.isArray(l.modules) ? l.modules[0] : l.modules
+      const mod = rawMod as { id: string; display_order: number; subject_id: string }
       return {
         id: l.id,
         estimated_hours: Number(l.estimated_hours),
-        subjectOrder: sub?.display_order ?? 0,
-        moduleOrder: mod?.display_order ?? 0,
+        subject_id: mod.subject_id,
+        moduleOrder: mod.display_order ?? 0,
         lectureOrder: l.display_order ?? 0,
       }
     })
-    .sort((a, b) => {
-      if (a.subjectOrder !== b.subjectOrder) return a.subjectOrder - b.subjectOrder
-      if (a.moduleOrder !== b.moduleOrder) return a.moduleOrder - b.moduleOrder
-      return a.lectureOrder - b.lectureOrder
-    })
 
-  // 5. Bin-packing scheduling algorithm
-  let currentDate = parseISO(startDateStr)
-  let currentAccumulator = 0.0
-  const scheduledItems: Array<{
-    roadmap_id: string
-    lecture_id: string
-    scheduled_date: string
-    study_order: number
-    completed_hours: number
-  }> = []
+  // Sort them: one subject at a time, keeping order of subjects -> modules -> lectures
+  const subjectOrderMap = new Map(subjects.map((s) => [s.id, s.display_order]))
+  incompleteLectures.sort((a, b) => {
+    const aSubOrder = subjectOrderMap.get(a.subject_id) ?? 0
+    const bSubOrder = subjectOrderMap.get(b.subject_id) ?? 0
+    if (aSubOrder !== bSubOrder) return aSubOrder - bSubOrder
+    if (a.moduleOrder !== b.moduleOrder) return a.moduleOrder - b.moduleOrder
+    return a.lectureOrder - b.lectureOrder
+  })
 
-  let studyOrder = 0
+  // Group lectures by subject (enforcing one subject at a time)
+  const subjectsWithLectures: Array<{ subjectId: string; lectures: typeof incompleteLectures }> = []
+  let currentSubId = ''
+  let currentGroup: typeof incompleteLectures = []
 
   for (const lec of incompleteLectures) {
-    const hours = lec.estimated_hours
+    if (lec.subject_id !== currentSubId) {
+      if (currentGroup.length > 0) {
+        subjectsWithLectures.push({ subjectId: currentSubId, lectures: currentGroup })
+      }
+      currentSubId = lec.subject_id
+      currentGroup = []
+    }
+    currentGroup.push(lec)
+  }
+  if (currentGroup.length > 0) {
+    subjectsWithLectures.push({ subjectId: currentSubId, lectures: currentGroup })
+  }
 
-    if (currentAccumulator + hours > dailyTarget) {
-      // If we already scheduled something today, move to next day
-      if (currentAccumulator > 0) {
-        currentDate = addDays(currentDate, 1)
-        currentAccumulator = 0.0
+  // 5. Pack lectures into daily bins (Target: 8h, Min: 7.5h, Max: 8.5h)
+  let currentDateObj = parseISO(startDateStr)
+  let totalItemsScheduled = 0
+
+  for (const subGroup of subjectsWithLectures) {
+    const subId = subGroup.subjectId
+    const subLecs = subGroup.lectures
+
+    let subjectDayIdx = 1
+    let dayAccumulator = 0.0
+    let dayItems: Array<{ lectureId: string; hours: number }> = []
+
+    const saveDay = async (plannedDate: Date, dayNum: number, items: typeof dayItems) => {
+      const formattedDate = format(plannedDate, 'yyyy-MM-dd')
+      const totalPlannedHours = items.reduce((sum, item) => sum + item.hours, 0)
+      
+      const { data: roadmapDay, error: rErr } = await supabase
+        .from('roadmap')
+        .insert({
+          subject_id: subId,
+          day_number: dayNum,
+          planned_hours: totalPlannedHours,
+          planned_date: formattedDate
+        })
+        .select()
+        .single()
+
+      if (rErr || !roadmapDay) throw rErr
+
+      const roadmapItemsToInsert = items.map((item, idx) => ({
+        roadmap_day_id: roadmapDay.id,
+        lecture_id: item.lectureId,
+        planned_hours: item.hours,
+        display_order: idx,
+        completed: false
+      }))
+
+      const { error: riErr } = await supabase
+        .from('roadmap_items')
+        .insert(roadmapItemsToInsert)
+
+      if (riErr) throw riErr
+      totalItemsScheduled += items.length
+    }
+
+    for (let i = 0; i < subLecs.length; i++) {
+      const lec = subLecs[i]
+      let lecHoursLeft = lec.estimated_hours
+
+      while (lecHoursLeft > 0) {
+        const remainingSpace = 8.5 - dayAccumulator
+
+        if (remainingSpace <= 0.01) {
+          await saveDay(currentDateObj, subjectDayIdx, dayItems)
+          currentDateObj = addDays(currentDateObj, 1)
+          subjectDayIdx++
+          dayAccumulator = 0.0
+          dayItems = []
+          continue
+        }
+
+        if (lecHoursLeft <= remainingSpace) {
+          dayItems.push({ lectureId: lec.id, hours: lecHoursLeft })
+          dayAccumulator += lecHoursLeft
+          lecHoursLeft = 0
+        } else {
+          // If the day already has at least 7.5 hours scheduled, we close it and move the rest to tomorrow
+          if (dayAccumulator >= 7.5) {
+            await saveDay(currentDateObj, subjectDayIdx, dayItems)
+            currentDateObj = addDays(currentDateObj, 1)
+            subjectDayIdx++
+            dayAccumulator = 0.0
+            dayItems = []
+          } else {
+            // Fill the day up to exactly 8.0 hours
+            const fillHours = 8.0 - dayAccumulator
+            dayItems.push({ lectureId: lec.id, hours: fillHours })
+            lecHoursLeft -= fillHours
+
+            await saveDay(currentDateObj, subjectDayIdx, dayItems)
+            currentDateObj = addDays(currentDateObj, 1)
+            subjectDayIdx++
+            dayAccumulator = 0.0
+            dayItems = []
+          }
+        }
       }
     }
 
-    scheduledItems.push({
-      roadmap_id: newRoadmap.id,
-      lecture_id: lec.id,
-      scheduled_date: format(currentDate, 'yyyy-MM-dd'),
-      study_order: studyOrder++,
-      completed_hours: 0.00,
-    })
-
-    currentAccumulator += hours
-
-    // If this lecture alone exceeds the daily target, the next lecture must go to the next day
-    if (currentAccumulator >= dailyTarget) {
-      currentDate = addDays(currentDate, 1)
-      currentAccumulator = 0.0
+    // Save final day of this subject
+    if (dayItems.length > 0) {
+      await saveDay(currentDateObj, subjectDayIdx, dayItems)
+      // Increment date for the start of the next subject
+      currentDateObj = addDays(currentDateObj, 1)
     }
   }
 
-  // 6. Batch insert scheduled items
-  if (scheduledItems.length > 0) {
-    const { error: insertErr } = await supabase
-      .from('roadmap_items')
-      .insert(scheduledItems)
-
-    if (insertErr) throw insertErr
-  }
-
-  // 7. Update roadmap with target finish date
-  const finishDateStr = format(currentDate, 'yyyy-MM-dd')
-  await supabase
-    .from('roadmap')
-    .update({ target_finish_date: finishDateStr })
-    .eq('id', newRoadmap.id)
+  // Target finish date is the last scheduled day (adjusting for the final loop increment)
+  const finalFinishDate = format(addDays(currentDateObj, -1), 'yyyy-MM-dd')
 
   revalidatePath('/')
   revalidatePath('/roadmap')
-  return { success: true, finishDate: finishDateStr, itemsCount: scheduledItems.length }
+  return { success: true, finishDate: finalFinishDate, itemsCount: totalItemsScheduled }
 }
 
 export async function getRoadmapDetails() {
   const supabase = await createClient()
   const user = await getAuthUser(supabase)
 
-  // Get active roadmap
-  const { data: roadmap } = await supabase
+  // 1. Get subjects
+  const { data: subjects } = await supabase
+    .from('subjects')
+    .select('id')
+    .eq('user_id', user.id)
+
+  const subjectIds = subjects?.map((s) => s.id) || []
+  if (subjectIds.length === 0) return null
+
+  // 2. Get roadmap days
+  const { data: roadmaps } = await supabase
     .from('roadmap')
     .select('*')
-    .eq('user_id', user.id)
+    .in('subject_id', subjectIds)
+    .order('planned_date', { ascending: true })
+
+  if (!roadmaps || roadmaps.length === 0) return null
+
+  const firstPlannedDate = roadmaps[0].planned_date
+  const lastPlannedDate = roadmaps[roadmaps.length - 1].planned_date
+  const dateMap = new Map(roadmaps.map((r) => [r.id, r.planned_date]))
+
+  // 3. Get profile daily target
+  const { data: profile } = await supabase
+    .from('profiles')
+    .select('daily_target_hours')
+    .eq('id', user.id)
     .single()
 
-  if (!roadmap) return null
+  const dailyTarget = Number(profile?.daily_target_hours) || 8.0
 
-  // Get roadmap items
+  // 4. Get items
   const { data: items, error } = await supabase
     .from('roadmap_items')
     .select(`
@@ -186,14 +263,29 @@ export async function getRoadmapDetails() {
         )
       )
     `)
-    .eq('roadmap_id', roadmap.id)
-    .order('study_order', { ascending: true })
+    .in('roadmap_day_id', roadmaps.map((r) => r.id))
+    .order('display_order', { ascending: true })
 
   if (error) throw error
 
+  const mappedItems = (items || []).map((item) => ({
+    id: item.id,
+    roadmap_id: item.roadmap_day_id,
+    lecture_id: item.lecture_id,
+    scheduled_date: dateMap.get(item.roadmap_day_id) || '',
+    study_order: item.display_order,
+    completed_hours: item.completed ? Number(item.lectures?.estimated_hours || 0) : 0,
+    lectures: item.lectures
+  }))
+
   return {
-    roadmap,
-    items: items || [],
+    roadmap: {
+      id: 'active-roadmap',
+      start_date: firstPlannedDate,
+      target_finish_date: lastPlannedDate,
+      daily_target_hours: dailyTarget
+    },
+    items: mappedItems
   }
 }
 
@@ -201,16 +293,29 @@ export async function getTodayRoadmap() {
   const supabase = await createClient()
   const user = await getAuthUser(supabase)
 
-  const { data: roadmap } = await supabase
-    .from('roadmap')
+  // 1. Get subjects
+  const { data: subjects } = await supabase
+    .from('subjects')
     .select('id')
     .eq('user_id', user.id)
-    .single()
 
-  if (!roadmap) return []
+  const subjectIds = subjects?.map((s) => s.id) || []
+  if (subjectIds.length === 0) return []
 
+  // 2. Get roadmap days scheduled for today
   const todayStr = format(new Date(), 'yyyy-MM-dd')
+  const { data: roadmapDays } = await supabase
+    .from('roadmap')
+    .select('*')
+    .in('subject_id', subjectIds)
+    .eq('planned_date', todayStr)
 
+  if (!roadmapDays || roadmapDays.length === 0) return []
+  const roadmapDayIds = roadmapDays.map((d) => d.id)
+
+  const dateMap = new Map(roadmapDays.map((r) => [r.id, r.planned_date]))
+
+  // 3. Get items
   const { data: items, error } = await supabase
     .from('roadmap_items')
     .select(`
@@ -231,10 +336,18 @@ export async function getTodayRoadmap() {
         )
       )
     `)
-    .eq('roadmap_id', roadmap.id)
-    .eq('scheduled_date', todayStr)
-    .order('study_order', { ascending: true })
+    .in('roadmap_day_id', roadmapDayIds)
+    .order('display_order', { ascending: true })
 
   if (error) throw error
-  return items || []
+
+  return (items || []).map((item) => ({
+    id: item.id,
+    roadmap_id: item.roadmap_day_id,
+    lecture_id: item.lecture_id,
+    scheduled_date: dateMap.get(item.roadmap_day_id) || '',
+    study_order: item.display_order,
+    completed_hours: item.completed ? Number(item.lectures?.estimated_hours || 0) : 0,
+    lectures: item.lectures
+  }))
 }

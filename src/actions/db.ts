@@ -939,7 +939,7 @@ export async function toggleLectureComplete(lectureId: string, isCompleted: bool
   // 3. Update roadmap_items if exists
   await supabase
     .from('roadmap_items')
-    .update({ completed_hours: compHrs })
+    .update({ completed: isCompleted })
     .eq('lecture_id', lectureId)
 
   const subjectId = getSubjectIdFromRelation(lec.modules)
@@ -973,10 +973,10 @@ export async function updateLectureCompletedHours(lectureId: string, hours: numb
 
   if (error) throw error
 
-  // 3. Update roadmap_items
+  const isLecCompleted = data ? (Number(data.completed_hours) >= Number(data.estimated_hours)) : false
   await supabase
     .from('roadmap_items')
-    .update({ completed_hours: hours })
+    .update({ completed: isLecCompleted })
     .eq('lecture_id', lectureId)
 
   const subjectId = getSubjectIdFromRelation(lec.modules)
