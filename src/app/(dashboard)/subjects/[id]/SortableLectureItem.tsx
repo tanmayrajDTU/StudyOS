@@ -45,6 +45,7 @@ interface SortableLectureItemProps {
 export const SortableLectureItem = React.memo(function SortableLectureItem({
   lecture,
   moduleId,
+  subjectColor,
   onUpdate,
   onDelete,
   onDuplicate,
@@ -71,14 +72,16 @@ export const SortableLectureItem = React.memo(function SortableLectureItem({
     },
   })
 
+  // Calculate lecture completion state
+  const isCompleted = Number(lecture.completed_hours) >= Number(lecture.estimated_hours) && Number(lecture.estimated_hours) > 0
+
   const style = {
     transform: CSS.Transform.toString(transform),
     transition,
     opacity: isDragging ? 0.3 : 1,
+    borderLeft: `3.5px solid ${isCompleted ? `${subjectColor}50` : subjectColor}`,
+    backgroundColor: isCompleted ? `${subjectColor}03` : `${subjectColor}08`,
   }
-
-  // Calculate lecture completion state
-  const isCompleted = Number(lecture.completed_hours) >= Number(lecture.estimated_hours) && Number(lecture.estimated_hours) > 0
 
   const handleToggleComplete = () => {
     const hours = isCompleted ? 0.00 : Number(lecture.estimated_hours)
@@ -126,9 +129,7 @@ export const SortableLectureItem = React.memo(function SortableLectureItem({
     <div
       ref={setNodeRef}
       style={style}
-      className={`rounded-lg border border-border/80 bg-card p-3.5 hover:border-border transition-all space-y-3 relative ${
-        isCompleted ? 'border-primary/20 bg-primary/2' : ''
-      }`}
+      className="rounded-lg border border-border/80 bg-card p-3.5 hover:border-border transition-all space-y-3 relative"
     >
       {/* Upper Main Row */}
       <div className="flex items-center justify-between gap-3 flex-wrap sm:flex-nowrap">

@@ -278,7 +278,11 @@ export default function RoadmapPage() {
                       const isCompleted = Number(lec.completed_hours) >= Number(lec.estimated_hours)
 
                       return (
-                        <div key={item.id} className="p-5 space-y-4 hover:bg-secondary/10 transition-colors">
+                        <div 
+                          key={item.id} 
+                          className="p-5 space-y-4 hover:bg-secondary/10 transition-colors"
+                          style={{ borderLeft: `3.5px solid ${sub?.color || 'transparent'}` }}
+                        >
                           <div className="flex items-start justify-between gap-4">
                             <div className="flex items-start gap-3">
                               {/* Custom Checkbox button */}

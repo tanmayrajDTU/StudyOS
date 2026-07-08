@@ -277,7 +277,11 @@ export default function DashboardPage() {
               const isCompleted = Number(lec.completed_hours) >= Number(lec.estimated_hours)
 
               return (
-                <div key={item.id} className="p-4 space-y-3.5 hover:bg-secondary/10 transition-colors">
+                <div 
+                  key={item.id} 
+                  className="p-4 space-y-3.5 hover:bg-secondary/10 transition-colors"
+                  style={{ borderLeft: `3.5px solid ${sub?.color || 'transparent'}` }}
+                >
                   <div className="flex items-start justify-between gap-4">
                     <div className="flex items-start gap-3">
                       <button
