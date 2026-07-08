@@ -91,6 +91,7 @@ export const SortableModuleContainer = React.memo(function SortableModuleContain
     transform: CSS.Transform.toString(transform),
     transition,
     opacity: isDragging ? 0.3 : 1,
+    borderLeft: `5px solid ${subjectColor}`,
   }
 
   const handleAddLectureSubmit = (e: React.FormEvent) => {
@@ -114,7 +115,10 @@ export const SortableModuleContainer = React.memo(function SortableModuleContain
       }`}
     >
       {/* Module Header Row */}
-      <div className="flex items-center justify-between gap-3 px-4 py-3 border-b border-border bg-secondary/20">
+      <div 
+        className="flex items-center justify-between gap-3 px-4 py-3 border-b border-border"
+        style={{ backgroundColor: `${subjectColor}12` }}
+      >
         <div className="flex items-center gap-2 flex-1 min-w-0">
           {/* Drag Handle */}
           <button
