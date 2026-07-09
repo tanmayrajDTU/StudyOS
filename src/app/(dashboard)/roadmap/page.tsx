@@ -1,18 +1,32 @@
 'use client'
 
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query'
 import { generateRoadmap, getRoadmapDetails } from '@/actions/roadmap'
-
+import { reorderRoadmapItem } from '@/actions/db'
 import { useBatchToggle } from '@/hooks/useBatchToggle'
 import {
-  Calendar,
-  Sparkles,
+  DndContext,
+  closestCenter,
+  PointerSensor,
+  useSensor,
+  useSensors,
+  DragEndEvent,
+  useDroppable
+} from '@dnd-kit/core'
+import {
+  SortableContext,
+  useSortable,
+  verticalListSortingStrategy
+} from '@dnd-kit/sortable'
+import { CSS } from '@dnd-kit/utilities'
+import {
   Loader2,
   CheckCircle2,
   RefreshCw,
   AlertCircle,
-  Check
+  Check,
+  GripVertical
 } from 'lucide-react'
 import { format, parseISO } from 'date-fns'
 
@@ -40,17 +54,176 @@ interface RoadmapItem {
   } | null
 }
 
+interface SortableRoadmapItemProps {
+  item: RoadmapItem
+  isCompleted: boolean
+  toggleLecture: (lectureId: string, isCompleted: boolean, estimatedHours: number, currentCompleted: boolean) => void
+  subColor: string
+}
+
+const SortableRoadmapItem = React.memo(function SortableRoadmapItem({
+  item,
+  isCompleted,
+  toggleLecture,
+  subColor
+}: SortableRoadmapItemProps) {
+  const {
+    attributes,
+    listeners,
+    setNodeRef,
+    transform,
+    transition,
+    isDragging,
+  } = useSortable({
+    id: item.id,
+    data: {
+      type: 'item',
+      item,
+    }
+  })
+
+  const lec = item.lectures
+  if (!lec) return null
+
+  const style = {
+    transform: CSS.Transform.toString(transform),
+    transition,
+    opacity: isDragging ? 0.35 : 1,
+    borderLeft: `3.5px solid ${subColor}`,
+  }
+
+  return (
+    <div
+      ref={setNodeRef}
+      style={style}
+      className="p-5 flex items-start justify-between gap-4 hover:bg-secondary/10 transition-all bg-card"
+    >
+      <div className="flex items-start gap-3">
+        {/* Drag Handle */}
+        <button
+          {...attributes}
+          {...listeners}
+          className="mt-0.5 p-1 text-muted-foreground/35 hover:text-foreground cursor-grab active:cursor-grabbing transition-colors"
+          title="Drag to reschedule"
+        >
+          <GripVertical className="h-4 w-4" />
+        </button>
+
+        {/* Checkbox */}
+        <button
+          onClick={() => toggleLecture(lec.id, !isCompleted, Number(lec.estimated_hours), isCompleted)}
+          className="mt-0.5 text-muted-foreground hover:text-primary transition-all cursor-pointer flex-shrink-0"
+        >
+          {isCompleted ? (
+            <CheckCircle2 className="h-5 w-5 text-primary" />
+          ) : (
+            <div className="h-5 w-5 rounded-full border-2 border-border hover:border-primary/50 transition-colors" />
+          )}
+        </button>
+
+        <div>
+          <h5 className={`text-xs font-bold text-foreground ${isCompleted ? 'line-through opacity-55' : ''}`}>
+            {lec.title}
+          </h5>
+          <div className="flex items-center gap-2 mt-1.5 flex-wrap">
+            {lec.modules?.subjects && (
+              <span
+                className="text-4xs font-bold font-mono px-1.5 py-0.5 rounded text-card"
+                style={{ backgroundColor: lec.modules.subjects.color }}
+              >
+                {lec.modules.subjects.name}
+              </span>
+            )}
+            <span className="text-4xs font-medium text-muted-foreground">
+              Module: {lec.modules?.name}
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <div className="text-right text-3xs font-mono flex-shrink-0">
+        <p className="text-muted-foreground">Allocation</p>
+        <p className="font-bold text-foreground mt-0.5">
+          {Number(item.completed_hours).toFixed(1)} / {Number(lec.estimated_hours).toFixed(1)} hrs
+        </p>
+      </div>
+    </div>
+  )
+})
+
+interface DayContainerProps {
+  dayId: string
+  dateStr: string
+  totalEstDay: number
+  idx: number
+  children: React.ReactNode
+}
+
+function DayContainer({ dayId, dateStr, totalEstDay, idx, children }: DayContainerProps) {
+  const { setNodeRef, isOver } = useDroppable({
+    id: dayId,
+  })
+
+  return (
+    <div
+      ref={setNodeRef}
+      className={`rounded-2xl border bg-card overflow-hidden shadow-sm transition-all duration-150 ${
+        isOver ? 'ring-2 ring-primary border-primary/40 bg-secondary/5' : 'border-border'
+      }`}
+    >
+      {/* Day Header */}
+      <div className="bg-secondary/45 px-5 py-3.5 border-b border-border flex items-center justify-between flex-wrap gap-2">
+        <h4 className="text-xs font-bold text-foreground flex items-center gap-2">
+          <span className="bg-primary/10 text-primary border border-primary/20 rounded px-1.5 py-0.5 text-3xs font-mono font-extrabold">
+            Day {idx + 1}
+          </span>
+          {format(parseISO(dateStr), 'EEEE, MMM d, yyyy')}
+        </h4>
+        <span className="text-3xs font-semibold text-muted-foreground font-mono bg-card px-2 py-0.5 rounded border border-border/40">
+          Total: {totalEstDay.toFixed(1)} hrs estimated
+        </span>
+      </div>
+
+      {/* Day Lectures list */}
+      <div className="divide-y divide-border/40 min-h-[60px] bg-secondary/5">
+        {children}
+      </div>
+    </div>
+  )
+}
+
 export default function RoadmapPage() {
   const queryClient = useQueryClient()
   const [startDate, setStartDate] = useState(format(new Date(), 'yyyy-MM-dd'))
   const [successMsg, setSuccessMsg] = useState('')
   const [errorMsg, setErrorMsg] = useState('')
+  const [localItems, setLocalItems] = useState<RoadmapItem[]>([])
+  const [plannedDates, setPlannedDates] = useState<string[]>([])
+  const [dayIdToDateMap, setDayIdToDateMap] = useState<Record<string, string>>({})
 
   // 1. Fetch roadmap data
   const { data: roadmapData = null, isLoading } = useQuery({
     queryKey: ['roadmap'],
     queryFn: () => getRoadmapDetails(),
   })
+
+  useEffect(() => {
+    if (roadmapData?.items) {
+      const rItems = roadmapData.items as unknown as RoadmapItem[]
+      setLocalItems(rItems)
+      
+      const dates = Array.from(
+        new Set(rItems.map((item) => item.scheduled_date))
+      ).sort((a, b) => a.localeCompare(b)) as string[]
+      setPlannedDates(dates)
+
+      const map: Record<string, string> = {}
+      rItems.forEach((item) => {
+        map[item.roadmap_id] = item.scheduled_date
+      })
+      setDayIdToDateMap(map)
+    }
+  }, [roadmapData])
 
   // 2. Generate roadmap mutation
   const generateMutation = useMutation({
@@ -68,9 +241,17 @@ export default function RoadmapPage() {
     }
   })
 
+  const reorderMutation = useMutation({
+    mutationFn: (variables: { itemId: string; targetRoadmapDayId: string; targetOrder: number }) =>
+      reorderRoadmapItem(variables.itemId, variables.targetRoadmapDayId, variables.targetOrder),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['roadmap'] })
+      queryClient.invalidateQueries({ queryKey: ['today-roadmap'] })
+      queryClient.invalidateQueries({ queryKey: ['app-stats'] })
+    }
+  })
+
   const { toggleLecture, syncing, syncError, retry } = useBatchToggle()
-
-
 
   const handleGenerate = (e: React.FormEvent) => {
     e.preventDefault()
@@ -86,6 +267,95 @@ export default function RoadmapPage() {
     generateMutation.mutate(todayStr)
   }
 
+  const sensors = useSensors(
+    useSensor(PointerSensor, {
+      activationConstraint: {
+        distance: 8,
+      },
+    })
+  )
+
+  const handleDragEnd = async (event: DragEndEvent) => {
+    const { active, over } = event
+    if (!over) return
+
+    const activeId = String(active.id)
+    const overId = String(over.id)
+
+    const activeItem = localItems.find((item) => item.id === activeId)
+    if (!activeItem) return
+
+    let targetDayId = ''
+    let targetOrder = 0
+
+    const overItem = localItems.find((item) => item.id === overId)
+    if (overItem) {
+      targetDayId = overItem.roadmap_id
+      const targetDayItems = localItems
+        .filter((item) => item.roadmap_id === targetDayId && item.id !== activeId)
+        .sort((a, b) => a.study_order - b.study_order)
+
+      const overIdx = targetDayItems.findIndex((item) => item.id === overId)
+      targetOrder = overIdx !== -1 ? overIdx : targetDayItems.length
+    } else {
+      // overId is the day container ID
+      targetDayId = overId
+      targetOrder = 0
+    }
+
+    const otherItems = localItems.filter((item) => item.id !== activeId)
+    const sourceDayId = activeItem.roadmap_id
+
+    if (sourceDayId !== targetDayId) {
+      const sourceItems = otherItems
+        .filter((item) => item.roadmap_id === sourceDayId)
+        .sort((a, b) => a.study_order - b.study_order)
+        .map((item, idx) => ({ ...item, study_order: idx }))
+
+      const targetItems = otherItems
+        .filter((item) => item.roadmap_id === targetDayId)
+        .sort((a, b) => a.study_order - b.study_order)
+
+      targetItems.splice(targetOrder, 0, { ...activeItem, roadmap_id: targetDayId })
+      const updatedTargetItems = targetItems.map((item, idx) => ({ ...item, study_order: idx }))
+
+      const restItems = otherItems.filter(
+        (item) => item.roadmap_id !== sourceDayId && item.roadmap_id !== targetDayId
+      )
+
+      const newDate = dayIdToDateMap[targetDayId] || activeItem.scheduled_date
+
+      const finalItems = [
+        ...restItems,
+        ...sourceItems,
+        ...updatedTargetItems.map((item) =>
+          item.id === activeId ? { ...item, scheduled_date: newDate } : item
+        )
+      ]
+      setLocalItems(finalItems)
+    } else {
+      const dayItems = otherItems
+        .filter((item) => item.roadmap_id === targetDayId)
+        .sort((a, b) => a.study_order - b.study_order)
+
+      dayItems.splice(targetOrder, 0, activeItem)
+      const updatedDayItems = dayItems.map((item, idx) => ({ ...item, study_order: idx }))
+
+      const restItems = otherItems.filter((item) => item.roadmap_id !== targetDayId)
+      setLocalItems([...restItems, ...updatedDayItems])
+    }
+
+    try {
+      await reorderMutation.mutateAsync({
+        itemId: activeId,
+        targetRoadmapDayId: targetDayId,
+        targetOrder,
+      })
+    } catch {
+      // rollback handled by react query automatically
+    }
+  }
+
   if (isLoading) {
     return (
       <div className="flex h-[50vh] items-center justify-center">
@@ -95,12 +365,18 @@ export default function RoadmapPage() {
   }
 
   // Group items by scheduled_date
-  const items = (roadmapData?.items || []) as unknown as RoadmapItem[]
   const grouped: Record<string, RoadmapItem[]> = {}
-  items.forEach((item) => {
+  localItems.forEach((item) => {
     const d = item.scheduled_date
     grouped[d] = grouped[d] || []
     grouped[d].push(item)
+  })
+
+  // Ensure all planned dates exist in grouped
+  plannedDates.forEach((dateStr) => {
+    if (!grouped[dateStr]) {
+      grouped[dateStr] = []
+    }
   })
 
   // Sort dates ascending
@@ -108,15 +384,12 @@ export default function RoadmapPage() {
 
   return (
     <div className="space-y-8 pb-12">
-      {/* Header */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+      {/* Header card */}
+      <div className="rounded-xl border border-border bg-card p-6 shadow-sm flex flex-col md:flex-row md:items-center justify-between gap-6">
         <div>
-          <h1 className="text-2xl font-bold tracking-tight text-foreground flex items-center gap-2">
-            <Calendar className="h-5.5 w-5.5 text-primary" />
-            Study Roadmap
-          </h1>
-          <p className="text-sm text-muted-foreground">
-            Generate and manage your daily personalized study schedule.
+          <h1 className="text-2xl font-bold tracking-tight text-foreground">Syllabus Study Roadmap</h1>
+          <p className="text-sm text-muted-foreground mt-1">
+            Generate and manage your target milestones.
           </p>
         </div>
 
@@ -124,105 +397,93 @@ export default function RoadmapPage() {
           <button
             onClick={handleRecalculate}
             disabled={generateMutation.isPending}
-            className="self-start sm:self-auto rounded-lg bg-secondary text-foreground hover:bg-secondary/80 border border-border px-3 py-1.5 text-xs font-semibold flex items-center gap-2 transition-all cursor-pointer disabled:opacity-50"
+            className="flex items-center gap-1.5 rounded-lg border border-border bg-card hover:bg-secondary font-medium px-4 py-2 text-xs cursor-pointer shadow transition-all disabled:opacity-50"
           >
             {generateMutation.isPending ? (
-              <Loader2 className="h-3 w-3 animate-spin text-primary" />
+              <Loader2 className="h-3.5 w-3.5 animate-spin" />
             ) : (
-              <RefreshCw className="h-3 w-3 text-primary" />
+              <RefreshCw className="h-3.5 w-3.5" />
             )}
-            <span>Recalculate from Today</span>
+            <span>Regenerate Roadmap</span>
           </button>
         )}
       </div>
 
-      {/* Success/Error alerts */}
       {successMsg && (
-        <div className="rounded-lg bg-emerald-500/10 text-emerald-500 border border-emerald-500/20 p-4 text-xs flex items-center gap-2">
-          <Check className="h-4 w-4" />
+        <div className="rounded-xl border border-primary/20 bg-primary/5 p-4 text-xs font-semibold text-primary flex items-center gap-2 font-mono">
+          <Check className="h-4.5 w-4.5 text-primary" />
           <span>{successMsg}</span>
         </div>
       )}
 
       {errorMsg && (
-        <div className="rounded-lg bg-destructive/10 text-destructive border border-destructive/20 p-4 text-xs flex items-center gap-2">
-          <AlertCircle className="h-4 w-4" />
+        <div className="rounded-xl border border-destructive/20 bg-destructive/5 p-4 text-xs font-semibold text-destructive flex items-center gap-2 font-mono">
+          <AlertCircle className="h-4.5 w-4.5 text-destructive" />
           <span>{errorMsg}</span>
         </div>
       )}
 
-      {/* Empty state / Roadmap Generator */}
+      {/* Setup Form if no roadmap */}
       {!roadmapData ? (
-        <div className="rounded-2xl border border-border bg-card p-8 shadow-sm text-center space-y-6 max-w-lg mx-auto">
-          <div className="mx-auto h-12 w-12 rounded-full bg-primary/10 text-primary flex items-center justify-center">
-            <Sparkles className="h-6 w-6 animate-pulse" />
-          </div>
-          <div className="space-y-2">
-            <h2 className="text-lg font-bold text-foreground">No Active Roadmap</h2>
-            <p className="text-xs text-muted-foreground leading-normal">
-              You haven&apos;t generated a study roadmap yet. Select a start date to calculate a deterministic daily plan based on your daily hour target.
+        <div className="rounded-2xl border border-border bg-card p-6 md:p-8 max-w-xl mx-auto shadow-sm space-y-6">
+          <div className="text-center space-y-2">
+            <h3 className="text-lg font-bold text-foreground">Generate Your Dynamic Roadmap</h3>
+            <p className="text-xs text-muted-foreground">
+              Define your start date to distribute lectures. Enforces daily limits and priority order.
             </p>
           </div>
 
-          <form onSubmit={handleGenerate} className="space-y-4 pt-2">
-            <div className="space-y-2 text-left">
-              <label className="text-3xs font-extrabold uppercase text-muted-foreground tracking-widest font-mono">
-                Start Date
+          <form onSubmit={handleGenerate} className="space-y-4">
+            <div>
+              <label className="block text-xs font-semibold text-muted-foreground uppercase tracking-widest mb-1.5">
+                Roadmap Start Date
               </label>
               <input
                 type="date"
                 value={startDate}
                 onChange={(e) => setStartDate(e.target.value)}
-                className="w-full bg-secondary border border-border rounded-lg px-3 py-2 text-sm text-foreground focus:outline-none focus:border-primary font-mono"
+                className="w-full bg-secondary border border-border rounded-lg px-3.5 py-2 text-sm text-foreground focus:outline-none focus:border-primary font-mono"
               />
             </div>
 
             <button
               type="submit"
               disabled={generateMutation.isPending}
-              className="w-full bg-foreground text-background font-bold text-sm py-2 px-4 rounded-lg hover:opacity-90 active:scale-98 transition-all flex items-center justify-center gap-2 cursor-pointer disabled:opacity-50"
+              className="w-full rounded-lg bg-foreground text-background font-bold px-4 py-2 hover:opacity-90 active:scale-95 transition-all text-sm cursor-pointer disabled:opacity-50 flex items-center justify-center gap-1.5"
             >
-              {generateMutation.isPending ? (
-                <>
-                  <Loader2 className="h-4 w-4 animate-spin" />
-                  <span>Scheduling Syllabus...</span>
-                </>
-              ) : (
-                <span>Generate Study Roadmap</span>
-              )}
+              {generateMutation.isPending && <Loader2 className="h-4 w-4 animate-spin" />}
+              <span>Generate Roadmap</span>
             </button>
           </form>
         </div>
       ) : (
-        <div className="space-y-8">
-          {/* Active Roadmap Info Row */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 rounded-2xl border border-border bg-card p-5 shadow-sm text-xs font-mono">
+        <div className="space-y-6">
+          {/* Summary status bar */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 bg-secondary/15 border border-border/50 rounded-2xl p-5 shadow-2xs">
             <div>
-              <p className="text-muted-foreground text-3xs uppercase tracking-wider">Start Date</p>
-              <p className="font-bold text-foreground text-sm mt-1">
+              <p className="text-muted-foreground text-3xs uppercase tracking-wider font-semibold">Start Date</p>
+              <p className="font-bold text-foreground text-sm mt-1 font-mono">
                 {format(parseISO(roadmapData.roadmap.start_date), 'MMM d, yyyy')}
               </p>
             </div>
             <div>
-              <p className="text-muted-foreground text-3xs uppercase tracking-wider">Target Finish</p>
-              <p className="font-bold text-foreground text-sm mt-1 text-primary">
-                {roadmapData.roadmap.target_finish_date
-                  ? format(parseISO(roadmapData.roadmap.target_finish_date), 'MMM d, yyyy')
-                  : 'N/A'}
+              <p className="text-muted-foreground text-3xs uppercase tracking-wider font-semibold">Target Finish</p>
+              <p className="font-bold text-foreground text-sm mt-1 font-mono">
+                {format(parseISO(roadmapData.roadmap.target_finish_date), 'MMM d, yyyy')}
               </p>
             </div>
             <div>
-              <p className="text-muted-foreground text-3xs uppercase tracking-wider">Daily Target</p>
-              <p className="font-bold text-foreground text-sm mt-1">
+              <p className="text-muted-foreground text-3xs uppercase tracking-wider font-semibold">Daily Target</p>
+              <p className="font-bold text-foreground text-sm mt-1 font-mono">
                 {roadmapData.roadmap.daily_target_hours} hrs/day
               </p>
             </div>
             <div>
-              <p className="text-muted-foreground text-3xs uppercase tracking-wider">Lectures Left</p>
-              <p className="font-bold text-foreground text-sm mt-1">
-                {items.filter(item => {
+              <p className="text-muted-foreground text-3xs uppercase tracking-wider font-semibold">Lectures Left</p>
+              <p className="font-bold text-foreground text-sm mt-1 font-mono">
+                {localItems.filter((item) => {
                   const lec = item.lectures
-                  return Number(lec?.completed_hours) < Number(lec?.estimated_hours)
+                  return lec ? Number(lec.completed_hours) < Number(lec.estimated_hours) : false
                 }).length} remaining
               </p>
             </div>
@@ -245,93 +506,48 @@ export default function RoadmapPage() {
               )}
             </div>
 
-            {sortedDates.map((dateStr, idx) => {
-              const dayItems = grouped[dateStr]
-              const totalEstDay = dayItems.reduce((sum, item) => {
-                const lec = item.lectures
-                return sum + (Number(lec?.estimated_hours) || 0)
-              }, 0)
+            <DndContext sensors={sensors} collisionDetection={closestCenter} onDragEnd={handleDragEnd}>
+              <div className="space-y-6">
+                {sortedDates.map((dateStr, idx) => {
+                  const dayItems = grouped[dateStr]
+                  const dayId = dayItems[0]?.roadmap_id || `empty-day-${dateStr}`
+                  const totalEstDay = dayItems.reduce((sum, item) => {
+                    const lec = item.lectures
+                    return sum + (Number(lec?.estimated_hours) || 0)
+                  }, 0)
 
-              return (
-                <div key={dateStr} className="rounded-2xl border border-border bg-card overflow-hidden shadow-sm">
-                  {/* Day Header */}
-                  <div className="bg-secondary/45 px-5 py-3.5 border-b border-border flex items-center justify-between flex-wrap gap-2">
-                    <h4 className="text-xs font-bold text-foreground flex items-center gap-2">
-                      <span className="bg-primary/10 text-primary border border-primary/20 rounded px-1.5 py-0.5 text-3xs font-mono font-extrabold">
-                        Day {idx + 1}
-                      </span>
-                      {format(parseISO(dateStr), 'eeee, MMM d, yyyy')}
-                    </h4>
-                    <span className="text-3xs font-semibold text-muted-foreground font-mono bg-card px-2 py-0.5 rounded border border-border/40">
-                      Total: {totalEstDay.toFixed(1)} hrs estimated
-                    </span>
-                  </div>
-
-                  {/* Day Lectures list */}
-                  <div className="divide-y divide-border/40">
-                    {dayItems.map((item) => {
-                      const lec = item.lectures
-                      if (!lec) return null
-                      const mod = lec.modules
-                      const sub = mod?.subjects
-                      
-                      const isCompleted = Number(lec.completed_hours) >= Number(lec.estimated_hours)
-
-                      return (
-                        <div 
-                          key={item.id} 
-                          className="p-5 space-y-4 hover:bg-secondary/10 transition-colors"
-                          style={{ borderLeft: `3.5px solid ${sub?.color || 'transparent'}` }}
-                        >
-                          <div className="flex items-start justify-between gap-4">
-                            <div className="flex items-start gap-3">
-                              {/* Custom Checkbox button */}
-                              <button
-                                onClick={() => toggleLecture(lec.id, !isCompleted, Number(lec.estimated_hours), isCompleted)}
-                                className="mt-0.5 text-muted-foreground hover:text-primary transition-all cursor-pointer"
-                              >
-                                {isCompleted ? (
-                                  <CheckCircle2 className="h-5 w-5 text-primary" />
-                                ) : (
-                                  <div className="h-5 w-5 rounded-full border-2 border-border hover:border-primary/50 transition-colors" />
-                                )}
-                              </button>
-
-                              <div>
-                                <h5 className={`text-xs font-bold text-foreground ${isCompleted ? 'line-through opacity-55' : ''}`}>
-                                  {lec.title}
-                                </h5>
-                                <div className="flex items-center gap-2 mt-1.5 flex-wrap">
-                                  {sub && (
-                                    <span
-                                      className="text-4xs font-bold font-mono px-1.5 py-0.5 rounded text-card"
-                                      style={{ backgroundColor: sub.color }}
-                                    >
-                                      {sub.name}
-                                    </span>
-                                  )}
-                                  <span className="text-4xs font-medium text-muted-foreground">
-                                    Module: {mod?.name}
-                                  </span>
-                                </div>
-                              </div>
-                            </div>
-
-                            {/* Completed Status rollup */}
-                            <div className="text-right text-3xs font-mono">
-                              <p className="text-muted-foreground">Hours Allocation</p>
-                              <p className="font-bold text-foreground mt-0.5">
-                                {Number(lec.completed_hours).toFixed(1)} / {Number(lec.estimated_hours).toFixed(1)} hrs
-                              </p>
-                            </div>
+                  return (
+                    <DayContainer key={dateStr} dayId={dayId} dateStr={dateStr} totalEstDay={totalEstDay} idx={idx}>
+                      <SortableContext items={dayItems.map((item) => item.id)} strategy={verticalListSortingStrategy}>
+                        {dayItems.length === 0 ? (
+                          <div className="p-6 text-center text-3xs text-muted-foreground font-medium italic border border-dashed border-border/40 rounded-xl m-3 bg-secondary/5">
+                            No lectures scheduled for this day. Drag items here.
                           </div>
-                        </div>
-                      )
-                    })}
-                  </div>
-                </div>
-              )
-            })}
+                        ) : (
+                          dayItems.map((item) => {
+                            const lec = item.lectures
+                            if (!lec) return null
+                            const mod = lec.modules
+                            const sub = mod?.subjects
+                            const isCompleted = Number(lec.completed_hours) >= Number(lec.estimated_hours)
+
+                            return (
+                              <SortableRoadmapItem
+                                key={item.id}
+                                item={item}
+                                isCompleted={isCompleted}
+                                toggleLecture={toggleLecture}
+                                subColor={sub?.color || 'transparent'}
+                              />
+                            )
+                          })
+                        )}
+                      </SortableContext>
+                    </DayContainer>
+                  )
+                })}
+              </div>
+            </DndContext>
           </div>
         </div>
       )}

@@ -26,7 +26,7 @@ import {
   rectSortingStrategy
 } from '@dnd-kit/sortable'
 import { Plus, Sparkles, Loader2 } from 'lucide-react'
-import { SortableSubjectCard } from '@/components/subjects/SortableSubjectCard'
+import { SortableSubjectCard, getSubjectIcon } from '@/components/subjects/SortableSubjectCard'
 import { EmptyState } from '@/components/ui/EmptyState'
 
 interface Subject {
@@ -170,8 +170,16 @@ export default function SubjectsPage() {
     )
   }
 
-  const colors = ['#3b82f6', '#10b981', '#8b5cf6', '#f59e0b', '#ec4899', '#ef4444', '#06b6d4', '#14b8a6']
-  const icons = ['BookOpen', 'Binary', 'Grid', 'TrendingUp', 'Cpu', 'Server', 'Code', 'Database', 'Globe']
+  const colors = [
+    '#3b82f6', '#10b981', '#8b5cf6', '#f59e0b', '#ec4899', '#ef4444', '#06b6d4', '#14b8a6',
+    '#f43f5e', '#6366f1', '#eab308', '#d946ef', '#f97316', '#84cc16', '#0ea5e9', '#a855f7',
+    '#14b8a6', '#64748b'
+  ]
+  const icons = [
+    'BookOpen', 'Binary', 'Grid', 'TrendingUp', 'Cpu', 'Server', 
+    'Code', 'Database', 'Globe', 'Laptop', 'Terminal', 'Hash', 
+    'Network', 'Layers', 'Settings', 'Shield', 'HardDrive', 'Folder', 'Compass'
+  ]
 
   return (
     <div className="space-y-6">
@@ -239,16 +247,18 @@ export default function SubjectsPage() {
               <label className="block text-xs font-semibold text-muted-foreground uppercase tracking-widest mb-1.5">
                 Accent Icon
               </label>
-              <div className="flex flex-wrap gap-3">
+              <div className="flex flex-wrap gap-2.5">
                 {icons.map((i) => (
                   <button
                     key={i}
                     onClick={() => setNewIcon(i)}
-                    className={`p-2 rounded-lg border cursor-pointer text-xs font-mono transition-all ${
-                      newIcon === i ? 'bg-primary/10 border-primary text-primary' : 'bg-secondary border-border text-muted-foreground hover:text-foreground'
+                    className={`p-2 rounded-lg border cursor-pointer text-xs transition-all flex items-center gap-1.5 ${
+                      newIcon === i ? 'bg-primary/10 border-primary text-primary font-bold' : 'bg-secondary border-border text-muted-foreground hover:text-foreground'
                     }`}
+                    title={i}
                   >
-                    {i}
+                    {getSubjectIcon(i, 'h-4 w-4')}
+                    <span className="text-[10px] font-medium font-mono">{i}</span>
                   </button>
                 ))}
               </div>

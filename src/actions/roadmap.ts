@@ -29,6 +29,17 @@ export async function generateRoadmap(startDateStr: string) {
   }
   const subjectIds = subjects.map((s) => s.id)
 
+  // Fetch daily target hours
+  const { data: profile } = await supabase
+    .from('profiles')
+    .select('daily_target_hours')
+    .eq('id', user.id)
+    .single()
+
+  const dailyTarget = Number(profile?.daily_target_hours) || 8.0
+  const maxTarget = dailyTarget + 0.5
+  const minTarget = dailyTarget - 0.5
+
   // 2. Delete existing roadmap days for the user's subjects (cascades to roadmap_items)
   await supabase
     .from('roadmap')
@@ -152,7 +163,7 @@ export async function generateRoadmap(startDateStr: string) {
       let lecHoursLeft = lec.estimated_hours
 
       while (lecHoursLeft > 0) {
-        const remainingSpace = 8.5 - dayAccumulator
+        const remainingSpace = maxTarget - dayAccumulator
 
         if (remainingSpace <= 0.01) {
           await saveDay(currentDateObj, subjectDayIdx, dayItems)
@@ -168,16 +179,16 @@ export async function generateRoadmap(startDateStr: string) {
           dayAccumulator += lecHoursLeft
           lecHoursLeft = 0
         } else {
-          // If the day already has at least 7.5 hours scheduled, we close it and move the rest to tomorrow
-          if (dayAccumulator >= 7.5) {
+          // If the day already has at least minTarget hours scheduled, we close it and move the rest to tomorrow
+          if (dayAccumulator >= minTarget) {
             await saveDay(currentDateObj, subjectDayIdx, dayItems)
             currentDateObj = addDays(currentDateObj, 1)
             subjectDayIdx++
             dayAccumulator = 0.0
             dayItems = []
           } else {
-            // Fill the day up to exactly 8.0 hours
-            const fillHours = 8.0 - dayAccumulator
+            // Fill the day up to exactly dailyTarget hours
+            const fillHours = dailyTarget - dayAccumulator
             dayItems.push({ lectureId: lec.id, hours: fillHours })
             lecHoursLeft -= fillHours
 
