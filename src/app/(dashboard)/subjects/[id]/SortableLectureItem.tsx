@@ -79,8 +79,7 @@ export const SortableLectureItem = React.memo(function SortableLectureItem({
     transform: CSS.Transform.toString(transform),
     transition,
     opacity: isDragging ? 0.3 : 1,
-    borderLeft: `3.5px solid ${isCompleted ? `${subjectColor}50` : subjectColor}`,
-    backgroundColor: isCompleted ? `${subjectColor}03` : `${subjectColor}08`,
+    borderLeft: `3px solid ${isCompleted ? '#22C55E' : subjectColor}`,
   }
 
   const handleToggleComplete = () => {
@@ -115,13 +114,13 @@ export const SortableLectureItem = React.memo(function SortableLectureItem({
   const getImportanceBadge = (level: string) => {
     switch (level) {
       case 'HIGH':
-        return 'bg-red-500/10 text-red-500 border border-red-500/20'
+        return 'bg-red-500/10 text-red-500 border border-red-500/25 shadow-xs'
       case 'MEDIUM':
-        return 'bg-amber-500/10 text-amber-500 border border-amber-500/20'
+        return 'bg-amber-500/10 text-amber-500 border border-amber-500/25 shadow-xs'
       case 'LOW':
-        return 'bg-blue-500/10 text-blue-500 border border-blue-500/20'
+        return 'bg-blue-500/10 text-blue-500 border border-blue-500/25 shadow-xs'
       default:
-        return 'bg-secondary text-muted-foreground border border-border/50'
+        return 'bg-secondary/45 text-muted-foreground border border-border/50'
     }
   }
 
@@ -129,32 +128,34 @@ export const SortableLectureItem = React.memo(function SortableLectureItem({
     <div
       ref={setNodeRef}
       style={style}
-      className="group rounded-lg border border-border/80 bg-card p-3.5 hover:border-border transition-all space-y-3 relative"
+      className={`group rounded-button border border-border/50 p-4.5 transition-all duration-200 hover:-translate-y-[1px] hover:shadow-xs hover:border-border/80 space-y-3.5 relative ${
+        isCompleted ? 'bg-emerald-500/5 border-emerald-500/20' : 'bg-[#111216]'
+      }`}
     >
       {/* Upper Main Row */}
       <div className="flex items-center justify-between gap-3 flex-wrap sm:flex-nowrap">
         {/* Left Actions: Drag handle, Checkbox, Title */}
-        <div className="flex items-center gap-2.5 flex-1 min-w-0">
+        <div className="flex items-center gap-3.5 flex-1 min-w-0">
           <button
             {...attributes}
             {...listeners}
-            className="p-1 text-muted-foreground/35 hover:text-foreground cursor-grab active:cursor-grabbing transition-colors"
+            className="p-1.5 text-muted-foreground/30 hover:text-foreground cursor-grab active:cursor-grabbing transition-colors rounded-lg hover:bg-secondary/40"
             title="Drag Lecture to reorder"
           >
-            <GripVertical className="h-4 w-4" />
+            <GripVertical className="h-4.5 w-4.5" />
           </button>
 
           {/* Toggle Completion */}
           <button
             onClick={handleToggleComplete}
-            className={`p-0.5 rounded-full border cursor-pointer transition-all hover:scale-105 flex-shrink-0 ${
+            className={`h-6 w-6 rounded-full border flex items-center justify-center cursor-pointer transition-all hover:scale-105 flex-shrink-0 ${
               isCompleted
-                ? 'text-primary border-primary bg-primary/5'
-                : 'text-muted-foreground/40 border-border/80 hover:text-foreground hover:border-border'
+                ? 'bg-emerald-500 border-emerald-500 text-white shadow shadow-emerald-500/20'
+                : 'border-border/80 text-transparent hover:border-primary hover:bg-secondary/40 font-semibold'
             }`}
             title={isCompleted ? 'Mark as incomplete' : 'Mark as complete'}
           >
-            <CheckCircle2 className="h-5 w-5" />
+            {isCompleted && <CheckCircle2 className="h-4 w-4 fill-current text-background" />}
           </button>
 
           {/* Title Inline Edit */}
@@ -162,18 +163,18 @@ export const SortableLectureItem = React.memo(function SortableLectureItem({
             <InlineEdit
               value={lecture.title}
               onSave={(newTitle) => onUpdate({ title: newTitle })}
-              className={`text-xs font-bold text-foreground truncate ${
-                isCompleted ? 'line-through text-muted-foreground/75 font-normal' : ''
+              className={`text-[15px] font-semibold text-[#F5F5F5] truncate tracking-wide ${
+                isCompleted ? 'line-through text-muted-foreground/60 font-medium' : ''
               }`}
             />
           </div>
         </div>
 
         {/* Right Actions: Hours, Importance, Revision, Links count, Actions */}
-        <div className="flex items-center gap-3.5 flex-shrink-0 ml-auto">
+        <div className="flex items-center gap-4 flex-shrink-0 ml-auto">
           {/* Estimated Hours edit */}
-          <div className="flex items-center gap-1 text-3xs font-semibold text-muted-foreground font-mono bg-secondary/40 px-2 py-0.5 rounded border border-border/40">
-            <Clock className="h-3 w-3" />
+          <div className="flex items-center gap-1.5 text-3xs font-semibold text-muted-foreground font-mono bg-secondary/35 px-2.5 py-0.5 rounded-lg border border-border/50 h-7">
+            <Clock className="h-3.5 w-3.5" />
             <InlineEdit
               value={lecture.estimated_hours.toString()}
               type="number"
@@ -186,7 +187,7 @@ export const SortableLectureItem = React.memo(function SortableLectureItem({
           {lecture.importance_level !== 'NONE' ? (
             <button
               onClick={cycleImportance}
-              className={`text-4xs font-extrabold uppercase px-1.5 py-0.5 rounded cursor-pointer transition-all hover:opacity-90 ${getImportanceBadge(
+              className={`text-4xs font-extrabold uppercase px-2 py-1 rounded-lg cursor-pointer transition-all hover:opacity-90 h-7 flex items-center justify-center ${getImportanceBadge(
                 lecture.importance_level
               )}`}
               title="Cycle importance level (Low → Medium → High → None)"
@@ -196,7 +197,7 @@ export const SortableLectureItem = React.memo(function SortableLectureItem({
           ) : (
             <button
               onClick={cycleImportance}
-              className="text-4xs font-extrabold uppercase px-1.5 py-0.5 rounded border border-dashed border-border/50 bg-secondary/30 text-muted-foreground/40 hover:text-foreground hover:bg-secondary/60 cursor-pointer transition-all md:opacity-0 md:group-hover:opacity-100"
+              className="text-4xs font-extrabold uppercase px-2 py-1 rounded-lg border border-dashed border-border/50 bg-secondary/30 text-muted-foreground/40 hover:text-foreground hover:bg-secondary/60 cursor-pointer transition-all h-7 flex items-center justify-center md:opacity-0 md:group-hover:opacity-100"
               title="Set importance level (Low)"
             >
               + Priority
@@ -206,51 +207,51 @@ export const SortableLectureItem = React.memo(function SortableLectureItem({
           {/* Revision flag */}
           <button
             onClick={() => onUpdate({ is_marked_for_revision: !lecture.is_marked_for_revision })}
-            className={`p-1 rounded hover:bg-secondary cursor-pointer transition-colors ${
+            className={`p-1.5 rounded-lg hover:bg-secondary/40 cursor-pointer transition-all h-7.5 w-7.5 flex items-center justify-center ${
               lecture.is_marked_for_revision ? 'text-primary' : 'text-muted-foreground/50 hover:text-foreground'
             }`}
             title={lecture.is_marked_for_revision ? 'Marked for revision' : 'Flag for revision'}
           >
             {lecture.is_marked_for_revision ? (
-              <BookmarkCheck className="h-4 w-4" />
+              <BookmarkCheck className="h-4.5 w-4.5" />
             ) : (
-              <Bookmark className="h-4 w-4" />
+              <Bookmark className="h-4.5 w-4.5" />
             )}
           </button>
 
           {/* Links toggle */}
           <button
             onClick={() => setShowLinks(!showLinks)}
-            className={`p-1 rounded hover:bg-secondary cursor-pointer transition-colors flex items-center gap-0.5 ${
+            className={`p-1.5 rounded-lg hover:bg-secondary/40 cursor-pointer transition-all h-7.5 w-7.5 flex items-center justify-center gap-0.5 ${
               showLinks || lecture.lecture_links?.length > 0
                 ? 'text-primary bg-primary/5 border border-primary/10'
                 : 'text-muted-foreground/50 hover:text-foreground'
             }`}
             title="Manage references & resources"
           >
-            <Link2 className="h-4 w-4" />
+            <Link2 className="h-4.5 w-4.5" />
             {lecture.lecture_links?.length > 0 && (
-              <span className="text-4xs font-mono font-extrabold px-1 rounded bg-primary text-primary-foreground">
+              <span className="text-4xs font-mono font-extrabold px-1 rounded bg-primary text-primary-foreground absolute -top-1 -right-1">
                 {lecture.lecture_links.length}
               </span>
             )}
           </button>
 
           {/* Actions */}
-          <div className="flex items-center gap-0.5 border-l border-border/40 pl-1.5">
+          <div className="flex items-center gap-1 border-l border-border/40 pl-2">
             <button
               onClick={onDuplicate}
-              className="p-1 rounded hover:bg-secondary text-muted-foreground hover:text-foreground cursor-pointer"
+              className="p-1.5 rounded-lg hover:bg-secondary/40 text-muted-foreground hover:text-foreground cursor-pointer transition-colors"
               title="Duplicate lecture"
             >
-              <Copy className="h-3.5 w-3.5" />
+              <Copy className="h-4 w-4" />
             </button>
             <button
               onClick={onDelete}
-              className="p-1 rounded hover:bg-destructive/10 text-muted-foreground hover:text-destructive cursor-pointer"
+              className="p-1.5 rounded-lg hover:bg-destructive/10 text-muted-foreground hover:text-destructive cursor-pointer transition-colors"
               title="Delete lecture"
             >
-              <Trash2 className="h-3.5 w-3.5" />
+              <Trash2 className="h-4 w-4" />
             </button>
           </div>
         </div>

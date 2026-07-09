@@ -161,6 +161,15 @@ interface DBProgressRecord {
   first_solved: string | null
 }
 
+export async function checkPyqSubjectExists(subjectName: string): Promise<boolean> {
+  try {
+    const metaPath = path.join(DATASET_DIR, subjectName, 'metadata.json')
+    return fs.existsSync(metaPath)
+  } catch {
+    return false
+  }
+}
+
 export async function getPyqSubjectDetail(subjectName: string) {
   const supabase = await createClient()
   const user = await getAuthUser(supabase)

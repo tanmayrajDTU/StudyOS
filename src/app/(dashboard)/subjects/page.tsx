@@ -182,19 +182,19 @@ export default function SubjectsPage() {
   ]
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-8">
       {/* Header */}
-      <div className="flex items-center justify-between">
-        <div>
-          <h1 className="text-2xl font-bold tracking-tight text-foreground">Subjects</h1>
-          <p className="text-sm text-muted-foreground">
+      <div className="flex items-center justify-between pb-2">
+        <div className="space-y-1">
+          <h1 className="text-3xl font-extrabold tracking-tight text-[#F5F5F5] font-mono leading-none">Subjects</h1>
+          <p className="text-xs font-medium text-muted-foreground tracking-wide">
             Manage study courses, structure syllabus, and track progress.
           </p>
         </div>
 
         <button
           onClick={() => setIsAdding(true)}
-          className="flex items-center gap-2 rounded-lg bg-primary hover:bg-primary/95 text-primary-foreground font-medium px-4 py-2 text-sm cursor-pointer shadow transition-all"
+          className="flex items-center justify-center gap-1.5 rounded-button bg-primary hover:opacity-90 text-primary-foreground font-extrabold px-5 py-2.5 text-xs transition-all cursor-pointer shadow-md shadow-primary/10 h-10"
         >
           <Plus className="h-4 w-4" />
           <span>Add Subject</span>
@@ -203,15 +203,15 @@ export default function SubjectsPage() {
 
       {/* Add Dialog/Inline Card */}
       {isAdding && (
-        <div className="rounded-xl border border-border bg-card p-6 shadow-lg animate-in slide-in-from-top duration-200">
-          <h3 className="text-base font-semibold mb-4 flex items-center gap-2 text-foreground">
-            <Sparkles className="h-4 w-4 text-primary animate-pulse" />
+        <div className="rounded-card border border-border/40 bg-card backdrop-blur-md p-8 shadow-xs animate-in slide-in-from-top duration-250 space-y-6">
+          <h3 className="text-base font-bold flex items-center gap-2.5 text-[#F5F5F5]">
+            <Sparkles className="h-5 w-5 text-primary animate-pulse" />
             Create New Subject
           </h3>
 
-          <div className="space-y-4">
+          <div className="space-y-5">
             <div>
-              <label className="block text-xs font-semibold text-muted-foreground uppercase tracking-widest mb-1.5">
+              <label className="block text-[10px] font-bold text-muted-foreground uppercase tracking-widest mb-2 font-mono">
                 Subject Title
               </label>
               <input
@@ -219,22 +219,22 @@ export default function SubjectsPage() {
                 placeholder="e.g. Computer Networks"
                 value={newName}
                 onChange={(e) => setNewName(e.target.value)}
-                className="w-full bg-secondary border border-border rounded-lg px-3 py-2 text-sm text-foreground focus:outline-none focus:border-primary placeholder-muted-foreground/60"
+                className="w-full bg-secondary/35 border border-border/80 rounded-input px-4.5 py-3 text-xs text-foreground focus:outline-none focus:border-primary placeholder-muted-foreground/50 font-medium"
               />
             </div>
 
             {/* Colors picker */}
             <div>
-              <label className="block text-xs font-semibold text-muted-foreground uppercase tracking-widest mb-1.5">
+              <label className="block text-[10px] font-bold text-muted-foreground uppercase tracking-widest mb-2 font-mono">
                 Accent Color
               </label>
-              <div className="flex flex-wrap gap-2">
+              <div className="flex flex-wrap gap-2.5">
                 {colors.map((c) => (
                   <button
                     key={c}
                     onClick={() => setNewColor(c)}
-                    className={`h-7 w-7 rounded-full border border-border/10 cursor-pointer transition-all ${
-                      newColor === c ? 'scale-110 ring-2 ring-primary ring-offset-2 ring-offset-card' : 'hover:scale-105'
+                    className={`h-7.5 w-7.5 rounded-full border border-border/10 cursor-pointer transition-all ${
+                      newColor === c ? 'scale-110 ring-2 ring-primary ring-offset-2 ring-offset-[#111216]' : 'hover:scale-105'
                     }`}
                     style={{ backgroundColor: c }}
                   />
@@ -244,37 +244,37 @@ export default function SubjectsPage() {
 
             {/* Icons picker */}
             <div>
-              <label className="block text-xs font-semibold text-muted-foreground uppercase tracking-widest mb-1.5">
+              <label className="block text-[10px] font-bold text-muted-foreground uppercase tracking-widest mb-2 font-mono">
                 Accent Icon
               </label>
-              <div className="flex flex-wrap gap-2.5">
+              <div className="flex flex-wrap gap-2.5 max-h-40 overflow-y-auto pr-1">
                 {icons.map((i) => (
                   <button
                     key={i}
                     onClick={() => setNewIcon(i)}
-                    className={`p-2 rounded-lg border cursor-pointer text-xs transition-all flex items-center gap-1.5 ${
-                      newIcon === i ? 'bg-primary/10 border-primary text-primary font-bold' : 'bg-secondary border-border text-muted-foreground hover:text-foreground'
+                    className={`p-2.5 rounded-lg border cursor-pointer text-xs transition-all flex items-center gap-1.5 h-8.5 ${
+                      newIcon === i ? 'bg-primary/10 border-primary text-primary font-bold shadow-xs' : 'bg-secondary/45 border-border/50 text-muted-foreground hover:text-foreground hover:bg-secondary/70'
                     }`}
                     title={i}
                   >
                     {getSubjectIcon(i, 'h-4 w-4')}
-                    <span className="text-[10px] font-medium font-mono">{i}</span>
+                    <span className="text-[10px] font-mono font-bold">{i}</span>
                   </button>
                 ))}
               </div>
             </div>
 
-            <div className="flex items-center justify-end gap-3 pt-2">
+            <div className="flex items-center justify-end gap-3 pt-3.5 border-t border-border/20">
               <button
                 onClick={() => setIsAdding(false)}
-                className="rounded-lg border border-border px-4 py-2 hover:bg-secondary text-foreground text-sm cursor-pointer"
+                className="rounded-button border border-border bg-card text-[#F5F5F5] hover:bg-secondary text-xs font-bold px-5 py-2.5 cursor-pointer h-10 transition-all"
               >
                 Cancel
               </button>
               <button
                 onClick={() => createMutation.mutate()}
                 disabled={createMutation.isPending}
-                className="rounded-lg bg-foreground text-background font-medium px-4 py-2 hover:opacity-90 active:scale-95 transition-all text-sm cursor-pointer disabled:opacity-50"
+                className="rounded-button bg-primary hover:opacity-95 text-primary-foreground font-extrabold px-6 py-2.5 transition-all text-xs cursor-pointer disabled:opacity-50 h-10 shadow-md shadow-primary/10"
               >
                 {createMutation.isPending ? 'Creating...' : 'Create'}
               </button>

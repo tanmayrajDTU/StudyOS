@@ -2,6 +2,7 @@ import React from 'react'
 import { redirect } from 'next/navigation'
 import { createClient } from '@/utils/supabase/server'
 import SubjectDetailClient from './SubjectDetailClient'
+import { checkPyqSubjectExists } from '@/actions/pyq'
 
 export default async function SubjectDetailPage({
   params,
@@ -32,5 +33,13 @@ export default async function SubjectDetailPage({
     redirect('/subjects')
   }
 
-  return <SubjectDetailClient subjectId={id} initialSubject={subject} />
+  const hasPyqs = await checkPyqSubjectExists(subject.name)
+
+  return (
+    <SubjectDetailClient 
+      subjectId={id} 
+      initialSubject={subject} 
+      hasPyqs={hasPyqs} 
+    />
+  )
 }
