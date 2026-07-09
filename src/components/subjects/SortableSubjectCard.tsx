@@ -19,7 +19,17 @@ import {
   Copy,
   EyeOff,
   Eye,
-  Clock
+  Clock,
+  Laptop,
+  Terminal,
+  Hash,
+  Network,
+  Layers,
+  Settings,
+  Shield,
+  HardDrive,
+  Folder,
+  Compass
 } from 'lucide-react'
 import { InlineEdit } from '@/components/ui/InlineEdit'
 
@@ -35,6 +45,16 @@ export function getSubjectIcon(iconName: string, className?: string) {
     Code,
     Database,
     Globe,
+    Laptop,
+    Terminal,
+    Hash,
+    Network,
+    Layers,
+    Settings,
+    Shield,
+    HardDrive,
+    Folder,
+    Compass,
   }
 
   const IconComponent = map[iconName] || BookOpen
