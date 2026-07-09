@@ -1400,3 +1400,160 @@ export async function bulkImportModules(
 
   return { success: true, count: modulesData.length }
 }
+
+export async function reorderRoadmapItem(
+  itemId: string,
+  targetRoadmapDayId: string,
+  targetOrder: number
+) {
+  const supabase = await createClient()
+  await getAuthUser(supabase)
+
+  // 1. Fetch item detail
+  const { data: item, error: itemErr } = await supabase
+    .from('roadmap_items')
+    .select('*')
+    .eq('id', itemId)
+    .single()
+
+  if (itemErr || !item) throw itemErr || new Error('Item not found')
+
+  const sourceDayId = item.roadmap_day_id
+  const sourceOrder = item.display_order
+
+  if (sourceDayId !== targetRoadmapDayId) {
+    // A. Move to different day
+
+    const { data: sourceDay } = await supabase
+      .from('roadmap')
+      .select('subject_id')
+      .eq('id', sourceDayId)
+      .single()
+
+    const { data: targetDay } = await supabase
+      .from('roadmap')
+      .select('subject_id')
+      .eq('id', targetRoadmapDayId)
+      .single()
+
+    // 1. Shift source day items down
+    const { data: sourceItems } = await supabase
+      .from('roadmap_items')
+      .select('id, display_order')
+      .eq('roadmap_day_id', sourceDayId)
+      .gt('display_order', sourceOrder)
+
+    if (sourceItems) {
+      await Promise.all(
+        sourceItems.map((si) =>
+          supabase
+            .from('roadmap_items')
+            .update({ display_order: si.display_order - 1 })
+            .eq('id', si.id)
+        )
+      )
+    }
+
+    // 2. Shift destination day items up
+    const { data: targetItems } = await supabase
+      .from('roadmap_items')
+      .select('id, display_order')
+      .eq('roadmap_day_id', targetRoadmapDayId)
+      .gte('display_order', targetOrder)
+
+    if (targetItems) {
+      await Promise.all(
+        targetItems.map((ti) =>
+          supabase
+            .from('roadmap_items')
+            .update({ display_order: ti.display_order + 1 })
+            .eq('id', ti.id)
+        )
+      )
+    }
+
+    // 3. Update active item
+    const { error: updErr } = await supabase
+      .from('roadmap_items')
+      .update({
+        roadmap_day_id: targetRoadmapDayId,
+        display_order: targetOrder,
+        updated_at: new Date().toISOString()
+      })
+      .eq('id', itemId)
+
+    if (updErr) throw updErr
+
+    // 4. Recalculate planned hours for source day and destination day
+    await recalculateRoadmapDayHours(supabase, sourceDayId)
+    await recalculateRoadmapDayHours(supabase, targetRoadmapDayId)
+
+    if (sourceDay?.subject_id) revalidatePath(`/subjects/${sourceDay.subject_id}`)
+    if (targetDay?.subject_id && targetDay.subject_id !== sourceDay?.subject_id) {
+      revalidatePath(`/subjects/${targetDay.subject_id}`)
+    }
+  } else {
+    // B. Reorder inside the same day
+    if (sourceOrder === targetOrder) return { success: true }
+
+    const { data: dayItems } = await supabase
+      .from('roadmap_items')
+      .select('id, display_order')
+      .eq('roadmap_day_id', sourceDayId)
+
+    if (dayItems) {
+      if (targetOrder > sourceOrder) {
+        await Promise.all(
+          dayItems
+            .filter((di) => di.display_order > sourceOrder && di.display_order <= targetOrder)
+            .map((di) =>
+              supabase
+                .from('roadmap_items')
+                .update({ display_order: di.display_order - 1 })
+                .eq('id', di.id)
+            )
+        )
+      } else {
+        await Promise.all(
+          dayItems
+            .filter((di) => di.display_order >= targetOrder && di.display_order < sourceOrder)
+            .map((di) =>
+              supabase
+                .from('roadmap_items')
+                .update({ display_order: di.display_order + 1 })
+                .eq('id', di.id)
+            )
+        )
+      }
+    }
+
+    const { error: updErr } = await supabase
+      .from('roadmap_items')
+      .update({
+        display_order: targetOrder,
+        updated_at: new Date().toISOString()
+      })
+      .eq('id', itemId)
+
+    if (updErr) throw updErr
+  }
+
+  revalidatePath('/roadmap')
+  revalidatePath('/')
+
+  return { success: true }
+}
+
+async function recalculateRoadmapDayHours(supabase: SupabaseClient, roadmapDayId: string) {
+  const { data: items } = await supabase
+    .from('roadmap_items')
+    .select('planned_hours')
+    .eq('roadmap_day_id', roadmapDayId)
+
+  const total = items ? items.reduce((sum, item) => sum + Number(item.planned_hours || 0), 0) : 0
+
+  await supabase
+    .from('roadmap')
+    .update({ planned_hours: total, updated_at: new Date().toISOString() })
+    .eq('id', roadmapDayId)
+}
