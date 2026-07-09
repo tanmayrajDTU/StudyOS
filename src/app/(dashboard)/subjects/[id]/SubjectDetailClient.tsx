@@ -59,9 +59,13 @@ interface SubjectDetailClientProps {
     roadmap_days: number
     is_hidden: boolean
   }
+  hasPyqs?: boolean
 }
 
-export default function SubjectDetailClient({ subjectId }: SubjectDetailClientProps) {
+export default function SubjectDetailClient({ 
+  subjectId, 
+  hasPyqs = false 
+}: SubjectDetailClientProps) {
   const queryClient = useQueryClient()
   const [newModuleName, setNewModuleName] = useState('')
   const [isAddingModule, setIsAddingModule] = useState(false)
@@ -403,21 +407,25 @@ export default function SubjectDetailClient({ subjectId }: SubjectDetailClientPr
       </div>
 
       {/* Header Cards & Stats */}
-      <div className="rounded-xl border border-border bg-card p-6 shadow-sm flex flex-col md:flex-row md:items-center justify-between gap-6">
-        <div className="flex items-center gap-4 flex-1 min-w-0">
+      <div className="w-full rounded-card border border-border/40 bg-card backdrop-blur-md p-8 shadow-xs flex flex-col md:flex-row md:items-center justify-between gap-6 transition-all duration-300">
+        <div className="flex items-center gap-5 flex-1">
           <div
-            className="h-12 w-12 rounded-xl flex items-center justify-center text-card shadow-md flex-shrink-0"
-            style={{ backgroundColor: detail.color }}
+            className="h-14 w-14 rounded-xl flex items-center justify-center shadow-xs flex-shrink-0 transition-all border"
+            style={{ 
+              backgroundColor: `${detail.color}12`,
+              borderColor: `${detail.color}35`,
+              color: detail.color 
+            }}
           >
             {getSubjectIcon(detail.icon, 'h-6 w-6')}
           </div>
 
-          <div className="min-w-0 flex-1 space-y-1">
+          <div className="flex-1 space-y-2.5">
             <div className="flex items-center gap-3">
               <InlineEdit
                 value={detail.name}
                 onSave={(newName) => updateSubjectMutation.mutate({ name: newName })}
-                className="text-2xl font-extrabold text-foreground tracking-tight"
+                className="text-3xl font-extrabold text-[#F5F5F5] tracking-tight leading-none"
               />
               {syncing && <span className="text-4xs text-muted-foreground animate-pulse font-mono">Saving...</span>}
               {syncError && (
@@ -429,39 +437,44 @@ export default function SubjectDetailClient({ subjectId }: SubjectDetailClientPr
                 </span>
               )}
             </div>
-            <div className="flex items-center gap-2 flex-wrap">
-              <p className="text-xs text-muted-foreground font-mono uppercase tracking-wider">
+            <div className="flex items-center gap-3 flex-wrap">
+              <p className="text-[13px] text-muted-foreground font-medium font-mono uppercase tracking-wide">
                 {totalLectures} Lectures across {detail.modules.length} Modules
               </p>
-              <span className="text-muted-foreground/35 text-xs font-mono">•</span>
-              <Link
-                href={`/pyqs/${encodeURIComponent(detail.name)}`}
-                className="inline-flex items-center gap-1 text-3xs font-extrabold text-primary hover:underline font-mono uppercase tracking-widest"
-              >
-                <Target className="h-3.5 w-3.5" />
-                <span>Practice GATE PYQs</span>
-              </Link>
+              {hasPyqs && (
+                <>
+                  <span className="text-muted-foreground/30 text-xs font-mono">•</span>
+                  <Link
+                    href={`/pyqs/${encodeURIComponent(detail.name)}`}
+                    className="inline-flex items-center gap-1.5 px-3 py-1 rounded-button text-[10px] font-extrabold text-primary-foreground bg-primary hover:opacity-90 transition-all uppercase tracking-widest font-mono shadow-xs cursor-pointer"
+                  >
+                    <Target className="h-3.5 w-3.5" />
+                    <span>Practice GATE PYQs</span>
+                  </Link>
+                </>
+              )}
             </div>
           </div>
         </div>
 
         {/* Progress Display */}
-        <div className="w-full md:w-64 space-y-2 flex-shrink-0">
-          <div className="flex items-center justify-between text-xs font-semibold text-muted-foreground font-mono">
+        <div className="w-full md:w-72 space-y-2.5 flex-shrink-0 bg-secondary/10 border border-border/20 p-4 rounded-xl">
+          <div className="flex items-center justify-between text-[13px] font-semibold text-muted-foreground font-mono">
             <span className="flex items-center gap-1">
-              <Clock className="h-3.5 w-3.5 text-primary" />
+              <Clock className="h-4 w-4 text-primary" />
               {completedHours.toFixed(1)}h / {totalHours.toFixed(1)}h
             </span>
-            <span className="text-foreground">{progressPercent}% Completed</span>
+            <span className="text-[#F5F5F5] font-bold">{progressPercent}%</span>
           </div>
 
           {/* Bar */}
-          <div className="w-full bg-secondary h-2.5 rounded-full overflow-hidden">
+          <div className="w-full bg-[#111216] h-2 rounded-full overflow-hidden border border-border/20">
             <div
-              className="h-full rounded-full transition-all duration-300"
+              className="h-full rounded-full transition-all duration-500 ease-out"
               style={{
                 backgroundColor: detail.color,
                 width: `${Math.min(progressPercent, 100)}%`,
+                boxShadow: `0 0 10px ${detail.color}40`
               }}
             />
           </div>
@@ -469,17 +482,17 @@ export default function SubjectDetailClient({ subjectId }: SubjectDetailClientPr
       </div>
 
       {/* Actions toolbar */}
-      <div className="flex items-center justify-between gap-4 flex-wrap bg-secondary/25 border border-border/50 rounded-xl p-3">
+      <div className="flex items-center justify-between gap-4 flex-wrap bg-secondary/20 border border-border/40 rounded-card p-4">
         <div className="flex items-center gap-2">
           <button
             onClick={() => toggleAllCollapse(false)}
-            className="text-xs font-semibold px-3 py-1.5 rounded-lg border border-border bg-card text-foreground hover:bg-secondary transition-all cursor-pointer"
+            className="text-xs font-semibold px-4.5 py-2 rounded-button border border-border bg-card text-[#F5F5F5] hover:bg-secondary hover:text-foreground transition-all cursor-pointer h-9 flex items-center justify-center"
           >
             Expand All
           </button>
           <button
             onClick={() => toggleAllCollapse(true)}
-            className="text-xs font-semibold px-3 py-1.5 rounded-lg border border-border bg-card text-foreground hover:bg-secondary transition-all cursor-pointer"
+            className="text-xs font-semibold px-4.5 py-2 rounded-button border border-border bg-card text-[#F5F5F5] hover:bg-secondary hover:text-foreground transition-all cursor-pointer h-9 flex items-center justify-center"
           >
             Collapse All
           </button>
@@ -488,15 +501,15 @@ export default function SubjectDetailClient({ subjectId }: SubjectDetailClientPr
         <div className="flex items-center gap-2">
           <button
             onClick={() => setIsBulkImporting(true)}
-            className="flex items-center gap-1.5 rounded-lg border border-border bg-card text-foreground hover:bg-secondary font-medium px-4 py-1.5 text-xs shadow-sm cursor-pointer transition-all"
+            className="flex items-center justify-center rounded-button border border-border bg-card text-muted-foreground hover:text-[#F5F5F5] hover:bg-secondary font-bold px-4.5 py-2 text-xs transition-all h-9 cursor-pointer"
           >
             Bulk Import JSON
           </button>
           <button
             onClick={() => setIsAddingModule(true)}
-            className="flex items-center gap-1.5 rounded-lg bg-primary hover:bg-primary/95 text-primary-foreground font-medium px-4.5 py-1.5 text-xs shadow-sm cursor-pointer transition-all"
+            className="flex items-center justify-center gap-1.5 rounded-button bg-primary hover:opacity-90 text-primary-foreground font-extrabold px-5 py-2 text-xs transition-all h-9 cursor-pointer shadow-md shadow-primary/10"
           >
-            <Plus className="h-3.5 w-3.5" />
+            <Plus className="h-4 w-4" />
             <span>Add Module</span>
           </button>
         </div>

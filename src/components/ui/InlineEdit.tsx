@@ -75,7 +75,7 @@ export function InlineEdit({
   return (
     <div
       onClick={() => setIsEditing(true)}
-      className={`cursor-text hover:bg-secondary/40 rounded px-1.5 py-0.5 transition-all text-sm font-medium ${className}`}
+      className={`cursor-text hover:bg-secondary/40 rounded px-1.5 py-0.5 transition-all ${className}`}
       title="Click to edit"
     >
       {value || <span className="text-muted-foreground/60 italic">{placeholder}</span>}

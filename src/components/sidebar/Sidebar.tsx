@@ -80,73 +80,77 @@ export default function Sidebar({ profile }: SidebarProps) {
 
   return (
     <aside
-      className={`hidden md:flex flex-col h-screen bg-card border-r border-border transition-all duration-300 relative ${
-        isCollapsed ? 'w-16' : 'w-64'
+      className={`hidden md:flex flex-col h-screen bg-sidebar border-r border-border transition-all duration-300 relative ${
+        isCollapsed ? 'w-18' : 'w-66'
       }`}
     >
       {/* Sidebar Logo */}
-      <div className="flex h-14 items-center justify-between px-4 border-b border-border">
-        <Link href="/" className="flex items-center gap-2 font-extrabold text-foreground">
-          <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary text-primary-foreground shadow-sm">
-            <Sparkles className="h-4 w-4" />
+      <div className="flex h-15 items-center justify-between px-5 border-b border-border/40">
+        <Link href="/" className="flex items-center gap-2.5 font-extrabold text-[#F5F5F5]">
+          <div className="flex h-8.5 w-8.5 items-center justify-center rounded-[10px] bg-primary text-primary-foreground shadow-[0_0_15px_rgba(217,255,63,0.15)] transition-all">
+            <Sparkles className="h-4.5 w-4.5" />
           </div>
-          {!isCollapsed && <span className="tracking-tight text-sm">StudyOS</span>}
+          {!isCollapsed && <span className="tracking-tight text-sm font-bold font-mono">StudyOS</span>}
         </Link>
-
+ 
         {/* Collapse Button */}
         <button
           onClick={toggleCollapse}
-          className="absolute -right-3 top-4 h-6 w-6 rounded-full border border-border bg-card flex items-center justify-center text-muted-foreground hover:text-foreground cursor-pointer shadow-sm z-50"
+          className="absolute -right-3 top-4.5 h-6 w-6 rounded-full border border-border bg-card flex items-center justify-center text-muted-foreground hover:text-[#F5F5F5] hover:bg-secondary cursor-pointer shadow-xs z-50 transition-all"
         >
           {isCollapsed ? <ChevronRight className="h-3 w-3" /> : <ChevronLeft className="h-3 w-3" />}
         </button>
       </div>
-
+ 
       {/* Menu Links */}
-      <nav className="flex-1 space-y-1 p-3">
+      <nav className="flex-1 space-y-1 p-3.5">
         {menuItems.map((item) => {
           const Icon = item.icon
           const isActive = pathname === item.path
-
+ 
           return (
             <Link
               key={item.name}
               href={item.path}
-              className={`flex items-center gap-3 rounded-lg px-3 py-2 text-sm font-medium transition-all ${
+              className={`flex items-center gap-3.5 rounded-button px-4 py-2.5 text-[13px] font-semibold transition-all relative ${
                 isActive
-                  ? 'bg-primary/10 text-primary border border-primary/20'
-                  : 'text-muted-foreground hover:bg-secondary hover:text-foreground border border-transparent'
+                  ? 'bg-secondary/80 text-[#F5F5F5] border border-border/80 shadow-[0_0_12px_rgba(217,255,63,0.02)]'
+                  : 'text-muted-foreground hover:bg-secondary/40 hover:text-foreground border border-transparent'
               } ${isCollapsed ? 'justify-center' : ''}`}
               title={isCollapsed ? item.name : undefined}
             >
-              <Icon className="h-4 w-4 flex-shrink-0" />
+              {/* Left active indicator */}
+              {isActive && (
+                <div className="absolute left-0 top-1/2 -translate-y-1/2 w-[3px] h-5 bg-primary rounded-r-md" />
+              )}
+              <Icon className="h-[18px] w-[18px] flex-shrink-0" />
               {!isCollapsed && <span>{item.name}</span>}
             </Link>
           );
         })}
       </nav>
-
+ 
       {/* Sidebar stats card (visible only when expanded) */}
       {!isCollapsed && stats && (
-        <div className="mx-3 my-2 p-3.5 rounded-xl bg-secondary/35 border border-border/40 space-y-2.5">
-          <p className="text-3xs font-extrabold uppercase text-muted-foreground tracking-widest">
+        <div className="mx-4 my-2.5 p-4 rounded-card bg-secondary/20 border border-border/50 space-y-3">
+          <p className="text-3xs font-black uppercase text-muted-foreground tracking-widest font-mono">
             Overall Progress
           </p>
-
-          <div className="space-y-1">
+ 
+          <div className="space-y-1.5">
             <div className="flex items-center justify-between text-xs font-mono font-bold text-foreground">
               <span>{Math.round(stats.totalCompleted)}h / {Math.round(stats.totalEstimated)}h</span>
               <span className="text-primary">{stats.totalEstimated > 0 ? Math.round((stats.totalCompleted / stats.totalEstimated) * 100) : 0}%</span>
             </div>
-            <div className="w-full bg-secondary h-1 rounded-full overflow-hidden">
+            <div className="w-full bg-[#111216] h-1.5 rounded-full overflow-hidden">
               <div
-                className="bg-primary h-full rounded-full transition-all duration-300"
+                className="bg-primary h-full rounded-full transition-all duration-500 ease-out"
                 style={{ width: `${stats.totalEstimated > 0 ? Math.min((stats.totalCompleted / stats.totalEstimated) * 100, 100) : 0}%` }}
               />
             </div>
           </div>
-
-          <div className="grid grid-cols-2 gap-2 text-3xs font-mono border-t border-border/30 pt-2">
+ 
+          <div className="grid grid-cols-2 gap-2 text-3xs font-mono border-t border-border/30 pt-2.5">
             <div>
               <p className="text-muted-foreground">Lectures</p>
               <p className="font-bold text-foreground">{stats.completedLectures} / {stats.totalLectures}</p>
@@ -160,11 +164,11 @@ export default function Sidebar({ profile }: SidebarProps) {
           </div>
         </div>
       )}
-
+ 
       {/* User profile / Logout */}
-      <div className="p-3 border-t border-border space-y-2">
+      <div className="p-3.5 border-t border-border/40 space-y-2">
         {!isCollapsed && profile && (
-          <div className="flex items-center gap-3 px-2 py-1.5 rounded-lg bg-secondary/50 border border-border/20">
+          <div className="flex items-center gap-3 px-3 py-2 rounded-card bg-secondary/15 border border-border/30">
             {profile.avatar_url ? (
               <Image
                 src={profile.avatar_url}
@@ -172,33 +176,33 @@ export default function Sidebar({ profile }: SidebarProps) {
                 width={32}
                 height={32}
                 unoptimized
-                className="h-8 w-8 rounded-full border border-border bg-muted flex-shrink-0"
+                className="h-8 w-8 rounded-full border border-border/60 bg-muted flex-shrink-0"
               />
             ) : (
-              <div className="h-8 w-8 rounded-full bg-primary/10 text-primary flex items-center justify-center font-bold text-xs flex-shrink-0">
+              <div className="h-8 w-8 rounded-full bg-primary/10 text-primary flex items-center justify-center font-bold text-xs flex-shrink-0 border border-primary/20">
                 {profile.full_name ? profile.full_name.charAt(0) : 'U'}
               </div>
             )}
             <div className="min-w-0 flex-1">
-              <p className="text-xs font-semibold text-foreground truncate">
+              <p className="text-xs font-semibold text-[#F5F5F5] truncate">
                 {profile.full_name || 'Tanmay Raj'}
               </p>
-              <p className="text-3xs text-muted-foreground truncate">
+              <p className="text-[10px] text-muted-foreground font-mono truncate">
                 {profile.email || 'tanmayraj1705@gmail.com'}
               </p>
             </div>
           </div>
         )}
-
+ 
         <button
           onClick={handleLogout}
           disabled={loggingOut}
-          className={`w-full flex items-center gap-3 rounded-lg px-3 py-2 text-sm font-medium text-destructive hover:bg-destructive/10 transition-all cursor-pointer ${
+          className={`w-full flex items-center gap-3.5 rounded-button px-4 py-2.5 text-[13px] font-semibold text-destructive hover:bg-destructive/10 transition-all cursor-pointer ${
             isCollapsed ? 'justify-center' : ''
           }`}
           title={isCollapsed ? 'Log Out' : undefined}
         >
-          <LogOut className="h-4 w-4 flex-shrink-0" />
+          <LogOut className="h-[18px] w-[18px] flex-shrink-0" />
           {!isCollapsed && <span>{loggingOut ? 'Logging out...' : 'Log Out'}</span>}
         </button>
       </div>
