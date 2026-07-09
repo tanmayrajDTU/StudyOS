@@ -1,0 +1,522 @@
+{
+    "subject": "Compiler Design",
+    "topic": "Runtime Environment",
+    "questionCount": 8,
+    "questions": [
+        {
+            "id": "CD_RUNTIME_ENVIRONMENT_2020_Q01",
+            "subject": "Compiler Design",
+            "topic": "Runtime Environment",
+            "subtopic": "C H A P T E R",
+            "year": 2020,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 1,
+            "tags": [
+                "Runtime Environment",
+                "C H A P T E R",
+                "Compiler Design"
+            ],
+            "question": {
+                "text": "Consider the following statements: \n\nI. \nSymbol table is accessed only during lexical \nanalysis and syntax analysis. \n\nII. Compilers for programming languages that \nsupport recursion necessarily \n\n\nneed heap storage for memory allocation in the \nrun-time environment. \n\nIII. Errors violating the condition 'any variable \nmust be declared before its use' \n\n\nare detected during syntax analysis. \n\nWhich of the above statements is/are TRUE?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "I only",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "I and III only",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "II only",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "None of I, II and III",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "D"
+            ],
+            "solution": {
+                "text": "I. Symbol table is used by all the phases of \ncompiler, but here it is saying that only accessed \nduring lexical and syntax analysis. So, this \nstaatement is incorrect.  \nII.  Compilers do not need heap storage they need \nstack storage to support the recursion. During \nrecursion lots of activation records are form for \nthe same function, and we need stack to \nmaintain this. So, this statement is incorrect.  \nIII. Errors violating the condition 'any variable \nmust be declared before its use' are detected \nduring semantic analysis not during syntax \nanalysis. So, this statement is also false.  \nTherfore, option (d) is True.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "CD_RUNTIME_ENVIRONMENT_2018_Q02",
+            "subject": "Compiler Design",
+            "topic": "Runtime Environment",
+            "subtopic": "Which of the above statements is/are TRUE?",
+            "year": 2018,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 2,
+            "tags": [
+                "Runtime Environment",
+                "Which of the above statements is/are TRUE?",
+                "Compiler Design"
+            ],
+            "question": {
+                "text": "Which one of the following statements is FALSE?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "Context-free grammar can be used to specify \nboth lexical and syntax rules.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "Type checking is done before parsing.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "High-level language programs can be translated \nto different Intermediate Representations.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "Arguments to a function can be passed using the \nprogram stack",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "B"
+            ],
+            "solution": {
+                "text": "(a)  Context-free grammar can be used to specify \nboth lexical and syntax rules. TRUE  \n\n(b) Type checking is done before parsing. FALSE. \nIt is done after parsing.  \n\n(c) High-level \nlanguage \nprograms \ncan \nbe \ntranslated \nto \ndifferent \nIntermediate \nRepresentations. TRUE.   \n\n(d) Arguments to a function can be passed using \nthe program stack. TRUE. Program stack is \nused during runtime.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "CD_RUNTIME_ENVIRONMENT_2015_Q03",
+            "subject": "Compiler Design",
+            "topic": "Runtime Environment",
+            "subtopic": "program stack",
+            "year": 2015,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 3,
+            "tags": [
+                "Runtime Environment",
+                "program stack",
+                "Compiler Design"
+            ],
+            "question": {
+                "text": "Match the following: \n\n\nList-I \n\nList-II \n\na.  Lexical analysis \n1. Graph coloring \n\nb.  Parsing \n2. DFA minimization  \n\nc.  Register allocation \n3. Post-order traversal \n\nd. Expression evaluation 4. Production tree \n\nCode: \n\n\na. \nb. \nc \nd.",
+                "images": [
+                    "assets/Compiler Design/CD_Runtime_Environment_P38_X3433.png"
+                ],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "2",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "2",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "2",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "2",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "C"
+            ],
+            "solution": {
+                "text": "Lexical analysis uses DFA minimization, to \nimplement or do design lexical analyser, we need \nminimized DFA.  \n\nProduction tree helps us in constructing the parse \ntree. During parsing we need production tree \nsupport.  \n\nRegister allocation uses graph coloring, when \nregisters are allocated graph coloring is used in \norder to optimise the use of registers.  \n\nExpression can be evaluated with the help of post-\norder traversals.  \n\nSo, option (c) is the correct answer.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "CD_RUNTIME_ENVIRONMENT_2008_Q04",
+            "subject": "Compiler Design",
+            "topic": "Runtime Environment",
+            "subtopic": "d.",
+            "year": 2008,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 4,
+            "tags": [
+                "Runtime Environment",
+                "d.",
+                "Compiler Design"
+            ],
+            "question": {
+                "text": "Which of the following are true? \n\nI.  A programming language which does not permit \nglobal variables of any kind  and has no    nesting \nof procedures/functions, but permits recursion \ncan be implemented with static storage \nallocation. \n\nII.  Multi-level access link (or display) arrangement \nis needed to arrange activation records only if the \nprogramming language being implemented has \nnesting of procedures/functions \n\nIII.  Recursion in programming languages cannot be \nimplemented with dynamic storage allocation \n\nIV.  Nesting of procedures/functions and recursion \nrequire a dynamic heap allocation scheme and \ncannot be implemented with a stack-based \nallocation scheme for activation records \n\nV.  Programming languages which permit a function \nto return a function as its result cannot be \nimplemented \nwith \na \nstack-based \nstorage \nallocation scheme for activation records",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "II and V only",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "I, II and IV only",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "I, II and V only",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "I, III and V only \n\nStatic And Dynamic Scoping",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "A"
+            ],
+            "solution": {
+                "text": "I. \nA programming language which does not \npermit global variables of any kind  and has \nno nesting of procedures/functions, but \npermits recursion can be implemented with \nstatic storage allocation. False. It can \nimplemented with stack allocation not with \nstatic storage allocation.  \nII. \nMulti-level \naccess \nlink \n(or \ndisplay) \narrangement is needed to arrange activation \nrecords only if the programming language \nbeing \nimplemented \nhas \nnesting \nof \nprocedures/functions .True \nIII. \nRecursion in programming languages cannot \nbe implemented with dynamic storage \nallocation. False \nIV. \nNesting \nof \nprocedures/functions \nand \nrecursion require a dynamic heap allocation \nscheme and cannot be implemented with a \nstack-based allocation scheme for activation \nrecords. False  \nV. \nProgramming languages which permit a \nfunction to return a function as its result \ncannot be implemented with a stack-based \nstorage allocation scheme for activation \nrecords. True \n\nSo, option (a) is correct answer.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "CD_RUNTIME_ENVIRONMENT_2014_Q05",
+            "subject": "Compiler Design",
+            "topic": "Runtime Environment",
+            "subtopic": "Static And Dynamic Scoping",
+            "year": 2014,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 5,
+            "tags": [
+                "Runtime Environment",
+                "Static And Dynamic Scoping",
+                "Compiler Design"
+            ],
+            "question": {
+                "text": "Which of the following statements are CORRECT? \n\n1. Static allocation of all data areas by a compiler \nmakes it impossible to implement recursion. \n\n2.  Automatic garbage collection is essential to \nimplement recursion. \n\n3. Dynamic allocation of activation records is \nessential to implement recursion. \n\n4. Both heap and stack are essential to implement \nrecursion.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "1 and 2 only",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "2 and 3 only",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "3 and 4 only",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "1 and 3 only",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "D"
+            ],
+            "solution": {
+                "text": "1.  Static allocation of all data areas by a compiler \nmakes it impossible to implement recursion. \nTRUE.  Static allocation makes it impossible to \nimplement recursion.  \n\n2.  Automatic garbage collection is essential to \nimplement recursion. FALSE. For recursion we \ndo not require automatic garbage collection.  \n\n3.  Dynamic allocation of activation records is \nessential to implement recursion. TRUE. \nDynamic allocation are of two types heap and \nstack.  \n\n4. Both heap and stack are essential to implement \nrecursion. FALSE.  \n\nSo, option (d) is the correct answer.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "CD_RUNTIME_ENVIRONMENT_2014_Q06",
+            "subject": "Compiler Design",
+            "topic": "Runtime Environment",
+            "subtopic": "recursion.",
+            "year": 2014,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 6,
+            "tags": [
+                "Runtime Environment",
+                "recursion.",
+                "Compiler Design"
+            ],
+            "question": {
+                "text": "Which one of the following is NOT performed \nduring compilation?",
+                "images": [
+                    "assets/Compiler Design/CD_Runtime_Environment_P39_X3533.png",
+                    "assets/Compiler Design/CD_Runtime_Environment_P39_X3535.png"
+                ],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "Dynamic memory allocation",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "Type checking",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "Symbol table management",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "Inline expansion",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "A"
+            ],
+            "solution": {
+                "text": "Dynamic memory allocation is done during runtime \nand not during compilation. Therefore, option a is \nthe correct answer.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "CD_RUNTIME_ENVIRONMENT_2014_Q07",
+            "subject": "Compiler Design",
+            "topic": "Runtime Environment",
+            "subtopic": "during compilation?",
+            "year": 2014,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 7,
+            "tags": [
+                "Runtime Environment",
+                "during compilation?",
+                "Compiler Design"
+            ],
+            "question": {
+                "text": "Which languages necessarily need heap allocation in",
+                "images": [
+                    "assets/Compiler Design/CD_Runtime_Environment_P39_X3537.png"
+                ],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "Those that support recursion",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "Those that use dynamic scoping",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "Those that allow dynamic data structure",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "Those that use global variables",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "C"
+            ],
+            "solution": {
+                "text": "Heap allocation/ dynamic allocation; the language \nthat allows dynamic data structure necessarily needs \nheap/ dynamic allocation in runtime enviornment.  \n\nLanguages that support recursion require stack.  \n\nLanguages that support global variables need static \nmemory allocation. So, option (c) is the correct \nanswer.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "CD_RUNTIME_ENVIRONMENT_2012_Q08",
+            "subject": "Compiler Design",
+            "topic": "Runtime Environment",
+            "subtopic": "Which languages necessarily need heap allocation in",
+            "year": 2012,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 8,
+            "tags": [
+                "Runtime Environment",
+                "Which languages necessarily need heap allocation in",
+                "Compiler Design"
+            ],
+            "question": {
+                "text": "Consider the program given below, in a block-\nstructured pseudo-language with lexical scoping and \nnesting of procedures permitted. \n\n\nProgram main; \n\n Var ... \n\nProcedure A1; \n\nVar ... \n\nCall A2; \n\n End A1 \n       Procedure A2; \n\nVar ... \n          Procedure A21; \n                       Var ... \n\n    Call A1; \n\nEnd A21 \n\nCall A21; \n\n End A2 \n\n Call Al; \n\nEnd main \nConsider the calling chain: Main \\rightarrow A1 \\rightarrow A2 \\rightarrow \nA21 \\rightarrow A1 \nThe correct set of activation records along with their \naccess links is given by",
+                "images": [
+                    "assets/Compiler Design/CD_Runtime_Environment_P39_X3539.png"
+                ],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "D"
+            ],
+            "solution": {
+                "text": "Program's flow can be seen as: \n\n\n\n\n\nThe correct set of activation records along with their \naccess links can be given as: \n\n\n\n\n\n\n\nSo, option D is the correct answer. \n\n\nProgram main;\n        Var …\nProcedure A1;\n        Var …\n        Call A2;\n        End A1\nProcedure A2;\n        Var …\nProcedure A21;\n        Var …\n        Call A1;\n      End A21\n           Call A21;\n      End A2\n        Call A1;\n      End main",
+                "images": [
+                    "assets/Compiler Design/CD_Runtime_Environment_P42_X3727.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        }
+    ]
+}

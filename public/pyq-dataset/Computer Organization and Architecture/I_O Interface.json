@@ -1,0 +1,688 @@
+{
+    "subject": "Computer Organization and Architecture",
+    "topic": "I/O Interface",
+    "questionCount": 13,
+    "questions": [
+        {
+            "id": "COA_I_O_INTERFACE_2022_Q01",
+            "subject": "Computer Organization and Architecture",
+            "topic": "I/O Interface",
+            "subtopic": "Modes of Data Transfer",
+            "year": 2022,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 1,
+            "tags": [
+                "I/O Interface",
+                "Modes of Data Transfer",
+                "Computer Organization and Architecture"
+            ],
+            "question": {
+                "text": "Which one of the following facilitates transfer of bulk \ndata from hard disk to main memory with the highest \nthroughput?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "DMA based I/O transfer",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "Interrupt driven I/O transfer",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "Polling based I/O transfer",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "Programmed I/O transfer",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "A"
+            ],
+            "solution": {
+                "text": "In DMA bulk amount of data transferred from Hard \ndisk (secondary Memory) to main memory with the \nhighest through put.  \n\nIn programmed I/O transfer CPU Time is depend on \nspeed of I/O device, so utilization is very less & not \nused for bulk amount of data transfer.  \n\nInterrupt driven I/O transfer is used for small amount \nof data transfer with the involvement of the CPU.  \n\nBut in DMA (Direct Memory Access) based I/O \ntransfer bulk amount of data transfer without the \ninvolvement of the CPU. & DMA has the highest \npriority so through put is very high.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "COA_I_O_INTERFACE_2021_Q02",
+            "subject": "Computer Organization and Architecture",
+            "topic": "I/O Interface",
+            "subtopic": "throughput?",
+            "year": 2021,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 2,
+            "tags": [
+                "I/O Interface",
+                "throughput?",
+                "Computer Organization and Architecture"
+            ],
+            "question": {
+                "text": "Consider a computer system with DMA support. The \nDMA module is transferring one 8-bit character in one \nCPU cycle from a device to memory through cycle \nstealing at regular intervals. Consider a 2 MHZ \nprocessor. If 0.5% processor cycles are used for \nDMA, the data transfer rate of the device is _____ bit \nper second.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "80000"
+            ],
+            "solution": {
+                "text": "Clock frequency = 2 MHz \n\nCycle time = \nsec\nsec\n2MHz\n=\n\n\n\n1 cycle time = \n1 10\nsec\n−\n\n\n\nIn one second total number of CPU cycle = 2 \\times 106 \ncycle \n\n0.5 % of the CPU cycle are used to data transfer by \nthe DMA = 0.5% \\times 2 \\times 106 =  \n\n\n2 10\n10000 cycle\n100 \n=\n\n\nTotal number of cycle taken by the DMA for data \ntransfer = 10, 000 cycle \n\nIn 1 cycle - 8 bit data transfer \n\nIn 10,000 cycle = 10000 \\times 8 = 80000 \n\nData transfer rate = 80000 \nOR \n\nCPU cycles can be completed in ½ * 106 seconds. \n\nTherefore, there will be 2 * 106 cycles in a second \nplus an additional 10,000 DMA cycles, or 0.5%, at \nwhich time 8 bits are transmitted. \n\nThus, 80,000 bits will be sent in total in one second.",
+                "images": [
+                    "assets/Computer Organization and Architecture/COA_I_O_Interface_P66_X930.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "COA_I_O_INTERFACE_2020_Q03",
+            "subject": "Computer Organization and Architecture",
+            "topic": "I/O Interface",
+            "subtopic": "per second.",
+            "year": 2020,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 3,
+            "tags": [
+                "I/O Interface",
+                "per second.",
+                "Computer Organization and Architecture"
+            ],
+            "question": {
+                "text": "Consider the following statements: \n\nI. \nDaisy chaining is used to assign priorities in \nattending interrupts. \n\nII. When a device raises a vectored interrupt, the \nCPU does polling to identify the source of \ninterrupt. \n\nIII. In polling, the CPU periodically checks the status \nbits to know if any device needs its attention. \n\nIV. During DMA, both the CPU and DMA controller \ncan be bus masters at the same time. \n\nWhich of the above statements is/are TRUE?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "I, II only",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "I and IV only",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "I and III only",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "III only",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "C"
+            ],
+            "solution": {
+                "text": "I Daisy Channing: true \n\nII false \n\nIII true \n\nIV false  \n\nAt a time either CPU or DMA can be master on bus.",
+                "images": [
+                    "assets/Computer Organization and Architecture/COA_I_O_Interface_P66_X930.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "COA_I_O_INTERFACE_2016_Q04",
+            "subject": "Computer Organization and Architecture",
+            "topic": "I/O Interface",
+            "subtopic": "Which of the above statements is/are TRUE?",
+            "year": 2016,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 4,
+            "tags": [
+                "I/O Interface",
+                "Which of the above statements is/are TRUE?",
+                "Computer Organization and Architecture"
+            ],
+            "question": {
+                "text": "The size of the data count register of a DMA \ncontroller is 16 bits. The processor needs to transfer a \nfile of 29, 154 kilobytes from disk to main memory. \nThe memory is byte addressable. The minimum \nnumber of times the DMA Controller needs to get the \ncontrol of the system bus from the processor to \ntransfer the file from the disk to main memory \nis_____.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "456"
+            ],
+            "solution": {
+                "text": "Data count register = 16 bit \n\nCount value : How many number of byte/word \ntransferred by the DMA from input output (I/O) to \nmemory in one cycle \n\nTotal count value = 216 - 1 \n\nIn one time. Total # byte transferred \n\n= 216 - 1 = 65,535 Byte \n\nTotal # byte to be transferred = 29, 154 Byte \n\nNumber of time DMA needs the control on system \nbus  \n\n29,154 1024 Byte\n65,535 Byte\n\n\n\n=\n=\n\n\n\n",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "COA_I_O_INTERFACE_2011_Q05",
+            "subject": "Computer Organization and Architecture",
+            "topic": "I/O Interface",
+            "subtopic": "is_____.",
+            "year": 2011,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 5,
+            "tags": [
+                "I/O Interface",
+                "is_____.",
+                "Computer Organization and Architecture"
+            ],
+            "question": {
+                "text": "On a non-pipelined sequential processor, a program \nsegment, which is a part of the interrupt service \nroutine, is given to transfer 500 bytes from an I/O \ndevice to memory. \n\nInitialize the address register \n\nInitialize the count to 500 \n\nLOOP: Load a byte from device \n\nStore in memory at address given by address register \n\nIncrement the address register \n\nDecrement the court \n\nIf count! = 0 go to LOOP \n\nAssume that each statement in this program is \nequivalent to a machine instruction which takes one \nclock cycle to execute if it is a non-load/store \ninstruction. The load-store instructions take two clock \ncycles to execute. \n\nThe designer of the system also has an alternate \napproach of using the DMA controller to implement \nthe same transfer. The DM controller requires 20 \nclock cycles for initialization and other overhead. \nEach DMA transfer cycle takes two clock cycles to \ntransfer one byte of data from interrupt driven \nprogram-based input-output?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "3.4",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "4.4",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "5.1",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "6.7 \n\nSecondary Memory",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "A"
+            ],
+            "solution": {
+                "text": "Initialize the address register \\rightarrow 1 cycle \n\nInitialize the count to 500 \\rightarrow 1 cycle \n\nLOOP7: Load a byte from device \\rightarrow 2 cycle \n\nStore in memory at address given by address register \n→ 2 cycle \n\nIncrement the address register \\rightarrow 1 cycle \n\nDecrement the court \\rightarrow 1 cycle \n\nIf count! = 0 go to LOOP \\rightarrow 1 cycle \n\nIn each one interation of loop takes \n\n= 2+ 2 + 1 + 1 +1 = 7 Cycle \n\nLoop execute = 500 times (Iteration) \n\nTotal time taken in 500 interatin = 500 \\times 7 = 3500 \nCycle \n\nTotal time in ISR = 3500 + 2 = 3502 Cycle \n\n500 Byte transfer using DMA \n\nIn DMA transfer Tim = 20 + 2 \\times 500 = 1020 Cycle \n\nSpeed up = 3502\n1020 =",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "COA_I_O_INTERFACE_2023_Q06",
+            "subject": "Computer Organization and Architecture",
+            "topic": "I/O Interface",
+            "subtopic": "Secondary Memory",
+            "year": 2023,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 6,
+            "tags": [
+                "I/O Interface",
+                "Secondary Memory",
+                "Computer Organization and Architecture"
+            ],
+            "question": {
+                "text": "A keyboard connected to a computer is used at a rate \nof 1 keystroke per second. The computer system polls \nthe keyboard every 10 ms (milli seconds) to check for \na keystroke and consumes 100 μs (micro seconds) for \neach poll. If it is determined after polling that a key \nhas been pressed, the system consumes an additional \n200 μs to process the keystroke. Let T1 denote the \nfraction of a second spent in polling and processing a \nkeystroke. \n\nIn an alternative implementation, the system uses \ninterrupts instead of polling. An interrupt is raised for \nevery keystroke. It takes a total of 1 ms for servicing \nan interrupt and processing a keystroke. Let T2 denote \nthe fraction of a second spent in servicing the interrupt \nand processing a keystroke. \n\nThe ratio  \nT1\nT2  is ___________. (Rounded off to one \ndecimal place)",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "10.2"
+            ],
+            "solution": {
+                "text": "1 key stroke per second, \n\nEach polling takes = 100μsec.  \n\nAfter every 10 m sec polling is done.  \n\nIf key is press then additional = 200 μsec \n\nIn every 10 \\times 10-3 sec →1 poll. \n\nIn 1 sec →\n10 10−\n\n 10+2 = 100 poll in one second. \n\nEach poll takes = 100μsec \n\nTotal 100 poll takes = 100 \\times 100 = 10000μsec = 10 \nmsec. \n\nIf key stroke is pressed then addition = 200μsec \n\nTotal time for polling and processing pressing key \nstroke = 10.000 + 200 = 10,200μsec = 10.2msec \n\nT1 in 1 sec - 10.2 msec. \n\nT\n=\n\n\nT2 Alternative approach: Interrupt  \n\nTotal time taken to servicing interrupt = 1msec.  \n\nand processing key stroke. \n\nT\n=\n\n\n(In 1 sec = 1000 msec)  \n\n\n     = 1000 \\times 10-3 = 1 sec  \n\nT\nT\n=\n\n=",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "COA_I_O_INTERFACE_2015_Q07",
+            "subject": "Computer Organization and Architecture",
+            "topic": "I/O Interface",
+            "subtopic": "decimal place)",
+            "year": 2015,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 7,
+            "tags": [
+                "I/O Interface",
+                "decimal place)",
+                "Computer Organization and Architecture"
+            ],
+            "question": {
+                "text": "Consider a typical disk that rotates at 15000 rotations \nper minute (RPM) and has a transfer rate of 50 \\times 106 \nbytes/sec. If the average seek time of the disk is twice \nthe average rotational delay and the controller's \ntransfer time is 10 times the disk transfer time, the \naverage time (in milliseconds) to read or write a 512-\nbyte sector of the disk is _____.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "6.1",
+                "6.2"
+            ],
+            "solution": {
+                "text": "Average disk access time or average read/write time \n\n= Average S.T + Average R.T + D.T.T + overhead (if \nany given) \n\n15000 RPM \n\n15000 rotation in 60 sec \n\nIn 1 rotation = \n2 60\n15000 500\n=\nsec 1000 \n\n1 rotation time = 4 m sec  \n\nAverage rotational Latency\nRT\n2msec\n=\n\n=\n\n\nAverage S.T = 2 \\times average R.T  \n\n⇒ 2 \\times 2 = 4msec \n\nAverage S.T\n4msec\n=\n\n\nTransfer rate = 50 \\times 106 Byte/second \n\n50 \\times 106 Byte …..1second \n\n1 byte ……… \nsec\n50 10\n\n\n\n512 Byte _____ \n-6\n512 10\n50 \n\n\n⇒  10.24 \\times 10-6 \n\n0.01024 msec \n\nD.T.T\n0.0102 msec\n=\n\n\nControl time = 10 \\times 0.01024 msec. \n\n\n\n   = 0.1024 m sec. \n\nD.A.T. = 4 + 2 + 0.01024 + 0.1024 \n\nD.A.T = 6.11 msec  \n\n6.1 m sec",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "COA_I_O_INTERFACE_2015_Q08",
+            "subject": "Computer Organization and Architecture",
+            "topic": "I/O Interface",
+            "subtopic": "byte sector of the disk is _____.",
+            "year": 2015,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 8,
+            "tags": [
+                "I/O Interface",
+                "byte sector of the disk is _____.",
+                "Computer Organization and Architecture"
+            ],
+            "question": {
+                "text": "Consider a disk pack with a seek time of 4 \nmilliseconds and rotational speed of 10000 rotations \nper minute (RPM). It has 600 sectors per track and \neach sector can store 512 bytes of data. Consider a file \nstored in the disk. The file contains 2000 sectors. \nAssume that every sector access necessitates a seek, \nAnd the average rotational latency for accessing each \nsector is half of the time for one complete rotation. \nThe total time (in milliseconds) needed to read the \nentire file is ____.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "14020"
+            ],
+            "solution": {
+                "text": "Time required to read one sector = seek time + \naverage R.T + Data transfer time \n\nSeek time (S.T) = 4 msec \n\n600 sector /track each sector capcity = 512 Byte \n\n10000 rpm \n\n10000 rotation in 60 second \n\n1 rotation ….. \n\n⇒ 6 \\times 10-3 sec \n\n1 rotation takes =  6 msec \n\nAverage roational latency = 1\n \n\nAverage Rotational latency = 3 msec \n\n1 Track capacity = 600 \\times 512 Byte \n\nIn 1 Rotational 1 complete track \n\n600 \\times 512 Byte takes _______6msec \n\n1 Byte \\rightarrow \nmsec\n600 512\n\n\n\n512 Byte (1 sector) \\rightarrow 512 6\n1 msec\n600 12\n\n=\n\n\n\nD.T.T = 0.01 msec \n\nTotal time required for 1 sector \n\n\n= 4 + 3 + 0.01 = 7.01 msec \n\nTotal time requird for 2000 sector = 2000 \\times 7.01  \n\n\n= 14020 msec",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "COA_I_O_INTERFACE_2013_Q09",
+            "subject": "Computer Organization and Architecture",
+            "topic": "I/O Interface",
+            "subtopic": "entire file is ____.",
+            "year": 2013,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 9,
+            "tags": [
+                "I/O Interface",
+                "entire file is ____.",
+                "Computer Organization and Architecture"
+            ],
+            "question": {
+                "text": "Consider a hard disk with 16 recording surfaces (0-\n15) having 16384 cylinders (0-16383) and each \ncylinder contains 64 sectors (0-63). Data storage \ncapacity in each sector is 512 bytes. Data are \norganized cylinder-wise and addressing format is \n<cylinder no., surface no., sector no>. A file of size \n42797 KB is stored in the disk and the starting disk \nlocation of the file is < 1200, 9, 40>. What is the \ncylinder number of the last sector of the file, if it is \nstored in a contiguous manner?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "1281",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "1282",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "1283",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "1284",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "D"
+            ],
+            "solution": {
+                "text": "<c, h, s >  \n<1200, 9, 40 > \n\n16 Recording surface, 64 sector \n\nStarting sector = <c, h, s >   \n\nNumber of the file = <1200, 9, 40> \n\n 1200 \\times 16 \\times 64 + 9 \\times 64 + 40 = 1229416 \n\nStarting (first) sector number of the file = 1229416 \n\n16384 cylinder  \n\n\n\n\nFile size = 42,797 kB & each sector capacity = 512 \nbyte. \n\nTotal number of sector needed (Required) to store the \nfile = 42797 KB\n512 Byte = 85594 Sector  \n\nRange [o to 85593] \n\nStarting (first) sector Address of the file = 1229416 \n\nLast sector number of the file = 1229416 + 85594 - 1 \n= 1315009  \n\nLast Sector number = 1315009 \n\n<c, h, s > \n\nCylinder number =1315009\n=\n\n\n\n1284 cyclinder number \n\nNumber of sectors covered = 1284 \\times 16 \\times 64  \n\n\n\n                         = 1314816 sectors. \n\nRemaining sector = 1315009 - 1314816 = 193 sector  \n\nSurface Number = 193\n64 =\n\n\n64 sector per surface 16 Recording surface \n\n  c,    h ,   s   \n\n\n          16    64\n\n\n\n\n\n\nOR  \n\nAlternative Approach  \n\nNumber of sector required = 85594 \n\nNeed to cross = 85594 sector  \n\nNumber of cylinders required to cross = 85594\n\n\n\n\n\n\n\n               = 83 cylinder. \n\nIn 83 cylinder the number of sector = 83×16 ×64  \n\n\n\n\n\n             = 84992 \n\nNumber of sector remaining = 85594 - 84992  \n\n\n\n                            = 602 sector \n\nSurface number = 602\n64 = 9 Surface.  \n\n(1 more cylinder required)  \n\nNumber of cylinder = 83 + 1 = 84  \n\nStarting = 1200 + 84 = 1284",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "COA_I_O_INTERFACE_2011_Q10",
+            "subject": "Computer Organization and Architecture",
+            "topic": "I/O Interface",
+            "subtopic": "stored in a contiguous manner?",
+            "year": 2011,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 10,
+            "tags": [
+                "I/O Interface",
+                "stored in a contiguous manner?",
+                "Computer Organization and Architecture"
+            ],
+            "question": {
+                "text": "An application loads 100 libraries at start-up. Loading \neach library requires exactly one disk access. The seek \ntime of the disk to a random location is given as 10 \nms. Rotational speed of disk is 6000 rpm. If all 100 \nlibraries are loaded from random locations on the \ndisk, how long does it take to load all libraries? (The \ntime to transfer data from the disk block once the head \nhas been positioned at the start of the block may be \nneglected.)",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "0.50s",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "1.50s",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "1.25s",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "1.00s \nCommon Data for next two questions: \nA hard disk has 63 sectors per track, 10 platters each with \n2 recording surfaces and 1000 cylinders. The address of a \nsector is given as a triple 〈c,h,s〉, where c is the cylinder \nnumber, h is the surface number and s is the sector number. \nThus, the 0th sector is addressed as〈0,0,0〉, the 1st sector as \n〈0,0,1〉, and so on.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "B"
+            ],
+            "solution": {
+                "text": "Total 100 libraries \n\nSeek time = 10 msec \n\nD.T.T (neglected) \n\nRotational speed = 6000 rpm \n\nAverage disk access time = S.T + Average R.T + \nD.T.T \n\n\nAverage R.T = 1\n2 \\times rotational time \n\n6000 rotation in 60 second \n\n \\Rightarrow \n1Rotation\n10 msec\n=\n=\n\n\nAverage R.T = 1\n2 \\times 10 msec = 5 msec \n\nTotal time 1 library access = S.T + R.L + D.T.T \n\n⇒ 10 + 5 = 15 msec \n\nTotal tme taken for 100 libraries = 100 \\times 15 msec \n\n= 100 \\times 5 \\times 10-3 m sec = 1.5 second",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "COA_I_O_INTERFACE_2009_Q11",
+            "subject": "Computer Organization and Architecture",
+            "topic": "I/O Interface",
+            "subtopic": "〈0,0,1〉, and so on.",
+            "year": 2009,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 11,
+            "tags": [
+                "I/O Interface",
+                "〈0,0,1〉, and so on.",
+                "Computer Organization and Architecture"
+            ],
+            "question": {
+                "text": "The address 〈400,16,29〉 corresponds to sector \nnumber:",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "505035",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "505036",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "505037",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "505038",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "C"
+            ],
+            "solution": {
+                "text": "63 Sector per track  \n\n10 platter:  2 recording surface  \n\n each \n\n1000 cylinder \n\n\n\n\n\n\n\n\n\n\n\n< c, h, s> \n\n<400, 16, 29> \n\n400 cylinder \n= 400 [10 ×2 \\times 63] \n\n16 surface  \n= 16 \\times 63 \n\n29 sector \n= 29 \n\nSector Number  = 400 [10 ×2 \\times 63] + 16 \\times 63 + 29 \n\n\n=  400 \\times [1260] + 16 \\times 63 + 29 \n\n\n=  504000 + 1008 + 29 = 505037 \n\nAlternate approach: \n\nBy formula: <c, h, s> <400, 16, 29> \n\nSt:  number of sector per track = 63 \n\ntc:  number of track per cylinder = 2×10 = 20 \n\nSector Numebr = s + st \\times h + st \\times tc \\times c \n\n S + St (h + tc \\times c) \n\n 29 + 63 [16 + 20 \\times 400] \n\n\n= 29 + 63 \\times 16 + 63 \\times 20 \\times 400 = 505037",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "COA_I_O_INTERFACE_2009_Q12",
+            "subject": "Computer Organization and Architecture",
+            "topic": "I/O Interface",
+            "subtopic": "number:",
+            "year": 2009,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 12,
+            "tags": [
+                "I/O Interface",
+                "number:",
+                "Computer Organization and Architecture"
+            ],
+            "question": {
+                "text": "The address of 1039th sector is",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "〈0,15,31〉",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "〈0,16,30〉",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "〈0,16,31〉",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "〈0,17,31〉",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "C"
+            ],
+            "solution": {
+                "text": "63 sector per track \n\n1 cylinder = 10 \\times 2 \\times 63 = 1260 \n\n\n(a) < 0, 15, 31> \\Rightarrow 15 \\times 63 + 31 = 945 + 31 = 976 \n\n(b) < 0, 16, 30> \\Rightarrow 16 \\times 63 + 30 = 1008 + 30 = 1038 \n\n(c) < 0, 16, 31> \\Rightarrow 16 \\times 63 + 31 = 1008 + 31 = 1039 \n\n(d) < 0, 17, 31> \\Rightarrow 17 \\times 63 + 31 = 1071 + 31 = 1102",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "COA_I_O_INTERFACE_2008_Q13",
+            "subject": "Computer Organization and Architecture",
+            "topic": "I/O Interface",
+            "subtopic": "The address of 1039th sector is",
+            "year": 2008,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 13,
+            "tags": [
+                "I/O Interface",
+                "The address of 1039th sector is",
+                "Computer Organization and Architecture"
+            ],
+            "question": {
+                "text": "For a magnetic disk with concentric circular tracks, \nthe latency is not linearly proportional to the seek \ndistance due to",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "Non-uniform distribution of requests",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "Arm starting and stopping inertia",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "Higher capacity of tracks on the periphery of the \nplatter",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "Use of unfair arm scheduling policies.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "B"
+            ],
+            "solution": {
+                "text": "Every time the head changes tracks, its speed and \ndirection change, which is just a change in motion or \nthe result of inertia. \n\nHence option (b) is correct.",
+                "images": [
+                    "assets/Computer Organization and Architecture/COA_I_O_Interface_P70_X8023.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        }
+    ]
+}

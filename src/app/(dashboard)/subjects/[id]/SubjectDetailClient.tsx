@@ -39,7 +39,8 @@ import {
   Plus,
   Loader2,
   Clock,
-  FolderOpen
+  FolderOpen,
+  Target
 } from 'lucide-react'
 import Link from 'next/link'
 import { getSubjectIcon } from '@/components/subjects/SortableSubjectCard'
@@ -428,9 +429,19 @@ export default function SubjectDetailClient({ subjectId }: SubjectDetailClientPr
                 </span>
               )}
             </div>
-            <p className="text-xs text-muted-foreground font-mono uppercase tracking-wider">
-              {totalLectures} Lectures across {detail.modules.length} Modules
-            </p>
+            <div className="flex items-center gap-2 flex-wrap">
+              <p className="text-xs text-muted-foreground font-mono uppercase tracking-wider">
+                {totalLectures} Lectures across {detail.modules.length} Modules
+              </p>
+              <span className="text-muted-foreground/35 text-xs font-mono">•</span>
+              <Link
+                href={`/pyqs/${encodeURIComponent(detail.name)}`}
+                className="inline-flex items-center gap-1 text-3xs font-extrabold text-primary hover:underline font-mono uppercase tracking-widest"
+              >
+                <Target className="h-3.5 w-3.5" />
+                <span>Practice GATE PYQs</span>
+              </Link>
+            </div>
           </div>
         </div>
 
@@ -611,6 +622,7 @@ export default function SubjectDetailClient({ subjectId }: SubjectDetailClientPr
                   onRename={(newName) => handleRenameModule(module.id, newName)}
                   onDelete={() => handleDeleteModule(module.id)}
                   onDuplicate={() => handleDuplicateModule(module.id)}
+                  onUpdate={(updates) => updateModuleMutation.mutate({ id: module.id, updates })}
                   onAddLecture={(title) => handleAddLecture(module.id, title)}
                   onUpdateLecture={handleUpdateLecture}
                   onDeleteLecture={handleDeleteLecture}

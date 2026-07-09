@@ -1,0 +1,1762 @@
+{
+    "subject": "Discrete Mathematics",
+    "topic": "Proposition Logic",
+    "questionCount": 26,
+    "questions": [
+        {
+            "id": "DM_PROPOSITION_LOGIC_2021_Q01",
+            "subject": "Discrete Mathematics",
+            "topic": "Proposition Logic",
+            "subtopic": "Propositional Logic",
+            "year": 2021,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 1,
+            "tags": [
+                "Proposition Logic",
+                "Propositional Logic",
+                "Discrete Mathematics"
+            ],
+            "question": {
+                "text": "Let p and q be two propositions. Consider the \nfollowing two formulae in propositional logic \n\nS1∶ (¬p (p  q)) \\rightarrow q  \n\nS2∶ q \\rightarrow (¬p  (p  q))  \n\nWhich one of the following choices is correct?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "Both S1 and S2 are tautologies.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "S1 is a tautology but S2 is not a tautology.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "S1 is not a tautology but S2 is a tautology.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "Neither S1 nor S2 is a tautology.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "B"
+            ],
+            "solution": {
+                "text": "S1∶ (¬p  (p  q)) \\rightarrow q  \n\n(\n)\n(\n)\nT\nF\nTrue\n\np \n p\nq\nq\np = F\nq = F\n\n\n   T  \n   F\nF\nF\nF\n→\n\n\n\n\n\n\n\n→\n\n\n\n\n\n\n\n\n→\n\n\nS2: q→ (\n)\np\np\nq\n\n\n\nT\nF\nq\n¬p\np = T\nq = T\nT\nT\np\nq\n\n\n\n→\n\n\n\n\n\n",
+                "images": [
+                    "assets/Discrete Mathematics/DM_Proposition_Logic_P7_X877.png",
+                    "assets/Discrete Mathematics/DM_Proposition_Logic_P7_X888.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "DM_PROPOSITION_LOGIC_2021_Q02",
+            "subject": "Discrete Mathematics",
+            "topic": "Proposition Logic",
+            "subtopic": "Which one of the following choices is correct?",
+            "year": 2021,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 2,
+            "tags": [
+                "Proposition Logic",
+                "Which one of the following choices is correct?",
+                "Discrete Mathematics"
+            ],
+            "question": {
+                "text": "Choose the correct choice(S) regarding the \nfollowing proportional logic assertion S: \n          S∶ ((P  Q) \\rightarrow R) \\rightarrow ((P  Q) \\rightarrow (Q \\rightarrow R))",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "S is neither a tautology nor a contradiction.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "S is a tautology.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "S is a contradiction.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "The antecedent of S is logically equivalent to the \nconsequent of S.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "B",
+                "D"
+            ],
+            "solution": {
+                "text": "Option d: Correct \n\nA \\rightarrow B =  A  B \n\n(P  Q) \\rightarrow R \n\n (p   q)  R \n\n p  q  R \n\n(P   Q) \\rightarrow (Q \\rightarrow R) \n\n\n (p   q)  (q \\rightarrow R) \n\n(p   q)  (q  R) \n\np   q  q  R \n\np   q  R \n\nOption b: Correct \n\n T      \nT    T         T      F \n\n((P  Q) \\rightarrow R) \\rightarrow ((P  Q) \\rightarrow (Q \\rightarrow R)) \n\n(T  T) \\rightarrow F \nP = T \n\nF___→_______               Q = T       \n\n T  \n\nR = F",
+                "images": [
+                    "assets/Discrete Mathematics/DM_Proposition_Logic_P7_X877.png",
+                    "assets/Discrete Mathematics/DM_Proposition_Logic_P7_X888.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "DM_PROPOSITION_LOGIC_2017_Q03",
+            "subject": "Discrete Mathematics",
+            "topic": "Proposition Logic",
+            "subtopic": "consequent of S.",
+            "year": 2017,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 3,
+            "tags": [
+                "Proposition Logic",
+                "consequent of S.",
+                "Discrete Mathematics"
+            ],
+            "question": {
+                "text": "Let p, q, r denote the statements \"It is raining\", \"It is \ncold\", and \"It is pleasant\", respectively. Then the \nstatement \"It is not raining and it is pleasant, and it \nis not pleasant only if it is raining and it is cold\" is \nrepresented by",
+                "images": [],
+                "latex": [],
+                "tables": [
+                    {
+                        "headers": [
+                            "p",
+                            "q",
+                            "p  q"
+                        ],
+                        "rows": [
+                            [
+                                "0",
+                                "0",
+                                "0"
+                            ],
+                            [
+                                "0",
+                                "1",
+                                "1"
+                            ],
+                            [
+                                "1",
+                                "0",
+                                "1"
+                            ],
+                            [
+                                "1",
+                                "1",
+                                "0"
+                            ]
+                        ]
+                    }
+                ]
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "(p  r)  (r \\rightarrow (p  q))",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "(p  r)  ((p  q) \\rightarrow r)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "(p  r)  ((p  q) \\rightarrow r)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "(p  r)  (r \\rightarrow (p  q))",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "A"
+            ],
+            "solution": {
+                "text": "(\n)\n(\n)\nP\nR\nR\np\nq\n\n\n→\n\n\n",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "DM_PROPOSITION_LOGIC_2017_Q04",
+            "subject": "Discrete Mathematics",
+            "topic": "Proposition Logic",
+            "subtopic": "represented by",
+            "year": 2017,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 4,
+            "tags": [
+                "Proposition Logic",
+                "represented by",
+                "Discrete Mathematics"
+            ],
+            "question": {
+                "text": "Let p, q and r be propositions and the expression \n(p \\rightarrow q) \\rightarrow r be a contradiction. Then, the \nexpression (r \\rightarrow p) \\rightarrow q is",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "a tautology",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "a contradiction",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "always TRUE when p is FALSE",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "always TRUE when q is TRUE",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [],
+            "solution": {
+                "text": "(\n)\n(\n)\nP\nr\ns\nq\n\n→\n\n\n\n \n\n(\n)\n(\n)\nP\nR\nS\nq\n\n\n\n\n\n \n\n(\n))\n(\n(\n)\nP\nR\nS\nq\n\n\n\n\n\n\n\n\n\n\n\n(\n) (\n)\nP\nR\nS\nq\n\n\n\n\n\n(\n) (\n)\nP\nq\nR\nS\n\n\n\n\n\nP.S: Perfect Square       \n\nP.N: Prime number \n     (\n)\nx is not composite\n8,9,10,11,12\nno.\n\n\n\n\n\n\n\n)\nP.S.V.P.N\n",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "DM_PROPOSITION_LOGIC_2016_Q05",
+            "subject": "Discrete Mathematics",
+            "topic": "Proposition Logic",
+            "subtopic": "expression (r → p) → q is",
+            "year": 2016,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 5,
+            "tags": [
+                "Proposition Logic",
+                "expression (r → p) → q is",
+                "Discrete Mathematics"
+            ],
+            "question": {
+                "text": "Let p, q, r, s represent the following propositions. \n\np ∶ x  {8, 9, 10, 11, 12} \n\nq ∶ x is a composite number \n\nr ∶ x is a perfect square \n\ns ∶ x is a prime number \n\nThe integer x \\ge 2 which satisfies  ((p \\Rightarrow q)  (r  \ns)) is _________.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "a"
+            ],
+            "solution": {
+                "text": "AB      =    BA \n\n\n(\n) (\n)\nP\nq\nR\nP\nq\nR\n\n\n\n\n",
+                "images": [
+                    "assets/Discrete Mathematics/DM_Proposition_Logic_P7_X877.png",
+                    "assets/Discrete Mathematics/DM_Proposition_Logic_P7_X888.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "DM_PROPOSITION_LOGIC_2015_Q06",
+            "subject": "Discrete Mathematics",
+            "topic": "Proposition Logic",
+            "subtopic": "s)) is _________.",
+            "year": 2015,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 6,
+            "tags": [
+                "Proposition Logic",
+                "s)) is _________.",
+                "Discrete Mathematics"
+            ],
+            "question": {
+                "text": "The binary operator  is defined by the following \ntruth table. \np \nq \np  q \n\nWhich of the following is true about the binary \noperator  ?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "Both commutative and associative",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "Commutative but not associative",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "Not commutative but associative",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "Neither commutative nor associative",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "B"
+            ],
+            "solution": {
+                "text": "(P#Q)#R \n= \nP # (Q # R) \n\n(P+Q)#R \n= \nP # (Q+R) \n\n     \n\n    \n\n(P+Q)+R \n= \nP + (Q+R) \n\n((PQ)) +R \n= \nP + ((QR))  \n\nPQ + R = \nP + QR",
+                "images": [
+                    "assets/Discrete Mathematics/DM_Proposition_Logic_P7_X877.png",
+                    "assets/Discrete Mathematics/DM_Proposition_Logic_P7_X888.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "DM_PROPOSITION_LOGIC_2015_Q07",
+            "subject": "Discrete Mathematics",
+            "topic": "Proposition Logic",
+            "subtopic": "operator  ?",
+            "year": 2015,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 7,
+            "tags": [
+                "Proposition Logic",
+                "operator  ?",
+                "Discrete Mathematics"
+            ],
+            "question": {
+                "text": "Let # be a binary operator defined as X # Y = X + \nY where X and Y are Boolean variables. \n\nConsider the following two statements: \n\nS1 : (P # Q)# R=P # (Q # R) \n\nS2 : Q # R = R # Q \n\nWhich of the following is/are true for the Boolean \nvariables P, Q and R?",
+                "images": [],
+                "latex": [],
+                "tables": [
+                    {
+                        "headers": [
+                            "P",
+                            "Q",
+                            "P  Q"
+                        ],
+                        "rows": [
+                            [
+                                "T",
+                                "T",
+                                "T"
+                            ],
+                            [
+                                "T",
+                                "F",
+                                "T"
+                            ],
+                            [
+                                "F",
+                                "T",
+                                "F"
+                            ],
+                            [
+                                "F",
+                                "F",
+                                "T"
+                            ]
+                        ]
+                    }
+                ]
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "Only S1 is True",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "Only S2 is True",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "Both S1 and S2 are True",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "Neither S1 nor S2 are True",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "B"
+            ],
+            "solution": {
+                "text": "(a) \n(\n)\n(\n)\nT\nF\nT\nF\na\nb\nb\nc\na\nc\n\n\n\n→\n\n\n\n\n→\n\n→\n\n\n\n\n→\n\n\n\n\n\n\nF\nF\n→\n→\n\n\n\n\n(c)  \n(\n)\n(\n)\n(\n)\nF\nT\nF\na\nb\nc\nc \na\nF\nF\nF\n\nF        \nF \nT\n\n\n→\n\n\n\n\n→\n\n\n(d) \nT\na →(\n)\nF\nb\na\n      F\nT\n→\n\n\n\n(\n)\nT\na\nc\n(F\nF)\nT\n\n→\n\n\n(\n)\n(\n)\nF\nb\na\nc\n\n\nT\nF\nF\nT\nF\nF\n→\n\n\n\n\n→\n\n→\n\nb = T\n   b\nF\n\n",
+                "images": [
+                    "assets/Discrete Mathematics/DM_Proposition_Logic_P8_X1100.png",
+                    "assets/Discrete Mathematics/DM_Proposition_Logic_P8_X1102.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "DM_PROPOSITION_LOGIC_2014_Q08",
+            "subject": "Discrete Mathematics",
+            "topic": "Proposition Logic",
+            "subtopic": "variables P, Q and R?",
+            "year": 2014,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 8,
+            "tags": [
+                "Proposition Logic",
+                "variables P, Q and R?",
+                "Discrete Mathematics"
+            ],
+            "question": {
+                "text": "Which one of the following Boolean expressions is \nNOT a tautology?",
+                "images": [],
+                "latex": [],
+                "tables": [
+                    {
+                        "headers": [
+                            "P",
+                            "Q",
+                            "P  Q"
+                        ],
+                        "rows": [
+                            [
+                                "T",
+                                "T",
+                                "T"
+                            ],
+                            [
+                                "T",
+                                "F",
+                                "T"
+                            ],
+                            [
+                                "F",
+                                "T",
+                                "F"
+                            ],
+                            [
+                                "F",
+                                "F",
+                                "T"
+                            ]
+                        ]
+                    }
+                ]
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "((a \\rightarrow b)  (b \\rightarrow c)) \\rightarrow (a \\rightarrow c)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "(a  c) \\rightarrow (∼b \\rightarrow (a  c))",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "(a  b  c) \\rightarrow (c  a)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "a \\rightarrow (b \\rightarrow a) \n\n\nLogical Equivalence",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "D"
+            ],
+            "solution": {
+                "text": "p\nq\nq\np\n→\n→\n\n\nq\np\n\n\n\n\n\nPropositional Logic",
+                "images": [
+                    "assets/Discrete Mathematics/DM_Proposition_Logic_P8_X1100.png",
+                    "assets/Discrete Mathematics/DM_Proposition_Logic_P8_X1102.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "DM_PROPOSITION_LOGIC_2017_Q09",
+            "subject": "Discrete Mathematics",
+            "topic": "Proposition Logic",
+            "subtopic": "Logical Equivalence",
+            "year": 2017,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 9,
+            "tags": [
+                "Proposition Logic",
+                "Logical Equivalence",
+                "Discrete Mathematics"
+            ],
+            "question": {
+                "text": "The statement (p) \\Rightarrow (q) is logically equivalent \nto which of the statements below? \n\nI.  p \\Rightarrow q  \nII.  q \\Rightarrow p  \n\nIII. (q)  p \nIV. (p)  q",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "I only",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "I and IV only",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "II only",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "II and III only",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "C"
+            ],
+            "solution": {
+                "text": "(\n) (\n)\nP\nq\nq\nP\n→\n\n\n\n(\n) (\n)\nP\nq\nP\nq\nq\nP\n\n\n→\n\n→\n\n\n(\n)\n(\n)\nP\nq\nq\nP\nA.\n\n\n\n\n(\n)\n(\n)\nP\nq\nq\nP\nB.\n\n\n→\n\n\n(\n) (\n)\nP\nq\nP\nq\nq\nP\n\n\n→\n\n→\n\n\n(\n)\n(\n)\nP\nq\nq\nP\nA\n\n\n\n\n(\n)\n= A\nq\nP\n\n\n\n\n(\n) (\n)\nA\nq\nA\nP\n\n\n\n\n\n\n(\n) (\n)\nq\nA\nP\nA\n\n\n\n\n\n(\n)\n(\n)\n(\n)\n(\n)\nq\nP\nq\nP\nP\nq\n\n\n\n\n\n(\n) (\n) (\n) (\n)\nq\nP\nq\nq\np\nP\nP\nq\n\n\n\n\n\n\n\n\n(\n)\n(\n)\n(\n)\n(\n)\nq\nP\nF\nF\nP\nq\n\n\n\n\n\n\n\n\n(\n) (\n)\nq\nP\nP\nq\n\n\n",
+                "images": [
+                    "assets/Discrete Mathematics/DM_Proposition_Logic_P8_X1100.png",
+                    "assets/Discrete Mathematics/DM_Proposition_Logic_P8_X1102.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "DM_PROPOSITION_LOGIC_2015_Q10",
+            "subject": "Discrete Mathematics",
+            "topic": "Proposition Logic",
+            "subtopic": "IV. (p)  q",
+            "year": 2015,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 10,
+            "tags": [
+                "Proposition Logic",
+                "IV. (p)  q",
+                "Discrete Mathematics"
+            ],
+            "question": {
+                "text": "Which one of the following is Not equivalent to \np  q?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "(p  q)  (p  q)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "(p  q)  (q \\rightarrow p)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "(p  q)  (p  q)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "(p  q)  (p  q)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "B"
+            ],
+            "solution": {
+                "text": "(a)  P = F  \nP = F  \nQ = F \n QP \n T T =T \n\n(b) PQ \n\n\nFT  F \n\n(c)  PQ \n  TF  T \n\n(d) PQ \n\n\n TT T",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "DM_PROPOSITION_LOGIC_2009_Q11",
+            "subject": "Discrete Mathematics",
+            "topic": "Proposition Logic",
+            "subtopic": "p  q?",
+            "year": 2009,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 11,
+            "tags": [
+                "Proposition Logic",
+                "p  q?",
+                "Discrete Mathematics"
+            ],
+            "question": {
+                "text": "The binary operation  is defined as follows: \nP \nQ \nP  Q \nT \nT \nT \nT \nF \nT \nF \nT \nF \nF \nF \nT \n\nWhich one of the following is equivalent to P  Q?",
+                "images": [],
+                "latex": [],
+                "tables": [
+                    {
+                        "headers": [
+                            "P",
+                            "Q",
+                            "P  Q"
+                        ],
+                        "rows": [
+                            [
+                                "T",
+                                "T",
+                                "T"
+                            ],
+                            [
+                                "T",
+                                "F",
+                                "T"
+                            ],
+                            [
+                                "F",
+                                "T",
+                                "F"
+                            ],
+                            [
+                                "F",
+                                "F",
+                                "T"
+                            ]
+                        ]
+                    }
+                ]
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "Q  P",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "P  Q",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "P  Q",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "P  Q",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "B"
+            ],
+            "solution": {
+                "text": "1  23 \n1. P\nQ\n\n\n2. \n\n\nP\nQ\n\n\nP\nQ\n\n\n\n3.  (\n) (\n) (\n)\nP\nQ\nP\nQ\nP\nQ\n\n\n\n\n\n\n\n(\n)\n(\n)\nP\nQ\nP\nP\nQ\n\n\n\n\n\n \n\n\n\n(\n)\nP\nQ\n[T\nQ]\n\n\n\n\n\n\nQ\n[P\nQ]\n\n\n\n\n\n\n(\n)\nQ\nP\n[ Q\nQ]\nQ\nP\n\n\n\n\n\n\n\n\n4. \n(\n)\n(\n)\n(\n)\nP\nQ\nP\nQ\nP\nQ\n\n\n\n\n\n\n\n\n\n\n(\n)\nP\nQ\nQ\n\n\n\n\n\nP\nT\nP\n\n\n\n\n(\n)\nP\nP\nQ\n\n\n\n\n(\n) (\n)\nP\nP\nP\nQ\n\n\n\n\n\n\n(\n)\nT\nP\nQ\nP\nQ\n\n\n\n",
+                "images": [
+                    "assets/Discrete Mathematics/DM_Proposition_Logic_P8_X1100.png",
+                    "assets/Discrete Mathematics/DM_Proposition_Logic_P8_X1102.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "DM_PROPOSITION_LOGIC_2008_Q12",
+            "subject": "Discrete Mathematics",
+            "topic": "Proposition Logic",
+            "subtopic": "Which one of the following is equivalent to P  Q?",
+            "year": 2008,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 12,
+            "tags": [
+                "Proposition Logic",
+                "Which one of the following is equivalent to P  Q?",
+                "Discrete Mathematics"
+            ],
+            "question": {
+                "text": "P and Q are two propositions, which of the \nfollowing logical expressions are equivalent? \n\n1. P  ∼Q \n\n2. ∼(∼P  Q) \n\n3. (P  Q)  (P  ∼Q)  (∼P  ∼Q) \n\n4. (P  Q)  (P  ∼Q)  (∼P  Q)",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "Only 1 and 2",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "Only  1, 2 and 3",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "Only 1, 2 and 4",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "All of 1, 2, 3, and 4 \n\nInference Rule",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "D"
+            ],
+            "solution": {
+                "text": "(\n)\nT\nF\np\nq\nR\n→\n→\n\n\nR = F \n\n(\n)\nR\nP\nq\n→\n→\n\n\n(\n)\nF\nq\n→→\n\n\nT\nq\n→",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "DM_PROPOSITION_LOGIC_2016_Q13",
+            "subject": "Discrete Mathematics",
+            "topic": "Proposition Logic",
+            "subtopic": "Inference Rule",
+            "year": 2016,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 13,
+            "tags": [
+                "Proposition Logic",
+                "Inference Rule",
+                "Discrete Mathematics"
+            ],
+            "question": {
+                "text": "Consider the following expressions: \n\nI.  \nFalse \nII. Q \n\nIII.  True \nIV.  P  Q \n\nV. Q  P \n\nThe number of expressions given above that are \nlogically implied by P  (P \\Rightarrow Q) is _____.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "4"
+            ],
+            "solution": {
+                "text": "(\n)\nP\nP\nQ\nTrue\n\n→\n→\n\n\n\n\nQ→ False \n\n\n(\n)\nP\nP\nQ\nQ\nP\nQ.\n\n→\n\n→\n\n\n\n\n\nP\nQ\nP       \n    Q\n→\n\n\n\n\n\n\n(\n)\n(\n)\n(\n)\nT\nF\nF\nP\nP\nQ\nQ\nP\n\n→\n→\n\n\n\nF__________                Q = T       \n\n F                             \nP = F",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "DM_PROPOSITION_LOGIC_2015_Q14",
+            "subject": "Discrete Mathematics",
+            "topic": "Proposition Logic",
+            "subtopic": "logically implied by P  (P  Q) is _____.",
+            "year": 2015,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 14,
+            "tags": [
+                "Proposition Logic",
+                "logically implied by P  (P  Q) is _____.",
+                "Discrete Mathematics"
+            ],
+            "question": {
+                "text": "Consider the following two statements: \n\nS1:  If a candidate is known to be corrupt, then he \nwill not be elected. \n\nS2:  If a candidate is kind, he will be elected. \n\nWhich one of the following statements follows from \nS1 and S2 as per sound inference rules of logic?",
+                "images": [],
+                "latex": [],
+                "tables": [
+                    {
+                        "headers": [
+                            "P",
+                            "Q",
+                            "P  Q"
+                        ],
+                        "rows": [
+                            [
+                                "T",
+                                "T",
+                                "T"
+                            ],
+                            [
+                                "T",
+                                "F",
+                                "T"
+                            ],
+                            [
+                                "F",
+                                "T",
+                                "F"
+                            ],
+                            [
+                                "F",
+                                "F",
+                                "T"
+                            ]
+                        ]
+                    }
+                ]
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "If a person is known to be corrupt, he is kind",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "If a person is not known to be corrupt, he is \nnot kind",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "If a person is kind, he is not known to be \ncorrupt",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "If a person is not kind, he is not known to be \ncorrupt \n\nPropositional Logic",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "C"
+            ],
+            "solution": {
+                "text": "C\nE\nE\nC\n→\n\n→\n\n\nK\nE\n→\n\n\nK\nC\n→",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "DM_PROPOSITION_LOGIC_2014_Q15",
+            "subject": "Discrete Mathematics",
+            "topic": "Proposition Logic",
+            "subtopic": "Propositional Logic",
+            "year": 2014,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 15,
+            "tags": [
+                "Proposition Logic",
+                "Propositional Logic",
+                "Discrete Mathematics"
+            ],
+            "question": {
+                "text": "Consider the following statements:  \n\nP:  Good mobile phones are not cheap  \n\nQ:  Cheap mobile phones are not good  \n\nL:  P implies Q  \n\nM: Q implies P  \n\nN:  P is equivalent to Q  \n\nWhich one of the following about L, M, and N is \nCORRECT?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "Only L is TRUE",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "Only M is TRUE",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "Only N is TRUE",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "L, M and N are TRUE",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "D"
+            ],
+            "solution": {
+                "text": "A\nGood →\nB\nCheap\n\n\n\nCheap\nGood\nB\nA\n→\n→\n\n\nL:  P implies Q (T)  \n\nM: Q implies P (T) \n\nN:  P is equivalent to Q (T)  \n\nA\nB\n→\n B\nA\n→\n\n\nA\nB\n\n\n\nA\nB\nB\nA \n→\n\n→",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "DM_PROPOSITION_LOGIC_2012_Q16",
+            "subject": "Discrete Mathematics",
+            "topic": "Proposition Logic",
+            "subtopic": "CORRECT?",
+            "year": 2012,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 16,
+            "tags": [
+                "Proposition Logic",
+                "CORRECT?",
+                "Discrete Mathematics"
+            ],
+            "question": {
+                "text": "Consider the following logical inferences. \n\nI1: If it rains then the cricket match will not be \nplayed.  \n\n      The cricket match was played. \n\n\nInference: There was no rain. \n\nI2: If it rains then the cricket match will not be \nplayed.  \n\n\nIt did not rain. \n\n\nInference: The cricket match was played. \n\nWhich of the following is TRUE?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "Both I1 and I2 are correct inferences",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "I1 is correct but I2 is not a correct inference",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "I1 is not correct but I2 is a correct inference",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "Both I1 and I2 are not correct inferences \nPredicate logic",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "B"
+            ],
+            "solution": {
+                "text": "(\n)\nR\nP\nP\nR\nP          \nP          Modus pones\nR\nR\n→\n→\n\n\n\n\n(\n)\nR\nP\nP\nR\nR          \nR          Not valid\nP\nP\n→\n→\n\n\n",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "DM_PROPOSITION_LOGIC_2023_Q17",
+            "subject": "Discrete Mathematics",
+            "topic": "Proposition Logic",
+            "subtopic": "Predicate logic",
+            "year": 2023,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MSQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 17,
+            "tags": [
+                "Proposition Logic",
+                "Predicate logic",
+                "Discrete Mathematics"
+            ],
+            "question": {
+                "text": "Geetha has a conjecture about integers, which is of \nthe form  \n\nx(P(x) yQ(x, y), \n\nwhere P is a statement about integers, and Q is a \nstatement about pairs of integers. Which of the \nfollowing (one or more) option(s) would imply \nGeetha's conjecture?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "x(P(x) yQ(x, y))",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "xyQ(x, y))",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "yy (P(x) Q(x, y))",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "x(P(x) yQ(x, y))",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "B",
+                "C"
+            ],
+            "solution": {
+                "text": "L : x[ P(x)→ y Q(x,y)] \n\n\"For every x if P(x) is true then there exists \nsome y such that Q(x,y) will be true. \n\nOption : \n\n(i)  x(P(x) y Q(x,y)) \n\n\n\"For some x. P(x) is true and for all y \n\nQ(x.y) is true which is not implies L\" \n\n(ii) xyQ(x,y) \n\n\"For every x and every yQ(x,y) is true \nwhich implies L\" \n\n(iii) y x[P(x)→ Q(x,y)] \n\n\"These exists some y such that for every x \nif P(x) is true then Q(x,y) is also true which \nimplies L\" \n\n(iv) xP(x) yQ(x,y) \n\n\"There exists some x for which P(x) is true \nand also for some y Q(x,y) is true which \ncannot implies L\"",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "DM_PROPOSITION_LOGIC_2014_Q18",
+            "subject": "Discrete Mathematics",
+            "topic": "Proposition Logic",
+            "subtopic": "yy (P(x) Q(x, y))",
+            "year": 2014,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 18,
+            "tags": [
+                "Proposition Logic",
+                "yy (P(x) Q(x, y))",
+                "Discrete Mathematics"
+            ],
+            "question": {
+                "text": "The CORRECT formula for the sentence, \"not all \nrainy days are cold\" is",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "d (Rainy",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "d (∼Rainy (d) \\rightarrow Cold (d))",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "d (∼Rainy (d) \\rightarrow Cold (d)) \n\n(d) d (Rainy (d)  ~ Cold (d))",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": " ~ Cold (d))",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "D"
+            ],
+            "solution": {
+                "text": "Not (all rainy days are cold) \n\nd Rainy\nCold\n\n\n\n→\n\n\n\n\n\n\n( )\n( )\nd\nRainy d\ncold d\n\n\n\n\n \n\nPropositional Logic \n\n( )\n( )\nd Rainy d\ncold d\n\n\n\n\n",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "DM_PROPOSITION_LOGIC_2014_Q19",
+            "subject": "Discrete Mathematics",
+            "topic": "Proposition Logic",
+            "subtopic": "rainy days are cold\" is",
+            "year": 2014,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 19,
+            "tags": [
+                "Proposition Logic",
+                "rainy days are cold\" is",
+                "Discrete Mathematics"
+            ],
+            "question": {
+                "text": "Consider the statement:  \n\n\"Not all that glitters is gold\"  \n\nPredicate glitters(x) is true if x glitters and predicate \ngold(x) is true if x is gold. Which one of the \nfollowing logical formulae represents the above \nstatement?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "x : glitters(x) \\Rightarrow gold(x)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "x : gold(x) \\Rightarrow glitters(x)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "x : gold(x)  glitters(x)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "x : glitters(x)  gold(x)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "D"
+            ],
+            "solution": {
+                "text": "( )\n( )\nx Glitter x\nGold x\n\n→\n\n\n \n\n( )\n( )\nx\nGlitter x\nGold x\n\n\n\n\n \n\n( )\n( )\nx Glitter x\nGold x\n\n\n\n\n",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "DM_PROPOSITION_LOGIC_2013_Q20",
+            "subject": "Discrete Mathematics",
+            "topic": "Proposition Logic",
+            "subtopic": "statement?",
+            "year": 2013,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 20,
+            "tags": [
+                "Proposition Logic",
+                "statement?",
+                "Discrete Mathematics"
+            ],
+            "question": {
+                "text": "What is the logical translation of the following \nstatements?  \n\n\"None of my friends are perfect.\"",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "x (F(x)   P(x))",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "x(¬ F(x)  P(x))",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "x (¬F(x)   P(x))",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "x(F(x)  P(x)) \nQuantifier",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "D"
+            ],
+            "solution": {
+                "text": "All my friends are not perfect \n\n( )\n( )\nx F x\nP x\n\n→\n\n\n \n\n( )\n( )\nx\nF x\nP x\n\n\n\n\n \n\n( )( )\n( )\n( )\nx\nF x\nP x\n\n\n\n\n\n\n\n \n\n( )\n( )\nx F x\nP x\n\n\n\n\n \n\nA\nB\nA\nB\n→\n\n\n\n\nA\nA\n\n",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "DM_PROPOSITION_LOGIC_2020_Q21",
+            "subject": "Discrete Mathematics",
+            "topic": "Proposition Logic",
+            "subtopic": "Quantifier",
+            "year": 2020,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 21,
+            "tags": [
+                "Proposition Logic",
+                "Quantifier",
+                "Discrete Mathematics"
+            ],
+            "question": {
+                "text": "Which one of the following predicate formulae is \nNOT logically valid? \n\nNote that W is a predicate formula without any free \noccurrence of x.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "x(p(x)  W)  x p(x)  W",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "x(p(x) \\rightarrow W)  x p(x) \\rightarrow W",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "x (p(x) \\rightarrow W)  x p(x) \\rightarrow W",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "x (p(x)  W)  x p(x)  W",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "C"
+            ],
+            "solution": {
+                "text": "(a) x[P(x)  w] \n\n\nP(1)\nw\n\n\n\n\n  \n\n\nP(2)\nw\n\n\n\n\n(P(1)  w)  (P(2)  w) \n\n\n(P(1)  P(2))  w \n\n\nx[P(x)  w] \n\n\nP(1)\nw\nP(2)\n\n\n\n(b) x[P(x) \\rightarrow w]  xP(x) \\rightarrow w \n\n\nx[P(x)  w] \nP1\nP2\nw\n\n\n\n\n\n\n\n\n\n→\n\n\n\n\n\n\n\n\n\n\n\n(P(1)  w)  \n \n(P(1)  P(2)  w) \n\n\n   \n\n\n(P(2)  w) \n  \n (P1  P2  w) \n\n\n(P(1)  w)  (P(2)  w) \n\n\n(P(1)  P(2))  w \n\n(c) x[P(x) \\rightarrow w]  xP(x) \\rightarrow w  [xP(x) ] \\rightarrow w \n\n\nx[P(x)  w]  \n\n\n(P(1)  w)  \n\n[P(1)  P(2)]  w) \n\n\n   \n\n\n(P(2)  w) \n\n(P1  P2  w) \n\n\n(P(1)  w)  (P(2)  w) \n\n\n(P(1)  P(2))  w",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "DM_PROPOSITION_LOGIC_2017_Q22",
+            "subject": "Discrete Mathematics",
+            "topic": "Proposition Logic",
+            "subtopic": "occurrence of x.",
+            "year": 2017,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 22,
+            "tags": [
+                "Proposition Logic",
+                "occurrence of x.",
+                "Discrete Mathematics"
+            ],
+            "question": {
+                "text": "Consider the first-order logic sentence. \n\nF: x(yR(x, y)). Assuming non-empty logical \ndomains, which of the sentences below are implied \nby F? \n\nI.  \ny(x R(x, y)) \nII. y(x R(x, y)) \n\nIII.  y(xR(x, y)) \nIV.  ¬x(yR(x, y))",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "IV only",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "I and IV only",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "II only",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "II and III only",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "B"
+            ],
+            "solution": {
+                "text": "IV. \n(\n)\n,\nx\ny R x y\n\n\n\n \n\n\n(\n)\n R x, y\nx\ny\n\n\n\n \n\n\n( )( )\n(\n)\n(\n)\nx yR x, y\nyR x, y\nx\n\n\n\n\n\n\nx y\ny x\n\n\ny x\n    x y\n\n\nx y\n   y x\n\n\ny\n y x\nx\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n(\n)\n(\n)\nx y x\ny\nx\n1   y\n y x\ny\nx\n\n+\n=\n=\n=\n\n+\n=\n\n\n\nx  \ny \n\n\n\n1 \\rightarrow 9 \n\n\n2 \\rightarrow 8 \n\n\n3 \\rightarrow 7",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "DM_PROPOSITION_LOGIC_2016_Q23",
+            "subject": "Discrete Mathematics",
+            "topic": "Proposition Logic",
+            "subtopic": "IV.  ¬x(yR(x, y))",
+            "year": 2016,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 23,
+            "tags": [
+                "Proposition Logic",
+                "IV.  ¬x(yR(x, y))",
+                "Discrete Mathematics"
+            ],
+            "question": {
+                "text": "Which one of the following well-formed formulae \nin predicate calculus is NOT valid?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "(x p(x) \\Rightarrow x q(x)) \\Rightarrow (x p(x)  x q(x))",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "(x p(x)  x q(x)) \\Rightarrow x(p(x)  q(x))",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "x(p(x)  q(x)) \\Rightarrow (x p(x)  x q(x))",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "x(p(x)  q(x)) \\Rightarrow (x p(x)  x q(x))",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "D"
+            ],
+            "solution": {
+                "text": "(c) \n( )\n( )\nD: 1, 2\nP\nq\nx\nx\nx\n\n\n\n\n\n( )\n( )\nQ\nx x\nx\nx\n→\n\n\n\n\n( )\n( )\n( )\n( )\n( )\n( )\n( )\n( )\nT\nT\nP 1\nQ 2\nP 1\nQ 1\n\n\nT\nT\nP 2\nQ 2\nP 2\nQ 2\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n         T                   T \n T\nT\n\n\n\n\nP(2) = T, Q (2) = T \n\n( )\n( )\n( )\n( )\nx P x\nQ x\nxP x\nxQ x\n\n\n\n\n\n\n\n\n( )\n( )\n( )\n( )\nx P x\nQ x\nxP x\nxQ x\n\n\n\n\n\n\n\n\n( )\n( )\n( )\n( )\nx P x\nQ x\nxP x\nxQ x\n\n\n\n\n\n\n\n\n( )\n( )\n( )\n( )\nx P x\nQ x\nxP x\nxQ x\n\n\n→\n\n\n\n\n\n( )\n( )\n( )\n( )\nx P x\nQ x\nxP x\nxQ x\n\n→\n→\n→\n\n\n\n\n( )\n( )\n( )\n( )\nx P x\nQ x\nxP x\nxQ x\n\n\n→\n\n\n",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "DM_PROPOSITION_LOGIC_2013_Q24",
+            "subject": "Discrete Mathematics",
+            "topic": "Proposition Logic",
+            "subtopic": "in predicate calculus is NOT valid?",
+            "year": 2013,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 24,
+            "tags": [
+                "Proposition Logic",
+                "in predicate calculus is NOT valid?",
+                "Discrete Mathematics"
+            ],
+            "question": {
+                "text": "Which one of the following is NOT logically \nequivalent to x(y() z())?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "x(z() \\rightarrow y())",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "x(z() \\rightarrow y())",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "x(y() \\rightarrow z())",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "x(y(¬)  z())",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "A",
+                "D"
+            ],
+            "solution": {
+                "text": "( )\n( )\nx\ny α\nz β\n\n\n\n\n \n\n( )\n( )\nx\ny α\nz β\n\n\n\n\n \n\n( )\n( )\nx\ny α\nz β\n\n→\n\n\n \n\nx [ y() \\rightarrow z ()] \n\n( )\n( )\nx\nβ\ny α\nz\n\n\n\n\n \n\n( )\n( )\nx\nz β\ny α\n\n→\n\n\n \n\n( )\n(\n)\nx\nz β\ny\nα\n\n→\n\n\n\n",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "DM_PROPOSITION_LOGIC_2009_Q25",
+            "subject": "Discrete Mathematics",
+            "topic": "Proposition Logic",
+            "subtopic": "equivalent to x(y() z())?",
+            "year": 2009,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 25,
+            "tags": [
+                "Proposition Logic",
+                "equivalent to x(y() z())?",
+                "Discrete Mathematics"
+            ],
+            "question": {
+                "text": "Consider the following well-formed formulae: \n\nI.  \nx(P(x)) \n\nII. x(P(x)) \n\nIII.  x(P(x)) \nIV. x(P(x)) \n\nWhich of the above are equivalent?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "I and III",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "I and IV",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "II and III",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "II and IV",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "B"
+            ],
+            "solution": {
+                "text": "I. \n( )\n( )\nx P\nx  P x\n\n\n\n\n\nII. \n( )\n( )\nx  P x\nx P x\n\n\n\n\n\n\n\n( )\n( )\n( )\nx  P x\nx\n P x\nxP x\n\n\n\n",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "DM_PROPOSITION_LOGIC_2008_Q26",
+            "subject": "Discrete Mathematics",
+            "topic": "Proposition Logic",
+            "subtopic": "Which of the above are equivalent?",
+            "year": 2008,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 26,
+            "tags": [
+                "Proposition Logic",
+                "Which of the above are equivalent?",
+                "Discrete Mathematics"
+            ],
+            "question": {
+                "text": "Which of the following is the negation of \n\n[x,  \\rightarrow (y,  \\rightarrow (u, v, ))]?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "[x,  \\rightarrow (y,  \\rightarrow (u, v, ))]",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "[x,  \\rightarrow (y,  \\rightarrow (u, v,  ))]",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "[x,   \\rightarrow (y,   \\rightarrow (u, v, ))]",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "[x,   (y,   (u, v, ))] \n\n\n\n\n\n\n\n\nPropositional Logic",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "D"
+            ],
+            "solution": {
+                "text": "A→B \nA\nB\n\n\n\n\n(\n)\n(\n)\nx\ny,β\nu, u,\n\n\n\n→\n→\n\n\n\n(\n)\n(\n)\nx\ny, β\nu, u,γ\n\n\n\n\n\n\n(\n)\n(\n)\nxα\ny,β\nu, u γ\n\n\n",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        }
+    ]
+}

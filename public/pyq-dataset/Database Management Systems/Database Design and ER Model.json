@@ -1,0 +1,866 @@
+{
+    "subject": "Database Management Systems",
+    "topic": "Database Design and ER Model",
+    "questionCount": 14,
+    "questions": [
+        {
+            "id": "DBMS_DATABASE_DESIGN_AND_ER_MODEL_2023_Q01",
+            "subject": "Database Management Systems",
+            "topic": "Database Design and ER Model",
+            "subtopic": "Introduction to RDBMS",
+            "year": 2023,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 1,
+            "tags": [
+                "Database Design and ER Model",
+                "Introduction to RDBMS",
+                "Database Management Systems"
+            ],
+            "question": {
+                "text": "Which one of the options given below refers to the \ndegree (or arity) of a relation in relational database \nsystems?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "Number of attributes of its relation schema.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "Number of tuples stored in the relation.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "Number of entries in the relation.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "Number of distinct domains of its relation \nschema. \n\nKey Concepts",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "A"
+            ],
+            "solution": {
+                "text": "Arity (Degree): Number of Attributes/fields \n\nCardinality: Number of Tuples/Records",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "DBMS_DATABASE_DESIGN_AND_ER_MODEL_2014_Q02",
+            "subject": "Database Management Systems",
+            "topic": "Database Design and ER Model",
+            "subtopic": "Key Concepts",
+            "year": 2014,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 2,
+            "tags": [
+                "Database Design and ER Model",
+                "Key Concepts",
+                "Database Management Systems"
+            ],
+            "question": {
+                "text": "Given an instance of the STUDENTS relation as \nshown below: \nStudent \nID \nStudent \nName \nStudent \nEmail \nStudent \nAge \nCPI \nShankar shankar@math \nX \nSwati \nswati@ee \nShankar \nshankar@cse \nSwati \nswati@mech \nGanesh \nganesh@civil \n\nFor (Student Name, Student Age) to be a key for this \ninstance, the value X should NOT be equal to ______.",
+                "images": [],
+                "latex": [],
+                "tables": [
+                    {
+                        "headers": [
+                            "Student ID",
+                            "Student Name",
+                            "Student Email",
+                            "Student Age",
+                            "CPI"
+                        ],
+                        "rows": [
+                            [
+                                "2345",
+                                "Shankar",
+                                "shankar@math",
+                                "X",
+                                "9.4"
+                            ],
+                            [
+                                "1287",
+                                "Swati",
+                                "swati@ee",
+                                "19",
+                                "9.5"
+                            ],
+                            [
+                                "7853",
+                                "Shankar",
+                                "shankar@cse",
+                                "19",
+                                "9.4"
+                            ],
+                            [
+                                "9876",
+                                "Swati",
+                                "swati@mech",
+                                "18",
+                                "9.3"
+                            ],
+                            [
+                                "8765",
+                                "Ganesh",
+                                "ganesh@civil",
+                                "19",
+                                "8.7"
+                            ]
+                        ]
+                    }
+                ]
+            },
+            "options": [],
+            "correctAnswer": [
+                "19"
+            ],
+            "solution": {
+                "text": "In order for Student Name, Student Age to be the key, \nit must be unique, therefore the value of X  \\neq 19 \nsatisfies the criteria of Student Name, Student Age \nbeing the key. \n\nHence, 19 is the answer.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "DBMS_DATABASE_DESIGN_AND_ER_MODEL_2014_Q03",
+            "subject": "Database Management Systems",
+            "topic": "Database Design and ER Model",
+            "subtopic": "instance, the value X should NOT be equal to ______.",
+            "year": 2014,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 3,
+            "tags": [
+                "Database Design and ER Model",
+                "instance, the value X should NOT be equal to ______.",
+                "Database Management Systems"
+            ],
+            "question": {
+                "text": "A prime attribute of a relation scheme R is an attribute \nthat appears",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "in all candidate keys of R.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "in some candidate key of R.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "in a foreign key of R.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "only in the primary key of R.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "B"
+            ],
+            "solution": {
+                "text": "Prime attribute is a attribute that is present in some \ncandidate key of a relation.  \n\nExample: Consider for relation R(ABCDE) if the \ncandidate keys are AC, and BC, then the set of prime \nattributes are {A, B, C}.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "DBMS_DATABASE_DESIGN_AND_ER_MODEL_2011_Q04",
+            "subject": "Database Management Systems",
+            "topic": "Database Design and ER Model",
+            "subtopic": "that appears",
+            "year": 2011,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 4,
+            "tags": [
+                "Database Design and ER Model",
+                "that appears",
+                "Database Management Systems"
+            ],
+            "question": {
+                "text": "Consider a relational table with a single record for \neach registered student with the following attributes. \n\n1.  Registration_Num: Unique registration number of \neach registered student \n\n2.  UID: Unique identity number, unique at the \nnational level for each citizen. \n\n3.  Bank Account_Num: Unique account number at \nthe bank. A student can have multiple accounts or \njoint accounts. This attribute stores the primary \naccount number. \n\n4.  Name: Name of the student \n\n5.  Hostel_Room: Room number of the hostel \n\nWhich of the following option is INCORRECT?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "BankAccount_Num is a candidate key.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "Registration_Num can be a primary key.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "UID is a candidate key if all students are from the \nsame country.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "If S is a super key such that S  UID is NULL \nthen S  UID is also a super key. \n\nForeign Key Concepts",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "A"
+            ],
+            "solution": {
+                "text": "(a) BankAccount_Num is a candidate key: Incorrect. \n\n\nBecause a student can have multiple account and \njoint account. \n\n\nExample  \n\n\nAssume 2 person Ramesh and Suresh have joint \naccount they both have some account number in \na primary account number. So, Bank account \nnumber can not uniquely determine and Bank \naccount cannot be candidate key. \n\n(b) Registration number can be primary key: True. \nBecause registration number is a unique for each \nregistered student \n\n\nSo, it can be uniquely determining each tuple of \nrelation. \n\n(c) UID is a candidate if all student is from same \ncountry: correct. \n\n\nBecause UID is unique at National level \n\n\nExample  \n\n\nIndian Aadhar card is unique for each person in \nIndia. \n\n(d) If S is a super key, then S  UID is also super \nkey: correct \n\n\nBecause any super set of super keys is also super \nkey.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "DBMS_DATABASE_DESIGN_AND_ER_MODEL_2021_Q05",
+            "subject": "Database Management Systems",
+            "topic": "Database Design and ER Model",
+            "subtopic": "Foreign Key Concepts",
+            "year": 2021,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 5,
+            "tags": [
+                "Database Design and ER Model",
+                "Foreign Key Concepts",
+                "Database Management Systems"
+            ],
+            "question": {
+                "text": "Consider the following statements S1 and S2 about \nthe relational data model: \n\nS1: A relation scheme can have at most one foreign \nkey. \n\nS2: A foreign key in a relation scheme R cannot be \nused to refer to tuples of R. \n\nWhich one of the following choices is correct? \n\n\n\nDatabase Management System",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "Both S1 and S2 are true",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "S1 is true and S2 is false",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "S1 is false and S2 is true",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "Both S1 and S2 are false",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "D"
+            ],
+            "solution": {
+                "text": "• \nA relation scheme can have zero or more foreign \nkey. \n• \nA foreign key in a relation scheme R can be used \nto refer to tuples of R.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "DBMS_DATABASE_DESIGN_AND_ER_MODEL_2017_Q06",
+            "subject": "Database Management Systems",
+            "topic": "Database Design and ER Model",
+            "subtopic": "Database Management System",
+            "year": 2017,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 6,
+            "tags": [
+                "Database Design and ER Model",
+                "Database Management System",
+                "Database Management Systems"
+            ],
+            "question": {
+                "text": "Consider the following tables T1 and T2. \n\nIn table T1, P is the primary key and Q is the foreign \nkey referencing R in table T2 with on delete cascade \nand on-update cascade. In table T2, R is the primary \nkey and S is the foreign key referencing P in table T1 \nwith on-delete set NULL and on-update cascade. In \norder to delete record ⟨3, 8⟩ from table T1, the number \nof additional records that need to be deleted from table \nT1 is",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "0"
+            ],
+            "solution": {
+                "text": "On delete cascade: Whenever primary key is deleted \nfrom referenced (parent) table then that related value \n(Tuple/Row) (that primary key value) from \nreferencing (CHILD table) has to be deleted. \n\nOn delete set NULL: Whenever primary key is \ndeleted from reference (parent) table then that related \nvalue (Tuple/Row) in referencing [CHILD table \n(which contain foreign key)] is set to NULL. \n\nBy default foreign key references to the primary key \nof referenced relation.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "DBMS_DATABASE_DESIGN_AND_ER_MODEL_2014_Q07",
+            "subject": "Database Management Systems",
+            "topic": "Database Design and ER Model",
+            "subtopic": "T1 is",
+            "year": 2014,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 7,
+            "tags": [
+                "Database Design and ER Model",
+                "T1 is",
+                "Database Management Systems"
+            ],
+            "question": {
+                "text": "Given the following statements: \n\nS1: A foreign key declaration can always be \nreplaced by an equivalent check assertion in \nSQL. \n\nS2: Given the table R(a, b, c) where a and b together \nform the primary key, the following is a valid \ntable definition. \n\nCREATE TABLE S \n\na INTEGER, \n\nd INTEGER, \n\ne INTEGER, \n\nPRIMARY KEY",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "references (R) \n\nWhich one of the following statements is CORRECT? \n\n(a) S1 is TRUE and S2 is FALSE",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "Both S1 and S2 are TRUE",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "S1 is FALSE and S2 is TRUE \n\n(d) Both S1 and S2 are FALSE \n\nER Model Concept",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": ", \n\nFOREIGN KEY",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "D"
+            ],
+            "solution": {
+                "text": "• \nStatement S1 is false as a foreign key declaration \ncannot be replaced by check assertion in SQL, \nbecause foreign key may have duplicate and Null \nvalues and having ON DELETE cascade \noperation then if any primary key deleted from \nreferential relation then the referential integrity \nconstraint may not be maintained. \n• \nStatement S2: R(a b c) \n\n\nHere ab is primary key \n\n\nS(a d e) \n\n\nPrimary key : d,  foreign key a references R, \nforeign key reference to the primary key of \nreferenced relation R. But in referenced relation \nab is primary key, only a is not a primary key so \nhere foreign key 'a' not references key (ab) of \nreferenced relation R. therefore S2 is false. \n\n\nDatabase Management System",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "DBMS_DATABASE_DESIGN_AND_ER_MODEL_2020_Q08",
+            "subject": "Database Management Systems",
+            "topic": "Database Design and ER Model",
+            "subtopic": "ER Model Concept",
+            "year": 2020,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 8,
+            "tags": [
+                "Database Design and ER Model",
+                "ER Model Concept",
+                "Database Management Systems"
+            ],
+            "question": {
+                "text": "Which one of the following is used to represent the \nsupporting many-one relationships of a weak entity \nset in an entity-relationship diagram?",
+                "images": [
+                    "assets/Database Management Systems/DBMS_Database_Design_and_ER_Model_P4_X694.png",
+                    "assets/Database Management Systems/DBMS_Database_Design_and_ER_Model_P4_X695.png"
+                ],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "Diamonds with double/bold border.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "Ovals with double/bold border",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "Ovals that contain underlined identifiers",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "Rectangles with double/bold border",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "A"
+            ],
+            "solution": {
+                "text": "The relationship between strong entity set and weak \nentity set is represented by double/bold diamond.",
+                "images": [
+                    "assets/Database Management Systems/DBMS_Database_Design_and_ER_Model_P8_X992.png",
+                    "assets/Database Management Systems/DBMS_Database_Design_and_ER_Model_P8_X998.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "DBMS_DATABASE_DESIGN_AND_ER_MODEL_2018_Q09",
+            "subject": "Database Management Systems",
+            "topic": "Database Design and ER Model",
+            "subtopic": "set in an entity-relationship diagram?",
+            "year": 2018,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 9,
+            "tags": [
+                "Database Design and ER Model",
+                "set in an entity-relationship diagram?",
+                "Database Management Systems"
+            ],
+            "question": {
+                "text": "In an Entity-Relationship (ER) model, suppose R is a \nmany-to-one relationship from entity set E1 to entity \nset E2. Assume that E1 and E2 participate totally in R \nand that the cardinality of E1 is greater than the \ncardinality of E2. \n\nWhich one of the following is true about R?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "Every entity in E1 is associated with exactly one \nentity in E2.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "Some entity in E1 is associated with more than \none entity in E2.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "Every entity in E2 is associated with exactly one \nentity in E1.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "Every entity in E2 is associated with at most one \nentity in E1. \n\nER Model Concept and Conversion of \nER Model to RDBMS",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "A"
+            ],
+            "solution": {
+                "text": "Cardinality of E1 > Cardinality of E2  \n\n\n(a) Correct. Every entity of E1 is associated with \nexactly one entity in E2. \n\n\n( its total participation and many to one from E1 \nto E2). \n\n(b) Incorrect. Because mention some entity in E1 \nbut here total participation and mention more \nthan one entity in E2 but here many to one (of E2 \nside). \n\n(c) Incorrect. Because there is a many to one from \nE1 to E2, not from E2 to E1. \n\n(d) Incorrect. Because there is a many to one from \nE1 to E2.",
+                "images": [
+                    "assets/Database Management Systems/DBMS_Database_Design_and_ER_Model_P8_X994.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "DBMS_DATABASE_DESIGN_AND_ER_MODEL_2017_Q10",
+            "subject": "Database Management Systems",
+            "topic": "Database Design and ER Model",
+            "subtopic": "ER Model to RDBMS",
+            "year": 2017,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 10,
+            "tags": [
+                "Database Design and ER Model",
+                "ER Model to RDBMS",
+                "Database Management Systems"
+            ],
+            "question": {
+                "text": "An ER model of a database consists of entity types A \nand B. These are connected by a relationship R which \ndoes not have its own attribute. Under which one of \nthe following conditions, can the relational table for R \nbe merged with that of A?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "Relationship \nR \nis \none-to-many \nand \nthe \nparticipation of A in R is total.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "Relationship \nR \nis \none-to-many \nand \nthe \nparticipation of A in R is partial.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "Relationship \nR \nis \nmany-to-one \nand \nthe \nparticipation of A in R is total.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "Relationship \nR \nis \nmany-to-one \nand \nthe \nparticipation of A in R is partial.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "C"
+            ],
+            "solution": {
+                "text": "Relationship R is many to one and participation of A \nin R is total.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "DBMS_DATABASE_DESIGN_AND_ER_MODEL_2015_Q11",
+            "subject": "Database Management Systems",
+            "topic": "Database Design and ER Model",
+            "subtopic": "participation of A in R is partial.",
+            "year": 2015,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 11,
+            "tags": [
+                "Database Design and ER Model",
+                "participation of A in R is partial.",
+                "Database Management Systems"
+            ],
+            "question": {
+                "text": "Consider an Entity-Relationship (ER) model in which \nentity sets E1 and E2 are connected by an m: n \nrelationship R12 . E1 and E3 are connected by a 1: n \n(1 on the side of E1 and n on the side of E3) \nrelationship R13. \n\nE1 has two single-valued attributes a11 and a12 of \nwhich a11 is the key attribute. E2 has two single valued \nattributes a21 and a22 of which a21 is the key attribute. \nE3 has two single valued attributes a31 and a32 of which \na31 is the key attribute. The relationships do not have \nany attributes. \n\nIf a relational model is derived from the above ER \nmodel, then the minimum number of relations that \nwould be generated if all the relations are in 3 NF \nis__________.",
+                "images": [
+                    "assets/Database Management Systems/DBMS_Database_Design_and_ER_Model_P5_X754.png"
+                ],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "4"
+            ],
+            "solution": {
+                "text": "R12 is many to many relationships between E1 and E2. \nSo, separate table is created \n\nE1 (a11 a12)    E2 (a21 a22)  \nR12 (a11 a21) \n\n a11 \\rightarrow a12 \n     a21 \\rightarrow a22 \n\n\n\nE3 R13(a31 a32 a11) a31 \\rightarrow a32a11 \n\n3NF (Third normal form): Let R be the relational \nschema and X \\rightarrow Y is non trivial FD is in 3NF  \n\nIf   X: super key \n\n\n   or \n\n      Y: prime attribute \n\nE1 (a11 a12) a11 \\rightarrow a12  \n\nE2 (a21 a22) a21 \\rightarrow a22 \n\n\nR12 (a11a21) \n\nE3R13 (a31 a32 a11)a31 \\rightarrow a32a11 \n\nX is a super key \n\nSo, R is in 3NF \n\nMinimum 4 table required",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "DBMS_DATABASE_DESIGN_AND_ER_MODEL_2012_Q12",
+            "subject": "Database Management Systems",
+            "topic": "Database Design and ER Model",
+            "subtopic": "is__________.",
+            "year": 2012,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 12,
+            "tags": [
+                "Database Design and ER Model",
+                "is__________.",
+                "Database Management Systems"
+            ],
+            "question": {
+                "text": "Given the basic ER and relational models, which of \nthe following is INCORRECT?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "An attribute of an entity can have more than one \nvalue.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "An attribute of an entity can be composite.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "In a row of a relational table, an attribute can have \nmore than one value.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "In a row of a relational table, an attribute can have \nexactly one value or a NULL value.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "C"
+            ],
+            "solution": {
+                "text": "(a) Statement given is correct with respect to ER \ndiagram.  \n\n(b) Statement given is correct with respect to ER \ndiagram. \n\n\n(c) In ER diagram multivalued attribute and \ncomposite attribute both are allowed, but in \nRDBMS Multivalued attribute and composite \nattribute are not allowed. \n\n\nEach Tuple in RDBMS can have only one value \nor NULL for each field (Attribute exactly) \n\n\nSo, option (c) is incorrect.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "DBMS_DATABASE_DESIGN_AND_ER_MODEL_2008_Q13",
+            "subject": "Database Management Systems",
+            "topic": "Database Design and ER Model",
+            "subtopic": "exactly one value or a NULL value.",
+            "year": 2008,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 13,
+            "tags": [
+                "Database Design and ER Model",
+                "exactly one value or a NULL value.",
+                "Database Management Systems"
+            ],
+            "question": {
+                "text": "Consider the following ER diagram \n\n\nThe minimum number of tables needed to represent \nM, N, P R1, R2 is",
+                "images": [
+                    "assets/Database Management Systems/DBMS_Database_Design_and_ER_Model_P5_X754.png"
+                ],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "2",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "3",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "4",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "5",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "B"
+            ],
+            "solution": {
+                "text": "MR1P  \\Rightarrow many to one and total participation at \nmany side  \n\nMR1(M1M2 M3P1) , here P1 is a foreign key \n\nP(P1 P2) \n\nNR2(N1N2 P1) , here P1 is a foreign key",
+                "images": [
+                    "assets/Database Management Systems/DBMS_Database_Design_and_ER_Model_P9_X1059.png",
+                    "assets/Database Management Systems/DBMS_Database_Design_and_ER_Model_P9_X1065.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "DBMS_DATABASE_DESIGN_AND_ER_MODEL_2008_Q14",
+            "subject": "Database Management Systems",
+            "topic": "Database Design and ER Model",
+            "subtopic": "M, N, P R1, R2 is",
+            "year": 2008,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 14,
+            "tags": [
+                "Database Design and ER Model",
+                "M, N, P R1, R2 is",
+                "Database Management Systems"
+            ],
+            "question": {
+                "text": "Consider the following ER diagram \n\n\nWhich of the following is a correct attribute set for \none of the tables for the minimum number of tables \nneeded to represent M, N, P, R1 and R2",
+                "images": [
+                    "assets/Database Management Systems/DBMS_Database_Design_and_ER_Model_P5_X754.png"
+                ],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "{M1, M2, M3, P1}",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "{M1, P1,  N1,  N2}",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "{M1, P1,  N1}",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "{M1, P1} \n\n\n\n\nDatabase Management System",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "A"
+            ],
+            "solution": {
+                "text": "MR1(M1 M2 M3 P1), here P1 is a foreign key \n\nP(P1 P2), P1 is primary key \n\nNR2(N1N2P1), here P1 is a foreign key",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        }
+    ]
+}

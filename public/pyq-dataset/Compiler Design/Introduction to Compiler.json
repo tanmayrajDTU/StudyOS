@@ -1,0 +1,262 @@
+{
+    "subject": "Compiler Design",
+    "topic": "Introduction to Compiler",
+    "questionCount": 4,
+    "questions": [
+        {
+            "id": "CD_INTRODUCTION_TO_COMPILER_2023_Q01",
+            "subject": "Compiler Design",
+            "topic": "Introduction to Compiler",
+            "subtopic": "Phases of Compiler",
+            "year": 2023,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 1,
+            "tags": [
+                "Introduction to Compiler",
+                "Phases of Compiler",
+                "Compiler Design"
+            ],
+            "question": {
+                "text": "Consider the following statements regarding the \nfront-end and back-end of a compiler. \n\nS1:  The front-end includes phases that are \nindependent of the target hardware. \n\nS2:  The back-end includes phases that are specific \nto the target hardware. \n\nS3:  The back-end includes phases that are specific \nto the programming language used in the source \ncode. \n\nIdentify the CORRECT option.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "Only S1 is TRUE",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "Only S1 and S2 are TRUE",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "S1, S2, and S3 are all TRUE",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "Only S1 and S3 are TRUE",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "B"
+            ],
+            "solution": {
+                "text": "Phases of compiler: \n\n          LA, SyA, SeA ICG, CO,        CG, CO \n\n M/C independent  \n     M/C Dependent  \n                (Frontend)                      (Backend) \n\nS1:  The front-end includes phases that are \nindependent of the target hardware.True \n\nS2:  The back-end includes phases that are specific \nto the target hardware. \nTrue  \n\nS3:  The back-end includes phases that are specific \nto the programming language used in the \nsource code. False \n\nTherefore, option b is the correct asnwer.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "CD_INTRODUCTION_TO_COMPILER_2021_Q02",
+            "subject": "Compiler Design",
+            "topic": "Introduction to Compiler",
+            "subtopic": "Identify the CORRECT option.",
+            "year": 2021,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 2,
+            "tags": [
+                "Introduction to Compiler",
+                "Identify the CORRECT option.",
+                "Compiler Design"
+            ],
+            "question": {
+                "text": "Consider the following ANSI C program: \n\nint main() { \n\n   Integer x;  \n\nreturn ();  \n\n} \n\nWhich one of the following phases in a seven-phase \nC complier will throw an error?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "Lexical analyzer",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "Syntax analyzer",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "Semantic analyzer",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "Machine dependent optimizer",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "C"
+            ],
+            "solution": {
+                "text": "int main() {           \n       Integer x;  \n\nreturn ();  \n\n\n} \n\nTotal 13 tokens \n\nThere is no lexical error.  \n\nIn syntax analysis, the Integer x; is valid, and this \nwill be checked in semantic analysis that whether \nInteger  is a keyword or not. So, there is no syntax \nerror.  \n\nIn semantic analysis,  \n\n\n\nHere, x has no type definition.  typedef  int Integer; \nis missing before Integer x; in given ANSI C \nprogram. \nTherfore, \nthe \ngiven \nprogram \nis \nsemantically incorrect.  \n\nHence, option C is correct.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "CD_INTRODUCTION_TO_COMPILER_2017_Q03",
+            "subject": "Compiler Design",
+            "topic": "Introduction to Compiler",
+            "subtopic": "C complier will throw an error?",
+            "year": 2017,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 3,
+            "tags": [
+                "Introduction to Compiler",
+                "C complier will throw an error?",
+                "Compiler Design"
+            ],
+            "question": {
+                "text": "Match the following according to input from List-I \nto the compiler phase in the List-II that processes it: \n\n\n List-I \n  List-II \n\n(P) Syntax tree \n(i)   Code generator \n\n(Q) Character stream \n(ii)  Syntax analyser \n\n(R) Intermediate  \n(iii) Semantic analyser \n\n representation \n\n(S) Token stream \n(iv)  Lexical analyser",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "P \\rightarrow (ii), Q \\rightarrow (iii), R \\rightarrow (iv), S \\rightarrow (i)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "P \\rightarrow (ii), Q \\rightarrow (i), R \\rightarrow (iii), S \\rightarrow (iv)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "P \\rightarrow (iii), Q \\rightarrow (iv), R \\rightarrow (i), S \\rightarrow (ii)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "P \\rightarrow (i), Q \\rightarrow (iv), R \\rightarrow (ii), S \\rightarrow (iii)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "C"
+            ],
+            "solution": {
+                "text": "List I representing the input to the phase and List-II \nhas corresponding phases.  \n\nSyntax/Parse tree is an input to semantic analyser.  \n\nCharacter stream is source code and it is input to \nlexical analyser.  \n\nIntermediate representation is the intermediate \ncode and it is input to code generator.  \n\nToken stream is output of lexical analyser and \ninput to syntax analyser.  \n\nHence, option c is correct.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "CD_INTRODUCTION_TO_COMPILER_2016_Q04",
+            "subject": "Compiler Design",
+            "topic": "Introduction to Compiler",
+            "subtopic": "(iv)  Lexical analyser",
+            "year": 2016,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 4,
+            "tags": [
+                "Introduction to Compiler",
+                "(iv)  Lexical analyser",
+                "Compiler Design"
+            ],
+            "question": {
+                "text": "Match the following \n\n\nList-I \n\nList-II \n\nP: Lexical analysis \n(i)  Leftmost derivation \n\nQ: Top down parsing \n(ii)  Type checking \n\nR: Semantic analysis \n(iii)  Regular expressions \n\nS: Runtime environment (iv)  Activation records",
+                "images": [
+                    "assets/Compiler Design/CD_Introduction_to_Compiler_P3_X596.png",
+                    "assets/Compiler Design/CD_Introduction_to_Compiler_P3_X598.png"
+                ],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "P \\rightarrow (i), Q \\rightarrow (ii), R \\rightarrow (iv), S \\rightarrow (iii)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "P \\rightarrow (iii), Q \\rightarrow (i), R \\rightarrow (ii), S \\rightarrow (iv)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "P \\rightarrow (ii), Q \\rightarrow (iii), R \\rightarrow (i), S \\rightarrow (iv)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "P \\rightarrow (iv), Q \\rightarrow (i), R \\rightarrow (ii), S \\rightarrow (iii)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "B"
+            ],
+            "solution": {
+                "text": "Lexical analyser can be designed/implemented \nwith the help of regular expressions,  \n\nTop down parser follows leftmost derivation.  \n\nSemantic analysis does the type checking.  \n\nRuntime enviornment maintains the activation \nrecords.  \n\nHence, option b is correct.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        }
+    ]
+}

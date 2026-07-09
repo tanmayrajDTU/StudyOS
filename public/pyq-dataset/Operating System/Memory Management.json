@@ -1,0 +1,1918 @@
+{
+    "subject": "Operating System",
+    "topic": "Memory Management",
+    "questionCount": 34,
+    "questions": [
+        {
+            "id": "OS_MEMORY_MANAGEMENT_2020_Q01",
+            "subject": "Operating System",
+            "topic": "Memory Management",
+            "subtopic": "C H A P T E R",
+            "year": 2020,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 1,
+            "tags": [
+                "Memory Management",
+                "C H A P T E R",
+                "Operating System"
+            ],
+            "question": {
+                "text": "Consider allocation of memory to a new process. \nAssume that none of the existing holes in the \nmemory will exactly fit the process's memory \nrequirement. Hence, a new hole of smaller size will \nbe created if allocation is made in any of the existing \nholes. Which one of the following statements is \nTRUE?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "The hole created by next fit is never larger than \nthe hole created by best fit.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "The hole created by first fit is always larger than \nthe hole created by next fit.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "The hole created by best fit is never larger than \nthe hole created by first fit.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "The hole created by worst fit is always larger \nthan the hole created by first fit.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "C"
+            ],
+            "solution": {
+                "text": "Best fit always search for the smallest hole that can \naccommodate a request. So, hole created by best fit \nwill always be less than or equal to the hole created \nby any other policy.  \n\nWorst fit always search for the largest hole to \naccommodate a request. If the first hole is the \nlargest one, then worst fit and first fit both will \naccommodate request in the same hole. \n\nSo, we can clearly say option c is the correct option.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "OS_MEMORY_MANAGEMENT_2015_Q02",
+            "subject": "Operating System",
+            "topic": "Memory Management",
+            "subtopic": "than the hole created by first fit.",
+            "year": 2015,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 2,
+            "tags": [
+                "Memory Management",
+                "than the hole created by first fit.",
+                "Operating System"
+            ],
+            "question": {
+                "text": "Consider six memory partitions of size 200 KB, 400 \nKB, 600 KB, 500 KB, 300 KB, and 250 KB, where \nKB refers to kilobyte. These partitions need to be \nallotted to four processes of sizes 357 KB, 210 KB, \n468 KB and 491 KB in that order. If the best fit \nalgorithm is used, which partitions are NOT allotted \nto any process?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "200 KB and 300 KB",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "200 KB and 250 KB",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "250 KB and 300 KB",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "300 KB and 400 KB \n\nPaging",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "A"
+            ],
+            "solution": {
+                "text": "Here we have 6 memory partitions of sizes 200 \nKB, 400 KB, 600 KB, 500 KB, 300 KB, and 250 \nKB, and the partition allotted to four processes \nusing best fit algorithm is as follows: \n\n\nSo, we can clearly see that partition 200KB and \n300KB are empty and not allotted to any process. \nHence, option A is correct.",
+                "images": [
+                    "assets/Operating System/OS_Memory_Management_P46_X6002.png"
+                ],
+                "latex": [],
+                "tables": [
+                    {
+                        "headers": [
+                            "9",
+                            "9",
+                            "9",
+                            "9",
+                            "9",
+                            "12"
+                        ],
+                        "rows": []
+                    }
+                ]
+            }
+        },
+        {
+            "id": "OS_MEMORY_MANAGEMENT_2023_Q03",
+            "subject": "Operating System",
+            "topic": "Memory Management",
+            "subtopic": "Paging",
+            "year": 2023,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 3,
+            "tags": [
+                "Memory Management",
+                "Paging",
+                "Operating System"
+            ],
+            "question": {
+                "text": "Consider a computer system with 57-bit virtual \naddressing using multi-level tree-structured page \ntables with L levels for virtual to physical address \ntranslation. The page size is 4 KB (1 KB = 1024 B) \nand a page table entry at any of the levels occupies \n8 bytes. \n\nThe value of L is______.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "5"
+            ],
+            "solution": {
+                "text": "L : number of paging.  \n\nVirtual Address space = 57 bits \n\nPage Size = 4 KB \n\nPage  table entry = 8 B \n\nPage number = (57-12) = 45 bits \n\nNumber of entries in P.T = \n4𝐾𝐵\n8𝐵= 512= 29. Means, \nwe need 9 bits to index the page table.  \n\n\nSo, number of levels = 9 \\times L = 45 \nL\n=\n=\n\n\nlevel 1 level 2 level 3 level 4 level 5 offset\n57 bits",
+                "images": [
+                    "assets/Operating System/OS_Memory_Management_P46_X1295.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "OS_MEMORY_MANAGEMENT_2022_Q04",
+            "subject": "Operating System",
+            "topic": "Memory Management",
+            "subtopic": "The value of L is______.",
+            "year": 2022,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 4,
+            "tags": [
+                "Memory Management",
+                "The value of L is______.",
+                "Operating System"
+            ],
+            "question": {
+                "text": "Which one of the following statements is FALSE?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "The TLB performs an associative search in \nparallel on all its valid entries using page \nnumber of incoming virtual address.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "If the virtual address of a word given by CPU \nhas a TLB hit, but the subsequent search for \nthe word results in a cache miss, then the word \nwill always be present in the main memory.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "The memory access time using a given \ninverted page table is always same for all \nincoming virtual addresses.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "In a system that uses hashed page tables, if \ntwo distinct virtual addresses V1 and V2 map \nto the same value while hashing, then the \nmemory access time of these addresses will \nnot be the same",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "C"
+            ],
+            "solution": {
+                "text": "(a) The TLB performs an associative search in \nparallel on all its valid entries using page \nnumber of incoming virtual address. TRUE. \n\n(b) If the virtual address of a word given by CPU \nhas a TLB hit, but the subsequent search for the \nword results in a cache miss, then the word will \nalways be present in the main memory. TRUE. \nIf the content is not in the physical address \nspace, then it will present in main memory. \n\n(c) The memory access time using a given inverted \npage table is always same for all incoming \nvirtual addresses. FALSE. Inverted paging has \nissue of time, every virtual address may present \nat different locations. In worst case, we may \nhave to search entire page table.  \n\n(d) In a system that uses hashed page tables, if two \ndistinct virtual addresses V1 and V2 map to the \nsame value while hashing, then the memory \naccess time of these addresses will not be the \nsame. TRUE. Because we have to search in \nlinked list addresses may present in different \nlocations. \n\nTherefore, option C is the correct answer.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "OS_MEMORY_MANAGEMENT_2021_Q05",
+            "subject": "Operating System",
+            "topic": "Memory Management",
+            "subtopic": "not be the same",
+            "year": 2021,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MSQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 5,
+            "tags": [
+                "Memory Management",
+                "not be the same",
+                "Operating System"
+            ],
+            "question": {
+                "text": "following statements is/are correct with respect to \npaging?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "Paging helps solve the issue of external \nfragmentation",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "Page \nsize \nhas \nno \nimpact \non \ninternal \nfragmentation",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "Paging incurs memory overheads",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "Multi-level paging is necessary to support pages \nof different sizes",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "A",
+                "C"
+            ],
+            "solution": {
+                "text": "Paging helps solve the issue of external \nfragmentation. Correct. \n\nPage size has no impact on internal fragmentation. \nIncorrect, \npaging \nhas \nimpact \non \ninternal \nfragmentation \n\nPaging incurs memory overheads. Correct. Page \ntables are stored in memory and are overhead to \nmemory.  \n\nMulti-level paging in necessary to support pages of \ndifferent sizes. Incorrect.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "OS_MEMORY_MANAGEMENT_2021_Q06",
+            "subject": "Operating System",
+            "topic": "Memory Management",
+            "subtopic": "of different sizes",
+            "year": 2021,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 6,
+            "tags": [
+                "Memory Management",
+                "of different sizes",
+                "Operating System"
+            ],
+            "question": {
+                "text": "Consider a three-level page table to translate a 39-bit \nvirtual address to a physical address as shown below. \n\nThe page size is 4KB (1KB =210 bytes) and page \ntable entry size at every level is 8 bytes. A process P \nis currently using 2GB (1GB =230 bytes) virtual \nmemory which is mapped to 2GB of physical \nmemory. The minimum amount of memory required \nfor the page table of P across all levels is \n_______KB.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "4108"
+            ],
+            "solution": {
+                "text": "Page Size = 4 KB \n\nPage Table Entry size = 8B \n\nP\nV.M.S = 2 GB \n\n\nTotal number of pages of PT'S needed. \n\n= 1 k of 1 - level paging  \n\n= 2 k of 2 - level paging \n\n= 1 k of Outer Page Table \n\n= (1+2+1024) * 4 KB = 1027\n4KB\n4108KB\n",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "OS_MEMORY_MANAGEMENT_2021_Q07",
+            "subject": "Operating System",
+            "topic": "Memory Management",
+            "subtopic": "_______KB.",
+            "year": 2021,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 7,
+            "tags": [
+                "Memory Management",
+                "_______KB.",
+                "Operating System"
+            ],
+            "question": {
+                "text": "GATE-2016 : 2M] \n\nConsider a computer system with 40-bit virtual \naddressing and page size of sixteen kilobytes. If the \ncomputer system has a one-level page table per \nprocess and each page table entry requires 48 bits, \nthen the size of the per-process page table is ___ \nmegabytes.",
+                "images": [
+                    "assets/Operating System/OS_Memory_Management_P41_X5714.png"
+                ],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "384"
+            ],
+            "solution": {
+                "text": "Virtual Address = 40 bits \n\nPage Size = 16 KB \n\nPage Table Entry = 48 bits = 6B \n\nPage Table Size = N*e \n\nN = \n214 = 226 \n\ne = 6B \n8B\nOuter page table\nPTS =        bytes\n[2 level page table]\nnd\nPTS =       Bytes\nOriginal page table \n=\nNo. of pages= \n8B\n8B\n4 KB\n4 KB\n4 KB\n4 KB\n=\nNo. of pages= \n=\nNo. of pages= \n2 Pages\n\n\n P.T.S = 226 \\times 6B = 64 \\times 6 MB \n\n P.T.S. = 384 MB",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "OS_MEMORY_MANAGEMENT_2015_Q08",
+            "subject": "Operating System",
+            "topic": "Memory Management",
+            "subtopic": "megabytes.",
+            "year": 2015,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 8,
+            "tags": [
+                "Memory Management",
+                "megabytes.",
+                "Operating System"
+            ],
+            "question": {
+                "text": "A computer system implements 8 kilobyte pages and \na 32-bit physical address space. Each page table \nentry contains a valid bit, a dirty bit, three \npermission bits, and the translation. If the maximum \nsize of the page table of a process is 24 megabytes, \nthe length of the virtual address supported by the \nsystem is _____ bits.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "36"
+            ],
+            "solution": {
+                "text": "Given,  \n\nPage Size = 8 KB \n\nPhysical Address = 32 bits \n        Page table size = 24 MB \n\n\nNumber of frames, M= \n213 = 219 \n\nPage Table Entry = 24 bits = 3 B \n\nP.T.S. = N *e \n\n24 MB = N * 3B \n\nN = \n24MB\n3𝐵= 8M \n\nN = 8M \\Rightarrow P = 23 bits \n\n\n\nSo, the length of the virtual address is 36 bits.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "OS_MEMORY_MANAGEMENT_2015_Q09",
+            "subject": "Operating System",
+            "topic": "Memory Management",
+            "subtopic": "system is _____ bits.",
+            "year": 2015,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 9,
+            "tags": [
+                "Memory Management",
+                "system is _____ bits.",
+                "Operating System"
+            ],
+            "question": {
+                "text": "A computer system implements a 40 bit virtual \naddress, page size of 8 kilobytes, and a 128-entry \ntranslation look-aside buffer (TLB) organized into \n32 sets each having four ways. Assume that the TLB \ntag does not store any process id. The minimum \nlength of the TLB tag in bits is ___",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "22"
+            ],
+            "solution": {
+                "text": "Given,  \n\nVirtual Address = 40 bits \n\nPage Size = 8 KB \n\nTLB lines = 128 \n\nSets = 32 sets \n\nTLB Tag bits =? \n\nPage offset (d) = 13 bits  \n\nSet offset = 5 bit \n\nTLB = Tag bit = 40 - (13 + 5) = 40 - 18 = 22 bits  \n\nSo, the minimum length of the TLB tag is 22 bits.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "OS_MEMORY_MANAGEMENT_2015_Q10",
+            "subject": "Operating System",
+            "topic": "Memory Management",
+            "subtopic": "length of the TLB tag in bits is ___",
+            "year": 2015,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 10,
+            "tags": [
+                "Memory Management",
+                "length of the TLB tag in bits is ___",
+                "Operating System"
+            ],
+            "question": {
+                "text": "Consider a system with byte-addressable memory, \n32-bit logical addresses, 4 kilobyte page size and \npage table entries of 4 bytes each. The size of the \npage table in the system in megabytes is _____",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "4"
+            ],
+            "solution": {
+                "text": "Logical Address space = 32 bits \n\nPage Size = 4 KB \n\nPage Table Entry = 4B  \n\nPage Table Size = N * e \n\n\nN\n=\n=\n\nP.T.S. 1M*4B\n4MB\n=\n=",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "OS_MEMORY_MANAGEMENT_2014_Q11",
+            "subject": "Operating System",
+            "topic": "Memory Management",
+            "subtopic": "page table in the system in megabytes is _____",
+            "year": 2014,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 11,
+            "tags": [
+                "Memory Management",
+                "page table in the system in megabytes is _____",
+                "Operating System"
+            ],
+            "question": {
+                "text": "Consider a paging hardware with a TLB. Assume \nthat the entire page table and all the pages are in the \nphysical memory. It takes 10 milliseconds to search \nthe TLB and 80 milliseconds to access the physical \nmemory. If the TLB hit ratio is 0.6, the effective \nmemory access time (in milliseconds) is ____",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "112"
+            ],
+            "solution": {
+                "text": "TLB access time (c)= 10 ms \n\nMain Memory access time (m) = 80 ms \n\nTLB Hit ratio (x) = 0.6 \n\n EMAT = x (c + m) + (1- x) (c + 2m) \n\n              = 0.6 (10 +80) + 0.4 (10+ 160) \n\n            = 0.6 \\times 90 + 0.4 \\times 170 \n\nEMAT\n122ms\n=\n+\n=",
+                "images": [
+                    "assets/Operating System/OS_Memory_Management_P48_X6272.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "OS_MEMORY_MANAGEMENT_2013_Q12",
+            "subject": "Operating System",
+            "topic": "Memory Management",
+            "subtopic": "memory access time (in milliseconds) is ____",
+            "year": 2013,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 12,
+            "tags": [
+                "Memory Management",
+                "memory access time (in milliseconds) is ____",
+                "Operating System"
+            ],
+            "question": {
+                "text": "A computer uses 46-bit virtual address, 32-bit \nphysical address, and a three-level paged page table \norganization. The page table base register stores the \nbase address of the first-level (T1), which occupies \nexactly one page. Each entry of T1 stores the base \naddress of a page of the second-level table (T2). \nEach entry of T2 stores the base address of a page of \nthe third-level table (T3). Each entry of T3 stores a \npage table entry (PTE). The PTE is 32 bit in size. The \nprocessor used in the computer has a 1 MB 16-way-\nset associative virtually indexed physically tagged \ncache the cache block size is 64 bytes. \n\nWhat is the size of a page in KB in this computer?",
+                "images": [],
+                "latex": [],
+                "tables": [
+                    {
+                        "headers": [
+                            "Level 2 offset",
+                            "Level 3 offset",
+                            "Page offset"
+                        ],
+                        "rows": []
+                    }
+                ]
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "2",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "4",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "8",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "16",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "C"
+            ],
+            "solution": {
+                "text": "Page size =? \n\nGiven,  \n\nOuter Page Table fit in recently one page \n\nVirtual Address = 46 bits  \n\nPage Table Base Register = 4 B \n\nLet P.S. = 2x bytes \n\n\n\n3y + x = 46….(i) \n\nOPT size = (2y) * 4 B = 2 bytes \n\n 2y+2 =2x \\Rightarrow x = y + 2 \n\n3y + y + 2 = 46 \n\n4y = 44 \n\n y = 11 \n\nx = 13 \n\nTherefore,  \n\nPage size\n8KB\n\n=\n=",
+                "images": [
+                    "assets/Operating System/OS_Memory_Management_P48_X6272.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "OS_MEMORY_MANAGEMENT_2009_Q13",
+            "subject": "Operating System",
+            "topic": "Memory Management",
+            "subtopic": "What is the size of a page in KB in this computer?",
+            "year": 2009,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 13,
+            "tags": [
+                "Memory Management",
+                "What is the size of a page in KB in this computer?",
+                "Operating System"
+            ],
+            "question": {
+                "text": "The essential content(s) in each entry of a page table \nis/are",
+                "images": [],
+                "latex": [],
+                "tables": [
+                    {
+                        "headers": [
+                            "Level 2 offset",
+                            "Level 3 offset",
+                            "Page offset"
+                        ],
+                        "rows": []
+                    }
+                ]
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "Virtual page number",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "Page frame number",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "Both virtual page number and page frame \nnumber",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "Access right information",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "B"
+            ],
+            "solution": {
+                "text": "The essential content(s) in each entry of a page \ntable is page frame number. Virtual page number os \nnt stored in page table, so option A and C are clearly \neliminated. Access right information is stored in \npage table but it is not an essential content. \nTherefore, option B is the correct answer.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "OS_MEMORY_MANAGEMENT_2009_Q14",
+            "subject": "Operating System",
+            "topic": "Memory Management",
+            "subtopic": "number",
+            "year": 2009,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 14,
+            "tags": [
+                "Memory Management",
+                "number",
+                "Operating System"
+            ],
+            "question": {
+                "text": "A multilevel page table is preferred in comparison to \na single level page table for translating virtual \naddress to physical address because. \nLevel 1\noffset\nLevel 2\noffset\nLevel 3\noffset\nPage\noffset\n9 bits\n9 bits\n9 bits\n12 bits\n39-bit virtual address",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "it reduces the memory access time to read or \nwrite a memory location.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "it helps to reduce the size of page table needed \nto implement the virtual address space of a \nprocess.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "it is required by the translation look a side buffer.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "it helps to reduce the number of page faults in \npage replacement algorithms.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "B"
+            ],
+            "solution": {
+                "text": "A multilevel page table is preferred in comparison \nto a single level page table for translating virtual \naddress to physical address because it helps to \nreduce the size of page table needed to implement \nthe virtual address space of a process. The main \npurpose of multilevel paging is to reduce the space \noverhead page table size overhead.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "OS_MEMORY_MANAGEMENT_2008_Q15",
+            "subject": "Operating System",
+            "topic": "Memory Management",
+            "subtopic": "page replacement algorithms.",
+            "year": 2008,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 15,
+            "tags": [
+                "Memory Management",
+                "page replacement algorithms.",
+                "Operating System"
+            ],
+            "question": {
+                "text": "A processor uses 36-bit physical addresses and 32-\nbit virtual addresses, with a page frame size of 4 \nKbytes. Each page table entry is of size 4 bytes. A \nthree-level page table is used for virtual-to-physical \naddress translation, where the virtual address is used \nas follows: \n\n• bits 30-31 are used to index into the first level \npage table \n\n• bits 21-29 are used to index into the second level \npage table \n\n• bits 12-20 are used to index into the third level \npage table \n\n• bits 0-11 are used as offset within the page. \n\nThe number of bits required for addressing the next \nlevel page table (or page frame) in the page table \nentry of the first, second and third level page tables \nare respectively.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "20, 20 and 20",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "24, 24, and 24",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "24, 24 and 20",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "25, 25 and 24",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "D"
+            ],
+            "solution": {
+                "text": "P.A 36 bits \n\nM\n=\n=\n\n\nF = 24 \n\n=",
+                "images": [
+                    "assets/Operating System/OS_Memory_Management_P48_X6272.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "OS_MEMORY_MANAGEMENT_2008_Q16",
+            "subject": "Operating System",
+            "topic": "Memory Management",
+            "subtopic": "are respectively.",
+            "year": 2008,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 16,
+            "tags": [
+                "Memory Management",
+                "are respectively.",
+                "Operating System"
+            ],
+            "question": {
+                "text": "A paging scheme uses a Translation Look-aside \nBuffer (TLB). A TLB-access takes 10 ns and a main \nmemory access takes 50 ns. What is the effective \naccess time (in ns) if the TLB hit ratio is 90% and \nthere is no page-fault?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "54",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "60",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "65",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "75 \nVirtual Memory",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "C"
+            ],
+            "solution": {
+                "text": "Given,  \n\nHit ratio (x) = 90% \n\nTLB access time (c) = 10 \n\nMain memory access time (m)= 50 \n\nSo,  \n\nEMAT  = x (c + m) + (1-x) (c + 2m) \n\n\n\n\n= 0.9 (60) + 0.1 (10+100) \n\n\n\n\n= 54 + 11 = 65 \n\nP1\ny\ny\ny\nx\nP2\nP3\nd\n46 bits",
+                "images": [
+                    "assets/Operating System/OS_Memory_Management_P49_X6354.png"
+                ],
+                "latex": [],
+                "tables": [
+                    {
+                        "headers": [
+                            "P 1",
+                            "P 2",
+                            "P 3",
+                            "d"
+                        ],
+                        "rows": []
+                    }
+                ]
+            }
+        },
+        {
+            "id": "OS_MEMORY_MANAGEMENT_2023_Q17",
+            "subject": "Operating System",
+            "topic": "Memory Management",
+            "subtopic": "Virtual Memory",
+            "year": 2023,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 17,
+            "tags": [
+                "Memory Management",
+                "Virtual Memory",
+                "Operating System"
+            ],
+            "question": {
+                "text": "Consider the following two-dimensional array D in \nthe C programming language, which is stored in \nrow-major order: \n\nint D[128][128]; \n\nDemand paging is used for allocating memory and \neach physical page frame holds 512 elements of the \narray D. The Least Recently Used (LRU) page-\nreplacement policy is used by the operating system. \nA total of 30 physical page frames are allocated to a \nprocess which executes the following code snippet: \n\nfor (int i = 0; i < 128; i++) \n\n\nfor (int j = 0; j < 128; j++) \n\n\n           D[j][i] *= 10; \n\nThe number of page faults generated during the \nexecution of this code snippet is_______.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "4096"
+            ],
+            "solution": {
+                "text": "Each value i causes 32 Page Faults \n\n→ matrix is stored in R.M.O \n\n→ matrix size int D[128] [128] \n\n→ Page Size = 512 \n\n→ Number of frames = 30 \n\n→ Page replacement technique is LRU. \n\nNumber of pages needed to store the matrix  \n\n= \n128 128\n\n=\n=\n = 32 pages \n\n\n\n→ each value of 'i' causes 32 Page Faults  \n\n→ All value of i(128) causes a  total of 128 \\times 32 = \n212 = 4096 Page Faults",
+                "images": [
+                    "assets/Operating System/OS_Memory_Management_P50_X6425.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "OS_MEMORY_MANAGEMENT_2022_Q18",
+            "subject": "Operating System",
+            "topic": "Memory Management",
+            "subtopic": "execution of this code snippet is_______.",
+            "year": 2022,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 18,
+            "tags": [
+                "Memory Management",
+                "execution of this code snippet is_______.",
+                "Operating System"
+            ],
+            "question": {
+                "text": "Consider a demand paging system with four page \nframes (initially empty) and LRU page replacement \npolicy. For the following page reference string 7, 2, \n7, 3, 2, 5, 3, 4, 6, 7, 7,1, 5, 6,1 the page fault rate, \ndefined as the ratio of number of page faults to the \nnumber of memory accesses (rounded off to one \ndecimal place) is_________.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "0.6"
+            ],
+            "solution": {
+                "text": "Number of Page faults= 9 \n\nTotal references = 15 \n\nPage fault ratio = \n15 = 0.6",
+                "images": [
+                    "assets/Operating System/OS_Memory_Management_P49_X6354.png"
+                ],
+                "latex": [],
+                "tables": [
+                    {
+                        "headers": [
+                            "P 1",
+                            "P 2",
+                            "P 3",
+                            "d"
+                        ],
+                        "rows": []
+                    }
+                ]
+            }
+        },
+        {
+            "id": "OS_MEMORY_MANAGEMENT_2020_Q19",
+            "subject": "Operating System",
+            "topic": "Memory Management",
+            "subtopic": "decimal place) is_________.",
+            "year": 2020,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 19,
+            "tags": [
+                "Memory Management",
+                "decimal place) is_________.",
+                "Operating System"
+            ],
+            "question": {
+                "text": "Consider a paging system that uses 1-level page table \nresiding in main memory and a TLB for address \ntranslation. Each main memory access takes 100 ns \nand TLB lookup takes 20 ns. Each page transfer \nto/from the disk takes 5000 ns. Assume that the TLB \nhit ratio is 95%, page fault rate is 10%. Assume that \nfor 20% of the total page faults, a dirty page has to \nbe written back to disk before the required page is \nread from disk. TLB update time is negligible. The \naverage memory access time in ns (round off to 1 \ndecimal places) is _____",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "154.5",
+                "155.5"
+            ],
+            "solution": {
+                "text": "Given,  \n\nMMAT = 100ns;  \n\nTLBAT = 20 ns;  \n\nDisk R/W = 5000ns; \n\nTLB Hit ratio = 95%;  \n\nPage fault rate = 10%;  \n\nDirty page 20% \n\nAverage MAT= 0.95 (20 + 100) ns + 0.05[20ns + \n0.9 (100ns + 100ns) + 0.1 (100ns + 0.2 (5000 + \n500)) ns + 0.8 (500) ns]  \n\nAverage MAT = 154.5ns",
+                "images": [
+                    "assets/Operating System/OS_Memory_Management_P49_X6354.png"
+                ],
+                "latex": [],
+                "tables": [
+                    {
+                        "headers": [
+                            "P 1",
+                            "P 2",
+                            "P 3",
+                            "d"
+                        ],
+                        "rows": []
+                    }
+                ]
+            }
+        },
+        {
+            "id": "OS_MEMORY_MANAGEMENT_2019_Q20",
+            "subject": "Operating System",
+            "topic": "Memory Management",
+            "subtopic": "decimal places) is _____",
+            "year": 2019,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 20,
+            "tags": [
+                "Memory Management",
+                "decimal places) is _____",
+                "Operating System"
+            ],
+            "question": {
+                "text": "Assume that in a certain computer, the virtual \naddresses are 64 bits long and the physical addresses \nare 48 bits long. The memory is word addressable. \n\nThe page size is 8 kB and the word size is 4 bytes. \nThe translation Look-aside Buffer(TLB) in the \naddress translation path has 128 valid entries. At \nmost how many distinct virtual addresses can be \ntranslated without any TLB miss?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "16 \\times 210",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "256 \\times 210",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "4 \\times 220",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "8 \\times 220",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "B"
+            ],
+            "solution": {
+                "text": "Given,  \n\nPage Size = 8KB = 211 \n\n Word Size = 4 KB \n\nVirtual Memory Size = 264 words \n\nNumber of pages possible = 253 \n0, 0\n0, 1\n0, 1 2 7\n............\n1, 0\n1 1\n, \n1, 1 2 7\n............\n..........\n127, 0\n127, 127\n............\nP1\nP2\nP32\nC1\nC2\nC128\nP31\nP32\nP2\nP3\nP30\nFrames\n\n\nPage offset= 64-53 = 11 bits \n\n\nTLB contains 128 or 27 distinct page numbers.  \n\nOne-page hit implies 211 distinct virtual address \nhits. \n       So, Number of  V.A →P.A=128 \\times 2k = 256 \\times 210 \n\nTherefore, option B is the correct answer.",
+                "images": [
+                    "assets/Operating System/OS_Memory_Management_P49_X6354.png"
+                ],
+                "latex": [],
+                "tables": [
+                    {
+                        "headers": [
+                            "P 1",
+                            "P 2",
+                            "P 3",
+                            "d"
+                        ],
+                        "rows": []
+                    }
+                ]
+            }
+        },
+        {
+            "id": "OS_MEMORY_MANAGEMENT_2018_Q21",
+            "subject": "Operating System",
+            "topic": "Memory Management",
+            "subtopic": "translated without any TLB miss?",
+            "year": 2018,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 21,
+            "tags": [
+                "Memory Management",
+                "translated without any TLB miss?",
+                "Operating System"
+            ],
+            "question": {
+                "text": "Consider a process executing on an operating system \nthat uses demand paging. The average time for a \nmemory access in the system is M units if the \ncorresponding memory page is available in memory \nand D units if the memory access causes a page fault. \nIt has been experimentally measured that the \naverage time taken for a memory access in the \nprocess is X units. \n\nWhich one of the following is the correct expression \nfor the page fault rate experienced by the process?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "(D - M) / (X - M)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "(X - M) / (D - M)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "(D - X) / (D - M)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "(X - M) / (D - X)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "B"
+            ],
+            "solution": {
+                "text": "Main Memory Access Time = M \n\nPage Fault Service Time = D \n\nEffective Memory Access Time = X \n\nPage Fault rate = 'P' = ? \n\nEMAT = (1- P) MMAT + P * PFST \n\n        X = (1- P) M + P * D \n\n           = M - M.P + D.P \n\n\n X - M = P (D - M) \n\n\nX-M\nP = D -M\n",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "OS_MEMORY_MANAGEMENT_2016_Q22",
+            "subject": "Operating System",
+            "topic": "Memory Management",
+            "subtopic": "for the page fault rate experienced by the process?",
+            "year": 2016,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 22,
+            "tags": [
+                "Memory Management",
+                "for the page fault rate experienced by the process?",
+                "Operating System"
+            ],
+            "question": {
+                "text": "Consider a computer system with ten physical page \nframes. The system is provided with an access \nsequence (a1, a2, ….. a20, a1, a2, …., a20), where each  \nai is a distinct virtual page number. The difference \nin the number of page faults between the last-in-\nfirst-out page replacement policy and the optimal \npage replacement policy is _____",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "1"
+            ],
+            "solution": {
+                "text": "10 frames; \n\nReference string <a1, a2, a3 … a20, a1, a2, a3, a4 ..a9, \na10 a11, a12… a20 >  \n\n\n\nUsing LIFO, first 20 pages will result in page faults \nand next 9 pages will be page hit and then next 11 \npages will be page faults.  \n\nUsing optimal page replacement algorithm, first 20 \npages will result in page faults and next 9 pages will \nbe page hit and then next 10-page faults followed \nby page hit for last page.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "OS_MEMORY_MANAGEMENT_2011_Q23",
+            "subject": "Operating System",
+            "topic": "Memory Management",
+            "subtopic": "page replacement policy is _____",
+            "year": 2011,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 23,
+            "tags": [
+                "Memory Management",
+                "page replacement policy is _____",
+                "Operating System"
+            ],
+            "question": {
+                "text": "Let the page fault service time be 10 ms in a \ncomputer with average memory access time being \n20 ns. If one-page fault is generated for every 106 \nmemory accesses, what is the effective access time \nfor the memory?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "21 ns",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "30 ns",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "23 ns",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "35 ns",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "B"
+            ],
+            "solution": {
+                "text": "Memory access time (x) = 20ns \n\nPage fault rate (p) = 1/106 \n\nPage fault service time (y) = 10ms = 10×10-3 ns \n\nEffective Memory Access Time = (1-p)*x + p*y \n\nE.M.A.T = (1 −\n106) \\times 20ns +\n106 \\times 10 \\times 10-3 \n\n                = 1×20ns + 10 ×10-9  \n\n                = 20 + 10 = 30ns \n\nSo, option B is the correct answer,",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "OS_MEMORY_MANAGEMENT_2008_Q24",
+            "subject": "Operating System",
+            "topic": "Memory Management",
+            "subtopic": "for the memory?",
+            "year": 2008,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 24,
+            "tags": [
+                "Memory Management",
+                "for the memory?",
+                "Operating System"
+            ],
+            "question": {
+                "text": "Match the following flag bits used in the context of \nthe bit) with the different purposes on the List-II \n(Purpose) of the table below. \n\nList-I   \nList-II \n\nI. Dirty          \na. Page initialization \n\nII. R/W          \nb. Write-back policy \n\nIII. Reference     \nc. Page protection \n\nIV. Valid \nd. Page replacement  \n\n\n\n\n     policy \n    Codes:",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "I-d, II-a, III-b, IV-c",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "I-b, II-c, III-a, IV-d",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "I-c, II-d, III-a, IV-b",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "I-b, II-c, III-d, IV-a \n\nPage Replacement Techniques",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "D"
+            ],
+            "solution": {
+                "text": "Dirty bit is used in write-back policy. \n\nRead/write bit is used for page protection.  \n\nReference bit is used for page replacement policies. \n\nValid bit is used for page initialization.  \n\nSo, option D is the correct answer.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "OS_MEMORY_MANAGEMENT_2009_Q25",
+            "subject": "Operating System",
+            "topic": "Memory Management",
+            "subtopic": "Page Replacement Techniques",
+            "year": 2009,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 25,
+            "tags": [
+                "Memory Management",
+                "Page Replacement Techniques",
+                "Operating System"
+            ],
+            "question": {
+                "text": "In which one of the following page replacement \npolicies, Belady's anomaly may occur?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "FIFO",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "Optimal",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "LRU",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "MRU",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "A"
+            ],
+            "solution": {
+                "text": "FIFO (First in First out) page replacement \nalgorithm suffers from Belady's Anomaly. So, \noption A is correct.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "OS_MEMORY_MANAGEMENT_2017_Q26",
+            "subject": "Operating System",
+            "topic": "Memory Management",
+            "subtopic": "policies, Belady's anomaly may occur?",
+            "year": 2017,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 26,
+            "tags": [
+                "Memory Management",
+                "policies, Belady's anomaly may occur?",
+                "Operating System"
+            ],
+            "question": {
+                "text": "Recall that Belady's anomaly is that the page-fault \nrate may increase as the number of allocated frames \nincreases. Now, consider the following statements: \n\nS1: Random page replacement algorithm (where a \npage chosen at random is replaced) suffers from \nBelady's anomaly \n\nS2: LRU page replacement algorithm suffers from \nBelady's anomaly \n\nWhich of the following is CORRECT?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "S1 is true, S2 is true",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "S1 is true, S2 is false",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "S1 is false, S2 is true",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "S1 is false, S2 is false",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "B"
+            ],
+            "solution": {
+                "text": "S1:  Random page replacement may suffer from \nbelady's anomaly when it starts behaving like \nFIFO page replacement algorithm.  \n\nS2:  LRU does not suffers from belady's anamoly. \nLRU is a stack algorithm and stack algorithm \ndoes not suffers from belady's anamoly.  \n\nSo,  option B is correct.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "OS_MEMORY_MANAGEMENT_2016_Q27",
+            "subject": "Operating System",
+            "topic": "Memory Management",
+            "subtopic": "Which of the following is CORRECT?",
+            "year": 2016,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 27,
+            "tags": [
+                "Memory Management",
+                "Which of the following is CORRECT?",
+                "Operating System"
+            ],
+            "question": {
+                "text": "In which one of the following page replacement \nalgorithms it is possible for the page fault rate to \nincrease even when the number of allocated frames \nincreases?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "LRU (Least Recently Used)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "OPT (Optimal Page Replacement)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "MRU (Most Recently Used)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "FIFO (First In First Out)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "D"
+            ],
+            "solution": {
+                "text": "FIFO page replacement algorithm can result in \nincreasing page fault rate even when the number of \nallocated frames are decreasing.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "OS_MEMORY_MANAGEMENT_2015_Q28",
+            "subject": "Operating System",
+            "topic": "Memory Management",
+            "subtopic": "increases?",
+            "year": 2015,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 28,
+            "tags": [
+                "Memory Management",
+                "increases?",
+                "Operating System"
+            ],
+            "question": {
+                "text": "Consider a main memory with five-page frames and \nthe following sequence of page references:  \n\n3, 8, 2, 3, 9, 1, 6, 3, 8, 9, 3, 6, 2, 1, 3 \n\nWhich one of the following is true with respect to \npage replacement policies First-In-First Out (FIFO) \nand Least Recently Used (LRU)?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "Both incur the same number of page faults",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "FIFO incurs 2 more-page faults than LRU",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "LRU incurs 2 more-page faults than FIFO",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "FIFO incurs 1 more page faults than LRU",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "A"
+            ],
+            "solution": {
+                "text": "Reference string: \n\n3, 8, 2, 3, 9, 1, 6, 3, 8, 9, 3, 6, 2, 1, 3 \n\nPage fault using FIFO and LRU page replacement \nalgorithm:",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "OS_MEMORY_MANAGEMENT_2014_Q29",
+            "subject": "Operating System",
+            "topic": "Memory Management",
+            "subtopic": "and Least Recently Used (LRU)?",
+            "year": 2014,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 29,
+            "tags": [
+                "Memory Management",
+                "and Least Recently Used (LRU)?",
+                "Operating System"
+            ],
+            "question": {
+                "text": "A system uses 3 pages frames for storing process \npages in main memory. It uses the Least Recently \nUsed (LRU) page replacement policy. Assume that \nall the page frames are initially empty. What is the \ntotal number of page faults that will occur while \nprocessing the page reference string given below? \n\n4, 7, 6, 1, 7, 6, 1, 2, 7, 2",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "6"
+            ],
+            "solution": {
+                "text": "Reference string: 4, 7, 6, 1, 7, 6, 1, 2, 7, 2 \n\n\n\nPF is page fault and PH is page hit, so total 6 \nnumber of page faults.",
+                "images": [
+                    "assets/Operating System/OS_Memory_Management_P52_X6549.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "OS_MEMORY_MANAGEMENT_2014_Q30",
+            "subject": "Operating System",
+            "topic": "Memory Management",
+            "subtopic": "4, 7, 6, 1, 7, 6, 1, 2, 7, 2",
+            "year": 2014,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 30,
+            "tags": [
+                "Memory Management",
+                "4, 7, 6, 1, 7, 6, 1, 2, 7, 2",
+                "Operating System"
+            ],
+            "question": {
+                "text": "A computer has twenty physical page frames which \ncontain pages numbered 101 through 120. Now a \nprogram accesses the pages numbered 1, 2, …, 100 \nin that order, and repeats the access sequence \nTHRICE. \n\nWhich one of the following page replacement \npolicies experiences the same number of page faults \nas the optimal page replacement policy for this \nprogram?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "Least-recently-used",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "First-in-first-out",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "Last-in-first-out",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "Most-recently-used",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "D"
+            ],
+            "solution": {
+                "text": "In optimal page replacement policy, the page which \nwill next occur farthest in the future will be \nswapped out from the memory. \n\nIt is given that, computer has 20-page frames and \ninitially the pages are numbered from 1 to 20. And \nthe program accesses the pages numbered 1, 2, …., \n100 and repeats the sequence THRICE.  \n\nThe first 20 page access (i.e. 1 to 20) will cause \npage fault. Now, when page 21 will arrive it will \nswap out page 20 as 20 is going to be used farthest \nin future, similarly when 22 will arrive so 21 will \nbe swapped out and so on.  \n\n\nSo, the given algorithm is working as most-recently \nused. Hence, option D is the correct answer.  \n          1      2      3      4      2     1      5     3      2      4      6 \n\n\n\n         PF    PF   PF    PF  PH   PH   PF   PF    PH   PH   PF",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "OS_MEMORY_MANAGEMENT_2014_Q31",
+            "subject": "Operating System",
+            "topic": "Memory Management",
+            "subtopic": "program?",
+            "year": 2014,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 31,
+            "tags": [
+                "Memory Management",
+                "program?",
+                "Operating System"
+            ],
+            "question": {
+                "text": "Assume that there are 3-page frames which are \ninitially empty. If the page reference string is 1, 2, 3, \n4, 2, 1, 5, 3, 2, 4, 6, the number of page faults using \nthe optimal replacement policy is _____",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "7"
+            ],
+            "solution": {
+                "text": "Reference string: 1, 2, 3, 4, 2, 1, 5, 3, 2, 4, 6",
+                "images": [
+                    "assets/Operating System/OS_Memory_Management_P53_X6605.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "OS_MEMORY_MANAGEMENT_2012_Q32",
+            "subject": "Operating System",
+            "topic": "Memory Management",
+            "subtopic": "the optimal replacement policy is _____",
+            "year": 2012,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 32,
+            "tags": [
+                "Memory Management",
+                "the optimal replacement policy is _____",
+                "Operating System"
+            ],
+            "question": {
+                "text": "Consider the virtual page reference string  \n\n1, 2, 3, 2, 4, 1, 3, 2, 4, 1 \n\nOn a demand paged virtual memory system running \non computer system that has main memory size of 3 \npage frames which are initially empty. Let LRU, \nFIFO and OPTIMAL denote the number of page \nfaults under the corresponding page replacement \npolicy. Then",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "OPTICAL < LRU < FIFO",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "OPTIMAL < FIFO < LRU",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "OPTIMAL = LRU",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "OPTIMAL = FIFO",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "B"
+            ],
+            "solution": {
+                "text": "The page faults using FIFO, optimal and LRU are \nas follows: \n\n\n Optimal <FIFO < LRU \n\nSo, option B is correct.",
+                "images": [
+                    "assets/Operating System/OS_Memory_Management_P53_X6607.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "OS_MEMORY_MANAGEMENT_2010_Q33",
+            "subject": "Operating System",
+            "topic": "Memory Management",
+            "subtopic": "policy. Then",
+            "year": 2010,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 33,
+            "tags": [
+                "Memory Management",
+                "policy. Then",
+                "Operating System"
+            ],
+            "question": {
+                "text": "A system uses FIFO policy for page replacement. It \nhas 4-page frames with no pages loaded to begin \nwith. The system first accesses 100 distinct pages in \nsome order and then accesses the same 100 pages \nbut now in the reverse order. How many page faults \nwill occur?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "196",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "192",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "197",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "195",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "A"
+            ],
+            "solution": {
+                "text": "Given that the system has 4 page frames.  \n\n Initially for page number 1 to 100 it will cause page \nfaults, then in reverse order for page number 100, 99, \n98, and 97 it will be a page hit and then again page \nfaults for page 96 to page 1.  \n\n [1, 2, …. 100,100….2, 1] \n\n So,  2n  - 4, we are accessing n pages for 2 times and \nonly 4 page hits are there. Here, N equals to 100.  \n\n 200 - 4 = 196. \n\n Therefore, option A is correct.",
+                "images": [],
+                "latex": [],
+                "tables": [
+                    {
+                        "headers": [
+                            "1",
+                            "1",
+                            "1",
+                            "1",
+                            "1",
+                            "1",
+                            "5",
+                            "3",
+                            "3",
+                            "3",
+                            "6"
+                        ],
+                        "rows": [
+                            [
+                                "",
+                                "2",
+                                "2",
+                                "2",
+                                "2",
+                                "2",
+                                "2",
+                                "2",
+                                "2",
+                                "2",
+                                "2"
+                            ],
+                            [
+                                "",
+                                "",
+                                "3",
+                                "4",
+                                "4",
+                                "4",
+                                "4",
+                                "4",
+                                "4",
+                                "4",
+                                "4"
+                            ]
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "id": "OS_MEMORY_MANAGEMENT_2008_Q34",
+            "subject": "Operating System",
+            "topic": "Memory Management",
+            "subtopic": "will occur?",
+            "year": 2008,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 34,
+            "tags": [
+                "Memory Management",
+                "will occur?",
+                "Operating System"
+            ],
+            "question": {
+                "text": "Assume that a main memory with only 4 pages, each \nof 16 bytes, is initially empty. The CPU generates \nthe following sequence of virtual addresses and uses \nthe Least Recently Used (LRU) page replacement \npolicy. \n\n0, 4, 8, 20, 24, 36, 44, 12, 68, 72, 80, 84, 28, 32, 88, \n\nHow many page faults does this sequence cause? \nWhat are the page numbers of the page present in the \nmain memory at the end of the sequence?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "6 and 1, 2, 3, 4",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "7 and 1, 2, 4, 5",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "8 and 1, 2, 4, 5",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "9 and 1, 2, 3, 5",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "B"
+            ],
+            "solution": {
+                "text": "Page Size = 16 bytes \n\n Number of frames, M =4; \n\n Virtual Addresses:  \n\n0, 4, 8, 20, 24, 36, 44, 12, 68, 72, 80, 84, 28, 32, 88, \n\nReference String corresponding to given virtual \naddresses: \n\n <0, 0, 0, 1, 1, 2, 2, 0, 4, 4, 5, 5, 1, 2, 5, 5 > \n\n\n\nLR U : \n\n\nNumber of P.F's : 7 \n\nThe page numbers of the page present in the main \nmemory at the end of the sequence is 1, 2, 4, 5. \n\nSo, option B is the correct answer.",
+                "images": [
+                    "assets/Operating System/OS_Memory_Management_P52_X6547.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        }
+    ]
+}

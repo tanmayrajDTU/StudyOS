@@ -1,0 +1,1564 @@
+{
+    "subject": "Compiler Design",
+    "topic": "Syntax Analysis",
+    "questionCount": 25,
+    "questions": [
+        {
+            "id": "CD_SYNTAX_ANALYSIS_2017_Q01",
+            "subject": "Compiler Design",
+            "topic": "Syntax Analysis",
+            "subtopic": "Context Free Grammar",
+            "year": 2017,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 1,
+            "tags": [
+                "Syntax Analysis",
+                "Context Free Grammar",
+                "Compiler Design"
+            ],
+            "question": {
+                "text": "Consider the following expression grammar G: \n\n𝐸 \\rightarrow 𝐸 − 𝑇 | 𝑇  \n\n𝑇 \\rightarrow 𝑇 + 𝐹 | 𝐹  \n\n𝐹 \\rightarrow (𝐸) | 𝑖𝑑  \n\nWhich of the following grammars is not left \nrecursive, but is equivalent to G?",
+                "images": [],
+                "latex": [],
+                "tables": [
+                    {
+                        "headers": [
+                            "A",
+                            "b",
+                            "d",
+                            "$"
+                        ],
+                        "rows": [
+                            [
+                                "3",
+                                "2",
+                                "1",
+                                "0"
+                            ]
+                        ]
+                    }
+                ]
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "E \\rightarrow E−T | T",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "E \\rightarrow TE′ \n\n\nT \\rightarrow T+F | F \n\nE \\rightarrow −TE′| ε \n\n\nF \\rightarrow (E)  | id \n\nT \\rightarrow T+F | F",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "E \\rightarrow TX",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "E \\rightarrow TX | (TX) \n\n\nX \\rightarrow −TX | ε \n\nX \\rightarrow −TX | +TX | ε  \n\n\nT \\rightarrow FY \n\nT \\rightarrow id \n\n\nY \\rightarrow +FY | ε  \n\n\n\nF \\rightarrow (E) | id \nTop Down Parser",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "C"
+            ],
+            "solution": {
+                "text": "Eliminating left recursion from the given expression \ngrammar: \n\n I. E \\rightarrow E -T | T will be converted: \n\n\n𝐸→𝑇𝑋\n𝑋→ - 𝑇𝑋 | ε \n\n II. T \\rightarrow T + F | F will be converted: \n\n\n𝑇→𝐹𝑌\n𝑌→+𝐹𝑌 | ε  \n\n III. 𝐹→(𝐸) | 𝑖𝑑  is same as it is already free from \nleft recursion \n\n The resultant grammar after removing left-recursion \nis  \n\n\n E \\rightarrow TX \n\n\n X \\rightarrow −TX | ε \n\n\n T \\rightarrow FY \n\n\n Y \\rightarrow +FY | ε  \n\n\n\n F \\rightarrow (E) | id \n\nThe given expression grammar is equivalent to \ngrammar in option C.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "CD_SYNTAX_ANALYSIS_2021_Q02",
+            "subject": "Compiler Design",
+            "topic": "Syntax Analysis",
+            "subtopic": "Top Down Parser",
+            "year": 2021,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 2,
+            "tags": [
+                "Syntax Analysis",
+                "Top Down Parser",
+                "Compiler Design"
+            ],
+            "question": {
+                "text": "Consider the following context-free grammar where \nthe set of terminals is {a, b, c, d, f} \n\nS \\rightarrow d a T | R f \n\nT \\rightarrow a S | b a T | ε \n\nR \\rightarrow c a T R | ε \n\nThe following is a partially-filled LL(1) parsing \ntable \n\n\nWhich one of the following choices represents the \ncorrect combinations for the numbered cells in the \nparsing table ('blank' denotes that the corresponding \ncell is empty)?",
+                "images": [
+                    "assets/Compiler Design/CD_Syntax_Analysis_P8_X1003.png"
+                ],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "(1) S \\rightarrow R f",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "(1) blank   \n\n\n (2) S \\rightarrow R f     \n\n(2) S \\rightarrow R f     \n\n\n (3) T \\rightarrow ε \n\n(3) T \\rightarrow ε  \n\n\n (4) T \\rightarrow ε \n\n(4) T \\rightarrow ε",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "(1) S \\rightarrow R f",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "(1) blank    \n\n\n (2) blank    \n\n(2) S \\rightarrow R f        \n\n\n (3) blank \n\n(3) blank \n\n\n (4) T \\rightarrow ε \n\n(4) blank",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "B"
+            ],
+            "solution": {
+                "text": "To find out correct combinations for the numbered \ncells in the parsing table, we need to first find out \nFIRST and FOLLOW of S, T, and R.  \n\n\nFIRST(S) = {d, c, f} \n\n\nFOLLOW(S) = {c, f, $} \n\n\nFIRST(T) = {a, b, e} \n\n\nFOLLOW(T) = {$, c, f} \n\n\nFIRST(R) = {c, ε } \n\n\nFOLLOW(R) = {f} \n\nSo,  \n\n1. S \\rightarrow Rf  [This production can produce c] \n\n2. S \\rightarrow Rf  [This production can produce f] \n\n3. T \\rightarrow ε \n\n\n4. T \\rightarrow ε \n\nSo, option A is the correct answer",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "CD_SYNTAX_ANALYSIS_2019_Q03",
+            "subject": "Compiler Design",
+            "topic": "Syntax Analysis",
+            "subtopic": "(4) blank",
+            "year": 2019,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 3,
+            "tags": [
+                "Syntax Analysis",
+                "(4) blank",
+                "Compiler Design"
+            ],
+            "question": {
+                "text": "Consider the grammar given below: \n\n\nS \\rightarrow Aa \n\n\nA \\rightarrow BD \n\n\nB \\rightarrow b | ε \n\n\nD \\rightarrow d | ε \n\nLet a, b, d, and $ be index as follows: \nA \nb \nd \n$ \n\nCompute the FOLLOW set of the non-terminal B \nand write the index values for the symbols in the \nFOLLOW set in the descending order. (For example, \nif the FOLLOW set is {a, b, d, $}, then the answer \nshould be 3210)",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "31"
+            ],
+            "solution": {
+                "text": "Sol- Follow(B) = {d, a} \n\nIndex for d is 3 \n        Index for a is 1 \n\n\nSo, 31 is the correct answer.",
+                "images": [
+                    "assets/Compiler Design/CD_Syntax_Analysis_P13_X733.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "CD_SYNTAX_ANALYSIS_2017_Q04",
+            "subject": "Compiler Design",
+            "topic": "Syntax Analysis",
+            "subtopic": "should be 3210)",
+            "year": 2017,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 4,
+            "tags": [
+                "Syntax Analysis",
+                "should be 3210)",
+                "Compiler Design"
+            ],
+            "question": {
+                "text": "Consider the following grammar: \n\n\nP \\rightarrow xQRS  \n\n\nQ \\rightarrow yz | z \n\n\nR \\rightarrow w | ε \n\n\nS→y \n\nWhat is FOLLOW(Q)?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "{R}",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "{w}",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "{w,y}",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "{w,$} \n\n(Common Data for next 2 questions)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "C"
+            ],
+            "solution": {
+                "text": "Follow of Q: It depends on First of RS  \n\n\n\n\nFollow(Q) = {w, y} \n\nOption c is the correct answer.",
+                "images": [
+                    "assets/Compiler Design/CD_Syntax_Analysis_P14_X1652.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "CD_SYNTAX_ANALYSIS_2012_Q05",
+            "subject": "Compiler Design",
+            "topic": "Syntax Analysis",
+            "subtopic": "(Common Data for next 2 questions)",
+            "year": 2012,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 5,
+            "tags": [
+                "Syntax Analysis",
+                "(Common Data for next 2 questions)",
+                "Compiler Design"
+            ],
+            "question": {
+                "text": "For the grammar below, a partial LL(1) parsing table \nis also presented along with the grammar. Entries \nthat need to be filled are indicated as E1, E2 and E3. \nε is the empty string, $ indicates end of input, and | \nseparates alternate right hand sides of productions. \n\n\nS \\rightarrow aAbB | bAaB | ε \n\n\nA \\rightarrow S \n\n\nB \\rightarrow S \n\na \nb \n$ \nS \nE1 \nE2 \nS \\rightarrow  \nA \nA \\rightarrow S A \\rightarrow S Error \nB \nB \\rightarrow S B \\rightarrow S E3 \n\n\nThe FIRST and FOLLOW sets for the non-\nterminals A and B are",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "FIRST (A)={a, b, ε}=FIRST (B) \n\n\n FOLLOW (A)={a, b} \n\n\n FOLLOW (B)={a, b, $}",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "FIRST (A)={a, b, $} \n\n\n FIRST (B)={a, b, ε} \n\n\n FOLLOW (A)={a,b} \n\n\n FOLLOW (B)={$}",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "FIRST (A)={a, b, ε}=FIRST (B), \n\n\n FOLLOW (A)={a,b} \n\n\n FOLLOW (B)=$",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "FIRST (A)={a,b}=FIRST (B) \n\n\n FOLLOW (A)={a, b} \n\n\n FOLLOW (B)={a, b}",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "A"
+            ],
+            "solution": {
+                "text": "First (S) = {a, b, e} \n\nFollow(S) = {$, a, b} \n\nFirst(A) = {a, b, ε} \n\nFirst (B) = {a, b, ε} \n\nFollow (A) = {a, b} \n\nFollow (B) = {$, a, b} \n\nSo, option A is the correct answer.",
+                "images": [
+                    "assets/Compiler Design/CD_Syntax_Analysis_P13_X733.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "CD_SYNTAX_ANALYSIS_2012_Q06",
+            "subject": "Compiler Design",
+            "topic": "Syntax Analysis",
+            "subtopic": "FOLLOW (B)={a, b}",
+            "year": 2012,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 6,
+            "tags": [
+                "Syntax Analysis",
+                "FOLLOW (B)={a, b}",
+                "Compiler Design"
+            ],
+            "question": {
+                "text": "The appropriate entries for E1, E2 and E3 are",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "E1: S \\rightarrow aAbB, A \\rightarrow S \n\n\nE2: S \\rightarrow bAaB, B \\rightarrow S  \n\n\nE3: B \\rightarrow S",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "E1: S \\rightarrow aAbB, S \\rightarrow ε \n\n\nE2: S \\rightarrow bAaB, S \\rightarrow ε  \n\n\nE3∶ S \\rightarrow ε",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "E1: S \\rightarrow aAbB, S \\rightarrow ε \n\n\nE2∶ S \\rightarrow bAaB, S \\rightarrow ε  \n\n\nE3: B \\rightarrow S",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "E1: A \\rightarrow S, S \\rightarrow ε \n\n\nE2: B \\rightarrow S, S \\rightarrow ε  \n\n\nE3∶ B \\rightarrow S \n\nLR Parser",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "C"
+            ],
+            "solution": {
+                "text": "Given,  \n\n\nS \\rightarrow aAbB | bAaB | ε \n\n    A \\rightarrow S \n\n\nB \\rightarrow S \n\na \nb \n$ \nS \nE1 \nE2 \nS \\rightarrow  \nA \nA \\rightarrow S \nA \\rightarrow S \nError \nB \nB \\rightarrow S \nB \\rightarrow S \nE3 \n\n\n\n\nFirst (S) = {a, b, ε } \n\n\nFollow(S) = {$, a, b} \n\n\nE1 : {S \\rightarrow a AbB, S \\rightarrow ε } \n\n\nE2 : {S \\rightarrow bAaB, S \\rightarrow ε } \n\n\nE3: {B \\rightarrow S} \n\n Therefore, option C is the correct answer.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "CD_SYNTAX_ANALYSIS_2022_Q07",
+            "subject": "Compiler Design",
+            "topic": "Syntax Analysis",
+            "subtopic": "LR Parser",
+            "year": 2022,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 7,
+            "tags": [
+                "Syntax Analysis",
+                "LR Parser",
+                "Compiler Design"
+            ],
+            "question": {
+                "text": "Which one of the following statements is TRUE?",
+                "images": [],
+                "latex": [],
+                "tables": [
+                    {
+                        "headers": [
+                            "",
+                            "a",
+                            "b",
+                            "$"
+                        ],
+                        "rows": [
+                            [
+                                "S",
+                                "E1",
+                                "E2",
+                                "S → "
+                            ],
+                            [
+                                "A",
+                                "A → S",
+                                "A → S",
+                                "Error"
+                            ],
+                            [
+                                "B",
+                                "B → S",
+                                "B → S",
+                                "E3"
+                            ]
+                        ]
+                    }
+                ]
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "The LALR(1) parser for a grammar G cannot \nhave reduce - reduce conflict if the LR(1) \nparser for G does not have reduce - reduce \nconflict.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "Symbol table is accessed only during the lexical \nanalysis phase.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "Data flow analysis is necessary for run-time \nmemory management.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "LR(1) parsing is sufficient for deterministic \ncontext - free languages.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "D"
+            ],
+            "solution": {
+                "text": "(a) FALSE. The LALR(1) parser for a grammar G \nmay have reduce - reduce conflict if the LR(1) \nparser for G does not have reduce - reduce \nconflict. \n\n(b) FALSE. Symbol table can be accessed in all \nphases of compiler.  \n\n(c) FALSE. Data flow analysis is required to \nimporve the code but not necessary for run-\ntime memory mangement.  \n\n(d) TRUE. Every LR(1) CFG going to generate \nDCFL.  \n\nHence, option d is the correct answer.",
+                "images": [
+                    "assets/Compiler Design/CD_Syntax_Analysis_P14_X1653.png"
+                ],
+                "latex": [],
+                "tables": [
+                    {
+                        "headers": [
+                            "",
+                            "a",
+                            "b",
+                            "$"
+                        ],
+                        "rows": [
+                            [
+                                "S",
+                                "E1",
+                                "E2",
+                                "S → "
+                            ],
+                            [
+                                "A",
+                                "A → S",
+                                "A → S",
+                                "Error"
+                            ],
+                            [
+                                "B",
+                                "B → S",
+                                "B → S",
+                                "E3"
+                            ]
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "id": "CD_SYNTAX_ANALYSIS_2021_Q08",
+            "subject": "Compiler Design",
+            "topic": "Syntax Analysis",
+            "subtopic": "context - free languages.",
+            "year": 2021,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 8,
+            "tags": [
+                "Syntax Analysis",
+                "context - free languages.",
+                "Compiler Design"
+            ],
+            "question": {
+                "text": "Consider the augmented grammar with {+, ∗ ,  (,), \nid} as the set of terminals. \n\n\nS′→ S  \n\n\nS \\rightarrow S + R | R  \n\n\nR \\rightarrow 𝑅 ∗ P | P  \n\n\nP \\rightarrow (S) | id  \n\nIf I0 is the set of two 𝐿𝑅(0) items {[S→S.], [S →S. + \nR]}, then 𝑔𝑜𝑡𝑜(𝑐𝑙𝑜𝑠𝑢𝑟𝑒(𝐼0 ), + ) contains exactly \n______ items.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "5"
+            ],
+            "solution": {
+                "text": "So, there are total 5 items in the goto(closure(I0), +).",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "CD_SYNTAX_ANALYSIS_2021_Q09",
+            "subject": "Compiler Design",
+            "topic": "Syntax Analysis",
+            "subtopic": "______ items.",
+            "year": 2021,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 9,
+            "tags": [
+                "Syntax Analysis",
+                "______ items.",
+                "Compiler Design"
+            ],
+            "question": {
+                "text": "Consider the following statements \n\nS1: Every SLR (1) grammar is unambiguous but \nthere are certain unambiguous grammars that are \nnot SLR(1). \n\nS2:  For any context-free grammar, there is a parser \nthat takes at most O(n3) time to parse a string of \nlength n. \n\n\n\n\nWhich one of the following options is correct?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "S1 is true and S2 is false",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "S1 is false and S2 is true",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "S1 is true and S2 is true",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "S1 is false and S2 is false",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "C"
+            ],
+            "solution": {
+                "text": "S1: Every SLR (1) grammar is unambiguous but \nthere are certain unambiguous grammars that \nare not SLR(1). TRUE. For example, LALR(1), \nCLR(1) are certain unambiguous grammars \nwhich are not SLR(1).  \n\n\nS2:  For any context-free grammar, there is a parser \nthat takes at most O(n3) time to parse a string of \nlength n. TRUE. For example, CYK algorithm \ntakes O(n3) time to parse a string of length n. \n\nSo, option c is the correct answer.",
+                "images": [
+                    "assets/Compiler Design/CD_Syntax_Analysis_P15_X1755.png",
+                    "assets/Compiler Design/CD_Syntax_Analysis_P15_X1759.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "CD_SYNTAX_ANALYSIS_2021_Q10",
+            "subject": "Compiler Design",
+            "topic": "Syntax Analysis",
+            "subtopic": "Which one of the following options is correct?",
+            "year": 2021,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 10,
+            "tags": [
+                "Syntax Analysis",
+                "Which one of the following options is correct?",
+                "Compiler Design"
+            ],
+            "question": {
+                "text": "Consider the following augmented grammar with {#, \n@,<, >,a, b, c}  as the set of terminals \n\nS′→S \n          S \\rightarrow S # cS \n          S \\rightarrow SS \n\nS \\rightarrow S@ \n          S \\rightarrow <S> \n\nS \\rightarrow a \n\nS \\rightarrow b \n\nS \\rightarrow c  \n\nLet I0 = CLOSURE({S′→\".\" S}). The number of \nitems in the set GOTO(GOTO(I0,<),<) is _______",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "8"
+            ],
+            "solution": {
+                "text": "There are 8 items in the set GOTO(GOTO(I0,<),<).",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "CD_SYNTAX_ANALYSIS_2021_Q11",
+            "subject": "Compiler Design",
+            "topic": "Syntax Analysis",
+            "subtopic": "items in the set GOTO(GOTO(I0,<),<) is _______",
+            "year": 2021,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 11,
+            "tags": [
+                "Syntax Analysis",
+                "items in the set GOTO(GOTO(I0,<),<) is _______",
+                "Compiler Design"
+            ],
+            "question": {
+                "text": "Consider the following grammar: \n\n\nS \\rightarrow aSB | d  \n\n\nB \\rightarrow b  \n\nThe number of reduction steps taken by a bottom-up \nparser while accepting the string aaadbbb is ______.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "7"
+            ],
+            "solution": {
+                "text": "Bottom-up parser follows reverse of RMD (Right \nmost derivation).  \n\nAnd, Number of reduction steps in reverse of RMD \n= Number of substitutions in RMD \n\nRMD for given grammar.  \n\n\nSo, total 7 number of reduction steps taken by \nbottom-up parser while verifying the string \naaadbbb.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "CD_SYNTAX_ANALYSIS_2019_Q12",
+            "subject": "Compiler Design",
+            "topic": "Syntax Analysis",
+            "subtopic": "parser while accepting the string aaadbbb is ______.",
+            "year": 2019,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 12,
+            "tags": [
+                "Syntax Analysis",
+                "parser while accepting the string aaadbbb is ______.",
+                "Compiler Design"
+            ],
+            "question": {
+                "text": "Which one of the following kinds of derivation is \nused by LR parsers?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "Leftmost",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "Leftmost in reverse",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "Rightmost",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "Rightmost in reverse",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "D"
+            ],
+            "solution": {
+                "text": "LR parser also known as bottom-up parser and \nbottom-up parser uses rightmost derivation in \nreverse.  \n\nHence, option d is the correct answer.",
+                "images": [
+                    "assets/Compiler Design/CD_Syntax_Analysis_P15_X1757.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "CD_SYNTAX_ANALYSIS_2017_Q13",
+            "subject": "Compiler Design",
+            "topic": "Syntax Analysis",
+            "subtopic": "used by LR parsers?",
+            "year": 2017,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 13,
+            "tags": [
+                "Syntax Analysis",
+                "used by LR parsers?",
+                "Compiler Design"
+            ],
+            "question": {
+                "text": "Which of the following statements about parser \nis/are CORRECT? \n\nI.   Canonical LR is more powerful than SLR. \n\nII.   SLR is more powerful than LALR. \n\nIII.   SLR is more powerful than Canonical LR.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "I only",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "II only",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "III only",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "II and III only",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "A"
+            ],
+            "solution": {
+                "text": "SLR is less powerful than LALR and LALR is less \npowerful than CLR.  \n\nSLR < LALR < CLR. \n\n\nI.  Canonical LR is more powerful than SLR. \nTRUE \n\nII.  SLR is more powerful than LALR. FALSE \n\nIII. SLR is more powerful than Canonical LR. \nFALSE \n\nStatement I is only correct, option a is the right \nanswer.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "CD_SYNTAX_ANALYSIS_2015_Q14",
+            "subject": "Compiler Design",
+            "topic": "Syntax Analysis",
+            "subtopic": "III.   SLR is more powerful than Canonical LR.",
+            "year": 2015,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 14,
+            "tags": [
+                "Syntax Analysis",
+                "III.   SLR is more powerful than Canonical LR.",
+                "Compiler Design"
+            ],
+            "question": {
+                "text": "Consider the following grammar G. \n\n\nS \\rightarrow F | H \n\n\nF \\rightarrow p | c \n\n\nH \\rightarrow d | c \n\nWhere S, F and H are non-terminal symbols, p, d and \nc are terminal symbols. Which of the following \nstatements(s) is/are correct? \n\nS1: LL(1) can parse all strings that are generated \nusing grammar G. \n\nS2: LR(1) can parse all strings that are generated \nusing grammar G.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "Only S1",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "Only S2",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "Both S1 and S2",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "Neither S1 and S2",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "D"
+            ],
+            "solution": {
+                "text": "If we want to drive the string \"c\", it can be done in \ntwo ways S \\rightarrow F→c or S \\rightarrow H \\rightarrow c \n\nSo, we can say the given grammar is ambiguous. \nWith the ambiguous grammar, parser cannot parse \nthe string. So, in case of LL(1) or LR(1) parser is \ngoing to have a problem, that's why both the \nstatements are incorrect. Hence, option D is the right \nanswer.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "CD_SYNTAX_ANALYSIS_2015_Q15",
+            "subject": "Compiler Design",
+            "topic": "Syntax Analysis",
+            "subtopic": "using grammar G.",
+            "year": 2015,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 15,
+            "tags": [
+                "Syntax Analysis",
+                "using grammar G.",
+                "Compiler Design"
+            ],
+            "question": {
+                "text": "Among simple LR (SLR), canonical LR, and look-\nahead LR (LALR), which of the following pairs \nidentify the method that is very easy to implement \nand the method that is the most powerful, in that \norder?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "SLR, LALR",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "Canonical LR, LALR",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "SLR, canonical LR",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "LALR, canonical LR",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "C"
+            ],
+            "solution": {
+                "text": "Easy to implement, Most powerful.  \n\n SLR is easy to implement and CLR is most \npowerful. So SLR, CLR, is the correct answer.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "CD_SYNTAX_ANALYSIS_2015_Q16",
+            "subject": "Compiler Design",
+            "topic": "Syntax Analysis",
+            "subtopic": "order?",
+            "year": 2015,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 16,
+            "tags": [
+                "Syntax Analysis",
+                "order?",
+                "Compiler Design"
+            ],
+            "question": {
+                "text": "Which one of the following is TRUE at any valid \nstate in shift-reduce parsing?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "Viable prefixes appear only at the bottom of the \nstack and not inside",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "Viable prefixes appear only at the top of the \nstack and not inside",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "The stack contains only a set of viable prefixes",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "The stack never contains viable prefixes",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "C"
+            ],
+            "solution": {
+                "text": "(a) INCORRECT. Viable prefixes can be present \nanywhere in the stack. \n\n(b) INCORRECT. Viable prefixes can be present \nanywhere in the stack. \n\n(c) CORRECT. The stack contains only a set of \nviable prefixes.  \n\n(d)  INCORRECT. The stack contains viable \nprefixes.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "CD_SYNTAX_ANALYSIS_2014_Q17",
+            "subject": "Compiler Design",
+            "topic": "Syntax Analysis",
+            "subtopic": "stack and not inside",
+            "year": 2014,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 17,
+            "tags": [
+                "Syntax Analysis",
+                "stack and not inside",
+                "Compiler Design"
+            ],
+            "question": {
+                "text": "A canonical set of items is given below \n\n\nS \\rightarrow L. > R \n\n\nQ \\rightarrow R. \n\nOn input symbol > the set has",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "a shift-reduce conflict and a reduce-reduce \nconflict.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "a shift-reduce conflict but not a reduce-reduce \nconflict.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "a reduce-reduce conflict but not a shift-reduce \nconflict.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "neither a shift-reduce nor a reduce-reduce \nconflict.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "D"
+            ],
+            "solution": {
+                "text": "This state does not have any conflict; therefore, \noption D is the correct answer.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "CD_SYNTAX_ANALYSIS_2015_Q18",
+            "subject": "Compiler Design",
+            "topic": "Syntax Analysis",
+            "subtopic": "conflict.",
+            "year": 2015,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 18,
+            "tags": [
+                "Syntax Analysis",
+                "conflict.",
+                "Compiler Design"
+            ],
+            "question": {
+                "text": "Consider the following two sets of LR(1) items of \nLR(1) grammar. \n\n\n\n\n\n\nWhich of the following statement related to merging \nof the two sets in the corresponding LALR parser \nis/are FALSE? \n\n1. Cannot be merged since look aheads are \ndifferent. \n\n2. Can be merged but will result in S-R conflict. \n\n3. Can be merged but will result in R-R conflict. \n\n4. Cannot be merged since goto on c will lead to \ntwo different sets",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "1 only",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "2 only",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "1 and 4 only",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "1, 2, 3 and 4",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "D"
+            ],
+            "solution": {
+                "text": "There is no conflicts in the given sets and there are \nno reduced items.  \n\nSo,  \n\n1. \"Cannot be merged since look aheads are \ndifferent\" is FALSE. Because they can be \nmerged when lookaheads are different.  \n\n2. \"Can be merged but will result in S-R conflict\" \nis FALSE. Because no conflict present.  \n\n3. \"Can be merged but will result in R-R conflict\" \nis FALSE. Because no conflict when merged.  \n\n\nX \\rightarrow C.X, C/d/$ \n\n\nX \\rightarrow .CX, C/d/$ \n\n\nX \\rightarrow .d, C/d/$ \n\n4. \"Cannot be merged since goto on c will lead to \ntwo different sets\" FALSE. While merging we \ndo not look at goto. \n\nSo, option D is the correct answer.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "CD_SYNTAX_ANALYSIS_2013_Q19",
+            "subject": "Compiler Design",
+            "topic": "Syntax Analysis",
+            "subtopic": "two different sets",
+            "year": 2013,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 19,
+            "tags": [
+                "Syntax Analysis",
+                "two different sets",
+                "Compiler Design"
+            ],
+            "question": {
+                "text": "What is the maximum number of reduces moves that \ncan be taken by a bottom up parser for a grammar \nwith no epsilon and unit productions (i.e. of type  \nA→ε and A→a) to parse a string with n tokens?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "n/2",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "n - 1",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "2n - 1",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "2n",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "B"
+            ],
+            "solution": {
+                "text": "n = 2 ⇒ 1 reduced move \n\nn = 2 ⇒ 2 reduced moves \n\nn = 4 ⇒ 3 reduced moves \nw = ab \nw = abc \nw = abcd \nS \n↓  \nab \nS \n↓ \nS \\rightarrow a \\times \nax \n↓ \nX \\rightarrow bc \n↓ \nabc \nS  \n↓ \nAB \n↓ \nAcd \n↓ \nabcd \n\nFor n length string we need n-1 moves. So, option B \nis the correct answer.",
+                "images": [
+                    "assets/Compiler Design/CD_Syntax_Analysis_P16_X1807.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "CD_SYNTAX_ANALYSIS_2010_Q20",
+            "subject": "Compiler Design",
+            "topic": "Syntax Analysis",
+            "subtopic": "A→ε and A→a) to parse a string with n tokens?",
+            "year": 2010,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 20,
+            "tags": [
+                "Syntax Analysis",
+                "A→ε and A→a) to parse a string with n tokens?",
+                "Compiler Design"
+            ],
+            "question": {
+                "text": "The grammar S \\rightarrow aSa | bS | c   is",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "LL(1) but not LR(1)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "LR(1) but not LL(1)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "Both LL(1) and LR(1)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "Neither LL(1) nor LR(1)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "C"
+            ],
+            "solution": {
+                "text": "Given,  \n\nS \\rightarrow aSa | bS | c \n\nFirst check for LL(1) because Every LL(1) is LR(1) \n\nThe given grammar is LL(1). So, option C is the \ncorrect answer.",
+                "images": [
+                    "assets/Compiler Design/CD_Syntax_Analysis_P16_X1807.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "CD_SYNTAX_ANALYSIS_2008_Q21",
+            "subject": "Compiler Design",
+            "topic": "Syntax Analysis",
+            "subtopic": "The grammar S → aSa | bS | c   is",
+            "year": 2008,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 21,
+            "tags": [
+                "Syntax Analysis",
+                "The grammar S → aSa | bS | c   is",
+                "Compiler Design"
+            ],
+            "question": {
+                "text": "An LALR(1) parser for a grammar G can have shift-\nreduce (S-R) conflicts if and only if",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "The SLR(1) parser for G has S-R conflict",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "The LR(1) parser for G has S-R conflicts",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "The LR(0) parser for G has S-R conflicts",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "The LALR(1) parser for G has reduce-reduce \nconflicts.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "B"
+            ],
+            "solution": {
+                "text": "LALR parser uses the LR(1) items of CLR parser. \nLALR will contain SR conflicts if and only if LR \nparser has SR conflicts. \n\nLALR can have RR conflicts even though LR parser \ndo not have RR conflicts. \n\n\nSo, option B is correct answer",
+                "images": [
+                    "assets/Compiler Design/CD_Syntax_Analysis_P17_X1865.png",
+                    "assets/Compiler Design/CD_Syntax_Analysis_P17_X1868.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "CD_SYNTAX_ANALYSIS_2008_Q22",
+            "subject": "Compiler Design",
+            "topic": "Syntax Analysis",
+            "subtopic": "conflicts.",
+            "year": 2008,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 22,
+            "tags": [
+                "Syntax Analysis",
+                "conflicts.",
+                "Compiler Design"
+            ],
+            "question": {
+                "text": "Which of the following describes a handle (as \napplicable to LR-parsing) appropriately?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "It is the position in a sentential form where the \nnext shift or reduce operation will occur.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "It is non-terminal whose production will be used \nfor reduction in the next step",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "It is a production that may be used for reduction \nin a future step along with a position in the \nsentential form where the next shift or reduce \noperation will occur.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "It is the production p that will be used for \nreduction in the next step along with a position \nin the sentential form where the right-hand side \nof the production may be found.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "D"
+            ],
+            "solution": {
+                "text": "In a production whole RHS part is known as handle. \nIt can be defined as the production p that will be \nused for reduction in the next step along with a \nposition in the sentential form where the right-hand \nside of the production may be found.",
+                "images": [
+                    "assets/Compiler Design/CD_Syntax_Analysis_P17_X1866.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "CD_SYNTAX_ANALYSIS_2019_Q23",
+            "subject": "Compiler Design",
+            "topic": "Syntax Analysis",
+            "subtopic": "of the production may be found.",
+            "year": 2019,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 23,
+            "tags": [
+                "Syntax Analysis",
+                "of the production may be found.",
+                "Compiler Design"
+            ],
+            "question": {
+                "text": "Consider the augmented grammar given below: \n\nS \\rightarrow S \n\nS \\rightarrow L | id \n\nL \\rightarrow L, S | S \n\nLet I0 = CLOSURE ({[S' \\rightarrow S]}). The number of \nitems in the set GOTO (I0,  ) is: __________. \n\nX \\rightarrow c.X, $ \nX \\rightarrow .cX, $ \nX \\rightarrow .d, $ \nX \\rightarrow c.X, c/d  \nX \\rightarrow .cX, c/d \nX \\rightarrow .d, c/d \n\nOperator Precedence Parsing",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "5"
+            ],
+            "solution": {
+                "text": "There are total 5 items in in the set GOTO (I\n0,  ).",
+                "images": [],
+                "latex": [],
+                "tables": [
+                    {
+                        "headers": [
+                            "Operator < Operator",
+                            "Operator > Operator"
+                        ],
+                        "rows": [
+                            [
+                                "Right associate",
+                                "Left associate"
+                            ]
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "id": "CD_SYNTAX_ANALYSIS_2014_Q24",
+            "subject": "Compiler Design",
+            "topic": "Syntax Analysis",
+            "subtopic": "Operator Precedence Parsing",
+            "year": 2014,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 24,
+            "tags": [
+                "Syntax Analysis",
+                "Operator Precedence Parsing",
+                "Compiler Design"
+            ],
+            "question": {
+                "text": "Consider the grammar defined by the following \nproduction rules, with two operator * and + \n\nS \\rightarrow T * P \n\nT \\rightarrow U | T * U \n\nP \\rightarrow Q + P | Q \n\nQ \\rightarrow Id \n\nU \\rightarrow Id \n\nWhich one of the following is TRUE?",
+                "images": [],
+                "latex": [],
+                "tables": [
+                    {
+                        "headers": [
+                            "Operator",
+                            "Precedence",
+                            "Associativity",
+                            "Arity"
+                        ],
+                        "rows": [
+                            [
+                                "+",
+                                "High",
+                                "Left",
+                                "Binary"
+                            ],
+                            [
+                                "-",
+                                "Medium",
+                                "Right",
+                                "Binary"
+                            ],
+                            [
+                                "*",
+                                "Low",
+                                "Left",
+                                "Binary"
+                            ]
+                        ]
+                    }
+                ]
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "+ is left associative, while * is right associativ",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "+ is right associative, while * is left associative",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "Both + and * are right associative",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "Both + and * are left associative",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "B"
+            ],
+            "solution": {
+                "text": "Operator < Operator \nOperator > Operator \nRight associate \nLeft associate \n\n\n\n\n\n\n+ is right associative \n\n* is left associative \n\nSo, option B is correct.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "CD_SYNTAX_ANALYSIS_2016_Q25",
+            "subject": "Compiler Design",
+            "topic": "Syntax Analysis",
+            "subtopic": "Which one of the following is TRUE?",
+            "year": 2016,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 25,
+            "tags": [
+                "Syntax Analysis",
+                "Which one of the following is TRUE?",
+                "Compiler Design"
+            ],
+            "question": {
+                "text": "The attributes of three arithmetic operators in some \nprogramming language are given below. \nOperator \nPrecedence Associativity Arity \n+ \nHigh \nLeft \nBinary \n- \nMedium  \nRight \nBinary \n* \nLow  \nLeft \nBinary \n\nThe value of the expression 2 - 5 + 1 - 7 * 3 in this \nlanguage is ________.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "9"
+            ],
+            "solution": {
+                "text": "Given,  \n\n+ has highest prcedence and left associative. \n\n- has medium precedence and right associative. \n\n* has lowest precedence and left associative.  \n\nExpression = 2 - 5 + 1 - 7 * 3 \n\n         = 2- [5+1] - 7 * 3 \n                   = 2 - 6 - 7 * 3 \n                   = [2- [6 - 7]]*3 \n                   = [2-(-1)] * 3 \n                   = 3 * 3 \n                   = 9 \n\nSo, 9 is the correct answer.",
+                "images": [],
+                "latex": [],
+                "tables": [
+                    {
+                        "headers": [
+                            "w = ab",
+                            "w = abc",
+                            "w = abcd"
+                        ],
+                        "rows": [
+                            [
+                                "S ↓ ab",
+                                "S ↓ S → a × ax ↓ X → bc ↓ abc",
+                                "S ↓ AB ↓ Acd ↓ abcd"
+                            ]
+                        ]
+                    }
+                ]
+            }
+        }
+    ]
+}

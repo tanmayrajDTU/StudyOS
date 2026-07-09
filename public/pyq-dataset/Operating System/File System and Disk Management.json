@@ -1,0 +1,727 @@
+{
+    "subject": "Operating System",
+    "topic": "File System & Disk Management",
+    "questionCount": 14,
+    "questions": [
+        {
+            "id": "OS_FILE_SYSTEM_DISK_MANAGEMENT_2022_Q01",
+            "subject": "Operating System",
+            "topic": "File System & Disk Management",
+            "subtopic": "File System",
+            "year": 2022,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 1,
+            "tags": [
+                "File System & Disk Management",
+                "File System",
+                "Operating System"
+            ],
+            "question": {
+                "text": "Consider two files systems A and B , that use \ncontiguous \nallocation \nand \nlinked \nallocation, \nrespectively. A file of size 100 blocks is already \nstored in A and also in B. Now, consider inserting a \nnew block in the middle of the file (between 50th and \n51st block), whose data is already available in the \nmemory. Assume that there are enough free blocks \nat the end of the file and that the file control blocks \nare already in memory. Let the number of disk \naccesses required to insert a block in the middle of \nthe file in A and B are nA and nB, respectively, then \nthe value of nA + nB is_________.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "153"
+            ],
+            "solution": {
+                "text": "FA : Contiguous allocation : 100 blocks (Array) \n\nFB : Linked allocation: 100 blocks \n\nWe have oved total data if 100  \n\nI) FA : 50 \\times 2 = 100 + 1 = 101 (Total disk accesses) \n\nII.  \n\nContiguous Allocation can directly traverse to the \n50th element as it is already given the file control \nblocks is already present. \n\nNow, we need 50 operations to read the rest of the \n50 elements and another 50 operations to write those \n50 blocks and 1 operation is needed to write the new \nblock. \n\nTherefore, total operations in this case = 50 + 50 + 1. \n\n\n\nLinked Allocation needs to traverse to the 50th \nelement. \n\nNow, simply change the pointers just like the \nLinked list where Adding element in the middle of \nit. \n\nSo, here it takes 50 operations to read the first 50 \nelements and 2 operations to change the pointer of \nthe 50th block and a new block. So, 52 operations in \nthis case. \n\n FB = 50 + 1 + 1 = 52 nB \n\n∴ nA + nB = 101 + 52 = 153",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "OS_FILE_SYSTEM_DISK_MANAGEMENT_2021_Q02",
+            "subject": "Operating System",
+            "topic": "File System & Disk Management",
+            "subtopic": "the value of nA + nB is_________.",
+            "year": 2021,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MSQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 2,
+            "tags": [
+                "File System & Disk Management",
+                "the value of nA + nB is_________.",
+                "Operating System"
+            ],
+            "question": {
+                "text": "Consider \na \nlinear \nlist-based \ndirectory \nimplementation in a file system. Each directory is a \nlist of nodes, where each node contains the file name \nalong with the file metadata, such as the list of \npointers to the data blocks. Consider a given \ndirectory foo.  \n\nWhich of the following operations will necessarily \nrequire a full scan of foo for successful completion?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "Creation of a new file in foo",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "Deletion of an existing file from foo",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "Renaming of an existing file in foo",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "Opening of an existing file in foo \n\nDisk Scheduling Algorithm",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "A",
+                "C"
+            ],
+            "solution": {
+                "text": "Creating a new file in foo will definitely require a \nfull scan, so that we can check that the new file is \nnot conflicting with any other already existing file.  \n\nAlso, renaming of a exisiting file will require a full \nscan, to ensure that the updated name is not \nconflicting with nay other exisiting file name.  \n\nDeleting or opening an exsiitng file, do not need a \nfull scan.",
+                "images": [
+                    "assets/Operating System/OS_File_System_Disk_Management_P57_X6900.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "OS_FILE_SYSTEM_DISK_MANAGEMENT_2020_Q03",
+            "subject": "Operating System",
+            "topic": "File System & Disk Management",
+            "subtopic": "Disk Scheduling Algorithm",
+            "year": 2020,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 3,
+            "tags": [
+                "File System & Disk Management",
+                "Disk Scheduling Algorithm",
+                "Operating System"
+            ],
+            "question": {
+                "text": "Consider the following five disk access requests of \nthe form (request id, cylinder number that are \npresent in the disk scheduler queue at a given time. \n\n(P, 155), (Q, 85), (R, 110), (S, 30), (T, 115) \n\nAssume the head is positioned at cylinder 100. The \nscheduler follows Shortest Seek Time First \nscheduling to service the requests, \n\nWhich one of the following statements is FALSE?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "R is serviced before P",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "Q is serviced after S but before T.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "T is serviced before P.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "The head reverses its direction of movement \n\n\nbetween servicing of Q and P",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "B"
+            ],
+            "solution": {
+                "text": "Request: (P, 155), (Q, 85), (R, 110), (S, 30), \n(T, 115) \n\nInitially head at cylinder 100, scheduling using \nSSTF: \n\n\n\nFrom the above diagram we can see that: Q is \nserviced after S but before T is wrong. Q is serviced \nbefore S and after T. So, option B is the answer.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "OS_FILE_SYSTEM_DISK_MANAGEMENT_2018_Q04",
+            "subject": "Operating System",
+            "topic": "File System & Disk Management",
+            "subtopic": "between servicing of Q and P",
+            "year": 2018,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 4,
+            "tags": [
+                "File System & Disk Management",
+                "between servicing of Q and P",
+                "Operating System"
+            ],
+            "question": {
+                "text": "Consider a storage disk with 4 platters (numbered as \n0, 1, 2 and 3), 200 cylinders (numbered as 0, 1, …., \n199) and 256 sectors per track (numbered as 0, 1, …., \n255). The following 6 disk requests of the form \n[sector number, cylinder number, platter number] \nare received by the disk controller at the same time: \n\n[120, 72, 2], [180, 134, 1], [60, 20, 0], \n\n[212, 86, 3], [56, 116, 2], [118, 16, 1] \n\nCurrently the head is positioned at sector number \n100 of cylinder 80 and is moving towards higher \ncylinder numbers. The average power dissipation in \nmoving the head over 100 cylinders is 20 milliwatts \nand for reversing the direction of the head movement \nonce is 15 milliwatts. Power dissipation associated \nwith rotational latency and switching of head \nbetween different platters is negligible. \n\nThe total power consumption in milliwatts to satisfy \nall of the above disk requests using the Shortest Seek \nTime First disk scheduling algorithm is",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "85"
+            ],
+            "solution": {
+                "text": "Request:72, 134, 20, 86, 116, 16 \n\nInitially the head is positioned at 100, and \nscheduling using S.S.T.F: \n\n\n\nTotal seeks: 200   \n           Power consumption for seek movements: 2 \\times 20 = \n40 mw \n\nNo. of direction changes 3   \n          Power consumption for R/W head direction \nchanging: 3 \\times 15 = 45 mw \n\n Total power consumption : 40 + 45 = 85 mw",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "OS_FILE_SYSTEM_DISK_MANAGEMENT_2016_Q05",
+            "subject": "Operating System",
+            "topic": "File System & Disk Management",
+            "subtopic": "Time First disk scheduling algorithm is",
+            "year": 2016,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 5,
+            "tags": [
+                "File System & Disk Management",
+                "Time First disk scheduling algorithm is",
+                "Operating System"
+            ],
+            "question": {
+                "text": "Consider a disk queue with requests for I/O to blocks \non cylinders 47, 38, 121, 191, 87, 11, 92, 10. The C-\nLOOK scheduling algorithm is used. The head is \ninitially at cylinder number 63, moving towards \nlarger cylinder numbers on its servicing pass. The \ncylinders are numbered from 0 to 199. The total head \nmovement (in number of cylinders) incurred while \nservicing these requests is ____",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "346"
+            ],
+            "solution": {
+                "text": "Initially the head is at 63, and moving toward larger \ncylinder number, scheduling using C-LOOK: \n\n\nThe total head movement incurred:  \n          (191 - 63) + (191 - 10) + (47 - 10) \n\n= 128 + 181 + 37 \n\n= 346",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "OS_FILE_SYSTEM_DISK_MANAGEMENT_2015_Q06",
+            "subject": "Operating System",
+            "topic": "File System & Disk Management",
+            "subtopic": "servicing these requests is ____",
+            "year": 2015,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 6,
+            "tags": [
+                "File System & Disk Management",
+                "servicing these requests is ____",
+                "Operating System"
+            ],
+            "question": {
+                "text": "Suppose the following disk request sequence (track \nnumbers) for a disk with 100 tracks is given: 45, 20, \n90, 10, 50, 60, 80, 25, 70. Assume that the initial \nposition of the R/W head is on track 50. The \nadditional distance that will be traversed by the R/W \nhead when the Shortest Seek Time First (SSTF) \nalgorithm is used compared to the SCAN (Elevator) \nalgorithm (assuming that SCAN algorithm moves \ntowards 100 when it starts execution) is ______ \ntracks.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "8",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "9",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "10",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "11",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "C"
+            ],
+            "solution": {
+                "text": "Requests: 45, 20, 90, 10, 50, 60, 80, 25, 70 \n          Scheduling using S.S.T.F: \n\n\nNumber of seeks: (90 - 45) + (50 - 45) + (90 - 10) \n= 45 + 5 + 80 = 130 \n\n Scheduling using SCAN: \n\n  No of seeks: (100 - 50) + (100 - 10) \n  = 50 + 90 = 140 \n\n  Additional seeks = 140-130 = 10 \n\n So, option C is the correct asnwer.",
+                "images": [
+                    "assets/Operating System/OS_File_System_Disk_Management_P58_X7044.png",
+                    "assets/Operating System/OS_File_System_Disk_Management_P58_X7048.png",
+                    "assets/Operating System/OS_File_System_Disk_Management_P58_X7050.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "OS_FILE_SYSTEM_DISK_MANAGEMENT_2014_Q07",
+            "subject": "Operating System",
+            "topic": "File System & Disk Management",
+            "subtopic": "tracks.",
+            "year": 2014,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 7,
+            "tags": [
+                "File System & Disk Management",
+                "tracks.",
+                "Operating System"
+            ],
+            "question": {
+                "text": "Suppose a disk has 201 cylinders, numbered from 0 \nto 200. At some time the disk arm is at cylinder 100, \nand there is a queue of disk access requests for \ncylinders 30, 85, 90, 100, 105, 110, 135 and 145. If \nShortest-Seek Time First (SSTF) is being used for \nscheduling the disk access, the request for cylinder \n90 is serviced after servicing ____ number of \nrequests.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "3"
+            ],
+            "solution": {
+                "text": "Scheduling using SSTF: \n\n\n\nBefore servicing 90, we have serviced, 100, 105, \n110. So, 3 is the correct answer..",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "OS_FILE_SYSTEM_DISK_MANAGEMENT_2009_Q08",
+            "subject": "Operating System",
+            "topic": "File System & Disk Management",
+            "subtopic": "requests.",
+            "year": 2009,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 8,
+            "tags": [
+                "File System & Disk Management",
+                "requests.",
+                "Operating System"
+            ],
+            "question": {
+                "text": "A multilevel page table is preferred in comparison to \na single level page table for translating virtual \naddress to physical address because.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "it reduces the memory access time to read or \nwrite a memory location.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "it helps to reduce the size of page table needed \nto implement the virtual address space of a \nprocess.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "it is required by the translation look a side buffer.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "it helps to reduce the number of page faults in \npage replacement algorithms.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "B"
+            ],
+            "solution": {
+                "text": "A multilevel page table is preferred in comparison \nto a single level page table for translating virtual \naddress to physical address because it helps to \nreduce the size of page table needed to implement \nthe virtual address space of a process. The main \npurpose of multilevel paging is to reduce the space \noverhead page table size overhead.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "OS_FILE_SYSTEM_DISK_MANAGEMENT_2009_Q09",
+            "subject": "Operating System",
+            "topic": "File System & Disk Management",
+            "subtopic": "page replacement algorithms.",
+            "year": 2009,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 9,
+            "tags": [
+                "File System & Disk Management",
+                "page replacement algorithms.",
+                "Operating System"
+            ],
+            "question": {
+                "text": "Consider a disk system with 100 cylinders. The \nrequests to access the cylinders occur in following \nsequence: \n\n4, 34, 10, 7, 19, 73, 2, 15, 6, 20 \n\nAssuming that the head is currently at cylinder 50, \nwhat is the time taken to satisfy all requests if it takes \n1 ms to move from one cylinder to adjacent one and \nshortest seek time first policy is used?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "95 ms",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "119 ms",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "233 ms",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "276 ms \n\nFile Allocation Methods",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "B"
+            ],
+            "solution": {
+                "text": "Request: 4, 34, 10, 7, 19, 73, 2, 15, 6, 20 \n\nInitially head is at 50, Scheduling using SSTF: \n\n\nTotal seeks: (73-2) + (50-2) = 71 + 48 = 119. \n\nTime to go frame one cylinder to ment adjust \ncylinder = 1ms \n\nTotal seek time = 119 \\times 1 ms = 119 ms \n\nSo, option B is the correct asnwer.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "OS_FILE_SYSTEM_DISK_MANAGEMENT_2019_Q10",
+            "subject": "Operating System",
+            "topic": "File System & Disk Management",
+            "subtopic": "File Allocation Methods",
+            "year": 2019,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 10,
+            "tags": [
+                "File System & Disk Management",
+                "File Allocation Methods",
+                "Operating System"
+            ],
+            "question": {
+                "text": "The index node (inode) of a Unix-like file system has \n12 direct, one single-indirect and one double-indirect \npointers. The disk block size is 4 kB, and the disk \nblock address is 32-bits long. The maximum possible \nfile size is (rounded off to 1 decimal place) \n___________ GB.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "4"
+            ],
+            "solution": {
+                "text": "DBS = 4KB; DBA = 32 bits (4B) \n\n\n1K disk block addresses can be stored.  \n\nMaximum file size: \n\n(12 * 4KB + 1 K * 4KB + 1 K * 1K * 4 KB) \n\n= 48KB + 4MB + 4GB = 0.004 GB + 4GB = 4.0 GB",
+                "images": [
+                    "assets/Operating System/OS_File_System_Disk_Management_P59_X7108.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "OS_FILE_SYSTEM_DISK_MANAGEMENT_2017_Q11",
+            "subject": "Operating System",
+            "topic": "File System & Disk Management",
+            "subtopic": "___________ GB.",
+            "year": 2017,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 11,
+            "tags": [
+                "File System & Disk Management",
+                "___________ GB.",
+                "Operating System"
+            ],
+            "question": {
+                "text": "In a file allocation system, which of the following \nallocation scheme(s) can be used if no external \nfragmentation is allowed? \n\nI.  Contiguous \n II. Linked \n\nIII. Indexed",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "I and III only",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "II only",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "III only",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "II and III only",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "D"
+            ],
+            "solution": {
+                "text": "Linked and indexed allocation can be used when no \nexternal fragmentation is allowed.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "OS_FILE_SYSTEM_DISK_MANAGEMENT_2014_Q12",
+            "subject": "Operating System",
+            "topic": "File System & Disk Management",
+            "subtopic": "III. Indexed",
+            "year": 2014,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 12,
+            "tags": [
+                "File System & Disk Management",
+                "III. Indexed",
+                "Operating System"
+            ],
+            "question": {
+                "text": "A FAT (file allocation table) based file system is \nbeing used and the total overhead of each entry in the \nFAT is 4 bytes in size. Given a 100 \\times 106 bytes disk \non which the file system is stored and data block size \nis 103 bytes, the maximum size of a file that can be \nstored on this disk in units of  106 bytes is _____",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "99.55",
+                "99.65"
+            ],
+            "solution": {
+                "text": "100 10\nNo. of blocks on disk = \n100 10\n\n=\n\n\n\nFAT size = 100 \\times 103 \\times 4B \n\n\n         = 4 \\times 100 \\times 103 \n\n\n         = 4 \\times 105  \n\n\n         = 0.4 \\times 106  \n\nMaximum file size = Disk size - FAT size \n                                         = 100 \\times 106 - 0.4 \\times 106 \n\n\n                         = 100 MB - 0.4 MB \n\n\n\n               = 99.6 MB",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "OS_FILE_SYSTEM_DISK_MANAGEMENT_2012_Q13",
+            "subject": "Operating System",
+            "topic": "File System & Disk Management",
+            "subtopic": "stored on this disk in units of  106 bytes is _____",
+            "year": 2012,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 13,
+            "tags": [
+                "File System & Disk Management",
+                "stored on this disk in units of  106 bytes is _____",
+                "Operating System"
+            ],
+            "question": {
+                "text": "A file system with 300 GByte disk uses a file \ndescriptor with 8 direct block addresses, 1 indirect \nblock address and 1 doubly indirect block address. \nThe size of each disk block is 128 Bytes and the size \nof each disk block address is 8 Bytes. The maximum \npossible file size in this file system is",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "3 KBytes",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "35 KBytes",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "280 Kbytes",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "dependent on the size of the disk.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "B"
+            ],
+            "solution": {
+                "text": "Disk Block Size = 128B \n\nDisk Block Address = 8B \n\nIn one block we can store:  \n\n8  = \n23  = 24  =  16 disk block pointer. \n\nMaximum file size = 8 \\times 128B + 16 \\times 128B \n\n\n\n\n+ 16 \\times 16 \\times 128B \n\n\n\n\n= 1KB + 2KB + 32KB = 35KB \n\n So, option B is the correct answer.",
+                "images": [
+                    "assets/Operating System/OS_File_System_Disk_Management_P59_X7104.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "OS_FILE_SYSTEM_DISK_MANAGEMENT_2008_Q14",
+            "subject": "Operating System",
+            "topic": "File System & Disk Management",
+            "subtopic": "possible file size in this file system is",
+            "year": 2008,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 14,
+            "tags": [
+                "File System & Disk Management",
+                "possible file size in this file system is",
+                "Operating System"
+            ],
+            "question": {
+                "text": "The data block of a very large file in the Unix file \nsystem are allocated using.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "Contiguous allocation",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "Linked allocation",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "Indexed allocation",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "An extension of indexed allocation",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "D"
+            ],
+            "solution": {
+                "text": "The data block of a very large file in the Unix file \nsystem are allocated using an extension of indexed \nallocation",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        }
+    ]
+}

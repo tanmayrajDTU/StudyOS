@@ -1,0 +1,1379 @@
+{
+    "subject": "Algorithms",
+    "topic": "Graph Based Algorithm",
+    "questionCount": 22,
+    "questions": [
+        {
+            "id": "ALGO_GRAPH_BASED_ALGORITHM_2012_Q01",
+            "subject": "Algorithms",
+            "topic": "Graph Based Algorithm",
+            "subtopic": "Basics of Graph",
+            "year": 2012,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 1,
+            "tags": [
+                "Graph Based Algorithm",
+                "Basics of Graph",
+                "Algorithms"
+            ],
+            "question": {
+                "text": "Consider the directed graph shown in the figure \nbelow. There are multiple shortest paths between \nvertices S and T. Which one will be reported by \nDijkstra's shortest path algorithm? Assume that, in \nany iteration, the shortest path to a vertex v is \nupdated only when a strictly shorter path to v is \ndiscovered",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "SDT",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "SBDT",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "SACDT",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "SACET \n\nSingle Source Shortest Path",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "D"
+            ],
+            "solution": {
+                "text": "S\nA\nC\nE\nT\n→\n→\n→\n→",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "ALGO_GRAPH_BASED_ALGORITHM_2020_Q02",
+            "subject": "Algorithms",
+            "topic": "Graph Based Algorithm",
+            "subtopic": "Single Source Shortest Path",
+            "year": 2020,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 2,
+            "tags": [
+                "Graph Based Algorithm",
+                "Single Source Shortest Path",
+                "Algorithms"
+            ],
+            "question": {
+                "text": "Let G = (V, E) be a directed, weighted graph with \nweight function w: E \\rightarrow R. For some function f: \nV \\rightarrow R, for each edge (u, v)  E, define W (u, v) as \nW (u, v) + f(u) - f(v). \n\nWhich one of the options completes the following \nsentence so that it is TRUE? \n\n\"The shortest path in G under W are shortest paths \nunder W too,. ______\".",
+                "images": [
+                    "assets/Algorithms/ALGO_Graph_Based_Algorithm_P29_X3531.png"
+                ],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "for every f: V \\rightarrow R",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "if and only if ∀u V, f(u) is positive",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "if and only if ∀u V, f(u) is negative",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "if and ony if f(u) is the distance from s to u in the \ngraph obtained by adding a new vertex s to G \nand edges of zero weights from s to every vertex \nof G.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "A"
+            ],
+            "solution": {
+                "text": "W(1, 3) + W(3, 2) + f(1) - f(3) + f(3) - f(2) \n\nW(1, 2) = 1 + 3 = 4 \n\nW (1, 2) = Transformation of W(u, v) = W(1, 2) + \nf(1) - f(2).",
+                "images": [
+                    "assets/Algorithms/ALGO_Graph_Based_Algorithm_P33_X3790.png",
+                    "assets/Algorithms/ALGO_Graph_Based_Algorithm_P33_X3794.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "ALGO_GRAPH_BASED_ALGORITHM_2016_Q03",
+            "subject": "Algorithms",
+            "topic": "Graph Based Algorithm",
+            "subtopic": "of G.",
+            "year": 2016,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 3,
+            "tags": [
+                "Graph Based Algorithm",
+                "of G.",
+                "Algorithms"
+            ],
+            "question": {
+                "text": "Consider the weighted undirected graph given with \n4 vertices, where the weight of edge {i, j} is given \nby the entry Wij in the \nW\nx\nx\n\n\n\n\n\n\n= \n\n\n\n\n\n\n\nThe largest possibel integer value of x, for which at \nleast one shrotest path between some pair of vertices \nwill contian the edge with weights x is ___. \n\nCommon data for next two Question \nAn undirected graph G(V, E) contains n(n > 2) nodes \nnamed v1, v2, ..., vn. Two nodes vi, vj are connected if and \nonly if 0 < |i - j|< 2. Each edge (vi, vj) is assigned a weight \ni + j. A sample graph with n = 4 is shown below.",
+                "images": [
+                    "assets/Algorithms/ALGO_Graph_Based_Algorithm_P29_X3529.png"
+                ],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "12"
+            ],
+            "solution": {
+                "text": "Shortest path between 3 and 4 has to be minimum \n{x, 12}. \n\n\n There can exist multiple shortest paths with same \ncost. \n\n <1, 2> = 2 \n\n <1, 3> = {8, 5 + x} x = 2 = 3 \n\n <1, 4> = 5 \n\nW\nx\nx\n\n\n\n\n\n\n= \n\n\n\n\n\n\n\n At least one shortest path must include edge cost \n'x'; \n\n Let (4, r) = (3, 4) \n\n 1. 3 - 4 = x  \n\n 2. 3 - 2 - 4 = 13 (Incorrect) \n\n 3. 3 - 1 - 4 = 13 (Incorrect) \n\n 4. 3 - 2 - 1 - 4 = 12 \n\n\n  x = 12",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "ALGO_GRAPH_BASED_ALGORITHM_2011_Q04",
+            "subject": "Algorithms",
+            "topic": "Graph Based Algorithm",
+            "subtopic": "i + j. A sample graph with n = 4 is shown below.",
+            "year": 2011,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 4,
+            "tags": [
+                "Graph Based Algorithm",
+                "i + j. A sample graph with n = 4 is shown below.",
+                "Algorithms"
+            ],
+            "question": {
+                "text": "What will be the cost of the Minimum Spanning Tree \n(MST) of such a graph with n nodes?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "1 (11n\n5n)\n−",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "n2 - n + 1",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "6n - 11",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "2n + 1",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "B"
+            ],
+            "solution": {
+                "text": "n = 4 \nn = 3 \nn = 4 \nn = 5 \n'n' \n\n3 + 4 \n:3 + 4 + 6 \n:3 + 2 (2 + \n3) \n:3 + 4 + 6 + 8 \n:3 + 2 (2 + 3 \n+ 4) \n:3 + 2 (2 + 3 \n+ 4 +….+ n - \n1) \n\n\n:\n(\n)\nn -1\n3 + 2 n\n-1\n\n\n\n=\n+\n\n\n\n\n\n\nn - n - 2\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nThe weight of minimum spanning tree is n2 - n + 1.",
+                "images": [
+                    "assets/Algorithms/ALGO_Graph_Based_Algorithm_P33_X983.png",
+                    "assets/Algorithms/ALGO_Graph_Based_Algorithm_P33_X3788.png",
+                    "assets/Algorithms/ALGO_Graph_Based_Algorithm_P33_X3792.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "ALGO_GRAPH_BASED_ALGORITHM_2011_Q05",
+            "subject": "Algorithms",
+            "topic": "Graph Based Algorithm",
+            "subtopic": "−",
+            "year": 2011,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 5,
+            "tags": [
+                "Graph Based Algorithm",
+                "−",
+                "Algorithms"
+            ],
+            "question": {
+                "text": "The length of the path from v5 to v6 in the MST of \nprevious question with n = 10 is",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "11",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "25",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "31",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "41",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "C"
+            ],
+            "solution": {
+                "text": "∴ The length of the path = (3 + 4 + 6 + 8 + 10) \n\nFrom V5 to V6 in MST = 31.",
+                "images": [
+                    "assets/Algorithms/ALGO_Graph_Based_Algorithm_P34_X3939.png",
+                    "assets/Algorithms/ALGO_Graph_Based_Algorithm_P34_X3942.png",
+                    "assets/Algorithms/ALGO_Graph_Based_Algorithm_P34_X3944.png",
+                    "assets/Algorithms/ALGO_Graph_Based_Algorithm_P34_X3946.png",
+                    "assets/Algorithms/ALGO_Graph_Based_Algorithm_P34_X3948.png"
+                ],
+                "latex": [],
+                "tables": [
+                    {
+                        "headers": [
+                            "n = 3",
+                            "n = 4",
+                            "n = 5",
+                            "'n'"
+                        ],
+                        "rows": [
+                            [
+                                "3 + 4",
+                                ":3 + 4 + 6 :3 + 2 (2 + 3)",
+                                ":3 + 4 + 6 + 8 :3 + 2 (2 + 3 + 4)",
+                                ":3 + 2 (2 + 3 + 4 +….+ n - 1)"
+                            ]
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "id": "ALGO_GRAPH_BASED_ALGORITHM_2011_Q06",
+            "subject": "Algorithms",
+            "topic": "Graph Based Algorithm",
+            "subtopic": "previous question with n = 10 is",
+            "year": 2011,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MSQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 6,
+            "tags": [
+                "Graph Based Algorithm",
+                "previous question with n = 10 is",
+                "Algorithms"
+            ],
+            "question": {
+                "text": "Let G be a weighted graph with edge weights greater \nthan one and G' be the graph constructed by \nsquaring the weights of edge in G. Let T and T' be \nthe minimum spanning trees of G and G' \nrespectively, with total weights t and t'. Which of the \nfollowing statements is TRUE?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "T' = T with total weight t' = t2",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "T' = T with total weight t' < t2",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "T'≠T but total weight t' = t2",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "None of the above \n\nCommon data for next two question \nConsider a complete undirected graph with vertex set {0, \n1, 2, 3, 4}. Entry Wij in the matrix W below is the weight \nof the edge {i, j}. \nW =\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "A",
+                "B"
+            ],
+            "solution": {
+                "text": "",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "ALGO_GRAPH_BASED_ALGORITHM_2010_Q07",
+            "subject": "Algorithms",
+            "topic": "Graph Based Algorithm",
+            "subtopic": "",
+            "year": 2010,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 7,
+            "tags": [
+                "Graph Based Algorithm",
+                "",
+                "Algorithms"
+            ],
+            "question": {
+                "text": "What is the minimum possible weight of a \nspanning tree T in this graph such that vertex 0 \nis a leaf node in the tree T?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "7",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "8",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "9",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "10",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "D"
+            ],
+            "solution": {
+                "text": "W = \n 3    4\n0 0\n1 1\n\n   2 8\n3 1\n4 4\n  2    0\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n Minimum cost spanning tree =10",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "ALGO_GRAPH_BASED_ALGORITHM_2010_Q08",
+            "subject": "Algorithms",
+            "topic": "Graph Based Algorithm",
+            "subtopic": "is a leaf node in the tree T?",
+            "year": 2010,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 8,
+            "tags": [
+                "Graph Based Algorithm",
+                "is a leaf node in the tree T?",
+                "Algorithms"
+            ],
+            "question": {
+                "text": "What is the minimum possible weight of a path P \nfrom vertex 1 to vertex 2 in this graph such that P \ncontains at most 3 edges?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "7",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "8",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "9",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "10 \n\nGraph Searching",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "B"
+            ],
+            "solution": {
+                "text": "Vertex set \n{1} \n- \n{1, 0} \n- \n{1, 0, 3} \n- \n{1, 0, 3, 4} \n- \n\n\nDijkstra's algorithm \n\n 1 - 0 - 3 - 2 = 1 + 1 + 7 = 9 \n\n1 - 0 - 4 - 2\n= +\n+\n=\n\n\nMinimum possible weight of a path P from vertex \n1 to vertex 2 is 8.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "ALGO_GRAPH_BASED_ALGORITHM_2023_Q09",
+            "subject": "Algorithms",
+            "topic": "Graph Based Algorithm",
+            "subtopic": "Graph Searching",
+            "year": 2023,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 9,
+            "tags": [
+                "Graph Based Algorithm",
+                "Graph Searching",
+                "Algorithms"
+            ],
+            "question": {
+                "text": "Let U = {1, 2, 3}. Let 2U denote the powerset of U. \nConsider an undirected graph G whose vertex set is \n2U. For any A, B  2U, (A, B) is an edge in G if and \nonly if (i) A  B, and (ii) either A ⊊ B or B ⊊ A. For \nany vertex A in G, the set of all possible orderings \nin which the vertices of G can be visited in a Breadth \nFirst Search (BFS) starting from A is denoted by \nB(A). \n\nIf  denotes the empty set, then the cardinality of \nB() is__________ .",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "5040"
+            ],
+            "solution": {
+                "text": "(\n)\nx,  y,  z\ny,   z,   x\nz,   x,   y\n3!\nx,   z,   y\ny,   x,   z\nz,   y,   x\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n U = {1, 2, 3,}; 24 = V = {, {1}, {2}, {1, 2}, \n{1, 3}, {2, 3}, {1, 2, 3}} \n\nB() = 71 \n\n\n = 7 * 6 * 5 * 4 * 3 * 2 * 1 \n\n\n = 42 * 20 * 6 = 42 * 120 \n\n\n = 5040 \n\n\n\n{1, }\n{1,2,3}\n{ }\n{1}\n{ }\n{ , }\n2 3\n\n{1, }",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "ALGO_GRAPH_BASED_ALGORITHM_2021_Q10",
+            "subject": "Algorithms",
+            "topic": "Graph Based Algorithm",
+            "subtopic": "B() is__________ .",
+            "year": 2021,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MSQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 10,
+            "tags": [
+                "Graph Based Algorithm",
+                "B() is__________ .",
+                "Algorithms"
+            ],
+            "question": {
+                "text": "An articulation point in connected graph is a vertex \nsuch that removing the vertex and its incident edges \ndisconnects the graph into two or more connected \ncomponents.  \n\nLet T be a DFS tree obtained by doing DFS in \nconnected undirected graph G.  \n\nWhich of the following options is/are correct?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "Root of T can never be an articulation point in \nG.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "Root of T is an articulation point in G if and only \nif it has 2 or more children.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "A leaf of T can be an articulation point in G.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "If u is an articulation point in G such that x is an \nancestor of u in T and y is a descendent of u in \nT, then all paths from x to y in G must pass \nthrough u.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "B"
+            ],
+            "solution": {
+                "text": "If the Root has only one child it can never \ndisconnect a tree on its removal. Therefore, option \n(b) is correct.",
+                "images": [],
+                "latex": [],
+                "tables": [
+                    {
+                        "headers": [
+                            "If the Root has only one child it can never",
+                            ""
+                        ],
+                        "rows": [
+                            [
+                                "",
+                                "disconnect a tree on its removal. Therefore, option"
+                            ],
+                            [
+                                "",
+                                "(b) is correct."
+                            ]
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "id": "ALGO_GRAPH_BASED_ALGORITHM_2021_Q11",
+            "subject": "Algorithms",
+            "topic": "Graph Based Algorithm",
+            "subtopic": "through u.",
+            "year": 2021,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 11,
+            "tags": [
+                "Graph Based Algorithm",
+                "through u.",
+                "Algorithms"
+            ],
+            "question": {
+                "text": "Consider a complete binary tree with 7 nodes. Let A \ndenote the set of first 3 elements obtained by \nperforming Breadth-first search (BFS) starting from \nthe root. Let B denote the set of first 3 elements \nobtained by performing Depth - First Search (DFS) \nstarting from the root.  \n\nThe value of |A - B | is _________.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "1"
+            ],
+            "solution": {
+                "text": "Breadth First Search = 1,2,3, 4,5, 6,7 \n\nDepth First Search = 1, 2, 4, 5, 3, 6, 7 \n\nA = {1, 2, 3} \n\nB = {1, 2, 4} \n\nA - B ={3}\nA - B\n=\n\n\nThe value of |A - B | will be 1 after performing the \nsaid operation on a complete binary tree.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "ALGO_GRAPH_BASED_ALGORITHM_2018_Q12",
+            "subject": "Algorithms",
+            "topic": "Graph Based Algorithm",
+            "subtopic": "The value of |A - B | is _________.",
+            "year": 2018,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 12,
+            "tags": [
+                "Graph Based Algorithm",
+                "The value of |A - B | is _________.",
+                "Algorithms"
+            ],
+            "question": {
+                "text": "Let G be a simple undirected graph. Let TD be a depth \nfirst search tree of G. Let TB be a breadth first search \ntree of G. Consider the following statements: \n\nI: No edge of G is a cross edge with respect to TD. \n(A cross edge in G is between two nodes neither \nof which is an ancestor of the other in TD). \n\nII: For every edge (u, υ) of G, if u is at depth i and \nυ is at depth j in TB, then |i -j| = 1.  \n\nWhich of the statements above must necessarily be \ntrue?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "I only",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "II only",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "Both I and II",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "Neither I nor II",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "A"
+            ],
+            "solution": {
+                "text": "• \nNo edge of G is a cross edge with respect to TD. \n(A cross edge in G is between two nodes neither \nof which is an ancestor of the other in TD). \nTRUE \n• \nFor every edge (u, υ) of G, if u is at depth i and \nυ is at depth j in TB, then |i -j| = 1. FALSE",
+                "images": [
+                    "assets/Algorithms/ALGO_Graph_Based_Algorithm_P36_X4222.png",
+                    "assets/Algorithms/ALGO_Graph_Based_Algorithm_P36_X4224.png",
+                    "assets/Algorithms/ALGO_Graph_Based_Algorithm_P36_X4226.png",
+                    "assets/Algorithms/ALGO_Graph_Based_Algorithm_P36_X4228.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "ALGO_GRAPH_BASED_ALGORITHM_2017_Q13",
+            "subject": "Algorithms",
+            "topic": "Graph Based Algorithm",
+            "subtopic": "true?",
+            "year": 2017,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 13,
+            "tags": [
+                "Graph Based Algorithm",
+                "true?",
+                "Algorithms"
+            ],
+            "question": {
+                "text": "The Breadth First Search (BFS) algorithm has been \nimplemented using the queue data structure. Which \none of the following is a possible order of visiting \nthe nodes in the graph below?",
+                "images": [
+                    "assets/Algorithms/ALGO_Graph_Based_Algorithm_P31_X3695.png"
+                ],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "MNOPQR",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "NQMPOR",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "QMNROP",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "POQNMR",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "D"
+            ],
+            "solution": {
+                "text": "Using breadth first search algorithm the order of \nvisiting nodes will be: POQNMR. \n\n\ny\nk\nl\nd\nx\nu\nb\nc\nK\nu\ny\nd\nl\nx\nb\nc",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "ALGO_GRAPH_BASED_ALGORITHM_2016_Q14",
+            "subject": "Algorithms",
+            "topic": "Graph Based Algorithm",
+            "subtopic": "the nodes in the graph below?",
+            "year": 2016,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 14,
+            "tags": [
+                "Graph Based Algorithm",
+                "the nodes in the graph below?",
+                "Algorithms"
+            ],
+            "question": {
+                "text": "Consider the following directed graph: \n\n\nThe number of different topological orderings of \nthe vertices of the graph is ______",
+                "images": [
+                    "assets/Algorithms/ALGO_Graph_Based_Algorithm_P31_X3693.png"
+                ],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "6"
+            ],
+            "solution": {
+                "text": "a_, _,_,_f \n\n( )( )\n4!\n2! 2!\n=\n4 3 2\n\n=\n=\n\n\n\n\n\nDifferent number of topological sorting for the \ngiven graph will be 6.",
+                "images": [
+                    "assets/Algorithms/ALGO_Graph_Based_Algorithm_P35_X4035.png",
+                    "assets/Algorithms/ALGO_Graph_Based_Algorithm_P35_X4036.png",
+                    "assets/Algorithms/ALGO_Graph_Based_Algorithm_P35_X4037.png"
+                ],
+                "latex": [],
+                "tables": [
+                    {
+                        "headers": [
+                            "",
+                            "1",
+                            "2",
+                            "3",
+                            "4"
+                        ],
+                        "rows": [
+                            [
+                                "1",
+                                "0",
+                                "12",
+                                "4",
+                                "9"
+                            ],
+                            [
+                                "2",
+                                "12",
+                                "0",
+                                "7",
+                                "3"
+                            ],
+                            [
+                                "3",
+                                "4",
+                                "7",
+                                "0",
+                                "2"
+                            ],
+                            [
+                                "4",
+                                "9",
+                                "3",
+                                "2",
+                                "0"
+                            ]
+                        ]
+                    },
+                    {
+                        "headers": [
+                            "Vertex set",
+                            "0",
+                            "1",
+                            "2",
+                            "3",
+                            "4"
+                        ],
+                        "rows": [
+                            [
+                                "{1}",
+                                "1",
+                                "-",
+                                "12",
+                                "4",
+                                "9"
+                            ],
+                            [
+                                "{1, 0}",
+                                "1",
+                                "-",
+                                "9",
+                                "2",
+                                "5"
+                            ],
+                            [
+                                "{1, 0, 3}",
+                                "1",
+                                "-",
+                                "9",
+                                "2",
+                                "4"
+                            ],
+                            [
+                                "{1, 0, 3, 4}",
+                                "1",
+                                "-",
+                                "8",
+                                "2",
+                                "4"
+                            ]
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "id": "ALGO_GRAPH_BASED_ALGORITHM_2016_Q15",
+            "subject": "Algorithms",
+            "topic": "Graph Based Algorithm",
+            "subtopic": "the vertices of the graph is ______",
+            "year": 2016,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 15,
+            "tags": [
+                "Graph Based Algorithm",
+                "the vertices of the graph is ______",
+                "Algorithms"
+            ],
+            "question": {
+                "text": "Breadth First Search (BFS) is started on a binary tree \nbeginning from the root vertex. There is a vertex t at \na distance four from the root. If t is the nth vertex in \nhis BFS traversal, then the maximum possible value \nof n is_______.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "31"
+            ],
+            "solution": {
+                "text": ": 21+1 -1 = 3 \n: 22 -1 = 3. \nThe maximum possible value of n for h=1 is 3. \nThe maximum possible value of n for h=2 is 7. \n\n : 2h + 1 -3 \n\n : 23 - 1 \n\n   = 7 \n\n\n\nh = 1 \n\nFor h = 4 \n\nh\n\n\n\nTotal Nodes  = 2h+1 - 1 = 25 -1 = 31 \n\n\nThe maximum number of nodes will be 31.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "ALGO_GRAPH_BASED_ALGORITHM_2015_Q16",
+            "subject": "Algorithms",
+            "topic": "Graph Based Algorithm",
+            "subtopic": "of n is_______.",
+            "year": 2015,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 16,
+            "tags": [
+                "Graph Based Algorithm",
+                "of n is_______.",
+                "Algorithms"
+            ],
+            "question": {
+                "text": "Let G = (V, E) be a simple undirected graph, and s \nbe particular vertex in it called the source. For  \nx  V, let d(x) denote the shortest distance in G from \ns to x. A breadth first search (BFS) is performed \nstarting at s. Let T be the resultant BFS tree. If (u, v) \nis an edge of G that is not in T, then which one of the \nfollowing CANNOT be the value of d(u) - d(v)?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "-1",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "0",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "1",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "2",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "D"
+            ],
+            "solution": {
+                "text": "2 cannot be the value of d(u) - d(v).",
+                "images": [
+                    "assets/Algorithms/ALGO_Graph_Based_Algorithm_P37_X4288.png",
+                    "assets/Algorithms/ALGO_Graph_Based_Algorithm_P37_X4290.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "ALGO_GRAPH_BASED_ALGORITHM_2014_Q17",
+            "subject": "Algorithms",
+            "topic": "Graph Based Algorithm",
+            "subtopic": "following CANNOT be the value of d(u) - d(v)?",
+            "year": 2014,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 17,
+            "tags": [
+                "Graph Based Algorithm",
+                "following CANNOT be the value of d(u) - d(v)?",
+                "Algorithms"
+            ],
+            "question": {
+                "text": "Suppose depth first search is executed on the graph \nbelow starting at some unknown vertex. Assume that \na recursive call to visit a vertex is made only after \nfirst checking that the vertex has not been visited \nearlier. Then the maximum possible recursion depth \n(including the initial call) is ______.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "19"
+            ],
+            "solution": {
+                "text": "There exists total 21 nodes and only 2 nodes require \nback track therefore the maximum recursion depth \nis 21 - 2 = 19. \n\n\ns\nu\nv\nx\ns\nu\nv\nx\nG\nT1\ns\nu\nx\nv\ns\nu\nr\nv\nG\nT2",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "ALGO_GRAPH_BASED_ALGORITHM_2014_Q18",
+            "subject": "Algorithms",
+            "topic": "Graph Based Algorithm",
+            "subtopic": "(including the initial call) is ______.",
+            "year": 2014,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 18,
+            "tags": [
+                "Graph Based Algorithm",
+                "(including the initial call) is ______.",
+                "Algorithms"
+            ],
+            "question": {
+                "text": "Let G be a graph with n vertices and m edges. What \nis the tightest upper bound on the running time of \nDepth First Search on G. When G is represented as \nan adjacency matrix.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "Θ(n)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "Θ(n + m)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "Θ(n2)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "Θ(m2)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "C"
+            ],
+            "solution": {
+                "text": "(\n)\n\nA=\nn×n\nn\n\n\n\n\n\n\n\n          For an adjacency matrix the DFS algorithm will take \nΘ(n2).",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "ALGO_GRAPH_BASED_ALGORITHM_2014_Q19",
+            "subject": "Algorithms",
+            "topic": "Graph Based Algorithm",
+            "subtopic": "an adjacency matrix.",
+            "year": 2014,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 19,
+            "tags": [
+                "Graph Based Algorithm",
+                "an adjacency matrix.",
+                "Algorithms"
+            ],
+            "question": {
+                "text": "Consider the tree arcs of a BFS traversal from a \nsource node W in an unweighted, connected, \nundirected graph. The tree T formed by the tree arcs \nis a data structure for computing",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "The shortest path between every pair of \nvertices.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "The shortest path from W to every vertex in the \ngraph.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "The shortest paths from W to only those nodes \nthat are leaves of T.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "The longest path in the graph. \nM\nO\nR\nQ\nP\nN",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "B"
+            ],
+            "solution": {
+                "text": "Shortest paths (unit distance) from 'w' to all other \nvertices in the graph \n\n\n\n\n\n\n\n\nBFS spanning tree",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "ALGO_GRAPH_BASED_ALGORITHM_2014_Q20",
+            "subject": "Algorithms",
+            "topic": "Graph Based Algorithm",
+            "subtopic": "N",
+            "year": 2014,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 20,
+            "tags": [
+                "Graph Based Algorithm",
+                "N",
+                "Algorithms"
+            ],
+            "question": {
+                "text": "Consdier the directed graph given below: \n\n\nWhich of one the following is TRUE?",
+                "images": [
+                    "assets/Algorithms/ALGO_Graph_Based_Algorithm_P32_X3743.png"
+                ],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "The graph does not have any topological \nordering.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "Both PQRS and SRQP are topological \norderings.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "Both PSRQ and SPRQ are topological \norderings.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "PSRQ is the only topological ordering.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "C"
+            ],
+            "solution": {
+                "text": "The topological orderings PSRQ and SPRQ are \nidentical. \n\nSelect P or S as the starting vertices for DFS. \n\nAs soon as the vertex has finished, add it to the head \nof a linked list. \n\nThe needed topological ordering is the linked list.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "ALGO_GRAPH_BASED_ALGORITHM_2008_Q21",
+            "subject": "Algorithms",
+            "topic": "Graph Based Algorithm",
+            "subtopic": "orderings.",
+            "year": 2008,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 21,
+            "tags": [
+                "Graph Based Algorithm",
+                "orderings.",
+                "Algorithms"
+            ],
+            "question": {
+                "text": "Consider the following sequence of nodes for the \nundirected graph given below: \n\n\n1. a b e f d g c \n\n 2. a b e f c g d \n\n3. a d g e b c f \n\n 4. a d b c g e f \n\nA Depth First Search (DFS) is started at node a. The \nnodes are listed in the order they are first visited. \nWhich all of the above is (are) possible output(s)?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "1 and 3 only",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "2 and 3 only",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "2, 3 and 4 only",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "1, 2 and 3",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "B"
+            ],
+            "solution": {
+                "text": "The possible outputs are: a b e f c g d \n\n\nThe possible outputs are: a d g e b c f",
+                "images": [
+                    "assets/Algorithms/ALGO_Graph_Based_Algorithm_P38_X4354.png",
+                    "assets/Algorithms/ALGO_Graph_Based_Algorithm_P38_X4356.png",
+                    "assets/Algorithms/ALGO_Graph_Based_Algorithm_P38_X4360.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "ALGO_GRAPH_BASED_ALGORITHM_2008_Q22",
+            "subject": "Algorithms",
+            "topic": "Graph Based Algorithm",
+            "subtopic": "Which all of the above is (are) possible output(s)?",
+            "year": 2008,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 22,
+            "tags": [
+                "Graph Based Algorithm",
+                "Which all of the above is (are) possible output(s)?",
+                "Algorithms"
+            ],
+            "question": {
+                "text": "The Breadth First Search algorithm has been \nimplemented using the queue data structure. One \npossible order of visiting the nodes of the following \ngraph is",
+                "images": [
+                    "assets/Algorithms/ALGO_Graph_Based_Algorithm_P32_X3745.png"
+                ],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "MNOPQR",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "NQMPOR",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "QMNPRO",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "QMNPOR \n\n\n\nc\ng\ne\nf\na\nd\nb",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "C"
+            ],
+            "solution": {
+                "text": "The possible order of visiting the node is \nQMNPRO.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        }
+    ]
+}

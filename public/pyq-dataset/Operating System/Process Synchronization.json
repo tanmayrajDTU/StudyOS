@@ -1,0 +1,1536 @@
+{
+    "subject": "Operating System",
+    "topic": "Process Synchronization",
+    "questionCount": 24,
+    "questions": [
+        {
+            "id": "OS_PROCESS_SYNCHRONIZATION_2016_Q01",
+            "subject": "Operating System",
+            "topic": "Process Synchronization",
+            "subtopic": "Critical Section Problem",
+            "year": 2016,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 1,
+            "tags": [
+                "Process Synchronization",
+                "Critical Section Problem",
+                "Operating System"
+            ],
+            "question": {
+                "text": "Consider the following proposed solution for the \ncritical section problem. There are n processes: P0… \nPn-1. In the code, function pmax returns an integer \nnot smaller than any of its arguments. \n\nFor all i, t[i] is initialized to zero. \n\nCode for Pi \n\ndo \n\n{ \n\nc[i] = 1; t[i] = pmax(t[0],….,t[n-1])+1; c[i]=0; \n\nfor every  in {0,…, n-1} \n\n{ \n\nwhile (c[j]); \n\nwhile (t[j]!=0 && t[j] <= t[i]); \n\n} \n\nCritical Section; t[i] = 0; \n\nRemainder Section; \n\n} while (true); \n\nwhich one of the following is TRUE about the above \nsolution?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "At most one process can be in the critical \nsection at any time.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "The bounded wait condition is satisfied.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "the progress condition is satisfied.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "It cannot cause a deadlock.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "A"
+            ],
+            "solution": {
+                "text": "The given algorithm is an updated version of Bakery \nAlgorithm, this algorithm is basically for multi \nprocess solution. \n\nThe condition while (t[j]!=0 && t[j] <= t[i]); \nensures that no two processes can be in critical \nsection at the same time.  \n\nThe given algorithm satisfies mutual exclusion but \ndoes not satisfies bounded waiting, progress, and \ndeadlock. So, at most one process can be in the \ncritical section at any time.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "OS_PROCESS_SYNCHRONIZATION_2016_Q02",
+            "subject": "Operating System",
+            "topic": "Process Synchronization",
+            "subtopic": "section at any time.",
+            "year": 2016,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 2,
+            "tags": [
+                "Process Synchronization",
+                "section at any time.",
+                "Operating System"
+            ],
+            "question": {
+                "text": "Consider the following two-process synchronization \nsolution \n\nProcess 0 \n\n\nEntry: loop while (turn == 1); \n\n\n(critical section) \n\n\nExit: turn = 1; \n\n\nProcess 1 \n\n\nEntry: loop while (turn == 0); \n\n\n(critical section) \n\n\nExit: turn = 0; \n\nThe shared variable turns in initialized to zero. \n\nWhich one of the following is TRUE?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "This is a correct two-process sysnchronization \nsolution.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "This solution violates mutual exclusion \nrequirement.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "This solution violates progress requirement.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "This \nsolution \nviolates \nbounded \nwait \nrequirement.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "C"
+            ],
+            "solution": {
+                "text": "The given code is of strict alternation. Both \nprocesses are strictly changing the value of turn to 1 \nand 0. Strict alternation guarantees mutual exclusion \nbut fails to guarantee process.  \n\nTherefore, \nThis \nsolution \nviolates \nprogress \nrequirement. Hence, option (c) is correct.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "OS_PROCESS_SYNCHRONIZATION_2015_Q03",
+            "subject": "Operating System",
+            "topic": "Process Synchronization",
+            "subtopic": "requirement.",
+            "year": 2015,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 3,
+            "tags": [
+                "Process Synchronization",
+                "requirement.",
+                "Operating System"
+            ],
+            "question": {
+                "text": "Two processes X and Y need to access a critical \nsection. Consider the following synchronization \nconstruct used by both the processes. \n\nProcess X \n\n/* other code for process X */ \n\nwhile (true) \n\n{ \n\nvarP = true; \n\nwhile (varQ == true) \n\n\n{ /* Critical Section */ \n\n\n   varP = false; \n\n\n} \n\n} \n\n/* other code for process X */ \n\nProcess Y \n\n/* other code for process Y */ \n\nwhile (true) \n\n{ \n\nvarQ = true; \n\nwhile (varP == true) \n\n\n\n{  /* Critical Section */ \n\n\n   varQ = false; \n\n\n} \n\n } \n\n/* other code for the process Y */ \n\nHere, varP and varQ are shared variables and both \nare initialized to false. Which one of the following \nstatements is true?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "The proposed solution prevents deadlock but \nfails to guarantee mutual exclusion.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "The proposed solution guarantees mutual \nexclusion but fails to prevent deadlock",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "The proposed solution guarantees mutual \nexclusion and prevents deadlock",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "The proposed solution fails to prevent deadlock \nand fails to guarantee mutual exclusion \n\n\nHardware Solution (TSL, etc)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "A"
+            ],
+            "solution": {
+                "text": "Suppose \n         Process Y starts execution \n           made varQ= true; and pre-empted. \n          Process X starts execution \n          made varP = true;  \n\nNow both varP and varQ are true and both process \nX and Y can enter into CS simultaneously. Hence, \nno mutual exclusion.  \n\nHere deadlock is not possible, for deadlock the \nprocesses must stuck, here no process is stucked \nboth are executing hence no deadlock.  \n\nTherefore, the proposed solution prevents deadlock \nbut fails to guarantee mutual exclusion.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "OS_PROCESS_SYNCHRONIZATION_2012_Q04",
+            "subject": "Operating System",
+            "topic": "Process Synchronization",
+            "subtopic": "Hardware Solution (TSL, etc)",
+            "year": 2012,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 4,
+            "tags": [
+                "Process Synchronization",
+                "Hardware Solution (TSL, etc)",
+                "Operating System"
+            ],
+            "question": {
+                "text": "Fetch_And_Add (X, i) is an atomic Read-Modify-\nWrite instruction that reads the value of memory \nlocation X, increments it by the value i, and returns \nthe old value of X, it is used in the presudocode \nshown below to implement a busy-wait lock. L is \nunsigned integer shared variable initialized to 0. The \nvalue of 0 corresponds to lock being available, while \nany non-zero value corresponds to the lock being not \navailable. \n\nAcquireLock (L) { \n\nwhile (Fetch_And_Add (L, 1)) \n\nL = 1; \n\n} \n\nReleaseLock (L) { \n\nL = 0; \n\n } \n\n This implementation",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "fails as L can overflow.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "fails as L can take on a non-zero value when \nthe lock is actually available.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "works correctly but may starve some processes",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "works correctly without starvation.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "B"
+            ],
+            "solution": {
+                "text": "Fetch-And-Add(x, i), this will returns value of  (x) \nand increment 'x' by 'i'.  \n\nImplementation : \n\nint fetch-And-Add (x, i) \n\n{ \n\n\nint rv; \n\n\nrv = x; \n\n\nx = x + i; \n\n\n\nreturn(rv); \n\n} \n\nwhile (F-A(L, 1))         // Entry section \n\n<cs> \n\nL = 0                           // Exit section \n         A process acquires a lock only when L is equals to \n0, when L=1, then the process repeates the while \nloop. There is no overflow because after every time \nl is incremented, L is again made equals to 1.  \n\nAcquiring \nlock \nis \nsuccessful \nonly \nwhen \nFetch_And_Add gets executed with L = 0.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "OS_PROCESS_SYNCHRONIZATION_2009_Q05",
+            "subject": "Operating System",
+            "topic": "Process Synchronization",
+            "subtopic": "the lock is actually available.",
+            "year": 2009,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 5,
+            "tags": [
+                "Process Synchronization",
+                "the lock is actually available.",
+                "Operating System"
+            ],
+            "question": {
+                "text": "The enter_CS () and leave_CS () functions to \nimplement critical section of a process are realized \nusing test-and-set instruction as follows: \n\nvoid enter_CS(X) \n\n{ \n\n\nwhile (test-and-set(X)); \n\n} \n\n\nvoid leave_CS(X) \n\n{ \n\n\nX = 0; \n\n} \n\nIn the above solution, X is a memory location \nassociated with the CS and is initialized to 0.  \n\nNow consider the following statements  \n\nI. The above solution to CS problem is deadlock free. \n\nII. The solution is starvation free. \n\nIII. The processes enter CS in FIFO order. \n\nIV. More than one process can enter CS at the same \ntime. \n\nWhich of the above statements are TRUE?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "I only",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "I and II",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "II and III",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "IV only \n\nSoftware Solution",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "A"
+            ],
+            "solution": {
+                "text": "The given solution is deadlock free. So, statement I \nis true. \n\n The given solution does not guarantee bounded \nwaiting, this can lead to starvation. So, statement II \nis false.  \n\nThere is no restriction on processes to enter the CS \nin a certain manner. Therefore, statement III is false.  \n\nThe given solution guarantees mutual exclusion. So, \nstatement IV is also incorrect.  \n\nTherefore, option A is the correct answer.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "OS_PROCESS_SYNCHRONIZATION_2021_Q06",
+            "subject": "Operating System",
+            "topic": "Process Synchronization",
+            "subtopic": "Software Solution",
+            "year": 2021,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MSQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 6,
+            "tags": [
+                "Process Synchronization",
+                "Software Solution",
+                "Operating System"
+            ],
+            "question": {
+                "text": "Consider the following multi-threaded code segment \n(in a mix of C and pseudo-code), invoked by two \nprocesses P1 and P2, and each of the processes \nspawns two threads T1 and T2. \n\nint x = 0;   // global \n\nLock L1;  // global \n\nmain() { \n\n create a thread to execute foo( );  // Thread T1 \n\n create a thread to execute foo( );  // Thread T2 \n\n wait for the two threads to finish execution;  \n\nprint (x);} \n\nfoo( ) { \n\nint y = 0; \n\nAcquire L1; \n\nx = x + 1; \n\ny = y + 1; \n\nRelease L1; \n\n\nprint (y);   } \n\nWhich of the following statements(s) is/are correct?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "Both P1 and P2 will print the value of x as 2.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "At least one of P1 and P2 will print the value of \nx as 4.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "At least one of the threads will print the value \nof y as 2.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "Both T1 and T2, in both the processes, will print \nthe value of y as 1.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "A",
+                "D"
+            ],
+            "solution": {
+                "text": "Here value of x is not assigned, but in C \nprogramming all the global and static variables are \ninitialised to 0. y is a local variable.   \n\nSo,  \n1.  Process P1: \nTwo threads are created in main. Both threads \nexecute foo() function and do not wait for each other \nand because of explicit locking mechanism \n[Acquire L1 and Release L1], mutual exclusion is \nthere and no race condition will take place inside \nfunction foo().  \n\ny is local variable, both threads will print its   value \nas 1.  \n          Because of wait in the main (); print (x) will only \nexecute when both threads are completed. So, the x \nvalue will become 2.  \n2.  Process P2:  \n\nP2 will be executed same as P1. So, it will also print \nvalue of x as 2 and value of y as 1. Therefore, option \nA and D are true.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "OS_PROCESS_SYNCHRONIZATION_2017_Q07",
+            "subject": "Operating System",
+            "topic": "Process Synchronization",
+            "subtopic": "the value of y as 1.",
+            "year": 2017,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 7,
+            "tags": [
+                "Process Synchronization",
+                "the value of y as 1.",
+                "Operating System"
+            ],
+            "question": {
+                "text": "A multithreaded program P executes with x number \nof threads and uses y number of locks for ensuring \nmutual exclusion while operating on shared memory \nlocations. All locks in the program are non-\nreentrant, i.e., if a thread holds a lock l, then it cannot \nre-acquire lock l without releasing it. If a thread is \nunable to acquire a lock, it blocks until the lock \nbecomes available. The minimum value of x and the \nminimum value of y together for which execution of \nP can result in a deadlock are:",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "x = 1, y = 2",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "x = 2, y = 1",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "x = 2, y = 2",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "x = 1, y = 1",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "D"
+            ],
+            "solution": {
+                "text": "The question is asking for the minimum value of x \nand the minimum value of y together for which \nexecution of P can result in a deadlock are: \n\nSo, checking for the minimum value x = 1, y = 1.  \n\nDeadlock is possible in this scenario the condition is \nprocess should perform down/wait operation twice. \nIf down operation on lock is performed twice, then \ndeadlock is possible.  \n\nTherefore, option D is correct.",
+                "images": [
+                    "assets/Operating System/OS_Process_Synchronization_P26_X3581.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "OS_PROCESS_SYNCHRONIZATION_2010_Q08",
+            "subject": "Operating System",
+            "topic": "Process Synchronization",
+            "subtopic": "P can result in a deadlock are:",
+            "year": 2010,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 8,
+            "tags": [
+                "Process Synchronization",
+                "P can result in a deadlock are:",
+                "Operating System"
+            ],
+            "question": {
+                "text": "Consider the methods used by processes P1 and P2 \nfor accessing their critical sections whenever \nneeded, as given below. The initial values of shared \nboolean variables S1 and S2 are randomly assigned. \nMethod used by P1 \nMethod used by P2 \nwhile (S1==S2); \nCritical Section \nS1=S2; \nWhile(S1!=S2) \nCritical Section \nS2=not(S1); \n\nWhich one of the following statements describes \nthe properties achieved?",
+                "images": [],
+                "latex": [],
+                "tables": [
+                    {
+                        "headers": [
+                            "Method used by P1",
+                            "Method used by P2"
+                        ],
+                        "rows": [
+                            [
+                                "while (S1==S2); Critical Section S1=S2;",
+                                "While(S1!=S2) Critical Section S2=not(S1);"
+                            ]
+                        ]
+                    }
+                ]
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "Mutual exclusion but not progress",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "Progress but not mutual exclusion",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "Neither mutual exclusion nor progress",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "Both mutual exclusion and progress",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "A"
+            ],
+            "solution": {
+                "text": "The given code is purely Strict alternation method. \nStrict alternation always gurantee mutual exclusion \nbut do not gurantee progress. So, option A is \ncorrect.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "OS_PROCESS_SYNCHRONIZATION_2021_Q09",
+            "subject": "Operating System",
+            "topic": "Process Synchronization",
+            "subtopic": "the properties achieved?",
+            "year": 2021,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MSQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 9,
+            "tags": [
+                "Process Synchronization",
+                "the properties achieved?",
+                "Operating System"
+            ],
+            "question": {
+                "text": "[GATE-2021-CS: 2M] \n\nConsider a computer system with multiple shared \nresource types, with one instance per resource type. \nEach instance can be owned by only one process at \na time. Owning and freeing of resources are done by \nholding a global lock (L). The following scheme is \nused to own a resource instance: \n\nfunction OWNRESOURCE(Resource R) \n\nAcquire lock L // a global lock \n\nif R is available then  \n\n       Acquire R \n                   Release lock L \n\n else \n\nif R is owned by another process P then \n                   Terminate P, after releasing all resources \nowned by P \n                   Acquire R \n                   Restart P \n                   Release lock L \n                   end if \n           end if \n        end function \n\nWhich of the following choice(s) about the above \nscheme is/are correct?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "The scheme ensures that deadlocks will not \noccur.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "The scheme may lead to live-lock.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "The scheme may lead to starvation.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "The scheme violates the mutual exclusion \nproperty. \n\n OS Based Solution",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "A",
+                "B",
+                "C"
+            ],
+            "solution": {
+                "text": "When every process is in the waiting state, a system \nis said to be in deadlock. This is comparable to a \nstop-and-go traffic situation. \n\nWhen processes carry out repeated tasks without \nadvancing the system (still producing no valuable \nwork), the system is said to be in livelock. This is \ncomparable to a traffic gridlock when some cars \ndrive forward, strike a block, then reverse and move \nforward again. \n\nNow, deadlock and livelock are mutually exclusive; \nin a system, only one of them can occur at any given \ntime. However, they both suggest that the system \nwill not advance, starving the associated processes \nin the process. \n\nNow, regarding the query, any process can \nterminate another process and then obtain the \nnecessary resource, and this can result in",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "OS_PROCESS_SYNCHRONIZATION_2021_Q10",
+            "subject": "Operating System",
+            "topic": "Process Synchronization",
+            "subtopic": "OS Based Solution",
+            "year": 2021,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MSQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 10,
+            "tags": [
+                "Process Synchronization",
+                "OS Based Solution",
+                "Operating System"
+            ],
+            "question": {
+                "text": "Consider the following pseudocode, where S is a \nsemaphore initialized to 5 in line # 2 and counter is \na shared variable initialized to 0 in line # 1. Assume \nthat the increment operation in line # 7 is not atomic. \n\n1. int counter = 0; \n\n          2. Semaphore S = init(5); \n\n3. void parop (void) \n\n          4. { \n\n5.       wait (S); \n\n          6.       wait (S); \n\n7.       counter++; \n\n\n          8.       signal (S); \n\n9.       signal (S); \n\n         10.  } \n\nIf five threads execute the function parop \nconcurrently, which of the following program \nbehavior(s) is/are possible?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "The value of counter is 5 after all the threads \nsuccessfully complete the execution of parop",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "The value of counter is 1 after all the threads \nsuccessfully complete the execution of parop",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "The value of counter is 0 after all the threads \nsuccessfully complete the execution of parop",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "There is a deadlock involving all the threads",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "A",
+                "B",
+                "D"
+            ],
+            "solution": {
+                "text": "The value of semaphore is initialised to 5.  \n\nIf all the threads execute sequentially one by one, \nlike first thread arrives and increases the value of \ncounter by 1, then next thread increases it to 2 and \nso on. So, the final value will become 5. Therefore, \noption A is correct.  \n\nIf the first thread arrives and performed counter++, \nincreases the value of counter by 1, load the value \nin the register and gets pre-empted. Now \nsubsequent thread arrives and completed the \nexecution, increases the value of counter. At last, \nfirst thread will arrive (as it was pre-empted) to \ncomplete its execution it will store the value into \nregister which is counter =1 (the value loaded onto \nregister before pre-emption). So, option B is also \ncorrect.  \n\nThe value of counter cannot be 0, because counter's \nvalue has to be updated at least one time. Therefore, \nit's maximum value will be 5 and minimum value \nwill be 1. So, option C is incorrect.  \n\nDeadlock can be present in the system, if first thread \narrives and performed step-5(wait(S);) and gets pre-\nempted, second thread arrives perform step-5 \n(wait(S);) and gets pre-empted and all other \nsubsequent threads does the same. Now, the \nsemaphore value will become 0 and if thread wants \nto perform step-6 (wait(S);), it will get blocked, and \nall the subsequent threads will be blocked after \nperforming second wait(S); operation. None of the \nthreads are able to execute further and hence a \ndeadlock is possible involving all the threads. So, \noption D is also correct.  \n\nSo, option A, B, and D are correct.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "OS_PROCESS_SYNCHRONIZATION_2020_Q11",
+            "subject": "Operating System",
+            "topic": "Process Synchronization",
+            "subtopic": "successfully complete the execution of parop",
+            "year": 2020,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 11,
+            "tags": [
+                "Process Synchronization",
+                "successfully complete the execution of parop",
+                "Operating System"
+            ],
+            "question": {
+                "text": "Each of a set of n processes executes the following \ncode using two semaphores a and b initialized to 1 \nand 0, respectively. Assume that count is a shared \nvariable initialized to 0 and not used in CODE \nSECTION P. \n\nCODE SECTION P \n wait",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "; count = count + 1; \n if (count == n) signal",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "; \n signal (a); wait (b); signal (b); \n\nCODE SECTION Q \n\nWhat does the code achieve? \n\n(a) It ensures that no process executes CODE \nSECTION Q before every process has finished \nCODE SECTION P. \n\n(b) It ensures that all processes execute CODE \nSECTION P mutually exclusively.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "It ensures that two processes are in CODE \nSECTION Q at any time.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "It ensures that at most n-1 process are in CODE \nSECTION P at any time.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "A"
+            ],
+            "solution": {
+                "text": "Given,   \n\nThere are two semaphores a and b initialized to 1 \nand 0 respectively. Count is a shared variable it is \ninitialized to 0. \n1. CODE SECTION P \n2. wait (a);  \n3. count = count + 1; \n4. if (count == n) signal (b); \n5. signal (a);  \n6. wait (b);  \n7. signal (b); \n8. CODE SECTION Q \n\nProcess will arrive,  \n\nComplete the CODE SECTION P //line 1.   \n\nand then only it can perform wait (a); //line 2 \n\nnow, it will increase the value of count to 1; //line 3 \n\ncheck if (count==n), if yes then perform signal (b); \nelse we will not execute signal(b); //line 4 \n\nIt will perform signal (a); //line 5 \n\nwait (b) [b was initialized to 0, so it will be blocked]. \n//line 6 \n\n\nNow, processes will continuously block till count \n==n. Once count becomes equals to n,  \n\nit will execute signal(b) // line 4 \n\nand this unblocks one process, that unblocked \nprocess will execute signal (b) // line 7 \n\nNow, subsequent processes will be unblocked and \ncan enter CODE SECTION Q //line 8. \n\nMeans,  \n\nNo processes can enter into CODE SECTION Q \nuntil N processes finishes CODE SECTION P and \nN processes has incremented the count variable.  \nOR \n\nTo execute CODE SECTION Q, N processes must \ncompleted their CODE SECTION P and has \nincremented the count variable.  \n\nSo, It ensures that no process executes CODE \nSECTION Q before every process has finished \nCODE SECTION P. Therefore, option A is correct.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "OS_PROCESS_SYNCHRONIZATION_2016_Q12",
+            "subject": "Operating System",
+            "topic": "Process Synchronization",
+            "subtopic": "SECTION P at any time.",
+            "year": 2016,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 12,
+            "tags": [
+                "Process Synchronization",
+                "SECTION P at any time.",
+                "Operating System"
+            ],
+            "question": {
+                "text": "Consider a non-negative counting semaphore S. The \noperation P(S) decrements S, and V(S) increments S. \nDuring an execution, 20 P(S) operations and 12 V(S) \noperations are issued in some order. The largest \ninitial value of S for which at least one P(S) \noperation will remain blocked is ____",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "7"
+            ],
+            "solution": {
+                "text": "Suppose, the initial value of S = x \n\nNow, 20P means 20 down operations(-20) and 12 \nV means 12 up operations (+12).  \n\nIt is saying that at least one operation should \nremain blocked.  \n\nSo, this can be written as, \n\nx - 20 + 12 = -1 \n\nx - 8 = -1 \n\nx = 7 \n\nSo, the largest initial value of S for which at least \none operation will remain blocked is 7.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "OS_PROCESS_SYNCHRONIZATION_2014_Q13",
+            "subject": "Operating System",
+            "topic": "Process Synchronization",
+            "subtopic": "operation will remain blocked is ____",
+            "year": 2014,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 13,
+            "tags": [
+                "Process Synchronization",
+                "operation will remain blocked is ____",
+                "Operating System"
+            ],
+            "question": {
+                "text": "Consider the procedure below for the Producer-\nConsumer problem which uses semaphores: \n\nsemaphore n = 0; \n\nsemaphore s = 1; \n\nVoid producer () \n Void consumer () \n\n{ \n\n { \n\n  while (true) \n        while(true) \n\n {        \n   { \n\n\nproduce (); \n       semWait(s); \n\n       semWait(s); \n       semWait(n); \n\n\naddToBuffer ();    \n       removeFromBuffer(); \n\n\nsemSignal(s); \n\nsemSignal(s); \n\n    semSignal(n); \n\nconsume (); \n\n\n   }  \n       } \n\n       }   \n        }  \n\nWhich one of the following is TRUE?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "The producer will be able to add an item to the \nbuffer, but the consumer can never consume it.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "The consumer will remove no more than one \nitem from the buffer.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "Deadlock occurs if the consumer succeeds in \nacquiring semaphore s when the buffer is \nempty.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "The starting value for the semaphore n must be \n1 and not 0 for deadlock-free operation.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "C"
+            ],
+            "solution": {
+                "text": "In the given code, if the producer will produce the \nitem, then consumer will definitely consume it. So, \nthe option A is incorrect.  \n\nIf producer is producing two or more items then \nconsumer can consume all of them, So, option B is \nincorrect. \n\nIf the buffer is empty, then  \n\nn = 0 \n\nS = 1 0           [wait operation on semWait(S)] \n\n n = 0; consumer gets blocked \n\n    S = 0; producer gets blocked \n\nBoth the processes are blocked, therfore there exists \na deadlock. Hence, option C is correct.  \n\nIn option D, with n =1, then also there will be a \ndeadlock, So, option D is also incorrect.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "OS_PROCESS_SYNCHRONIZATION_2013_Q14",
+            "subject": "Operating System",
+            "topic": "Process Synchronization",
+            "subtopic": "1 and not 0 for deadlock-free operation.",
+            "year": 2013,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 14,
+            "tags": [
+                "Process Synchronization",
+                "1 and not 0 for deadlock-free operation.",
+                "Operating System"
+            ],
+            "question": {
+                "text": "A certain computation generates two arrays a and b \nsuch that a[i] = f(i) for 0 \\le i < n and b [i] = g(a[i]) for \n0 \\le i < n . Suppose this computation is decomposed \ninto two concurrent processes X and Y such that X \ncomputes the array a and Y computes the array b. \nThe processes employ two binary semaphores R and \nS, both initialized to zero. The array a is shared by \nthe two processes. The structure of the processes are \nshown below. \n\nProcess X \n\nProcess Y \n\nprivate i; \n\n private i; \n\nfor (i = 0; i < n; i++) \nfor(i = 0; i < n; i++) \n\n      {   \n         { \n\n\n\na[i] = f(i) \n      EntryY(R, S); \n\n\nExitsX(R, S); \n      b[i] = g(a[i]); \n\n      }   \n          } \n\nWhich one of the following represents the \nCORRECT implementations of ExistsX and \nEntryY?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "Exits X (R, S)\n\n{ \n    P(R); \n    V(S) \n} \nEntry Y (R, S) { \n   P(S); \n   V(R); \n}",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "Exits X (R, S)\n\n{ \n    V(R); \n    V(S); \n} \nEntry Y (R, S) { \n   P(R); \n   P(S); \n}",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "Exits X (R, S)\n\n{ \n    P(S); \n    V(R); \n} \nEntry Y (R, S){ \n   V(S); \n   P(R); \n}",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "Exits X (R, S)\n\n{ \n    V(R); \n    P(S); \n} \nEntry Y (R, S){ \n   V(S); \n   P(R); \n}",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "C"
+            ],
+            "solution": {
+                "text": "(a) With option A, deadlock happens.  \n\n(b) Process 'X' may compute all values (iterations) \nand process would be able to make only one \niteration and then gets blocked. So, option B is \nalso incorrect.  \n\n(c) Processes 'X and 'Y' alternates and signal each \nother so that all iterations of both 'X' and 'Y' \ncompletes successfully \n\n(d) Some of the signals issued by 'X' cannot be \ncaptured by  'Y' \n\n Therfore, process 'Y' will not be able to complete \nall iterations. So, option D is also incorrect.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "OS_PROCESS_SYNCHRONIZATION_2013_Q15",
+            "subject": "Operating System",
+            "topic": "Process Synchronization",
+            "subtopic": "}",
+            "year": 2013,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 15,
+            "tags": [
+                "Process Synchronization",
+                "}",
+                "Operating System"
+            ],
+            "question": {
+                "text": "A shared variable x, initialized to zero, is operated \non by four concurrent process W, X, Y, Z as follows. \nEach of the processes W and X reads x from \nmemory, increments by one, stores it to memory, \nand then terminates. Each of the processes Y and Z \nreads x from memory, decrements by one, stores it \nto memory and then terminates. Each process before \nreading x invokes the P operations (i.e., wait) on a \ncounting semaphore S and invokes the V operation \n(i.e., signal) on the semaphore S after storing x to  \nmemory. Semaphore S is initialized to two. What is \nthe maximum possible value of x after all processes \ncomplete execution?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "-2",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "-1",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "1",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "2",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "D"
+            ],
+            "solution": {
+                "text": "The code can be written as: \n\nCSEM S = 2; \n\nPri \n\ni = W, X, Y, Z \n\n{ \n\n\nP(S); \n\n\n<update x> \n\n\nV(S); \n\n} \n\nW: Completes,  x =1 \n\nX: Load ; increment; Preempted,     x =2 \n\nY: Completes \n\nZ: Completes \n\nX: Store, x = 2 is stored as the final value \n\nTherfore, 2 is the correct answer hence option D is \ntrue.",
+                "images": [
+                    "assets/Operating System/OS_Process_Synchronization_P29_X3750.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "OS_PROCESS_SYNCHRONIZATION_2013_Q16",
+            "subject": "Operating System",
+            "topic": "Process Synchronization",
+            "subtopic": "complete execution?",
+            "year": 2013,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 16,
+            "tags": [
+                "Process Synchronization",
+                "complete execution?",
+                "Operating System"
+            ],
+            "question": {
+                "text": "Three concurrent processes X, Y and Z execute three \ndifferent code segments that access and update \ncertain shared variables. Process X execute the P \noperation (i.e., wait) on semaphores a, b and c; \nprocess Y executes the P operation on semaphores b, \nc and d; process Z executes the P operation on \nsemaphores c, d and a before entering the respective \ncode segments. After completing the execution of its \ncode segments each process invokes the V operation \n(i.e., signal) on its three semaphores. All semaphores \nare binary semaphores initialized to one. Which one \nof the following represents a deadlock-free order of \ninvoking the P operations by the processes?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "X: P(a)P(b)P(c)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "X: P(b)P(a)P(c) \n\n\nY: P(b)P(c)P(d) \n\nY: P(b)P(c)P(d) \n\n\nZ: P(c)P(d)P(a) \n\nZ: P(a)P(c)P(d)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "X: P(b)P(a)P(c)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "X: P(a)P(b)P(c) \n\n\nY: P(c)P(b)P(d) \n\nY: P(c)P(b)P(d) \n\n\nZ: P(a)P(c)P(d) \n\nZ: P(a)P(c)P(d)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "B"
+            ],
+            "solution": {
+                "text": "In option A: \n\nX: P(a)           // a = 0 \n          Y: P(b)          // b= 0 \n\nZ: P(c)          //c =0 \n\n          X: P(a)P(b)   // b= blocked \n          Y: P(b)P(c)   // c= blocked \n\nZ: P(c)P(d) P(a)  // d = 0, a = blocked \n\nHere we can have deadlock.  \n\nIn option B: \n\nX: P(b)              // b = 0 \n\nY: P(b)             // b = blocked \n\nZ: P(a)             // a = 0 \n\n\nX: P(b)P(a)       // a = blocked \n\nY: P(b)P(c)       // already blocked by b \n\nZ: P(a)P(c)       // c = 0 \n\n          X: P(b)P(a)P(c)       // already blocked by a \n\nY: P(b)P(c)P(d)       // already blocked by b \n\nZ: P(a)P(c)P(d)       //  d= 0 [Success] \n\nNo deadlock.  \n\nIf one process is successful other processes can \nalso complete successfully. So, option B is the \ncorrect answer.  \n\nIn option C: \n\nX: P(b)               // b=0 \n\nY: P(c)               // c= 0 \n\nZ: P(a)               // a = 0 \n\nX: P(b)P(a)P(c)        // a = blocked \n\nY: P(c)P(b)P(d)       // b = blocked \n\nZ: P(a)P(c)P(d)       // c = blocked.  \n\nHere we can have deadlock.  \n\nIn option D: \n          X: P(a)                // a = 0 \n\nY: P(c)                // c = 0 \n\nZ: P(a)              // a = blocked \n         X: P(a) P(b)P(c)              // b= 0 \n         Y: P(c)P(b)P(d)              // b = blocked \n         Z: P(a)P(c)P(d)               \n\nHere also deadlock is possible.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "OS_PROCESS_SYNCHRONIZATION_2010_Q17",
+            "subject": "Operating System",
+            "topic": "Process Synchronization",
+            "subtopic": "Z: P(a)P(c)P(d)",
+            "year": 2010,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 17,
+            "tags": [
+                "Process Synchronization",
+                "Z: P(a)P(c)P(d)",
+                "Operating System"
+            ],
+            "question": {
+                "text": "The following program consists of 3 concurrent \nprocesses and 3 binary semaphores. The semaphores \nare initialized as S0 = 1, S1 = 0, S2 = 0. \nProcess P0 \nProcess P1 \nProcess P2 \nwhile (true) { \nwait (S0); \nprint '0' \nrelease (S1); \nrelease (S2); \n} \nwait (S1); \nrelease(S0); \nwait (S2) \nrelease (S0); \n\n How many times will process P0 print '0'?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "At least twice",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "Exactly twice",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "Exactly thrice",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "Exactly once",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "A"
+            ],
+            "solution": {
+                "text": "If the process run in following order \n• \nP0; P1; P2; P0; P0 \\rightarrow \"0\" will be printed 2 times \n\n\nIf the process run in following order \n• \nP0; P1; P0; P2; P0; P0 \\rightarrow \"0\" will be printed 3 \ntimes \n\nSo, \"0\" will be printed maximum 3 times, and \nminimum 2 times. Therefore, option A is correct.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "OS_PROCESS_SYNCHRONIZATION_2008_Q18",
+            "subject": "Operating System",
+            "topic": "Process Synchronization",
+            "subtopic": "How many times will process P0 print '0'?",
+            "year": 2008,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 18,
+            "tags": [
+                "Process Synchronization",
+                "How many times will process P0 print '0'?",
+                "Operating System"
+            ],
+            "question": {
+                "text": "The P and V operations on counting semaphores, \nwhere s is a counting semaphore, are defined as \nfollows: \n\nP(s): s = s - 1; \n\n     if s < 0 then wait; \n\nV(s): s = s + 1; \n\nif s \\le 0 then wakeup a process waiting on s; \n\nAssume that Pb, and Vb, the wait and signal \noperations on binary semaphores are provided. Two \nbinary semaphores Xb and Yb are used to implement \nthe semaphore operations P(s) and V(s) as follows: \n\nP(s):  Pb (Xb); \n\n\n  s = s - 1; \n\n\n  if (s < 0) { \n\n        Vb (Xb);     \n\n\n    Pb (Yb);     \n\n\n  } \n\n\n   else Vb(Xb); \n\nV(s): Pb (Xb); \n  s = s + 1; \n  if (s \\le 0) Vb(Yb);     \n  Vb(Xb);     \n\n The initial values of  Xb and Yb are respectively",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "0 and 0",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "0 and 1",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "1 and 0",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "1 and 1",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "C"
+            ],
+            "solution": {
+                "text": "Initial  \n\nThe value of Xb compulsarily should be 1, So that \nany one of Pb(Xb) should be successful in the \nbeginenning itself.  \n\nYb = 0",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "OS_PROCESS_SYNCHRONIZATION_2021_Q19",
+            "subject": "Operating System",
+            "topic": "Process Synchronization",
+            "subtopic": "The initial values of  Xb and Yb are respectively",
+            "year": 2021,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 19,
+            "tags": [
+                "Process Synchronization",
+                "The initial values of  Xb and Yb are respectively",
+                "Operating System"
+            ],
+            "question": {
+                "text": "[GATE-2008 : 2  \n\nThe following is a code with two threads, producer \nand consumer, that can run in parallel. Further S and \nQ are binary semaphores equipped with the standard \nP and V operations.  \n\nSemaphore S = 1, Q = 0; \n\ninteger x; \n\nproducer:  \n             consumer: \n\nwhile (true) do \n\nwhile (true) do \n\n   P(S);   \n                 P(Q); \n\nx = produce (); \n\nconsume (x); \n\n   V(Q);   \n                 V(S); \n\ndone \n\n                done \n\nWhich of the following is TRUE \nabout the program above?",
+                "images": [],
+                "latex": [],
+                "tables": [
+                    {
+                        "headers": [
+                            "Process P0",
+                            "Process P1",
+                            "Process P2"
+                        ],
+                        "rows": [
+                            [
+                                "while (true) { wait (S0); print '0' release (S1); release (S2); }",
+                                "wait (S1); release(S0);",
+                                "wait (S2) release (S0);"
+                            ]
+                        ]
+                    }
+                ]
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "The process can deadlock",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "One of the threads can starve",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "Some of the items produced by the producer \nmay be lost",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "Values generated and stored in 'x' by the \nproducer will always be consumed before the \nproducer can generate a new value.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "D"
+            ],
+            "solution": {
+                "text": "Only after the producer has made the thing may the \nconsumer consume it, and only after the consumer \nhas consumed the item can the producer \nmanufacture it again (except for the first time). \n\nLet's go over how this code functions. \n\nThe parallel execution of Producer and Consumer is \nmentioned. \n\nProducer: \n\nS value is 1 in st1, P(S) on S reduces it to 0, and st2 \nproduces the x item. \n\nQ value for st3 is 0. V(Q) on Q results in 1. \n\nSince this is an endless while loop, it ought to loop \nendlessly. S is already 0 in the subsequent while \nloop iteration; further P(S) on 0 sends P to S's \nblocked list. Producer is thus obstructed. \n\nConsumer: \n\nP(Q) on Q causes Q to equal 0 and then eats the \nthing. \n\nInstead of setting S to 1 with V(S) on S, the \nconsumer now reawakens the stalled process on Q's \nqueue. Process P thus becomes active. Since P was \nblocked at statement 1, it continues from statement \n2. P then creates the subsequent item. Therefore, a \nproduct is consumed by a consumer before a \nproducer creates a new one. \n\nThe right answer is (d). \n\nOption for this query: \n\nDeadlock cannot occur because both the producer \nand the consumer are using distinct semaphores \n(there is no hold and wait). Likewise, there is no \nstarvation since there is a change in the relationship \nbetween the producer and the consumer, which also \nresults in bounded waiting. \n\n(C) The producer might lose some of the products it \nproduces, but",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "OS_PROCESS_SYNCHRONIZATION_2021_Q20",
+            "subject": "Operating System",
+            "topic": "Process Synchronization",
+            "subtopic": "producer can generate a new value.",
+            "year": 2021,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 20,
+            "tags": [
+                "Process Synchronization",
+                "producer can generate a new value.",
+                "Operating System"
+            ],
+            "question": {
+                "text": "[GATE-2023-CS: 2M] \n\nConsider the two functions incr and decr shown \nbelow. \n\nThere are 5 threads each invoking incr once, and 3 \nthreads each invoking decr once, on the same shared \nvariable X. The initial value of X is 10. Suppose \nthere are two implementations of the semaphore s, \nas follows: \n\nincr(){ \ndecr(){ \n\nwait(s); \n\nwait(s); \n\nX = X +1; \n\nX = X -1; \n\nSignal(s); \n\nSignal(s); \n\n} \n\n} \nI-1: \ns is a binary semaphore initialized to 1. \n I-2: \ns is a counting semaphore initialized to 2. \n\nLet V1, V2 be the values of X at the end of \nexecutiong of all the threads with implementations \nI-1, I-2, respectively. \nWhich one of the following corresponds to the \nminimum possible values of V1, V2, respectively?",
+                "images": [],
+                "latex": [],
+                "tables": [
+                    {
+                        "headers": [
+                            "Process P0",
+                            "Process P1",
+                            "Process P2"
+                        ],
+                        "rows": [
+                            [
+                                "while (true) { wait (S0); print '0' release (S1); release (S2); }",
+                                "wait (S1); release(S0);",
+                                "wait (S2) release (S0);"
+                            ]
+                        ]
+                    }
+                ]
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "15, 7",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "7, 7",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "12, 7",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "12, 8",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "C"
+            ],
+            "solution": {
+                "text": "Case I: Let's the minimum possible value of x for \nv1, when semaphore 's' is binary semaphore \ninitialized to 1. \nP4 …P8 \\Rightarrow Incr() Decr () \\Rightarrow P1 , P2, P3 \n1. Wait (s); \n1. Wait(s); \n2. x = x +1 \n2. x = x -1; \n3. signal(s); \n3. Signal(s) \nSemaphore s = 1 0 1 \nP1 = Decr () \n1. wait (s); s = 0 \n2. Read x; x = 10 \nNow, if you pre-empt P1, before performing \ndecrement operation then other process would \nnot be able to execute on 'x' as semaphore value \nis s = 0. \nx - 1: 10 - 1: 9 \nx = 9; update x by 9 \n3. signal(s); s = 1 \nP2 Decr() \n1, 2, 3: Final value of x = 8 \nP3: Decr () \n1, 2,3 : Final value of x = 7 \nP4  P5: Incr() \n\n1,2,3 Increment x 5 times: x \\Rightarrow 12 \nHence, minimum possible value is 12 for V1. \n\nCase II: Let's find the minimum possible value of x \nfor V2. when semaphore S is counting semaphore \n\ninitialized to 2. \nP1: Decr () \n1.  wait (s): s  2 1 \n2.   read (x); x = 10 \nPreempt Process P1. \nNow. execute Incr() \nP4 ... P5: Incr() \n\n\n1, 2, 3: Final x value will be, x = 15 \nNow. revoke the process P1 from pre-emption \n\n2. \nPerform x - 1: 10-1 = 9 \nUpdate x: x  9 \nP2 : Decr() \n1,2,3 x = 8 \nP3 Decr() \n1,2,3 x = 7 \nHence, find value of V2 is 7 for counting \nsemaphore \nSo, option C is the correct answer.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "OS_PROCESS_SYNCHRONIZATION_2021_Q21",
+            "subject": "Operating System",
+            "topic": "Process Synchronization",
+            "subtopic": "12, 8",
+            "year": 2021,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 21,
+            "tags": [
+                "Process Synchronization",
+                "12, 8",
+                "Operating System"
+            ],
+            "question": {
+                "text": "[GATE-2022-CS: 1M] \n\nConsider the following threads, T1, T2, and T3 \nexecuting on a single processor, synchronized using \nthree binary semaphore variables, S1, S2, and S3, \noperated upon using standard wait() and signal(). \nThe threads can be context switched in any order and \nat any time. \n\nT1 \nT2 \nT3 \nwhile (true) { \n    wait (S3); \n    print(\"C\"); \n    signal (S2); \n} \nwhile (true) { \n    wait (S1); \n    print(\"B\"); \n    signal (S3); \n} \nwhile (true) \n   {wait (S2); \n    print(\"A\"); \n    signal (S1); \n} \nWhich initialization of the semaphores would print \nthe sequence BCABCABCA…..?",
+                "images": [],
+                "latex": [],
+                "tables": [
+                    {
+                        "headers": [
+                            "Process P0",
+                            "Process P1",
+                            "Process P2"
+                        ],
+                        "rows": [
+                            [
+                                "while (true) { wait (S0); print '0' release (S1); release (S2); }",
+                                "wait (S1); release(S0);",
+                                "wait (S2) release (S0);"
+                            ]
+                        ]
+                    }
+                ]
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "S1 = 1; S2 = 1; S3 = 1",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "S1 = 1; S2 = 1; S3 = 0",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "S1 = 1; S2 = 0; S3 = 0",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "S1 = 0; S2 = 1; S3 = 1 \n\nClassical IPC Problems",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "C"
+            ],
+            "solution": {
+                "text": "We need the output to be BCABCABCA, i.e. it \nshould start with B, means T2 should be 1 and T1, T3 \nshould be zero. This means S1 should be 1; S2 and \nS3 would be 0.  \n\nSo,  option C is the correct answer.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "OS_PROCESS_SYNCHRONIZATION_2015_Q22",
+            "subject": "Operating System",
+            "topic": "Process Synchronization",
+            "subtopic": "Classical IPC Problems",
+            "year": 2015,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 22,
+            "tags": [
+                "Process Synchronization",
+                "Classical IPC Problems",
+                "Operating System"
+            ],
+            "question": {
+                "text": "Consider the following solution to the producer-\nconsumer synchronization problem. The shared \nbuffer size is N. Three semaphores empty, full and \nmutex are defined with respective initial value of 0, \nN and 1. Semaphore empty denotes the number of \navailable slots in the buffer, for the consumer to read \nfrom. Semaphore full denotes the number of \navailable slots in the buffer, for the producer to write \nto. The placeholder variables, denoted by P, Q, R \nand S, in the code below can be assigned either \nempty or full. The valid semaphore operations are: \nwait () and signal (). \n\n\nWhich one of the following assignment to P, Q, R \nand S will yield the correct solution?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "P: full, Q: full, R: empty, S: empty",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "P: empty, Q: empty, R: full, S: full",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "P: full, Q: empty, R: empty, S: full",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "P: empty, Q: full, R: full, S: empty \n\nConcurrency Mechanism",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "C"
+            ],
+            "solution": {
+                "text": "Given,  \n\nEmpty is initialized with 0. \n\nFull is initialized with N. \n\nMutex is initialized with 1. \n\nInitially the buffer is empty therefore, empty is \ninitialized to 0. And if buffer is full then Full will be \n0 as there will be no slots available.  \n\nThe given code is of classical IPC problem, \nproducer consumer problem.  \n\nSo, in Producer; wait (P), if P is full, then producer \nwill be blocked. Means P should be full. So, option \nB and D are eliminated and are incorrect. \n\nNow, if we are performing wait (P) // means wait on \nfull \n\nThen, signal(Q) operation should be on empty.  \n\nHence, option A is also incorrect and option C is the \ncorrect answer.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "OS_PROCESS_SYNCHRONIZATION_2019_Q23",
+            "subject": "Operating System",
+            "topic": "Process Synchronization",
+            "subtopic": "Concurrency Mechanism",
+            "year": 2019,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 23,
+            "tags": [
+                "Process Synchronization",
+                "Concurrency Mechanism",
+                "Operating System"
+            ],
+            "question": {
+                "text": "Consider three concurrent process P1, P2 and P3 as \nshown below, which access a shared variable D that \nhas been initialized to 100. \nP1 \nP2 \nP3 \n: \n: \n: \n: \n: \n: \nD = D + 20 \nD = D - 50 \nD = D + 10 \n: \n: \n: \n: \n: \n: \n\nThe processes are executed on a uniprocessor system \nminimum and maximum possible values of D after \nthe three processes have completed execution are X \nand Y respectively, then the value of Y-X is \n___________.",
+                "images": [],
+                "latex": [],
+                "tables": [
+                    {
+                        "headers": [
+                            "P 1",
+                            "P 2",
+                            "P 3"
+                        ],
+                        "rows": [
+                            [
+                                ":",
+                                ":",
+                                ":"
+                            ],
+                            [
+                                ":",
+                                ":",
+                                ":"
+                            ],
+                            [
+                                "D = D + 20",
+                                "D = D - 50",
+                                "D = D + 10"
+                            ],
+                            [
+                                ":",
+                                ":",
+                                ":"
+                            ],
+                            [
+                                ":",
+                                ":",
+                                ":"
+                            ]
+                        ]
+                    }
+                ]
+            },
+            "options": [],
+            "correctAnswer": [
+                "80"
+            ],
+            "solution": {
+                "text": "Given,  \n\nD = 100 \n\nX is minimum value \n\nY is maximum value \n\nTo calculate maximum value: \n          P1: D = D + 20         \\therefore D =120 \n\nP3: D = D + 10 // executed load, executed \nincrement and got pre-empted. [Means the value of \nregister is 130 here but this value is not stored into \nregister yet.] \n\n\nP2: D = D - 50 // value of D was 130 and now 130-\n50 = 80, we will store 80 into register.  \n\n\nNow, P3 will complete its execution and perform \nstore operation. When P3 preempted the value of \nregister was 130, so it will store value as 130 \n           Therefore,  Y = 130 \n\nSimilarly, To calculate maximum value: \n\nP2: D = D-50 // Load the value; Decrement the \nvalue of register[100-50 = 50]; Pre-empt \n\nExecute P1; \n\nExecute P3; \n          Complete execution of P2, perform store operation. \nThe final value of register will be 50.  \n\nTherefore, X = 50 \n\nSo, the difference between maximum and minimum \nvalue is Y - X = 130 - 50 = 80",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "OS_PROCESS_SYNCHRONIZATION_2015_Q24",
+            "subject": "Operating System",
+            "topic": "Process Synchronization",
+            "subtopic": "___________.",
+            "year": 2015,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 24,
+            "tags": [
+                "Process Synchronization",
+                "___________.",
+                "Operating System"
+            ],
+            "question": {
+                "text": "The following two functions P1 and P2 that share a \nvariable B with an initial value of 2 execute \nconcurrently. \n\nP1()    \nP2() \n\n{ \n\n{ \n\n    C = B -1; \n\nD = 2 * B; \n\n    B = 2 * C \n        B = D - 1; \n\n} \n\n} \n\nThe number of distinct values that B can possibly take \nafter the execution is _______.",
+                "images": [
+                    "assets/Operating System/OS_Process_Synchronization_P24_X3316.png"
+                ],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "3"
+            ],
+            "solution": {
+                "text": "Initially B = 2 \n\nP1()    \n\n\n{ \n\n\n1. C = B -1; \n\n\n2.  B = 2 * C; \n\n\n} \n\nP2() \n\n{ \n\n\n3. D = 2 * B; \n4. B = D - 1; \n\n} \n\nCASE I:  \n1. C = B -1 ⇒ 2- 1 ⇒ 1 \n2. B = 2 * C ⇒ 2*1 ⇒ 2 \n3. D = 2* B ⇒ 2* 2 ⇒ 4 \n4. B = D -1 ⇒ 4-1 ⇒ 3 \nB = 3 \n\n\nCASE II: \n3. D = 2 * B ⇒ 2 * 2 ⇒ 4 \n4. B = D - 1 ⇒ 4 - 1 ⇒ 3 \n1. C = B - 1 ⇒ 3 - 1 ⇒ 2 \n2. B = 2 * C ⇒ 2 * 2 ⇒  4 \nB = 4 \n\n\n\nCASE III: \n1. C =  B - 1 ⇒ 2 - 1 ⇒ 1 \n3. D = 2 * B ⇒ 2 * 2 ⇒ 4 \n4. B = D - 1 ⇒ 4 -1 ⇒ 3 \n2. B = 2* C ⇒ 2 * 1 ⇒ 2. \nB = 2 \n\nCASE IV: \n3. D = 2 * B ⇒ 2 * 2 ⇒ 4 \n1. C =  B - 1 ⇒ 2 - 1 ⇒ 1 \n4. B = D - 1 ⇒ 4 -1 ⇒ 3 \n2. B = 2* C ⇒ 2 * 1 ⇒ 2. \nB = 2 \n\nThe number of distinct values that B can possibly \ntake after the execution is 3 [3, 4, 2].",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        }
+    ]
+}

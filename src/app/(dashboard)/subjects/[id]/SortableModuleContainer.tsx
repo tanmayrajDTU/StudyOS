@@ -47,6 +47,7 @@ interface SortableModuleContainerProps {
   onRename: (newName: string) => void
   onDelete: () => void
   onDuplicate: () => void
+  onUpdate?: (updates: Record<string, unknown>) => void
   onAddLecture: (title: string) => void
   onUpdateLecture: (lecId: string, updates: Record<string, unknown>) => void
   onDeleteLecture: (lecId: string) => void
@@ -63,6 +64,7 @@ export const SortableModuleContainer = React.memo(function SortableModuleContain
   onRename,
   onDelete,
   onDuplicate,
+  onUpdate,
   onAddLecture,
   onUpdateLecture,
   onDeleteLecture,
@@ -150,7 +152,7 @@ export const SortableModuleContainer = React.memo(function SortableModuleContain
           {/* Important Module Star Badge */}
           {module.is_important && (
             <span title="Important syllabus area">
-              <Award className="h-4 w-4 text-primary flex-shrink-0 animate-bounce" />
+              <Award className="h-4 w-4 text-primary flex-shrink-0" />
             </span>
           )}
         </div>
@@ -166,6 +168,17 @@ export const SortableModuleContainer = React.memo(function SortableModuleContain
 
           {/* Actions */}
           <div className="flex items-center gap-0.5">
+            {onUpdate && (
+              <button
+                onClick={() => onUpdate({ is_important: !module.is_important })}
+                className={`p-1 rounded hover:bg-secondary cursor-pointer transition-colors ${
+                  module.is_important ? 'text-primary' : 'text-muted-foreground/35 hover:text-foreground'
+                }`}
+                title={module.is_important ? 'Remove important flag' : 'Mark as important'}
+              >
+                <Award className="h-4 w-4" />
+              </button>
+            )}
             <button
               onClick={() => setIsAddingLecture(true)}
               className="p-1 rounded hover:bg-secondary text-muted-foreground hover:text-foreground cursor-pointer"

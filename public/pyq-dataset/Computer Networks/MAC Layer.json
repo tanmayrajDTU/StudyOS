@@ -1,0 +1,441 @@
+{
+    "subject": "Computer Networks",
+    "topic": "MAC Layer",
+    "questionCount": 9,
+    "questions": [
+        {
+            "id": "CN_MAC_LAYER_2021_Q01",
+            "subject": "Computer Networks",
+            "topic": "MAC Layer",
+            "subtopic": "Pure Aloha",
+            "year": 2021,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 1,
+            "tags": [
+                "MAC Layer",
+                "Pure Aloha",
+                "Computer Networks"
+            ],
+            "question": {
+                "text": "Consider a network using the pure ALOHA medium \naccess control protocol, where each frame is of \nlength 1000 bits. The channel transmission rate is 1 \nMbps ( = 106 bits per second). The aggregate number \nof transmissions across all the nodes (including new \nframe transmissions and retransmitted frames due to \ncollisions) is modelled as a Poisson process with a \nrate of 1000 frames per second. Throughput is \ndefined as the average number of frames \nsuccessfully transmitted per second. The throughput \nof the network (rounded to the nearest integer) is \n______________ \nCSMA, CSMA/CD",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "130",
+                "140"
+            ],
+            "solution": {
+                "text": "Frame size = 1000 bits \n\nB = 106 bits/sec  \n\nTransmission time = Frame size\nBandwidth = \n1000 bits\n10 bits / sec.\n\n\n                              = 10-3 sec. = 1 msec. \n\n1 sec.                       1000 frames \n\n1 m sec. = 10-3 sec.                       1000 ×103 Frame \n\n                                                   = 1 frame \n\nSo, G = 1 [Number of frames generated in one frame \ntransmission time] \n\nThroughput. S  = G \\times e-2G \n\n\n\n\n  = 1×e-2 \n\n\n\n\n  = \ne\n=\n\n\nThroughput = 13.5 % \n\nAverage number of frames successfully  \n\nTransmitted per second = 1000 \\times 0.135 \n\n                                      = 135",
+                "images": [
+                    "assets/Computer Networks/CN_MAC_Layer_P26_X901.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "CN_MAC_LAYER_2018_Q02",
+            "subject": "Computer Networks",
+            "topic": "MAC Layer",
+            "subtopic": "CSMA, CSMA/CD",
+            "year": 2018,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 2,
+            "tags": [
+                "MAC Layer",
+                "CSMA, CSMA/CD",
+                "Computer Networks"
+            ],
+            "question": {
+                "text": "Consider a simple communication system where \nmultiple nodes are connected by a shared broadcast \nmedium (like Ethernet or wireless). The nodes in the \nsystem use the following carrier sense based medium \naccess protocol. A node that receives a packet to \ntransmit will carrier-sense the medium for 5 units of \ntime. If the node does not detect any other \ntransmission in this duration, it starts transmitting its \npacket in the next time unit. If the node detects \nanother transmission, it waits until this other \ntransmission finishes, and then begins to carrier-\nsense for 5-time units again. Once they start to \ntransmit, nodes do not perform any collision \ndetection and continue transmission even if a \ncollision occurs. All transmissions last for 20 units \nof time. Assume that the transmission signal travels \nat the speed of 10 meters per unit time in the \nmedium. \n\nAssume that the system has two nodes P and Q, \nlocated at a distance d meters from each other. P \nstarts transmitting a packet at time t = 0 after \nsuccessfully completing its carrier-sense phase. \nNode Q has a packet to transmit at time t = 0 and \nbegins to carrier-sense the medium. \n\nThe maximum distance d (in meters, rounded to the \nclosest integer) that allows Q to successfully avoid a \ncollision between its proposed transmission and P's \nongoing transmission is ________.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "50"
+            ],
+            "solution": {
+                "text": "Carrier sense time t = 5 unit \n\nTransmission time = 20 unit \n\nSpeed = 10 meter/unit \n\nt < 5 unit \n\nDistance = speed \\times time \n\nDistance < 10 meter/unit \\times 5 unit \n\nDistance < 50 meter.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "CN_MAC_LAYER_2019_Q03",
+            "subject": "Computer Networks",
+            "topic": "MAC Layer",
+            "subtopic": "ongoing transmission is ________.",
+            "year": 2019,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 3,
+            "tags": [
+                "MAC Layer",
+                "ongoing transmission is ________.",
+                "Computer Networks"
+            ],
+            "question": {
+                "text": "Consider that 15 machines need to be connected in a \nLAN using 8-port Ethernet switches. Assume that \nthese switches do not have any separate uplink ports. \nThe \nminimum \nnumber \nof \nswitches \nneeded \nis___________.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "3"
+            ],
+            "solution": {
+                "text": "Using 8-port ethernet switch with no separate unlink \nport 7 machines or computers can be connected. So, \nfor 15 machines we required 3 such kind of \nswitches.",
+                "images": [
+                    "assets/Computer Networks/CN_MAC_Layer_P26_X3153.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "CN_MAC_LAYER_2016_Q04",
+            "subject": "Computer Networks",
+            "topic": "MAC Layer",
+            "subtopic": "is___________.",
+            "year": 2016,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 4,
+            "tags": [
+                "MAC Layer",
+                "is___________.",
+                "Computer Networks"
+            ],
+            "question": {
+                "text": "In an Ethernet local area network, which one of the \nfollowing statement is TRUE?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "A station stops to sense the channel once it \nstarts transmitting a frame.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "The purpose of the jamming signal is to pad the \nframes that are smaller than the minimum \nframe size.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "A station continues to transmit the packet even \nafter the collision is detected.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "The exponential backoff mechanism reduces \nthe probability of collision on retransmission.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "D"
+            ],
+            "solution": {
+                "text": "The exponential back off algorithm is a collision     \nresolution mechanism. This mechanism reduces the \nprobability of collision on retransmission. \n\n\nMAC Sublayer",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "CN_MAC_LAYER_2016_Q05",
+            "subject": "Computer Networks",
+            "topic": "MAC Layer",
+            "subtopic": "the probability of collision on retransmission.",
+            "year": 2016,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 5,
+            "tags": [
+                "MAC Layer",
+                "the probability of collision on retransmission.",
+                "Computer Networks"
+            ],
+            "question": {
+                "text": "A network has a data transmission bandwidth of \n20×106 bits per second. It uses CSMA/CD in MAC \nLayer. The maximum signal propagation time from \none node to another node is 40 microseconds. The \nminimum size of a frame in the network is _____ \nbytes. \n\nMAC Sublayer",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "200"
+            ],
+            "solution": {
+                "text": "B = 20 * 106 bits/sec, Pd = 40 sec= 40 * 10-6 \nsec \n\nTd(frame) \\ge 2 * Pd \n\nL\nB \\ge 2 * Pd \n\nL \\ge 2 * Pd * B \n\nL \\ge 2 * 40 * 10-6 sec * 20 * 106 bits/sec \n\n= 1600 bits \n\n= 1600\nByte = 200 Byte.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "CN_MAC_LAYER_2015_Q06",
+            "subject": "Computer Networks",
+            "topic": "MAC Layer",
+            "subtopic": "MAC Sublayer",
+            "year": 2015,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 6,
+            "tags": [
+                "MAC Layer",
+                "MAC Sublayer",
+                "Computer Networks"
+            ],
+            "question": {
+                "text": "Consider a CSMA/CD network that transmits data at \na rate of 100 Mbps (108 bits per second) over a 1 km \n(kilometer) cable with no repeaters. If the minimum \nframe size required for this network is 1250 bytes. \nWhat is the signal speed (km/sec) in the cable?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "8000",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "10000",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "16000",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "20000",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "D"
+            ],
+            "solution": {
+                "text": "B = 108 bits/sec. \n\nd = 1 km \n\nMinimum Frame size (l)  = 1250 bytes \n\n\n\n\n\n\n= 8 \\times 1250 bits \n\n\n\n\n\n\n= 10,000 bits \n\nv = ? \n\n(\n)\n(\n)\nd\nd\nd JAM signal\nT\nframe\n 2× P\nT\n\n+\n\n\nL\nd\n  2 \\times \nB\nv\n\n\n\n10,000 bits\n2 \\times 1 km\n\nv\n10 bits/sec\n\n\n\n\nv\n\n\n\nv = 2 ×104 km/sec \n\nv = 20,000 km/sec",
+                "images": [
+                    "assets/Computer Networks/CN_MAC_Layer_P26_X901.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "CN_MAC_LAYER_2015_Q07",
+            "subject": "Computer Networks",
+            "topic": "MAC Layer",
+            "subtopic": "What is the signal speed (km/sec) in the cable?",
+            "year": 2015,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 7,
+            "tags": [
+                "MAC Layer",
+                "What is the signal speed (km/sec) in the cable?",
+                "Computer Networks"
+            ],
+            "question": {
+                "text": "Consider a LAN with four nodes S1, S2, S3 and S4. \nTime is divided into fixed-size slots, and a node can \nbegin its transmission only at the beginning of a slot. \nA collision is said to have occurred if more than one \nnode transmits in the same slot. The probabilities of \ngeneration of a frame in a time slot by S1, S2, S3 and \nS4 are 0.1, 0.2, 0.3 and 0.4, respectively. The \nprobability of sending a frame in the first slot without \nany Collison by any of these four stations is _____.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "0.40",
+                "0.46"
+            ],
+            "solution": {
+                "text": "Probability = S1 (1 - S2) (1 - S3) (1 - S4) + (1 - \nS1) S2 (1 - S3) (1 - S4) + (1 - S1) (1 - S2) S3 (1 - \nS4) +(1 - S1) (1 - S2) (1 - S3) S4 \n\n= (0.1 \\times 0.8 \\times 0.7 \\times 0.6) + (0.9 \\times 0.2 \\times 0.7 \\times 0. \n6) + (0.9 \\times 0.8 \\times 0.3 \\times 0.6) + (0.9 \\times 0.8× 0.7 \\times \n0.4)  = 0.4404",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "CN_MAC_LAYER_2013_Q08",
+            "subject": "Computer Networks",
+            "topic": "MAC Layer",
+            "subtopic": "any Collison by any of these four stations is _____.",
+            "year": 2013,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 8,
+            "tags": [
+                "MAC Layer",
+                "any Collison by any of these four stations is _____.",
+                "Computer Networks"
+            ],
+            "question": {
+                "text": "Determine the maximum length of the cable (in km) \nfor transmitting data at a rate of 500 Mbps in an \nEthernet LAN with frames of size 10,000 bits. \nAssume the signal speed in the cable to be 2,00,000 \nkm/s.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "1",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "2",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "2.5",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "5",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "B"
+            ],
+            "solution": {
+                "text": "Td(frame) \\ge 2 * Pd \n\n2*\n\nL\nd\nB\nv\n\n\n10000bits\n2*\n/ sec\n500*10 bits/sec\n\nd\nkm\n\n\n2KM\n\nd",
+                "images": [
+                    "assets/Computer Networks/CN_MAC_Layer_P26_X901.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "CN_MAC_LAYER_2008_Q09",
+            "subject": "Computer Networks",
+            "topic": "MAC Layer",
+            "subtopic": "km/s.",
+            "year": 2008,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 9,
+            "tags": [
+                "MAC Layer",
+                "km/s.",
+                "Computer Networks"
+            ],
+            "question": {
+                "text": "The minimum frame size required for a CSMA/CD \nbased computer network running at 1 Gbps on a 200 \nm cable with a link speed of  2 \\times 108 m/s is:",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "125 bytes",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "250 bytes",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "500 bytes",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "None of these",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "B"
+            ],
+            "solution": {
+                "text": "B = 109 bits/sec \n\nd = 200 mtr \n\nv = 2 * 108 m/sec \n\n2*10\n/ sec\n=\n=\nd\nd\nP\nv\nm\n\n\n= 100 * 10-8 sec. \n\nMinimum frame size in CSMA/CD \n\n(\n)\n(\n)\n2*\n\n+\nframe\nJAM signal\nd\nd\nd\nT\nP\nT\n\n\n2*\n\nd\nL\nP\nB\n\n\nL \\ge 2 * Pd * B \n\nL \\ge 2 * 100 * 10-8 sec * 109 bits/sec \n\nL \\ge 2 * 100 * 10 bits \n\nL \\ge 2000 bits \n\nL \\ge 2000\n Byte = 250 Byte.",
+                "images": [
+                    "assets/Computer Networks/CN_MAC_Layer_P26_X901.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        }
+    ]
+}

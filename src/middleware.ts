@@ -27,9 +27,15 @@ export async function middleware(request: NextRequest) {
     }
   )
 
-  const {
-    data: { user },
-  } = await supabase.auth.getUser()
+  let user = null
+  try {
+    const {
+      data: { user: supabaseUser },
+    } = await supabase.auth.getUser()
+    user = supabaseUser
+  } catch (err) {
+    console.error('Supabase auth check failed in middleware (network/offline error):', err)
+  }
 
   const path = request.nextUrl.pathname
 

@@ -129,7 +129,7 @@ export const SortableLectureItem = React.memo(function SortableLectureItem({
     <div
       ref={setNodeRef}
       style={style}
-      className="rounded-lg border border-border/80 bg-card p-3.5 hover:border-border transition-all space-y-3 relative"
+      className="group rounded-lg border border-border/80 bg-card p-3.5 hover:border-border transition-all space-y-3 relative"
     >
       {/* Upper Main Row */}
       <div className="flex items-center justify-between gap-3 flex-wrap sm:flex-nowrap">
@@ -183,16 +183,25 @@ export const SortableLectureItem = React.memo(function SortableLectureItem({
             <span>h</span>
           </div>
 
-          {/* Importance level badge */}
-          <button
-            onClick={cycleImportance}
-            className={`text-4xs font-extrabold uppercase px-1.5 py-0.5 rounded cursor-pointer transition-all hover:opacity-90 ${getImportanceBadge(
-              lecture.importance_level
-            )}`}
-            title="Cycle importance level (None → Low → Medium → High)"
-          >
-            {lecture.importance_level === 'NONE' ? 'Priority' : lecture.importance_level}
-          </button>
+          {lecture.importance_level !== 'NONE' ? (
+            <button
+              onClick={cycleImportance}
+              className={`text-4xs font-extrabold uppercase px-1.5 py-0.5 rounded cursor-pointer transition-all hover:opacity-90 ${getImportanceBadge(
+                lecture.importance_level
+              )}`}
+              title="Cycle importance level (Low → Medium → High → None)"
+            >
+              {lecture.importance_level}
+            </button>
+          ) : (
+            <button
+              onClick={cycleImportance}
+              className="text-4xs font-extrabold uppercase px-1.5 py-0.5 rounded border border-dashed border-border/50 bg-secondary/30 text-muted-foreground/40 hover:text-foreground hover:bg-secondary/60 cursor-pointer transition-all md:opacity-0 md:group-hover:opacity-100"
+              title="Set importance level (Low)"
+            >
+              + Priority
+            </button>
+          )}
 
           {/* Revision flag */}
           <button

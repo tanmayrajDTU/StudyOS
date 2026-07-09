@@ -1,0 +1,2123 @@
+{
+    "subject": "Digital Logic",
+    "topic": "Boolean Algebra, Logic Gates and K-Maps",
+    "questionCount": 33,
+    "questions": [
+        {
+            "id": "DL_BOOLEAN_ALGEBRA_LOGIC_GATES_AND_K_MAPS_2022_Q01",
+            "subject": "Digital Logic",
+            "topic": "Boolean Algebra, Logic Gates and K-Maps",
+            "subtopic": "Boolean Algebra",
+            "year": 2022,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 1,
+            "tags": [
+                "Boolean Algebra, Logic Gates and K-Maps",
+                "Boolean Algebra",
+                "Digital Logic"
+            ],
+            "question": {
+                "text": "The dual of a Boolean function F(x1, x2, ..., x, +, ⋅, ' ), \nwritten as FD, is the same expression as that of F with \n+ and ⋅ swapped. F is said to be self-dual if F = FD. \nThe number of self-dual functions with n Boolean \nvariables is",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "2n",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "2n-1",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "22𝑛",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "22𝑛−1",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "D"
+            ],
+            "solution": {
+                "text": "For n = 1, Total number of functions = 4 \n\nTotal number of self-dual functions = 2 \n\nFor n = 2, Total number of functions = 16 \n\nTotal number self-dual functions = 4 \n\nNow, if we have 'n' variable with us \n\nThen total number of function = \nn\n\n\nAmong then number of self-dual functions  \n= \nn-1\n\n\nSelf -Dual: \n\nF = FD \n\nF = AB \n\nFD = A+B \n\nDual\nA\nA\n⎯⎯⎯\n→\n\n\nDual\nA\nA\n⎯⎯⎯\n→\n\n\nEx- \n\nF = AB + BC + AC \n\nFD = (A + B) (B + C) (A + C) \n\nFD= AB + BC + AC \n\nHence, correct answer is option (d)",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "DL_BOOLEAN_ALGEBRA_LOGIC_GATES_AND_K_MAPS_2017_Q02",
+            "subject": "Digital Logic",
+            "topic": "Boolean Algebra, Logic Gates and K-Maps",
+            "subtopic": "variables is",
+            "year": 2017,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 2,
+            "tags": [
+                "Boolean Algebra, Logic Gates and K-Maps",
+                "variables is",
+                "Digital Logic"
+            ],
+            "question": {
+                "text": "If w, x, y, z are Boolean variables, then which one of \nthe following is INCORRECT?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "wx + w(x + y) + x(x + y) = x + wy",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "wx̅(y + z̅)̅̅̅̅̅̅̅̅̅̅̅̅̅̅+w̅x = w̅ + x + y̅z",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "(wx̅(y + xz̅) + w̅x̅)y = xy̅",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "(w + y)(wxy + wyz) = wxy + wyz",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "C"
+            ],
+            "solution": {
+                "text": "(a) wx + w (x +y) + x(x +y) = x +wy \n\n\nwx + wx +wy + x + xy \n\n\nx [w +w + 1+ y] + wy \n\n\n= x + wy \n\nTherefore, option a is correct \n\n(b) \n(\n)\nwx y\nz\nwx = w + x + yz\n+\n+\n\n\n\nwx\ny+z\nwx \n+\n+\n\n\n\nw + x + y\nw\nz\nx\n+\n\n\n\n(\n)\nw + x 1\nw\nyz = w\nx + yz\n+\n+\n+\n\n\n\nTherefore, option b is correct \n\n (c) \n(\n)\n(\n)\n wx y\nxz\nwx y\nxy\n+\n+\n=\n\n\n\nw x y + w x x z + w x y  \n\n\nwxy + wx\n\n\n\n\ny \n\n\n\n(\n)\nxy w\nw\n+\n\n\n\nxy \n\n\nHence correct answer is option (c) \n\n(d) (w + y) (wxy + wyz) = wxy +wyz \n\n\nwxy +wyz + wxy + wyz \n\n\nwxy + wyz \n\n Therefore, option d is correct.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "DL_BOOLEAN_ALGEBRA_LOGIC_GATES_AND_K_MAPS_2015_Q03",
+            "subject": "Digital Logic",
+            "topic": "Boolean Algebra, Logic Gates and K-Maps",
+            "subtopic": "the following is INCORRECT?",
+            "year": 2015,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 3,
+            "tags": [
+                "Boolean Algebra, Logic Gates and K-Maps",
+                "the following is INCORRECT?",
+                "Digital Logic"
+            ],
+            "question": {
+                "text": "The binary operator \\neq is defined by the following \ntruth table \nP \nQ \np≠q \n\nWhich one of the following is true about the binary \noperator ≠?",
+                "images": [],
+                "latex": [],
+                "tables": [
+                    {
+                        "headers": [
+                            "P",
+                            "Q",
+                            "p≠q"
+                        ],
+                        "rows": [
+                            [
+                                "0",
+                                "0",
+                                "0"
+                            ],
+                            [
+                                "0",
+                                "1",
+                                "1"
+                            ],
+                            [
+                                "1",
+                                "0",
+                                "1"
+                            ],
+                            [
+                                "1",
+                                "1",
+                                "0"
+                            ]
+                        ]
+                    },
+                    {
+                        "headers": [
+                            "X",
+                            "Y",
+                            "F(X,Y)"
+                        ],
+                        "rows": [
+                            [
+                                "0",
+                                "0",
+                                "0"
+                            ],
+                            [
+                                "0",
+                                "1",
+                                "0"
+                            ],
+                            [
+                                "1",
+                                "0",
+                                "1"
+                            ],
+                            [
+                                "1",
+                                "1",
+                                "1"
+                            ]
+                        ]
+                    }
+                ]
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "Both commutative and associative",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "Commutative but not associative",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "Not commutative but associative",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "Neither commutative nor associative",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "B"
+            ],
+            "solution": {
+                "text": "We can see that the given truth table is the output of \nX ᠆ OR gate and we know that X-OR logic follows \nboth commutative and associative operation.  \n\nA B = B A \\rightarrow follow commutative law \n\n(A B) C = A  (B C) Follow associative \nlaw. \n\nHence, correct answer is option (a).",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "DL_BOOLEAN_ALGEBRA_LOGIC_GATES_AND_K_MAPS_2015_Q04",
+            "subject": "Digital Logic",
+            "topic": "Boolean Algebra, Logic Gates and K-Maps",
+            "subtopic": "operator ≠?",
+            "year": 2015,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 4,
+            "tags": [
+                "Boolean Algebra, Logic Gates and K-Maps",
+                "operator ≠?",
+                "Digital Logic"
+            ],
+            "question": {
+                "text": "The number of min-terms after minimizing the \nfollowing Boolean expression is ______ . \n         [D' + AB' + A'C + AC'D + A'C'D] '",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "1",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "2",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "3",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "4",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "A"
+            ],
+            "solution": {
+                "text": "The given Boolean expression is \n\n= D\nAB\nAC + ACD +ACD\n+\n+\n\n\n= \n(\n)\nD\nAB\nAC + CD A+A\n+\n+\n\n\n= D\nAB\nAC + CD \n+\n+\n\n        =   D\nCD\nAB + AC \n+\n+\n\n\n=   (\n)(\n)\nC+D\nD+D\nAB\nAC\n+\n+\n\n\n (\n) (\n)\nC+D\nAB\nAC\n+\n+\n\n\n  C\nD AB AC\n+\n\n\n\n\n CD A  + B\nA + C \n\n\n\n\n\n\n  \n\n CD A A + AC\nAB + BC\n\n\n\n+\n\n \n\n CD AC+AB + BC\n\n\n\n \n\n= AC CD + ABCD + BCCD\n\n\n\n ABCD \n\nHence, correct answer is option (a).",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "DL_BOOLEAN_ALGEBRA_LOGIC_GATES_AND_K_MAPS_2015_Q05",
+            "subject": "Digital Logic",
+            "topic": "Boolean Algebra, Logic Gates and K-Maps",
+            "subtopic": "[D' + AB' + A'C + AC'D + A'C'D] '",
+            "year": 2015,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 5,
+            "tags": [
+                "Boolean Algebra, Logic Gates and K-Maps",
+                "[D' + AB' + A'C + AC'D + A'C'D] '",
+                "Digital Logic"
+            ],
+            "question": {
+                "text": "Given the function F = P' + QR, wehre F is a function \nin three Boolean variables P,Q and R and P' = !P, \nconsider the following statements. \n\n(S1) F = (4, 5, 6) \n\n(S2) F = (0,1,2,3,7) \n\n(S3) F = (4, 5, 6) \n\n(S4) F = (0,1,2,3,7) \n\nWhich of the following is true?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "(S1) - False, (S2) - True, (S3) - True, (S4) -False",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "(S1) - True, (S2) - False, (S3) - False, (S4) -True",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "(S1) - False, (S2) - False, (S3) - True, (S4) -True",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "(S1) - True, (S2) - True, (S3) - False, (S4) -False",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "A"
+            ],
+            "solution": {
+                "text": "Standard mininmal from \n\nF = P + QR \n\n(\n)(\n) (\n)\nF = P Q + Q\nR + Q\nP + P QR\n+\n\n\n   = PQR\nPQR+PQR\nPQR+PQR+PQR+PQR\n+\n+\n\n\n    = m(0,1,2,3,7) \n\n    = M (4,5,6)",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "DL_BOOLEAN_ALGEBRA_LOGIC_GATES_AND_K_MAPS_2012_Q06",
+            "subject": "Digital Logic",
+            "topic": "Boolean Algebra, Logic Gates and K-Maps",
+            "subtopic": "Which of the following is true?",
+            "year": 2012,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 6,
+            "tags": [
+                "Boolean Algebra, Logic Gates and K-Maps",
+                "Which of the following is true?",
+                "Digital Logic"
+            ],
+            "question": {
+                "text": "The truth table   \nX \nY \nF(X,Y) \n\nrepresents the Boolean function",
+                "images": [
+                    "assets/Digital Logic/DL_Boolean_Algebra_Logic_Gates_and_K_Maps_P10_X1303.png",
+                    "assets/Digital Logic/DL_Boolean_Algebra_Logic_Gates_and_K_Maps_P10_X1305.png"
+                ],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "x",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "x + y",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "x\ny\n",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "y",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "A"
+            ],
+            "solution": {
+                "text": "The equation of the given truth table will be given as  \n\n(\n)\n(\n)\nF x,y = xy\nxy\n            = x y\ny\nx\n+\n+\n=\n\n\n Hence, correct answer is option (a)",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "DL_BOOLEAN_ALGEBRA_LOGIC_GATES_AND_K_MAPS_2012_Q07",
+            "subject": "Digital Logic",
+            "topic": "Boolean Algebra, Logic Gates and K-Maps",
+            "subtopic": "",
+            "year": 2012,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 7,
+            "tags": [
+                "Boolean Algebra, Logic Gates and K-Maps",
+                "",
+                "Digital Logic"
+            ],
+            "question": {
+                "text": "The amount of ROM needed to implement a 4 bit \nmultiplier is",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "64 bits",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "128 bits",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "1 Kbits",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "2 Kbits",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "D"
+            ],
+            "solution": {
+                "text": "Let us see the 4-bit number multiplication. \n\n\n\n\n\n Input = 24 \\times 24      output = 8 \n\nThe amount of ROM needed to implement a 4 bit \nmultiplier is   \n\nROM  \n= 24 \\times 24 \\times 8       \n\n\n\n= 28 ×23 \n\n\n\n= 211 \n\n\n\n= 2 \\times 210 \n\n\n\n= 2k bits \n\nHence, correct answer is option (d).",
+                "images": [
+                    "assets/Digital Logic/DL_Boolean_Algebra_Logic_Gates_and_K_Maps_P16_X2140.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "DL_BOOLEAN_ALGEBRA_LOGIC_GATES_AND_K_MAPS_2011_Q08",
+            "subject": "Digital Logic",
+            "topic": "Boolean Algebra, Logic Gates and K-Maps",
+            "subtopic": "multiplier is",
+            "year": 2011,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 8,
+            "tags": [
+                "Boolean Algebra, Logic Gates and K-Maps",
+                "multiplier is",
+                "Digital Logic"
+            ],
+            "question": {
+                "text": "The simplified SOP (sum of product) form of the \nboolean expression \n\n(𝑃+ 𝑄̅ + 𝑅̅) ∙(𝑃+ 𝑄̅ + 𝑅) ∙(𝑃+ 𝑄+ 𝑅̅)",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "(\n)\n.\nP Q\nR\n+",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "(\n)\nQ'. '\nP\nR\n+",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "(\n)\n'.Q\nP\nR\n+",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "(\n)\nP. Q\nR\n+",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "B"
+            ],
+            "solution": {
+                "text": "The given expression is  \n\n(𝑃+ 𝑄̅ + 𝑅̅) ∙(𝑃+ 𝑄̅ + 𝑅) ∙(𝑃+ 𝑄+ 𝑅̅)  \n\nLet P + Q\nx\n=\n\n\n⇒(\n) (\n) (\n)\n x\nR\nx\nR P\nQ + R\n+\n\n+\n+\n\n   (By distribution Theorem x + R̅ . R = (x +   R̅) (x  + R) ) \n\n ⇒ x. (P + Q + R̅) \n\n⇒(\n) (\n)\nP\nQ\nP\nQ\nR\n+\n\n+\n+\n\n\n P\nPQ + PR + PQ\nQ Q\nQR\n\n+\n+\n\n+\n\n\n  P 1 Q +R\nQ\nQ R\n\n\n=\n+\n+\n+\n\n\n\n\n= P + Q̅ R̅  \n\nHence, correct answer is option (b).",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "DL_BOOLEAN_ALGEBRA_LOGIC_GATES_AND_K_MAPS_2011_Q09",
+            "subject": "Digital Logic",
+            "topic": "Boolean Algebra, Logic Gates and K-Maps",
+            "subtopic": "+",
+            "year": 2011,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 9,
+            "tags": [
+                "Boolean Algebra, Logic Gates and K-Maps",
+                "+",
+                "Digital Logic"
+            ],
+            "question": {
+                "text": "The minterm expansion of f(P, Q, R) = PQ + QR̅ + \nPR̅ is",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "m2 + m4 + m6 + m7",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "m0 + m1 + m3 + m5",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "m0 + m1 + m6 + m7",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "m2 + m3 + m4 + m5",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "A"
+            ],
+            "solution": {
+                "text": "The given expression is \n\n(\n)\nF P,Q,R\nPQ + QR\nPR\n=\n+\n\n\nThe Standard canonical form of the above \nexpression will be given as: \n         (\n)\n(\n) (\n)\n(\n)\nF P,Q,R\nPQ R\nR\nP\nP QR\nP Q\nQ R\n=\n+\n+\n+\n+\n+\n\n\nPQR\nPQR + PQR\nPQR\nPQR\nPQR\n=\n+\n+\n+\n+\n\n\n\nm\nm\nm\nm\nm\nm\n=\n+\n+\n+\n+\n+\n\n\n\nm\nm\nm\nm\n=\n+\n+\n+\n\n\n Hence, correct answer is option (a).",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "DL_BOOLEAN_ALGEBRA_LOGIC_GATES_AND_K_MAPS_2008_Q10",
+            "subject": "Digital Logic",
+            "topic": "Boolean Algebra, Logic Gates and K-Maps",
+            "subtopic": "PR̅ is",
+            "year": 2008,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 10,
+            "tags": [
+                "Boolean Algebra, Logic Gates and K-Maps",
+                "PR̅ is",
+                "Digital Logic"
+            ],
+            "question": {
+                "text": "If P, Q, R are Boolean variables, then (P + Q) (P.Q + \nP.R) (P.R + Q) Simplifies to",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "P. Q",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "P. R",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "P. Q\nR\n+",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "P.R\nQ\n+\n\nLogic Gates",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "A"
+            ],
+            "solution": {
+                "text": "The given expression is \n\n(P + Q) (P.Q + P.R) (P.R + Q) \n\n(\n) (\n)\nPQ\nPR\nPQ\nPQ\nPR\nQ\n+\n+\n+\n\n+\nR\n\n\n(\n) (\n)\nPQ\nPR\nPR\nQ\n+\n\n+\n\n\n= (\n) (\n)\nP\nQ\n+\n\n+\nQ\nR\nPR\n\n\n= (\n)(\n)\n+\n+\nQ\nR\nPPR\nPQ \n\n(\n)(\n)\n=\n+\nQ\nR\nPQ \n\n=\n+\nPQ\nPQR \n\n(\n)\n=\n+\nPQ\nR \n\n = PQ \n\nHence, correct answer is option (a).",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "DL_BOOLEAN_ALGEBRA_LOGIC_GATES_AND_K_MAPS_2022_Q11",
+            "subject": "Digital Logic",
+            "topic": "Boolean Algebra, Logic Gates and K-Maps",
+            "subtopic": "Logic Gates",
+            "year": 2022,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 11,
+            "tags": [
+                "Boolean Algebra, Logic Gates and K-Maps",
+                "Logic Gates",
+                "Digital Logic"
+            ],
+            "question": {
+                "text": "Let, x\n1 ⊕ x\n2 ⊕ x\n3 ⊕ x\n4 = 0 where x\n1, x\n2, x\n3, x\n4 are \nBoolean variables, and ⊕ is the XOR operator.  \n\nWhich one of the following must always be TRUE?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "x\n1x\n2x\n3x\n4 = 0",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "x\n1x\n3+x\n2 = 0",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "𝑥1̅̅̅ ⨁ 𝑥3̅̅̅ = 𝑥2̅̅̅ ⨁ 𝑥4̅̅̅",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "x\n1 +x\n2 + x\n3 + x\n4 = 0",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "C"
+            ],
+            "solution": {
+                "text": "We will put X1 = 1, X2 = 1, X3 = 1, X4 = 1 \n\n1  1  1  1 = 0 \n\n By taking the above values ,we will see all the \noptions one-by-one. \n\n→ \nX 1. X 2. X 3. X 4 = 1.1.1.1 = 0             (wrong) \n\n→ \nX 1 X 3+ X 2 = 1.1 + 1 = 0                    (wrong) \n\n→ \nX  \nX = \nX  \nX\n = 0  0 = 0  0 = 0               \n                                                                             (correct) \n\n→ \nX 1+ X 2+ X 3+X4 = 0                            (wrong)  \n\n\n\nAlternate Method: \n\nIf A  B = 0 \n\nThen A  0 = B \n… (i) \n\n\nGiven, x\n1 ⊕ x\n2 ⊕ x\n3 ⊕ x\n4 = 0 \n\n A = x1  x2, B = x3  x4  \n\nSubstitute values of A, B in equation (i) \n\nx1  x2   0 = x3  x4 \n\n x1  x2 = x3  x4 \n\nWe know that \n\n\n\n=\n\nA\nB\nA\nB \n\nx\nx\n x\nx\n=\n\n\n\n\nx\nx\n x\nx\n=\n\n\n\n\nHence, correct answer is option (c)",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "DL_BOOLEAN_ALGEBRA_LOGIC_GATES_AND_K_MAPS_2022_Q12",
+            "subject": "Digital Logic",
+            "topic": "Boolean Algebra, Logic Gates and K-Maps",
+            "subtopic": "4 = 0",
+            "year": 2022,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 12,
+            "tags": [
+                "Boolean Algebra, Logic Gates and K-Maps",
+                "4 = 0",
+                "Digital Logic"
+            ],
+            "question": {
+                "text": "Consider the Boolean operator # with the following \nproperties: \n\nx # 0 = x, x #1 = 𝑥̅, x # x = 0  and   x # 𝑥̅ = 1 \n\nThen x # y is equivalent to",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "x𝑦̅ + 𝑥̅y",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "x𝑦̅ + 𝑥̅𝑦̅",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "𝑥̅y + xy",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "xy + 𝑥̅𝑦̅",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "A"
+            ],
+            "solution": {
+                "text": "Given \n         x # 0 = x,           x #1 = 𝑥̅, \n         x # x = 0 ,          x # 𝑥̅ = 1 \n              We can see from the given condition that the logic \noperator # resembles the logic of EX-OR gate. \n\nTherefore,     \n                             x # y = xy +xy     \n\nHence correct answer is option (a)",
+                "images": [
+                    "assets/Digital Logic/DL_Boolean_Algebra_Logic_Gates_and_K_Maps_P18_X2434.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "DL_BOOLEAN_ALGEBRA_LOGIC_GATES_AND_K_MAPS_2020_Q13",
+            "subject": "Digital Logic",
+            "topic": "Boolean Algebra, Logic Gates and K-Maps",
+            "subtopic": "Then x # y is equivalent to",
+            "year": 2020,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 13,
+            "tags": [
+                "Boolean Algebra, Logic Gates and K-Maps",
+                "Then x # y is equivalent to",
+                "Digital Logic"
+            ],
+            "question": {
+                "text": "Consider the Boolean function z(a,b,c). \n\nWhich one of the following minterm lists represents \nthe circuit given above?",
+                "images": [
+                    "assets/Digital Logic/DL_Boolean_Algebra_Logic_Gates_and_K_Maps_P11_X1529.png"
+                ],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "Z = Σ (0, 1, 3, 7)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "Z = Σ (2, 4, 5, 6, 7)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "Z = Σ (1, 4, 5, 6, 7)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "Z = Σ (2, 3, 5)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "C"
+            ],
+            "solution": {
+                "text": "z = a + b̅ c \n\nstandard canonical form \n\nz = a(b̅ + b) (c̅ + c) + (a̅ + a) b̅ c \n\nz= ab̅c̅ + ab̅c + abc̅ + abc + a̅b̅c+ ab̅ c \n\nz=Σm (1,4, 5, 6, 7 ) \n\nHence correct answer is option (c).",
+                "images": [
+                    "assets/Digital Logic/DL_Boolean_Algebra_Logic_Gates_and_K_Maps_P18_X2434.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "DL_BOOLEAN_ALGEBRA_LOGIC_GATES_AND_K_MAPS_2019_Q14",
+            "subject": "Digital Logic",
+            "topic": "Boolean Algebra, Logic Gates and K-Maps",
+            "subtopic": "the circuit given above?",
+            "year": 2019,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 14,
+            "tags": [
+                "Boolean Algebra, Logic Gates and K-Maps",
+                "the circuit given above?",
+                "Digital Logic"
+            ],
+            "question": {
+                "text": "Which one of the following is NOT a valid identity?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "(x + y) ⊕ z = x ⊕ (y + z)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "(x ⊕ y) ⊕ z = x ⊕ (y ⊕ z)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "x ⊕ y = x + y, if xy = 0",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "x ⊕ y = (xy + x'y')'",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "A"
+            ],
+            "solution": {
+                "text": "Option (a) \n\n(x + y) ⊕ z = x ⊕ (y + z) \n\n(x + y) ⊕ z= (x + y)  z̅ + (𝑥+ 𝑦̅̅̅̅̅̅̅)  z \n\n(x + y) ⊕ z= xz̅ + y z̅ + x̅ y̅ z \n\nx  ⊕ (y+z)=x(𝑦+ 𝑧̅̅̅̅̅̅̅) +x̅ (y + z) \n\nx  ⊕ (y+z)=x y̅ z̅ + x̅ y + x̅ z \n\n(x + y) ⊕ z \\neq x⊕(y + z) \n\nOption (b) \n\n (x ⊕ y) ⊕ z = x ⊕ (y ⊕ z) \n\nX-OR gate follows associative law \n\nOption (c) \n\nx ⊕ y = x + y, if x.y = 0 \n\nx ⊕ y = x̅y + xy̅  \n\n= (x + y) (x̅ + y̅) \n\n= (x + y) = 1 = x+y \n\n𝑥𝑦̅̅̅ = 1 \n\nx̅ + y̅ = 1 \n\nOption (d) \n\nx ⊕ y = (xy + x̅ y̅) \n\nx ⊕ y = 𝑥⊙y̅̅̅̅̅̅̅̅  \n\nx ⊕ y =xy + x̅ y̅ ̅̅̅̅̅̅̅̅̅̅̅̅ \n\n\nHence option (a) is correct answer.",
+                "images": [
+                    "assets/Digital Logic/DL_Boolean_Algebra_Logic_Gates_and_K_Maps_P18_X2434.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "DL_BOOLEAN_ALGEBRA_LOGIC_GATES_AND_K_MAPS_2019_Q15",
+            "subject": "Digital Logic",
+            "topic": "Boolean Algebra, Logic Gates and K-Maps",
+            "subtopic": "Which one of the following is NOT a valid identity?",
+            "year": 2019,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 15,
+            "tags": [
+                "Boolean Algebra, Logic Gates and K-Maps",
+                "Which one of the following is NOT a valid identity?",
+                "Digital Logic"
+            ],
+            "question": {
+                "text": "What is the minimum number of 2-input NOR gates \nrequired to implement a 4-variable function expressed \nin sum-of-minterms form as f = Σ(0, 2, 5, 7, 8, 10, 13, \n15)? Assume that all the inputs and their complements \nare available._______",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "3"
+            ],
+            "solution": {
+                "text": "F = Σm (0, 2, 5, 7, 8, 10, 13, 15) \n\n\nSimplified expression from above K-Map \n\nIn SOP \n\nF= B̅D̅ + BD \n\nIn POS \n\nF= (B̅ + D) (B + D̅) \n\n\n\n\nFrom above logic circuit minimum number NOR gate \nrequired is 3.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "DL_BOOLEAN_ALGEBRA_LOGIC_GATES_AND_K_MAPS_2019_Q16",
+            "subject": "Digital Logic",
+            "topic": "Boolean Algebra, Logic Gates and K-Maps",
+            "subtopic": "are available._______",
+            "year": 2019,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 16,
+            "tags": [
+                "Boolean Algebra, Logic Gates and K-Maps",
+                "are available._______",
+                "Digital Logic"
+            ],
+            "question": {
+                "text": "Consider three 4-variable functions f1, f2 and f3, \nwhich are expressed in sum-of-minterms as \n\nf1 = Σ(0, 2, 5, 8, 14),  f2 = Σ(2, 3, 6, 8, 14, 15),  f3 = \nΣ(2, 7, 11, 14) \n\nFor the following circuit with one AND gate and one \nXOR gate, the output function f can be expressed as:",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "Σ (2, 14)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "Σ (7, 8, 11)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "Σ (2, 7, 8, 11, 14)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "Σ (0, 2, 3, 5, 6, 7, 8, 11, 14, 15)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "B"
+            ],
+            "solution": {
+                "text": "Given \n\nf1 = (0, 2, 5, 8, 14) \n\nf2 = (2, 3, 6, 8, 14, 15) \n\nf3 =  (2, 7, 11, 14) \n\n\nP = f1  f2 \n\nP = (0, 2, 5, 8, 14)  (2, 3, 6, 8, 14, 15) \n\nP = (2, 8, 14) \n\n\nf  =  P  f3 \n\nf = \nP f\nP f\n+\n\n\nP f = (2, 8, 14)  (0, 1, 3, 5, 6, 8, 9, 10, 12, 13, 15) \n\n\nP f = (8) \n\nP f = (0, 1, 3, 4, 5, 6, 7, 9, 10, 11, 12, 13, 15)  (2, 7, \n11, 14) \n\nP f = (7, 11) \n\nf = (8)  (7, 11) \n\nf = (7, 8, 11) \n\nf =  (7, 8, 11)",
+                "images": [
+                    "assets/Digital Logic/DL_Boolean_Algebra_Logic_Gates_and_K_Maps_P19_X2517.png",
+                    "assets/Digital Logic/DL_Boolean_Algebra_Logic_Gates_and_K_Maps_P19_X2519.png",
+                    "assets/Digital Logic/DL_Boolean_Algebra_Logic_Gates_and_K_Maps_P19_X2521.png",
+                    "assets/Digital Logic/DL_Boolean_Algebra_Logic_Gates_and_K_Maps_P19_X2523.png",
+                    "assets/Digital Logic/DL_Boolean_Algebra_Logic_Gates_and_K_Maps_P19_X2525.png",
+                    "assets/Digital Logic/DL_Boolean_Algebra_Logic_Gates_and_K_Maps_P19_X2526.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "DL_BOOLEAN_ALGEBRA_LOGIC_GATES_AND_K_MAPS_2018_Q17",
+            "subject": "Digital Logic",
+            "topic": "Boolean Algebra, Logic Gates and K-Maps",
+            "subtopic": "XOR gate, the output function f can be expressed as:",
+            "year": 2018,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 17,
+            "tags": [
+                "Boolean Algebra, Logic Gates and K-Maps",
+                "XOR gate, the output function f can be expressed as:",
+                "Digital Logic"
+            ],
+            "question": {
+                "text": "Let ⊕ and ⊙ denote the Exclusive OR and Exclusive \nNOR operations, respectively. Which one of the \nfollowing is NOT CORRECT?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "P \n Q\nP \n Q\n\n=",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "P \n Q\nP \n Q\n\n=",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "P \n Q\nP \n Q\n\n=\n",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "(\n)\n(\n)\nP\n P \n Q\nP\nP \n Q\n\n\n=",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "D"
+            ],
+            "solution": {
+                "text": "Option (b) \n\n\n\n f = P̅ ⊕ Q \n\nLet  P̅ = Z \n\nf = Z ⊕ Q= \nZ̅Q + Z Q̅  \n\nf = P̅̅Q + P̅Q̅ = PQ + P̅Q̅ = P ⊙ Q \n\n\n\nHence option (b) is correct  \n\nOption  (c) \n\n\n P̅ ⊕ Q̅ = P̅ Q̅ + P̅ Q̅ \n\n\n        = PQ̅ + P̅ Q \n\n\n        = P ⊕ Q \n\nHence option (c) is correct  \n\nOption (d) \n\n(P ⊕ P̅) ⊕Q = (P ⊙ P̅) ⊙Q̅  \n\n1 ⊕ Q = Q̅ \\neq O ⊙ Q̅ = Q \n\nHence option (d) is incorrect.",
+                "images": [
+                    "assets/Digital Logic/DL_Boolean_Algebra_Logic_Gates_and_K_Maps_P19_X2517.png",
+                    "assets/Digital Logic/DL_Boolean_Algebra_Logic_Gates_and_K_Maps_P19_X2519.png",
+                    "assets/Digital Logic/DL_Boolean_Algebra_Logic_Gates_and_K_Maps_P19_X2521.png",
+                    "assets/Digital Logic/DL_Boolean_Algebra_Logic_Gates_and_K_Maps_P19_X2523.png",
+                    "assets/Digital Logic/DL_Boolean_Algebra_Logic_Gates_and_K_Maps_P19_X2525.png",
+                    "assets/Digital Logic/DL_Boolean_Algebra_Logic_Gates_and_K_Maps_P19_X2526.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "DL_BOOLEAN_ALGEBRA_LOGIC_GATES_AND_K_MAPS_2014_Q18",
+            "subject": "Digital Logic",
+            "topic": "Boolean Algebra, Logic Gates and K-Maps",
+            "subtopic": "=",
+            "year": 2014,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 18,
+            "tags": [
+                "Boolean Algebra, Logic Gates and K-Maps",
+                "=",
+                "Digital Logic"
+            ],
+            "question": {
+                "text": "Let ⨁denote the Exclusive OR (XOR) operation. Let \n'1' and '0' denote the binary constants. Consider the \nfollowing Boolean expression for F over two \nvariables P and Q: \n\nF(P, Q) = ((1⨁𝑃)⨁(𝑃⨁𝑄))⨁((𝑃⨁𝑄)⨁(𝑄⨁0)) \n\nThe equivalent expression for F is",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "P + Q",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "(P + Q)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "P ⨁ Q",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "(P ⨁ Q) Q)'",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "D"
+            ],
+            "solution": {
+                "text": "Let P  Q = Z \n\n(\n)\n( )\n( )\n(\n)\nF =  1\nP\nZ\nZ\nQ\n\n\n\n\n\n\n\n=\n\n\nP\nP\nQ\nP\nQ\nQ\n\n\n\n\n\n\n\n\n\n\n           = \n\n\n\nQ\nP\n\n\n\n\n\n= Q\nP\n\n\n\n= P\nQ\n\n\n\nNote:\nP\n1 = P\nQ\n0 = Q\nP\nQ = P\nQ = P\nQ\nZ\nZ = O\n\n\n\n\n\n\n\n\n\n\n\nHence, correct answer is option (d).",
+                "images": [
+                    "assets/Digital Logic/DL_Boolean_Algebra_Logic_Gates_and_K_Maps_P19_X2517.png",
+                    "assets/Digital Logic/DL_Boolean_Algebra_Logic_Gates_and_K_Maps_P19_X2519.png",
+                    "assets/Digital Logic/DL_Boolean_Algebra_Logic_Gates_and_K_Maps_P19_X2521.png",
+                    "assets/Digital Logic/DL_Boolean_Algebra_Logic_Gates_and_K_Maps_P19_X2523.png",
+                    "assets/Digital Logic/DL_Boolean_Algebra_Logic_Gates_and_K_Maps_P19_X2525.png",
+                    "assets/Digital Logic/DL_Boolean_Algebra_Logic_Gates_and_K_Maps_P19_X2526.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "DL_BOOLEAN_ALGEBRA_LOGIC_GATES_AND_K_MAPS_2013_Q19",
+            "subject": "Digital Logic",
+            "topic": "Boolean Algebra, Logic Gates and K-Maps",
+            "subtopic": "The equivalent expression for F is",
+            "year": 2013,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 19,
+            "tags": [
+                "Boolean Algebra, Logic Gates and K-Maps",
+                "The equivalent expression for F is",
+                "Digital Logic"
+            ],
+            "question": {
+                "text": "Which one of the following expressions does NOT \nrepresent exclusive NOR of x and y?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "xy + x'y'",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "x\ny'\n",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "x'\ny\n",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "x'\ny'\n",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "D"
+            ],
+            "solution": {
+                "text": "We know that Exclusive NOR of x and y \n\n= (\n)\nx\ny\n\n\n\n= (\n)\n(\n)\nx\ny\nxy' + x'y '\n\n=\n\n\n= (\n)(\n)\n(\n)\nx' y\nx\ny'\n+\n+\n\n\n= x'y' + xy \n\n→ \nxy + x'y' = x\ny  \n[Exclusive OR] \n\n→ \nx  y' = x\ny  \n[Exclusive OR] \n\n→ \nx'  y = x\ny  \n[Exclusive OR] \n\n→ \nx'  y' = x  y  \n[Exclusive NOR]   \n\nHence, correct answer is option (d).",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "DL_BOOLEAN_ALGEBRA_LOGIC_GATES_AND_K_MAPS_2011_Q20",
+            "subject": "Digital Logic",
+            "topic": "Boolean Algebra, Logic Gates and K-Maps",
+            "subtopic": "",
+            "year": 2011,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 20,
+            "tags": [
+                "Boolean Algebra, Logic Gates and K-Maps",
+                "",
+                "Digital Logic"
+            ],
+            "question": {
+                "text": "Which one of the following circuits is NOT equivalent \nto a 2-input X-NOR (exclusive NOR) gate?",
+                "images": [
+                    "assets/Digital Logic/DL_Boolean_Algebra_Logic_Gates_and_K_Maps_P12_X1632.png"
+                ],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "D"
+            ],
+            "solution": {
+                "text": "Let us see the output of all the given options we get \n\n(a) \n\n\n(b) \n\n\n(c) \n\n\n(d) \n\n\nHence, correct answer is option (d).",
+                "images": [
+                    "assets/Digital Logic/DL_Boolean_Algebra_Logic_Gates_and_K_Maps_P20_X2615.png",
+                    "assets/Digital Logic/DL_Boolean_Algebra_Logic_Gates_and_K_Maps_P20_X2617.png",
+                    "assets/Digital Logic/DL_Boolean_Algebra_Logic_Gates_and_K_Maps_P20_X2619.png",
+                    "assets/Digital Logic/DL_Boolean_Algebra_Logic_Gates_and_K_Maps_P20_X2621.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "DL_BOOLEAN_ALGEBRA_LOGIC_GATES_AND_K_MAPS_2010_Q21",
+            "subject": "Digital Logic",
+            "topic": "Boolean Algebra, Logic Gates and K-Maps",
+            "subtopic": "to a 2-input X-NOR (exclusive NOR) gate?",
+            "year": 2010,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 21,
+            "tags": [
+                "Boolean Algebra, Logic Gates and K-Maps",
+                "to a 2-input X-NOR (exclusive NOR) gate?",
+                "Digital Logic"
+            ],
+            "question": {
+                "text": "What is the Boolean expression for the output f of the \ncombinational logic circuit of NOR gates given \nbelow?",
+                "images": [
+                    "assets/Digital Logic/DL_Boolean_Algebra_Logic_Gates_and_K_Maps_P12_X1622.png",
+                    "assets/Digital Logic/DL_Boolean_Algebra_Logic_Gates_and_K_Maps_P12_X1622.png",
+                    "assets/Digital Logic/DL_Boolean_Algebra_Logic_Gates_and_K_Maps_P12_X1622.png"
+                ],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "Q\nR\n+",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "P\nQ\n+",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "P\nR\n+",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "P\nQ + R\n+",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "A"
+            ],
+            "solution": {
+                "text": "Let us see the output of the given logic circuit at \neach stage, we get \n\n\n\n\nThe output of the above logic circuit will be given \nby \n\n(\n)(\n)\nf\nPQ\nQR\nPR\nQR\n=\n+\n+\n\n\nf\nPQR\nPQR\nPQR\nQR\n=\n+\n+\n+\n\n\nf\nPQR\nQR\n=\n+\n\n\n(\n)\nf\nQR P+1\n=\n\n\nf\nQ +R\n=\n\n\nHence, correct answer is option (a).",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "DL_BOOLEAN_ALGEBRA_LOGIC_GATES_AND_K_MAPS_2009_Q22",
+            "subject": "Digital Logic",
+            "topic": "Boolean Algebra, Logic Gates and K-Maps",
+            "subtopic": "+",
+            "year": 2009,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 22,
+            "tags": [
+                "Boolean Algebra, Logic Gates and K-Maps",
+                "+",
+                "Digital Logic"
+            ],
+            "question": {
+                "text": "What is the minimum number of gates required to \nimplement the Boolean function (AB + C) if we have \nto use only 2-input NOR gates?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "2",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "3",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "4",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "5 \nP\nf\nQ\nP\nQ\nP\nQ\nP\nQ",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "B"
+            ],
+            "solution": {
+                "text": "The given expression is  \n\nf = (AB + C) \n\nBy using distribution theorem, we can write above \nexpression as \n\nf = (A + C)   (B + C) \n\nNote: Whenever in the problem, NOR gates are \nasked, write the function in POS. \n\nNow, the above expression is in POS form. \n\nHence, three NOR gates will be required to \nimplement f as shown below \n\n\n\n\n\nHence, correct answer is option (b).",
+                "images": [
+                    "assets/Digital Logic/DL_Boolean_Algebra_Logic_Gates_and_K_Maps_P20_X2612.png",
+                    "assets/Digital Logic/DL_Boolean_Algebra_Logic_Gates_and_K_Maps_P20_X2612.png",
+                    "assets/Digital Logic/DL_Boolean_Algebra_Logic_Gates_and_K_Maps_P20_X2612.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "DL_BOOLEAN_ALGEBRA_LOGIC_GATES_AND_K_MAPS_2008_Q23",
+            "subject": "Digital Logic",
+            "topic": "Boolean Algebra, Logic Gates and K-Maps",
+            "subtopic": "Q",
+            "year": 2008,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 23,
+            "tags": [
+                "Boolean Algebra, Logic Gates and K-Maps",
+                "Q",
+                "Digital Logic"
+            ],
+            "question": {
+                "text": "A set of Boolean connectives is functionally complete \nif all Boolean functions can be synthesized using \nthose. Which of the following sets of connectives is \nNOT functionally complete?",
+                "images": [
+                    "assets/Digital Logic/DL_Boolean_Algebra_Logic_Gates_and_K_Maps_P13_X1725.png"
+                ],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "EX-NOR",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "implication, negation",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "OR, negation",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "NAND",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "A"
+            ],
+            "solution": {
+                "text": "We now, that \n\nNAND/NOR is functionally complete. \n\n\n\nAnd from the above options only EX-NOR is not \nfunctionally complete \n\nHence, correct answer is option (a).",
+                "images": [
+                    "assets/Digital Logic/DL_Boolean_Algebra_Logic_Gates_and_K_Maps_P21_X2722.png",
+                    "assets/Digital Logic/DL_Boolean_Algebra_Logic_Gates_and_K_Maps_P21_X2724.png",
+                    "assets/Digital Logic/DL_Boolean_Algebra_Logic_Gates_and_K_Maps_P21_X2726.png",
+                    "assets/Digital Logic/DL_Boolean_Algebra_Logic_Gates_and_K_Maps_P21_X2728.png",
+                    "assets/Digital Logic/DL_Boolean_Algebra_Logic_Gates_and_K_Maps_P21_X2730.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "DL_BOOLEAN_ALGEBRA_LOGIC_GATES_AND_K_MAPS_2008_Q24",
+            "subject": "Digital Logic",
+            "topic": "Boolean Algebra, Logic Gates and K-Maps",
+            "subtopic": "NOT functionally complete?",
+            "year": 2008,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 24,
+            "tags": [
+                "Boolean Algebra, Logic Gates and K-Maps",
+                "NOT functionally complete?",
+                "Digital Logic"
+            ],
+            "question": {
+                "text": "Given f1,f3 and f in canonical sum of products from \n(in decimal) for the circuit. \n\n\nF1 = m (4,5,6,7,8) \n\nF3 = m (1, 6, 15) \n\nF  = m (1, 6, 8, 15) \n\nThen f2 is",
+                "images": [
+                    "assets/Digital Logic/DL_Boolean_Algebra_Logic_Gates_and_K_Maps_P13_X1723.png"
+                ],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "m (4, 6)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "m (4, 8)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "m (6, 8)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "m (4, 6, 8) \nK-Maps",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "C"
+            ],
+            "solution": {
+                "text": "",
+                "images": [
+                    "assets/Digital Logic/DL_Boolean_Algebra_Logic_Gates_and_K_Maps_P21_X2722.png",
+                    "assets/Digital Logic/DL_Boolean_Algebra_Logic_Gates_and_K_Maps_P21_X2724.png",
+                    "assets/Digital Logic/DL_Boolean_Algebra_Logic_Gates_and_K_Maps_P21_X2726.png",
+                    "assets/Digital Logic/DL_Boolean_Algebra_Logic_Gates_and_K_Maps_P21_X2728.png",
+                    "assets/Digital Logic/DL_Boolean_Algebra_Logic_Gates_and_K_Maps_P21_X2730.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "DL_BOOLEAN_ALGEBRA_LOGIC_GATES_AND_K_MAPS_2022_Q25",
+            "subject": "Digital Logic",
+            "topic": "Boolean Algebra, Logic Gates and K-Maps",
+            "subtopic": "K-Maps",
+            "year": 2022,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 25,
+            "tags": [
+                "Boolean Algebra, Logic Gates and K-Maps",
+                "K-Maps",
+                "Digital Logic"
+            ],
+            "question": {
+                "text": "The total number of prime implicants of the function \nf(w,x,y,z) = Σ(0, 2, 4, 5, 6, 10) is ______.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "3"
+            ],
+            "solution": {
+                "text": "The given function is \n\n f(w,x,y,z) = Σ(0, 2, 4, 5, 6, 10)  \n\n The k-map of the above function  will be given as \nbelow \n\n\nFrom the above k-map \n\nF = WZ \nWXY\n XYZ\n+\n+\n\n\n Total prime implicants = 3",
+                "images": [
+                    "assets/Digital Logic/DL_Boolean_Algebra_Logic_Gates_and_K_Maps_P21_X2722.png",
+                    "assets/Digital Logic/DL_Boolean_Algebra_Logic_Gates_and_K_Maps_P21_X2724.png",
+                    "assets/Digital Logic/DL_Boolean_Algebra_Logic_Gates_and_K_Maps_P21_X2726.png",
+                    "assets/Digital Logic/DL_Boolean_Algebra_Logic_Gates_and_K_Maps_P21_X2728.png",
+                    "assets/Digital Logic/DL_Boolean_Algebra_Logic_Gates_and_K_Maps_P21_X2730.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "DL_BOOLEAN_ALGEBRA_LOGIC_GATES_AND_K_MAPS_2018_Q26",
+            "subject": "Digital Logic",
+            "topic": "Boolean Algebra, Logic Gates and K-Maps",
+            "subtopic": "f(w,x,y,z) = Σ(0, 2, 4, 5, 6, 10) is ______.",
+            "year": 2018,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 26,
+            "tags": [
+                "Boolean Algebra, Logic Gates and K-Maps",
+                "f(w,x,y,z) = Σ(0, 2, 4, 5, 6, 10) is ______.",
+                "Digital Logic"
+            ],
+            "question": {
+                "text": "Consider the minterm list form of a Boolean function \nF given below. \n\nF(P, Q, R, S) = Σm(0, 2, 5, 7, 9, 11) + d(3, 8, 10, 12, \n14) \n\nHere, m denotes a minterm and d denotes a don't care \nterm. The number of essential prime implicants of the \nfunction F is _______ .",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "3"
+            ],
+            "solution": {
+                "text": "K-Map  of given boolean function F  \n\n\n\nFrom above K-Map number of Essential prime \nimplicats is  3.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "DL_BOOLEAN_ALGEBRA_LOGIC_GATES_AND_K_MAPS_2017_Q27",
+            "subject": "Digital Logic",
+            "topic": "Boolean Algebra, Logic Gates and K-Maps",
+            "subtopic": "function F is _______ .",
+            "year": 2017,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 27,
+            "tags": [
+                "Boolean Algebra, Logic Gates and K-Maps",
+                "function F is _______ .",
+                "Digital Logic"
+            ],
+            "question": {
+                "text": "Consider the Karnaugh map given below, where X \nrepresents \"don't care\" and blank represents 0. \n\n\nAssume for all inputs(a, b, c, d) , the respective \ncomplements (𝑎̅, 𝑏̅, 𝑐̅, 𝑑̅)  are also available. The \nabove logic is implemented using 2-input NOR gates \nonly. The minimum number of gates required is \n_________.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "1"
+            ],
+            "solution": {
+                "text": "The given k-map is shown below \n\n\nhere only one quad group is possible then \ntherefore,representation of given k map is \n\n F =  \na c = a +  = a c\nc\n\n\n\n\nHence only one 2-input NOR gate required.",
+                "images": [
+                    "assets/Digital Logic/DL_Boolean_Algebra_Logic_Gates_and_K_Maps_P22_X2807.png",
+                    "assets/Digital Logic/DL_Boolean_Algebra_Logic_Gates_and_K_Maps_P22_X2809.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "DL_BOOLEAN_ALGEBRA_LOGIC_GATES_AND_K_MAPS_2017_Q28",
+            "subject": "Digital Logic",
+            "topic": "Boolean Algebra, Logic Gates and K-Maps",
+            "subtopic": "_________.",
+            "year": 2017,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 28,
+            "tags": [
+                "Boolean Algebra, Logic Gates and K-Maps",
+                "_________.",
+                "Digital Logic"
+            ],
+            "question": {
+                "text": "Given f(w, x, y, z) = Σm(0, 1, 2, 3, 7, 8, 10) + Σd(5, 6, \n11, 15), where d represents the don't-care condition in \nKarnaugh maps. Which of the following is a \nminimum product-of-sums (POS) form of f(w, x, y, z)?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "𝑓= (𝑤̅ + 𝑧̅)(𝑥̅ + 𝑧)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "𝑓= (𝑤̅ + 𝑧)(𝑥+ 𝑧)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "𝑓= (𝑤+ 𝑧)(𝑥̅ + 𝑧)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "𝑓= (𝑤+ 𝑧̅)(𝑥̅ + 𝑧)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "A"
+            ],
+            "solution": {
+                "text": "f(w, x, y, z) = Σm(0, 1, 2, 3, 7, 8, 10) + Σd(5, 6, 11, 15) \n\n\nfrom above K-Map 2 quad is possible  \n\nTherefore \nf(w,x,y,z) = ( x + z) ( w + z ) \n\nHence option answer is option (a).",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "DL_BOOLEAN_ALGEBRA_LOGIC_GATES_AND_K_MAPS_2014_Q29",
+            "subject": "Digital Logic",
+            "topic": "Boolean Algebra, Logic Gates and K-Maps",
+            "subtopic": "minimum product-of-sums (POS) form of f(w, x, y, z)?",
+            "year": 2014,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 29,
+            "tags": [
+                "Boolean Algebra, Logic Gates and K-Maps",
+                "minimum product-of-sums (POS) form of f(w, x, y, z)?",
+                "Digital Logic"
+            ],
+            "question": {
+                "text": "Consider the following Boolean expression for F: \n\nF(P, Q, R, S) = PQ + P'QR + P'QR'S \n\nThe minimal sum-of-products form of F is",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "PQ +QR +QSz",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "P + Q + R + S",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "P̅ + Q̅ + R̅ + S̅",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "P̅R + P̅R̅S + P",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "A"
+            ],
+            "solution": {
+                "text": "The given function is  \n\nF (P, Q, R, S) = PQ + P Q R S \n\nIts standard canonical form will be  \n\nF (P, Q, R, S) = PQ (R̅ + R) (S̅ + S) + P̅QR (S̅ + S) + P̅ Q              \n\n                        R̅ S   \n\nF(P, Q, R, S) = \n(\n)(\n)\nPQ R\nR\nS\nS\n+\n+\n+\n(\n)\nR Q R S\nS\n+\n\n                                   + P Q R S \n\n= PQRS + PQ RS + PQR S + PQRS + PQRS + \n    PQRS+ PQRS \n\nm = (12, 13, 14, 15, 6, 7, 5) \n\nNow, the k-map of the above function will be given \nas below \n\n\n= PQ + QS + QR \n\nHence, correct answer is option (a).",
+                "images": [
+                    "assets/Digital Logic/DL_Boolean_Algebra_Logic_Gates_and_K_Maps_P22_X2801.png",
+                    "assets/Digital Logic/DL_Boolean_Algebra_Logic_Gates_and_K_Maps_P22_X2803.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "DL_BOOLEAN_ALGEBRA_LOGIC_GATES_AND_K_MAPS_2014_Q30",
+            "subject": "Digital Logic",
+            "topic": "Boolean Algebra, Logic Gates and K-Maps",
+            "subtopic": "The minimal sum-of-products form of F is",
+            "year": 2014,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 30,
+            "tags": [
+                "Boolean Algebra, Logic Gates and K-Maps",
+                "The minimal sum-of-products form of F is",
+                "Digital Logic"
+            ],
+            "question": {
+                "text": "Consider the following minterm expression for F: \n\nF (P,Q,R,S) = \\sum 0, 2, 5, 7, 8,10,13,15 \n\nThe minterms 2, 7, 8 and 13 are 'do not care' terms.  \n\nThe minimal sum-of-products form for F is",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "QS\nQS\n+",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "QS\nQS\n+",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "QRS\nQRS\nQRS + QRS\n+\n+",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "PQS\nPQS\nPQS + PQS\n+\n+",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "B"
+            ],
+            "solution": {
+                "text": "The given function is  \n\nF (P,Q,R,S) = \\sum 0, 2, 5, 7, 8,10,13,15 \n\nThe k-map of the above functions is given below  \n\n\n From the above k-map \n\nF = Q S\nQS\n+\n\n\nHence, correct answer is option (b). \n\n\n\n31. (b)   The given k-map is as shown below \n\n\nFrom the given k-map ,function f will be given as  \n                f = b̅ c̅ + b̅ d̅  \n\nHence correct answer is option (b).",
+                "images": [
+                    "assets/Digital Logic/DL_Boolean_Algebra_Logic_Gates_and_K_Maps_P23_X2879.png",
+                    "assets/Digital Logic/DL_Boolean_Algebra_Logic_Gates_and_K_Maps_P23_X2881.png",
+                    "assets/Digital Logic/DL_Boolean_Algebra_Logic_Gates_and_K_Maps_P23_X2883.png",
+                    "assets/Digital Logic/DL_Boolean_Algebra_Logic_Gates_and_K_Maps_P23_X2885.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "DL_BOOLEAN_ALGEBRA_LOGIC_GATES_AND_K_MAPS_2012_Q31",
+            "subject": "Digital Logic",
+            "topic": "Boolean Algebra, Logic Gates and K-Maps",
+            "subtopic": "+",
+            "year": 2012,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 31,
+            "tags": [
+                "Boolean Algebra, Logic Gates and K-Maps",
+                "+",
+                "Digital Logic"
+            ],
+            "question": {
+                "text": "What is the minimal form of the karnaugh map shown \nbelow? Assume that X denotes a don't care term",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "bd",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "+\nbd\nbc",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "+\nbd\nabcd",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "+\n+\nbd\nbc\ncd",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "B"
+            ],
+            "solution": {
+                "text": "",
+                "images": [
+                    "assets/Digital Logic/DL_Boolean_Algebra_Logic_Gates_and_K_Maps_P15_X622.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "DL_BOOLEAN_ALGEBRA_LOGIC_GATES_AND_K_MAPS_2008_Q32",
+            "subject": "Digital Logic",
+            "topic": "Boolean Algebra, Logic Gates and K-Maps",
+            "subtopic": "cd",
+            "year": 2008,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 32,
+            "tags": [
+                "Boolean Algebra, Logic Gates and K-Maps",
+                "cd",
+                "Digital Logic"
+            ],
+            "question": {
+                "text": "In the Karnaugh map shown below, X denotes a don't \ncare term. What is the minimal form of the function \nrepresented by the Karnaugh map?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": ". \n. \n+\nb d\na d",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": ". \n. \n. .\n+\n+\na b\nb d\nab d",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": ". \n. . \n+\nb d\nab d",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": ". \n. \n. \n+\n+\na b\nb d\na d",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "A"
+            ],
+            "solution": {
+                "text": "Given truth table is \n\n\nFrom the above k-map the function f will be given as \n\nf = ad + bd \n\nHence, correct answer is option (a).",
+                "images": [
+                    "assets/Digital Logic/DL_Boolean_Algebra_Logic_Gates_and_K_Maps_P23_X2879.png",
+                    "assets/Digital Logic/DL_Boolean_Algebra_Logic_Gates_and_K_Maps_P23_X2881.png",
+                    "assets/Digital Logic/DL_Boolean_Algebra_Logic_Gates_and_K_Maps_P23_X2883.png",
+                    "assets/Digital Logic/DL_Boolean_Algebra_Logic_Gates_and_K_Maps_P23_X2885.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "DL_BOOLEAN_ALGEBRA_LOGIC_GATES_AND_K_MAPS_2008_Q33",
+            "subject": "Digital Logic",
+            "topic": "Boolean Algebra, Logic Gates and K-Maps",
+            "subtopic": "a d",
+            "year": 2008,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 33,
+            "tags": [
+                "Boolean Algebra, Logic Gates and K-Maps",
+                "a d",
+                "Digital Logic"
+            ],
+            "question": {
+                "text": "Consider the following Boolean function of four \nvariables f(A, B, C, D) = Σ(2, 3, 6, 7, 8, 9, 10, 11, 12, \n13) The function is",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "independent of one variable",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "independent of two variables",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "independent of three variable",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "dependent on all the variables \n\n\nab\ncd\n×\n×\n×\n×\nab\ncd\n×\n×\n×",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "A"
+            ],
+            "solution": {
+                "text": "The given expression is \n\nf (A, B, C, D) = m(2, 3, 6, 7, 8, 9, 10, 11, 12 13) \n\nk-map of the above expression will be given as \n\n\n\nAC + AC\nAB\nf =\n+\n\n\nAC + AC\nB C\nf =\n+\n\n        We can see from the above expression that f is  \n\nindependent of D. \n\nHence, correct answer is option (a).",
+                "images": [
+                    "assets/Digital Logic/DL_Boolean_Algebra_Logic_Gates_and_K_Maps_P23_X2879.png",
+                    "assets/Digital Logic/DL_Boolean_Algebra_Logic_Gates_and_K_Maps_P23_X2881.png",
+                    "assets/Digital Logic/DL_Boolean_Algebra_Logic_Gates_and_K_Maps_P23_X2883.png",
+                    "assets/Digital Logic/DL_Boolean_Algebra_Logic_Gates_and_K_Maps_P23_X2885.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        }
+    ]
+}

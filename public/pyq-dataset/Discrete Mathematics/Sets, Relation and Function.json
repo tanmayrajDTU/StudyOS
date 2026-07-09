@@ -1,0 +1,1598 @@
+{
+    "subject": "Discrete Mathematics",
+    "topic": "Sets, Relation and Function",
+    "questionCount": 30,
+    "questions": [
+        {
+            "id": "DM_SETS_RELATION_AND_FUNCTION_2023_Q01",
+            "subject": "Discrete Mathematics",
+            "topic": "Sets, Relation and Function",
+            "subtopic": "Sets, Relations and Functions",
+            "year": 2023,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MSQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 1,
+            "tags": [
+                "Sets, Relation and Function",
+                "Sets, Relations and Functions",
+                "Discrete Mathematics"
+            ],
+            "question": {
+                "text": "Let f : A \\rightarrow B be an onto (or surjective) function, \nwhere A and B are nonempty sets. Define an \nequivalence relation ~ on the set A as  \n\na\n1 a\n2 if (a\n1) = f(a\n2) , \n\nWhere a\n1, a\n2  A. Let  = {|x| : x A}  be the set of \nall the equivalence classes under ∼. Define a new \nmapping F :  \\rightarrow B as \n\nF([x]) = f(x), for all the equivalence classes [x] in. \n\nWhich of the following statements is/are TRUE?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "F is NOT well - defined.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "F is an onto (or surjective) function.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "F is a one-to-one (or injective) function.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "F is a bijective function.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "B",
+                "C",
+                "D"
+            ],
+            "solution": {
+                "text": "Because each class of x that follows an equivalence \nrelation is uniquely mapped to one element of x in a \nfunction, Option A is false. \n\nf. Every function has a clear definition. \n\nIf no two elements of x are mapped to any element \nof y, the function is said to be one-one.[X], [Y] are \ndistinct equivalence, and as a result, they adhere to \nthe one-to-one property. \n\nA function is onto if it has a relationship between \neach element of domain E and an element of co-\ndomain B. \n\nF is a bijective function if it is one-one and onto. \n\nTherefore opions (b), (c), and (d) are correct \nchoices.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "DM_SETS_RELATION_AND_FUNCTION_2023_Q02",
+            "subject": "Discrete Mathematics",
+            "topic": "Sets, Relation and Function",
+            "subtopic": "Which of the following statements is/are TRUE?",
+            "year": 2023,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 2,
+            "tags": [
+                "Sets, Relation and Function",
+                "Which of the following statements is/are TRUE?",
+                "Discrete Mathematics"
+            ],
+            "question": {
+                "text": "Let U = {1, 2, 3}. Let 2U denote the powerset of U. \nConsider an undirected graph G whose vertex set is \n2U. For any A.B  2U, (A,B) is an edge in G if and \nonly if (i) A  B, and (ii) either A  B or B  A. For \nany vertex A in G, the set of all possible orderings in \nwhich the vertices of G can be visited in a Breadth \nFirst Search (BFS) starting from A is denoted by \nB(A). \n\nIf  denotes the empty set, then the cardinality of B      \n() is ?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "5040"
+            ],
+            "solution": {
+                "text": "The powerset of U is denoted by 2U . \n\nV= { ,1,2,3 (1,2),(1,3),(2,3),(1,2,3)} \n\nA, B2U \n\n\n\nA, B is an edge in G if and only if  \n(i) \nA B \n(ii) \nEither A  B or B  A \n\nAs  connects to all the node in the graph \nCardinality of B( ) = 7! = 5040",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "DM_SETS_RELATION_AND_FUNCTION_2021_Q03",
+            "subject": "Discrete Mathematics",
+            "topic": "Sets, Relation and Function",
+            "subtopic": "() is ?",
+            "year": 2021,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MSQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 3,
+            "tags": [
+                "Sets, Relation and Function",
+                "() is ?",
+                "Discrete Mathematics"
+            ],
+            "question": {
+                "text": "Consider the following sets, where n \\ge 2: \n\nS1: \nSet of all n \\times n matrices with entries from \nthe set {a, b, c} \n\nS2: \nSet of all functions from the set {0, 1, 2, …, \nn2 - 1}  to the set {0, 1, 2} \n\nWhich of the following choice(s) is/are correct?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "There does not exist a bijection from S1 to S2.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "There exists a surjection from S1 to S2.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "There exists a bijection from S1 to S2.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "There does not exist an injection from S1 to S2.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "B",
+                "C"
+            ],
+            "solution": {
+                "text": "a/     b/     c\nn×n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n.....n\n\n\n\nn3",
+                "images": [
+                    "assets/Discrete Mathematics/DM_Sets_Relation_and_Function_P17_X888.png",
+                    "assets/Discrete Mathematics/DM_Sets_Relation_and_Function_P17_X2222.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "DM_SETS_RELATION_AND_FUNCTION_2021_Q04",
+            "subject": "Discrete Mathematics",
+            "topic": "Sets, Relation and Function",
+            "subtopic": "Which of the following choice(s) is/are correct?",
+            "year": 2021,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 4,
+            "tags": [
+                "Sets, Relation and Function",
+                "Which of the following choice(s) is/are correct?",
+                "Discrete Mathematics"
+            ],
+            "question": {
+                "text": "Let S be a set consisting of 10 elements. The \nnumber of tuples of the form (A, B) such that A \nand B subsets of S, and A \\subseteq B is _____.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "59049"
+            ],
+            "solution": {
+                "text": "S = {1,2,….10} \n\n(A, B) \nA \\subseteq B \nA⊆ B \n\n{1} \\subseteq {1, 2} \n\n{1} ⊆{1, 2} \n\n\n    \\subseteq {1, 2} \n\n     \\subseteq {1, 2} \n\n\n{2} \\subseteq {1, 2}",
+                "images": [
+                    "assets/Discrete Mathematics/DM_Sets_Relation_and_Function_P17_X888.png",
+                    "assets/Discrete Mathematics/DM_Sets_Relation_and_Function_P17_X2222.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "DM_SETS_RELATION_AND_FUNCTION_2020_Q05",
+            "subject": "Discrete Mathematics",
+            "topic": "Sets, Relation and Function",
+            "subtopic": "and B subsets of S, and A ⊆ B is _____.",
+            "year": 2020,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 5,
+            "tags": [
+                "Sets, Relation and Function",
+                "and B subsets of S, and A ⊆ B is _____.",
+                "Discrete Mathematics"
+            ],
+            "question": {
+                "text": "Let R be the set of all binary relations on the set{1, \n2, 3}. Suppose a relation is chosen from R at \nrandom. The probability that the chosen relation is \nreflexive (round off to 3 decimal places) is \n________",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "0.125"
+            ],
+            "solution": {
+                "text": "A = {1,2,3} = n \n\nA \\times B = n2 \n\nTotal number of relation  = \nn\n= 29 \n\nNondiagonal = n2 - n \n\nReflexive = \nn -n\n\n\nn = 3 \n\nProbity = \nn\nn\n−= \n−\n= \n=\n=\n=",
+                "images": [
+                    "assets/Discrete Mathematics/DM_Sets_Relation_and_Function_P17_X888.png",
+                    "assets/Discrete Mathematics/DM_Sets_Relation_and_Function_P17_X2222.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "DM_SETS_RELATION_AND_FUNCTION_2016_Q06",
+            "subject": "Discrete Mathematics",
+            "topic": "Sets, Relation and Function",
+            "subtopic": "________",
+            "year": 2016,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 6,
+            "tags": [
+                "Sets, Relation and Function",
+                "________",
+                "Discrete Mathematics"
+            ],
+            "question": {
+                "text": "A binary relation R on ℕ \\times ℕ is defined as follows: \n(a, b) R (c, d) if a \\le c or b \\le d. Consider the following \npropositions: \n\nP:  R is reflexive \n\nQ:  R is transitive \n\nWhich one of the following statements is TRUE?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "Both P and Q are true",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "P is true and Q is false",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "P is false and Q is true",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "Both P and Q are false",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "B"
+            ],
+            "solution": {
+                "text": "( )\n( )\n( )\n( )\n( )\n( )\n( )\nab R cd    \n cd R xy      ab R  xy\na\nc\n\n   c\nn f    c\nn f\n\n\n\n\nFalse\nb\nd f   \n   c\nn f    c\nn f\n\n1         2 \n\n\n\nb\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n            1 1          3\n\n",
+                "images": [
+                    "assets/Discrete Mathematics/DM_Sets_Relation_and_Function_P17_X888.png",
+                    "assets/Discrete Mathematics/DM_Sets_Relation_and_Function_P17_X2222.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "DM_SETS_RELATION_AND_FUNCTION_2016_Q07",
+            "subject": "Discrete Mathematics",
+            "topic": "Sets, Relation and Function",
+            "subtopic": "Which one of the following statements is TRUE?",
+            "year": 2016,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 7,
+            "tags": [
+                "Sets, Relation and Function",
+                "Which one of the following statements is TRUE?",
+                "Discrete Mathematics"
+            ],
+            "question": {
+                "text": "A function f: ℕ+ \\rightarrow ℕ+, defined on the set of \npositive integers ℕ+, satisfies the following \nproperties: \n\nf(n) = f(n/2) \n if n is even \n\nf(n) = f(n+5) \n if n is odd \n\nLet R = {i|j∶ f(j) = i} be the set of distinct values \nthat f takes. The maximum possible size of R is \n_______ .",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "2"
+            ],
+            "solution": {
+                "text": "n =4 \n\nf(1) = a \nn = 5 \n\nf(5) =b  f(5) = f(5+5) =fc(10) = f(10/2) =f(5) =b \n\n\nn =6 \n\nn = 4 \n\nf(7) =f(7+5) =f(12) f(12)=f(12/12) = f(16) =f(6/2) \n=f(3) \n\nn = 3\nn = 2\nf(3) = f(3 + 5)\nf(2) =f(2/2)=f(1)\n\nf(18)\n\nf(8/2) = f(4)\n       = f(4/2) = f(2) = f(2/2) = f(1) = a\n=\n=",
+                "images": [
+                    "assets/Discrete Mathematics/DM_Sets_Relation_and_Function_P18_X2426.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "DM_SETS_RELATION_AND_FUNCTION_2015_Q08",
+            "subject": "Discrete Mathematics",
+            "topic": "Sets, Relation and Function",
+            "subtopic": "_______ .",
+            "year": 2015,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 8,
+            "tags": [
+                "Sets, Relation and Function",
+                "_______ .",
+                "Discrete Mathematics"
+            ],
+            "question": {
+                "text": "Let R be a relation on the set of ordered pairs of \npositive integers such that ((p, q), (r, s)) ϵ R if and \nonly if p - s = q - r. Which one of the following is \ntrue about R?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "Both reflexive and symmetric",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "Reflexive but not symmetric",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "Not reflexive but symmetric",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "Neither reflexive nor symmetric",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "C"
+            ],
+            "solution": {
+                "text": "Relexive: \n\na R  a \n\np  ,  q R p  ,  q\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n1 - 4 = 2-3 \n\np - q = q - p  \n\np - q  (p - q) \n\nSets, Relations and Functions",
+                "images": [
+                    "assets/Discrete Mathematics/DM_Sets_Relation_and_Function_P18_X2426.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "DM_SETS_RELATION_AND_FUNCTION_2015_Q09",
+            "subject": "Discrete Mathematics",
+            "topic": "Sets, Relation and Function",
+            "subtopic": "true about R?",
+            "year": 2015,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 9,
+            "tags": [
+                "Sets, Relation and Function",
+                "true about R?",
+                "Discrete Mathematics"
+            ],
+            "question": {
+                "text": "Let X and Y denote the sets containing 2 and 20 \ndistinct objects respectively and F denote the set of \nall possible functions defined from X and Y. Let f \nbe randomly chosen from F. The probability of f \nbeing one-to-one is ____________.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "0.95"
+            ],
+            "solution": {
+                "text": "F: x→y \n\n|x| =2    |y| = 20 \n\nTotal number of function = (R.S)LS \n\n\n\n          = 202 \n\n\n1:1 Functions = RS PLS = 20P2 = 20.19 \n\n= 20.19\n19 = 0.95\n=\n\n\nA\nS\ntotal\nTotal\n\n=",
+                "images": [
+                    "assets/Discrete Mathematics/DM_Sets_Relation_and_Function_P18_X2426.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "DM_SETS_RELATION_AND_FUNCTION_2015_Q10",
+            "subject": "Discrete Mathematics",
+            "topic": "Sets, Relation and Function",
+            "subtopic": "being one-to-one is ____________.",
+            "year": 2015,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 10,
+            "tags": [
+                "Sets, Relation and Function",
+                "being one-to-one is ____________.",
+                "Discrete Mathematics"
+            ],
+            "question": {
+                "text": "The number of onto functions (surjective functions) \nfrom set X = {1, 2, 3, 4} to set Y = {a, b, c} is _____.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "36"
+            ],
+            "solution": {
+                "text": "F: x→y \n\n|x| = 4  \n|y | =3 \n\n|x| = m  \n|y| =m \n\n(\n)\n(\n)\nj\nn\nm\nc\n1 i\nn\nn - i\ni=\n−\n\n\n\n\n(\n)\n(\n)\n(\n)\n(\n)\n- 3\n3 1\nc\nc\nc\nc\n−\n−\n+\n−\n−\n−\n\n\n= 34 - 3×24 + 3 ×14 - 0 = 81 - 3×16 + 3 \n\n= 84 - 48 = 36",
+                "images": [
+                    "assets/Discrete Mathematics/DM_Sets_Relation_and_Function_P18_X2426.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "DM_SETS_RELATION_AND_FUNCTION_2015_Q11",
+            "subject": "Discrete Mathematics",
+            "topic": "Sets, Relation and Function",
+            "subtopic": "from set X = {1, 2, 3, 4} to set Y = {a, b, c} is _____.",
+            "year": 2015,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 11,
+            "tags": [
+                "Sets, Relation and Function",
+                "from set X = {1, 2, 3, 4} to set Y = {a, b, c} is _____.",
+                "Discrete Mathematics"
+            ],
+            "question": {
+                "text": "The cardinality of the power set of {0, 1, 2 …, 10} \nis ________.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "2048"
+            ],
+            "solution": {
+                "text": "A : {0…..10} \n\n|A| = 11 \n\nP (A) =2A = 211 = 2048",
+                "images": [
+                    "assets/Discrete Mathematics/DM_Sets_Relation_and_Function_P18_X2426.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "DM_SETS_RELATION_AND_FUNCTION_2015_Q12",
+            "subject": "Discrete Mathematics",
+            "topic": "Sets, Relation and Function",
+            "subtopic": "is ________.",
+            "year": 2015,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 12,
+            "tags": [
+                "Sets, Relation and Function",
+                "is ________.",
+                "Discrete Mathematics"
+            ],
+            "question": {
+                "text": "Let R be the relation on the set of positive integers \nsuch that aRb if and only if a and b are distinct and \nhave a common divisor other than 1. Which one of \nthe following statements about R is True?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "R is symmetric and reflexive but not transitive",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "R is reflexive but not symmetric and not \ntransitive",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "R is transitive but not reflexive and not \nsymmetric",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "R is symmetric but not reflexive and not \ntransitive",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "B"
+            ],
+            "solution": {
+                "text": "(1) Not reflexive  \n(2) (3,6) R→(6, 3) R \n(3) (2,6)  (6, 9) \\rightarrow (2, 9) \n\n                     \n\n         2            3 \nacd(2, 9) = 1",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "DM_SETS_RELATION_AND_FUNCTION_2015_Q13",
+            "subject": "Discrete Mathematics",
+            "topic": "Sets, Relation and Function",
+            "subtopic": "transitive",
+            "year": 2015,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 13,
+            "tags": [
+                "Sets, Relation and Function",
+                "transitive",
+                "Discrete Mathematics"
+            ],
+            "question": {
+                "text": "For a set A, the power set of A is denoted by 2A. If \nA = {5, {6}, {7}}, which of the following options \nare True? \n\n1.  ∅ 2A \n 2. ∅ \\subseteq 2A \n\n3.  {5, {6}}  2A \n 4. {5, {6}} \\subseteq 2A",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "1 and 3 only",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "2 and 3 only",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "1, 2 and 3 only",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "1, 2 and 4 only",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "C"
+            ],
+            "solution": {
+                "text": "A = {5} ,{6} {7} \n\n\ne2\ne3\ne4\ne1\nA\n, 5 , 6 , 7\n\n\n= \n\n\n\n\n\n5, 6\ne\n\n\n\n\n\n\n\n\ne52A \n\n\nA\n5, 6\n\n\n\n\n\n",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "DM_SETS_RELATION_AND_FUNCTION_2015_Q14",
+            "subject": "Discrete Mathematics",
+            "topic": "Sets, Relation and Function",
+            "subtopic": "are True?",
+            "year": 2015,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 14,
+            "tags": [
+                "Sets, Relation and Function",
+                "are True?",
+                "Discrete Mathematics"
+            ],
+            "question": {
+                "text": "If g(x) = 1 - x and \nx\nh(x)= x-1 then, g(h(x))\n h(g(x)) is.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "( )\n( )\nh x\ng x",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "-1\nx",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "( )\n( )\ng x\nh x",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "(\n)\nx\n1-x",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "A"
+            ],
+            "solution": {
+                "text": "I(x) = 1- x \nh(x) =\nx\nx\n−   \n\n( )\n( )\ng(h\nx\n×\nh(g\nx\nx\nx\nx\n−\n=\n−\n−\n−\n\n\ng(h(x) \nh(g(x) \n\n\nx\nx\n1 1\nx\n\n−\n−\n\n\n= 1-\nx\nx\n− \n= 1-x\n1-x\n− \n( )\n( )\nh\nx\nx\n1 1\nx\ng\nx\nx\n=\n\n=\n−\n−",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "DM_SETS_RELATION_AND_FUNCTION_2014_Q15",
+            "subject": "Discrete Mathematics",
+            "topic": "Sets, Relation and Function",
+            "subtopic": "1-x",
+            "year": 2014,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 15,
+            "tags": [
+                "Sets, Relation and Function",
+                "1-x",
+                "Discrete Mathematics"
+            ],
+            "question": {
+                "text": "Let S denote the set of all functions f ∶ {0,1}4 \\rightarrow \n0, 1}. Denote by N the number of functions from S \nto the set {0, 1}. The value of log2 log2 N is \n________.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "16"
+            ],
+            "solution": {
+                "text": "\n\n\n\nS:  0, 1\n0, 1\nS:   2 \n→\n→\n\n\nTotal function  = (R.S.)L.S \n\n\n\n=\n=\n\n\nN : S \\rightarrow {0, 1} \n\nN : 216 \\rightarrow 2 \n\nTotal function  = (R.S.)L.S \n\n\n\n= ( )\n\n\n109  109    N\n109  109\n=",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "DM_SETS_RELATION_AND_FUNCTION_2012_Q16",
+            "subject": "Discrete Mathematics",
+            "topic": "Sets, Relation and Function",
+            "subtopic": "________.",
+            "year": 2012,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 16,
+            "tags": [
+                "Sets, Relation and Function",
+                "________.",
+                "Discrete Mathematics"
+            ],
+            "question": {
+                "text": "How many onto (or surjective) functions are there \nfrom an n-element (n \\ge 2) set to a 2-element set?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "2n",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "2n - 1",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "2n - 2",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "2(2n - 2)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "C"
+            ],
+            "solution": {
+                "text": "F: A→B \n\nAnto  = Total function - Total non-onto \n\n           = 2n - 2",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "DM_SETS_RELATION_AND_FUNCTION_2010_Q17",
+            "subject": "Discrete Mathematics",
+            "topic": "Sets, Relation and Function",
+            "subtopic": "from an n-element (n  2) set to a 2-element set?",
+            "year": 2010,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 17,
+            "tags": [
+                "Sets, Relation and Function",
+                "from an n-element (n  2) set to a 2-element set?",
+                "Discrete Mathematics"
+            ],
+            "question": {
+                "text": "What is the possible number of reflexive relations \non a set of 5 elements?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "210",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "215",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "220",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "225 \n\n\nSets, Relations and Functions",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "C"
+            ],
+            "solution": {
+                "text": "n = 3 \n\nnondiagonal  = n2 -n \n\n                 Q: n = 5 \n\n\n2 -\n2n\nn \n=\n5 -5\n\n\n\n\n= \n25-5\n\n\n\n\n=",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "DM_SETS_RELATION_AND_FUNCTION_2009_Q18",
+            "subject": "Discrete Mathematics",
+            "topic": "Sets, Relation and Function",
+            "subtopic": "Sets, Relations and Functions",
+            "year": 2009,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 18,
+            "tags": [
+                "Sets, Relation and Function",
+                "Sets, Relations and Functions",
+                "Discrete Mathematics"
+            ],
+            "question": {
+                "text": "Consider the binary relation: R = {(x, y), (x, z),  \n(z, x), (z, y)} on the set {x, y, z}. Which one of the \nfollowing is TRUE?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "R is symmetric but NOT antisymmetric",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "R is NOT symmetric but antisymmetric",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "R is both symmetric and antisymmetric",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "R is neither symmetric nor antisymmetric",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "D"
+            ],
+            "solution": {
+                "text": "(\n)(\n)(\n)(\n)\n\n\nx,y\nx,z\nz,x\nz,y\n\n\n(\n)\n(\n)\n(\n)\na b\na,b\nR\nb,a\nR\n\n\n→\n\n\n\nAnti: \n(\n)\n(\n)\n(\n)\na b\na,b\nR\nb,a\nR\na = b\n\n\n\n\n→\n\n          (\n)\n(\n)\n(\n)\nx\nR\nz,x\nR\nx = z False\n\n\n\n→",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "DM_SETS_RELATION_AND_FUNCTION_2008_Q19",
+            "subject": "Discrete Mathematics",
+            "topic": "Sets, Relation and Function",
+            "subtopic": "following is TRUE?",
+            "year": 2008,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 19,
+            "tags": [
+                "Sets, Relation and Function",
+                "following is TRUE?",
+                "Discrete Mathematics"
+            ],
+            "question": {
+                "text": "If P, Q, R are subsets of the universal set U, then (P \n Q  R)  (Pc  Q  R)  Qc  Rc  is",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "Qc  Rc",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "P  Qc  Rc",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "Pc  Qc  Rc",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "U \n\n\nLattice",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "D"
+            ],
+            "solution": {
+                "text": "(\n)\n(\n)\n(\n)\nP\nQ\nR\nP\nQ\nR\nQ\nR\n\n\n\n\n\n\n\n\n\n(\n)\n(\n)\n(\n)\nP\nP\nQ\nR\nQ\nR\n\n\n\n\n\n\n\n(\n)\nQ\nR\n\n\n\n\n(\n)\n(\n)\nQ\nR\nQ\nR\n\n\n\n=  \n\nA\n.A\n\n",
+                "images": [
+                    "assets/Discrete Mathematics/DM_Sets_Relation_and_Function_P20_X2657.png",
+                    "assets/Discrete Mathematics/DM_Sets_Relation_and_Function_P20_X2054.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "DM_SETS_RELATION_AND_FUNCTION_2017_Q20",
+            "subject": "Discrete Mathematics",
+            "topic": "Sets, Relation and Function",
+            "subtopic": "Lattice",
+            "year": 2017,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 20,
+            "tags": [
+                "Sets, Relation and Function",
+                "Lattice",
+                "Discrete Mathematics"
+            ],
+            "question": {
+                "text": "Consider the set X = {a, b, c, d, e} under the partial \nordering: \n\nR = {(a, a), (a, b), (a, c), (a, d), (a, e), (b, b), (b, c),  \n\n(b, e), (c, c), (c, e), (d, d), (d, e), (e, e)} \n\nThe Hasse diagram of the partial order (X, R) is \nshown below: \n\n\nThe minimum number of ordered pairs that need to \nbe added to R to make (X, R) a lattice is _______.",
+                "images": [
+                    "assets/Discrete Mathematics/DM_Sets_Relation_and_Function_P15_X2054.png"
+                ],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "0"
+            ],
+            "solution": {
+                "text": "Sets, Relations and Functions",
+                "images": [
+                    "assets/Discrete Mathematics/DM_Sets_Relation_and_Function_P17_X886.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "DM_SETS_RELATION_AND_FUNCTION_2008_Q21",
+            "subject": "Discrete Mathematics",
+            "topic": "Sets, Relation and Function",
+            "subtopic": "be added to R to make (X, R) a lattice is _______.",
+            "year": 2008,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 21,
+            "tags": [
+                "Sets, Relation and Function",
+                "be added to R to make (X, R) a lattice is _______.",
+                "Discrete Mathematics"
+            ],
+            "question": {
+                "text": "Consider the following Hasse diagrams. \n\n\nWhich all of the above represent a lattice?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "(i) and (iv) only",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "(ii) and (iii) only",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "(iii) only",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "(i), (ii) and (iv) only \n\nGroups",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "A"
+            ],
+            "solution": {
+                "text": "",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "DM_SETS_RELATION_AND_FUNCTION_2023_Q22",
+            "subject": "Discrete Mathematics",
+            "topic": "Sets, Relation and Function",
+            "subtopic": "Groups",
+            "year": 2023,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MSQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 22,
+            "tags": [
+                "Sets, Relation and Function",
+                "Groups",
+                "Discrete Mathematics"
+            ],
+            "question": {
+                "text": "Let X be a set and 2x denote the powerset of X. \n\n Define a binary operation Δ on 2x as follows: \n\n AΔB = (A − B) \\cup (B − A). \n\nLet H = (2x, Δ). Which of the following statements \nabout H is/are correct?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "H is a group.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "Every element in H has an inverse, but H is NOT \na group.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "For every A  2x, the inverse of A is the \ncomplement of A.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "For every A  2x, the inverse of A is A.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "A",
+                "B"
+            ],
+            "solution": {
+                "text": "Let x be a set and 2x is a power set of x \nAB = (A -B) (B -A) for A,B  2x \nH = (2x, ) \nCheck H for each property. \n(i) \nH satisfies the closure property under   \n(ii) H satisfies the associative property under a \nsuch that  \n\nA (BC) = (AB) C \n(iii) H satisfies the identity property such that ' ', \nis the identity element. Ae =  \n(iv) H satisfies inverse property such that inverse of \nA = A  \nA =  = (A - ) u (  - A) \n\n\n= A  \n\n\n= A \n\nSo, H is group and inverse of A is A.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "DM_SETS_RELATION_AND_FUNCTION_2022_Q23",
+            "subject": "Discrete Mathematics",
+            "topic": "Sets, Relation and Function",
+            "subtopic": "complement of A.",
+            "year": 2022,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MSQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 23,
+            "tags": [
+                "Sets, Relation and Function",
+                "complement of A.",
+                "Discrete Mathematics"
+            ],
+            "question": {
+                "text": "Which of the following statements is/are TRUE for \na group G?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "If for all x, y \\in G, (x y) 2 = x2 y2, then G is \ncommutative.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "If for all x ∈G, x2 = 1, then G is \ncommutative. Here, 1 is the identity element \nof G.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "If the order of G is 2, then G is commutative.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "If G is commutative, then a subgroup of G \nneed not be commutative.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "A",
+                "B",
+                "C"
+            ],
+            "solution": {
+                "text": "x2 =1  \n\nxx =1 \n\n\nx-1.x.x = x-1 \nx = x-1 \n\n\n(xy)2 = x2 y2  \n\nxyxy = xy yy  \n\nx-1 yx y.y-1 xy y-1 \n\nyx = xy",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "DM_SETS_RELATION_AND_FUNCTION_2021_Q24",
+            "subject": "Discrete Mathematics",
+            "topic": "Sets, Relation and Function",
+            "subtopic": "need not be commutative.",
+            "year": 2021,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 24,
+            "tags": [
+                "Sets, Relation and Function",
+                "need not be commutative.",
+                "Discrete Mathematics"
+            ],
+            "question": {
+                "text": "Let G be a group of order 6, and H be a subgroup of \nG such that 1<|H|<6. Which one of the following \noptions is correct?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "Both G and H are always cyclic.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "G may not be cyclic, but H is always cyclic.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "G is always cyclic, but H may not be cyclic.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "Both G and H may not be cyclic. \n\n\n\n(i) \n(ii) \n(iii) \n(iv)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "B"
+            ],
+            "solution": {
+                "text": "Prime\nH < 6\n\n   2 , 3\n\n\n",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "DM_SETS_RELATION_AND_FUNCTION_2020_Q25",
+            "subject": "Discrete Mathematics",
+            "topic": "Sets, Relation and Function",
+            "subtopic": "(iv)",
+            "year": 2020,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 25,
+            "tags": [
+                "Sets, Relation and Function",
+                "(iv)",
+                "Discrete Mathematics"
+            ],
+            "question": {
+                "text": "Let G be a group of 35 elements. Then the largest \npossible size of a subgroup of G other than G itself \nis ______.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "7"
+            ],
+            "solution": {
+                "text": "H   G G\nH \n\n1,  5,  7,  35\n",
+                "images": [
+                    "assets/Discrete Mathematics/DM_Sets_Relation_and_Function_P21_X2784.png",
+                    "assets/Discrete Mathematics/DM_Sets_Relation_and_Function_P21_X2786.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "DM_SETS_RELATION_AND_FUNCTION_2018_Q26",
+            "subject": "Discrete Mathematics",
+            "topic": "Sets, Relation and Function",
+            "subtopic": "is ______.",
+            "year": 2018,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 26,
+            "tags": [
+                "Sets, Relation and Function",
+                "is ______.",
+                "Discrete Mathematics"
+            ],
+            "question": {
+                "text": "Let G be a finite group on 84 elements. The size of \na largest possible proper subgroup of G is _______.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "42"
+            ],
+            "solution": {
+                "text": "G  H \n\nH  G \\rightarrow G\nH \n84. \n\n\n1,......42, 84\n",
+                "images": [
+                    "assets/Discrete Mathematics/DM_Sets_Relation_and_Function_P21_X2784.png",
+                    "assets/Discrete Mathematics/DM_Sets_Relation_and_Function_P21_X2786.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "DM_SETS_RELATION_AND_FUNCTION_2014_Q27",
+            "subject": "Discrete Mathematics",
+            "topic": "Sets, Relation and Function",
+            "subtopic": "a largest possible proper subgroup of G is _______.",
+            "year": 2014,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 27,
+            "tags": [
+                "Sets, Relation and Function",
+                "a largest possible proper subgroup of G is _______.",
+                "Discrete Mathematics"
+            ],
+            "question": {
+                "text": "Let G be a group with 15 elements. Let L be a \nsubgroup of G. It is known that L  G and that the \nsize of L is at least 4. The size of L is _______.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "5"
+            ],
+            "solution": {
+                "text": "|G| = 15",
+                "images": [
+                    "assets/Discrete Mathematics/DM_Sets_Relation_and_Function_P22_X2876.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "DM_SETS_RELATION_AND_FUNCTION_2013_Q28",
+            "subject": "Discrete Mathematics",
+            "topic": "Sets, Relation and Function",
+            "subtopic": "size of L is at least 4. The size of L is _______.",
+            "year": 2013,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 28,
+            "tags": [
+                "Sets, Relation and Function",
+                "size of L is at least 4. The size of L is _______.",
+                "Discrete Mathematics"
+            ],
+            "question": {
+                "text": "A binary operation  on a set of integers is defined \nas x  y = x² + y². Which of the following \nstatements if TRUE about ?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "Commutative but not associative",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "Both commutative and associative",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "Associative but not commutative",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "Neither commutative nor associative",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "A"
+            ],
+            "solution": {
+                "text": "Assaciabve :  a \\times (b \\times c) = (a \\times b) ×c \n\nx  (y 2)  = (x  y) 2 \n\nx  (y2 + z2)  =  \n\nx2 + (y2 + z2)  = (x2 +y2)  z. \n\n\n\n= (\n)\nx\ny\nz\n+\n+\n\n\nCommutable: a # b \nb \\times a \n\n\n\nx  y \ny  x \n\n\n\nx2 + y2 \ny2 + x2",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "DM_SETS_RELATION_AND_FUNCTION_2010_Q29",
+            "subject": "Discrete Mathematics",
+            "topic": "Sets, Relation and Function",
+            "subtopic": "statements if TRUE about ?",
+            "year": 2010,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 29,
+            "tags": [
+                "Sets, Relation and Function",
+                "statements if TRUE about ?",
+                "Discrete Mathematics"
+            ],
+            "question": {
+                "text": "Consider the set S = {1, ω, ω2}, where ω and ω2 are \ncube roots of unity. If * denotes the multiplication \noperation, the structure {S, *} forms",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "a group",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "a ring",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "an integral domain",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "a field",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "A"
+            ],
+            "solution": {
+                "text": "S= {! w w2} = (1w) w2 \n\n1w3   \n= ww2 \n\n11   \n= w3 \n\n\n= 1",
+                "images": [
+                    "assets/Discrete Mathematics/DM_Sets_Relation_and_Function_P21_X2784.png",
+                    "assets/Discrete Mathematics/DM_Sets_Relation_and_Function_P21_X2786.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "DM_SETS_RELATION_AND_FUNCTION_2009_Q30",
+            "subject": "Discrete Mathematics",
+            "topic": "Sets, Relation and Function",
+            "subtopic": "operation, the structure {S, *} forms",
+            "year": 2009,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 30,
+            "tags": [
+                "Sets, Relation and Function",
+                "operation, the structure {S, *} forms",
+                "Discrete Mathematics"
+            ],
+            "question": {
+                "text": "For the composition table of a cyclic group shown \nbelow: \n\n\nWhich one of the following choices is correct?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "a, b are generators",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "b, c are generators",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "c, d are generators",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "d, a are generators \n\n\n\n\n\n\n\n*\na\nb\nc\nd\na\na\nb\nc\nd\nb\nb\na\nd\nc\nc\nc\nd\nb\na\nd\nd\nc\na\nb\n\nSets, Relations and Functions",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "C"
+            ],
+            "solution": {
+                "text": "b = b  \nc1 = c \n\nb ×b  a \nc2 = c \\times c = b \n\nb ×b2 = b \\times a  b \nc  = c2 \\times c \n\n\n\n    = b×c  d \n\nc4 = c×4 \n\n     a \n\nc5 = c4×c \n\n    = a×c  c \n\n<c> = {c,b,d,a} \n\nc ×d = a",
+                "images": [
+                    "assets/Discrete Mathematics/DM_Sets_Relation_and_Function_P21_X2784.png",
+                    "assets/Discrete Mathematics/DM_Sets_Relation_and_Function_P21_X2786.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        }
+    ]
+}

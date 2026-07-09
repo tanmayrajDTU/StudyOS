@@ -1,0 +1,2232 @@
+{
+    "subject": "Theory Of Computation",
+    "topic": "Context Free Language and Context Free Grammar",
+    "questionCount": 35,
+    "questions": [
+        {
+            "id": "TOC_CONTEXT_FREE_LANGUAGE_AND_CONTEXT_FREE_GRAMMAR_2023_Q01",
+            "subject": "Theory Of Computation",
+            "topic": "Context Free Language and Context Free Grammar",
+            "subtopic": "Pushdown Automata",
+            "year": 2023,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 1,
+            "tags": [
+                "Context Free Language and Context Free Grammar",
+                "Pushdown Automata",
+                "Theory Of Computation"
+            ],
+            "question": {
+                "text": "Consider the pushdown automaton (PDA) P below, \nwhich runs on the input alphabet {a, b}, has stack \nalphabet {⊥, A}, and has three states {s, p, q}, with \ns being the start state. A transition from state u to \nstate v, labelled c/X/γ, where c is an input symbol or \n, X is a stack symbol, and γ is a string of stack \nsymbols, represents the fact that in state u, the PDA \ncan read c from the input, with X on the top of its \nstack, pop X from the stack, push in the string γ on \nthe stack, and go to state v. In the initial \nconfiguration, the stack has only the symbol ⊥ in it. \nThe PDA accepts by empty stack.  \n\n\nWhich one of the following options correctly \ndescribes the language accepted by P?",
+                "images": [
+                    "assets/Theory Of Computation/TOC_Context_Free_Language_and_Context_Free_Grammar_P26_X3100.png",
+                    "assets/Theory Of Computation/TOC_Context_Free_Language_and_Context_Free_Grammar_P26_X3103.png"
+                ],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "{am bn | 1 \\le m and n < m}",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "{am bn | 0 \\le n \\le m}",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "{am bn | 0 \\le m and 0 \\le n}",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "{am | 0 \\le m}  {bn |0 \\le n}",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "A"
+            ],
+            "solution": {
+                "text": "State s can push A for each input a, and whenever b \ncomes as input, it will pop A and then changes to \nstate p. If end of the input happens from state s, then \nit will change to state q and will pop all A's to make \nempty stack. \n\nState p can pop A for each input b, and whenever \nend of input reaches, it will change to state q and \npop all A's from stack to make empty stack. \n\nCase1: a* will be accepted if s and q are involved.  \n\nCase2: am bn will be accepted (m > n  > 0) if s, p, and \nq are involved.  \n\nL = {am bn | m > n \\ge 0} = {am bn | m > n, m \\ge 1} \n\nTherefore, option (a) is correct.",
+                "images": [
+                    "assets/Theory Of Computation/TOC_Context_Free_Language_and_Context_Free_Grammar_P32_X3560.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "TOC_CONTEXT_FREE_LANGUAGE_AND_CONTEXT_FREE_GRAMMAR_2021_Q02",
+            "subject": "Theory Of Computation",
+            "topic": "Context Free Language and Context Free Grammar",
+            "subtopic": "describes the language accepted by P?",
+            "year": 2021,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 2,
+            "tags": [
+                "Context Free Language and Context Free Grammar",
+                "describes the language accepted by P?",
+                "Theory Of Computation"
+            ],
+            "question": {
+                "text": "In a pushdown automaton P = (Q, Σ, Γ, δ, q0, F), a \ntransition of the form, \n\n\nwhere  p, q  Q, a  Σ  {}, and  X, Y  Γ  {}, \nrepresents \n\n (q, Y)  (p,a,X) \n\nConsider the following pushdown automaton over \nthe input alphabet \\sum = {a, b} and stack alphabet Γ = \n{#, A}. \n\n\nThe number of strings of length 100 accepted by the \nabove pushdown automaton is _____.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "50"
+            ],
+            "solution": {
+                "text": "Language by PDA = {am bn | m > n} \n• \nSum of a's and b's must be 100 \n• \nPossible strings are: a100 b0, a99 b1, a92 b2, …., \na51 b49. \n• \nTotal number of 100 length strings  \n\n\n= 100 - 51 + 1 = 50",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "TOC_CONTEXT_FREE_LANGUAGE_AND_CONTEXT_FREE_GRAMMAR_2016_Q03",
+            "subject": "Theory Of Computation",
+            "topic": "Context Free Language and Context Free Grammar",
+            "subtopic": "above pushdown automaton is _____.",
+            "year": 2016,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 3,
+            "tags": [
+                "Context Free Language and Context Free Grammar",
+                "above pushdown automaton is _____.",
+                "Theory Of Computation"
+            ],
+            "question": {
+                "text": "Consider the transition diagram of a PDA given \nbelow with input alphabet  = {a, b}and stack \nalphabet  = {X, Z}. Z is the initial stack symbol.  \n\nLet L denote the language accepted by the PDA \n\n\nWhich one of the following is TRUE?",
+                "images": [
+                    "assets/Theory Of Computation/TOC_Context_Free_Language_and_Context_Free_Grammar_P26_X3105.png"
+                ],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "L = {an bn | n \\ge 0}and is not accepted by any \nfinite automata",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "L = {an | n \\ge 0}   {anbn | n \\ge 0} and is not \naccepted by any deterministic PDA",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "L is not accepted by any Turing machine that \nhalts on every input",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "L = {an | n \\ge 0}  {anbn | n \\ge 0} and is \ndeterministic context - free",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "D"
+            ],
+            "solution": {
+                "text": "State A: For every input a push X (A is final state). \n\nState B: For every input b pop X. \n\nL = {anbn | n \\ge 0}  {an | n \\ge 0}",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "TOC_CONTEXT_FREE_LANGUAGE_AND_CONTEXT_FREE_GRAMMAR_2015_Q04",
+            "subject": "Theory Of Computation",
+            "topic": "Context Free Language and Context Free Grammar",
+            "subtopic": "deterministic context - free",
+            "year": 2015,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 4,
+            "tags": [
+                "Context Free Language and Context Free Grammar",
+                "deterministic context - free",
+                "Theory Of Computation"
+            ],
+            "question": {
+                "text": "Consider the NPDA Q = {q0, q1, q2},    \n\n{0,1},\n{0,1,\n}, , q , ,F {q }\n=\n=\n⊥\n\n⊥\n=\n\n \n\nwhere (as per usual convention) Q is the set of states, \n is the input alphabet,  is stack alphabet,  is the \nstate transition function, q0 is the initial state, ⊥  is \nthe initial stack symbol, and F is the set of accepting \nstates, The state transition is as follows: \n\n\n\nWhich one of the following sequences must follow \nthe string 101100 so that the overall string is \naccepted by the automaton?",
+                "images": [
+                    "assets/Theory Of Computation/TOC_Context_Free_Language_and_Context_Free_Grammar_P27_X3210.png"
+                ],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "10110",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "10010",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "01010",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "01001 \n\nContext Free Grammar",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "B"
+            ],
+            "solution": {
+                "text": "q0:  \n\n 0, z \\rightarrow 0z;  \nPush 0 for input 0 \n\n 1, z \\rightarrow 1z; \nPush 1 for input 1 \n\n 0/1/, z \\rightarrow z;  \nno operation \n\nq1:  \n\n\n1, 0z \\rightarrow z;  \npop 0 for input 1 \n\n\n0, 1z \\rightarrow z; \npop 1 for input 0 \n• \nString = 101100 \n\n1 0 1 1 0 0 1 0 0 1 0 \n\n\nLast 5 bits = 10010 \n\nHence, option (b) is correct.",
+                "images": [
+                    "assets/Theory Of Computation/TOC_Context_Free_Language_and_Context_Free_Grammar_P32_X1369.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "TOC_CONTEXT_FREE_LANGUAGE_AND_CONTEXT_FREE_GRAMMAR_2017_Q05",
+            "subject": "Theory Of Computation",
+            "topic": "Context Free Language and Context Free Grammar",
+            "subtopic": "Context Free Grammar",
+            "year": 2017,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 5,
+            "tags": [
+                "Context Free Language and Context Free Grammar",
+                "Context Free Grammar",
+                "Theory Of Computation"
+            ],
+            "question": {
+                "text": "If G is a grammar with productions \n\nS \\rightarrow SaS | aSb | bSa | SS|  \n\nWhere S is the start variable, then which one of the \nfollowing strings is not generated by G?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "abab",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "aaab",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "abbaa",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "babba",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "D"
+            ],
+            "solution": {
+                "text": "(a) abab \n\n\n(b) aaab \n\n\n(c) abbaa",
+                "images": [
+                    "assets/Theory Of Computation/TOC_Context_Free_Language_and_Context_Free_Grammar_P32_X1369.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "TOC_CONTEXT_FREE_LANGUAGE_AND_CONTEXT_FREE_GRAMMAR_2017_Q06",
+            "subject": "Theory Of Computation",
+            "topic": "Context Free Language and Context Free Grammar",
+            "subtopic": "following strings is not generated by G?",
+            "year": 2017,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 6,
+            "tags": [
+                "Context Free Language and Context Free Grammar",
+                "following strings is not generated by G?",
+                "Theory Of Computation"
+            ],
+            "question": {
+                "text": "Identify the language generated by the following  \n\ngrammar, where S is the start variable.  \n\nS \\rightarrow XY \n\nX \\rightarrow aX | a \n\nY \\rightarrow aYb | ",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "{ambn | m > n, n > 0}",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "{ambn | m > n, n \\ge 0}",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "{ambn | m \\ge n, n \\ge 0}",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "{ambn | m \\ge n, n > 0}",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "B"
+            ],
+            "solution": {
+                "text": "Y = an bn \n\n X = a+ \n\n S = a+ an bn | n \\ge 0 \n\n Hence, L = {am bn | m, n \\ge 0 and m >n} \n\n\n   = {am bn | m > n \\ge 0}",
+                "images": [
+                    "assets/Theory Of Computation/TOC_Context_Free_Language_and_Context_Free_Grammar_P33_X3765.png",
+                    "assets/Theory Of Computation/TOC_Context_Free_Language_and_Context_Free_Grammar_P33_X3767.png",
+                    "assets/Theory Of Computation/TOC_Context_Free_Language_and_Context_Free_Grammar_P33_X3769.png",
+                    "assets/Theory Of Computation/TOC_Context_Free_Language_and_Context_Free_Grammar_P33_X3773.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "TOC_CONTEXT_FREE_LANGUAGE_AND_CONTEXT_FREE_GRAMMAR_2017_Q07",
+            "subject": "Theory Of Computation",
+            "topic": "Context Free Language and Context Free Grammar",
+            "subtopic": "Y → aYb | ",
+            "year": 2017,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 7,
+            "tags": [
+                "Context Free Language and Context Free Grammar",
+                "Y → aYb | ",
+                "Theory Of Computation"
+            ],
+            "question": {
+                "text": "Consider the following context - free grammar over \nthe alphabet Σ = {a, b, c} with S as the start symbol:  \n\nS \\rightarrow abScT | abcT  \n\nT \\rightarrow bT | b \n\n Which one of the following represents the language \ngenerated by the above grammar",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "{(ab)n(cb)n | n \\ge 1}",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "n\nm\nm\nm\nn\nn\n{(ab) cb\ncb\n......cb\n| n, m , m .....m\n1}\n",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "{(ab)n(cbm)n | m, n \\ge 1}",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "{(ab)n(cbn)m | m, n \\ge 1}",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "B"
+            ],
+            "solution": {
+                "text": "T \\rightarrow bT | b \n\n\n   T = b+ \n\nS \\rightarrow abScT | abcT  \n\n\n   S = abS cb+ | abcb+  \n\n          = {abn abcb+ (cb+)n | n > 0 } \n\n\n\nMinimal string = abcb+  \n\nL = {(ab)n (cb+)n | n > 0} \n\n     \n\nm \nm\nn\nab\ncb\ncb\n..... n times\n(\n)\n=\n\n     \n\nn\nm\nm \nm\nm\nn\nn\nab\ncb\ncb\ncb\n....\n)\n cb\n(\n| n,m ,m .....m \n=",
+                "images": [
+                    "assets/Theory Of Computation/TOC_Context_Free_Language_and_Context_Free_Grammar_P33_X3765.png",
+                    "assets/Theory Of Computation/TOC_Context_Free_Language_and_Context_Free_Grammar_P33_X3767.png",
+                    "assets/Theory Of Computation/TOC_Context_Free_Language_and_Context_Free_Grammar_P33_X3769.png",
+                    "assets/Theory Of Computation/TOC_Context_Free_Language_and_Context_Free_Grammar_P33_X3773.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "TOC_CONTEXT_FREE_LANGUAGE_AND_CONTEXT_FREE_GRAMMAR_2017_Q08",
+            "subject": "Theory Of Computation",
+            "topic": "Context Free Language and Context Free Grammar",
+            "subtopic": "",
+            "year": 2017,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 8,
+            "tags": [
+                "Context Free Language and Context Free Grammar",
+                "",
+                "Theory Of Computation"
+            ],
+            "question": {
+                "text": "Consider the context-free grammars over the \nalphabet {a, b, c} given below. S and T are non-\nterminals. \n\nG1: S \\rightarrow aSb | T,       T \\rightarrow c T |  \n\nG2: S \\rightarrow bSa | T,       T \\rightarrow c T |   \n\nThe language L(G1)  L(G2) is",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "Finite.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "Not finite but regular.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "Context - Free but not regular.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "Recursive but not context-free.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "B"
+            ],
+            "solution": {
+                "text": "G1: S \\rightarrow aSb | T  \n\n       T \\rightarrow c T |  = c* \n\n        L(G1) = {anc* bn | n \\ge 0}  \n\nG2: S \\rightarrow bSa | T \n\n      T \\rightarrow c T |  = c* \n\n\nL(G2) = {bnc* an | n \\ge 0} \n\n\nL(G1)  L(G2) = {c*} \n\n It is a regualr but infinite(Not finite). \n\n Hence, option (b) is correct.",
+                "images": [
+                    "assets/Theory Of Computation/TOC_Context_Free_Language_and_Context_Free_Grammar_P33_X3765.png",
+                    "assets/Theory Of Computation/TOC_Context_Free_Language_and_Context_Free_Grammar_P33_X3767.png",
+                    "assets/Theory Of Computation/TOC_Context_Free_Language_and_Context_Free_Grammar_P33_X3769.png",
+                    "assets/Theory Of Computation/TOC_Context_Free_Language_and_Context_Free_Grammar_P33_X3773.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "TOC_CONTEXT_FREE_LANGUAGE_AND_CONTEXT_FREE_GRAMMAR_2016_Q09",
+            "subject": "Theory Of Computation",
+            "topic": "Context Free Language and Context Free Grammar",
+            "subtopic": "The language L(G1)  L(G2) is",
+            "year": 2016,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 9,
+            "tags": [
+                "Context Free Language and Context Free Grammar",
+                "The language L(G1)  L(G2) is",
+                "Theory Of Computation"
+            ],
+            "question": {
+                "text": "Which one of the following grammars is free from \nleft recursion?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "S \\rightarrow AB",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "S \\rightarrow Ab | Bb | c \n\n\nA \\rightarrow Aa | b \n\nA \\rightarrow Bd |  \n\n\nB \\rightarrow c \n\nB \\rightarrow e",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "S \\rightarrow Aa | B",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "S \\rightarrow Aa | Bb | c \n\n\nA \\rightarrow Bb |Sc |  \n\nA \\rightarrow Bd |  \n\n\nB \\rightarrow d \n\nB \\rightarrow Ae | ",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "B"
+            ],
+            "solution": {
+                "text": "(a) S \\rightarrow AB \n\n\nA \\rightarrow Aa | b \n\n\nB \\rightarrow c \n\n\nA \\rightarrow A there is a left recursion A to A. \n\n(b) S \\rightarrow Ab | Bb | c \n\n\nA \\rightarrow Bd |  \n\n\nB \\rightarrow e \n\n\nThere is not left recursion. \n\n(c) S \\rightarrow Aa | B \n\n\nA \\rightarrow Bb |Sc |  \n\n\nB \\rightarrow d \n\n\nS \\rightarrow A \\rightarrow S indirectly there is a left \nrecursion S to S. \n\n(d) S \\rightarrow Aa | Bb | c \n\n\nA \\rightarrow Bd |  \n\n\nB \\rightarrow Ae |  \n\n\nA \\rightarrow B \\rightarrow A indirectly there is a left \nrecursion A to A.",
+                "images": [
+                    "assets/Theory Of Computation/TOC_Context_Free_Language_and_Context_Free_Grammar_P33_X3765.png",
+                    "assets/Theory Of Computation/TOC_Context_Free_Language_and_Context_Free_Grammar_P33_X3767.png",
+                    "assets/Theory Of Computation/TOC_Context_Free_Language_and_Context_Free_Grammar_P33_X3769.png",
+                    "assets/Theory Of Computation/TOC_Context_Free_Language_and_Context_Free_Grammar_P33_X3773.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "TOC_CONTEXT_FREE_LANGUAGE_AND_CONTEXT_FREE_GRAMMAR_2016_Q10",
+            "subject": "Theory Of Computation",
+            "topic": "Context Free Language and Context Free Grammar",
+            "subtopic": "B → Ae | ",
+            "year": 2016,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 10,
+            "tags": [
+                "Context Free Language and Context Free Grammar",
+                "B → Ae | ",
+                "Theory Of Computation"
+            ],
+            "question": {
+                "text": "Consider the following context-free grammars: \n\nG1: S \\rightarrow aS | B \n\n       B \\rightarrow b | bB \n\nG2: S \\rightarrow aA | bB \n\n       A \\rightarrow aA | B |  \n\n       B \\rightarrow bB |  \n\nWhich one of the following pairs of languages is \ngenerated by G1 and G2 respectively?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "{am bn│m > 0 or n > 0}  and {am bn |m >0 and \nn > 0}",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "{am bn│m > 0 and n > 0}  and {am bn |m > 0 or \nn \\ge 0}",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "{am bn│m \\ge 0 or n > 0}and {am bn |m > 0 and \nn > 0}",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "{am bn│m \\ge 0 and n > 0}  and {am bn |m > 0 or \nn > 0}",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "D"
+            ],
+            "solution": {
+                "text": "• \nG1: S \\rightarrow aS | B \n\n             B \\rightarrow b | bB \n\n              B = b+ \n\n              S = a*b+ \n\n              L1 = {am bn│m \\ge 0 and n > 0} \n• \nG2: S \\rightarrow aA | bB \n\n             A \\rightarrow aA | B |  \n\n             B \\rightarrow bB |  \n\n             B = b* \n\n             A = a*b* \n\n             S = aa*b* | bb* \n\n             L2 = a+ b*  b+ \n\n            L2 = {am bn |m > 0 or n > 0} \n\n\n   Hence, option (d) is correct.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "TOC_CONTEXT_FREE_LANGUAGE_AND_CONTEXT_FREE_GRAMMAR_2009_Q11",
+            "subject": "Theory Of Computation",
+            "topic": "Context Free Language and Context Free Grammar",
+            "subtopic": "n > 0}",
+            "year": 2009,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 11,
+            "tags": [
+                "Context Free Language and Context Free Grammar",
+                "n > 0}",
+                "Theory Of Computation"
+            ],
+            "question": {
+                "text": "S \\rightarrow aSa | bSb | a | b \n\nThe language generated by the above grammar over \nthe alphabet {a, b} is the set of",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "All palindromes",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "All odd length palindromes",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "Strings that begin and end with the same \nsymbol",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "All even length palindromes \n\nCommon data for question 12 and 13. \nA CFG G is given with the following productions where \nS is the start symbol, A is a non-terminal and a and b are \nterminals. \n\nS \\rightarrow aS | A \n\nA \\rightarrow aAb | bAa | ",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "B"
+            ],
+            "solution": {
+                "text": "• \nS \\rightarrow aSa | bSb | a | b \n\n     This grammar will generate all odd length \npalindrome strings.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "TOC_CONTEXT_FREE_LANGUAGE_AND_CONTEXT_FREE_GRAMMAR_2008_Q12",
+            "subject": "Theory Of Computation",
+            "topic": "Context Free Language and Context Free Grammar",
+            "subtopic": "A → aAb | bAa | ",
+            "year": 2008,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 12,
+            "tags": [
+                "Context Free Language and Context Free Grammar",
+                "A → aAb | bAa | ",
+                "Theory Of Computation"
+            ],
+            "question": {
+                "text": "Which of the following strings is generated by the \ngrammar above?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "aabbaba",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "aabaaba",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "abababb",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "aabbaab",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "D"
+            ],
+            "solution": {
+                "text": "S \\rightarrow aS | A \n\nA \\rightarrow aAb | b A a |  \n\n(a) aabbaba \\rightarrow Not Possible. \n\n(b) aabaaba \\rightarrow Not Possible. \n\n(c) abababb \\rightarrow Not Possible. \n\n(d) aabbaab \\rightarrow Possible. \n\nHence, option (d) is correct.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "TOC_CONTEXT_FREE_LANGUAGE_AND_CONTEXT_FREE_GRAMMAR_2008_Q13",
+            "subject": "Theory Of Computation",
+            "topic": "Context Free Language and Context Free Grammar",
+            "subtopic": "grammar above?",
+            "year": 2008,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 13,
+            "tags": [
+                "Context Free Language and Context Free Grammar",
+                "grammar above?",
+                "Theory Of Computation"
+            ],
+            "question": {
+                "text": "For the correct answer in above Question, how many \nsteps are required to derive the string \"aabbaab\" and \nhow many parse trees are there?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "6 and 1",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "6 and 2",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "7 and 2",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "4 and 2",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "A"
+            ],
+            "solution": {
+                "text": "S \\rightarrow aS | A \n\nA \\rightarrow aAb | bAa |  \n\n\nS \\rightarrow aS \\rightarrow aA \\rightarrow aaAb \\rightarrow aabAab \\rightarrow aabbAaab \n \\rightarrow aabbaab \n\nTotal number of steps = 6 and 1 Parse Tree.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "TOC_CONTEXT_FREE_LANGUAGE_AND_CONTEXT_FREE_GRAMMAR_2008_Q14",
+            "subject": "Theory Of Computation",
+            "topic": "Context Free Language and Context Free Grammar",
+            "subtopic": "how many parse trees are there?",
+            "year": 2008,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 14,
+            "tags": [
+                "Context Free Language and Context Free Grammar",
+                "how many parse trees are there?",
+                "Theory Of Computation"
+            ],
+            "question": {
+                "text": "Consider a CFG with the following productions.  \n\nS \\rightarrow AA | B \n\nA \\rightarrow 0A | A0 |1 \n\nB \\rightarrow 0B00 | 1 \n\nS is the start symbol, A and B are non-terminals and \n0 and 1 are the terminals. The language generated by \nthis grammar is",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "{0n102n | n \\ge 1}",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "{0i10j10k│i, j, k \\ge 0} \\cup {0n102n | n \\ge 0}",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "{0i10j│i, j \\ge 0} \\cup {0n102n |n \\ge 0}",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "The set of all strings over {0, 1} containing at \nleast two 0's",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "B"
+            ],
+            "solution": {
+                "text": "B \\rightarrow 0B00 | 1 \n\n\n\nB = 0n102n \n\nA \\rightarrow 0A | A0 |1 \n\n\n\nA = 0*10* \n\nS \\rightarrow AA | B \n\n\n\nS = {0*10*0*10*}  {0n102n} \n\n\n   = {0*10*10*}  {0n102n} \n• \n0*10*10* = {0i10j10k│i, j, k \\ge 0} \n• \n0n102n = {0n102n | n \\ge 0}",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "TOC_CONTEXT_FREE_LANGUAGE_AND_CONTEXT_FREE_GRAMMAR_2008_Q15",
+            "subject": "Theory Of Computation",
+            "topic": "Context Free Language and Context Free Grammar",
+            "subtopic": "least two 0's",
+            "year": 2008,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 15,
+            "tags": [
+                "Context Free Language and Context Free Grammar",
+                "least two 0's",
+                "Theory Of Computation"
+            ],
+            "question": {
+                "text": "Which of the following statements are true? \n\n1. Every left - recursive grammar can be \nconverted to a right - recursive grammar \nand \nvice-versa \n\n2. All  - productions can be removed from any \ncontext - free grammar by  suitable \ntransformations \n\n3. The language generated by a context-free \ngrammar all of whose productions are of the \nform X \\rightarrow  w or wY (where, w is a string of \nterminals and Y is a non-terminal), is always \nregular \n\n4. The derivation trees of strings generated by a \ncontext-free grammar in  Chomsky \nNormal \nForm are always binary trees",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "1, 2, 3 and 4",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "2, 3 and 4 only",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "1, 3 and 4 only",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "1, 2 and 4 only \n\nContext Free Language Identification",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "C"
+            ],
+            "solution": {
+                "text": "1. Every left - recursive grammar can be \nconverted to a right - recursive grammar and \nvice-versa. TRUE \n\n2. All  - productions can be removed from any \ncontext - free grammar by  suitable \ntransformations. FALSE \n\n3. The language generated by a context-free \ngrammar all of whose productions are of the \nform X \\rightarrow  w or wY (where, w is a string of \nterminals and Y is a non-terminal), is always \nregular. TRUE \n\n4. The derivation trees of strings generated by a \ncontext-free grammar in Chomsky Normal \nForm are always binary trees. TRUE",
+                "images": [
+                    "assets/Theory Of Computation/TOC_Context_Free_Language_and_Context_Free_Grammar_P35_X3926.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "TOC_CONTEXT_FREE_LANGUAGE_AND_CONTEXT_FREE_GRAMMAR_2022_Q16",
+            "subject": "Theory Of Computation",
+            "topic": "Context Free Language and Context Free Grammar",
+            "subtopic": "Context Free Language Identification",
+            "year": 2022,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MSQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 16,
+            "tags": [
+                "Context Free Language and Context Free Grammar",
+                "Context Free Language Identification",
+                "Theory Of Computation"
+            ],
+            "question": {
+                "text": "Consider the following languages: \n\nL1 = {an wan  | w  {a, b}*} \n\nL2 = {wxwR  | w, x{a, b}* , |w|, |x| > 0}  \n\nNote that wR is the reversal of the string w. Which of \nthe following is/are TRUE?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "L1 and L2 are regular",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "L1 and L2 are context - free",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "L1 is regular and L2 is context - free",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "L1 and L2 are context - free but not regular",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "A",
+                "B",
+                "C"
+            ],
+            "solution": {
+                "text": "• \nL1= {an wan  | w{a, b}* } \n\n      Assume n = 0 \n\n      L1 = .w. \n\n          = w = {a, b}* \n\n          = (a + b)* Regular \n• \nL2 = {wxwR | w, x{a, b}*, |w|, |x| > 0} \n\nOR \n\n\n    = {wxwR  | w, x{a, b}+} \n\n\nIt is well known regular language. \n\n\nEvery regular language is also CFL. \n\n\nHence, option (a, b, c) are correct.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "TOC_CONTEXT_FREE_LANGUAGE_AND_CONTEXT_FREE_GRAMMAR_2022_Q17",
+            "subject": "Theory Of Computation",
+            "topic": "Context Free Language and Context Free Grammar",
+            "subtopic": "the following is/are TRUE?",
+            "year": 2022,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MSQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 17,
+            "tags": [
+                "Context Free Language and Context Free Grammar",
+                "the following is/are TRUE?",
+                "Theory Of Computation"
+            ],
+            "question": {
+                "text": "Consider the following languages: \n\nL1 = {ww | w  {a, b}*} \n\nL2 = {anbncm | m, n \\ge 0} \n\nL3 = {ambncn | m, n \\ge 0} \n\nWhich of the following statements is/are FALSE?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "L1 is not context - free but L2 and L3 are \ndeterministic context - free.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "Neither L1 nor L2 is context - free.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "L2, L3 and L2  L3 all are context - free.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "Neither L1 nor its complement is context - free.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "B",
+                "C",
+                "D"
+            ],
+            "solution": {
+                "text": "L1 = {ww | w  {a, b}*} \\Rightarrow CSL \n\n L2 = {an bn cm | m, n  0} \\Rightarrow an bn c* \\Rightarrow DCFL \n\nL3 = {am bn cn | m, n  0} a* bn cn \\Rightarrow DCFL \n• \nEvery DCFL language is CFL also \n• \nDCFL  DFCL \nan bn c* a* bn cn \n= an bn cn = CSL \n\nL\nww\n=\n = CFL",
+                "images": [
+                    "assets/Theory Of Computation/TOC_Context_Free_Language_and_Context_Free_Grammar_P36_X4003.png",
+                    "assets/Theory Of Computation/TOC_Context_Free_Language_and_Context_Free_Grammar_P36_X4003.png",
+                    "assets/Theory Of Computation/TOC_Context_Free_Language_and_Context_Free_Grammar_P36_X4003.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "TOC_CONTEXT_FREE_LANGUAGE_AND_CONTEXT_FREE_GRAMMAR_2021_Q18",
+            "subject": "Theory Of Computation",
+            "topic": "Context Free Language and Context Free Grammar",
+            "subtopic": "deterministic context - free.",
+            "year": 2021,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MSQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 18,
+            "tags": [
+                "Context Free Language and Context Free Grammar",
+                "deterministic context - free.",
+                "Theory Of Computation"
+            ],
+            "question": {
+                "text": "For a string w, we define wR to be the reverse of w. \nFor example, if  w = 01101 then wR = 10110. \n\nWhich of the following languages is/are context-\nfree?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "{w x wR xR | w, x {0, 1}*}",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "{w wR x xR | w, x {0, 1}*}",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "{w x wR | w, x {0, 1}*}",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "{w x xRwR | w, x{0, 1}*]",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "B",
+                "C",
+                "D"
+            ],
+            "solution": {
+                "text": "(a) \n     Not CFL \n\n(b) \n    CFL \n\n(c) .x. = x = (0 +1)* = Regular \n\n\nRegular means CFL also \n\n(d) \n    CFL \n\nHence, option (b, c, d) are correct.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "TOC_CONTEXT_FREE_LANGUAGE_AND_CONTEXT_FREE_GRAMMAR_2020_Q19",
+            "subject": "Theory Of Computation",
+            "topic": "Context Free Language and Context Free Grammar",
+            "subtopic": "free?",
+            "year": 2020,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 19,
+            "tags": [
+                "Context Free Language and Context Free Grammar",
+                "free?",
+                "Theory Of Computation"
+            ],
+            "question": {
+                "text": "Consider the language L = {an | n \\ge 0}  {an bn | \nn \\ge 0} and the following statements \n\nI. \nL is deterministic context-free \n\nII. L is context-free but not deterministic \ncontext-free \n\nIII. L is not LL(k) for any k. \n\nWhich of the above statements is/are TRUE?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "I only",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "II only",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "I and III only",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "III only",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "C"
+            ],
+            "solution": {
+                "text": "I. \nL is deterministic context-free  \n(True) \n\nII. L is context-free but deterministic context-free \n\n\n(False) \n\n\nRegular  DCFL = DCFL \n\n\nDPDA: \n\n\nIII. L is not LL(k) for any k. (True)",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "TOC_CONTEXT_FREE_LANGUAGE_AND_CONTEXT_FREE_GRAMMAR_2020_Q20",
+            "subject": "Theory Of Computation",
+            "topic": "Context Free Language and Context Free Grammar",
+            "subtopic": "Which of the above statements is/are TRUE?",
+            "year": 2020,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 20,
+            "tags": [
+                "Context Free Language and Context Free Grammar",
+                "Which of the above statements is/are TRUE?",
+                "Theory Of Computation"
+            ],
+            "question": {
+                "text": "Consider the following languages. \n\nL1 = {wxyx | w, x, y  (0 + 1)+} \n\nL2 = {xy | x, y  (a + b)*, |x| = |y|, x  y} \n\nWhich one of the following is TRUE?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "L1 is regular and L2 is context-free.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "L1is context-free but L2 is not context-free.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "Neither L1 nor L2 is context-free.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "L1 is context-free but not regular and L2 is \n\ncontext-free.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "A"
+            ],
+            "solution": {
+                "text": "L1 = wxwy \n\nPut minimum string in x = 0 or 1 \n• L1 = w0y0 + w1y1\n(\n)\n(\n)\n(\n)\n(\n)\n0 1\n0 0 1\n0 1\n1 0 1\n+\n+\n+\n+\n+\n+\n+\n+\n+\n is \nRegular \n• L2 = CFL language",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "TOC_CONTEXT_FREE_LANGUAGE_AND_CONTEXT_FREE_GRAMMAR_2019_Q21",
+            "subject": "Theory Of Computation",
+            "topic": "Context Free Language and Context Free Grammar",
+            "subtopic": "context-free.",
+            "year": 2019,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 21,
+            "tags": [
+                "Context Free Language and Context Free Grammar",
+                "context-free.",
+                "Theory Of Computation"
+            ],
+            "question": {
+                "text": "Which one of the following language over  \n\n = {a, b} is NOT context - free?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "{wwR | w{a, b}*}",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "{wan bn wR│w  {a, b}*, n \\ge 0}",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "{wan wR bn | w  {a, b}*, n \\ge 0}",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "{an bi│i  {n, 3n, 5n}, n \\ge 0}",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "C"
+            ],
+            "solution": {
+                "text": "(a) {wwR | w{a, b}*}. CFL \n\n(b) {wan bn wR│w  {a, b}*, n \\ge 0}. CFL \n\n(c) {wan wR bn | w  {a, b}*, n \\ge 0} . Not CFL \n\n(d) {an bi│i  {n, 3n, 5n}, n \\ge 0}. CFL",
+                "images": [
+                    "assets/Theory Of Computation/TOC_Context_Free_Language_and_Context_Free_Grammar_P36_X4005.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "TOC_CONTEXT_FREE_LANGUAGE_AND_CONTEXT_FREE_GRAMMAR_2018_Q22",
+            "subject": "Theory Of Computation",
+            "topic": "Context Free Language and Context Free Grammar",
+            "subtopic": " = {a, b} is NOT context - free?",
+            "year": 2018,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 22,
+            "tags": [
+                "Context Free Language and Context Free Grammar",
+                " = {a, b} is NOT context - free?",
+                "Theory Of Computation"
+            ],
+            "question": {
+                "text": "Consider the following languages:  \n\nI. \n{am bn cp dq |m + p = n + q, \n where m, n, p, q \\ge 0}  \n\nII. \n{am bn cp dq |m = n and p = q, \n where m, n, p, q \\ge 0}  \n\nIII. {am bn cp dq |m = n = p and p \\neq q, \n where m, n, p, q \\ge 0}  \n\nIV. {am bn cp dq |mn = p + q, where m, n, p, q \\ge 0}  \n\nWhich of the languages above are context-free?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "I and IV only",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "I and II only",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "II and III only",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "II and IV only",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "B"
+            ],
+            "solution": {
+                "text": "I. {am bn cp dq |m + p = n + q} is CFL \n\nII. L = am  bn  cb   dq is CFL. \n\nIII. {am bn cp dq |m = n = p and p \\neq q}. PDA not \nexist. So,it is not CFL. \n\nIV. {am bn cp dq |mn = p + q, where m, n, p, q \\ge 0}. \nIt is also not CFL. \n\nHence, option (b) is correct.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "TOC_CONTEXT_FREE_LANGUAGE_AND_CONTEXT_FREE_GRAMMAR_2016_Q23",
+            "subject": "Theory Of Computation",
+            "topic": "Context Free Language and Context Free Grammar",
+            "subtopic": "Which of the languages above are context-free?",
+            "year": 2016,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 23,
+            "tags": [
+                "Context Free Language and Context Free Grammar",
+                "Which of the languages above are context-free?",
+                "Theory Of Computation"
+            ],
+            "question": {
+                "text": "Consider the following languages:  \n\nL1 = {an bm cn + m : m, n \\ge 1}  \n\nL2 = {an bn c2n : n \\ge 1} Which one of the following is \nTRUE?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "Both L1 and L2 are context-free.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "L1 is context-free while L2 is not context-free.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "L2 is context-free while L1 is not context-free.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "Neither L1 nor L2 is context-free.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "B"
+            ],
+            "solution": {
+                "text": "• \nL1 = {an bm cn + m | m, n \\ge 1} \n\n           = {an bm cm cn | m, n \\ge 1} \n\n\nL1 is CFL. \n• \nL2 = {an bn c2n | n \\ge 1} \n\n           = CSL but Not CFL. \n\n\nHence, option (b) is correct.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "TOC_CONTEXT_FREE_LANGUAGE_AND_CONTEXT_FREE_GRAMMAR_2015_Q24",
+            "subject": "Theory Of Computation",
+            "topic": "Context Free Language and Context Free Grammar",
+            "subtopic": "TRUE?",
+            "year": 2015,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 24,
+            "tags": [
+                "Context Free Language and Context Free Grammar",
+                "TRUE?",
+                "Theory Of Computation"
+            ],
+            "question": {
+                "text": "Which of the following languages are context-free \n\nL1 = {am bn an bm | m, n \\ge 1} \n\nL2 = {am bn am bn│m, n \\ge 1} \n\nL3 = {am bn | m = 2n + 1}",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "L1 and L2 only",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "L1 and L3 only",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "L2 and L3 only",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "L3 only",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "B"
+            ],
+            "solution": {
+                "text": "L1 = {am bn an bm | m, n \\ge 1}= CFL \n\nL2 = {am bn am bn│m, n \\ge 1} = Not CFL \n\nL3 = {am bn |m = 2n + 1} = CFL",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "TOC_CONTEXT_FREE_LANGUAGE_AND_CONTEXT_FREE_GRAMMAR_2014_Q25",
+            "subject": "Theory Of Computation",
+            "topic": "Context Free Language and Context Free Grammar",
+            "subtopic": "L3 = {am bn | m = 2n + 1}",
+            "year": 2014,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 25,
+            "tags": [
+                "Context Free Language and Context Free Grammar",
+                "L3 = {am bn | m = 2n + 1}",
+                "Theory Of Computation"
+            ],
+            "question": {
+                "text": "Which of the following is TRUE?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "The language L ={an bn | n \\ge 0} is regular.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "The language L = {an | n is prime } is regular",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "The language L = {w |w has 3k + 1 b' s for \nsome k  N with \\sum = {a, b}} is regular.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "The language L = {w w | w * with \n = {0, 1}} is regular.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "C"
+            ],
+            "solution": {
+                "text": "(a) The language L ={an bn | n \\ge 0} is regular. \nFalse \n\n(b) The language L = {an | n is prime } is regular. \nFalse \n\n(c) The language L = {w |w has 3k + 1 b' s for \nsome k  N with \\sum = {a, b}} is regular. True \n\n(d) The language L = {w w | w * with \n = {0, 1}} is regular. False",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "TOC_CONTEXT_FREE_LANGUAGE_AND_CONTEXT_FREE_GRAMMAR_2014_Q26",
+            "subject": "Theory Of Computation",
+            "topic": "Context Free Language and Context Free Grammar",
+            "subtopic": " = {0, 1}} is regular.",
+            "year": 2014,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 26,
+            "tags": [
+                "Context Free Language and Context Free Grammar",
+                " = {0, 1}} is regular.",
+                "Theory Of Computation"
+            ],
+            "question": {
+                "text": "Consider the following languages over the alphabet  \nΣ = {0, 1, c}: \n\nL1 = {0n1n | n \\ge 0} \n\nL2 = {wcwr│w  {0, 1}*} \n\nL3 = {wwr | w  {0, 1}*} \n\nHere, wr is the reverse of the string w. Which of these \nlanguages are deterministic Context-free languages?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "None of the languages",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "Only L1",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "Only L1 and L2",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "All the three languages",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "C"
+            ],
+            "solution": {
+                "text": "Σ = {0, 1, c} \n\nL1 = {0n1n | n \\ge 0} \\Rightarrow DCFL \n\nL2 = {wcwr│w  {0, 1}* } \\Rightarrow DCFL \n\nL3 = {wwr | w{0, 1}*} CFL but not DCFL",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "TOC_CONTEXT_FREE_LANGUAGE_AND_CONTEXT_FREE_GRAMMAR_2010_Q27",
+            "subject": "Theory Of Computation",
+            "topic": "Context Free Language and Context Free Grammar",
+            "subtopic": "languages are deterministic Context-free languages?",
+            "year": 2010,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 27,
+            "tags": [
+                "Context Free Language and Context Free Grammar",
+                "languages are deterministic Context-free languages?",
+                "Theory Of Computation"
+            ],
+            "question": {
+                "text": "Consider the language \n\nL1={0i1j│i \\neq j} \n\nL2 = {0i 1j│i = j}  \n\nL3 = {0i 1j│i = 2j + 1} \n\nL4 = {0i1j |i \\neq 2j} \n\nWhich one of the following statements is true?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "Only L2 is context free",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "Only L2 and L3 are context free",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "Only L1 and L2 are context free",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "All are context free",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "D"
+            ],
+            "solution": {
+                "text": "L1={0i1j│i \\neq j} = DCFL \n\nL2 = {0i 1j│i = j} = DCFL \n\nL3 = {0i 1j│i = 2j + 1}= DCFL \n\nL4 = {0i1j |i \\neq 2j}= DCFL \n\n All are DCFLs and every DCFL is CFL.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "TOC_CONTEXT_FREE_LANGUAGE_AND_CONTEXT_FREE_GRAMMAR_2008_Q28",
+            "subject": "Theory Of Computation",
+            "topic": "Context Free Language and Context Free Grammar",
+            "subtopic": "Which one of the following statements is true?",
+            "year": 2008,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 28,
+            "tags": [
+                "Context Free Language and Context Free Grammar",
+                "Which one of the following statements is true?",
+                "Theory Of Computation"
+            ],
+            "question": {
+                "text": "Consider the following languages. \n\nL1 = {ai bj ck | i = j, k \\ge 1} \n\nL2 = {ai bj | j = 2i, i \\ge 0} \n\nWhich of the following is true?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "L1 is not a CFL but L2  is",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "L1  L2 = ϕ and L1  is non-regular",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "L1  L2  is not a CFL but L2  is",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "There is a 4 state PDA that accepts L1 but there \nis no DPDA that accepts L2",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "B"
+            ],
+            "solution": {
+                "text": "L1={ai bj ck |i = j, k \\ge 1} \\Rightarrow an bn c+ = DCFL \n\nL2 = {ai bj |j = 2i, i \\ge 0} ak b2k = DCFL \n\nEvery DCFL is CFL. \n• \nL1  L2 =  \n• \nL1  L2 = CFL \n• \nL2 is a DCFL. So, DPDA possible.  \n\nHence, option (b) is correct.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "TOC_CONTEXT_FREE_LANGUAGE_AND_CONTEXT_FREE_GRAMMAR_2008_Q29",
+            "subject": "Theory Of Computation",
+            "topic": "Context Free Language and Context Free Grammar",
+            "subtopic": "is no DPDA that accepts L2",
+            "year": 2008,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 29,
+            "tags": [
+                "Context Free Language and Context Free Grammar",
+                "is no DPDA that accepts L2",
+                "Theory Of Computation"
+            ],
+            "question": {
+                "text": "Which of the following languages is (are) non - \nregular? \n\nL1 = \n\nm n\n0 1 | 0\nm\nn\n\n\n\n\n\nL2 = {reads the same forward and backward} \n\nL3 = {contains an even number of 0's and an even \n    number of 1's}",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "L2 and L3 only",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "L1 and L2 only",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "L3 only",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "L2 only \n\nClosure Properties of Context Free Language",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "D"
+            ],
+            "solution": {
+                "text": "L1 = \n\nm n\n0 1 | 0\nm\nn\n\n\n\nFinite \n L2 = {reads the same forward and backward} \n Set of all palindrome (CFL) \n L3 = {contains an even number of 0's and an even \n        number of 1's} Regular \n\nL2 is not a regular. \n\nHence, option (d) is correct.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "TOC_CONTEXT_FREE_LANGUAGE_AND_CONTEXT_FREE_GRAMMAR_2021_Q30",
+            "subject": "Theory Of Computation",
+            "topic": "Context Free Language and Context Free Grammar",
+            "subtopic": "Closure Properties of Context Free Language",
+            "year": 2021,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MSQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 30,
+            "tags": [
+                "Context Free Language and Context Free Grammar",
+                "Closure Properties of Context Free Language",
+                "Theory Of Computation"
+            ],
+            "question": {
+                "text": "Let L1 be a regular language and L2 be a context-free \nlanguage. Which of the following languages is/are \ncontext-free?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "L\nL\n",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "L\nL\n",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "L\n(L\nL )\n\n",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "(\n) (\n)\nL\nL\nL\nL\n\n\n",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "B",
+                "C",
+                "D"
+            ],
+            "solution": {
+                "text": "L1 = Regular, L2 = CFL \n\n(a) Regular \n CFL\n\n= may/may not be CFL. \n\n (b) Regular \nCFL = Regular \n CFL = CFL\n\n\n\n\n (c) Regular  (CFL  CFL ) = Regular  * = *  \n\n (d) (\n)\nRegular\nCFL\n(Regular\nCFL)\n\n\n\n\n\n       = CFL  CFL = CFL \n• \nEvery Regular is CFL \nHence, option (b, c, d) are correct.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "TOC_CONTEXT_FREE_LANGUAGE_AND_CONTEXT_FREE_GRAMMAR_2021_Q31",
+            "subject": "Theory Of Computation",
+            "topic": "Context Free Language and Context Free Grammar",
+            "subtopic": "",
+            "year": 2021,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 31,
+            "tags": [
+                "Context Free Language and Context Free Grammar",
+                "",
+                "Theory Of Computation"
+            ],
+            "question": {
+                "text": "Suppose that L1 is a regular language and L2 is a \ncontext-free language. Which one of the following \nlanguages as NOT necessarily context-free?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "L1   L2",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "L1 . L2",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "L1 - L2",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "L1  L2",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "C"
+            ],
+            "solution": {
+                "text": "L1 \\Rightarrow Regular  \n\n L2 \\Rightarrow CFL \n\n(i)  L1   L2 \\Rightarrow Reg  CFL \\Rightarrow CFL \n\n(ii)  L1 . L2 \\Rightarrow Reg  CFL \\Rightarrow CFL \n\n(iii)  L1 - L2 \\Rightarrow Reg - CFL \\Rightarrow Reg  CFL \\Rightarrow CSL \n\n(iv)  L1  L2 \\Rightarrow Reg  CFL \\Rightarrow CFL",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "TOC_CONTEXT_FREE_LANGUAGE_AND_CONTEXT_FREE_GRAMMAR_2017_Q32",
+            "subject": "Theory Of Computation",
+            "topic": "Context Free Language and Context Free Grammar",
+            "subtopic": "languages as NOT necessarily context-free?",
+            "year": 2017,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 32,
+            "tags": [
+                "Context Free Language and Context Free Grammar",
+                "languages as NOT necessarily context-free?",
+                "Theory Of Computation"
+            ],
+            "question": {
+                "text": "Let L1, L2 be any two context-free languages and R \nbe any regular language. Then which of the \nfollowing is/are CORRECT?  \n\nI.  L1  L2 is context − free  \n\nII.  \nL is context − free  \n\nIII. L1 − R is context − free  \n\nIV. L1  L2 is context − free",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "I, II and IV only",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "I and III only",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "II and IV only",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "I only",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "B"
+            ],
+            "solution": {
+                "text": "L1 = CFL, L2 = CFL and R = Regular language \n\nI. \nCFL1  CFL2 \\Rightarrow CFL  \n\nII. CFL \nCSL\n\n\n\n III. CFL - Regular = CFL  Regular \n\n\n                         = CFL  Regular = CFL \n\nIV. CFL1  CFL2 \\Rightarrow CSL \n• \nCFL is not closed under compliment and \nintersection.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "TOC_CONTEXT_FREE_LANGUAGE_AND_CONTEXT_FREE_GRAMMAR_2017_Q33",
+            "subject": "Theory Of Computation",
+            "topic": "Context Free Language and Context Free Grammar",
+            "subtopic": "IV. L1  L2 is context − free",
+            "year": 2017,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 33,
+            "tags": [
+                "Context Free Language and Context Free Grammar",
+                "IV. L1  L2 is context − free",
+                "Theory Of Computation"
+            ],
+            "question": {
+                "text": "Consider the following languages over the alphabet \nΣ = {a, b, c}  \n\nLet L1 = {an bn cm | m, n \\ge 0} and \n\n      L2 ={ambncn | m, n \\ge 0}. \n\nWhich of the following are context-free languages?  \n\nI.  L1  L2  \n II.  L1  L2",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "I only",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "II only",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "I and II",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "Neither I nor II",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "A"
+            ],
+            "solution": {
+                "text": "L1 = {an bn cm | m, n \\ge 0} = CFL \n\nL2 ={am bn cn  | m, n \\ge 0} = CFL \n\n I. \nL1  L2 \\Rightarrow CFL  CFL = CFL \n\nII. L1  L2 = {an bn c*   a* bn cn} \n\n\n             = {an bn cn | n \\ge 0} \\Rightarrow CSL",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "TOC_CONTEXT_FREE_LANGUAGE_AND_CONTEXT_FREE_GRAMMAR_2011_Q34",
+            "subject": "Theory Of Computation",
+            "topic": "Context Free Language and Context Free Grammar",
+            "subtopic": "II.  L1  L2",
+            "year": 2011,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 34,
+            "tags": [
+                "Context Free Language and Context Free Grammar",
+                "II.  L1  L2",
+                "Theory Of Computation"
+            ],
+            "question": {
+                "text": "Let P be a regular language and Q be a context free \nlanguage such that Q  P. (For example, let P be the \nlanguage represented by the regular expression p*q* \nand Q be {pn qn | n  N}). Then which of the \nfollowing is ALWAYS regular?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "P  Q",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "P - Q",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "Σ* - P",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "Σ* - Q",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "C"
+            ],
+            "solution": {
+                "text": "A. Regular  CFL \\Rightarrow CFL \n\nB. Regular - CFL \n\n\nRegular  CFL \\Rightarrow need not be regular \n\n C. * - Regular \\Rightarrow Regular \n\n D. * - CFL \\Rightarrow need not be regular \n\n  Hence, option (c) is correct.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "TOC_CONTEXT_FREE_LANGUAGE_AND_CONTEXT_FREE_GRAMMAR_2009_Q35",
+            "subject": "Theory Of Computation",
+            "topic": "Context Free Language and Context Free Grammar",
+            "subtopic": "following is ALWAYS regular?",
+            "year": 2009,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 35,
+            "tags": [
+                "Context Free Language and Context Free Grammar",
+                "following is ALWAYS regular?",
+                "Theory Of Computation"
+            ],
+            "question": {
+                "text": "Which one of the following is FALSE?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "There is a unique minimal DFA for every \nregular language.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "Every NFA can be converted to an equivalent \nPDA.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "Complement of every context-free language is \nrecursive.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "Every nondeterministic PDA can be converted \nto an equivalent deterministic PDA.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "D"
+            ],
+            "solution": {
+                "text": "• \nFor Regular language minimal DFA is unique. \n• \nEvery NFA can be converted to an equivalent \nPDA. \n• \nCFL\nCSL\n=\n\nEvery CSL is recursive. \n• \nEvery nondeterministic PDA can be converted \nto an equivalent deterministic PDA.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        }
+    ]
+}

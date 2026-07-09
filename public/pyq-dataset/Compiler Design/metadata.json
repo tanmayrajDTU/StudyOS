@@ -1,0 +1,35 @@
+{
+    "subject": "Compiler Design",
+    "totalTopics": 7,
+    "totalQuestions": 76,
+    "topics": [
+        {
+            "name": "Introduction to Compiler",
+            "questionCount": 4
+        },
+        {
+            "name": "Lexical Analysis",
+            "questionCount": 4
+        },
+        {
+            "name": "Syntax Analysis",
+            "questionCount": 25
+        },
+        {
+            "name": "Syntax Directed Translation",
+            "questionCount": 12
+        },
+        {
+            "name": "Intermediate Code Generation",
+            "questionCount": 6
+        },
+        {
+            "name": "Code Optimization",
+            "questionCount": 17
+        },
+        {
+            "name": "Runtime Environment",
+            "questionCount": 8
+        }
+    ]
+}

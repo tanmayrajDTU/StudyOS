@@ -1,0 +1,2174 @@
+{
+    "subject": "Computer Organization and Architecture",
+    "topic": "Instruction Pipelining",
+    "questionCount": 27,
+    "questions": [
+        {
+            "id": "COA_INSTRUCTION_PIPELINING_2014_Q01",
+            "subject": "Computer Organization and Architecture",
+            "topic": "Instruction Pipelining",
+            "subtopic": "Basics of Pipelining",
+            "year": 2014,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 1,
+            "tags": [
+                "Instruction Pipelining",
+                "Basics of Pipelining",
+                "Computer Organization and Architecture"
+            ],
+            "question": {
+                "text": "Consider two processors P1 and P2 executing the \nsame instructions set. Assume that under identical \nconditions, for the same input, a program running on \nP2 takes 25% less time but incurs 20% more CPI \n(clock cycles per instruction) as compared to the \nprogram running on P1. If the clock frequency of P1 \nis 1GHZ, then the clock frequency of P2 (in GHZ) is \n________.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "1.6"
+            ],
+            "solution": {
+                "text": "Total execution time = Number of Instruction \\times CPI \n× cycle time \n\nBut in the Question number of Instruction are same \nfor processor P1 & P2 \n\n1P\nET\nCPI \\times cycle time\n\nCPI \\times 1 nsec.\n=\n=\n\n\nClock frequency P1 = 1GHZ \n\nCycle time P1 = 1\n1 G sec. \\Rightarrow 10-9 sec. = 1 nsec. \n\nP2\nET\n1.2 CPI \\times cycle time\n=\n[20% more CPI] \nP1\nCycle time = 1nsec. \n\nP2\nP1\nET\n0.75 ET\n=\n(25% less time that of P1) \n\n0.75 \\times ETP1 = 1.2 CPI \\times cycle time2. \n\n0.75 \\times CPI \\times 1nsec. = 1.2CPI \\times cycle time2 \n\n0.75 CPI = 1.2 CPI \\times cycle time2 \n\nCycle time2 = 0.75\n1.2 = 0.625 nsec. \n\nClock frequency P2 = \nP2\ncycle time \n\n\n                            = \n-9\n0.625 10\n\n= 1.6GHZ.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "COA_INSTRUCTION_PIPELINING_2008_Q02",
+            "subject": "Computer Organization and Architecture",
+            "topic": "Instruction Pipelining",
+            "subtopic": "________.",
+            "year": 2008,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 2,
+            "tags": [
+                "Instruction Pipelining",
+                "________.",
+                "Computer Organization and Architecture"
+            ],
+            "question": {
+                "text": "In an instruction execution pipeline, the earliest that \nthe data TLB (Translation Look a side Buffer) can \nbe accessed is",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "Before effective address calculation has started",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "During effective address calculation",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "After \neffective \naddress \ncalculation \nhas \ncompleted",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "After data cache lookup has completed \n\nPerformance Evaluation of Pipeline",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "C"
+            ],
+            "solution": {
+                "text": "Effective adress (EA) →: Actual address of the object",
+                "images": [
+                    "assets/Computer Organization and Architecture/COA_Instruction_Pipelining_P26_X2694.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "COA_INSTRUCTION_PIPELINING_2023_Q03",
+            "subject": "Computer Organization and Architecture",
+            "topic": "Instruction Pipelining",
+            "subtopic": "Performance Evaluation of Pipeline",
+            "year": 2023,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 3,
+            "tags": [
+                "Instruction Pipelining",
+                "Performance Evaluation of Pipeline",
+                "Computer Organization and Architecture"
+            ],
+            "question": {
+                "text": "Consider a 3-stage pipelined processor having a \ndelay of 10 ns (nanoseconds), 20 ns, and 14 ns, for \nthe first, second, and the third stages, respectively. \nAssume that there is no other delay and the processor \ndoes not suffer from any pipeline hazards. Also \nassume that one instruction is fetched every cycle. \n\nThe total execution time for executing 100 \ninstructions on this processor is __________ ns.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "2040"
+            ],
+            "solution": {
+                "text": "Number of stage (k) = 3. \n\nNumber of instruction [n] = 100.  \n\n\n\nTp = max (stage delay) = max (10, 20, 14) \n\nTp = 20 nsec \n\nETpipe = [k + (n - 1)] tp \n\n          = [3 + (100 -1)]20 = 102 \\times 20 \n\nETpipe = 2040 nsec",
+                "images": [
+                    "assets/Computer Organization and Architecture/COA_Instruction_Pipelining_P26_X930.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "COA_INSTRUCTION_PIPELINING_2020_Q04",
+            "subject": "Computer Organization and Architecture",
+            "topic": "Instruction Pipelining",
+            "subtopic": "instructions on this processor is __________ ns.",
+            "year": 2020,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 4,
+            "tags": [
+                "Instruction Pipelining",
+                "instructions on this processor is __________ ns.",
+                "Computer Organization and Architecture"
+            ],
+            "question": {
+                "text": "Consider a non-pipelined processor operating at 2.5 \nGHz. It takes 5 clock cycles to complete an \ninstruction. You are going to make a 5-stage pipeline \nout of this processor. Overheads associated with \npipelining force you to operate the pipelined \nprocessor at 2 GHz. In a given program, assume that \n30% are memory instructions, 60% are ALU \ninstructions and the rest are branch instructions. 5% \nof the memory instructions cause stalls of 50 clock \ncycles each due to cache misses and 50% of the \nbranch instructions cause stalls of 2 cycles each. \nAssume that there are no stalls associated with the \nexecution of ALU instructions. For this program, the \nspeedup achieved by the pipelined processor over \nthe non-pipelined processor (round off to 2 decimal \nplaces) is _________.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "2.15",
+                "2.18"
+            ],
+            "solution": {
+                "text": "Non pipeline processor: \n\nFrequency = 2.5 GHZ \n\nCycle time = \nfrequency \\Rightarrow \nsec.\n2.5 G\n\n\n\n-9\n1 10\n 0.4 n sec \n\nCycle time = 0.4 nsec \n\nETNON PIPE = CPI \\times Cycle time = 5 \\times 0.4 n sec. \n\nPIPE\nET\n2 nsec.\n=\n\n\n\nNumber of Stalls / Inst.= .30 \\times 0.05 \\times 50 +.60 \\times 0 + \n.10× .50 \\times 2 = .75 + .1 \n\nn\nNumber of stalls/Inst = 0.85 \n\nETPIPE = (1 + Number of stalls/Inst.) \\times cycle time \npipe. \n\nCycle time pipeline = 1 sec.\n2 G\n \\Rightarrow \n-9\n2 \n\n\n0.5 nsec \n\nETPIPE = (1 + 0.85) \\times 0.5 n sec. = 1.85 ×0.5 \n\nPIPE\nET\n 0.925 ns\n\n\n\nNONPIPE\nPIPE\nET \nS = \nET\n= \n0.925 = 2.16",
+                "images": [
+                    "assets/Computer Organization and Architecture/COA_Instruction_Pipelining_P27_X2899.png",
+                    "assets/Computer Organization and Architecture/COA_Instruction_Pipelining_P27_X2903.png"
+                ],
+                "latex": [],
+                "tables": [
+                    {
+                        "headers": [
+                            "WB",
+                            "",
+                            "",
+                            "",
+                            "I 1"
+                        ],
+                        "rows": [
+                            [
+                                "PO",
+                                "",
+                                "",
+                                "",
+                                "I 1"
+                            ],
+                            [
+                                "OF",
+                                "",
+                                "",
+                                "I 1",
+                                ""
+                            ],
+                            [
+                                "ID",
+                                "",
+                                "I 1",
+                                "",
+                                ""
+                            ],
+                            [
+                                "IF",
+                                "I 1",
+                                "",
+                                "",
+                                ""
+                            ]
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "id": "COA_INSTRUCTION_PIPELINING_2018_Q05",
+            "subject": "Computer Organization and Architecture",
+            "topic": "Instruction Pipelining",
+            "subtopic": "places) is _________.",
+            "year": 2018,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 5,
+            "tags": [
+                "Instruction Pipelining",
+                "places) is _________.",
+                "Computer Organization and Architecture"
+            ],
+            "question": {
+                "text": "The instruction pipeline of a RISC processor has the \nfollowing stages. Instruction Fetch (IF), Instruction \nDecode (ID), Operand Fetch (OF), Perform \nOperation (PO) and Writeback (WB) The IF, ID, OF \nand WB stages take 1 clock cycle each for every \ninstruction. Consider a sequence of 100 instructions, \nIn the PO stage, 40 instructions take 3 clock cycles \neach, 35 instructions take 2 clock cycles each, and \nthe remaining 25 instructions take 1 clock cycle \neach. Assume that there are no data hazards and no \ncontrol hazards. \n\nThe number of clock cycles required for completion \nof execution of the sequence of instructions is \n______.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "219"
+            ],
+            "solution": {
+                "text": "IF, ID, OF, PO, WB \n\nNumber of stages = 5 \n\n(Number of Inst.) n = 100 \n\nIF ID OF WB \n\nETPIPE = [k + (n-1)] cycle \n\nwithout stalls\nwithout forwards \nPIPE\nET\n= [5 + (100 -1)] cycle \n\n\n= 104 cycle \n\n40 Inst. Takes 3 clocks cycle \n\n35 Inst. Takes 2 clocks cycle \n\n25 Inst. Takes 1 clocks cycle \n\nNumber of stalls = 40 \\times 2 + 35 ×1 + 25 \\times 0 \n\n                           = 80 + 35 = 115 cycle \n\nTotal number of clock cycle take = 104 + 115  \n\n\n                                              = 219 cycle \n\nAlternate Approch. \nWB \n\n\n\nI1 \nPO \n\n\n\nI1 \nOF \n\n\nI1 \n\nID \n\nI1 \n\n\nIF \nI1 \n\n\n\n\nIF ID OF     PO    WB \n\nFor 1st Inst. \n1+1+1+1+ Po stages \n\nTotal times = 1 + 1 + 1 + 1 + (40 \\times 3 + 35 \\times 2 + 25 \\times \n1) = 4 + 120 + 70 + 25 = 219",
+                "images": [
+                    "assets/Computer Organization and Architecture/COA_Instruction_Pipelining_P27_X2899.png",
+                    "assets/Computer Organization and Architecture/COA_Instruction_Pipelining_P27_X2903.png"
+                ],
+                "latex": [],
+                "tables": [
+                    {
+                        "headers": [
+                            "WB",
+                            "",
+                            "",
+                            "",
+                            "I 1"
+                        ],
+                        "rows": [
+                            [
+                                "PO",
+                                "",
+                                "",
+                                "",
+                                "I 1"
+                            ],
+                            [
+                                "OF",
+                                "",
+                                "",
+                                "I 1",
+                                ""
+                            ],
+                            [
+                                "ID",
+                                "",
+                                "I 1",
+                                "",
+                                ""
+                            ],
+                            [
+                                "IF",
+                                "I 1",
+                                "",
+                                "",
+                                ""
+                            ]
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "id": "COA_INSTRUCTION_PIPELINING_2017_Q06",
+            "subject": "Computer Organization and Architecture",
+            "topic": "Instruction Pipelining",
+            "subtopic": "______.",
+            "year": 2017,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 6,
+            "tags": [
+                "Instruction Pipelining",
+                "______.",
+                "Computer Organization and Architecture"
+            ],
+            "question": {
+                "text": "Instruction execution in a processor is divided into 5 \nstages. Instruction Fetch (IF), Instruction Decode \n(ID), Operand Fetch (OF), Execute (EX) and Write \nBack (WB). These stages take 5, 4, 20, 10 and 3 \nnanoseconds \n(ns) \nrespectively. \nA \npipelined \nimplementation of the processor requires buffering \n\nbetween each pair of consecutive stages with a delay \nof 2 ns. Two pipelined implementations of the \nprocessor are contemplated: \n\n(I) a naive pipeline implementation (NP) with 5 \nstages and (II) an efficient pipeline (EP) where the \nOF stage is divided into stages OF1 and OF2 with \nexecution times of 12 ns and 8 ns respectively.  \n\nThe speedup (correct to two decimal places) \nachieved by EP over NP in executing 20 independent \ninstructions with no hazards is _____.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "1.49",
+                "1.52"
+            ],
+            "solution": {
+                "text": "Naïve pipeline [NP] \n\n5 stages: IF,     ID,     OF,     EX,     WB. \n\nK = 5  5ns,   4ns,   20ns,   10ns,   30ns \n\nBuffer Delay = 2ns \n\n\nNumber of Instruction = 20 n = 20 \n\nMax (stage Delay + Buffer Delay) \n\nNP \n\ntp = max (5, 4, 20, 10, 3) + Buffer Delay = 20 + 2 \n\nNP\ntp\n = 22 ns \n\nETNP = [k + n -1] tpNP \n\n [5 + (20 - 1)] \\times 22 ns \\Rightarrow 24 \\times 22 ns \n\nNP\nET = 528 nsec \n\nEfficient pipe line [EP] \n\n6 Stages  IF,   ID,  OF1 \n  OF2   EX   WB \n\nk\n=\n     (5,   4,    12,        8,        10,    3) n sec. \n\nBuffer Delay = 2 nsec. \n\nEP \n\ntp = max (stage Delay + Buffer Delay) \n\n max (5, 4, 12, 8, 10, 3) + 2ns = 12 + 2 \n\nEP\ntp\n14 nsec.\n=\n\n\nn = 20  \n\n(\n)\n(\n)\nEP\nEP\nEP\ntp\n\n20 1\n25 14\nk\nn\n= +\n−\n\n\n\n+\n−\n\n=\n\n\n\n\n\nNP\nET = 350 nsec \n\nSpeed up factor = Perfomance of EP\nPerfomance of NP =\nEP\nNP\n1/ ET\n1/ ET\n\n\n\n= \nEP\nNP\nET\nET\n= 528\n\nSpeed up foctor = 1.508",
+                "images": [
+                    "assets/Computer Organization and Architecture/COA_Instruction_Pipelining_P27_X2899.png",
+                    "assets/Computer Organization and Architecture/COA_Instruction_Pipelining_P27_X2903.png"
+                ],
+                "latex": [],
+                "tables": [
+                    {
+                        "headers": [
+                            "WB",
+                            "",
+                            "",
+                            "",
+                            "I 1"
+                        ],
+                        "rows": [
+                            [
+                                "PO",
+                                "",
+                                "",
+                                "",
+                                "I 1"
+                            ],
+                            [
+                                "OF",
+                                "",
+                                "",
+                                "I 1",
+                                ""
+                            ],
+                            [
+                                "ID",
+                                "",
+                                "I 1",
+                                "",
+                                ""
+                            ],
+                            [
+                                "IF",
+                                "I 1",
+                                "",
+                                "",
+                                ""
+                            ]
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "id": "COA_INSTRUCTION_PIPELINING_2017_Q07",
+            "subject": "Computer Organization and Architecture",
+            "topic": "Instruction Pipelining",
+            "subtopic": "instructions with no hazards is _____.",
+            "year": 2017,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 7,
+            "tags": [
+                "Instruction Pipelining",
+                "instructions with no hazards is _____.",
+                "Computer Organization and Architecture"
+            ],
+            "question": {
+                "text": "Consider the following processors (ns stands for \nnanoseconds). Assume that the pipeline registers \nhave zero latency. \n\nP1: Four - stage pipeline with stage latencies 1ns, \n2 ns, 2 ns, 1 ns.          \n\nP2:  Four-stage pipeline with stage latencies 1ns, \n1.5 ns, 1.5 ns, 1.5 ns. \n\nP3:  Five-stage pipeline with stage latencies  0.5 ns, \n1 ns, 1 ns, 0.6 ns. 1 ns. \n\nP4:  Five-stage pipeline with stage latencies  0.5 ns, \n0.5 ns, 1 ns, 1 ns, 1.1 ns. \n\nWhich processor has the highest peak clock \nfrequency?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "P1",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "P2",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "P3",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "P4",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "C"
+            ],
+            "solution": {
+                "text": "P1 = tp = max (1ns, 2ns, 2ns, 1ns ) = 2 nsec. \n\nP2 = tp = max (1ns, 1.5ns, 1.5ns, 1.5ns ) = 1.5 nsec. \n\nP3 = tp = max (0.5ns, 1ns, 1ns, 0.6ns, 1ns ) = 1 nsec. \n\nP4 = tp = max (0.5ns, 0.5ns, 1ns, 1ns, 1.1ns ) =1.1 \nnsec. \n\nClock Frequency  \ncycle time \n\nP3 having lowest time \n\n P3 having highest clock frequency",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "COA_INSTRUCTION_PIPELINING_2016_Q08",
+            "subject": "Computer Organization and Architecture",
+            "topic": "Instruction Pipelining",
+            "subtopic": "frequency?",
+            "year": 2016,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 8,
+            "tags": [
+                "Instruction Pipelining",
+                "frequency?",
+                "Computer Organization and Architecture"
+            ],
+            "question": {
+                "text": "Consider a 3 GHz (gigahertz) processor with a three-\nstage pipeline and stage latenciesτ1, τ2, and τ3 such \nthat τ1 = 3τ2/4 = 2τ3. If the longest pipeline stage is \nsplit into two pipeline stages of equal latency, the \nnew frequency is _____ GHZ, ignoring delays in the \npipeline registers.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "3.9",
+                "4.1"
+            ],
+            "solution": {
+                "text": "1 = \n2T\n\n\n\n\n3τ\n3τ\nτ\n  & \n2τ\n=\n=\n\n\n  or \n\n\n=\n\nT\nT = 8\n\n: \n:\n 6 :  8  : 3\n\n\n\n\n\nLet x is time \n\n1 = 6x, 2 = 8x, 3 = 3x \n\ntp = max (6x, 8x, 3x) \n\ntp = 8x \n\nFrequency = 1\ntp = Frequency \\Rightarrow 1\n8x \n\n3GHz = 1\n8x \n\n 1\n24 GHZ\nx =\n\n\nNew Design \n\n\n\nNew\ntp\n6x\n=\n\n\nFrequencyNew = \nnew\ntp\n\n\nFrequencyNew = 1\n6x \\Rightarrow 1\nx\n\n\n\n 1\n24 GHZ\n6 \n\n\nFrequencyNew = 4 GHZ.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "COA_INSTRUCTION_PIPELINING_2016_Q09",
+            "subject": "Computer Organization and Architecture",
+            "topic": "Instruction Pipelining",
+            "subtopic": "pipeline registers.",
+            "year": 2016,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 9,
+            "tags": [
+                "Instruction Pipelining",
+                "pipeline registers.",
+                "Computer Organization and Architecture"
+            ],
+            "question": {
+                "text": "The stage delays in a 4-stage pipeline are 800, 500, \n400 and 300 picoseconds. The first stage (with delay \n800 picoseconds) is replaced with a functionally \nequivalent design involving two stages with \nrespective delays 600 and 350 picoseconds. The \nthroughput increase of the pipeline is ____ percent.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "33",
+                "34"
+            ],
+            "solution": {
+                "text": "OLD Design: \n\n4 Stage,  (800, 500, 400, 300) \n\nOLD\ntp\n = max (800PS, 500PS, 400PS, 300 PS) \n\nOLD Desgin\ntp\n800 PS\n=\n\n\nInstruction takes = 800PS \n\nIn 1 sec. how many # of Inst. \n\nOLD\ntp\n=\n\n\nNew Design:- \n\n5 stages Delay = (600, 350, 500, 400, 300) PS \n\nNew\ntp\n = max. (600, 350, 500, 400, 300) \n\nNew\ntp\n600PS\n=\n\n\nInstruction takes = 600 PS \n\nIns.1 sec. how many number of instruction  \n\nnew\ntrp\n=\n\n\n% of throughput increase in pipeline = New - OLD\nOLD\n\n\n \n−\n \n−\n\n−\n= 2 8\n\n= 2\n\n1\n3 = 33.33%",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "COA_INSTRUCTION_PIPELINING_2015_Q10",
+            "subject": "Computer Organization and Architecture",
+            "topic": "Instruction Pipelining",
+            "subtopic": "throughput increase of the pipeline is ____ percent.",
+            "year": 2015,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 10,
+            "tags": [
+                "Instruction Pipelining",
+                "throughput increase of the pipeline is ____ percent.",
+                "Computer Organization and Architecture"
+            ],
+            "question": {
+                "text": "Consider a non-pipelined processor with a clock rate \nof 2.5 gigahertz and average cycles per instruction \nof four. The same processor is upgraded to a \npipelined processor with five stages; but due to the \ninternal pipeline delay, the clock speed is reduced to \n2 gigahertz. Assume that there are no stalls in the \npipeline. The speed up achieved in this pipelined \nprocessor is______.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "3.2"
+            ],
+            "solution": {
+                "text": "Non pipelined processer  \n\nI Instruction takes 4 cycle  \n\nCycle time =\n2.5 G  sec. \\Rightarrow 1\n2.5 \\times 10-9 sec. \n\nCycle time = 0.4 n sec. \n\nIn non-pipelined  \n\nI Instruction execution time = 4 \\times 0.4 sec. = 1.6 n sec. \n\nPipelined Processer: \n\n5 stage  \n\n1 Instn takes = 1 cycle \n\nCycle time = 1\n2 sec. \\Rightarrow \n1 10\nsec.\n−\n\n\n\n1 Inst. ET in pipeline = 0.5 nsec. \n\nSpeed up factor = \nPerformance of pipeline\n1/ ETpipeline\nPerformance of Non-pipeline\n1/ ETnon-pipeline\n=\n\n\n = ET in non-pipeline\nET in pipeline\n= tn\ntp\n=\n\n\n= Speed up factor = 3.2",
+                "images": [
+                    "assets/Computer Organization and Architecture/COA_Instruction_Pipelining_P29_X3264.png",
+                    "assets/Computer Organization and Architecture/COA_Instruction_Pipelining_P29_X3266.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "COA_INSTRUCTION_PIPELINING_2014_Q11",
+            "subject": "Computer Organization and Architecture",
+            "topic": "Instruction Pipelining",
+            "subtopic": "processor is______.",
+            "year": 2014,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 11,
+            "tags": [
+                "Instruction Pipelining",
+                "processor is______.",
+                "Computer Organization and Architecture"
+            ],
+            "question": {
+                "text": "An instruction pipeline has five stages, namely, \ninstruction fetch (IF), instruction decode and register \nfetch (ID/RF), instruction execution (EX), memory \naccess (MEM), and register write back (WB) with \nstage latencies 1 ns, 2.2 ns, 2ns ,1 ns, and 0.75 ns, \nrespectively (ns stands for nanoseconds). To gain in \nterms of frequency, the designers have decided to \nsplit the ID/RF stage into three stages (ID, RF1, \nRF2) each of latency 2.2/3 ns. Also, the EX stage is \nsplit into two stages (EX1, EX2) each of latency 1 \nns. The new design has a total of eight pipeline \nstages. A program has 20% branch instructions \nwhich execute in the EX stage and produce the next \ninstruction pointer at the end of the EX stage in the \nold design and at the end of the EX2 stage in the new \ndesign. The IF stage stalls after fetching a branch \ninstruction until the next instruction pointer is \ncomputed. All instructions other than the branch \ninstruction have an average CPI of one in both the \ndesigns. The execution times of this program on the \nold and the new design are P and Q nanoseconds, \nrespectively. The value of P/Q is ______.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "1.54"
+            ],
+            "solution": {
+                "text": "Old Design  \n\n\n\nOLD\ntp\nmax(1, 2.2, 2, 1, 0.75)\n=\n\n\nOLD\ntp\n2.2nsec.\n=\n & OLD Design 'Ex' Stage \n\nBranch Penalty = 3-1 \n\nB.P = 2 \n\nBranch Frequency = 20% \n\nNumber of stalls / Inst. = .20×2 = 0.4 \n\nAverage Inst. ETOLD = (1+Number of stalls/Ins.) \ntpOLD \n\n (1 + 0.4) \\times 2.2 \n\n1.4 ×2.2 \n\nOLD[p]\nET\n3.08 nsec.\n=\n\n\nNew Design \n\n\n\nnew\n2.2 2.2 2.2\ntp\nmax 1,\n,\n,\n,1,1,1,0.75\nns\n\n\n=\n\n\n\n\n\n\nnew\ntp\n1 nsec.\n=\n\n\nBranch Penalty = 6 - 1 = 5 \n\n\nBranch frequency = 20% \n\nBranch required = .20 \\times 5 = 1 \n\n(\n)\nnew Design\nnew\nET\n1 number of stalls/ins.\ntp\n=\n+\n\n\n\n (1 + 1) \\times 1 nsec. \n\nQ\n2nsec.\n=\n\n\nP\nQ\n=\n=1.54",
+                "images": [
+                    "assets/Computer Organization and Architecture/COA_Instruction_Pipelining_P29_X3264.png",
+                    "assets/Computer Organization and Architecture/COA_Instruction_Pipelining_P29_X3266.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "COA_INSTRUCTION_PIPELINING_2014_Q12",
+            "subject": "Computer Organization and Architecture",
+            "topic": "Instruction Pipelining",
+            "subtopic": "respectively. The value of P/Q is ______.",
+            "year": 2014,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 12,
+            "tags": [
+                "Instruction Pipelining",
+                "respectively. The value of P/Q is ______.",
+                "Computer Organization and Architecture"
+            ],
+            "question": {
+                "text": "Consider a 6-stage instruction pipeline, where all \nstages are perfectly balanced. Assume that there is \nno cycle-time overhead of pipelining. When an \napplication is executing on this 6-stage pipeline, the \nspeedup achieved with respect to non-pipelined \nexecution if 25% of the instructions incur 2 pipeline \nstall cycles is _______.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "4"
+            ],
+            "solution": {
+                "text": "Number of stalls/Inst. = Branch frequency \\times Branch \nPenalty  \n\n= .25× 2 = 0.5 \n\nSpeed up factor = \nNP\npipe\nET\nET\n\nPreformance\nET\n\n\n\n\n\n\n\n\n\n= \n(\n)\n(\n)\nPipeline Depath number stage\n 1 + number stalls/Inst.\n\n\n Perfactly balanced \n\n= \n+\n= 6\n1.5 = 4",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "COA_INSTRUCTION_PIPELINING_2013_Q13",
+            "subject": "Computer Organization and Architecture",
+            "topic": "Instruction Pipelining",
+            "subtopic": "stall cycles is _______.",
+            "year": 2013,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 13,
+            "tags": [
+                "Instruction Pipelining",
+                "stall cycles is _______.",
+                "Computer Organization and Architecture"
+            ],
+            "question": {
+                "text": "Consider an instruction pipeline with five stages \nwithout any branch prediction: Fetch Instruction \n(FI), Decode Instruction (DI), Fetch Operand (FO), \nExecute Instruction (EI) and Write Operand (WO). \nThe stage delays for FI, DI, FO, EI and WO are 5 ns, \n7 ns, 10 ns, 8 ns and 6 ns, respectively. There are \nintermediate storage buffers after each stage and the \ndelay of each buffer is 1 ns. A program consisting of \n12 instruction I1, I2, I3, ….I12 is executed in this \npipelined processor. Instruction I4 is the only branch \ninstruction and its branch target is I9. If the branch is \ntaken during the execution of this program, the time \n(in ns) needed to complete the program is",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "132",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "165",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "176",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "328",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "B"
+            ],
+            "solution": {
+                "text": "Buffer Delay = 1 nsec. \n\ntp = max (stage Delay + Buffer Delay) = 10 + 1 \n\ntp [cycle time] =11nsec. \n\nWithout stalls \n\nETPIPE = [K + (n + 1)] cycle. \n\n\n = [5 + 8 -1)] cycle. = 12 cycle \n\nTotal Instn = 12 \n\n\n\nNumber of Instn[n] = 8 \n\n(Out of 12 only 8 Instn executing) \n\nNumber of stall(extra cycles) = 4 -1 = 3 \n\nNumber of (extra cycle) = 3 \n\nTotal cycle =  12 + 3 cycle = 15 cycles \n\nETPIPE = 15 cycle \n\nCycle time (tp) = 11 nsec. = 15 \\times 11 = 165 nsec. \n\nAlternate approach : By timing Diagram \n\ntp (cycle time ) =11 nsec. \n\n5 stages \n\n\n\n\nTotal = 15 cycle \n\n 15 \\times 11 nsec. \n\n 165 nsec.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "COA_INSTRUCTION_PIPELINING_2011_Q14",
+            "subject": "Computer Organization and Architecture",
+            "topic": "Instruction Pipelining",
+            "subtopic": "(in ns) needed to complete the program is",
+            "year": 2011,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 14,
+            "tags": [
+                "Instruction Pipelining",
+                "(in ns) needed to complete the program is",
+                "Computer Organization and Architecture"
+            ],
+            "question": {
+                "text": "Consider an instruction pipeline with four stages (S1, \nS2, S3 and S4) each with combinational circuit only. \nThe pipeline registers are required between each stage \nand at the end of the last stage. Delays for the stage \nand for the pipeline registers are as given in the \n\n\nWhat is the approximate speed up of the pipeline in \nsteady state under ideal conditions when compared \nto the corresponding non-pipeline implementation?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "4.0",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "2.5",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "1.1",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "3.0",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "B"
+            ],
+            "solution": {
+                "text": "S1 = 5 nsec, S2 = 6 nsec, S3 = 11 nsec, S4 = 8 nsec \n\nP.R/IR or Buffer Delay = 1 nsec. \n\nSpeed up factor = ?  \n\nExecution time (ET) in non-pipeline = 5 + 6 + 11 + 8 \n\nETNon-pipeline = 30 nsec. \n\nExecution time in pipeline tp = max (stage Delay + \nBuffer Delay) \n\nMax (5 + 1, 6 + 1, 11+1, 8+1) \n\nMax (6, 7, 12, 9) \n\nETpipe = 12 nsec. \n\nSpeed up factor = \nnon-pipe\npipe\nET\nET\n 30\n\nSpeed up factor = 2.5",
+                "images": [
+                    "assets/Computer Organization and Architecture/COA_Instruction_Pipelining_P30_X3425.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "COA_INSTRUCTION_PIPELINING_2009_Q15",
+            "subject": "Computer Organization and Architecture",
+            "topic": "Instruction Pipelining",
+            "subtopic": "to the corresponding non-pipeline implementation?",
+            "year": 2009,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 15,
+            "tags": [
+                "Instruction Pipelining",
+                "to the corresponding non-pipeline implementation?",
+                "Computer Organization and Architecture"
+            ],
+            "question": {
+                "text": "Consider a 4-stage pipeline processor. The number \nof cycles needed by the four instructions I1, I2, I3, \nI4 in stages S1, S2, S3, S4 is shown below: \nS1 \nS2 \nS3 \nS4 \nI1 \nI2 \nI3 \nI4 \n\nWhat is the number of cycles needed to execute the \nfollowing loop?  For (i = 1 to 2) {I1; I2; I3; I4;}",
+                "images": [],
+                "latex": [],
+                "tables": [
+                    {
+                        "headers": [
+                            "",
+                            "S1",
+                            "S2",
+                            "S3",
+                            "S4"
+                        ],
+                        "rows": [
+                            [
+                                "I1",
+                                "2",
+                                "1",
+                                "1",
+                                "1"
+                            ],
+                            [
+                                "I2",
+                                "1",
+                                "3",
+                                "2",
+                                "2"
+                            ],
+                            [
+                                "I3",
+                                "2",
+                                "1",
+                                "1",
+                                "3"
+                            ],
+                            [
+                                "I4",
+                                "1",
+                                "2",
+                                "2",
+                                "2"
+                            ]
+                        ]
+                    }
+                ]
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "16",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "23",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "28",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "30",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "B"
+            ],
+            "solution": {
+                "text": "S4 \n\n\n\n\nI1 \n\n\n\nI2 \nI2 \nS3 \n\n\n\nI1 \n\n\nI2 \nI2 \nI3 \nI4 \nS2 \n\n\nI1 \nI2 \nI2 \nI2 \nI3 \nI4 \nI4 \nI1 \nS1 \nI1 \nI1 \nI2 \nI3 \nI3 \nI4 \nI1 \nI1 \nI2 \nI3 \n\n\n\nS4 \nI3 \nI3 \nI3 \nI4 \nI4 \nI1 \nI2 \nI2 \nI3 \nI3 \nS3 \nI4 \nI1 \n\nI2 \nI2 \nI3 \nI4 \nI4 \n\n\nS2 \nI2 \nI2 \nI2 \nI3 \nI4 \nI4 \n\n\n\n\nS1 \nI3 \nI4 \n\n\n\n\n\n\n\n\n\n\n\nS4 \nI3 \nI4 \nI4 \n\n\n\n\n\n\n\nS3 \n\n\n\n\n\n\n\n\n\n\nS2 \n\n\n\n\n\n\n\n\n\n\nS1 \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n23 cycles.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "COA_INSTRUCTION_PIPELINING_2008_Q16",
+            "subject": "Computer Organization and Architecture",
+            "topic": "Instruction Pipelining",
+            "subtopic": "following loop?  For (i = 1 to 2) {I1; I2; I3; I4;}",
+            "year": 2008,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 16,
+            "tags": [
+                "Instruction Pipelining",
+                "following loop?  For (i = 1 to 2) {I1; I2; I3; I4;}",
+                "Computer Organization and Architecture"
+            ],
+            "question": {
+                "text": "A non-pipelined single cycle processor operating at \n100 MHZ is converted into a synchronous pipelined \nprocessor with five stages requiring 2.5 nsec, 1.5 \nnsec, 2 nsec, 1.5 nsec and 2.5 nsec, respectively. The \ndelay of the latches is 0.5 nsec. The speedup of the \npipeline processor for a large number of instructions \nis:",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "4.5",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "4.0",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "3.33",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "3.0 \n\nPipelining Dependencies",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "C"
+            ],
+            "solution": {
+                "text": "Non pipe line processor  \n\nFrequency = 100 MHZ \n\nCycle time non-pipe = \n100 10\n\n= 10-8 sec. \n\n= \n-8\n-9\n10 10\n10 10\nsec.\n10 \n=\n\n\n\nnon-pipe\nET\n = 10 nsec. \n\nCycle time \n 10 nsec.\n\n\n\nPIPELINE  5 stages (k = 5) \n\nTp = 2.5, 1.5, 2, 1.5, 2  nsec. \n\nBuffer/ Latch Delay = 0.5 nsec. \n\ntp = max (stage Delay + Buffer Delay)  \n\n= 2.5 + 0.5 \n\nTp = 3 nsec. \n\nWhen very large Number of Instruction are executed \n\nS = tn\ntp = 10 nsec.\n3 nsec. \n\nS = 3.33",
+                "images": [],
+                "latex": [],
+                "tables": [
+                    {
+                        "headers": [
+                            "S4",
+                            "I3",
+                            "I3",
+                            "I3",
+                            "I4",
+                            "I4",
+                            "I1",
+                            "I2",
+                            "I2",
+                            "I3",
+                            "I3"
+                        ],
+                        "rows": [
+                            [
+                                "S3",
+                                "I4",
+                                "I1",
+                                "",
+                                "I2",
+                                "I2",
+                                "I3",
+                                "I4",
+                                "I4",
+                                "",
+                                ""
+                            ],
+                            [
+                                "S2",
+                                "I2",
+                                "I2",
+                                "I2",
+                                "I3",
+                                "I4",
+                                "I4",
+                                "",
+                                "",
+                                "",
+                                ""
+                            ],
+                            [
+                                "S1",
+                                "I3",
+                                "I4",
+                                "",
+                                "",
+                                "",
+                                "",
+                                "",
+                                "",
+                                "",
+                                ""
+                            ],
+                            [
+                                "",
+                                "11",
+                                "12",
+                                "13",
+                                "14",
+                                "15",
+                                "16",
+                                "17",
+                                "18",
+                                "19",
+                                "20"
+                            ]
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "id": "COA_INSTRUCTION_PIPELINING_2022_Q17",
+            "subject": "Computer Organization and Architecture",
+            "topic": "Instruction Pipelining",
+            "subtopic": "Pipelining Dependencies",
+            "year": 2022,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 17,
+            "tags": [
+                "Instruction Pipelining",
+                "Pipelining Dependencies",
+                "Computer Organization and Architecture"
+            ],
+            "question": {
+                "text": "A processor X1 operating at 2 GHz has a standard \n\n5-stage RISC instruction pipeline having a base CPI \n(cycles per instruction) of one without any pipeline \nhazards. For a given program P that has 30% branch \ninstructions, control hazards incur 2 cycles stall for \nevery branch. A new version of the processor X2 \noperating at same clock frequency has an additional \nbranch predictor unit (BPU) that completely \neliminates stalls for correctly predicted branches. \nThere is neither any savings nor any additional stalls \nfor wrong predictions. There are no structural \nhazards and data hazards for X1 and X2. If the BPU \nhas a prediction accuracy of 80%, the speed up \n(rounded off to two decimal places) obtained by X2 \nover X1 in executing P is____________.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "1.42"
+            ],
+            "solution": {
+                "text": "X1 : 5 stage RISC pipeline, 30% branch instruction \n2GHz clock frequency \n\nCycle Time = 1 sec\n2G\nCycle Time = 0.5ns.  \n\nNumber stalls/instruction = Branch frequency \\times \nBranch penalty. \n\n = .70 \\times 0 + .30 \\times 2 \n\nThe number stalls/Instruction = 0.6 \n\n\nX1: Avg Instn ET = (1 + number of stells/instn) \\times \nCycle time \n\n  (1 + 0.6) \\times 0.5ns   \\Rightarrow 1.6 \\times 0.5 ns \n\n\nX\nET\n0.8ns\n=\n\n\nNew version X2 with Branch Prediction. \n\nCycle time = 0.5 nsec.  \n\n\n\n\nThe number of stalls/instructions = .70 \\times 0 + .30 \\times .20 \n× 2 + .30 \\times .80 \\times 0  \n\nThe number of stalls/Instruction = 0.12 \n\nX2: Avg instruction ET = (1 + number of   \nstalls/instruction) \\times cycle time \n\n= (1 + 0.12) \\times 0.5 \\Rightarrow 1.12 \\times 0.5 \n\nX\nET\n=\n\n\nSPEED UP = \nX\nX1\n1/ ET\nperformance of X\nperformance of X\n1/ ET\n\n\n\nX\nX2\nET\nET\n\n\n\n\n S = 1.42",
+                "images": [
+                    "assets/Computer Organization and Architecture/COA_Instruction_Pipelining_P31_X3542.png",
+                    "assets/Computer Organization and Architecture/COA_Instruction_Pipelining_P31_X3544.png"
+                ],
+                "latex": [],
+                "tables": [
+                    {
+                        "headers": [
+                            "S4",
+                            "I3",
+                            "I4",
+                            "I4",
+                            "",
+                            "",
+                            "",
+                            "",
+                            "",
+                            "",
+                            ""
+                        ],
+                        "rows": [
+                            [
+                                "S3",
+                                "",
+                                "",
+                                "",
+                                "",
+                                "",
+                                "",
+                                "",
+                                "",
+                                "",
+                                ""
+                            ],
+                            [
+                                "S2",
+                                "",
+                                "",
+                                "",
+                                "",
+                                "",
+                                "",
+                                "",
+                                "",
+                                "",
+                                ""
+                            ],
+                            [
+                                "S1",
+                                "",
+                                "",
+                                "",
+                                "",
+                                "",
+                                "",
+                                "",
+                                "",
+                                "",
+                                ""
+                            ],
+                            [
+                                "",
+                                "21",
+                                "22",
+                                "23",
+                                "24",
+                                "25",
+                                "",
+                                "",
+                                "",
+                                "",
+                                ""
+                            ]
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "id": "COA_INSTRUCTION_PIPELINING_2021_Q18",
+            "subject": "Computer Organization and Architecture",
+            "topic": "Instruction Pipelining",
+            "subtopic": "over X1 in executing P is____________.",
+            "year": 2021,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 18,
+            "tags": [
+                "Instruction Pipelining",
+                "over X1 in executing P is____________.",
+                "Computer Organization and Architecture"
+            ],
+            "question": {
+                "text": "A five-stage pipeline has stage \ndelays of \n150,120,150,160 \nand \nnanoseconds. The \nregisters that are used between the pipeline stages \nhave a delay of 5 nanoseconds each. \n\nThe total time to execute 100 independent \ninstructions on this pipeline, assuming there are no \npipeline stalls, is ______ nanoseconds. \nStage\n  S1\nDelay\n 5 ns\nStage\n  S2\nDelay\n 6 ns\nStage\n  S3\nDelay\n 11 ns\nStage\n  S4\nDelay\n  ns\nPipeline Register (Delay ns)\nPipeline Register (Delay ns)\nPipeline Register (Delay ns)\nPipeline Register (Delay ns)",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "17160"
+            ],
+            "solution": {
+                "text": "Stage Delays = [150, 120, 150, 160, 140 ns] \n\nBuffer delay = 5ns \n\nn = 100 \n\nk = 5 stage \n\n(\n)\n(\n)\nPIPE\nET\nK+ n -1\ntp \n=\n\n\ntp = max. (Stage Delay + Buffer Delay (5ns)) \n\nmax. [155, 125, 155, 165, 145] ns. \n\nETPIPE = [5 + (100 -1)] \\times 165 nsec. \n\n 104 \\times 165 ×109 sec. \n\nETPIPE = 17160 ×10-9 sec. \n\n\nPIPE\nET\n17160 nsec.\n=",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "COA_INSTRUCTION_PIPELINING_2021_Q19",
+            "subject": "Computer Organization and Architecture",
+            "topic": "Instruction Pipelining",
+            "subtopic": "Pipeline Register (Delay ns)",
+            "year": 2021,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 19,
+            "tags": [
+                "Instruction Pipelining",
+                "Pipeline Register (Delay ns)",
+                "Computer Organization and Architecture"
+            ],
+            "question": {
+                "text": "Consider a pipelines processor with 5 stages. \nInstruction Fetch (IF), Instruction Decode (ID), \nExecute (EX), Memory Access (MEM), and Write \nBack (WB). Each stage of the pipeline, except the \nEX stage, takes one cycle. Assume that the ID stage \nmerely decodes the instruction and the register read \nis performed in the EX stage. The EX stage takes \none cycle for ADD instruction and two cycles for \nMUL instructions. Ignore pipeline register latencies. \n\nConsider the following sequence of 8 instructions:  \n\nADD,  MUL,  ADD,  MUL,  ADD,  MUL,  ADD,  \nMUL \n\nAssume that every MUL instruction is data-\ndependent on the ADD instruction just before it and \nevery ADD instruction (except the first ADD) is \ndata-dependent on the MUL instruction just before \nit. The Speedup is defined as follows: \n\nExecution time without operand forwarding\nSpeedup =\nExecution time with operand forwarding\n\n\nThe Speedup achieved in executing the given \ninstruction sequence on the pipelined processor \n(rounded to 2 decimal places) is _____.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "1.87",
+                "1.88"
+            ],
+            "solution": {
+                "text": "Number of Instn  = 8 \n\nOperand forwarding: No additional stalls (Extra \ncycle) are required to fetch the operand from the \nprevious Instn output. \n\n\nOr \n\nNo extra cycle (stall) Due to Data Dependency  \n\nEach instn takes total 2 cycles 4 MUL Instn takes \n1extra cycle \n\nStall = 4 \\times 1 = 4 cycles  \n\nETPIPE = [k + (n -1)] tp  + stalls \\Rightarrow [5 + (8 -1)] \\times 1+ \n4 = 16 cycles \n\nWith operand forwards ETPIPE = 16 cycle   \n\nWithout opened forwarding \n\nExtra cycle (stalls) due to data Dependency  \nOr \n\nAdditional cycle (stall) Required to fetch the opened \nfrom the previous Instruction. \n\n\n\n'2 stalls per Instruction' \n\nTotal additional stall Due to data dependency  \n\n= 7 \\times 2 = 14 cycle \n\nWithout operand forwarding:  \n\nET pipeline = 16 + 14 = 30 cycle \n\nS = 30\n16 = 1.875  \n\nAlternate approach:  \n\nCan do by. Time diagram S = 30\n16 = 1.875",
+                "images": [
+                    "assets/Computer Organization and Architecture/COA_Instruction_Pipelining_P32_X3977.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "COA_INSTRUCTION_PIPELINING_2017_Q20",
+            "subject": "Computer Organization and Architecture",
+            "topic": "Instruction Pipelining",
+            "subtopic": "(rounded to 2 decimal places) is _____.",
+            "year": 2017,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 20,
+            "tags": [
+                "Instruction Pipelining",
+                "(rounded to 2 decimal places) is _____.",
+                "Computer Organization and Architecture"
+            ],
+            "question": {
+                "text": "Consider a RISC machine where each instruction is \nexactly 4 bytes long. Conditional and unconditional \nbranch instructions use PC-relative addressing mode \nwith Offset specified  in bytes to the target location \nof the branch instruction. Further the Offset is \nalways with respect to the address of the next \ninstruction in the program sequence. Consider the \nfollowing instruction sequence \nInstr. No \nInstruction \ni \nadd R2, R3, R4 \ni + 1 \nsub R5, R6, R7 \ni + 2 \ncmp R1, R9, R10 \ni + 3 \nbeq R1, Offset \n\nIf the target of the branch instruction is i, then the \ndecimal value of the Offset is ______.",
+                "images": [],
+                "latex": [],
+                "tables": [
+                    {
+                        "headers": [
+                            "Instr. No",
+                            "Instruction"
+                        ],
+                        "rows": [
+                            [
+                                "i",
+                                "add R2, R3, R4"
+                            ],
+                            [
+                                "i + 1",
+                                "sub R5, R6, R7"
+                            ],
+                            [
+                                "i + 2",
+                                "cmp R1, R9, R10"
+                            ],
+                            [
+                                "i + 3",
+                                "beq R1, Offset"
+                            ]
+                        ]
+                    }
+                ]
+            },
+            "options": [],
+            "correctAnswer": [
+                "-16"
+            ],
+            "solution": {
+                "text": "Each instn is 4 bytes long \n\nAssume start at location 4000  \n\nInstr. No \nInstruction \n4000 - 4003 \ni \nadd R2, R3, R4 \n4004 - 4007 \ni +1 \nsub R5, R6, R7 \n4008 - 4011 \ni + 2 \ncmp R1, R9, R10 \n4012 - 4015 \ni + 3  \nbeq R1, Offset \n4016 - \n\n\n\nPC = 4016 \n\n Target address  = i \n\nPC \\Rightarrow denotes the starting address of the next Instn \n\nIn PC Relative Addressing (AM) \\Rightarrow Target address = \nCurrent PC value + OFFSET \n\n4000  = 4016 + OFFSET \n\nOFFSET= -16",
+                "images": [
+                    "assets/Computer Organization and Architecture/COA_Instruction_Pipelining_P32_X3977.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "COA_INSTRUCTION_PIPELINING_2015_Q21",
+            "subject": "Computer Organization and Architecture",
+            "topic": "Instruction Pipelining",
+            "subtopic": "decimal value of the Offset is ______.",
+            "year": 2015,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 21,
+            "tags": [
+                "Instruction Pipelining",
+                "decimal value of the Offset is ______.",
+                "Computer Organization and Architecture"
+            ],
+            "question": {
+                "text": "Consider the following code sequence having five \ninstructions I1 to I5. Each of these instructions has \nthe following format. \n\nOP Ri, Rj, Rk \n\nWhere operation OP is performed on contents of \nregisters Rj and Rk and the result is stored in register Ri. \n\n𝐈𝟏:  ADD R1, R2, R3 \n𝐈𝟐: MUL R7, R1, R3 \n\n𝐈𝟑 :  SUB R4, R1, R5 \n𝐈𝟒 : ADD R3, R2, R4 \n\n𝐈𝟓 :  MUL R7, R8, R9 \n\nConsider the following three statements: \n\nS1:  There \nis \nan \nanti-dependence \nbetween \ninstructions I2 and I5. \n\nS2:  There \nis \nan \nanti-dependence \nbetween \ninstructions I2 and I4. \n\nS3:  Within an instruction pipeline an anti-\ndependence always creates one or more stalls. \n\nWhich one of above statements is/are correct?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "Only S1 is true",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "Only S2 is true",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "Only S1 and S3 are true",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "Only S2 and S3 are true",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "B"
+            ],
+            "solution": {
+                "text": "OP  \n Ri       Rj         Rk  \n\nRi  Rj any operation Rk \n\n\nS1: Anti Dependency between   I2  & I5 :  \n\n\n\nI2 :  MUL R7 R1 R3 :  R7  R1 \\times R3  \n\n\n\nI5 :  MUL R7 R8 R9 :  R7  R8 \\times R9 \n\n\n\nFalse because its output Dependency.  \n\n\nS2: Anti Dependency between   I2  & I4  :  \n\n\n\nI2 :  MUL R7 R2 R3 :  R7  R1 \\times R3  \n\n\n\nI4 :  ADD R3 R2 R4 :  R3  R2 \\times R4 \n\n\nTrue  \n\nAnti Dependency & output Dependency \n\nSol. Register Remaining",
+                "images": [],
+                "latex": [],
+                "tables": [
+                    {
+                        "headers": [
+                            "I 1",
+                            "MUL",
+                            "3",
+                            "→ 2"
+                        ],
+                        "rows": [
+                            [
+                                "I 2",
+                                "DIV",
+                                "5",
+                                "→ 4"
+                            ],
+                            [
+                                "I 3",
+                                "ADD",
+                                "1",
+                                "→ 6 extra cycle stalls"
+                            ],
+                            [
+                                "I 4",
+                                "SUB",
+                                "1",
+                                ""
+                            ]
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "id": "COA_INSTRUCTION_PIPELINING_2015_Q22",
+            "subject": "Computer Organization and Architecture",
+            "topic": "Instruction Pipelining",
+            "subtopic": "Which one of above statements is/are correct?",
+            "year": 2015,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 22,
+            "tags": [
+                "Instruction Pipelining",
+                "Which one of above statements is/are correct?",
+                "Computer Organization and Architecture"
+            ],
+            "question": {
+                "text": "Consider the sequence of machine instructions given \nbelow: \n\nMUL R5, R0, R1 \n\nDIV R6, R2, R3 \n\nADD R7, R5, R6 \n\nSUB R8, R7, R4 \n\nIn the above sequence, R0 to R8 are general purpose \nregisters. In the instructions shown, the first register \nstores the result of the  operation performed on the \nsecond and the third registers. This sequence of \ninstructions is to executed in a pipelined instruction \nprocessor with the following 4 stages: (1) Instruction \nFetch and Decode (1F), (2) Operand Fetch (OF), (3) \nPerform Operation (PO) and (4) Write back the \nResult (WB). The IF, OF and WB stages take 1 clock \ncycle each for any instruction. The PO stage takes 1 \nclock cycle for ADD or SUB instruction, 3 clock \ncycles for MUL instruction and 5 clock cycles for \nDIV instruction. The pipelined processor uses \noperand forwarding from the PO stage to the OF \nstage. The number of clock cycles taken for the \nexecution of the above sequence of instructions is \n____.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "13"
+            ],
+            "solution": {
+                "text": "IF \n\nOF \n\nPO \n\nWB \nWB  \n\n\n\n\nI1 \n\n\n\n\nPO \n\n\nI1 \nI1 \nI1 \nI2 \nI2 \nI2 \nI2 \nI2 \nOF \n\nI1 \nI2 \n\n\n\n\n\n\nI3 \nIF \nI1 \nI2 \nI3 \nI4 \n\n\n\n\n\n\n\n\nWB \nI2 \nI3 \nI4 \n\n\n\n\n\n\nPO \nI3 \nI4 \n\n\n\n\n\n\n\nOF \nI4 \n\n\n\n\n\n\n\n\nIF \n\n\n\n\n\n\n\n\n\n\n17 18 19 \n\n13 clock cycle. \n\nAlternate approach: \n\n\n\nStall (extra cycles) \nI1 \nMUL \n→ 2 \nI2 \nDIV \n→ 4 \nI3 \nADD \n→ 6 extra cycle stalls \nI4 \nSUB \n\n\nn = 4, k = 4 \n\n ET = [K + (n -1)] tp  + t stalls \n\n\n= [4 + (4 - 1)] ×1 + 6 = 7 + 6= 13 cycle",
+                "images": [],
+                "latex": [],
+                "tables": [
+                    {
+                        "headers": [
+                            "",
+                            "Instr. No",
+                            "Instruction"
+                        ],
+                        "rows": [
+                            [
+                                "4000 - 4003",
+                                "i",
+                                "add R2, R3, R4"
+                            ],
+                            [
+                                "4004 - 4007",
+                                "i +1",
+                                "sub R5, R6, R7"
+                            ],
+                            [
+                                "4008 - 4011",
+                                "i + 2",
+                                "cmp R1, R9, R10"
+                            ],
+                            [
+                                "4012 - 4015",
+                                "i + 3",
+                                "beq R1, Offset"
+                            ],
+                            [
+                                "4016 -",
+                                "",
+                                ""
+                            ]
+                        ]
+                    },
+                    {
+                        "headers": [
+                            "WB",
+                            "",
+                            "",
+                            "",
+                            "",
+                            "",
+                            "I 1",
+                            "",
+                            "",
+                            "",
+                            ""
+                        ],
+                        "rows": [
+                            [
+                                "PO",
+                                "",
+                                "",
+                                "I 1",
+                                "I 1",
+                                "I 1",
+                                "I 2",
+                                "I 2",
+                                "I 2",
+                                "I 2",
+                                "I 2"
+                            ],
+                            [
+                                "OF",
+                                "",
+                                "I 1",
+                                "I 2",
+                                "",
+                                "",
+                                "",
+                                "",
+                                "",
+                                "",
+                                "I 3"
+                            ],
+                            [
+                                "IF",
+                                "I 1",
+                                "I 2",
+                                "I 3",
+                                "I 4",
+                                "",
+                                "",
+                                "",
+                                "",
+                                "",
+                                ""
+                            ],
+                            [
+                                "",
+                                "1",
+                                "2",
+                                "3",
+                                "4",
+                                "5",
+                                "6",
+                                "7",
+                                "8",
+                                "9",
+                                "10"
+                            ]
+                        ]
+                    },
+                    {
+                        "headers": [
+                            "WB",
+                            "I 2",
+                            "I 3",
+                            "I 4",
+                            "",
+                            "",
+                            "",
+                            "",
+                            "",
+                            ""
+                        ],
+                        "rows": [
+                            [
+                                "PO",
+                                "I 3",
+                                "I 4",
+                                "",
+                                "",
+                                "",
+                                "",
+                                "",
+                                "",
+                                ""
+                            ],
+                            [
+                                "OF",
+                                "I 4",
+                                "",
+                                "",
+                                "",
+                                "",
+                                "",
+                                "",
+                                "",
+                                ""
+                            ],
+                            [
+                                "IF",
+                                "",
+                                "",
+                                "",
+                                "",
+                                "",
+                                "",
+                                "",
+                                "",
+                                ""
+                            ],
+                            [
+                                "",
+                                "11",
+                                "12",
+                                "13",
+                                "14",
+                                "15",
+                                "16",
+                                "17",
+                                "18",
+                                "19"
+                            ]
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "id": "COA_INSTRUCTION_PIPELINING_2012_Q23",
+            "subject": "Computer Organization and Architecture",
+            "topic": "Instruction Pipelining",
+            "subtopic": "____.",
+            "year": 2012,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 23,
+            "tags": [
+                "Instruction Pipelining",
+                "____.",
+                "Computer Organization and Architecture"
+            ],
+            "question": {
+                "text": "Register renaming is done in pipelined processors",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "As an alternative to register allocation at \ncompile time",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "For efficient access to function parameters and \nlocal variables",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "To handle certain kinds of hazards",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "As part of address translation",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "C"
+            ],
+            "solution": {
+                "text": "Register Renaming: Handles Hazards",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "COA_INSTRUCTION_PIPELINING_2010_Q24",
+            "subject": "Computer Organization and Architecture",
+            "topic": "Instruction Pipelining",
+            "subtopic": "local variables",
+            "year": 2010,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 24,
+            "tags": [
+                "Instruction Pipelining",
+                "local variables",
+                "Computer Organization and Architecture"
+            ],
+            "question": {
+                "text": "A 5-stage pipelined processor has Instruction Fetch \n(IF), Instruction Decode (ID), Operand Fetch (OF), \nPerform Operation (PO) and Write Operand (WO) \nstage. The IF, ID, OF and WO stage take 1 clock \ncycle each for any instruction. The PO stage takes 1 \nclock cycle for ADD and SUB instructions ,3 clock \ncycles for MUL instruction, and 6 clock cycles for \nDIV instruction respectively. Operand forwarding is \nused in the pipeline. What is the number of clock \ncycles needed to execute the following sequence of \ninstructions? \n\nInstruction \n Meaning of Instruction \n\nI0: MUL  R2, R0, R1 \nR2 ← R0*R1 \n\nI1: DIV   R5, R3, R4  \nR5 ← R3/R4 \n\nI2: ADD   R2, R5, R2 \nR2 ← R5 + R2 \n\nI3: SUB   R5, R 2, R6 \nR5 ← R2 - R6",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "13",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "15",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "17",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "19 \nCommon Data for next two questions: \nDelayed branching can help in the handling of control \nhazards",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "B"
+            ],
+            "solution": {
+                "text": "WB  \n\n\n\n\n\nI0  \n\n\n\nPO \n\n\n\nI0 I0 I0 I1 I1 I1 I1 \nI1 \nOF \n\n\nI0 I1  \n\n\n\n\n\n\nID \n\nI0 I1 I2 I3  \n\n\n\n\n\nIF \nI0 I1 I2 I3  \n\n\n\n\n\n\n\n10 11 \n\nWB \n\nI1 \nI2 \nI3 \n\n\n\n\n\n\nPO \nI1 \nI2 \nI3 \n\n\n\n\n\n\n\nOF \nI2 \nI3 \n\n\n\n\n\n\n\n\nID \n\n\n\n\n\n\n\n\n\n\nIF \n\n\n\n\n\n\n\n\n\n\n\n12 13 14 15 16 17 18 19 20 21 \n\n15 clock cycle \n\n\n\nPO \n\nI0 \n\n\nI1 \n\n\nI2 \n\n\nI3 \n\nOR \n\nAlternate apporach \n\n\n\n  PO stage  \n Extra cycle  \n\nI0 \nMUL \n→  \n\n\nI1 \nDIV \n→  \n\n\n\n\n\n7 extra cycle (stalls) \n\n\nI2 \nADD \n\nI3 \nSUB \n\nn = 4, number of stage = 5 \n\nET = [k + (n -1)]+P + (extra cycle +stalls due to \nhazards)  \n\n  [5 + (4 -1)] ×1 + 7 = 8 + 7= 15 cycle",
+                "images": [],
+                "latex": [],
+                "tables": [
+                    {
+                        "headers": [
+                            "",
+                            "Instr. No",
+                            "Instruction"
+                        ],
+                        "rows": [
+                            [
+                                "4000 - 4003",
+                                "i",
+                                "add R2, R3, R4"
+                            ],
+                            [
+                                "4004 - 4007",
+                                "i +1",
+                                "sub R5, R6, R7"
+                            ],
+                            [
+                                "4008 - 4011",
+                                "i + 2",
+                                "cmp R1, R9, R10"
+                            ],
+                            [
+                                "4012 - 4015",
+                                "i + 3",
+                                "beq R1, Offset"
+                            ],
+                            [
+                                "4016 -",
+                                "",
+                                ""
+                            ]
+                        ]
+                    },
+                    {
+                        "headers": [
+                            "WB",
+                            "",
+                            "",
+                            "",
+                            "",
+                            "",
+                            "I 1",
+                            "",
+                            "",
+                            "",
+                            ""
+                        ],
+                        "rows": [
+                            [
+                                "PO",
+                                "",
+                                "",
+                                "I 1",
+                                "I 1",
+                                "I 1",
+                                "I 2",
+                                "I 2",
+                                "I 2",
+                                "I 2",
+                                "I 2"
+                            ],
+                            [
+                                "OF",
+                                "",
+                                "I 1",
+                                "I 2",
+                                "",
+                                "",
+                                "",
+                                "",
+                                "",
+                                "",
+                                "I 3"
+                            ],
+                            [
+                                "IF",
+                                "I 1",
+                                "I 2",
+                                "I 3",
+                                "I 4",
+                                "",
+                                "",
+                                "",
+                                "",
+                                "",
+                                ""
+                            ],
+                            [
+                                "",
+                                "1",
+                                "2",
+                                "3",
+                                "4",
+                                "5",
+                                "6",
+                                "7",
+                                "8",
+                                "9",
+                                "10"
+                            ]
+                        ]
+                    },
+                    {
+                        "headers": [
+                            "WB",
+                            "I 2",
+                            "I 3",
+                            "I 4",
+                            "",
+                            "",
+                            "",
+                            "",
+                            "",
+                            ""
+                        ],
+                        "rows": [
+                            [
+                                "PO",
+                                "I 3",
+                                "I 4",
+                                "",
+                                "",
+                                "",
+                                "",
+                                "",
+                                "",
+                                ""
+                            ],
+                            [
+                                "OF",
+                                "I 4",
+                                "",
+                                "",
+                                "",
+                                "",
+                                "",
+                                "",
+                                "",
+                                ""
+                            ],
+                            [
+                                "IF",
+                                "",
+                                "",
+                                "",
+                                "",
+                                "",
+                                "",
+                                "",
+                                "",
+                                ""
+                            ],
+                            [
+                                "",
+                                "11",
+                                "12",
+                                "13",
+                                "14",
+                                "15",
+                                "16",
+                                "17",
+                                "18",
+                                "19"
+                            ]
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "id": "COA_INSTRUCTION_PIPELINING_2008_Q25",
+            "subject": "Computer Organization and Architecture",
+            "topic": "Instruction Pipelining",
+            "subtopic": "hazards",
+            "year": 2008,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 25,
+            "tags": [
+                "Instruction Pipelining",
+                "hazards",
+                "Computer Organization and Architecture"
+            ],
+            "question": {
+                "text": "The following code is to run on a pipelined \nprocessor with one branch delay slot: \n\nI1:  ADD R2 ← R7 + R8 \n\nI2:  SUB R4 ← R5 - R6x \n\nI3:  ADD R1 ← R2 + R3 \n\nI4:  STORE Memory [R4] ← R1 \n\nBRANCH to Label if /R1 = = 0 \n\nWhich of the instruction I1, I2, I3 or I4 can \nlegitimately occupy the delay slot without any other \nprogram modification?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "I1",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "I2",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "I3",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "I4",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "D"
+            ],
+            "solution": {
+                "text": "Branch to level if R1 = = 0 \n\n(a) I1 : R2  R7  + R8 \n\n\nUsed in I3 result of I1 (R2) used as operand.  \n\n(b) I2 : ? \n\n\nR4  R5 - R6 \n\n\nI4 is used as memory [R4] for memory store \npurpose  \n\n(c) I3 : R1  R2  + R3 \n\n\nUsed in Branch to total if R1 = 0  \n\n\nNot proper working \n\n(d) I4: memory [R4] store",
+                "images": [
+                    "assets/Computer Organization and Architecture/COA_Instruction_Pipelining_P34_X4445.png"
+                ],
+                "latex": [],
+                "tables": [
+                    {
+                        "headers": [
+                            "WB",
+                            "",
+                            "I 1",
+                            "I 2",
+                            "I 3",
+                            "",
+                            "",
+                            "",
+                            "",
+                            "",
+                            ""
+                        ],
+                        "rows": [
+                            [
+                                "PO",
+                                "I 1",
+                                "I 2",
+                                "I 3",
+                                "",
+                                "",
+                                "",
+                                "",
+                                "",
+                                "",
+                                ""
+                            ],
+                            [
+                                "OF",
+                                "I 2",
+                                "I 3",
+                                "",
+                                "",
+                                "",
+                                "",
+                                "",
+                                "",
+                                "",
+                                ""
+                            ],
+                            [
+                                "ID",
+                                "",
+                                "",
+                                "",
+                                "",
+                                "",
+                                "",
+                                "",
+                                "",
+                                "",
+                                ""
+                            ],
+                            [
+                                "IF",
+                                "",
+                                "",
+                                "",
+                                "",
+                                "",
+                                "",
+                                "",
+                                "",
+                                "",
+                                ""
+                            ],
+                            [
+                                "",
+                                "12",
+                                "13",
+                                "14",
+                                "15",
+                                "16",
+                                "17",
+                                "18",
+                                "19",
+                                "20",
+                                "21"
+                            ]
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "id": "COA_INSTRUCTION_PIPELINING_2008_Q26",
+            "subject": "Computer Organization and Architecture",
+            "topic": "Instruction Pipelining",
+            "subtopic": "program modification?",
+            "year": 2008,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 26,
+            "tags": [
+                "Instruction Pipelining",
+                "program modification?",
+                "Computer Organization and Architecture"
+            ],
+            "question": {
+                "text": "Delayed branching can help in the handling of \ncontrol hazards. \n\nFor all delayed conditional branch instructions, \nirrespective of whether the condition evaluates to \ntrue or false,",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "The instruction following the conditional branch \ninstruction in memory is executed",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "The first instruction in the fall through path is \nexecuted",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "The first instruction in the taken path is executed",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "The branch takes longer to execute than any \nother instruction",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "A"
+            ],
+            "solution": {
+                "text": "(a) False \n\n(b) False: (Only branch) \n\n\n(When condition is True) \n\n\nI2:  Next sequential Instruction  \n\n\nCondition Branch Inst. JNZ. \n\nI1 - I101 - I102 \n\n→→ \n\nTaken Path.",
+                "images": [
+                    "assets/Computer Organization and Architecture/COA_Instruction_Pipelining_P34_X4443.png"
+                ],
+                "latex": [],
+                "tables": [
+                    {
+                        "headers": [
+                            "WB",
+                            "",
+                            "",
+                            "",
+                            "",
+                            "",
+                            "",
+                            "I 0",
+                            "",
+                            "",
+                            "",
+                            ""
+                        ],
+                        "rows": [
+                            [
+                                "PO",
+                                "",
+                                "",
+                                "",
+                                "I 0",
+                                "I 0",
+                                "I 0",
+                                "I 1",
+                                "I 1",
+                                "I 1",
+                                "I 1",
+                                "I 1"
+                            ],
+                            [
+                                "OF",
+                                "",
+                                "",
+                                "I 0",
+                                "I 1",
+                                "",
+                                "",
+                                "",
+                                "",
+                                "",
+                                "",
+                                ""
+                            ],
+                            [
+                                "ID",
+                                "",
+                                "I 0",
+                                "I 1",
+                                "I 2",
+                                "I 3",
+                                "",
+                                "",
+                                "",
+                                "",
+                                "",
+                                ""
+                            ],
+                            [
+                                "IF",
+                                "I 0",
+                                "I 1",
+                                "I 2",
+                                "I 3",
+                                "",
+                                "",
+                                "",
+                                "",
+                                "",
+                                "",
+                                ""
+                            ],
+                            [
+                                "",
+                                "1",
+                                "2",
+                                "3",
+                                "4",
+                                "5",
+                                "6",
+                                "7",
+                                "8",
+                                "9",
+                                "10",
+                                "11"
+                            ]
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "id": "COA_INSTRUCTION_PIPELINING_2008_Q27",
+            "subject": "Computer Organization and Architecture",
+            "topic": "Instruction Pipelining",
+            "subtopic": "other instruction",
+            "year": 2008,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 27,
+            "tags": [
+                "Instruction Pipelining",
+                "other instruction",
+                "Computer Organization and Architecture"
+            ],
+            "question": {
+                "text": "Which of the following are NOT true in a pipelined \nprocessor? \n\n1. \nBypassing can handle all RAW hazards. \n\n2. \nRegister renaming can eliminate all register \ncarried WAR hazards. \n\n3. \nControl hazard penalties can be eliminated by \ndynamic branch prediction.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "1 and 2 only",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "1 and 3 only",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "2 and 3 only",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "1, 2 and 3",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "B"
+            ],
+            "solution": {
+                "text": "1. \nBy passing (operand forwarding): Handle \n\n\nAll Raw Hazards: (False) \n\n\nIf I1 Load Instn & I2 Next Instn using the results \nof I1 as a operand  \n\n2. \nWAR (ANTI Dep.) \\Rightarrow Register Remaining \\Rightarrow \nTrue \n\n3. \nControl \nHazards: \neliminate \nby \nBranch \nPredication: (False)",
+                "images": [
+                    "assets/Computer Organization and Architecture/COA_Instruction_Pipelining_P35_X4792.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        }
+    ]
+}

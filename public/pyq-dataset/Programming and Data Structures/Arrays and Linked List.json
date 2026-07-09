@@ -1,0 +1,730 @@
+{
+    "subject": "Programming and Data Structures",
+    "topic": "Arrays and Linked List",
+    "questionCount": 11,
+    "questions": [
+        {
+            "id": "PDS_ARRAYS_AND_LINKED_LIST_2015_Q01",
+            "subject": "Programming and Data Structures",
+            "topic": "Arrays and Linked List",
+            "subtopic": "Arrays",
+            "year": 2015,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 1,
+            "tags": [
+                "Arrays and Linked List",
+                "Arrays",
+                "Programming and Data Structures"
+            ],
+            "question": {
+                "text": "Suppose c = 〈c[0],… , c[k-1] 〉 is an array of length \nk, where all the entries are from the set {0,1}. For \nany positive integers a and n, consider the following \npseudocode. \n\nDOSOMETHING (c, a, n) \n\nZ ← 1 \n\nfor i ← 0 to k-1 \n\ndo z ← z2  mod n \n\nif c[i] = 1 \n\nthen z ← (z \\times a) mod n \n\nreturn z \n\nIf k = 4, c = 〈1,0,1,1〉, a = 2 and n = 8, then the output \nof DOSOMETHING (c, a, n) is _____",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "0"
+            ],
+            "solution": {
+                "text": "Z  1  \n\nfor i  0 to k -1 \n\ndo z   z2 mod n \n\nIf ( c [i] = 1 ) \n\nThen z   z \\times a mod n \n\nreturn z \n\nk = 4 c = [0,0,1,1], n = 8, a = 2; \n(i) i = 0, z = z2 mod n \\Rightarrow z = 12 mod 8 =1 \n\nif (c [i] =1) \\Rightarrow true because c [0] =1 \n      z = z  a mod n  \n      z = 1  2 mod 8 \n      z = 2 \n(ii) i = 1, z = z2 mod n = 4 \n\nif ( c [i] = 1 ) \\Rightarrow false because c[1] =0 \n(iii) i = z, z = 42 mod 8 = 0 \n\nif (c [i] =1) \\Rightarrow true \nNo need to check anything further because z is 0 and \nall the operations involves multiplication of z. \n\nz = z2 mod n & z = 2 \\times a mod n. Because, z will \nnever change from 0.",
+                "images": [
+                    "assets/Programming and Data Structures/PDS_Arrays_and_Linked_List_P62_X931.png",
+                    "assets/Programming and Data Structures/PDS_Arrays_and_Linked_List_P62_X5946.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "PDS_ARRAYS_AND_LINKED_LIST_2014_Q02",
+            "subject": "Programming and Data Structures",
+            "topic": "Arrays and Linked List",
+            "subtopic": "of DOSOMETHING (c, a, n) is _____",
+            "year": 2014,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 2,
+            "tags": [
+                "Arrays and Linked List",
+                "of DOSOMETHING (c, a, n) is _____",
+                "Programming and Data Structures"
+            ],
+            "question": {
+                "text": "Let A be a square matrix of size n  n. Consider the \nfollowing pseudo code. What is the expected output? \n\nC = 100; \n\nfor i = 1 to n do \n\n for j = 1 to n do \n\n     { \n\n Temp = A[i][j] + C; \n\n A[i][j] = A[j][i]; \n\n A[j][i] = Temp - C; \n\n } \n\nfor  i = 1 to n do \n\n for j = 1 to n do \n\n Output  (A[i][j]);",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "The matrix A itself",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "Transpose of the matrix A",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "Adding 100 to the upper diagonal elements and \nsubtracting 100 from lower diagonal elements \nof A",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "None of the above",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "A"
+            ],
+            "solution": {
+                "text": "1 3\nA  =\nn =2\n2 7\n\n\n\n\n\n\n\n\nfor (i = 1; i < 2; i ++) \n\n{ \n\n for (j = 1; j \\le 2;  j++) \n\n { \n\n\ntemp = A [i] [j] + C; \n\n\nA [i] [j] = A [j] [i]; \n\n\nA [j][i] = temp - C; \n\n } \n\n} \n\n(i)  if i = 1 for j = 1 \n\n\ntemp = A [1] [1] + 100 = 103 \n\n\nA [1] [1] = A [1] [1] \n\n\nA [1] [1] = 103 - 100 = 3 \n\n\nNo effect on A11 \n\n\nfor j = 2 \n\n\ntemp = A [1] [2] + 100 = 104 \n\n\nA [1] [2] = 7 \n\n\nA [2] [1] = 104 - 100 = 4 \n\n\nNew matrix:  A12 swapped with A21. \n\n\n(ii) i = 2 \n\n\nfor  j = 1 \n\n\nTemp = A [2] [1] + 100 = 104 \n\n\nA [2] [1] = A [1] [2] = 7 \n\n\nA [1] [2] = 104 - 100 = 4 \n\n\nTemp = 9 + 100 = 109 \n\n\nMatrix = \n\n\n\n\n\n\n\n\n\nAgain, A21 swapped with A12. \n\n\nfor j = 2 \n\n\ntemp = 9 + 100 = 109 \n\n\n\nA [2] [2] = A [2] [2] \n\n\n\nA [2] [2] = 109 - 100 = 9 \n\n\n\nNo effect. \n\nFinally, we get the same matrix \n• \nAij is swapped with its mirror image Aji (Lower \ntriangular gular/upper triangular) \n• \nAnd when the code executes for the mirror \nimage again both elements are swapped  \n\n Same matrix",
+                "images": [
+                    "assets/Programming and Data Structures/PDS_Arrays_and_Linked_List_P62_X931.png",
+                    "assets/Programming and Data Structures/PDS_Arrays_and_Linked_List_P62_X5946.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "PDS_ARRAYS_AND_LINKED_LIST_2014_Q03",
+            "subject": "Programming and Data Structures",
+            "topic": "Arrays and Linked List",
+            "subtopic": "of A",
+            "year": 2014,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 3,
+            "tags": [
+                "Arrays and Linked List",
+                "of A",
+                "Programming and Data Structures"
+            ],
+            "question": {
+                "text": "Consider the following C function in which size is \nthe number of elements in the array E: \n\nint MyX(int * E, unsigned int size) { \n\n\n int Y = 0; \n\n\n int Z; \n\n\n int i, j, k; \n\n\nfor (i = 0; i < size; i++) \n\n      Y = Y + E[i]; \n\nfor (i= 0; i < size; i++) \n\n   for (j = i; j< size; j++)   { \n\n\n       Z = 0; \n\n       for (k = i; k <= j; k++) \n\n\n\nZ = Z + E[k];  \n                 if (Z>Y) \n\n\n\nY = Z; \n\n\n    } \n\nreturn Y; \n\n} \n\n\nThe value returned by the function MyX is the-",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "maximum possible sum of elements in any sub-\narray of array E.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "maximum element in any sub-array of array E.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "sum of the maximum elements in all possible \nsub-arrays of array E",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "the sum of all the elements in the array E. \n\nSorting Arrays",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "A"
+            ],
+            "solution": {
+                "text": "for (i = 0; i < size; i++) \n\n// find the sum of all elements of the array E and \nstoring the results in Y. \n\nfor (i = 0; i < size; i++) \n\nfor (j = i; j < size; j++) \n• \ni = 0   \n\n\n\n\nthen, j = 0 to size  \n\nif i\nthen j\n1 to size\n=\n=\n\n\n\nfor i = 0 \nfor i = 1   \n\n\n  K  = 0 to 0 \n    k  = 1 to1  \n\n\n\n= 0 to 1 \n\n= 1 to 2 \n\n\n\n= 0 to 2 \n\n= 1 to 3 \n\n\n\n= 0 to 3 \n\n= 1 to size  \n\n\n\n= 0 to size \n\nFinding the sum of each subarray from i.e. starting \nfrom 0 to n-1 position.  \n\nCheck whether the sum of elements of subarray is \ngreater then, the maximum sum of any sub - array \nfound till nowif its is then update current \nmaximum.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "PDS_ARRAYS_AND_LINKED_LIST_2015_Q04",
+            "subject": "Programming and Data Structures",
+            "topic": "Arrays and Linked List",
+            "subtopic": "Sorting Arrays",
+            "year": 2015,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 4,
+            "tags": [
+                "Arrays and Linked List",
+                "Sorting Arrays",
+                "Programming and Data Structures"
+            ],
+            "question": {
+                "text": "Consider the following two C code segments. Y and \nX are one and two dimensional arrays of size n and \nn  n respectively, where 2 \\le n \\le 10. Assume that in \nboth code segments, elements of Y are initialized to \n0 and each element X[i][j] of array X is initialized to \ni + j. Further assume that when stored in main \nmemory all elements of X are in same main memory \npage frame. \n\nCode segment 1: \n\n// initialize elements of Y to 0 \n\n// initialize elements X [i][j] of X to i + j  \n\n\n for (i = 0; i < n; i++) \n\n\n Y[i] += X[0][i]; \n\nCode segments 2: \n\n// initialize elements of Y to 0 \n\n// initialize elements X[i][j] of X to i + j \n\n\n for (i = 0; i < n; i + +) \n\n\n   Y[i] += X[i][0]; \n\nWhich of the following statements is/are correct? \n\nS1:  Final contents of array Y will be same in both \ncode segments. \n\nS2:  Elements of array X accessed inside the for \nloop shown in code segment 1 are contiguous \nin main memory. \n\nS3:  Elements of array X accessed inside the for \nloop shown in code segment 2 are contiguous \nin main memory.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "Only S2 is correct",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "Only S3 is correct",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "Only S1 and S2 are correct",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "Only S1 and S3 are correct \n\nLinked List",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "C"
+            ],
+            "solution": {
+                "text": "Code - 1  \n\n\nfor (i  = 0; i < n ; 1+ +) \n\n\nY [i]+ = X [0][i] \n\n\nX [i] [i] = + I + j \n\n\nX [0] [i] \n\n\nfor (i =0; I < n, i + +) \n\n\nY [i]+ = i \n\nCode - 2   \n\n\nfor (i = 0; i < n; i+j) \n\n\nY [i]+ = X [i] [0] \n\n\nX [i] [j] = i + j \n\n\nX [i] [0] = i \n\n\nFor (i  = 0; i < n; i ++) \n\n\nY [i] + = i; \n\nResult is same in both segment  \n\n\nFor (i= 0; i < n ; 1+j) \n\n\nY [i] + = X [0][i]; \n\nSuppose, n = 3; \n\n\ni = 0 \nX [0] [0] \n\n\n\ni = 1 \nX [0] [1] \n\n\ni = 2 \nX [0] [2] \n\n\ni = 3 \nX [0] [3] \n\n\nIn C, by default row major order is followed  \n\n  elements are stored contiguously.  \n\nIn Code - 2  \n\n\ni = 0 \nX [0] [0] \n\n\ni = 1 \nX [0] [0] \n\n\ni = 2 \nX [2] [0] \n\n\ni = 3 \nX [3] [0] \n\nIn C, Row major order is followed  \n\n  elements are not stored contiguously.  \n\nRow major order: \n\n\n0 X X X X\n1 X X X X\nX X X X\nX X X X\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nStored data row wise and access the data row wise.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "PDS_ARRAYS_AND_LINKED_LIST_2023_Q05",
+            "subject": "Programming and Data Structures",
+            "topic": "Arrays and Linked List",
+            "subtopic": "Linked List",
+            "year": 2023,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 5,
+            "tags": [
+                "Arrays and Linked List",
+                "Linked List",
+                "Programming and Data Structures"
+            ],
+            "question": {
+                "text": "Let SLLdel be a function that deletes a node in a \nsingly-linked list given a pointer to the node and a \npointer to the head of the list. Similarly, let DLLdel \nbe another function that deletes a node in a doubly-\nlinked list given a pointer to the node and a pointer \nto the head of the list. \n\nLet n denote the number of nodes in each of the \nlinked lists. Which one of the following choices is \nTRUE about the worst-case time complexity of \nSLLdel and DLLdel?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "SLLdel is O(1) and DLLdel is O(n)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "Both SLLdel and DLLdel are O(log(n))",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "Both SLLdel and DLLdel are O(1)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "SLLdel is O(n) and DLLdel is O(1)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "D"
+            ],
+            "solution": {
+                "text": "SLLdel: \n\n\n\n\nAssume that we want to delete last node.  \n\nAfter Deletion we need to NULL in the second last \nnode next field. \n\nAfter deletion: \n\n\n\nOne way traversal is possible given ptr and head, \nhow can we reach second last node \\Rightarrow Traverse \nfrom start (head) till second last node \\Rightarrow Traverse \nn - 1 nodes. \n         SLLDel Time complexity = O(n) \n\n\n\nDLLdel: \n• \nwe can go to previous node as well as next \nnode. No need to traverse from head to node to \nbe deleted.  \n• \nIn doubly linked list ptr \\rightarrow prev : Point to \nsecond last node \n\n\n\nDelete operation: \n\nptr \\rightarrow Prev \\rightarrow next = NULL  \n\nfree (ptr) \n          It will take constant time i.e. O(1).",
+                "images": [
+                    "assets/Programming and Data Structures/PDS_Arrays_and_Linked_List_P64_X6155.png",
+                    "assets/Programming and Data Structures/PDS_Arrays_and_Linked_List_P64_X6155.png",
+                    "assets/Programming and Data Structures/PDS_Arrays_and_Linked_List_P64_X6158.png",
+                    "assets/Programming and Data Structures/PDS_Arrays_and_Linked_List_P64_X6160.png",
+                    "assets/Programming and Data Structures/PDS_Arrays_and_Linked_List_P64_X6162.png",
+                    "assets/Programming and Data Structures/PDS_Arrays_and_Linked_List_P64_X6164.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "PDS_ARRAYS_AND_LINKED_LIST_2022_Q06",
+            "subject": "Programming and Data Structures",
+            "topic": "Arrays and Linked List",
+            "subtopic": "SLLdel is O(n) and DLLdel is O(1)",
+            "year": 2022,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 6,
+            "tags": [
+                "Arrays and Linked List",
+                "SLLdel is O(n) and DLLdel is O(1)",
+                "Programming and Data Structures"
+            ],
+            "question": {
+                "text": "Consider the problem of reversing a singly linked \nlist. To take an example, given the linked list below, \n\n\n\n\n\n the reversed linked list should look like  \n\n\n\n\n\nWhich one of the following statements is TRUE \nabout the time complexity of algorithms that solve \nthe above problem in O(1) space?",
+                "images": [
+                    "assets/Programming and Data Structures/PDS_Arrays_and_Linked_List_P59_X5781.png",
+                    "assets/Programming and Data Structures/PDS_Arrays_and_Linked_List_P59_X5783.png"
+                ],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "The best algorithm for the problem takes \n(n) time in the worst case.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "The best algorithm for the problem takes (n \nlog n) time in the worst case.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "The best algorithm for the problem takes \n(n2) time in the worst case.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "It is not possible to reverse a singly linked \nlist in O(1) space.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "A"
+            ],
+            "solution": {
+                "text": "Suppose,  \n\n\n\nProgram: \n\nStruct node * prev, * current, * next  \n\nprev = Null; \n\ncurrent = head; \n\nWhile (current! = NULL) \n\n{ \n\nnext = current \\rightarrow next; \n\ncurrent \\rightarrow next = prev;  \n\nPrev = current; \n\ncurrent = next; \n\n} \n\n\nhead = prev; \n\n\nTC = (n) \n\nSpace = (1)",
+                "images": [
+                    "assets/Programming and Data Structures/PDS_Arrays_and_Linked_List_P65_X6237.png",
+                    "assets/Programming and Data Structures/PDS_Arrays_and_Linked_List_P65_X6238.png",
+                    "assets/Programming and Data Structures/PDS_Arrays_and_Linked_List_P65_X6240.png",
+                    "assets/Programming and Data Structures/PDS_Arrays_and_Linked_List_P65_X6242.png",
+                    "assets/Programming and Data Structures/PDS_Arrays_and_Linked_List_P65_X6244.png",
+                    "assets/Programming and Data Structures/PDS_Arrays_and_Linked_List_P65_X6246.png",
+                    "assets/Programming and Data Structures/PDS_Arrays_and_Linked_List_P65_X6248.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "PDS_ARRAYS_AND_LINKED_LIST_2021_Q07",
+            "subject": "Programming and Data Structures",
+            "topic": "Arrays and Linked List",
+            "subtopic": "list in O(1) space.",
+            "year": 2021,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 7,
+            "tags": [
+                "Arrays and Linked List",
+                "list in O(1) space.",
+                "Programming and Data Structures"
+            ],
+            "question": {
+                "text": "Consider the following ANSI C program: \n\n#include <stdio.h> \n\n#include <stdlib.h> \n\nstruct Node{ \n\nint value; \n\nstruct Node *next;}; \n\nint main( ){ \n\n\nstruct Node *boxE, *head, *boxN; int index = 0; \n\nboxE = head = (struct Node *) malloc(size of(struct \nNode)); \n\nhead \\rightarrow value = index; \n\nfor (index = 1; index <= 3; index++){ \n\nboxN = (struct Node *) malloc(size of(struct Node)); \n\nboxE \\rightarrow next = boxN; \n\nboxN \\rightarrow value = index; \n\nboxE = boxN; } \n\nfor (index = 0; index  \\le  3; index++) { \n\nprintf (\"Value at index %d is %d\\n\", index, head \\rightarrow \nvalue); \n\nhead = head \\rightarrow next; \n\nprintf (\"Value at index %d is %d\\n\", index+1, head \n→ value); } } \n\nWhich one of the statements below is correct about \nthe program?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "Upon execution, the program creates a linked-\nlist of five nodes.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "Upon execution, the program goes into an \ninfinite loop.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "It has a missing return which will be reported as \nan error by the compiler.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "It dereferences an uninitialized pointer that may \nresult in a run-time error.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "D"
+            ],
+            "solution": {
+                "text": "Index = 0 \n\nboxE = head = (struct node*) malloc (size of \n(struct node)) \n\nhead \\rightarrow value = index \n\n\n\nIndex = 1 \n\n(i) box N = (struct Node*) malloc (size of (struct \nnode))  \n\n(ii) box E \\rightarrow next = box N; \n\n(iii)  box N \\rightarrow value = index; \n\n(iv)  box E = box N \n\n\n\n\nIndex = 2 \n\n(i) box N = (struct Node*) malloc (size of (struct \nnode))  \n\n(ii)  box E \\rightarrow next = box N; \n\n(iii)  box N \\rightarrow value = index; \n\n(iv)   box E = box N \n\n\n\n\nSame will happen for index = 3 \n\n\n(Last node next field contains garbage value) \n\nNow 2nd loop starts \n\nIndex = 0 \n\n1st printf: value of index 0 is 0 \n\nhead = head \\rightarrow next \\Rightarrow head points to 2nd node. \n\n2nd  printf: value at Index 1 is 1 \n\nIndex = 1 \n\n1st printf: value of index 1 is 1 \n\nhead = head \\rightarrow next \\Rightarrow head points to 3rd node. \n\n2nd  printf: value at Index 2 is 2. \n\nIndex = 2 \n\n1st printf: value of index 2 is 2 \n\nHead = head \\rightarrow next \\Rightarrow head points to last node. \n\n2nd  printf: value at Index 3 is 3. \n\nIndex = 3 \n\n\n1st printf: value of index 3 is 3 \n\nHead = head \\rightarrow next (Garbage value) \n\n\nHead is pointing to some Garbage value or \nuniutilized memory. \n\n2nd printf : while dereferencing head \\rightarrow value code \nmay get a runtime error.",
+                "images": [
+                    "assets/Programming and Data Structures/PDS_Arrays_and_Linked_List_P65_X6237.png",
+                    "assets/Programming and Data Structures/PDS_Arrays_and_Linked_List_P65_X6238.png",
+                    "assets/Programming and Data Structures/PDS_Arrays_and_Linked_List_P65_X6240.png",
+                    "assets/Programming and Data Structures/PDS_Arrays_and_Linked_List_P65_X6242.png",
+                    "assets/Programming and Data Structures/PDS_Arrays_and_Linked_List_P65_X6244.png",
+                    "assets/Programming and Data Structures/PDS_Arrays_and_Linked_List_P65_X6246.png",
+                    "assets/Programming and Data Structures/PDS_Arrays_and_Linked_List_P65_X6248.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "PDS_ARRAYS_AND_LINKED_LIST_2017_Q08",
+            "subject": "Programming and Data Structures",
+            "topic": "Arrays and Linked List",
+            "subtopic": "result in a run-time error.",
+            "year": 2017,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 8,
+            "tags": [
+                "Arrays and Linked List",
+                "result in a run-time error.",
+                "Programming and Data Structures"
+            ],
+            "question": {
+                "text": "Consider the C code fragment given below.  \n\ntypedef struct node \n\n{ int data; \n\nnode* next; \n\n} node; \n\nvoid join (node *m, node *n){ \n\nnode *p = n; \n\nwhile (p \\rightarrow next ! = NULL){ \n\np = p \\rightarrow next; \n\n} \n\np \\rightarrow next = m; \n\n} \n\nAssuming that m and n point to valid NULL-\nterminated linked lists, invocation of join will",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "append list m to the end of list n for all inputs.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "either cause a null pointer dereference or \nappend list m to the end of list n.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "cause a null pointer dereference for all inputs",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "append list n to the end of list m for all inputs",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "B"
+            ],
+            "solution": {
+                "text": "Valid NULL-terminated linked list means the \nlinked-list with last node as NULL. It can be empty \nor it can be non-empty \n\n\nFor example:  \n\n\nCase:-1: When both m and n are non empty \nlinked list. \n\nm: \n\n\nn: \n\nFinding last node when we came out of loop, P is \npointing to last node.  \n\nAfter while loop: \n\n\n\nAppended m at the end of n.  \n\nCase 2: Both m and n are null \n\nn =  NULL \n\nm = NULL \n(i) If both m and n are null, then P = NULL \n\nNull \\rightarrow Next ! = NULL \n\nThis will create an error because we are trying to \ndereference a null pointer. So, option (b) is the \ncorrect answer.",
+                "images": [
+                    "assets/Programming and Data Structures/PDS_Arrays_and_Linked_List_P66_X6312.png",
+                    "assets/Programming and Data Structures/PDS_Arrays_and_Linked_List_P66_X6314.png",
+                    "assets/Programming and Data Structures/PDS_Arrays_and_Linked_List_P66_X6316.png",
+                    "assets/Programming and Data Structures/PDS_Arrays_and_Linked_List_P66_X6318.png",
+                    "assets/Programming and Data Structures/PDS_Arrays_and_Linked_List_P66_X6324.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "PDS_ARRAYS_AND_LINKED_LIST_2014_Q09",
+            "subject": "Programming and Data Structures",
+            "topic": "Arrays and Linked List",
+            "subtopic": "append list m to the end of list n.",
+            "year": 2014,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 9,
+            "tags": [
+                "Arrays and Linked List",
+                "append list m to the end of list n.",
+                "Programming and Data Structures"
+            ],
+            "question": {
+                "text": "What is the worst case time complexity of inserting \nn elements into an empty linked list, if the linked list \nneeds to be maintained in sorted order?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "(n)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "(n log n)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "(n2)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "(1)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "C"
+            ],
+            "solution": {
+                "text": "Consdier the sorted list \n\n\n\nIf we want to insert 50 in this list \n\nWe need to traverse till end i.e, number of \ncomparison  = number of elements \n\ni.e., to insert an element in a sorted linked list with \nn element n comparisons are needed, in \n                    worst case \n\nFor 1st element = 0 comparison \n\nFor 2nd element = 1 comparison \n\n. \n\n. \n\n. \n\nFor nth element = (n - 1) comparison \n\n\nTotal comparisons needed to insert n elements \n\n\n= 0 + 1 + 2 + ….(n - 1) \n\n        = (\n)\nn -1 n\n = O(n2) \n\nOption (c) is correct.",
+                "images": [
+                    "assets/Programming and Data Structures/PDS_Arrays_and_Linked_List_P67_X6381.png",
+                    "assets/Programming and Data Structures/PDS_Arrays_and_Linked_List_P67_X6385.png",
+                    "assets/Programming and Data Structures/PDS_Arrays_and_Linked_List_P67_X6385.png",
+                    "assets/Programming and Data Structures/PDS_Arrays_and_Linked_List_P67_X6387.png",
+                    "assets/Programming and Data Structures/PDS_Arrays_and_Linked_List_P67_X6389.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "PDS_ARRAYS_AND_LINKED_LIST_2010_Q10",
+            "subject": "Programming and Data Structures",
+            "topic": "Arrays and Linked List",
+            "subtopic": "needs to be maintained in sorted order?",
+            "year": 2010,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 10,
+            "tags": [
+                "Arrays and Linked List",
+                "needs to be maintained in sorted order?",
+                "Programming and Data Structures"
+            ],
+            "question": {
+                "text": "The following C function takes a singly-linked list as \ninput argument. It modified the list by moving the \nlast element to the front of the list and returns the \nmodified list. Some part of the code is left blank. \n\ntypedef struct node{ \n\nint value; \n\nstruct node * next;  \n\n}Node; \n\nNode * move_ to _ front (Node * head){ \n\nNode * p, *q; \n\nif ((head = = NULL)|| (head→next = =NULL)) \n\nreturn head;  \n\nq = NULL; \n\np = head; \n\nwhile (p →next ! = NULL){ \n       q = p; \n       p = p \\rightarrow next; \n\n} \n\n ____________________________ \n\n  return head; \n\n} \n\n\nChoose the correct alternative to replace the blank \nline.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "q = NULL ; p \\rightarrow  next = head ; head = p;",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "q→ next = NULL; head = p; p \\rightarrow  next = head;",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "head = p; p \\rightarrow next = q; q→  next = NULL;",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "q→ next = NULL; p→ next = head; head = p;",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "D"
+            ],
+            "solution": {
+                "text": "typedef struct node{ \n\nint value; \n\nstruct node * next;  \n\n}Node;                 // Template for node \n\nNode * move_ to _ front (Node * head){ \n\nNode * p, *q; \n\nif ((head = = NULL)|| (head→next = =NULL)) \n\nreturn head;  // Either 0 or 1 node; last node is the \nfirst node \n\nq = NULL; \n\np = head; \n\nwhile (p →next ! = NULL){ \n       q = p; \n       p = p \\rightarrow next; \n\n} \n\n ____________________________ \n\n  return head; \n\n\n} \n\n\n\n\n\n\nIst iteration: \n\n\n\n\n\nII iteration: \n\n\n\n\n\n\n\nOption (a) q = NULL ; p \\rightarrow next = head ; head = \np; \n\n\n\n\n\n\n\nThis is incorrect, this is not singly linked list. So, \noption (a) is wrong. \n\n\nOption (b) q \\rightarrow next = NULL; head = p; p \\rightarrow next \n= head; \n\n\n\n\n\n\n\n\nOption (b) is wrong.  \n\nOption (c) head = p; p \\rightarrow next = q; q \\rightarrow next = \nNULL; \n\n\n\nNo way to reach first node \n\n\n\n\n\nOption (c) is wrong.  \n\nOption (d) q \\rightarrow next = NULL; p \\rightarrow next = head; \nhead = p; \n\n\n\n\nTherefore, option (d) is the correct answer.",
+                "images": [
+                    "assets/Programming and Data Structures/PDS_Arrays_and_Linked_List_P67_X6381.png",
+                    "assets/Programming and Data Structures/PDS_Arrays_and_Linked_List_P67_X6385.png",
+                    "assets/Programming and Data Structures/PDS_Arrays_and_Linked_List_P67_X6385.png",
+                    "assets/Programming and Data Structures/PDS_Arrays_and_Linked_List_P67_X6387.png",
+                    "assets/Programming and Data Structures/PDS_Arrays_and_Linked_List_P67_X6389.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "PDS_ARRAYS_AND_LINKED_LIST_2008_Q11",
+            "subject": "Programming and Data Structures",
+            "topic": "Arrays and Linked List",
+            "subtopic": "line.",
+            "year": 2008,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 11,
+            "tags": [
+                "Arrays and Linked List",
+                "line.",
+                "Programming and Data Structures"
+            ],
+            "question": {
+                "text": "The following C function takes a singly-linked list of \nintegers as a parameter and rearranges the elements \nof the list. The function is called with the list \ncontaining the integers 1,2,3,4,5,6,7 in the given \norder. What will be the contents of the list after the \nfunction completes execution? \n\nstruct node{ \n\nint value; \n\nstruct node * next; \n\n}; \n\nvoid rearrange (struct node * list){ \n\nstruct node * p, *q; \n\nint temp; \n\nif(!list||!list→next) return; \n\np=list; q=list->next; \n\nwhile (q){ \n\ntemp = p→value; \n\np→value = q→value; \n\nq→ value = temp;  \n\np = q→next; \n\nq = p? p→next: 0: \n\n} \n\n}",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "1, 2, 3, 4, 5, 6, 7",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "2, 1, 4, 3, 6, 5, 7",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "1, 3, 2, 5, 4, 7, 6",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "2, 3, 4, 5, 6, 7, 1",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "B"
+            ],
+            "solution": {
+                "text": "Given,  \n\n\nif(!list||!list→next) return; // 0 or 1 node \n\nSwap data of node pointed by p,q \n\n Q is valid address  \n\n \\Rightarrow code inside loop \\Rightarrow execute  swap \n\n\n\np = q \\rightarrow next \n\nQ = p? P→ next: 0 \nAfter one iteration: \n q is valid address (non-zero/true) code inside loop \nwill execute \n(i) \nSwap \n\n\nAfter two iterations: \n\n\nif(!list||!list→next) return;// 0 or 1 node \n\nq is valid address code inside loop swap. \n\n if(!list||!list→next) return;// 0 or 1 node \n\nq = p ? p→ next: 0 \n\nq = p \\rightarrow next \\Rightarrow NULL \n\nwhile (q) Null \\Rightarrow False \n\nLoop terminates \n\n2, 1, 4, 3, 6, 5, 7 \n\nTherefore, option (b) is the correct answer.",
+                "images": [
+                    "assets/Programming and Data Structures/PDS_Arrays_and_Linked_List_P68_X6438.png",
+                    "assets/Programming and Data Structures/PDS_Arrays_and_Linked_List_P68_X6440.png",
+                    "assets/Programming and Data Structures/PDS_Arrays_and_Linked_List_P68_X6442.png",
+                    "assets/Programming and Data Structures/PDS_Arrays_and_Linked_List_P68_X6444.png",
+                    "assets/Programming and Data Structures/PDS_Arrays_and_Linked_List_P68_X6452.png",
+                    "assets/Programming and Data Structures/PDS_Arrays_and_Linked_List_P68_X6452.png",
+                    "assets/Programming and Data Structures/PDS_Arrays_and_Linked_List_P68_X6452.png",
+                    "assets/Programming and Data Structures/PDS_Arrays_and_Linked_List_P68_X6454.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        }
+    ]
+}

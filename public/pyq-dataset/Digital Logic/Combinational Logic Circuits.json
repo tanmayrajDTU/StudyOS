@@ -1,0 +1,767 @@
+{
+    "subject": "Digital Logic",
+    "topic": "Combinational Logic Circuits",
+    "questionCount": 11,
+    "questions": [
+        {
+            "id": "DL_COMBINATIONAL_LOGIC_CIRCUITS_2016_Q01",
+            "subject": "Digital Logic",
+            "topic": "Combinational Logic Circuits",
+            "subtopic": "BCD Adder and Subtractor",
+            "year": 2016,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 1,
+            "tags": [
+                "Combinational Logic Circuits",
+                "BCD Adder and Subtractor",
+                "Digital Logic"
+            ],
+            "question": {
+                "text": "Consider \nan \neight-bit \nripple-carry \nadder \nfor \ncomputing the sum of A and B where A and B are \nintegers represented in 2's complement from. If the \ndecimal value of A is one, the decimal value of B that \nleads to the longest latency for the sum to stabilize        \nis                   . \nMultiplexer",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "-1"
+            ],
+            "solution": {
+                "text": "B = 1 1 1 1 1 1 1 1  \\Rightarrow -1",
+                "images": [
+                    "assets/Digital Logic/DL_Combinational_Logic_Circuits_P28_X3378.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "DL_COMBINATIONAL_LOGIC_CIRCUITS_2023_Q02",
+            "subject": "Digital Logic",
+            "topic": "Combinational Logic Circuits",
+            "subtopic": "Multiplexer",
+            "year": 2023,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 2,
+            "tags": [
+                "Combinational Logic Circuits",
+                "Multiplexer",
+                "Digital Logic"
+            ],
+            "question": {
+                "text": "A Boolean digital circuit is composed using two 4-\ninput multiplexers (M1 and M2) and one 2-input \nmultiplexer (M3) as shown in the figure. X0-X7 are \nthe inputs of the multiplexers M1 and M2 and could \nbe connected to either 0 or 1. The select lines of the \nmultiplexers are connected to Boolean variables A, B \nand C as shown. \n\n\nWhich one of the following set of values of (X0, X1, \nX2, X3, X4, X5, X6, X7) will realise the Boolean \nfunction A +A .C +A.B .C ?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "(1, 1, 0, 0, 1, 1, 1, 0)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "(1, 1, 0, 0, 1, 1, 0, 1)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "(1, 1, 0, 1, 1, 1, 0, 0)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "(0, 0, 1, 1, 0, 1, 1, 1)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "C"
+            ],
+            "solution": {
+                "text": "Given function f (ABC) = A\nAC\nAB C\n+\n+\n\n• \nFirst, we minimize the given function \nf (ABC) =\n(\n)(\n)\n(\n)\nA\nA\nAB C\nB\nB\nC\nC\nB\nB C\n+\n+\n+\n+\n+\n\n\nf (ABC) = \nAB\nB C+\n +\nAB\nC\nA\nABC\nABC\nC\nABC\nABC\n+\n+\n+\n+\n\nf (ABC) = AB\nB C+\n +\nC\nA\nABC\nABC\nABC\nABC\n+\n+\n+\n\n        f (ABC) = m (0, 1, 2, 3, 5) \n\nNow implementing on 2 \\times 1 mux. \n\n\n\n\n (X0 X1 X2 X3 X4 X5 X6 X7) = (11011100) \n\nHence correct answer is option (c).",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "DL_COMBINATIONAL_LOGIC_CIRCUITS_2021_Q03",
+            "subject": "Digital Logic",
+            "topic": "Combinational Logic Circuits",
+            "subtopic": "function A +A .C +A.B .C ?",
+            "year": 2021,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 3,
+            "tags": [
+                "Combinational Logic Circuits",
+                "function A +A .C +A.B .C ?",
+                "Digital Logic"
+            ],
+            "question": {
+                "text": "Which one of the folloiwng circuits implements the \nBoolean function given below? \n\nf(x,y,z,) = m0+ m1+ m3+ m4 + m5+ m6  where mt is the \nith minterm.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "x\nx'\n4 1\n×\nMUX\nS1\nS0\ny\nz\nf\nx\nx'\n4×1\nMUX\nS1\nS0\ny\nz\nf",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "A"
+            ],
+            "solution": {
+                "text": "F = (\n)\n(\n)\nX\nX YZ\nX\nX YZ + XYZ\nXYZ\n+\n+\n+\n+\n\n\n  = XYZ\nXYZ\nXY\nXYZ + XYZ\nXYZ\nZ\n+\n+\n+\n+\n\n\n = \n(\n)\nm 0,1,3,4,5,6\n",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "DL_COMBINATIONAL_LOGIC_CIRCUITS_2020_Q04",
+            "subject": "Digital Logic",
+            "topic": "Combinational Logic Circuits",
+            "subtopic": "f",
+            "year": 2020,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 4,
+            "tags": [
+                "Combinational Logic Circuits",
+                "f",
+                "Digital Logic"
+            ],
+            "question": {
+                "text": "A multiplexer is placed between a group of 32 \nregisters and an accumulator to regulate data \nmovement such that at any given point in time the \ncontent of only one register will move to the \naccumulator. The  number of select lines needed for \nthe multiplexer is _____.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "5"
+            ],
+            "solution": {
+                "text": "Given: \n\nNumber of registers = 32 \n\nMux  ⇒ 32 \\times 1 \n\nInputs = 32 \n\nNumber of select line = log2(number of inputs) \n\nNumber of select line =log232 = 5",
+                "images": [
+                    "assets/Digital Logic/DL_Combinational_Logic_Circuits_P28_X622.png",
+                    "assets/Digital Logic/DL_Combinational_Logic_Circuits_P28_X3381.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "DL_COMBINATIONAL_LOGIC_CIRCUITS_2014_Q05",
+            "subject": "Digital Logic",
+            "topic": "Combinational Logic Circuits",
+            "subtopic": "the multiplexer is _____.",
+            "year": 2014,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 5,
+            "tags": [
+                "Combinational Logic Circuits",
+                "the multiplexer is _____.",
+                "Digital Logic"
+            ],
+            "question": {
+                "text": "Consider the 4-to-1 multiplexer with with two select \nS1 and S0 given below. \n\n\nThe minimal sum of products from the Boolean \nexpression for the output F of the multiplexer is-",
+                "images": [
+                    "assets/Digital Logic/DL_Combinational_Logic_Circuits_P26_X3141.png"
+                ],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "PQ + QR\nPQR\n+",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "PQ + PQR + PQR\nPQR\n+",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "PQR + PQR + QR\nPQR\n+",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "PQR",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "A"
+            ],
+            "solution": {
+                "text": "F = PQ + PQR + PQR \n\nStandard cononcial from  \n\nF= \n(\n)\nPQ R + R\nPQR + PQR\n+\n\n\n= \n(\n)\nPQR\nPQR+PQR + PQR\nm 2,3,5,6\n+\n= \n\n\n\n\nPQR + PQ + QR",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "DL_COMBINATIONAL_LOGIC_CIRCUITS_2016_Q06",
+            "subject": "Digital Logic",
+            "topic": "Combinational Logic Circuits",
+            "subtopic": "+",
+            "year": 2016,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 6,
+            "tags": [
+                "Combinational Logic Circuits",
+                "+",
+                "Digital Logic"
+            ],
+            "question": {
+                "text": "Consider the two cascaded 2 to 1 multiplexers as \nshown in the ﬁgure. \n\n\nThe minimal sum of products form of the output X is",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "𝑃̅𝑄̅ + 𝑃𝑄𝑅",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "𝑃̅Q+QR",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "PQ+ 𝑃̅𝑄̅R",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "𝑄̅𝑅̅ +PQR",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "D"
+            ],
+            "solution": {
+                "text": "General 2:1 Mux expression  \n\n\nIf S0 is enabled and x, y are inputs then output \n\n\nf= S̅0 x + S0 y  \n\nHere in given problem output of MUX-1 is input to \nMUX -2 \n\noutput MUX -1  \n              f1 = P̅.0 + P.R = P R \n\nMUX -2 output  \n             X = Q̅. R̅ + Q. f1 \n             X = Q̅. R̅ + Q.P.R \n\nIts minimal sum of product form output  \n            X= Q̅.R̅ + PQR \n\nHence, correct answer is option (d).",
+                "images": [
+                    "assets/Digital Logic/DL_Combinational_Logic_Circuits_P29_X3522.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "DL_COMBINATIONAL_LOGIC_CIRCUITS_2014_Q07",
+            "subject": "Digital Logic",
+            "topic": "Combinational Logic Circuits",
+            "subtopic": "The minimal sum of products form of the output X is",
+            "year": 2014,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 7,
+            "tags": [
+                "Combinational Logic Circuits",
+                "The minimal sum of products form of the output X is",
+                "Digital Logic"
+            ],
+            "question": {
+                "text": "Consider the following combinational function block \ninvolving four Boolean variables x, y, a, b where x, a, \nb are inputs and y is the output.    \n\nf (x, y, a, b)  \n\n{ \n\n if (x is 1) y = a; \n\n else y = b;  \n\n}. \n\nWhich one of the following digital logic blocks is the \nmost suitable for implementing this function?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "Full adder",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "Priority encoder",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "Multiplexer",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "Flip-flop",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "C"
+            ],
+            "solution": {
+                "text": "Then given circuit will be as follows  \n\n\nFrom the given condition if  \n\nx =1 \n\ny = a \n\nOtherwise, y = b \n\nThe truth table of the above circuit will be given as \nx \na \nb \ny \n\n\ny (x, a, b) =  m(1, 3, 6, 7) \n\nThe k-map of the above function will be  \n\n\n\n\ny = x a + x b \n\n\n\nHence, correct answer is option (c).",
+                "images": [
+                    "assets/Digital Logic/DL_Combinational_Logic_Circuits_P29_X3520.png",
+                    "assets/Digital Logic/DL_Combinational_Logic_Circuits_P29_X3524.png"
+                ],
+                "latex": [],
+                "tables": [
+                    {
+                        "headers": [
+                            "x",
+                            "a",
+                            "b",
+                            "y"
+                        ],
+                        "rows": [
+                            [
+                                "0",
+                                "0",
+                                "0",
+                                "0"
+                            ],
+                            [
+                                "0",
+                                "0",
+                                "1",
+                                "1"
+                            ],
+                            [
+                                "0",
+                                "1",
+                                "0",
+                                "0"
+                            ],
+                            [
+                                "0",
+                                "1",
+                                "1",
+                                "1"
+                            ],
+                            [
+                                "1",
+                                "0",
+                                "0",
+                                "1"
+                            ],
+                            [
+                                "1",
+                                "0",
+                                "1",
+                                "0"
+                            ],
+                            [
+                                "1",
+                                "1",
+                                "0",
+                                "1"
+                            ],
+                            [
+                                "1",
+                                "1",
+                                "1",
+                                "1"
+                            ]
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "id": "DL_COMBINATIONAL_LOGIC_CIRCUITS_2010_Q08",
+            "subject": "Digital Logic",
+            "topic": "Combinational Logic Circuits",
+            "subtopic": "most suitable for implementing this function?",
+            "year": 2010,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 8,
+            "tags": [
+                "Combinational Logic Circuits",
+                "most suitable for implementing this function?",
+                "Digital Logic"
+            ],
+            "question": {
+                "text": "The Boolean expression of the output f of the \nmultiplexer shown below is",
+                "images": [
+                    "assets/Digital Logic/DL_Combinational_Logic_Circuits_P26_X3144.png"
+                ],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "P\nQ\nR\n\n",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "P\nQ\nR\n\n",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "P\nQ\nR\n+\n+",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "P\nQ\nR\n+\n+\n\nx'\nx\n4×1\nMUX\nS1\nS0\ny\nz\nf\nx'\nx\n4×1\nMUX\nS1\nS0\ny\nz\nf\n2-to-1\nMUX\nS\nR\nR-\n2-to-1\nMUX\nS\nX\nP\nQ\n\nDecoder/De-MUX",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "B"
+            ],
+            "solution": {
+                "text": "Given multiplexer diagram redrawn as \n\n\nThe output of the given multiplexer will be given as \n\n=\n+\n+\n+\nf\nPQR\nPQR\nPQR\nPQR   \n\n  f\n= m + m + m + m \n\n   f  = \n(\n)\nm 1,2,4,7\n\n\n\nBy using k-map we get  \n\n\n=\n+\n+\n+\nf\nPQR\nPQR\nPQR\nPQR \n\nf = P\nQ\nR\n\n\n\n\nHence, correct answer is option (b).",
+                "images": [
+                    "assets/Digital Logic/DL_Combinational_Logic_Circuits_P30_X3691.png",
+                    "assets/Digital Logic/DL_Combinational_Logic_Circuits_P30_X3697.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "DL_COMBINATIONAL_LOGIC_CIRCUITS_2020_Q09",
+            "subject": "Digital Logic",
+            "topic": "Combinational Logic Circuits",
+            "subtopic": "Decoder/De-MUX",
+            "year": 2020,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 9,
+            "tags": [
+                "Combinational Logic Circuits",
+                "Decoder/De-MUX",
+                "Digital Logic"
+            ],
+            "question": {
+                "text": "If there are m input lines and n output lines for a \ndecoder that is used to uniquely address a byte \naddressable 1 KB RAM, then the minimum value of \nm + n is ____.",
+                "images": [],
+                "latex": [],
+                "tables": [
+                    {
+                        "headers": [
+                            "Inputs",
+                            "",
+                            "",
+                            "",
+                            "Outputs",
+                            "",
+                            ""
+                        ],
+                        "rows": [
+                            [
+                                "D 0",
+                                "D 1",
+                                "D 2",
+                                "D 3",
+                                "X 0",
+                                "X 1",
+                                "V"
+                            ],
+                            [
+                                "0",
+                                "0",
+                                "0",
+                                "0",
+                                "x",
+                                "x",
+                                "0"
+                            ],
+                            [
+                                "1",
+                                "0",
+                                "0",
+                                "0",
+                                "0",
+                                "0",
+                                "1"
+                            ],
+                            [
+                                "X",
+                                "1",
+                                "0",
+                                "0",
+                                "0",
+                                "1",
+                                "1"
+                            ],
+                            [
+                                "X",
+                                "x",
+                                "1",
+                                "0",
+                                "1",
+                                "0",
+                                "1"
+                            ],
+                            [
+                                "X",
+                                "x",
+                                "x",
+                                "1",
+                                "1",
+                                "1",
+                                "1"
+                            ]
+                        ]
+                    }
+                ]
+            },
+            "options": [],
+            "correctAnswer": [
+                "1034"
+            ],
+            "solution": {
+                "text": "1 kB RAM=1024 = 210 \n\nm = 10 \n\nn = 210 = 1024 \n\nm + n = 10 + 1024= 1034",
+                "images": [
+                    "assets/Digital Logic/DL_Combinational_Logic_Circuits_P30_X3687.png",
+                    "assets/Digital Logic/DL_Combinational_Logic_Circuits_P30_X3689.png",
+                    "assets/Digital Logic/DL_Combinational_Logic_Circuits_P30_X3695.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "DL_COMBINATIONAL_LOGIC_CIRCUITS_2008_Q10",
+            "subject": "Digital Logic",
+            "topic": "Combinational Logic Circuits",
+            "subtopic": "m + n is ____.",
+            "year": 2008,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 10,
+            "tags": [
+                "Combinational Logic Circuits",
+                "m + n is ____.",
+                "Digital Logic"
+            ],
+            "question": {
+                "text": "What Boolean function does the circuit below \nrealize?",
+                "images": [
+                    "assets/Digital Logic/DL_Combinational_Logic_Circuits_P27_X3232.png"
+                ],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "xz\nx z\n+",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "x z\nx z\n+",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "x y\nyz\n+",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "xy\ny z\n+\n\n\n\nEncoder and Priority Encoder",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "B"
+            ],
+            "solution": {
+                "text": "We can see that the given circuit is 3 to 8 \ndecoder and its output will be given as. \n\n(\n)\nf\nm 1,3,4,6\n= \n\n\n\n\nBy using k-map we get  \n\n\nf = xz + xz \n\nHence, correct answer is option (b).",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "DL_COMBINATIONAL_LOGIC_CIRCUITS_2013_Q11",
+            "subject": "Digital Logic",
+            "topic": "Combinational Logic Circuits",
+            "subtopic": "Encoder and Priority Encoder",
+            "year": 2013,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 11,
+            "tags": [
+                "Combinational Logic Circuits",
+                "Encoder and Priority Encoder",
+                "Digital Logic"
+            ],
+            "question": {
+                "text": "In the following truth table, V = 1 if and only if the \ninput is valid. What function does the truth table \nrepresent? \nInputs \nOutputs \nD0 \nD1 \nD2 \nD3 \nX0 \nX1 \nV \nx \nx \nX \nX \nx \nX \nx \nx \n\n\nWhat function does the truth table represent?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "Priority encoder",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "Decoder",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "Multiplexer",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "Demultiplexer",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "A"
+            ],
+            "solution": {
+                "text": "We know that \n\nD0 \\rightarrow MSB  \n\nD3 \\rightarrow LSB \n\nwe can see that the given truth table is the truth table \nof priority encoder.  \n         V=0 is invalid output. \n         V=1 is valid output \n\nHence, correct answer is option (a).",
+                "images": [
+                    "assets/Digital Logic/DL_Combinational_Logic_Circuits_P30_X3687.png",
+                    "assets/Digital Logic/DL_Combinational_Logic_Circuits_P30_X3689.png",
+                    "assets/Digital Logic/DL_Combinational_Logic_Circuits_P30_X3695.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        }
+    ]
+}

@@ -1,0 +1,1515 @@
+{
+    "subject": "Computer Networks",
+    "topic": "Transport Layer",
+    "questionCount": 25,
+    "questions": [
+        {
+            "id": "CN_TRANSPORT_LAYER_2023_Q01",
+            "subject": "Computer Networks",
+            "topic": "Transport Layer",
+            "subtopic": "TCP Header",
+            "year": 2023,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 1,
+            "tags": [
+                "Transport Layer",
+                "TCP Header",
+                "Computer Networks"
+            ],
+            "question": {
+                "text": "Suppose you are asked to design a new reliable byte-\nstream transport protocol like TCP. This protocol, \nnamed myTCP, runs over a 100 Mbps network with \nRound Trip Time of 150 milliseconds and the \nmaximum segment lifetime of 2 minutes. Which of \nthe following is/are valid lengths of the Sequence \nNumber field in the myTCP header?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "30 bits",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "32 bits",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "34 bits",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "36 bits",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "B",
+                "C",
+                "D"
+            ],
+            "solution": {
+                "text": "LT  = 2 min \n\n LT  = 120 sec. \n\n   B   = 100 \\times 106 Bit/sec. \n\n100 10\n8 \n Byte/sec. \n\n12.5 ×106 Byte/sec. \n\n1 sec. \n12.5×106 Byte \n\n1 sec. \n12.5×106 Seq. Number \n\n120 sec. \n120 \\times 12.5 ×106 Seq. Number \n\n\n\n= 1500 ×106 Seq. Number \n\n\n\n= 15 ×108 Seq. Number \n\nMinimum sequence number required in the Life time \n= 15 ×108 Seq. No \n\n\n= \n10g 15 \\times 10\n\n\n\n = 30.32\n\n\n\n= 31 bits. \n\nSo, option (b, c, d) are correct",
+                "images": [
+                    "assets/Computer Networks/CN_Transport_Layer_P45_X901.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "CN_TRANSPORT_LAYER_2015_Q02",
+            "subject": "Computer Networks",
+            "topic": "Transport Layer",
+            "subtopic": "Number field in the myTCP header?",
+            "year": 2015,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 2,
+            "tags": [
+                "Transport Layer",
+                "Number field in the myTCP header?",
+                "Computer Networks"
+            ],
+            "question": {
+                "text": "Consider the following statements: \n\nI: \nTCP connections are full duplex. \n\nII: \nTCP \nhas \nno \noption \nfor \nselective \nacknowledgement. \n\nIII: \nTCP connections are message streams.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "Only I is correct",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "Only I and III are correct",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "Only II and III are correct",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "All of I, II and III are correct",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "A"
+            ],
+            "solution": {
+                "text": "1. TCP connection is full duplex. \n\n2. TCP can use both selective and cumulative \nacknowledgement.  \n\n3. TCP is byte stream not message stream.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "CN_TRANSPORT_LAYER_2015_Q03",
+            "subject": "Computer Networks",
+            "topic": "Transport Layer",
+            "subtopic": "TCP connections are message streams.",
+            "year": 2015,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 3,
+            "tags": [
+                "Transport Layer",
+                "TCP connections are message streams.",
+                "Computer Networks"
+            ],
+            "question": {
+                "text": "Assume that the bandwidth for a TCP connection is \n1048560 bits/sec. Let α be the value of RTT in \nmilliseconds (rounded off to the nearest integer) \nafter which the TCP window scale option is needed. \nLet β be the maximum possible window size with \nwindow scale option. Then the values of α and β are",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "63 milliseconds 65535×214",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "63 milliseconds 65535×216",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "500 milliseconds 65535×214",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "500 milliseconds 65535×216",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "C"
+            ],
+            "solution": {
+                "text": "In one RTT, the amount of data that can be sent in \nthe maximum window size. \n\nHere in the question 2 \\Rightarrow RTT \n\n \\times 1048560 bps > 65535 bytes \n\n > 65535 \\times 8 bits\n1048560 bits/sec. \n\n > 0.5 sec. \n\n > 500 m sec. \n\n\nmin\nα\n = 500 m sec. \n\n\n = maximum possible window size  \n\nβ = 65535 \\times 2",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "CN_TRANSPORT_LAYER_2013_Q04",
+            "subject": "Computer Networks",
+            "topic": "Transport Layer",
+            "subtopic": "window scale option. Then the values of α and β are",
+            "year": 2013,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 4,
+            "tags": [
+                "Transport Layer",
+                "window scale option. Then the values of α and β are",
+                "Computer Networks"
+            ],
+            "question": {
+                "text": "multimedia, \nfile \ntransfer, \nDNS \nand \nemail \nrespectively are",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "TCP, UDP, UDP and TCP",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "UDP, TCP, TCP and UDP",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "UDP, TCP, UDP and TCP",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "TCP, UDP, TCP and UDP  \nUDP Header",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "C"
+            ],
+            "solution": {
+                "text": "TCP \nVDP \nSMTP \nDNS \nFTP \nSNMP \nPOP \nDHCP \nIMAP \nTFTP \nTelnet \nAll real time and \nmultimedia protocol",
+                "images": [
+                    "assets/Computer Networks/CN_Transport_Layer_P45_X901.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "CN_TRANSPORT_LAYER_2017_Q05",
+            "subject": "Computer Networks",
+            "topic": "Transport Layer",
+            "subtopic": "UDP Header",
+            "year": 2017,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 5,
+            "tags": [
+                "Transport Layer",
+                "UDP Header",
+                "Computer Networks"
+            ],
+            "question": {
+                "text": "Consider socket API on a Linux machine that \nsupports connected UDP sockets. A connected UDP \nsocket is a UDP socket on which connect function \nhas already been called. Which of the following \nstatements is/are CORRECT? \n\nI.  A connected UDP socket can be used to \ncommunicate with multiple peers simultaneously. \n\nII.  A process can successfully call connect function \nagain for an already connected UDP socket.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "I only",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "II only",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "Both I and II",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "Neither I nor II",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "B"
+            ],
+            "solution": {
+                "text": "A process can successfully call connect function \nagain for an already connected UDP.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "CN_TRANSPORT_LAYER_2018_Q06",
+            "subject": "Computer Networks",
+            "topic": "Transport Layer",
+            "subtopic": "again for an already connected UDP socket.",
+            "year": 2018,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 6,
+            "tags": [
+                "Transport Layer",
+                "again for an already connected UDP socket.",
+                "Computer Networks"
+            ],
+            "question": {
+                "text": "Match the following: \n\n\nField \nLength in bits \n\nP.  UDP Header's Port Number I.  \n\nQ.  Ethernet MAC Address \nII.  \n\nR.  IPv6 Next Header \nIII.  32  \n\nS.  TCP Header's Sequence \nIV.  16 \n\n\nNumber",
+                "images": [
+                    "assets/Computer Networks/CN_Transport_Layer_P41_X4479.png",
+                    "assets/Computer Networks/CN_Transport_Layer_P41_X4481.png"
+                ],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "P-III, Q-IV, R-II, S-I",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "P-II, Q-I, R-IV, S-III",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "P-IV, Q-I, R-II, S-III",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "P-IV, Q-I, R-III, S-II  \n\nState Transitions of TCP",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "C"
+            ],
+            "solution": {
+                "text": "UDP Header's Port Number - 16 bits \n          Ethernet MAC Address - 48 bits \n          IPv6 Next Header - 8 bits \n          TCP Header's Sequence number - 32 bits",
+                "images": [],
+                "latex": [],
+                "tables": [
+                    {
+                        "headers": [
+                            "TCP",
+                            "VDP"
+                        ],
+                        "rows": [
+                            [
+                                "SMTP",
+                                "DNS"
+                            ],
+                            [
+                                "FTP",
+                                "SNMP"
+                            ],
+                            [
+                                "POP",
+                                "DHCP"
+                            ],
+                            [
+                                "IMAP",
+                                "TFTP"
+                            ],
+                            [
+                                "Telnet",
+                                "All real time and multimedia protocol"
+                            ]
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "id": "CN_TRANSPORT_LAYER_2021_Q07",
+            "subject": "Computer Networks",
+            "topic": "Transport Layer",
+            "subtopic": "State Transitions of TCP",
+            "year": 2021,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MSQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 7,
+            "tags": [
+                "Transport Layer",
+                "State Transitions of TCP",
+                "Computer Networks"
+            ],
+            "question": {
+                "text": "A TCP server application is programmed to listen on \nport number P on host S. A TCP client is connected \nto the TCP server over the network. \n\nConsider that while the TCP connection was active, \nthe server machine S crashed and rebooted. Assume \nthat the client does not use the TCP keepalive timer \n\nWhich of the following behaviors is/are possible?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "If the client was waiting to receive a packet, it \nmay wait indefinitely",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "The TCP server application on S can listen on \nP after reboot",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "If the client sends a packet after the server \nreboot, it will receive a RST segment",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "If the client sends a packet after the server \nreboot, it will receive a FIN segment",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "A",
+                "B",
+                "C"
+            ],
+            "solution": {
+                "text": "If a client is not using the keepalive timer then it may \nwait indefinitely for a packet to receive. The TCP \nserver application on S can listen on P after reboot \nbecause session still present. If the client sends a \npacket after the server reboot, it will receive a RST \nsegment.",
+                "images": [
+                    "assets/Computer Networks/CN_Transport_Layer_P46_X4965.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "CN_TRANSPORT_LAYER_2017_Q08",
+            "subject": "Computer Networks",
+            "topic": "Transport Layer",
+            "subtopic": "reboot, it will receive a FIN segment",
+            "year": 2017,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 8,
+            "tags": [
+                "Transport Layer",
+                "reboot, it will receive a FIN segment",
+                "Computer Networks"
+            ],
+            "question": {
+                "text": "Consider a TCP client and a TCP server running on \ntwo different machines. After completing data \ntransfer, the TCP client calls close to terminate the \nconnection and a FIN segment is sent to the TCP \nserver. Server-side TCP responds by sending an \nACK. Which is received by the client-side TCP. As \nper the TCP connection state diagram (RFC 793). In \nwhich state does the client-side TCP connection wait \nfor the FIN from the server-side TCP?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "LAST-ACK",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "TIME-WAIT",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "FIN-WAIT-1",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "FIN-WAIT-2",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "D"
+            ],
+            "solution": {
+                "text": "Consider the state transition diagram of TCP.",
+                "images": [
+                    "assets/Computer Networks/CN_Transport_Layer_P46_X4967.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "CN_TRANSPORT_LAYER_2015_Q09",
+            "subject": "Computer Networks",
+            "topic": "Transport Layer",
+            "subtopic": "for the FIN from the server-side TCP?",
+            "year": 2015,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 9,
+            "tags": [
+                "Transport Layer",
+                "for the FIN from the server-side TCP?",
+                "Computer Networks"
+            ],
+            "question": {
+                "text": "Identify the correct order in which a server process \nmust invoke the function calls accept, bind, listen, \nand recv according to UNIX socket API.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "listen, accept, bind, recv",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "bind, listen, accept, recv",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "bind, accept, listen, recv",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "accept, listen, bind, recv",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "B"
+            ],
+            "solution": {
+                "text": "",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "CN_TRANSPORT_LAYER_2014_Q10",
+            "subject": "Computer Networks",
+            "topic": "Transport Layer",
+            "subtopic": "and recv according to UNIX socket API.",
+            "year": 2014,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 10,
+            "tags": [
+                "Transport Layer",
+                "and recv according to UNIX socket API.",
+                "Computer Networks"
+            ],
+            "question": {
+                "text": "Which one of the following socket API functions \nconverts an unconnected active TCP socket into a \npassive socket?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "connect",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "bind",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "listen",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "accept",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "C"
+            ],
+            "solution": {
+                "text": "Listen system call (socket API function) keeps the                 \nsocket in a passive mode, where it waits for the \nclient to approach the server to make a connection.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "CN_TRANSPORT_LAYER_2008_Q11",
+            "subject": "Computer Networks",
+            "topic": "Transport Layer",
+            "subtopic": "passive socket?",
+            "year": 2008,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 11,
+            "tags": [
+                "Transport Layer",
+                "passive socket?",
+                "Computer Networks"
+            ],
+            "question": {
+                "text": "A client process P needs to make a TCP connection \nto a server process S. Consider the following \nsituation: the server process S executes a socket(), a \nbind() and a listen () system call in that order, \nfollowing which it is preempted. Subsequently, the \nclient \n\nprocess P executes a socket () system call followed \nby connect() system call to connect to the server \nprocess S. The server process has not executed any \naccept () system call. Which one of the following \nevents could take place?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "connect() system call returns successfully",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "connect() system call blocks",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "connect() system call returns an error",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "connect() system call results in a core dump",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "C"
+            ],
+            "solution": {
+                "text": "If the server Process has not executed any accept () \nsystem call that means client's process connect () \nsystem call returns an error.  \n\nThere will not be any connection established \nbetween client and server.",
+                "images": [
+                    "assets/Computer Networks/CN_Transport_Layer_P47_X5041.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "CN_TRANSPORT_LAYER_2008_Q12",
+            "subject": "Computer Networks",
+            "topic": "Transport Layer",
+            "subtopic": "events could take place?",
+            "year": 2008,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 12,
+            "tags": [
+                "Transport Layer",
+                "events could take place?",
+                "Computer Networks"
+            ],
+            "question": {
+                "text": "Which of the following system calls results in the  \nsending SYN packets?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "socket",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "bind",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "listen",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "connect",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "D"
+            ],
+            "solution": {
+                "text": "Connect system call used to send the SYN packets.",
+                "images": [
+                    "assets/Computer Networks/CN_Transport_Layer_P47_X5043.png",
+                    "assets/Computer Networks/CN_Transport_Layer_P47_X5047.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "CN_TRANSPORT_LAYER_2008_Q13",
+            "subject": "Computer Networks",
+            "topic": "Transport Layer",
+            "subtopic": "sending SYN packets?",
+            "year": 2008,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 13,
+            "tags": [
+                "Transport Layer",
+                "sending SYN packets?",
+                "Computer Networks"
+            ],
+            "question": {
+                "text": "Which of the following statements are TRUE?  \n\n\nS1 : Loss of SYN + ACK from the server will not \nestablish a connection   \n\nS2 :  Loss of ACK from the client cannot establish \nthe connection \n\nS3 :  The server moves LISTEN \\rightarrow SYN_RCVD \\rightarrow \nSYN_SENT \\rightarrow ESTABLISHED in the \nstate \nmachine on no packet loss  \n\nS4 :  The server moves LISTEN \\rightarrow SYN_RCVD \\rightarrow \nESTABLISHED in the state  \n machine on no \npacket loss.",
+                "images": [
+                    "assets/Computer Networks/CN_Transport_Layer_P42_X4592.png"
+                ],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "S2 and S3 only",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "S1 and S4 only",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "S1 and S3 only",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "S2 and S4 only  \n\nFlow Control Policies",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "B"
+            ],
+            "solution": {
+                "text": "",
+                "images": [
+                    "assets/Computer Networks/CN_Transport_Layer_P47_X5045.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "CN_TRANSPORT_LAYER_2022_Q14",
+            "subject": "Computer Networks",
+            "topic": "Transport Layer",
+            "subtopic": "Flow Control Policies",
+            "year": 2022,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 14,
+            "tags": [
+                "Transport Layer",
+                "Flow Control Policies",
+                "Computer Networks"
+            ],
+            "question": {
+                "text": "Consider the data transfer using TCP over a 1 Gbps \nlink. Assuming that the maximum segment lifetime \n(MSL) is set to 60 seconds, the minimum number of \nbits required for the sequence number field of the \nTCP header, to prevent the sequence number space \nfrom wrapping around during the MSL is ______.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "33"
+            ],
+            "solution": {
+                "text": "B = 109 bits/sec = \n10 byte/sec.\n\n\nLT = 60 sec. \n\nMinimum sequence number required to Avoid with in \nthe life time = \n10g B×LT\n\n\n\n \n\n = \n10g\n×60\n\n\n\n\n\n\n= \n10g 7.5 \\times 10\n\n\n\n= 32.8\n\n\n\n= 33 \nbits \n\nOR \n\n1 sec. \n10 Byte\n\n\n1 sec. \n10 seq No\n\n\n60sec. \n60 10 seq No\n\n\n\n\n\n= 7.5 ×109 seq. No \n\nMinimum sequence number required to Avoid wrap \nAround = 7.5× 109 \n\n= \n10g 7.5 10\n\n\n\n\n= 32.8\n\n\n\n = 33 bit",
+                "images": [
+                    "assets/Computer Networks/CN_Transport_Layer_P47_X5045.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "CN_TRANSPORT_LAYER_2021_Q15",
+            "subject": "Computer Networks",
+            "topic": "Transport Layer",
+            "subtopic": "from wrapping around during the MSL is ______.",
+            "year": 2021,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 15,
+            "tags": [
+                "Transport Layer",
+                "from wrapping around during the MSL is ______.",
+                "Computer Networks"
+            ],
+            "question": {
+                "text": "Consider the three-way handshake mechanism \nfollowed during TCP connection establishment \nbetween hosts P and Q. Let X and Y be two random \n32-bit starting sequence numbers chosen by P and Q \nrespectively. Suppose P sends a TCP connection \nrequest message to Q with a TCP segment having \nSYN bit = 1, SEQ number = X, and ACK bit = 0. \nSuppose Q accepts the connection request. Which \none of the following choices represents the \ninformation present in the TCP segment header that \nis sent by Q to P?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "SYN bit = 1, SEQ number = Y, ACK bit = 1, \nACK number = X + 1, FIN bit = 0",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "SYN bit = 1, SEQ number = Y, ACK bit = 1, \nACK number = X , FIN bit = 0",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "SYN bit = 0, SEQ number = X + 1, ACK bit = \n0, ACK number = Y, FIN bit = 1",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "SYN bit = 1, SEQ number = X + 1, ACK bit = \n0, ACK number = Y, FIN bit = 0",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "A"
+            ],
+            "solution": {
+                "text": "",
+                "images": [
+                    "assets/Computer Networks/CN_Transport_Layer_P47_X5045.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "CN_TRANSPORT_LAYER_2020_Q16",
+            "subject": "Computer Networks",
+            "topic": "Transport Layer",
+            "subtopic": "0, ACK number = Y, FIN bit = 0",
+            "year": 2020,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 16,
+            "tags": [
+                "Transport Layer",
+                "0, ACK number = Y, FIN bit = 0",
+                "Computer Networks"
+            ],
+            "question": {
+                "text": "Consider a TCP connection between a client and a \nserver with the following specifications: the round \ntrip time is 6 ms, the size of the receiver advertised \nwindow is 50 KB, slow-start threshold at the client \nis 32 KB, and the maximum segment size is 2 KB. \nThe connection is established at time t = 0. Assume \nthat there are no timeouts and errors during \ntransmission. Then the size of the congestion \nwindow (in KB) at time t+60 ms after all \nacknowledgments are processed is ______.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "44"
+            ],
+            "solution": {
+                "text": "RTT = 6msec. \n\nWR = 50 km \n\nSlow start threshold = 32 KB \n\nMSS = 2 KB \n\n t = 0 \n\n(t + 60) m sec. , Wc = ? \n\nAt t = 0 : 2 KB\nAt t + 6 : 4 KB\nSlow start\nAt t + 12 : 8 KB\nAt t + 18 : 16 KB\nAt t + 24 : 32 KB\n\n\n\n\n\n\n\n\nAt t \n 30: 34 KB\nAt t \n 36: 36 KB\nAt t \n 42: 38 KB Congestion Avoidance\nAt t \n 48: 40 KB\nAt t \n 54: 42 KB\nAt t \n 60: 44 KB\n+\n\n\n+\n\n\n+\n\n+\n\n\n+\n\n+\n\n\nOR",
+                "images": [
+                    "assets/Computer Networks/CN_Transport_Layer_P47_X5045.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "CN_TRANSPORT_LAYER_2018_Q17",
+            "subject": "Computer Networks",
+            "topic": "Transport Layer",
+            "subtopic": "acknowledgments are processed is ______.",
+            "year": 2018,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 17,
+            "tags": [
+                "Transport Layer",
+                "acknowledgments are processed is ______.",
+                "Computer Networks"
+            ],
+            "question": {
+                "text": "Consider a long-lived TCP session with an end-to-\nend bandwidth of 1 Gbps (= 109 bits-per-second). \nThe session starts with a sequence number of 1234. \nThe minimum time (in seconds, rounder to the \nclosest integer) before this sequence number can be \nused again is _____",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "34",
+                "35"
+            ],
+            "solution": {
+                "text": "B = 109 bits/sec. \n\n\nB = \n bits/sec. \n\n Bits                            1 sec. \n\n Seq No.                     1 sec. \n\n1 Seq. No                         \nsec.\nsec.\n=\n\n\n232 Seq. No                   =\n8sec.\n\n = 34.35 = 34sec. \n\nOR \n\nWAT \n= (\n)\nTotal Sec. No\nBandwidth Byte/sec. \n\n\n\n= \n = \n8 2\n\n= 34.35  \n= 34. Sec.",
+                "images": [
+                    "assets/Computer Networks/CN_Transport_Layer_P48_X5099.png",
+                    "assets/Computer Networks/CN_Transport_Layer_P48_X5101.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "CN_TRANSPORT_LAYER_2018_Q18",
+            "subject": "Computer Networks",
+            "topic": "Transport Layer",
+            "subtopic": "used again is _____",
+            "year": 2018,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 18,
+            "tags": [
+                "Transport Layer",
+                "used again is _____",
+                "Computer Networks"
+            ],
+            "question": {
+                "text": "Consider the following statements regarding the \nslow start phase of the TCP congestion control \nalgorithm. Note the cwnd stands for the TCP \ncongestion window and MSS denotes the Maximum \nSegment Size: \n(i) \nThe cwnd increases by 2 MSS on every \nsuccessful acknowledgement. \n(ii) \nThe cwnd approximately doubles on every \nsuccessful acknowledgement. \n(iii) The cwnd increases by 1 MSS every round trip \ntime. \n(iv) The cwnd approximately doubles every round \ntrip time. \n\nWhich one of the following is correct?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "Only (ii) and (iii) are true",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "Only (i) and (iii) are true",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "Only (iv) is true",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "Only (i) and (iv) are true \n[NAT]                        \n   \n\nFor a host machine that uses the token bucket \nalgorithm for congestion control, the token bucket \nhas a capacity of 1 megabyte and the maximum \noutput rate is 20 megabytes per second. Tokens \narrive at a rate to sustain output at a rate of 10 \nmegabytes per second. The token bucket is currently \nfull and the machine needs to send 12 megabytes of \ndata.  \n\nThe minimum time required to transmit the data is \n_____ seconds.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "C"
+            ],
+            "solution": {
+                "text": "Slow Start Phase: \n• After one RT congestion window will be double \nin slow start phase. \n• If an Ack arrives then congestion window \nincreased by one i.e. (wc = wc + 1)",
+                "images": [
+                    "assets/Computer Networks/CN_Transport_Layer_P48_X5099.png",
+                    "assets/Computer Networks/CN_Transport_Layer_P48_X5101.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "CN_TRANSPORT_LAYER_2015_Q20",
+            "subject": "Computer Networks",
+            "topic": "Transport Layer",
+            "subtopic": "_____ seconds.",
+            "year": 2015,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 20,
+            "tags": [
+                "Transport Layer",
+                "_____ seconds.",
+                "Computer Networks"
+            ],
+            "question": {
+                "text": "Suppose two hosts use a TCP connection to transfer \na large file. Which of the following statements is/are \nFALSE with respect to the TCP connection? \n\n1. If the sequence number of a segment is m, then \nthe sequence number of the subsequent segment \nis always m + 1. \n\n2. If the estimated round-trip time at any given \npoint of time is t sec, the value of the \nretransmission timeout is always set to greater \nthan or equal to t sec. \n\n3.  The size of the advertised window never changes \nduring the course of the TCP connection. \n\n4.  The number of unacknowledged bytes at the \nsender is always less than or equal to the \nadvertised window.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "3 only",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "1 and 3 only",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "1 and 4 only",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "2 and 4 only",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "B"
+            ],
+            "solution": {
+                "text": "Statement 1 and 3 are the false statements. \n\n• \nIf a sequence number of a segment in m, then \nthe sequence number of the subsequent segment \nneed not to be m +1 always because TCP can \naccept out of order segment but always sends in \norder acknowledgement. \n\n• \nAdvertised window size can be change during \nthe course of TCP connection.",
+                "images": [
+                    "assets/Computer Networks/CN_Transport_Layer_P49_X5207.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "CN_TRANSPORT_LAYER_2014_Q21",
+            "subject": "Computer Networks",
+            "topic": "Transport Layer",
+            "subtopic": "advertised window.",
+            "year": 2014,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 21,
+            "tags": [
+                "Transport Layer",
+                "advertised window.",
+                "Computer Networks"
+            ],
+            "question": {
+                "text": "In the diagram shown below, L1 is an Ethernet LAN \nand L2 is a Token-Ring LAN. An IP packet \noriginates from sender S and traverses to R, as \nshown. The links within each ISP and across the two \nISPs, are all point-to-point optical links. The initial \nvalue of the TTL field is 32. The maximum possible \nvalue of the TTL field when R receives the datagram \nis _____",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "26"
+            ],
+            "solution": {
+                "text": "",
+                "images": [
+                    "assets/Computer Networks/CN_Transport_Layer_P48_X5099.png",
+                    "assets/Computer Networks/CN_Transport_Layer_P48_X5101.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "CN_TRANSPORT_LAYER_2014_Q22",
+            "subject": "Computer Networks",
+            "topic": "Transport Layer",
+            "subtopic": "is _____",
+            "year": 2014,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 22,
+            "tags": [
+                "Transport Layer",
+                "is _____",
+                "Computer Networks"
+            ],
+            "question": {
+                "text": "Let the size of congestion window of a TCP \nconnection be 32 KB when a timeout occurs. The \nround trip time of the connection is 100 msec and the \nmaximum segment size used is 2 KB. The time taken \n(in msec) by the TCP connection to get back to 32 \nKB congestion window is_________.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "1100",
+                "1300"
+            ],
+            "solution": {
+                "text": "N + H = 16KB \n\n\nRTT= 100 \\times 11= 1100 msec.",
+                "images": [
+                    "assets/Computer Networks/CN_Transport_Layer_P49_X5205.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "CN_TRANSPORT_LAYER_2012_Q23",
+            "subject": "Computer Networks",
+            "topic": "Transport Layer",
+            "subtopic": "KB congestion window is_________.",
+            "year": 2012,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 23,
+            "tags": [
+                "Transport Layer",
+                "KB congestion window is_________.",
+                "Computer Networks"
+            ],
+            "question": {
+                "text": "Consider an instance of TCP's Additive Increase \nMultiplicative Decrease (AIMD) algorithm where \nthe windows size at the start of the slow start phase \nis 2 MSS and the threshold at the start of the first \ntransmission is 8 MSS. Assume that a time-out \noccurs during the fifth transmission. Find the \ncongestion window size at the end of the tenth \ntransmission.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "8 MSS",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "14 MSS",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "7 MSS",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "12 MSS",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "C"
+            ],
+            "solution": {
+                "text": "For this gate question marks given to all \nstudents some of students has picked the answer \nas 8 MSS & some of students has picked the \nanswer as 7 MSS.",
+                "images": [
+                    "assets/Computer Networks/CN_Transport_Layer_P50_X5297.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "CN_TRANSPORT_LAYER_2008_Q24",
+            "subject": "Computer Networks",
+            "topic": "Transport Layer",
+            "subtopic": "transmission.",
+            "year": 2008,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 24,
+            "tags": [
+                "Transport Layer",
+                "transmission.",
+                "Computer Networks"
+            ],
+            "question": {
+                "text": "A computer on a 10 Mbps network is regulated by a \ntoken bucket. The token bucket is filled at a rate of 2 \nMbps. It is initially filled to capacity with \n16Megabits. What is the maximum duration for \nwhich the computer can transmit at the full 10 Mbps?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "1.6 seconds",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "2 seconds",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "5 seconds",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "8 seconds",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "B"
+            ],
+            "solution": {
+                "text": "Capacity of token bucket = 16m bits \n\nToken added into the bucket at the rate of 'r' token \nper sec. r = 2m bits/sec. \n\nMaximum transmission rate 'm' = 10m bits/sec. \n\nMaximum burst time 't' = ? \n\nC\nt\nm - r\n=\n\n\n10 Mbits\nt\n10 Mbps - 2Mpbs\n=\n,\n16M bits\nt\n8 M bits/sec \n=\n= t = 2sec.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "CN_TRANSPORT_LAYER_2008_Q25",
+            "subject": "Computer Networks",
+            "topic": "Transport Layer",
+            "subtopic": "which the computer can transmit at the full 10 Mbps?",
+            "year": 2008,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 25,
+            "tags": [
+                "Transport Layer",
+                "which the computer can transmit at the full 10 Mbps?",
+                "Computer Networks"
+            ],
+            "question": {
+                "text": "Which of the following statements are TRUE?  \n\n\nS1: TCP handles both congestion and flow control. \n\nS2: UDP handles congestion but not flow control. \n\nS3: Fast retransmit deals with congestion but not \nflow control. \n\nS4: Slow \nstart \nmechanism \ndeals \nwith \nboth \ncongestion and flow control.",
+                "images": [
+                    "assets/Computer Networks/CN_Transport_Layer_P42_X4592.png"
+                ],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "S1, S2 and S3 only",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "S1 and S3 only",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "S3 and S4 only",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "S1, S3, and S4 only",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "B"
+            ],
+            "solution": {
+                "text": "• \nTCP uses the congestion policies to deal with \ncongestion. And with the help of window \nscaling factor it deals with the flow control. \n\n• \nFast retransmit deals with congestion. \n\nSo, statements S1 and S3 are the only correct \nstatement.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "CN_TRANSPORT_LAYER_2008_Q26",
+            "subject": "Computer Networks",
+            "topic": "Transport Layer",
+            "subtopic": "congestion and flow control.",
+            "year": 2008,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 26,
+            "tags": [
+                "Transport Layer",
+                "congestion and flow control.",
+                "Computer Networks"
+            ],
+            "question": {
+                "text": "In the slow-start phase of the TCP congestion \nalgorithm, the size of the congestion window:",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "does not increase",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "increase linearly",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "increases quadratically",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "increases exponentially  \n\nISP1\nISP2\nS\nLAN L1\nLAN L2\nR",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "D"
+            ],
+            "solution": {
+                "text": "In slow start-phase of the TCP congestion \nalgorithm, the size of the congestion window \nincreases exponentially.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        }
+    ]
+}

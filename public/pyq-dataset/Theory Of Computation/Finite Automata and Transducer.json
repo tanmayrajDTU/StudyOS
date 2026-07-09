@@ -1,0 +1,2011 @@
+{
+    "subject": "Theory Of Computation",
+    "topic": "Finite Automata and Transducer",
+    "questionCount": 24,
+    "questions": [
+        {
+            "id": "TOC_FINITE_AUTOMATA_AND_TRANSDUCER_2021_Q01",
+            "subject": "Theory Of Computation",
+            "topic": "Finite Automata and Transducer",
+            "subtopic": "Deterministic Finite Automata",
+            "year": 2021,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 1,
+            "tags": [
+                "Finite Automata and Transducer",
+                "Deterministic Finite Automata",
+                "Theory Of Computation"
+            ],
+            "question": {
+                "text": "Consider the following language: \n\nL = {w  {0,1} * | w ends with the substring 011} \n\nWhich one of the following deterministic finite \nautomata accepts L?",
+                "images": [
+                    "assets/Theory Of Computation/TOC_Finite_Automata_and_Transducer_P3_X566.png",
+                    "assets/Theory Of Computation/TOC_Finite_Automata_and_Transducer_P3_X574.png"
+                ],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "D"
+            ],
+            "solution": {
+                "text": "DFA for ending with 011: \n\n\nHence, option (d) is correct.",
+                "images": [
+                    "assets/Theory Of Computation/TOC_Finite_Automata_and_Transducer_P8_X1369.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "TOC_FINITE_AUTOMATA_AND_TRANSDUCER_2021_Q02",
+            "subject": "Theory Of Computation",
+            "topic": "Finite Automata and Transducer",
+            "subtopic": "automata accepts L?",
+            "year": 2021,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 2,
+            "tags": [
+                "Finite Automata and Transducer",
+                "automata accepts L?",
+                "Theory Of Computation"
+            ],
+            "question": {
+                "text": "Let L  {0, 1}* be an arbitrary regular language \naccepted by a minimal DFA with k states. Which \none of the following languages must necessarily be \naccepted by a minimal DFA with k states?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "L - {01}",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "L  {01}",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "{0, 1} * - L",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "L . L",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "C"
+            ],
+            "solution": {
+                "text": "L = *- L  \n\n    = {0, 1}* - L \n\nIf L is a DFA with K states than in L DFA also \nhaving K states because number of states in L and \nL are same.",
+                "images": [
+                    "assets/Theory Of Computation/TOC_Finite_Automata_and_Transducer_P8_X1369.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "TOC_FINITE_AUTOMATA_AND_TRANSDUCER_2021_Q03",
+            "subject": "Theory Of Computation",
+            "topic": "Finite Automata and Transducer",
+            "subtopic": "accepted by a minimal DFA with k states?",
+            "year": 2021,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 3,
+            "tags": [
+                "Finite Automata and Transducer",
+                "accepted by a minimal DFA with k states?",
+                "Theory Of Computation"
+            ],
+            "question": {
+                "text": "Consider \nthe \nfollowing \ndeterministic \nfinite \nautomaton (DFA) \n\n\nThe number of strings of length 8 accepted by the \nabove automaton is ___.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "256"
+            ],
+            "solution": {
+                "text": "Every symbol is having two choices \n\n 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1\n\nTotal strings with length 8 = 28  \n\nTotal strings with length 8 = 256",
+                "images": [
+                    "assets/Theory Of Computation/TOC_Finite_Automata_and_Transducer_P8_X1371.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "TOC_FINITE_AUTOMATA_AND_TRANSDUCER_2013_Q04",
+            "subject": "Theory Of Computation",
+            "topic": "Finite Automata and Transducer",
+            "subtopic": "above automaton is ___.",
+            "year": 2013,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 4,
+            "tags": [
+                "Finite Automata and Transducer",
+                "above automaton is ___.",
+                "Theory Of Computation"
+            ],
+            "question": {
+                "text": "Consider the DFA A given below. \n\nWhich of the following are FALSE? \n\n1. Complement of L(A) is context-free. \n\n2. L(A) = L((11*0 + 0) (0 + 1)*0*1*) \n3. For the language accepted by A, A is the \nminimal DFA \n\n4. A accepts all strings over {0, 1} of length at least 2.",
+                "images": [
+                    "assets/Theory Of Computation/TOC_Finite_Automata_and_Transducer_P3_X568.png",
+                    "assets/Theory Of Computation/TOC_Finite_Automata_and_Transducer_P3_X570.png",
+                    "assets/Theory Of Computation/TOC_Finite_Automata_and_Transducer_P3_X572.png",
+                    "assets/Theory Of Computation/TOC_Finite_Automata_and_Transducer_P3_X576.png"
+                ],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "1 and 3 only",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "2 and 4 only",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "2 and 3 only",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "3 and 4 only",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "D"
+            ],
+            "solution": {
+                "text": "1. L(A) = Regular \n\n\nComplement of L(A) = Regular\nRegular\n=\n\n\n\nEvery Regular language is CFL \n\n2. L(A) = 11*0(0 + 1)* + 0(0 + 1)*  \n\n\n         = (11*0 + 0) (0 + 1)* \n\n\n         = (1+ 0 + 0) ( 0 + 1)* \n\n                = (1+ + ) 0 (0 + 1)*  \n\n                = 1*0 (0 + 1)* \n\n\n3. Minimal DFA for [1*0 (0 + 1)*]: \n\n\n\nNumber of states in minimal DFA = 2 \n\n4. \nGiven DFA accepts all strings containing 0 as \nsubstring.",
+                "images": [
+                    "assets/Theory Of Computation/TOC_Finite_Automata_and_Transducer_P8_X1369.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "TOC_FINITE_AUTOMATA_AND_TRANSDUCER_2012_Q05",
+            "subject": "Theory Of Computation",
+            "topic": "Finite Automata and Transducer",
+            "subtopic": "minimal DFA",
+            "year": 2012,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 5,
+            "tags": [
+                "Finite Automata and Transducer",
+                "minimal DFA",
+                "Theory Of Computation"
+            ],
+            "question": {
+                "text": "Consider the set of strings on {0,1} in which, every \nsubstring of 3 symbols has at most two zeros. For \nexample, 001110 and 011001 are in the language, \nbut 100010 is not. All strings of length less than 3 \nare also in the language. A partially completed DFA \nthat accepts this language is shown below. The \nmissing arcs in the DFA are",
+                "images": [
+                    "assets/Theory Of Computation/TOC_Finite_Automata_and_Transducer_P4_X691.png"
+                ],
+                "latex": [],
+                "tables": [
+                    {
+                        "headers": [
+                            "",
+                            "00",
+                            "01",
+                            "10",
+                            "11",
+                            "q"
+                        ],
+                        "rows": [
+                            [
+                                "00",
+                                "1",
+                                "0",
+                                "",
+                                "",
+                                ""
+                            ],
+                            [
+                                "01",
+                                "",
+                                "",
+                                "",
+                                "1",
+                                ""
+                            ],
+                            [
+                                "10",
+                                "0",
+                                "",
+                                "",
+                                "",
+                                ""
+                            ],
+                            [
+                                "11",
+                                "",
+                                "",
+                                "0",
+                                "",
+                                ""
+                            ]
+                        ]
+                    },
+                    {
+                        "headers": [
+                            "",
+                            "00",
+                            "01",
+                            "10",
+                            "11",
+                            "q"
+                        ],
+                        "rows": [
+                            [
+                                "00",
+                                "",
+                                "0",
+                                "",
+                                "",
+                                "1"
+                            ],
+                            [
+                                "01",
+                                "",
+                                "1",
+                                "",
+                                "",
+                                ""
+                            ],
+                            [
+                                "10",
+                                "",
+                                "",
+                                "",
+                                "0",
+                                ""
+                            ],
+                            [
+                                "11",
+                                "",
+                                "0",
+                                "",
+                                "",
+                                ""
+                            ]
+                        ]
+                    },
+                    {
+                        "headers": [
+                            "",
+                            "00",
+                            "01",
+                            "10",
+                            "11",
+                            "q"
+                        ],
+                        "rows": [
+                            [
+                                "00",
+                                "",
+                                "1",
+                                "",
+                                "",
+                                "0"
+                            ],
+                            [
+                                "01",
+                                "",
+                                "1",
+                                "",
+                                "",
+                                ""
+                            ],
+                            [
+                                "10",
+                                "",
+                                "",
+                                "0",
+                                "",
+                                ""
+                            ],
+                            [
+                                "11",
+                                "",
+                                "0",
+                                "",
+                                "",
+                                ""
+                            ]
+                        ]
+                    },
+                    {
+                        "headers": [
+                            "",
+                            "00",
+                            "01",
+                            "10",
+                            "11",
+                            "q"
+                        ],
+                        "rows": [
+                            [
+                                "00",
+                                "",
+                                "1",
+                                "",
+                                "",
+                                "0"
+                            ],
+                            [
+                                "01",
+                                "",
+                                "",
+                                "",
+                                "1",
+                                ""
+                            ],
+                            [
+                                "10",
+                                "0",
+                                "",
+                                "",
+                                "",
+                                ""
+                            ],
+                            [
+                                "11",
+                                "",
+                                "",
+                                "0",
+                                "",
+                                ""
+                            ]
+                        ]
+                    }
+                ]
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "00 01 10 11 q",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "00 01 10 11 q",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "00 01 10 11 q",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "00 01 10 11 q",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "D"
+            ],
+            "solution": {
+                "text": "From state 00 to read input 0 \\Rightarrow q(dead state) \n\nFrom state 00 to read input 1 \\Rightarrow 01 \n\nFrom state 01 to read input 1 \\Rightarrow 11 \n\n\n\n\nHence, option (d) is correct.",
+                "images": [
+                    "assets/Theory Of Computation/TOC_Finite_Automata_and_Transducer_P9_X1540.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "TOC_FINITE_AUTOMATA_AND_TRANSDUCER_2011_Q06",
+            "subject": "Theory Of Computation",
+            "topic": "Finite Automata and Transducer",
+            "subtopic": "00 01 10 11 q",
+            "year": 2011,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 6,
+            "tags": [
+                "Finite Automata and Transducer",
+                "00 01 10 11 q",
+                "Theory Of Computation"
+            ],
+            "question": {
+                "text": "A deterministic finite automaton (DFA) D with \nalphabet   = {a, b} is given below: \n\n\n Which of the following finite state machines is a \nvalid minimal DFA which accepts the same \nlanguage as D?",
+                "images": [
+                    "assets/Theory Of Computation/TOC_Finite_Automata_and_Transducer_P4_X691.png"
+                ],
+                "latex": [],
+                "tables": [
+                    {
+                        "headers": [
+                            "",
+                            "00",
+                            "01",
+                            "10",
+                            "11",
+                            "q"
+                        ],
+                        "rows": [
+                            [
+                                "00",
+                                "1",
+                                "0",
+                                "",
+                                "",
+                                ""
+                            ],
+                            [
+                                "01",
+                                "",
+                                "",
+                                "",
+                                "1",
+                                ""
+                            ],
+                            [
+                                "10",
+                                "0",
+                                "",
+                                "",
+                                "",
+                                ""
+                            ],
+                            [
+                                "11",
+                                "",
+                                "",
+                                "0",
+                                "",
+                                ""
+                            ]
+                        ]
+                    },
+                    {
+                        "headers": [
+                            "",
+                            "00",
+                            "01",
+                            "10",
+                            "11",
+                            "q"
+                        ],
+                        "rows": [
+                            [
+                                "00",
+                                "",
+                                "0",
+                                "",
+                                "",
+                                "1"
+                            ],
+                            [
+                                "01",
+                                "",
+                                "1",
+                                "",
+                                "",
+                                ""
+                            ],
+                            [
+                                "10",
+                                "",
+                                "",
+                                "",
+                                "0",
+                                ""
+                            ],
+                            [
+                                "11",
+                                "",
+                                "0",
+                                "",
+                                "",
+                                ""
+                            ]
+                        ]
+                    },
+                    {
+                        "headers": [
+                            "",
+                            "00",
+                            "01",
+                            "10",
+                            "11",
+                            "q"
+                        ],
+                        "rows": [
+                            [
+                                "00",
+                                "",
+                                "1",
+                                "",
+                                "",
+                                "0"
+                            ],
+                            [
+                                "01",
+                                "",
+                                "1",
+                                "",
+                                "",
+                                ""
+                            ],
+                            [
+                                "10",
+                                "",
+                                "",
+                                "0",
+                                "",
+                                ""
+                            ],
+                            [
+                                "11",
+                                "",
+                                "0",
+                                "",
+                                "",
+                                ""
+                            ]
+                        ]
+                    },
+                    {
+                        "headers": [
+                            "",
+                            "00",
+                            "01",
+                            "10",
+                            "11",
+                            "q"
+                        ],
+                        "rows": [
+                            [
+                                "00",
+                                "",
+                                "1",
+                                "",
+                                "",
+                                "0"
+                            ],
+                            [
+                                "01",
+                                "",
+                                "",
+                                "",
+                                "1",
+                                ""
+                            ],
+                            [
+                                "10",
+                                "0",
+                                "",
+                                "",
+                                "",
+                                ""
+                            ],
+                            [
+                                "11",
+                                "",
+                                "",
+                                "0",
+                                "",
+                                ""
+                            ]
+                        ]
+                    }
+                ]
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "b\np\nq\nr\nb\na,b\na\na\ns\nt\na,b\na,b\nb\nb\np\nq\nr\na,b\ns\na,b\na\na\na,b\na\np\nq\nr\na,b\ns\nb\na,b\na,b\np\nq\na,b\nr\na,b\nb\nb\np\nq\ns\na,b\nb\na\na",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "A"
+            ],
+            "solution": {
+                "text": "Partition algorithm: \n\n(i) {p, q, r}  \n{s, t} \n\n\n Non-final  \nFinal \n\n(ii) {p, q}, {r}, {s, t} \n\n(iii) {p}, {q}, {r}, {s, t} \n\n\nNumber of states = 4.  \n\n\nHere s and t are equivalent.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "TOC_FINITE_AUTOMATA_AND_TRANSDUCER_2009_Q07",
+            "subject": "Theory Of Computation",
+            "topic": "Finite Automata and Transducer",
+            "subtopic": "a",
+            "year": 2009,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 7,
+            "tags": [
+                "Finite Automata and Transducer",
+                "a",
+                "Theory Of Computation"
+            ],
+            "question": {
+                "text": "The above DFA accepts the set of all strings over \n{0,1} that",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "Begin either with 0 or 1.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "End with 0.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "End with 00.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "Contain the substring 00. \n\nNon-Deterministic Finite Automata",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "C"
+            ],
+            "solution": {
+                "text": "Minimal accepted string = 00 \n\n It will accept all the strings end with 00.",
+                "images": [
+                    "assets/Theory Of Computation/TOC_Finite_Automata_and_Transducer_P9_X1543.png",
+                    "assets/Theory Of Computation/TOC_Finite_Automata_and_Transducer_P9_X1545.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "TOC_FINITE_AUTOMATA_AND_TRANSDUCER_2017_Q08",
+            "subject": "Theory Of Computation",
+            "topic": "Finite Automata and Transducer",
+            "subtopic": "Non-Deterministic Finite Automata",
+            "year": 2017,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 8,
+            "tags": [
+                "Finite Automata and Transducer",
+                "Non-Deterministic Finite Automata",
+                "Theory Of Computation"
+            ],
+            "question": {
+                "text": "Let δ denote the transition function and ˆ denote \nthe extended transition function of the -NFA \nwhose transition table is given below:  \n \n \na \nb \n→q0 \n{q2} \n{q1} \n{q0} \nq1 \n{q2} \n{q2} \n{q3} \nq2 \n{q0} \n \n \nq3 \n \n \n{q2} \n\n The ˆ (q2, aba) is",
+                "images": [],
+                "latex": [],
+                "tables": [
+                    {
+                        "headers": [
+                            "",
+                            "",
+                            "a",
+                            "b"
+                        ],
+                        "rows": [
+                            [
+                                "→q 0",
+                                "{q } 2",
+                                "{q } 1",
+                                "{q } 0"
+                            ],
+                            [
+                                "q 1",
+                                "{q } 2",
+                                "{q } 2",
+                                "{q } 3"
+                            ],
+                            [
+                                "q 2",
+                                "{q } 0",
+                                "",
+                                ""
+                            ],
+                            [
+                                "q 3",
+                                "",
+                                "",
+                                "{q } 2"
+                            ]
+                        ]
+                    }
+                ]
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "Φ",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "{q0, q1, q3}",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "{q0, q1, q2}",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "{q0, q2, q3}",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "C"
+            ],
+            "solution": {
+                "text": "-NFA: \n\n\n\nTransition with (q2, aba): \n\nb\nb\np\nq\nr\na,b\ns\na,b\na\na\n\n\n(\n)\nˆ q ,aba\n{q ,q ,q }\n\n=\n\n\nHence, option (c) is correct.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "TOC_FINITE_AUTOMATA_AND_TRANSDUCER_2014_Q09",
+            "subject": "Theory Of Computation",
+            "topic": "Finite Automata and Transducer",
+            "subtopic": "The ˆ (q2, aba) is",
+            "year": 2014,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 9,
+            "tags": [
+                "Finite Automata and Transducer",
+                "The ˆ (q2, aba) is",
+                "Theory Of Computation"
+            ],
+            "question": {
+                "text": "Consider the finite automaton in the following \nfigure. \n\n\nWhat is the set of reachable states for the input string \n0011 ?",
+                "images": [
+                    "assets/Theory Of Computation/TOC_Finite_Automata_and_Transducer_P5_X998.png",
+                    "assets/Theory Of Computation/TOC_Finite_Automata_and_Transducer_P5_X1007.png",
+                    "assets/Theory Of Computation/TOC_Finite_Automata_and_Transducer_P5_X1009.png"
+                ],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "{q0, q1, q2}",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "{q0, q1}",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "{q0, q1, q2, q3}",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "{q3}",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "A"
+            ],
+            "solution": {
+                "text": "Reachable states for the input string 0011: \n\n\n(\n)\nˆ q ,0011\n{q , q , q }\n\n=\n\n\nHence, option (a) is correct.",
+                "images": [
+                    "assets/Theory Of Computation/TOC_Finite_Automata_and_Transducer_P10_X1606.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "TOC_FINITE_AUTOMATA_AND_TRANSDUCER_2012_Q10",
+            "subject": "Theory Of Computation",
+            "topic": "Finite Automata and Transducer",
+            "subtopic": "0011 ?",
+            "year": 2012,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 10,
+            "tags": [
+                "Finite Automata and Transducer",
+                "0011 ?",
+                "Theory Of Computation"
+            ],
+            "question": {
+                "text": "What is the complement of the language accepted by \nthe NFA shown below? \n\n Assume Σ = {a} and ε is the empty string.",
+                "images": [
+                    "assets/Theory Of Computation/TOC_Finite_Automata_and_Transducer_P5_X996.png",
+                    "assets/Theory Of Computation/TOC_Finite_Automata_and_Transducer_P5_X1000.png"
+                ],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "ϕ",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "{ε}",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "a*",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "{a, ε}",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "B"
+            ],
+            "solution": {
+                "text": " L = a+ \n\n\n*\nL\nL\n= −\n\n\n       = a* - a+ \n\n       = {}",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "TOC_FINITE_AUTOMATA_AND_TRANSDUCER_2008_Q11",
+            "subject": "Theory Of Computation",
+            "topic": "Finite Automata and Transducer",
+            "subtopic": "Assume Σ = {a} and ε is the empty string.",
+            "year": 2008,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 11,
+            "tags": [
+                "Finite Automata and Transducer",
+                "Assume Σ = {a} and ε is the empty string.",
+                "Theory Of Computation"
+            ],
+            "question": {
+                "text": "Given below are two finite state automata \n(→ indicates the start and F indicates a final state) \n\n\nWhich of the following represents the product \nautomaton Z \\times Y ?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "A",
+                "A"
+            ],
+            "solution": {
+                "text": "Z \\times Y: \n→ Z1Y1 \nZ2Y1 \nZ2Y2 \n     Z1Y2 \nZ2Y2 \nZ2Y1 \n     Z2Y1 \nZ1Y1 \nZ1Y2 \n     Z2Y2 \nZ1Y2 \nZ1Y1 \n\n\na \nb \n→ P \nS \nR \nQ \nR \nS \nS \nP \nQ \nR \nQ \nP \n\nWe don't have correct option",
+                "images": [],
+                "latex": [],
+                "tables": [
+                    {
+                        "headers": [
+                            "→ Z Y 1 1",
+                            "Z Y 2 1",
+                            "Z Y 2 2"
+                        ],
+                        "rows": [
+                            [
+                                "Z Y 1 2",
+                                "Z Y 2 2",
+                                "Z Y 2 1"
+                            ],
+                            [
+                                "Z Y 2 1",
+                                "Z Y 1 1",
+                                "Z Y 1 2"
+                            ],
+                            [
+                                "Z Y 2 2",
+                                "Z Y 1 2",
+                                "Z Y 1 1"
+                            ]
+                        ]
+                    },
+                    {
+                        "headers": [
+                            "",
+                            "a",
+                            "b"
+                        ],
+                        "rows": [
+                            [
+                                "→ P",
+                                "S",
+                                "R"
+                            ],
+                            [
+                                "Q",
+                                "R",
+                                "S"
+                            ],
+                            [
+                                "S",
+                                "P",
+                                "Q"
+                            ],
+                            [
+                                "R",
+                                "Q",
+                                "P"
+                            ]
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "id": "TOC_FINITE_AUTOMATA_AND_TRANSDUCER_2008_Q12",
+            "subject": "Theory Of Computation",
+            "topic": "Finite Automata and Transducer",
+            "subtopic": "automaton Z × Y ?",
+            "year": 2008,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 12,
+            "tags": [
+                "Finite Automata and Transducer",
+                "automaton Z × Y ?",
+                "Theory Of Computation"
+            ],
+            "question": {
+                "text": "Consider the following two finite automata. M1 \naccepts L1 and M2 accepts L2. \n\n\n\n\nWhich one of the following is TRUE?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "L1 = L2",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "L1 \\cap L2 = ",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "C\nL\nL\n\n= ",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "L1  L2   \n\nFinite Automata Interconversion",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "A",
+                "C"
+            ],
+            "solution": {
+                "text": "L1 (M1) is DFA and it accepts (0 + 1)* 11 (0 + 1)* \n\n L2 (M2) is NFA and it accepts (0 + 1)* 11 (0 + 1)* \n\nBoth L1 and L2 are equal and 𝐿1 ∩ 𝐿2\n𝐶= 𝜙is also \ncorrect.",
+                "images": [
+                    "assets/Theory Of Computation/TOC_Finite_Automata_and_Transducer_P10_X1608.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "TOC_FINITE_AUTOMATA_AND_TRANSDUCER_2008_Q13",
+            "subject": "Theory Of Computation",
+            "topic": "Finite Automata and Transducer",
+            "subtopic": "Finite Automata Interconversion",
+            "year": 2008,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 13,
+            "tags": [
+                "Finite Automata and Transducer",
+                "Finite Automata Interconversion",
+                "Theory Of Computation"
+            ],
+            "question": {
+                "text": "If the final states and non-final states in the DFA \nbelow are interchanged, then which of the following \nlanguages over the alphabet {a, b} will be accepted \nby the new DFA?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "Set of all strings that do not end with ab",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "Set of all strings that begin with either an a or ab",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "Set of all strings that do not contain the substring \nab.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "The set described by the regular expression \nb*aa*(ba)*b* \n\nMinimization",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "A"
+            ],
+            "solution": {
+                "text": "Complement of given machine:  \n\n\n\n\nIt will accept set of all strings that do not end with \nab.",
+                "images": [
+                    "assets/Theory Of Computation/TOC_Finite_Automata_and_Transducer_P10_X1610.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "TOC_FINITE_AUTOMATA_AND_TRANSDUCER_2023_Q14",
+            "subject": "Theory Of Computation",
+            "topic": "Finite Automata and Transducer",
+            "subtopic": "Minimization",
+            "year": 2023,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 14,
+            "tags": [
+                "Finite Automata and Transducer",
+                "Minimization",
+                "Theory Of Computation"
+            ],
+            "question": {
+                "text": "Consider the language L over the alphabet {0, 1}, \ngiven below: \n\nL = {w \\in {0, 1}* | w does not contain three or more \nconsecutive 1's}.  \n\nThe minimum number of states in a Deterministic \nFinite-state Automaton (DFA) for L is _____.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "4"
+            ],
+            "solution": {
+                "text": "DFA for L:  \n\n\n DFA for L \n\n\nNumber of states will be same in both L and L . \n\nNumber of states = 4",
+                "images": [],
+                "latex": [],
+                "tables": [
+                    {
+                        "headers": [
+                            "→ Z Y 1 1",
+                            "Z Y 2 1",
+                            "Z Y 2 2"
+                        ],
+                        "rows": [
+                            [
+                                "Z Y 1 2",
+                                "Z Y 2 2",
+                                "Z Y 2 1"
+                            ],
+                            [
+                                "Z Y 2 1",
+                                "Z Y 1 1",
+                                "Z Y 1 2"
+                            ],
+                            [
+                                "Z Y 2 2",
+                                "Z Y 1 2",
+                                "Z Y 1 1"
+                            ]
+                        ]
+                    },
+                    {
+                        "headers": [
+                            "",
+                            "a",
+                            "b"
+                        ],
+                        "rows": [
+                            [
+                                "→ P",
+                                "S",
+                                "R"
+                            ],
+                            [
+                                "Q",
+                                "R",
+                                "S"
+                            ],
+                            [
+                                "S",
+                                "P",
+                                "Q"
+                            ],
+                            [
+                                "R",
+                                "Q",
+                                "P"
+                            ]
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "id": "TOC_FINITE_AUTOMATA_AND_TRANSDUCER_2020_Q15",
+            "subject": "Theory Of Computation",
+            "topic": "Finite Automata and Transducer",
+            "subtopic": "Finite-state Automaton (DFA) for L is _____.",
+            "year": 2020,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 15,
+            "tags": [
+                "Finite Automata and Transducer",
+                "Finite-state Automaton (DFA) for L is _____.",
+                "Theory Of Computation"
+            ],
+            "question": {
+                "text": "Consider the following language: \n\nL = {x {a, b} *| number of a's in x is divisible by 2 \nbut not divisible by 3} \n\nThe minimum number of states in a DFA that accepts \nL is ______.",
+                "images": [
+                    "assets/Theory Of Computation/TOC_Finite_Automata_and_Transducer_P3_X566.png",
+                    "assets/Theory Of Computation/TOC_Finite_Automata_and_Transducer_P3_X574.png"
+                ],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "6"
+            ],
+            "solution": {
+                "text": "Divisible by 2 strings = , aa, aaaa, aaaaaa, ….. \n\nDivisible by 3 strings = , aaa, aaaaaa, aaaaaaaaa, \n….. \n\nDivisible by 2 but not 3 strings = a2, a4, a8, a10, a12, \n….. \n\nDFA design for number of a's divisible by \n2 but not 3:  \n\n\nNumber of states = 6",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "TOC_FINITE_AUTOMATA_AND_TRANSDUCER_2019_Q16",
+            "subject": "Theory Of Computation",
+            "topic": "Finite Automata and Transducer",
+            "subtopic": "L is ______.",
+            "year": 2019,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 16,
+            "tags": [
+                "Finite Automata and Transducer",
+                "L is ______.",
+                "Theory Of Computation"
+            ],
+            "question": {
+                "text": "Let  be the set of all bijections from {1, …, 5} to \n{1, …, 5}, where id denotes the identity function, \ni.e. id(j) = j, j. Let  denote composition on \nfunctions. For a string x = x1x2 … xn  n, n \\ge 0, let \n(x) = x1 x2 …  xn. \nConsider the language L = {x  *\n\n| (x) = id}. The \nminimum number of states in any DFA accepting L \nis ______.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "120"
+            ],
+            "solution": {
+                "text": "If \\sum is set of all bijections from {1, 2} to {1, 2} \n\nNumber of bijective functions = 2! = 2 \n\nHere, Language L = {, f1, f1f2, f2f2 ….} \n\nNumber of states =2  \n\n\nIf set has 2 elements, then 2! bijective functions and \nhence 2! States. \n\nEach bijective function requires one state to \nrepresent as result of some composition.  \n\nIf set has 5 elements, then number of bijective \nfunctions = 5! and number of states = 5! \n\nNumber of states = 5 \\times 4 \\times 3 \\times 2 \\times 1 = 120",
+                "images": [
+                    "assets/Theory Of Computation/TOC_Finite_Automata_and_Transducer_P11_X1749.png",
+                    "assets/Theory Of Computation/TOC_Finite_Automata_and_Transducer_P11_X1751.png",
+                    "assets/Theory Of Computation/TOC_Finite_Automata_and_Transducer_P11_X1755.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "TOC_FINITE_AUTOMATA_AND_TRANSDUCER_2018_Q17",
+            "subject": "Theory Of Computation",
+            "topic": "Finite Automata and Transducer",
+            "subtopic": "is ______.",
+            "year": 2018,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 17,
+            "tags": [
+                "Finite Automata and Transducer",
+                "is ______.",
+                "Theory Of Computation"
+            ],
+            "question": {
+                "text": "Let N be an NFA with n states. Let k be the number \nof states of a minimal DFA which is equivalent to N. \nWhich one of the following is necessarily true?",
+                "images": [
+                    "assets/Theory Of Computation/TOC_Finite_Automata_and_Transducer_P6_X1114.png"
+                ],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "k \\ge 2n",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "k \\ge n",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "k \\le n2",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "k \\le 2n",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "D"
+            ],
+            "solution": {
+                "text": "If NFA (N) having 'n' states and DFA having 'k' \nstates. \n\nThen, relation between k and n is using subset \nconstruction algorithm is:  \n\nk\n2n\n",
+                "images": [
+                    "assets/Theory Of Computation/TOC_Finite_Automata_and_Transducer_P11_X1753.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "TOC_FINITE_AUTOMATA_AND_TRANSDUCER_2017_Q18",
+            "subject": "Theory Of Computation",
+            "topic": "Finite Automata and Transducer",
+            "subtopic": "Which one of the following is necessarily true?",
+            "year": 2017,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 18,
+            "tags": [
+                "Finite Automata and Transducer",
+                "Which one of the following is necessarily true?",
+                "Theory Of Computation"
+            ],
+            "question": {
+                "text": "The minimum possible number of states of a \ndeterministic finite automaton that accepts the \nregular language L = {w1 a w2| w1, w2 ∈{a, b}*, \n|w1|=2,|w2| \\ge 3} is___________.",
+                "images": [
+                    "assets/Theory Of Computation/TOC_Finite_Automata_and_Transducer_P6_X1116.png"
+                ],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "8"
+            ],
+            "solution": {
+                "text": "L = {w1aw2 | w1, w2  {a, b}*, |w1| = 2, |w2| > 3} \n\n      = (a + b)2 a (a + b)3 (a + b)* \n\n DFA for L: \n\n\n\nNumber of states in DFA for L = 8.",
+                "images": [
+                    "assets/Theory Of Computation/TOC_Finite_Automata_and_Transducer_P11_X1757.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "TOC_FINITE_AUTOMATA_AND_TRANSDUCER_2015_Q19",
+            "subject": "Theory Of Computation",
+            "topic": "Finite Automata and Transducer",
+            "subtopic": "|w1|=2,|w2| ≥ 3} is___________.",
+            "year": 2015,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 19,
+            "tags": [
+                "Finite Automata and Transducer",
+                "|w1|=2,|w2| ≥ 3} is___________.",
+                "Theory Of Computation"
+            ],
+            "question": {
+                "text": "Consider the DFAs M and N given above. The number \nof states in a minimal DFA that accepts the language \nL(M)  L(N) is _______.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "1"
+            ],
+            "solution": {
+                "text": "M accepts all strings ending in a. \n\n\nL(M) = (a + b)* a \n\nN accepts all strings ending in b. \n\n\nL (N) = (a + b)* b \n\n L(M)  L(N) =  \n\nTo represent empty language, only one state present \nin minimal DFA. \n\nDFA:  \n\n\n\n\nTo design DFA for  minimum 1 state is needed.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "TOC_FINITE_AUTOMATA_AND_TRANSDUCER_2011_Q20",
+            "subject": "Theory Of Computation",
+            "topic": "Finite Automata and Transducer",
+            "subtopic": "L(M)  L(N) is _______.",
+            "year": 2011,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 20,
+            "tags": [
+                "Finite Automata and Transducer",
+                "L(M)  L(N) is _______.",
+                "Theory Of Computation"
+            ],
+            "question": {
+                "text": "Definition of a language L with alphabet {a} is given \nas following: \n\nL = {ank | k > 0, and n is a positive integer constant}. \n\nWhat is the minimum number of states needed in a \nDFA to recognize L?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "k + 1",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "n + 1",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "2n + 1",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "2k + 1",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "B"
+            ],
+            "solution": {
+                "text": "L = {ank | k > 0, and n is a positive integer \nconstant}. \n• \nIf n = 1 \\Rightarrow L = {ak | k > 0} \n\nL = a+ \n\nFA: \n\n\n\n2 states are needed. \n• \nIf n = 2 \\Rightarrow L = {a2k | k > 0} \n\nL = (aa)+ \n\n\n\n\n\n3 states are needed. \n• \nIf n = 3 \\Rightarrow L = {a3k | k > 0} \n\nL = (aaa)+ \n\n\n\n\n4 states are needed. \n\nFor L = {ank | k > 0, n is constant}, n + 1 states are \nneeded.",
+                "images": [
+                    "assets/Theory Of Computation/TOC_Finite_Automata_and_Transducer_P12_X1838.png",
+                    "assets/Theory Of Computation/TOC_Finite_Automata_and_Transducer_P12_X1840.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "TOC_FINITE_AUTOMATA_AND_TRANSDUCER_2010_Q21",
+            "subject": "Theory Of Computation",
+            "topic": "Finite Automata and Transducer",
+            "subtopic": "DFA to recognize L?",
+            "year": 2010,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 21,
+            "tags": [
+                "Finite Automata and Transducer",
+                "DFA to recognize L?",
+                "Theory Of Computation"
+            ],
+            "question": {
+                "text": "Let w be any string of length n in {0,1}*. Let L be \nthe set of all substrings of w. What is the minimum \nnumber of states in a non-deterministic finite \nautomaton that accepts L?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "n - 1",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "n",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "n + 1",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "2n - 1",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "C"
+            ],
+            "solution": {
+                "text": "w = abb(n = 3) \\Rightarrow L = {, a, b ab, bb, abb} \n\nDFA for abb: \n\n\n\nAccept w = abb \n\nDFA for L: \n\n\n\nFor 3 length 4 states are needed. So, for n length n + \n1 states are needed.",
+                "images": [
+                    "assets/Theory Of Computation/TOC_Finite_Automata_and_Transducer_P12_X1836.png",
+                    "assets/Theory Of Computation/TOC_Finite_Automata_and_Transducer_P12_X1844.png",
+                    "assets/Theory Of Computation/TOC_Finite_Automata_and_Transducer_P12_X1846.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "TOC_FINITE_AUTOMATA_AND_TRANSDUCER_2008_Q22",
+            "subject": "Theory Of Computation",
+            "topic": "Finite Automata and Transducer",
+            "subtopic": "automaton that accepts L?",
+            "year": 2008,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 22,
+            "tags": [
+                "Finite Automata and Transducer",
+                "automaton that accepts L?",
+                "Theory Of Computation"
+            ],
+            "question": {
+                "text": "Let N be an NFA with n states and let M be the \nminimized DFA with m states recognizing the same \nlanguage. \nWhich \nof \nthe \nfollowing \nis \nNECESSARILY true?",
+                "images": [
+                    "assets/Theory Of Computation/TOC_Finite_Automata_and_Transducer_P6_X1114.png"
+                ],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "m \\le 2n",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "n \\le m",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "M has one accept state",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "m = 2n \n\nMealy Machine",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "A"
+            ],
+            "solution": {
+                "text": "NFA(N) \\Rightarrow n states \n\nMin DFA(M) \\Rightarrow m States \n\nRelation between m & n: \n\nDFA having \\le 2n states \n\nn\nm \n",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "TOC_FINITE_AUTOMATA_AND_TRANSDUCER_2021_Q23",
+            "subject": "Theory Of Computation",
+            "topic": "Finite Automata and Transducer",
+            "subtopic": "Mealy Machine",
+            "year": 2021,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 23,
+            "tags": [
+                "Finite Automata and Transducer",
+                "Mealy Machine",
+                "Theory Of Computation"
+            ],
+            "question": {
+                "text": "Suppose we want to design a synchronous circuit \nthat processes a string of 0's and 1's. Given a string, \nit produces another string by replacing the first 1 in \nany subsequence of consecutive 1's by a 0. Consider \nthe following example. \n\nInput sequence: 00100011000011100 \n\nOutput sequence: 00000001000001100 \nA mealy Machine is a state machine where both the \nnext state and the output are functions of the present \nstate and the current input. \nThe above-mentioned circuit can be designed as a \ntwo-state Mealy machine. The states in the Mealy \nmachine can be represented using Boolean values 0 \nand 1. We denote the current state, the next state, the \nnext incoming bit, and the output bit of the Mealy \nmachine by the variables s, t, b and y respectively. \n\nAssume the initial state of the Mealy machine is 0. \nWhat are the Boolean expressions corresponding to \nt and y in terms of s and b?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "t = s + b \n\n\ny = sb",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "t = b  \n\n\ny = sb",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "t = b  \n\n\ny = sb",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "t = s + b  \n\n\ny = sb",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "B"
+            ],
+            "solution": {
+                "text": "Input = 001011110 \n\nOutput = 000001110 \n\nMealy Machine:  \n\n\nTransition Table: \ns \nb \n\n\n0, 0 \nt, y \n1, 0 \nt, y \n\n0, 0 \nt, y \n1, 1 \nt, y \n\nt = b \n\ny = sb \n\nHence, option (b) is correct.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "TOC_FINITE_AUTOMATA_AND_TRANSDUCER_2009_Q24",
+            "subject": "Theory Of Computation",
+            "topic": "Finite Automata and Transducer",
+            "subtopic": "y = sb",
+            "year": 2009,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 24,
+            "tags": [
+                "Finite Automata and Transducer",
+                "y = sb",
+                "Theory Of Computation"
+            ],
+            "question": {
+                "text": "Given the following state table of an FSM with two \nstates A and B, one input and one output: \nPresent \nState A \nPresent \nState B \nInput Next \nState \nA \nNext \nState \nB \nOutput \n\nIf the initial state is A = 0, B = 0, what is the \nminimum length of an input string which will take \nthe machine to the state A = 0, B = 1 with output \n= 1?",
+                "images": [],
+                "latex": [],
+                "tables": [
+                    {
+                        "headers": [
+                            "Present State A",
+                            "Present State B",
+                            "Input",
+                            "Next State A",
+                            "Next State B",
+                            "Output"
+                        ],
+                        "rows": [
+                            [
+                                "0",
+                                "0",
+                                "0",
+                                "0",
+                                "0",
+                                "1"
+                            ],
+                            [
+                                "0",
+                                "1",
+                                "0",
+                                "1",
+                                "0",
+                                "0"
+                            ],
+                            [
+                                "1",
+                                "0",
+                                "0",
+                                "0",
+                                "1",
+                                "0"
+                            ],
+                            [
+                                "1",
+                                "1",
+                                "0",
+                                "1",
+                                "0",
+                                "0"
+                            ],
+                            [
+                                "0",
+                                "0",
+                                "1",
+                                "0",
+                                "1",
+                                "0"
+                            ],
+                            [
+                                "0",
+                                "1",
+                                "1",
+                                "0",
+                                "0",
+                                "1"
+                            ],
+                            [
+                                "1",
+                                "0",
+                                "1",
+                                "0",
+                                "1",
+                                "1"
+                            ],
+                            [
+                                "1",
+                                "1",
+                                "1",
+                                "0",
+                                "0",
+                                "1"
+                            ]
+                        ]
+                    }
+                ]
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "3",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "4",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "5",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "6",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "A"
+            ],
+            "solution": {
+                "text": "A = 0, B = 1 and output = 1 \n\n\n\n\n\nInput = 101  \n\nFrom state 00, by reading 3 length minimum input \nit takes to 01.",
+                "images": [
+                    "assets/Theory Of Computation/TOC_Finite_Automata_and_Transducer_P13_X1935.png",
+                    "assets/Theory Of Computation/TOC_Finite_Automata_and_Transducer_P13_X1937.png"
+                ],
+                "latex": [],
+                "tables": [
+                    {
+                        "headers": [
+                            "s",
+                            "b",
+                            ""
+                        ],
+                        "rows": [
+                            [
+                                "",
+                                "0",
+                                "1"
+                            ],
+                            [
+                                "0",
+                                "0, 0 t, y",
+                                "1, 0 t, y"
+                            ],
+                            [
+                                "1",
+                                "0, 0 t, y",
+                                "1, 1 t, y"
+                            ]
+                        ]
+                    }
+                ]
+            }
+        }
+    ]
+}

@@ -1,0 +1,39 @@
+{
+    "subject": "Programming and Data Structures",
+    "totalTopics": 8,
+    "totalQuestions": 146,
+    "topics": [
+        {
+            "name": "Data Types and Operators",
+            "questionCount": 3
+        },
+        {
+            "name": "Control Flow Statements",
+            "questionCount": 13
+        },
+        {
+            "name": "Functions and Storage Classes",
+            "questionCount": 25
+        },
+        {
+            "name": "Pointers and Strings",
+            "questionCount": 29
+        },
+        {
+            "name": "Arrays and Linked List",
+            "questionCount": 11
+        },
+        {
+            "name": "Stacks and Queues",
+            "questionCount": 12
+        },
+        {
+            "name": "Trees",
+            "questionCount": 41
+        },
+        {
+            "name": "Hashing",
+            "questionCount": 12
+        }
+    ]
+}

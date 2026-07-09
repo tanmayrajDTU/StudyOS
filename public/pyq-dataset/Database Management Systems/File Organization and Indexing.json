@@ -1,0 +1,739 @@
+{
+    "subject": "Database Management Systems",
+    "topic": "File Organization and Indexing",
+    "questionCount": 14,
+    "questions": [
+        {
+            "id": "DBMS_FILE_ORGANIZATION_AND_INDEXING_2015_Q01",
+            "subject": "Database Management Systems",
+            "topic": "File Organization and Indexing",
+            "subtopic": "C H A P T E R",
+            "year": 2015,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 1,
+            "tags": [
+                "File Organization and Indexing",
+                "C H A P T E R",
+                "Database Management Systems"
+            ],
+            "question": {
+                "text": "A file is organized so that the ordering of data records \nis the same as or close to the ordering of data entries \nin some index. Then that index is called.",
+                "images": [
+                    "assets/Database Management Systems/DBMS_File_Organization_and_Indexing_P63_X9459.png"
+                ],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "Dense",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "Sparse",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "Clustered",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "Unclustered",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "C"
+            ],
+            "solution": {
+                "text": "A file is organized so that the ordering of data records \nis the same as or close to the ordering of data entries \nin some index then the arrangement is culstered.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "DBMS_FILE_ORGANIZATION_AND_INDEXING_2013_Q02",
+            "subject": "Database Management Systems",
+            "topic": "File Organization and Indexing",
+            "subtopic": "in some index. Then that index is called.",
+            "year": 2013,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 2,
+            "tags": [
+                "File Organization and Indexing",
+                "in some index. Then that index is called.",
+                "Database Management Systems"
+            ],
+            "question": {
+                "text": "An index is clustered, if",
+                "images": [
+                    "assets/Database Management Systems/DBMS_File_Organization_and_Indexing_P63_X9455.png",
+                    "assets/Database Management Systems/DBMS_File_Organization_and_Indexing_P63_X9457.png"
+                ],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "it is on a set of fields that form a candidate key.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "it is on a set of fields that include the primary key.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "the data record of the file are organized in the \nsame order as the date entries of the index",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "the data records of the file are organized not in \nthe same order as the data entries of the index.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "C"
+            ],
+            "solution": {
+                "text": "The data record of the file is organized in the same \norder as the date entries of the index. A clustered \nindex consists of non-key + ordered file.",
+                "images": [
+                    "assets/Database Management Systems/DBMS_File_Organization_and_Indexing_P66_X9616.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "DBMS_FILE_ORGANIZATION_AND_INDEXING_2008_Q03",
+            "subject": "Database Management Systems",
+            "topic": "File Organization and Indexing",
+            "subtopic": "the same order as the data entries of the index.",
+            "year": 2008,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 3,
+            "tags": [
+                "File Organization and Indexing",
+                "the same order as the data entries of the index.",
+                "Database Management Systems"
+            ],
+            "question": {
+                "text": "A clustering index is defined on the fields which are \nof type",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "non-key and ordering",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "non-key and non-ordering",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "key and ordering",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "key and non-ordering \n\nMulti Level Indexing",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "A"
+            ],
+            "solution": {
+                "text": "Clustering Index: Non key + ordered field \n\nPrimary Index: Key + ordered field \n\nSecondary Index: \n\n(a) Non key + unordered field [Secondary index \nover non key attribute]. \n\n(b) Key + unordered field [Secondary index over key \nattribute].",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "DBMS_FILE_ORGANIZATION_AND_INDEXING_2023_Q04",
+            "subject": "Database Management Systems",
+            "topic": "File Organization and Indexing",
+            "subtopic": "Multi Level Indexing",
+            "year": 2023,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 4,
+            "tags": [
+                "File Organization and Indexing",
+                "Multi Level Indexing",
+                "Database Management Systems"
+            ],
+            "question": {
+                "text": "Consider a database of fixed-length records, stored as \nan ordered file. The database has 25,000 records, with \neach record being 100 bytes, of which the primary key \noccupies 15 bytes. The data file is block-aligned in \nthat each data record is fully contained within a block. \nThe database is indexed by a primary index file, which \nis also stored as a block-aligned ordered file. The \nfigure below depicts this indexing scheme. \n\n\nSuppose the block size of the file system is 1024 \nbytes, and a pointer to a block occupies 5 bytes. The \nsystem uses binary search on the index file to search \nfor a record with a given key. You may assume that a \nbinary search on an index file of b blocks takes  \n[log2 b] block accesses in the worst case. \n\nGiven a key, the number of block accesses required to \nidentify the block in the data file that may contain a \nrecord with the key. in the worst case, is          . \n\nDatabase Management System",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "6"
+            ],
+            "solution": {
+                "text": "Total number of Records = 25,000 \n\nBlock size = 1024 Byte, Records size = 100 Byte \n\nKey = 15 byte, BP = 5 byte,  Fixed length,  Unspanned \norganization,  primary index \n\nBlock factor of DB file [BFDB] = \nBlock size\nRecord size\n\n\n\n\n\n\n \n1024 B\n100 B\n\n\n\n\n\n\n= 10 Records per Block  \n\nTotal number of Records = 25,000 \n\nTotal number of DB block  = 25000\n\n\n\n\n\n\n\n\n\n\n\n\n = 2500 Data Blocks \n\n\n One Index record size = Size of key + size of block \npointer \n\n 15 + 5 = 20 Byte \n\n Block factor of Index file = 1024 B\n20 B\n\n\n\n\n\n\n= 51.2\n\n\n\n\n\n= 51 \n51 index record per Block (entries). \n\nPrimary Index: \n\nSPARSE \\Rightarrow Total number of Index Entries = 2500 \n(Number of DB Block) \n\nTotal number Index entries = 2500 \n\n\nBlock factor of Index file = 51 Index entries per \nBlock. \n\nB: Index Block\n\n\n\n \n\nTotal number of Index Block [b] = \n\n\n\n\n\n\n\n\n\n= 49.01\n\n\n\n= 50 Index Block \n\nIn worst case number of Block Access Required \n= \nlog b\n\n\n\n \nlog 50\n\n\n\n \n\n= 6 Block Access",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "DBMS_FILE_ORGANIZATION_AND_INDEXING_2021_Q05",
+            "subject": "Database Management Systems",
+            "topic": "File Organization and Indexing",
+            "subtopic": "Database Management System",
+            "year": 2021,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 5,
+            "tags": [
+                "File Organization and Indexing",
+                "Database Management System",
+                "Database Management Systems"
+            ],
+            "question": {
+                "text": "A data file consisting of 1,50,000 student-records is \nstored on a hard disk with block size of 4096 bytes. \nThe data file is sorted on the primary key RollNo. The \nsize of a record pointer for this disk is 7 bytes. Each \nstudent-record has a candidate key attribute called \nANum of size 12 bytes. Suppose an index file with \nrecords consisting of two fields, ANum value and the \nrecord pointer to the corresponding student record, is \nbuilt and stored on the same disk. Assume that the \nrecords of data file and index file are not split across \ndisk blocks. The number of blocks in the index file is \n________________.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "698"
+            ],
+            "solution": {
+                "text": "Total number of Record = 1,50,000, Block size = \n4096 Byte, Record Pointer = 7 Byte, key (ANum) \nsize =12 Byte. \n\nData file is sorted based on primary key (Roll No), \n\nbut index is build on the field ANum. [candidate key] \nsecondary Index. \n\n so its dense index i.e number of index entries = \nnumber DB records = 1,50,000 and Record of Data \nfile & Index file are not split across Disk Block, i.e \nun-spanned organization. \n\nOne index record size = size of key (ANum) + size of \n(Record Pointer) Rp = 12 + 7 \n\nOne index record size = 19 Byte \n\nBlock Factor of Index File (Unspanned) = \nBlocksize\nRecord size\n\n\n\n\n\n=\n\n\n\n\n\n\n\n\n\n Index Record Per \nBlock. \n\nTotal Number of Index Block = 1,50,000\n\n\n\n=\n\n\n\n\nIndex Blocks.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "DBMS_FILE_ORGANIZATION_AND_INDEXING_2008_Q06",
+            "subject": "Database Management Systems",
+            "topic": "File Organization and Indexing",
+            "subtopic": "________________.",
+            "year": 2008,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 6,
+            "tags": [
+                "File Organization and Indexing",
+                "________________.",
+                "Database Management Systems"
+            ],
+            "question": {
+                "text": "Consider a file of 16384 records. Each record is 32 \nbytes long and its key field is of size 6 bytes. The file \nis ordered on a non-key field, and the file organization \nis unspanned. The file is stored in a file system with \nblock size 1024 bytes, and the size of a block pointer \nis 10 bytes. If the secondary index is built on the key \nfield of the file, and a multilevel index scheme is used \nto store the secondary index, the number of first-level \nand second-level blocks in the multilevel index are \nrespectively-",
+                "images": [
+                    "assets/Database Management Systems/DBMS_File_Organization_and_Indexing_P64_X9541.png"
+                ],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "8 and 0",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "128 and 6",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "256 and 4",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "512 and 5 \n\nB Tree and B+ Tree",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "C"
+            ],
+            "solution": {
+                "text": "Total number of records = 16384 (214) \n\nRecord size = 32 Byte, Block size = 1024 Byte, Key \nsize = 6 Byte, Block Pointer = 10 Byte \n\nThe index is unspanned, secondary (dense) index. \n\nOne index record size = Size of search key + size of \nblock pointer \\Rightarrow 6 + 10 = 16 Byte \n\nBlock factor of index file (BFi) (Unspanned \norganization) \nBlock size\nRecord size\n\n\n\n\n= \n\n\n\n\n\n1024B\n16B\n\n\n\n\n= \n\n\n\n\n = 26 = 64. Index entries per Block  \n\nSecondary Index: Total number of Index entries  \n\n = Total number of records = 16,384. \n\nIst level- Total number of Index Block = \nTotal Index Entries\nNumber of Entries per Block\n\n\n\n\n\n\n\n\n\n\n\n\n=\n=\n = 28 = 256 Index Block. \n\nIInd Level- \n\nTotal number of Index Entries = 256 (Number of Ist \nlevel Block) & BFi = 64 Index Entries per Block \n\nTotal number of Index Block =  \n\nTotal Index Entries\nNumber of Entries per Block\n\n\n\n\n\n\n\n\n\n\n\n\n=\n=\n = 22 = 4 Index Blocks. \n\nSo, first Level and second level blocks are: 256 & 4, \nrespectively.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "DBMS_FILE_ORGANIZATION_AND_INDEXING_2020_Q07",
+            "subject": "Database Management Systems",
+            "topic": "File Organization and Indexing",
+            "subtopic": "B Tree and B+ Tree",
+            "year": 2020,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 7,
+            "tags": [
+                "File Organization and Indexing",
+                "B Tree and B+ Tree",
+                "Database Management Systems"
+            ],
+            "question": {
+                "text": "Consider a database implemented using B+ tree for \nfile indexing and installed on a disk drive with block \nsize of 4 KB. The size of search key is 12 bytes and \nthe size of tree/disk pointer is 8 bytes. Assume that the \ndatabase has one million records. Also assume that no \nnode of the B+ tree and no records are present initially \nin main memory. Consider that each record fits into \none disk block. The minimum number of disk \naccesses required to retrieve any record in the \ndatabase is_______.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "4"
+            ],
+            "solution": {
+                "text": "Block size = 4KB, \n\nSearch key = 12 Byte \n\nBP = 8B \n\nTotal number of records = 106 \n\nDatabase Management System \n\nORDER of B+ Tree \n\nP \\times BP + (P -1) key < Block size \n\nP \\times 8 + (P -1) 12 < 4 ×1024 \n\n8P + 12P - 12 < 4096 \n\n20P - 12 < 4096 \n\n20P < 4108 \n\nP = 4108\n\n\n\n\n\n\n= 205.4\n\n\n\n \n\nP = 205 \n\nMinimum number of levels means that we get \nmaximum number of keys at a block. \n\n(BP) ORDER (P) = 205 \n\n\n(P - 1) maximum key = 204  \n\nOr (RP) \n\n1st level:  \n\nTotal number of Record = 106 (Entries)  \n\n Total number of Block =  \n\n\n\n\n\n\n= 4902 Blocks \n\n2nd level \n\nTotal number of entries = 4902 (No. of 1st level block) \n\nTotal number of blocks = 4902\n\n\n\n\n\n\n= 24 blocks  \n\n3rd level \n\nTotal number of entries = 24 (No. of 2nd level block) \n\nTotal number of Block = \n\n\n\n\n\n\n= 1 block \n\nHere, 3 Block access for 3 level + 1 block access for \naccessing the records = 3 + 1 = 4.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "DBMS_FILE_ORGANIZATION_AND_INDEXING_2017_Q08",
+            "subject": "Database Management Systems",
+            "topic": "File Organization and Indexing",
+            "subtopic": "database is_______.",
+            "year": 2017,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 8,
+            "tags": [
+                "File Organization and Indexing",
+                "database is_______.",
+                "Database Management Systems"
+            ],
+            "question": {
+                "text": "In a B+ tree, if the search-key value is 8 bytes long, the \nblock size is 512 bytes and the block pointer size is 2 \nbytes, then the maximum order of the B+ tree \nis _____________.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "52"
+            ],
+            "solution": {
+                "text": "Key = 8 Byte, Block pointer(Bp) = 2 Byte, Block size \n= 512 Byte \n\nMaximum order of B+ tree: Internal node \n\nInternal Node: ORDER P: P \\times Bp + (P - 1) key \n Block size \n\nP \\times 2 + (P - 1) 8 \\le 512 \n\n2P + 8 P - 8 \\le 512 \n\n10P \\le 520 \n\nP =\n\n\n\n=\n\n\n\n\n\n\nP = 52",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "DBMS_FILE_ORGANIZATION_AND_INDEXING_2016_Q09",
+            "subject": "Database Management Systems",
+            "topic": "File Organization and Indexing",
+            "subtopic": "is _____________.",
+            "year": 2016,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 9,
+            "tags": [
+                "File Organization and Indexing",
+                "is _____________.",
+                "Database Management Systems"
+            ],
+            "question": {
+                "text": "B+ Tree are considered BALANCED because",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "the length of the paths from the root to all leaf \nnodes are all equal.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "the lengths of the paths from the root to all leaf \nnodes differ from each other by at most 1",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "the number of children of any two nonleaf sibling \nnodes differ by at most 1 .",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "the number of records in any two leaf nodes \ndiffer by at most 1",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "A"
+            ],
+            "solution": {
+                "text": "In a B+ tree the length of the paths from the root to all \nleaf nodes are all equal.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "DBMS_FILE_ORGANIZATION_AND_INDEXING_2015_Q10",
+            "subject": "Database Management Systems",
+            "topic": "File Organization and Indexing",
+            "subtopic": "differ by at most 1",
+            "year": 2015,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 10,
+            "tags": [
+                "File Organization and Indexing",
+                "differ by at most 1",
+                "Database Management Systems"
+            ],
+            "question": {
+                "text": "Consider a B+ tree in which the search key is 12 bytes \nlong, block size is 1024 bytes, record pointer is 10 \nbytes long and block pointer is 8 bytes long. The \nmaximum number of keys that can be accommodated \nin each non-leaf node of the tree is _____________",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "50"
+            ],
+            "solution": {
+                "text": "Key = 12 Byte, Block Pointer(BP) = 8 Byte, Block \nsize = 1024Byte, Record Pointer (RP) = 10 Byte. \n\nB+ tree: Non leaf Node: \n\nORDER(P): P \\times BP + (P-1) key \\le Block size \n\nP \\times 8 + (P - 1) 12 \\le 1024 \n\n8P + 12 P - 12 \\le 1024 \n\n20P \\le 1036 Maximum Block Pointer \n\n\n\nP =\nP = 51\n\n\n\n=\n=\n\n\n\n\n\n\nMaximum Number of keys = P - 1 \n\n                                            = 51 - 1 \n\n                                            = 50.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "DBMS_FILE_ORGANIZATION_AND_INDEXING_2015_Q11",
+            "subject": "Database Management Systems",
+            "topic": "File Organization and Indexing",
+            "subtopic": "in each non-leaf node of the tree is _____________",
+            "year": 2015,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 11,
+            "tags": [
+                "File Organization and Indexing",
+                "in each non-leaf node of the tree is _____________",
+                "Database Management Systems"
+            ],
+            "question": {
+                "text": "With reference to the B+ tree index of order 1 shown \nbelow, the minimum number of nodes (including the \nRoot node) that must be fetched in order to satisfy the \nfollowing query: \"Get all records with a search key \ngreater than or equal to 7 and less than 15'' is?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "5"
+            ],
+            "solution": {
+                "text": "The minimum number of nodes including the root \nnode that must be fetched in order to satisfy the given \nquery is 5.",
+                "images": [
+                    "assets/Database Management Systems/DBMS_File_Organization_and_Indexing_P69_X9970.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "DBMS_FILE_ORGANIZATION_AND_INDEXING_2010_Q12",
+            "subject": "Database Management Systems",
+            "topic": "File Organization and Indexing",
+            "subtopic": "greater than or equal to 7 and less than 15'' is?",
+            "year": 2010,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 12,
+            "tags": [
+                "File Organization and Indexing",
+                "greater than or equal to 7 and less than 15'' is?",
+                "Database Management Systems"
+            ],
+            "question": {
+                "text": "Consider a B+ tree in which the maximum number of \nkeys in a node is 5. What is the minimum number of \nkeys in any non-root node?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "1",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "2",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "3",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "4",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "B"
+            ],
+            "solution": {
+                "text": "Maximum Number of keys = 5 \n\nORDER P : Maximum Number of key = P - 1 \n\n P - 1 = 5  \nP = 6 \n\n\nOrder of B+ tree = 6 \n\nMinimum Number of Block Pointer (in non-root \n(internal) node =  P/2 \n\nMinimum number of key in non-root node  \n=  P/2 - 1 \n     6/2 - 1 \\Rightarrow 3 - 1 = 2.",
+                "images": [
+                    "assets/Database Management Systems/DBMS_File_Organization_and_Indexing_P69_X9958.png",
+                    "assets/Database Management Systems/DBMS_File_Organization_and_Indexing_P69_X9960.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "DBMS_FILE_ORGANIZATION_AND_INDEXING_2009_Q13",
+            "subject": "Database Management Systems",
+            "topic": "File Organization and Indexing",
+            "subtopic": "keys in any non-root node?",
+            "year": 2009,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 13,
+            "tags": [
+                "File Organization and Indexing",
+                "keys in any non-root node?",
+                "Database Management Systems"
+            ],
+            "question": {
+                "text": "The following key values are inserted into a B+ -tree \nin which order of the internal nodes is 3, and that of \nthe leaf nodes is 2, in the sequence given below. The \norder of internal nodes is the maximum number of tree \npointers in each node, and the order of leaf nodes is \nthe maximum number of data items that can be stored \nin it. The B+ -tree is initially empty. \n\n10, 3, 6, 8, 4, 2, 1 \n\nThe maximum number of times leaf nodes would get \nsplit up as a result of these insertions is",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "2",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "3",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "4",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "5",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [],
+            "solution": {
+                "text": "B+ tree, keys to be inserted are: 10, 3, 6, 8, 4, 2, 1 \n\nOrder = 3 \n\nMaximum key = 2 \n\n\n\n\n\n\n\nDatabase Management System \n\n\n\nSplit number (2) when '4' inserted. \n\n\n10, 3, 6, 8, 4, 2, 1 \n\n\n\nSplit number (3) when '2' inserted. \n\n\n\n\n\nSplit number (4) when '1' inserted. \n\nSo, total number of splits at leaf node = 4.",
+                "images": [
+                    "assets/Database Management Systems/DBMS_File_Organization_and_Indexing_P69_X9962.png",
+                    "assets/Database Management Systems/DBMS_File_Organization_and_Indexing_P69_X9966.png",
+                    "assets/Database Management Systems/DBMS_File_Organization_and_Indexing_P69_X9968.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "DBMS_FILE_ORGANIZATION_AND_INDEXING_2008_Q14",
+            "subject": "Database Management Systems",
+            "topic": "File Organization and Indexing",
+            "subtopic": "split up as a result of these insertions is",
+            "year": 2008,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 14,
+            "tags": [
+                "File Organization and Indexing",
+                "split up as a result of these insertions is",
+                "Database Management Systems"
+            ],
+            "question": {
+                "text": "A B-tree of order 4 is built from scratch by 10 \nsuccessive insertions. What is the maximum number \nof node splitting operations that may take place?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "3",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "4",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "5",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "6 \n\n\nDatabase Management System",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "C"
+            ],
+            "solution": {
+                "text": "B Tree Order: 4 \n\nMax key =3 \n\n\n\n\n\n\n\nLet assume: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10  \n\n\n\n\n\n\n\nTotal number of splits = 4 + 1 = 5",
+                "images": [
+                    "assets/Database Management Systems/DBMS_File_Organization_and_Indexing_P70_X10022.png",
+                    "assets/Database Management Systems/DBMS_File_Organization_and_Indexing_P70_X10022.png",
+                    "assets/Database Management Systems/DBMS_File_Organization_and_Indexing_P70_X10024.png",
+                    "assets/Database Management Systems/DBMS_File_Organization_and_Indexing_P70_X10026.png",
+                    "assets/Database Management Systems/DBMS_File_Organization_and_Indexing_P70_X10030.png",
+                    "assets/Database Management Systems/DBMS_File_Organization_and_Indexing_P70_X10032.png",
+                    "assets/Database Management Systems/DBMS_File_Organization_and_Indexing_P70_X10034.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        }
+    ]
+}

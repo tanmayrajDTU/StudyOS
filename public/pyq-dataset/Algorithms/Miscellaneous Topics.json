@@ -1,0 +1,1285 @@
+{
+    "subject": "Algorithms",
+    "topic": "Miscellaneous Topics",
+    "questionCount": 20,
+    "questions": [
+        {
+            "id": "ALGO_MISCELLANEOUS_TOPICS_2022_Q01",
+            "subject": "Algorithms",
+            "topic": "Miscellaneous Topics",
+            "subtopic": "Graph",
+            "year": 2022,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MSQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 1,
+            "tags": [
+                "Miscellaneous Topics",
+                "Graph",
+                "Algorithms"
+            ],
+            "question": {
+                "text": "Consider a simple undirected weighted graph G, all \nof whose edge weights are distinct. Which of the \nfollowing statements about the minimum spanning \ntrees of G is/are TRUE?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "The edge with the second smallest weight is \n\nalways part of any minimum spanning tree of G.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "One or both of the edges with the third smallest \nand the fourth smallest weights are part of any \nminimum spanning tree of G .",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "Suppose S\nV\n\nbe such that S \\neq ϕ and S \\neq V . \nConsider the edge with the minimum weight \nsuch that one of its vertices is in S and the other \nin V \\ S. Such an edge will always be part of any \nminimum spanning tree of G .",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "G can have multiple minimum spanning trees.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "A",
+                "B",
+                "C"
+            ],
+            "solution": {
+                "text": "• Since G has Exactly One MST, as all the edge \nweights are unique so the statement in option (a) \nis correct. \n• As already the given graph G has distinct as \nweights, the third and fourth smallest edge \nweights will always be a part of MST. \n• This is a popular and basic property of Minimum \nSpanning Tree, known as \"Cut Property.\" The cut \nconsider for the MST problem. \"Cut Property\" \nand \"Cycle Property\" are basic theorems.",
+                "images": [
+                    "assets/Algorithms/ALGO_Miscellaneous_Topics_P51_X5530.png",
+                    "assets/Algorithms/ALGO_Miscellaneous_Topics_P51_X5534.png",
+                    "assets/Algorithms/ALGO_Miscellaneous_Topics_P51_X5536.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "ALGO_MISCELLANEOUS_TOPICS_2022_Q02",
+            "subject": "Algorithms",
+            "topic": "Miscellaneous Topics",
+            "subtopic": "minimum spanning tree of G .",
+            "year": 2022,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 2,
+            "tags": [
+                "Miscellaneous Topics",
+                "minimum spanning tree of G .",
+                "Algorithms"
+            ],
+            "question": {
+                "text": "Let G(V, E) be a directed graph, where V = {1, 2, 3, \n4, 5} is the set of vertices and E is the set of directed \nedges, as defined by the following adjacency matrix \nA.\n\n1, 1\nj\ni\nA i\nj\n\n0,\notherwise\n\n\n= \n\n\n\nA[[i][j] = 1 indicates a directed edge from node i to \nnode j. A directed spanning tree of G, rooted at r ϵ V, \nis defined as a subgraph T of G such that the \nundirected version of T is a tree, and T contains a \ndirected path from r to every other vertex in V. The \nnumber of such directed spanning trees rooted at \nvertex 5 is_____________.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "24"
+            ],
+            "solution": {
+                "text": "n = 4 \n\n\n\nn = 3 \n\n\nTotal of 6 spannig tree \n\nn = 3; r = 3; 2 ST's \n\nn = 4; r = 4; 3! = 6 ST's \n\nn = 5; r = 5; 4! = 24 ST's",
+                "images": [
+                    "assets/Algorithms/ALGO_Miscellaneous_Topics_P51_X983.png",
+                    "assets/Algorithms/ALGO_Miscellaneous_Topics_P51_X5529.png",
+                    "assets/Algorithms/ALGO_Miscellaneous_Topics_P51_X5532.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "ALGO_MISCELLANEOUS_TOPICS_2021_Q03",
+            "subject": "Algorithms",
+            "topic": "Miscellaneous Topics",
+            "subtopic": "vertex 5 is_____________.",
+            "year": 2021,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 3,
+            "tags": [
+                "Miscellaneous Topics",
+                "vertex 5 is_____________.",
+                "Algorithms"
+            ],
+            "question": {
+                "text": "Let G be a connected undirected weigthed graph. \nConsider the following two statements. \n\nS1: There exists a minimum weight edge in G which \nis present in every minimum spanning tree of G. \n\nS2: If every edge in G has distinct weight, then G has \na unique minimum spanning treed. \n\nWhich one of the following options is correct?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "S1 is false and S2 is true",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "Both S1 and S2 are flase",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "S1 is true and S2 is false",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "Both S1 and S2 are true.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "A"
+            ],
+            "solution": {
+                "text": "The Kruskals algorithm can be used to discover the \nMinimum Spanning Tree on a graph G.  \n\n While doing that, we sort the edges according to \ntheir weight and begin choosing the smallest edge.  \n\n Problem with S1: The Kruskals method may not \nalways choose a particular weighted edge if there \nare numerous copies of it. \n\n S2 is True, the Kruskals method will always choose \na distinct set of edges, resulting in a distinct minimal \nspanning tree, if the sorted order of the edges \ncontains only distinct values.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "ALGO_MISCELLANEOUS_TOPICS_2021_Q04",
+            "subject": "Algorithms",
+            "topic": "Miscellaneous Topics",
+            "subtopic": "Which one of the following options is correct?",
+            "year": 2021,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MSQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 4,
+            "tags": [
+                "Miscellaneous Topics",
+                "Which one of the following options is correct?",
+                "Algorithms"
+            ],
+            "question": {
+                "text": "Consider the following directed graph: \n\nWhich of the following is/are correct about the \ngraph?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "The graph does not have a topological order.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "A depth-frist traversal starting at vertex S \nclassifies three directed edges as back edges.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "For each pair of vertices u and v, there is a \ndirected path from u to v.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "The graph does not have a strongly connected \ncompnont. \n\nS",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "A",
+                "B"
+            ],
+            "solution": {
+                "text": "There are 3 back edges from node 3 to 2, node 9 to \nS, and node 12 to 11.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "ALGO_MISCELLANEOUS_TOPICS_2021_Q05",
+            "subject": "Algorithms",
+            "topic": "Miscellaneous Topics",
+            "subtopic": "S",
+            "year": 2021,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 5,
+            "tags": [
+                "Miscellaneous Topics",
+                "S",
+                "Algorithms"
+            ],
+            "question": {
+                "text": "In a directed acryclic graph with a source vertex s, \nthe qauility-score of a directed path is defined to be \nthe product of the weights of the edges on the path. \n\nFurther, for a vertex v other than s, the quality-score \nof v is defined to be the maximum among the \nquality-scores of all the paths from s to v. the quality \nscore of s is assumed to be 1. \n\n\nThe sum of the quality -scores of all the vertieces in \nthe graph shown above is___.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "929"
+            ],
+            "solution": {
+                "text": "Let q(s) denote the quality score of v, then: \n\nq(s) = 1; q(d) = 9; q(b) = 9; \n\nq(a) = 9; q(f) = 9; q(c) = 81; \n\n q(c) = 1; q(g) = 81; q(t) = 729; \n\n( )\ni 1\nq i\n=\n=\n",
+                "images": [
+                    "assets/Algorithms/ALGO_Miscellaneous_Topics_P52_X5673.png",
+                    "assets/Algorithms/ALGO_Miscellaneous_Topics_P52_X5677.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "ALGO_MISCELLANEOUS_TOPICS_2020_Q06",
+            "subject": "Algorithms",
+            "topic": "Miscellaneous Topics",
+            "subtopic": "the graph shown above is___.",
+            "year": 2020,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 6,
+            "tags": [
+                "Miscellaneous Topics",
+                "the graph shown above is___.",
+                "Algorithms"
+            ],
+            "question": {
+                "text": "Consider the following undirected graph with edge \nweights as shown: \n\n\nThe number of minimum-weight spanning trees of \nthe graph is _____.",
+                "images": [
+                    "assets/Algorithms/ALGO_Miscellaneous_Topics_P48_X5316.png"
+                ],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "3"
+            ],
+            "solution": {
+                "text": "The number of minimum-weight spanning trees of \nthe graph is 3C1 = 3.",
+                "images": [
+                    "assets/Algorithms/ALGO_Miscellaneous_Topics_P52_X5675.png"
+                ],
+                "latex": [],
+                "tables": [
+                    {
+                        "headers": [
+                            "List-I",
+                            "List -II"
+                        ],
+                        "rows": [
+                            [
+                                "A: Prim's algrithm for minimum spanning tree",
+                                "2. Greedy Method"
+                            ],
+                            [
+                                "B: Floyd-Warshall algorithm for all pairs shortest paths",
+                                "3. Dynamic programming"
+                            ],
+                            [
+                                "C: Mergesort",
+                                "4. Divide and conquer"
+                            ],
+                            [
+                                "D: Hamiltonian circuit",
+                                "1. Backtraking"
+                            ]
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "id": "ALGO_MISCELLANEOUS_TOPICS_2015_Q07",
+            "subject": "Algorithms",
+            "topic": "Miscellaneous Topics",
+            "subtopic": "the graph is _____.",
+            "year": 2015,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 7,
+            "tags": [
+                "Miscellaneous Topics",
+                "the graph is _____.",
+                "Algorithms"
+            ],
+            "question": {
+                "text": "Match the following: \nList-I \nList -II \nA: Prim's algrithm for \nminimum spanning tree \n1.  Backtraking \nB:  Floyd-Warshall algorithm \nfor all pairs shortest paths \n2. Greedy \nMethod \nC: Mergesort \n3. Dynamic \nprogramming \nD:  Hamiltonian circuit \n4. Divide and \nconquer",
+                "images": [],
+                "latex": [],
+                "tables": [
+                    {
+                        "headers": [
+                            "List-I",
+                            "",
+                            "List-II",
+                            ""
+                        ],
+                        "rows": [
+                            [
+                                "A",
+                                "Dijkstra's Shortest path",
+                                "1.",
+                                "Divide and Conquer"
+                            ],
+                            [
+                                "B",
+                                "Floyd-Warshall algorithm to compute all pairs shortest path.",
+                                "2.",
+                                "Dynamic programming"
+                            ],
+                            [
+                                "C",
+                                "Binary search on a sorted array",
+                                "3.",
+                                "Greedy Design"
+                            ],
+                            [
+                                "D",
+                                "Backtracking search on a graph",
+                                "4.",
+                                "Depth-first search"
+                            ],
+                            [
+                                "",
+                                "",
+                                "5.",
+                                "Breadth-first search"
+                            ]
+                        ]
+                    }
+                ]
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "A-3, B 2, C-4, D-1",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "A-1, B-2, C-4, D-3",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "A-2, B-3, C-4, D-1",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "A-2, B-1, C-3, D-4",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "C"
+            ],
+            "solution": {
+                "text": "List-I \nList -II \nA: Prim's algrithm for \nminimum spanning tree \n2. Greedy \nMethod  \nB:  Floyd-Warshall algorithm \nfor all pairs shortest paths \n3. Dynamic \nprogramming  \nC: Mergesort \n4. Divide and \nconquer \nD:  Hamiltonian circuit \n1.  Backtraking",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "ALGO_MISCELLANEOUS_TOPICS_2015_Q08",
+            "subject": "Algorithms",
+            "topic": "Miscellaneous Topics",
+            "subtopic": "conquer",
+            "year": 2015,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 8,
+            "tags": [
+                "Miscellaneous Topics",
+                "conquer",
+                "Algorithms"
+            ],
+            "question": {
+                "text": "algorithm design paradigms. \nList-I \nList-II \nA \nDijkstra's Shortest \npath \n1. Divide and \nConquer \nB \nFloyd-Warshall \nalgorithm to compute \nall pairs shortest \npath. \n2. Dynamic \nprogramming \nC \nBinary search on a \nsorted array \n3. Greedy Design \nD \nBacktracking search \non a graph \n4. Depth-first \nsearch \n\n\n5. Breadth-first \nsearch \n\nMath \nthe \nabove \nalgorithm \n(List-I) \nto \nthe \ncorresponding design paradigam (List-II) they \nfollow:",
+                "images": [],
+                "latex": [],
+                "tables": [
+                    {
+                        "headers": [
+                            "List-I",
+                            "",
+                            "List-II",
+                            ""
+                        ],
+                        "rows": [
+                            [
+                                "A",
+                                "Dijkstra's Shortest path",
+                                "1.",
+                                "Divide and Conquer"
+                            ],
+                            [
+                                "B",
+                                "Floyd-Warshall algorithm to compute all pairs shortest path.",
+                                "2.",
+                                "Dynamic programming"
+                            ],
+                            [
+                                "C",
+                                "Binary search on a sorted array",
+                                "3.",
+                                "Greedy Design"
+                            ],
+                            [
+                                "D",
+                                "Backtracking search on a graph",
+                                "4.",
+                                "Depth-first search"
+                            ],
+                            [
+                                "",
+                                "",
+                                "5.",
+                                "Breadth-first search"
+                            ]
+                        ]
+                    }
+                ]
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "A-1, B-3, C-1, D-5",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "A-3, B-22, C-1, D-5",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "A-3, B-2, C-1, D-4",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "A-3, B-2, C-1, D- 5",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "C"
+            ],
+            "solution": {
+                "text": "List-I \nList-II \nA \nDijkstra's Shortest \npath \n3. Greedy Design \nB \nFloyd-Warshall \nalgorithm to compute \nall pairs shortest \npath. \n2. Dynamic \nprogramming \nC \nBinary search on a \nsorted array \n1. Divide and \nConquer \nD \nBacktracking search \non a graph \n4. Depth-first \nsearch",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "ALGO_MISCELLANEOUS_TOPICS_2014_Q09",
+            "subject": "Algorithms",
+            "topic": "Miscellaneous Topics",
+            "subtopic": "follow:",
+            "year": 2014,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 9,
+            "tags": [
+                "Miscellaneous Topics",
+                "follow:",
+                "Algorithms"
+            ],
+            "question": {
+                "text": "In an adjacency list representation of an undirected \nsimple graph G = (V, E), each edge (u, 𝜐) has two \nadjacency list entries: [𝜐] in the adjacency list of u, \nand [u] in the adjacency list of 𝜐. These are called \ntwins of each other. A twin pointer is a pointer from \nan adjacency list entry to its twin. If |E| = m and  \n|V| = n, and the memory size is not a constraint, what \nf \ng \nt\nc \nd \ne\ns \na \nb\n\nis the time complexity of the most efficient algorithm \nto set the twin pointer in each entry in each adjacency \nlist?",
+                "images": [],
+                "latex": [],
+                "tables": [
+                    {
+                        "headers": [
+                            "List-I",
+                            "List -II"
+                        ],
+                        "rows": [
+                            [
+                                "A: Prim's algrithm for minimum spanning tree",
+                                "1. Backtraking"
+                            ],
+                            [
+                                "B: Floyd-Warshall algorithm for all pairs shortest paths",
+                                "2. Greedy Method"
+                            ],
+                            [
+                                "C: Mergesort",
+                                "3. Dynamic programming"
+                            ],
+                            [
+                                "D: Hamiltonian circuit",
+                                "4. Divide and conquer"
+                            ]
+                        ]
+                    }
+                ]
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "Θ(n2)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "Θ(n + m)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "Θ(m2)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "Θ(n4)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "B"
+            ],
+            "solution": {
+                "text": "Using BFS, you can get all twin pts \n\n1, 2 \n\n1, 3 \n\n2, 1 \n\n2, 3 \n\n\n\n\n\n\n\nsize of Adjlist = O(n+ m)",
+                "images": [
+                    "assets/Algorithms/ALGO_Miscellaneous_Topics_P53_X5767.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "ALGO_MISCELLANEOUS_TOPICS_2008_Q10",
+            "subject": "Algorithms",
+            "topic": "Miscellaneous Topics",
+            "subtopic": "list?",
+            "year": 2008,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 10,
+            "tags": [
+                "Miscellaneous Topics",
+                "list?",
+                "Algorithms"
+            ],
+            "question": {
+                "text": "The most efficient algorithm for finding the number \nof connected components in an undirected graph on \nn vertices and m edges has time complexity-",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "Θ(n)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "Θ(m)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "Θ(m + n)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "Θ(mn) \n\nTree",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "C"
+            ],
+            "solution": {
+                "text": "The connected components of an undirected graph \ncan be found by applying DFS in (n + m).",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "ALGO_MISCELLANEOUS_TOPICS_2020_Q11",
+            "subject": "Algorithms",
+            "topic": "Miscellaneous Topics",
+            "subtopic": "Tree",
+            "year": 2020,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 11,
+            "tags": [
+                "Miscellaneous Topics",
+                "Tree",
+                "Algorithms"
+            ],
+            "question": {
+                "text": "What is the worst-case time complexity of inserting \nn2 elements into an AVL-tree with n elements \ninitially?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "(n4)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "(n2 log n)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "(n3)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "(n2)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "B"
+            ],
+            "solution": {
+                "text": "To, insert one element into an AVL - tree(n) = log n \n\n Total time = (n2.logn) to insert n2 elements.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "ALGO_MISCELLANEOUS_TOPICS_2020_Q12",
+            "subject": "Algorithms",
+            "topic": "Miscellaneous Topics",
+            "subtopic": "initially?",
+            "year": 2020,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 12,
+            "tags": [
+                "Miscellaneous Topics",
+                "initially?",
+                "Algorithms"
+            ],
+            "question": {
+                "text": "In a balanced binary search tree with n elements, \nwhat is the worst-case time complexity of reporting \nall elements in range [a, b]? Assume that the number \nof reported elements is K.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "(log n)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "(n log k)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "(log n + k)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "(k log n)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "C"
+            ],
+            "solution": {
+                "text": "• \nTime of find 'a' and \n'b' in binary search \ntree  \n= O(logn) \n• \nTime of sum up \nelements between a, b \nin binary search tree, \nusing O(k) inorder sorting. \n\n(\n)\nTotal time = O logn\nk\n+",
+                "images": [
+                    "assets/Algorithms/ALGO_Miscellaneous_Topics_P53_X5757.png",
+                    "assets/Algorithms/ALGO_Miscellaneous_Topics_P53_X5759.png",
+                    "assets/Algorithms/ALGO_Miscellaneous_Topics_P53_X5763.png",
+                    "assets/Algorithms/ALGO_Miscellaneous_Topics_P53_X5763.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "ALGO_MISCELLANEOUS_TOPICS_2015_Q13",
+            "subject": "Algorithms",
+            "topic": "Miscellaneous Topics",
+            "subtopic": "of reported elements is K.",
+            "year": 2015,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 13,
+            "tags": [
+                "Miscellaneous Topics",
+                "of reported elements is K.",
+                "Algorithms"
+            ],
+            "question": {
+                "text": "What are the worst-case complexities of insertion \nand deletion of a key in a binary search tree?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "(logn) for both insertion and deletion",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "(n) for both insertion and deletion",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "(n) for insertion and (logn) for deletion",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "(logn) for insertion and (n) for deletion",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "A"
+            ],
+            "solution": {
+                "text": "For both insertion and deletion the worst case time \ncomplexity in a binary search tree is (logn).",
+                "images": [
+                    "assets/Algorithms/ALGO_Miscellaneous_Topics_P53_X5765.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "ALGO_MISCELLANEOUS_TOPICS_2015_Q14",
+            "subject": "Algorithms",
+            "topic": "Miscellaneous Topics",
+            "subtopic": "and deletion of a key in a binary search tree?",
+            "year": 2015,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 14,
+            "tags": [
+                "Miscellaneous Topics",
+                "and deletion of a key in a binary search tree?",
+                "Algorithms"
+            ],
+            "question": {
+                "text": "Let G be a connected undirected graph of 100 \nvertices and 300 edges. The weight of a minimum \nspanning tree of G is 500. When the weight of each \nedge of G is increased by five, the weight of a \nminimum spanning tree becomes______.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "995"
+            ],
+            "solution": {
+                "text": "Final output = [500 + 99 * 5] = 500 + 495 = 995.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "ALGO_MISCELLANEOUS_TOPICS_2015_Q15",
+            "subject": "Algorithms",
+            "topic": "Miscellaneous Topics",
+            "subtopic": "minimum spanning tree becomes______.",
+            "year": 2015,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 15,
+            "tags": [
+                "Miscellaneous Topics",
+                "minimum spanning tree becomes______.",
+                "Algorithms"
+            ],
+            "question": {
+                "text": "Consider a complete binary tree where the left and \nthe right subtrees of the root are max-heaps. The \nlower bound for the number of operations to convert \nthe tree to a heap is?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "(log n)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "(n)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "(n log n)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "(n2)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "A"
+            ],
+            "solution": {
+                "text": "Height of a heap with 'n' elements is logn.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "ALGO_MISCELLANEOUS_TOPICS_2014_Q16",
+            "subject": "Algorithms",
+            "topic": "Miscellaneous Topics",
+            "subtopic": "the tree to a heap is?",
+            "year": 2014,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 16,
+            "tags": [
+                "Miscellaneous Topics",
+                "the tree to a heap is?",
+                "Algorithms"
+            ],
+            "question": {
+                "text": "Suppose we have a balanced binary search tree T \nholding n-numbers. We are given two numbers L \nand H and wish to sum up all the numbers in T that \nlie between L and H. Suppose there are m such \nnumbers in T.  \n\nIf the tightest upper bound on the time to compute \nthe sum is O(na logb n + mc logd n), the value of a + \n10b + 100c + 1000d is ____.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "110"
+            ],
+            "solution": {
+                "text": "1. To locate 'L\" and 'H' in Binary Search Tree, \ntime taken = O(log n) \n\n2. Time to sum up all numbers between L and H, \nusing \n\n\nIn order sorting will be O(m) \n\n\nTotal time: O(log n + m) \n\n\na = 0; b = 1 \n\n\nc = 1; d = 0 \n\n\n(10 + 100 + 0) = 110",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "ALGO_MISCELLANEOUS_TOPICS_2013_Q17",
+            "subject": "Algorithms",
+            "topic": "Miscellaneous Topics",
+            "subtopic": "10b + 100c + 1000d is ____.",
+            "year": 2013,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 17,
+            "tags": [
+                "Miscellaneous Topics",
+                "10b + 100c + 1000d is ____.",
+                "Algorithms"
+            ],
+            "question": {
+                "text": "Which one of the following is the tightest upper \nbound that represents the time complexity of \ninserting an object into a binary search tree of n \nnodes?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "O(1)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "O(log n)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "O(n)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "O(n log n)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "B"
+            ],
+            "solution": {
+                "text": "Time to insert an element into a binary search tree \n(n) = logn.",
+                "images": [
+                    "assets/Algorithms/ALGO_Miscellaneous_Topics_P54_X5883.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "ALGO_MISCELLANEOUS_TOPICS_2012_Q18",
+            "subject": "Algorithms",
+            "topic": "Miscellaneous Topics",
+            "subtopic": "nodes?",
+            "year": 2012,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 18,
+            "tags": [
+                "Miscellaneous Topics",
+                "nodes?",
+                "Algorithms"
+            ],
+            "question": {
+                "text": "The worst-case running time to search for an element \nin a balanced binary search tree with n2n elements \nis?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": " (n log n)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": " (n2n)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "(n)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "(log n) \n\n\n\n\nRecurrence Relation",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "C"
+            ],
+            "solution": {
+                "text": "Time = log(n.2n) = log n + log 2n \n\n T(n) = (log n + n) = O(n) = (n) = (n).",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "ALGO_MISCELLANEOUS_TOPICS_2017_Q19",
+            "subject": "Algorithms",
+            "topic": "Miscellaneous Topics",
+            "subtopic": "Recurrence Relation",
+            "year": 2017,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 19,
+            "tags": [
+                "Miscellaneous Topics",
+                "Recurrence Relation",
+                "Algorithms"
+            ],
+            "question": {
+                "text": "Match the algorithms with their time complexities: \n\nList-I (Algorithm) \n\n(P) Tower of Hanoi with n disks. \n\n(Q) Binary search given n sorted numbers \n\n(R) Heap sort given n numbers at the worst case. \n\n(S) Addition to two n \\times n matrices \n\nList-II (Time complexity) \n\n(i) \n(n2) \n(ii) (n log n) \n\n(iii) (2n) \n(iv) (log n)",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "P - (iii), Q - (iv), R - (i), S - (ii)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "P - (iv), Q - (iii), R - (i), S - (ii)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "P - (iii), Q - (iv), R - (ii), S - (i)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "P - (iv), Q - (iii), R - (ii), S - (i)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "C"
+            ],
+            "solution": {
+                "text": "Tower of Hanoi with n disks takes  (2n) \n\nBinary search given n sorted numbers takes  (log n) \n\nHeap sort given n numbers at the worst case takes  \n(n.log n) \n\nAddition to two n \\times n matrices takes  (n2)",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "ALGO_MISCELLANEOUS_TOPICS_2008_Q20",
+            "subject": "Algorithms",
+            "topic": "Miscellaneous Topics",
+            "subtopic": "(iv) (log n)",
+            "year": 2008,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 20,
+            "tags": [
+                "Miscellaneous Topics",
+                "(iv) (log n)",
+                "Algorithms"
+            ],
+            "question": {
+                "text": "If we use Radix Sort to sort n integers in the range \n(nk⁄12, nk), for some k > 0 which is independent of n, \nthe time taken would be",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "Θ(n)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "Θ(kn)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "Θ(n log n)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "Θ(n2)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "C"
+            ],
+            "solution": {
+                "text": "Time of radix sort: O(d(n +b)) \n\nd: Number of bits in the representation of highest \nnumber. \n\nn: number of elements  \n\nb: base (radix) \n\nd = lognk = k.logn \n             = k.logn.n + k.logn.b \n\n      = Θ(n.logn).",
+                "images": [
+                    "assets/Algorithms/ALGO_Miscellaneous_Topics_P54_X5885.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        }
+    ]
+}

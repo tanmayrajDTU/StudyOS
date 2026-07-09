@@ -1,0 +1,309 @@
+{
+    "subject": "Computer Organization and Architecture",
+    "topic": "ALU and Control Unit",
+    "questionCount": 5,
+    "questions": [
+        {
+            "id": "COA_ALU_AND_CONTROL_UNIT_2013_Q01",
+            "subject": "Computer Organization and Architecture",
+            "topic": "ALU and Control Unit",
+            "subtopic": "Micro-Operation and Micro Program",
+            "year": 2013,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 1,
+            "tags": [
+                "ALU and Control Unit",
+                "Micro-Operation and Micro Program",
+                "Computer Organization and Architecture"
+            ],
+            "question": {
+                "text": "Consider the following sequence of micro -\noperations. \n\nMBR ←  PC \n\nMAR ← X \n\nPC ← Y \n\nMemory ← MBR \n\nWhich one of the following is a  possible operation \nperformed by this sequence",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "Instruction fetch",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "Operand fetch",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "Conditional branch",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "Initiation of interrupt service \n\nALU Data Path",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "D"
+            ],
+            "solution": {
+                "text": "MBR   PC \n\nMAR  X \n\nPC  Y \n\nMemory  MBR \n\n(a) Instruction fetch \n\n\nPC \\rightarrow MAR \\rightarrow Memory \\rightarrow MBR \\rightarrow IR \n\n\n(Mem to CPU (IR)) \n\n\nPC value stored in Memory then PC is updated \n\n(b) Operand fetch \n\n\nIR (AF) \\rightarrow MAR \\rightarrow Memory \\rightarrow MBR \\rightarrow ALU \n\n(c) Conditional branch  \n\n\nNot store the PC value in the memory \n\n(d) Initiation of Interrupt service",
+                "images": [
+                    "assets/Computer Organization and Architecture/COA_ALU_and_Control_Unit_P19_X930.png",
+                    "assets/Computer Organization and Architecture/COA_ALU_and_Control_Unit_P19_X2187.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "COA_ALU_AND_CONTROL_UNIT_2020_Q02",
+            "subject": "Computer Organization and Architecture",
+            "topic": "ALU and Control Unit",
+            "subtopic": "ALU Data Path",
+            "year": 2020,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 2,
+            "tags": [
+                "ALU and Control Unit",
+                "ALU Data Path",
+                "Computer Organization and Architecture"
+            ],
+            "question": {
+                "text": "A multiplexer is placed between a group of 32 \nregisters and an accumulator to regulate data \nmovement such that at any given point in time the \ncontent of only one register will move to the \naccumulator, the minimum number of select lines \nneeded for the multiplexer is _____",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "5"
+            ],
+            "solution": {
+                "text": "Multiplexer \n\n3 select line then 23 Input line (8 input line) \n\nlog 2\n\n\n\n or log28 \n\n[23] input line then 3 select line required \n\nM select line ⇒ 2m line \n\nIf 2m line then [log 2m] select line \n\nFor 32 input line \n\n# select line = log2(32) = 5",
+                "images": [
+                    "assets/Computer Organization and Architecture/COA_ALU_and_Control_Unit_P19_X930.png",
+                    "assets/Computer Organization and Architecture/COA_ALU_and_Control_Unit_P19_X2187.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "COA_ALU_AND_CONTROL_UNIT_2020_Q03",
+            "subject": "Computer Organization and Architecture",
+            "topic": "ALU and Control Unit",
+            "subtopic": "needed for the multiplexer is _____",
+            "year": 2020,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 3,
+            "tags": [
+                "ALU and Control Unit",
+                "needed for the multiplexer is _____",
+                "Computer Organization and Architecture"
+            ],
+            "question": {
+                "text": "Consider the following data path diagram \n\n\nConsider an instruction: R0 ←R1 + R2. The \nfollowing steps are used to execute it over the given \ndata path. Assume that PC is incremented \nappropriately. The subscripts r and w indicate read \nand write operations, respectively. \n\n1. \nR2r TEMP1R, ALUadd, TEMP2W \n\n2. \nR1r TEMP1W,  \n\n3. \nPCr, MARW, MEMr \n\n4. \nTEMP2R,R0W \n\n5. \nMDRr, IRW \n\nWhich one of the following is the correct order of \nexecution of the above steps?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "3, 5, 1, 2, 4",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "2, 1, 4, 5, 3",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "3, 5, 2, 1, 4",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "1, 2, 4, 3, 5 \n\nMicroprogrammed Control",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "C"
+            ],
+            "solution": {
+                "text": "R0 ← R1 + R2 \n\nFetch cyle (Mem to CPU (IR)) \n\nPC \\rightarrow M [MAR] \\rightarrow MBR \\rightarrow IR \n\n3. PCR MARw MBRr \n\n5. MBRr, IRw ; MBR \\rightarrow IR \n\n2. R1R Tempw ⇒ R1 \\rightarrow Temp1 \n\n1. R2R temp1R ALU tempw ; temp2 ← R2 + temp1 \n\n4. Temp2R R0w; R0  Temp2  \n\nR0 ⇐ R1 + R2 .",
+                "images": [
+                    "assets/Computer Organization and Architecture/COA_ALU_and_Control_Unit_P19_X930.png",
+                    "assets/Computer Organization and Architecture/COA_ALU_and_Control_Unit_P19_X2187.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "COA_ALU_AND_CONTROL_UNIT_2008_Q04",
+            "subject": "Computer Organization and Architecture",
+            "topic": "ALU and Control Unit",
+            "subtopic": "Microprogrammed Control",
+            "year": 2008,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 4,
+            "tags": [
+                "ALU and Control Unit",
+                "Microprogrammed Control",
+                "Computer Organization and Architecture"
+            ],
+            "question": {
+                "text": "Consider a CPU where all the instructions require 7 \nclock cycles to complete execution. There are 140 \ninstructions in the instruction set. It is found that 125 \ncontrol signals are needed to be generated by the \ncontrol unit. While designing the horizontal micro-\nprogrammed control unit, single address field format \nis used for branch control logic. What is the \nminimum size of the control word and control \naddress register?",
+                "images": [
+                    "assets/Computer Organization and Architecture/COA_ALU_and_Control_Unit_P17_X2055.png"
+                ],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "125, 7",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "125, 10",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "135, 9",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "135, 10 \n\nRISC and CISC",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "D"
+            ],
+            "solution": {
+                "text": "Total number of instructions = 140 \n\nEach intruction requires = 7 cycle \n\nTotal number of micro operations = 140 \\times 7  \n\n= 980  instn | operations|cw \n\nControl memory =980 CW \n\nNIA|A.F|CAR = [log10 980] \n\nCAR\n10 bit\n=\n\n\nHorizontal  program \n\n125 CS = 125 bits required \n\n\n\n125 + 10 = 135 \n\nCW = 135 \n\nCAR = 10 bit",
+                "images": [
+                    "assets/Computer Organization and Architecture/COA_ALU_and_Control_Unit_P20_X2296.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "COA_ALU_AND_CONTROL_UNIT_2018_Q05",
+            "subject": "Computer Organization and Architecture",
+            "topic": "ALU and Control Unit",
+            "subtopic": "RISC and CISC",
+            "year": 2018,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 5,
+            "tags": [
+                "ALU and Control Unit",
+                "RISC and CISC",
+                "Computer Organization and Architecture"
+            ],
+            "question": {
+                "text": "Consider the following processor design \ncharacteristics: \n\nI. \nRegister-to-register arithmetic operations only. \n\nII. Fixed-length instruction format. \n\nIII. Hardwired control unit. \n\nWhich of the characteristics above are used in the \ndesign of a RISC processor?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "I and II only",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "II and III only",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "I and III only",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "I, II and III",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "D"
+            ],
+            "solution": {
+                "text": "",
+                "images": [
+                    "assets/Computer Organization and Architecture/COA_ALU_and_Control_Unit_P19_X930.png",
+                    "assets/Computer Organization and Architecture/COA_ALU_and_Control_Unit_P19_X2187.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        }
+    ]
+}

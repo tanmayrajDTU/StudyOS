@@ -1,0 +1,802 @@
+{
+    "subject": "Computer Networks",
+    "topic": "Application Layer",
+    "questionCount": 13,
+    "questions": [
+        {
+            "id": "CN_APPLICATION_LAYER_2023_Q01",
+            "subject": "Computer Networks",
+            "topic": "Application Layer",
+            "subtopic": "Hypertext Transfer Protocol",
+            "year": 2023,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MSQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 1,
+            "tags": [
+                "Application Layer",
+                "Hypertext Transfer Protocol",
+                "Computer Networks"
+            ],
+            "question": {
+                "text": "Suppose in a web browser, you click on the \nwww.gate-2023.in URL. The browser cache is \nempty. The IP address for this URL is not cached in \nyour local host, so a DNS lookup is triggered (by the \nlocal DNS server deployed on your local host) over \nthe 3-tier DNS hierarchy in an iterative mode. No \nresource records are cached anywhere across all \nDNS servers. \n\nLet RTT denote the round trip time between your \nlocal host and DNS servers in the DNS hierarchy. \nThe round trip time between the local host and the \nweb server hosting www.gate-2023.in is also equal \nto RTT. The HTML file associated with the URL is \nsmall enough to have negligible transmission time \nand negligible rendering time by your web browser, \nwhich references 10 equally small objects on the \nsame web server. \n\nWhich of the following statements is/are CORRECT \nabout the minimum elapsed time between clicking \non the URL and your browser fully rendering it?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "7 RTTs, in case of non-persistent HTTP with 5 \nparallel TCP connections.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "5 RTTs, in case of persistent HTTP with \npipelining.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "9 RTTs, in case of non-persistent HTTP with 5 \nparallel TCP connections.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "6 RTTs, in case of persistent HTTP with \npipelining.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "C",
+                "D"
+            ],
+            "solution": {
+                "text": "9 RTTs, in case of non-persistent HTTP with 5 \nparallel TCP connections. \n\n6 RTTs, in case of persistent HTTP with pipelining.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "CN_APPLICATION_LAYER_2020_Q02",
+            "subject": "Computer Networks",
+            "topic": "Application Layer",
+            "subtopic": "pipelining.",
+            "year": 2020,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 2,
+            "tags": [
+                "Application Layer",
+                "pipelining.",
+                "Computer Networks"
+            ],
+            "question": {
+                "text": "Assume that you have made a request for a web page \nthrough your web browser to a web server. Initially \nthe browser cache is empty. Further, the browser is \nconfigured to send HTTP requests in non-persistent \nmode. The web page contains text and five very \nsmall images. The minimum number of TCP \nconnections required to display the web page \ncompletely in your browser is_____.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "6"
+            ],
+            "solution": {
+                "text": "In Non-persistent mode one TCP connection is \nrequired for each request/response web page contain \ntext and 5 same images so TCP connection are \nrequired.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "CN_APPLICATION_LAYER_2012_Q03",
+            "subject": "Computer Networks",
+            "topic": "Application Layer",
+            "subtopic": "completely in your browser is_____.",
+            "year": 2012,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 3,
+            "tags": [
+                "Application Layer",
+                "completely in your browser is_____.",
+                "Computer Networks"
+            ],
+            "question": {
+                "text": "The protocol Data Unit (PDU) for the application \nlayer in the Internet stack is",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "Segment",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "Datagram",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "Message",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "Frame",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "C"
+            ],
+            "solution": {
+                "text": "",
+                "images": [
+                    "assets/Computer Networks/CN_Application_Layer_P53_X901.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "CN_APPLICATION_LAYER_2010_Q04",
+            "subject": "Computer Networks",
+            "topic": "Application Layer",
+            "subtopic": "layer in the Internet stack is",
+            "year": 2010,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 4,
+            "tags": [
+                "Application Layer",
+                "layer in the Internet stack is",
+                "Computer Networks"
+            ],
+            "question": {
+                "text": "Which one of the following is not a client server \napplication?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "Internet chat",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "Web browsing",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "E-mail",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "Ping",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "D"
+            ],
+            "solution": {
+                "text": "Ping is not a client server application.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "CN_APPLICATION_LAYER_2008_Q05",
+            "subject": "Computer Networks",
+            "topic": "Application Layer",
+            "subtopic": "application?",
+            "year": 2008,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 5,
+            "tags": [
+                "Application Layer",
+                "application?",
+                "Computer Networks"
+            ],
+            "question": {
+                "text": "What is the maximum size of data that the \nbelow?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "Any Size",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "216 bytes- size of TCP header",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "216 bytes",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "1500 bytes \n\n\nFile Transfer Protocol",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "A"
+            ],
+            "solution": {
+                "text": "Application Layer can pass any size of data to the    \ntransport layer.",
+                "images": [
+                    "assets/Computer Networks/CN_Application_Layer_P53_X5489.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "CN_APPLICATION_LAYER_2015_Q06",
+            "subject": "Computer Networks",
+            "topic": "Application Layer",
+            "subtopic": "File Transfer Protocol",
+            "year": 2015,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 6,
+            "tags": [
+                "Application Layer",
+                "File Transfer Protocol",
+                "Computer Networks"
+            ],
+            "question": {
+                "text": "In one of the pairs of protocols given below, both the \nprotocols can use multiple TCP connections between \nthe same client and the server. Which one is that?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "HTTP, FTP",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "HTTP, TELNET",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "FTP, SMTP",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "HTTP, SMTP",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "A"
+            ],
+            "solution": {
+                "text": "FTP uses two types of connection  \n\n(i) Control connection \n\n(ii) Data Connection \n\nIn Non-persistent mode HTTP can use different \nTCP connections for different objects of webpage.",
+                "images": [
+                    "assets/Computer Networks/CN_Application_Layer_P53_X5491.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "CN_APPLICATION_LAYER_2019_Q07",
+            "subject": "Computer Networks",
+            "topic": "Application Layer",
+            "subtopic": "the same client and the server. Which one is that?",
+            "year": 2019,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 7,
+            "tags": [
+                "Application Layer",
+                "the same client and the server. Which one is that?",
+                "Computer Networks"
+            ],
+            "question": {
+                "text": "Which of the following protocol pairs can be used to \nsend and retrieve e-mails (in that order)?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "IMAP, SMTP",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "SMTP, MIME",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "IMAP, POP3",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "SMTP, POP3",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "D"
+            ],
+            "solution": {
+                "text": "Protocol used for sending email - SMTP \n          Protocols used to retrieve emails - POP3, IMAP4",
+                "images": [
+                    "assets/Computer Networks/CN_Application_Layer_P54_X5621.png"
+                ],
+                "latex": [],
+                "tables": [
+                    {
+                        "headers": [
+                            "Steless",
+                            "Stefull"
+                        ],
+                        "rows": [
+                            [
+                                "DNS",
+                                "POP"
+                            ],
+                            [
+                                "SMTP",
+                                "IMAP"
+                            ],
+                            [
+                                "HTTP",
+                                "FTP"
+                            ]
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "id": "CN_APPLICATION_LAYER_2021_Q08",
+            "subject": "Computer Networks",
+            "topic": "Application Layer",
+            "subtopic": "send and retrieve e-mails (in that order)?",
+            "year": 2021,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 8,
+            "tags": [
+                "Application Layer",
+                "send and retrieve e-mails (in that order)?",
+                "Computer Networks"
+            ],
+            "question": {
+                "text": "[GATE-2016(set-1) : 1M] \n\nWhich of the following is/are example(s) of stateful \n\n(i)  \nHTTP \n(ii)  FTP \n\n(iii)  TCP \n(iv)  POP3",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "(i) and (ii) only",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "(ii) and (iii) only",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "(ii) and (iv) only",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "(iv) only",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "C"
+            ],
+            "solution": {
+                "text": "Steless \nStefull \nDNS \nPOP \nSMTP \nIMAP \nHTTP \nFTP",
+                "images": [
+                    "assets/Computer Networks/CN_Application_Layer_P53_X901.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "CN_APPLICATION_LAYER_2012_Q09",
+            "subject": "Computer Networks",
+            "topic": "Application Layer",
+            "subtopic": "(iv)  POP3",
+            "year": 2012,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 9,
+            "tags": [
+                "Application Layer",
+                "(iv)  POP3",
+                "Computer Networks"
+            ],
+            "question": {
+                "text": "Which of the following transport layer protocols is \nused to support electronic mail?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "SMTP",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "IP",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "TCP",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "UDP",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "C"
+            ],
+            "solution": {
+                "text": "SMTP uses TCP as transport layer protocol. In \ntransport layer TCP is used to support electronic \nmail.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "CN_APPLICATION_LAYER_2011_Q10",
+            "subject": "Computer Networks",
+            "topic": "Application Layer",
+            "subtopic": "used to support electronic mail?",
+            "year": 2011,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 10,
+            "tags": [
+                "Application Layer",
+                "used to support electronic mail?",
+                "Computer Networks"
+            ],
+            "question": {
+                "text": "Consider different activities related to email. \n\nml:  Send an email from a mail client to a mail \nserver \n\nm2:  Download an email from mailbox server to a \nmail client \n\nm3:  Checking email in a web browser \n\nWhich is the application level protocol used in each \nactivity?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "m1 : HTTP \nm2 : SMTP m3 : POP",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "m1 : SMTP \nm2 : FTP \nm3 : HTTP",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "m1 : SMTP \nm2 : POP \nm3 : HTTP",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "m1 : POP \nm2 : SMTP m3 : IMAP \n\nDomain Name Space Protocol",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "C"
+            ],
+            "solution": {
+                "text": "M1- SMTP (Push the mail from client to server) \n          M2- POP  (is usded for downloading the mail \n\n\n\nfrom mail server) \n          M3 - HTTP (Messaging from receiving server \n\nto web browser is done through \n\nHTTP)",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "CN_APPLICATION_LAYER_2016_Q11",
+            "subject": "Computer Networks",
+            "topic": "Application Layer",
+            "subtopic": "Domain Name Space Protocol",
+            "year": 2016,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 11,
+            "tags": [
+                "Application Layer",
+                "Domain Name Space Protocol",
+                "Computer Networks"
+            ],
+            "question": {
+                "text": "Which one of the following protocols is NOT used \nto resolve one form of address to another one?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "DNS",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "ARP",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "DHCP",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "RARP",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "C"
+            ],
+            "solution": {
+                "text": "DNS→ Domain Name to IP Add \n\nARP→ IP to MAC to Address \n\nRARP→ MAC add to IP Address",
+                "images": [
+                    "assets/Computer Networks/CN_Application_Layer_P53_X901.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "CN_APPLICATION_LAYER_2022_Q12",
+            "subject": "Computer Networks",
+            "topic": "Application Layer",
+            "subtopic": "to resolve one form of address to another one?",
+            "year": 2022,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 12,
+            "tags": [
+                "Application Layer",
+                "to resolve one form of address to another one?",
+                "Computer Networks"
+            ],
+            "question": {
+                "text": "Consider the resolution of the domain name \nwww.gate.org.in by a DNS resolver. Assume that no \nresource records are cached anywhere across the \nDNS servers and that iterative query mechanism is \nused in the resolution. The number of DNS query-\nresponse pairs involved in completely resolving the \ndomain name is.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "4"
+            ],
+            "solution": {
+                "text": "Number of query response pairs = 4",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "CN_APPLICATION_LAYER_2016_Q13",
+            "subject": "Computer Networks",
+            "topic": "Application Layer",
+            "subtopic": "domain name is.",
+            "year": 2016,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 13,
+            "tags": [
+                "Application Layer",
+                "domain name is.",
+                "Computer Networks"
+            ],
+            "question": {
+                "text": "Identify the correct sequence in which the following \npackets are transmitted on the network by a host \nwhen a browser requests a webpage from a remote \nserver, assuming that the host has just been restarted.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "HTTP GET request, DNS query, TCP SYN",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "DNS query, HTTP GET request, TCP SYN",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "DNS query, TCP SYN, HTTP GET request",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "TCP SYN, DNS query, HTTP GET request",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "C"
+            ],
+            "solution": {
+                "text": "Initially we send DNS request to find IP address \nthen we send SYN segment for connection \nestablishment and then we get the result through \nHTTP. \n\nThe correct sequence is:  \n          DNS query, TCP SYN, HTTP GET request",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        }
+    ]
+}

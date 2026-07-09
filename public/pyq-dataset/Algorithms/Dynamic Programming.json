@@ -1,0 +1,1280 @@
+{
+    "subject": "Algorithms",
+    "topic": "Dynamic Programming",
+    "questionCount": 18,
+    "questions": [
+        {
+            "id": "ALGO_DYNAMIC_PROGRAMMING_2014_Q01",
+            "subject": "Algorithms",
+            "topic": "Dynamic Programming",
+            "subtopic": "C H A P T E R",
+            "year": 2014,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 1,
+            "tags": [
+                "Dynamic Programming",
+                "C H A P T E R",
+                "Algorithms"
+            ],
+            "question": {
+                "text": "Consider two strings A = \"qpqri\"B = \"pqprqrp\". Let \nx be the length of the longest common subsequence \n(not necessarily contiguous) between A and B and let \nbe the number of such longest common subsequences \nbetween A and B.Then x + 10 y = _____.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "34"
+            ],
+            "solution": {
+                "text": "1. \"qpqr\" \n\n2. \"qprr\" \n\n3. \"pqrr\" \n\nLength = 4 = x \n\nNumber of LCS = 3 = y \n\nx + 10y = 4 + 10 \\times 3 = 34.",
+                "images": [
+                    "assets/Algorithms/ALGO_Dynamic_Programming_P43_X983.png",
+                    "assets/Algorithms/ALGO_Dynamic_Programming_P43_X4706.png",
+                    "assets/Algorithms/ALGO_Dynamic_Programming_P43_X4708.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "ALGO_DYNAMIC_PROGRAMMING_2013_Q02",
+            "subject": "Algorithms",
+            "topic": "Dynamic Programming",
+            "subtopic": "between A and B.Then x + 10 y = _____.",
+            "year": 2013,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 2,
+            "tags": [
+                "Dynamic Programming",
+                "between A and B.Then x + 10 y = _____.",
+                "Algorithms"
+            ],
+            "question": {
+                "text": "What is the time complexity of Bellman-Ford single-\nsource shortest path algorithm on a complete graph \nof n vertices?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "Θ(n2)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "Θ(n2 log n)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "Θ(n3)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "Θ(n3 log n)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "C"
+            ],
+            "solution": {
+                "text": "for complete \nBellman ford = (n.e)\n(n.n )\ngraph e =\n(n )\n\n(n )\n\n= \n\n= ",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "ALGO_DYNAMIC_PROGRAMMING_2012_Q03",
+            "subject": "Algorithms",
+            "topic": "Dynamic Programming",
+            "subtopic": "of n vertices?",
+            "year": 2012,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 3,
+            "tags": [
+                "Dynamic Programming",
+                "of n vertices?",
+                "Algorithms"
+            ],
+            "question": {
+                "text": "The recurrence relation capturing the optimal \nexecution time of the Tower of Hanoi problem with \nn discs is",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "T(n) = 2T(n - 2) + 2",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "T(n) = 2T(n - 1) + n",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "T(n) = 2T(n/2) + 1",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "T(n) = 2T(n - 1) + 1",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "D"
+            ],
+            "solution": {
+                "text": "( )\n(\n)\n(\n)\nT n\n2.T n-1\nC\n         = 2.T n-1\n=\n+\n+\n\n\nAlgorithm for tower of hanoi problem: \n         TOH (n,L,M,R) \n\n{ \n\nif (n = 0) return \n\nelse \n\n{ \n\nTOH (n-1, L, R, M); \n\nMove (1, L, R) \n\nTOH (n-1, M, L, R); \n\n } \n\n}",
+                "images": [
+                    "assets/Algorithms/ALGO_Dynamic_Programming_P43_X983.png",
+                    "assets/Algorithms/ALGO_Dynamic_Programming_P43_X4706.png",
+                    "assets/Algorithms/ALGO_Dynamic_Programming_P43_X4708.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "ALGO_DYNAMIC_PROGRAMMING_2011_Q04",
+            "subject": "Algorithms",
+            "topic": "Dynamic Programming",
+            "subtopic": "n discs is",
+            "year": 2011,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MSQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 4,
+            "tags": [
+                "Dynamic Programming",
+                "n discs is",
+                "Algorithms"
+            ],
+            "question": {
+                "text": "Define Rn to be the maximum amount earned by \ncutting a rod of length n meters into one or more \npieces of integer length and selling them. For i > 0, \nlet p[i] denote the selling price of a rod whose length \nis i meters. Consider the array of prices: \n\np[1] = 1, p[2] = 5, p[3] = 8, p[4] = 9, \n\np[5] = 10, p[6] = 17, p[7] = 18 \n\nWhich of the following statements is/are correct \nabout R7?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "R7 = 18",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "R7 = 19",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "R7 is achieved by three different solutions.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "R7 cannot be achieved by a solution consisting \nof three pieces.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "A",
+                "C"
+            ],
+            "solution": {
+                "text": "P[1] = 1; P[2] = 5; P[3] = 8; P[4] = 9; P[5] = 10; \nP[6] = 17; P[7] = 18;  \nNo. of \npieces \nCombination \nSelling \nPrice \n\n1(7) \nMax (R7) \n2(6, 1) \n3(2, 2, 3) \n4(2, 2, 2,1) \n\n5(2, 2, 1, 1, 1) \n\n6(2, 1, 1, 1, 1, 1) \n\n7(1, 1, 1, 1, 1, 1, 1)",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "ALGO_DYNAMIC_PROGRAMMING_2011_Q05",
+            "subject": "Algorithms",
+            "topic": "Dynamic Programming",
+            "subtopic": "of three pieces.",
+            "year": 2011,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 5,
+            "tags": [
+                "Dynamic Programming",
+                "of three pieces.",
+                "Algorithms"
+            ],
+            "question": {
+                "text": "An algorithm to find the length of the longest \nmonotonically increasing sequence of number in an \narray A[0: n - 1] is given below. \n\nLet Li denotes the length of the longest \nmonotonicaly increasing sequence starting at index \ni in the array \n\nInitialize Ln-1 = 1 \n\nFor all i such that 0 \\le i \\le n - 2 \n\n\n\n\ni 1\ni\nL\nIf A i\nA i\nL\n\notherwise\n+\n+\n\n+\n\n= \n\n\n\nFinally the length of the longest monotonically \nincreasing sequcnce is Max(L0, L1, …..Ln-1). \n\nWhich of the followign statements is TURE? \n\nparadigm.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "The alogrithm has a linear complexity and uses \nbranch and bound paradigm",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "The algorithm has non-linear polynomial \ncomplexity and uses brach and bound paradigm.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "The algorithm uses divide and conquer paradigm",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "A"
+            ],
+            "solution": {
+                "text": "The algorithm storts the optimal solutions to \nsubproblems at every point, and then uses it to \nderive the optimal solution for a bigger problem and \nprogram runs in linear time complexity.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "ALGO_DYNAMIC_PROGRAMMING_2009_Q06",
+            "subject": "Algorithms",
+            "topic": "Dynamic Programming",
+            "subtopic": "complexity and uses brach and bound paradigm.",
+            "year": 2009,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 6,
+            "tags": [
+                "Dynamic Programming",
+                "complexity and uses brach and bound paradigm.",
+                "Algorithms"
+            ],
+            "question": {
+                "text": "Which of the following statement(s) is / are correct \nregarding Bellman-Ford shortest path algorithm? \n\n P: Always finds a negative weighted cycle, if one \nexists. \n\n Q: Finds whether any negative weighted cycle is \nreachable from the source.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "P only",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "Q only",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "both P and Q",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "Neither P nor Q \n\nCommon data for next two questions: \nA sub-sequence of a given sequence is just the given \nsequence with some elements(possibly none or all) left out. \nWe are given two sequence X[m] and Y[n] of lengths m and \nn, respectively with indexes of X and Y starting from 0.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "B"
+            ],
+            "solution": {
+                "text": "The Bellman-Ford algorithm may not always find \nthe negative weighted cycle. However, it finds any \nnegative weighted cycle that is reachable from the \ngiven source.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "ALGO_DYNAMIC_PROGRAMMING_2009_Q07",
+            "subject": "Algorithms",
+            "topic": "Dynamic Programming",
+            "subtopic": "n, respectively with indexes of X and Y starting from 0.",
+            "year": 2009,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 7,
+            "tags": [
+                "Dynamic Programming",
+                "n, respectively with indexes of X and Y starting from 0.",
+                "Algorithms"
+            ],
+            "question": {
+                "text": "We wish to find the length of the longest common \nsubsequence (LCS) of X[m] and Y[n] as l(m,n), \nwhere an incomplete recursive definition for the \nfunction l(i, j) to compute the length of the LCS of \nX[m] and Y[n] is given below: \n\nl(i, j) = 0, if either i = 0 or j = 0 \n\n    = expr1, if i, j > 0 and x[i - 1] = Y [j - 1] \n\n\n = expr2, if i, j > 0 and x[i - 1] \\neq Y [j - 1] \n\nWhich one of the following options is correct?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "expr1 = l(i − 1, j) + 1",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "expr1 = l(i, j − 1)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "expr2 = max (l(i − 1, j), l(i, j − 1))",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "expr2 = max(l(i − 1, j − 1), l(i, j))",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "C"
+            ],
+            "solution": {
+                "text": "When the currently compared elements doesn't \nmatch, we have two possibilities for the LCS, one \nincluding Y[j] but not X[i] and including X[i] but \nnot Y[j].",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "ALGO_DYNAMIC_PROGRAMMING_2009_Q08",
+            "subject": "Algorithms",
+            "topic": "Dynamic Programming",
+            "subtopic": "Which one of the following options is correct?",
+            "year": 2009,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 8,
+            "tags": [
+                "Dynamic Programming",
+                "Which one of the following options is correct?",
+                "Algorithms"
+            ],
+            "question": {
+                "text": "The values of l(i, j) could be obtained by dynamic \nprogramming based on the correct recursive \ndefinition of l(i, j) of the form given above, using an \narray L[M, N], where M = m + 1 and N = n + 1, such \nthat L[i, j] = l(i, j). \n\nWhich one of the following statements would be \nfor the recursive definition of l(i, j)?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "All elements of L should be initialized to 0 for \nthe values of l (i, j) to be properly computed.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "The values of l(i, j) may be computed in a row \nmajor order or column major order of L [M, N].",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "The values of l(i, j) cannot be computed in either \nrow major order or column major order of L [M, \nN].",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "L [p, q] needs to be computed before L [r, s] if \neither p < r or q < s.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "B"
+            ],
+            "solution": {
+                "text": "The previously discovered LCS is saved using \nfor any index should have been computed earlier.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "ALGO_DYNAMIC_PROGRAMMING_2008_Q09",
+            "subject": "Algorithms",
+            "topic": "Dynamic Programming",
+            "subtopic": "either p < r or q < s.",
+            "year": 2008,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 9,
+            "tags": [
+                "Dynamic Programming",
+                "either p < r or q < s.",
+                "Algorithms"
+            ],
+            "question": {
+                "text": "Conider the following C funcitons: \n\nintf1(int n) \n\n{ \n\n\nif(n = = 0||n = = 1) return n; \n\n\nelse \n\n\n     return (2* f1(n - 1) + 3* f1 (n - 2)); \n\n} \n\nint f2 (int n) \n\n{ \n\n\nint i; \n\n\nint X[N], Y[N], Z[N]; \n\n\nX[0] = Y[0] Z [0] = 0; \n\n\nX[1] = 1; Y[1] = 2; Z[1] = 3; \n\n\nfor (i = 1; i ≤n; i ++) \n\n\n{ \n\n\n   X[i] = Y[i - 1] + Z [i - 2]; \n\n        Y[i] = 2* X[i]; \n\n\n   Z[i] = 3*X[i]; \n\n\n} \n\n\nreturn X[n]; \n\n} \n          The running time of f1(n) and f2(n) are",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "Θ(n) and Θ(n)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "Θ(2n) and Θ(n)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "Θ(n) and Θ(2n)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "Θ(2n) and Θ(2n) \n\nCommon data for next two questions: \nThe subset-sum problem is defined as follows. Given a set \nof n positive integers, S = {a1, a2, a3, …… ,an} and a positive \ninteger W, is there a subset S whose elements sum of W? A \ndynamic program for solving this problem uses a 2-\ndimensional Boolean array, X with n rows and W + 1 \ncolumns X [i, j], 1 \\le i \\le n, 0 \\le j \\le W, is TRUE if and only if \nthere is a subset of {a1, a2……, ai} whose elements sum to j.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "B"
+            ],
+            "solution": {
+                "text": "{ \n  if(n = = 0||n = = 1) return n; \n  else \n  return (2* f1(n - 1) + 3* f1 (n - \n2)); \n} \n   T(n) = c, n = 0, \n= T(n-1) + T(n-\n2) \n     + a, n>1 \n= T(n) = O(2n) \n\n\n{ \n     int i; \n     int X[N], Y[N], Z[N]; \n     X[0] = Y[0] Z [0] = 0; \n     X[1] = 1; Y[1] = 2; Z[1] = 3; \n     for (i = 1; i ≤n; i ++) \n     X[i] = Y[i - 1] + Z [i - 2]; \n     Y[i] = 2* X[i]; \n     Z[i] = 3*X[i]; \n} \nT(n) = O(n) \n\nThe running time of f1(n) is O(2n) and f2(n) is O(n).",
+                "images": [],
+                "latex": [],
+                "tables": [
+                    {
+                        "headers": [
+                            "No. of pieces",
+                            "Combination",
+                            "Selling Price",
+                            ""
+                        ],
+                        "rows": [
+                            [
+                                "1",
+                                "1(7)",
+                                "18",
+                                "Max (R ) 7"
+                            ],
+                            [
+                                "2",
+                                "2(6, 1)",
+                                "18",
+                                ""
+                            ],
+                            [
+                                "3",
+                                "3(2, 2, 3)",
+                                "18",
+                                ""
+                            ],
+                            [
+                                "4",
+                                "4(2, 2, 2,1)",
+                                "16",
+                                ""
+                            ],
+                            [
+                                "5",
+                                "5(2, 2, 1, 1, 1)",
+                                "13",
+                                ""
+                            ],
+                            [
+                                "6",
+                                "6(2, 1, 1, 1, 1, 1)",
+                                "10",
+                                ""
+                            ],
+                            [
+                                "7",
+                                "7(1, 1, 1, 1, 1, 1, 1)",
+                                "7",
+                                ""
+                            ]
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "id": "ALGO_DYNAMIC_PROGRAMMING_2008_Q10",
+            "subject": "Algorithms",
+            "topic": "Dynamic Programming",
+            "subtopic": "dimensional Boolean array, X with n rows and W + 1",
+            "year": 2008,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 10,
+            "tags": [
+                "Dynamic Programming",
+                "dimensional Boolean array, X with n rows and W + 1",
+                "Algorithms"
+            ],
+            "question": {
+                "text": "Which entry of the array X, if TRUE, implies that \nthere is a subset whose elements sum of W?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "X [1, W]",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "X [n, 0]",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "X [n, W]",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "X [n - 1, n]",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "C"
+            ],
+            "solution": {
+                "text": "X[0 …. n, …..] \n\nX[1 …. n, …..] \n\nData set: n = 5; S: 2, 8, 4, 11, 9; W = 6  \n\n\nX[n, W] = Entry stating whether subset exists/Not  \n\nX [i, j] = True/False, whether there exist a subset \nfrom first 'i' elements that sum to 'j'.",
+                "images": [],
+                "latex": [],
+                "tables": [
+                    {
+                        "headers": [
+                            "No. of pieces",
+                            "Combination",
+                            "Selling Price",
+                            ""
+                        ],
+                        "rows": [
+                            [
+                                "1",
+                                "1(7)",
+                                "18",
+                                "Max (R ) 7"
+                            ],
+                            [
+                                "2",
+                                "2(6, 1)",
+                                "18",
+                                ""
+                            ],
+                            [
+                                "3",
+                                "3(2, 2, 3)",
+                                "18",
+                                ""
+                            ],
+                            [
+                                "4",
+                                "4(2, 2, 2,1)",
+                                "16",
+                                ""
+                            ],
+                            [
+                                "5",
+                                "5(2, 2, 1, 1, 1)",
+                                "13",
+                                ""
+                            ],
+                            [
+                                "6",
+                                "6(2, 1, 1, 1, 1, 1)",
+                                "10",
+                                ""
+                            ],
+                            [
+                                "7",
+                                "7(1, 1, 1, 1, 1, 1, 1)",
+                                "7",
+                                ""
+                            ]
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "id": "ALGO_DYNAMIC_PROGRAMMING_2008_Q11",
+            "subject": "Algorithms",
+            "topic": "Dynamic Programming",
+            "subtopic": "there is a subset whose elements sum of W?",
+            "year": 2008,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 11,
+            "tags": [
+                "Dynamic Programming",
+                "there is a subset whose elements sum of W?",
+                "Algorithms"
+            ],
+            "question": {
+                "text": "Which of the following is valid for 2 \\le i \\le n, and \nai \\le j \\le W?",
+                "images": [],
+                "latex": [],
+                "tables": [
+                    {
+                        "headers": [
+                            "Item Number",
+                            "Weight in (Kgs)",
+                            "Value in (Rupees)"
+                        ],
+                        "rows": [
+                            [
+                                "1",
+                                "10",
+                                "60"
+                            ],
+                            [
+                                "2",
+                                "7",
+                                "28"
+                            ],
+                            [
+                                "3",
+                                "4",
+                                "20"
+                            ],
+                            [
+                                "4",
+                                "2",
+                                "24"
+                            ]
+                        ]
+                    }
+                ]
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "X [i, j] = X [i - 1, j]  X[i, j − ai]",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "X [i, j] = X [i − 1, j]  X[i − 1, j − ai]",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "X [i, j] = X [i - 1, j]  X[i, j − ai]",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "X [i, j] = X [i − 1, j]  X[i − 1, j − ai]",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "B"
+            ],
+            "solution": {
+                "text": "The right answer is B X[i, j] = X[i − 1, j]  X[i − 1, \nj − ai]. \n\nIt is NP-complete (the subset-sum problem). \n\nFor instance, the technique checks to see if the sum \nof the elements in the set S' is zero such that S'  S \ngiven the set S = {-7, -3, -2, 5, 7}. \n\nFor instance, say if S' = {-3, -2, 5}. \n\nx is a two-dimensional boolean array with n rows \nand W + 1 columns in the proposed dynamic \nmethod, where W is a positive weight or sum. \n\nx[i, j]1 \\le i \\le n, 0 \\le j \\le W \n\nThe element in the subset of S is determined by the \nith row, and the associated weight is determined by \nthe jth column. \n\nWhen 2 \\le i \\le n and a \\le j \\le W \n\nLet S' be a subset with weight W and a1, a2,...., ai. \n\nThis means that X[i, j] = X[i - 1, j]  X[i - 1, j - ai].",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "ALGO_DYNAMIC_PROGRAMMING_2008_Q12",
+            "subject": "Algorithms",
+            "topic": "Dynamic Programming",
+            "subtopic": "ai ≤ j ≤ W?",
+            "year": 2008,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 12,
+            "tags": [
+                "Dynamic Programming",
+                "ai ≤ j ≤ W?",
+                "Algorithms"
+            ],
+            "question": {
+                "text": "The subset-sum problem is defined as follows: \n\nGiven a set S of n positive integers and a positive \ninteger W, determine whether there is a subset of S \nwhose elements sum to W. \n\nAn algorithm Q solves this problem in O(nW) time. \nWhich of the following statements is false?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "Q solves the subset−sum problem in \npolynomial time when the input is encoded in \nunary.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "Q solves the subset sum problem is polynomial \ntime when the input is encoded in binary.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "The subset sum problem belongs to the class NP.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "The subset sum problem in NP−hard. \n\nFloyd Warshall's Algorithm",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "B"
+            ],
+            "solution": {
+                "text": "Subset of Sum is a NP Complete problem. \n\n Subset sum problem  NP \n\n Subset sum problem is NP-hard problem.",
+                "images": [],
+                "latex": [],
+                "tables": [
+                    {
+                        "headers": [
+                            "Algorithm",
+                            "Design paradigms"
+                        ],
+                        "rows": [
+                            [
+                                "(P) Kruskal",
+                                "(ii) Greedy"
+                            ],
+                            [
+                                "(Q) Quicksort",
+                                "(i) Divide and conquer"
+                            ],
+                            [
+                                "(R) Floyd-Warshall",
+                                "(iii) Dynamic programming"
+                            ]
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "id": "ALGO_DYNAMIC_PROGRAMMING_2017_Q13",
+            "subject": "Algorithms",
+            "topic": "Dynamic Programming",
+            "subtopic": "Floyd Warshall's Algorithm",
+            "year": 2017,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 13,
+            "tags": [
+                "Dynamic Programming",
+                "Floyd Warshall's Algorithm",
+                "Algorithms"
+            ],
+            "question": {
+                "text": "Consider the followign table: \nAlgorithm \nDesign paradigms \n(P) Kruskal \n(i) Divide and conquer \n(Q) Quicksort \n(ii) Greedy \n(R) Floyd-Warshall \n(iii) Dynamic \nprogramming",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "P-ii, Q-iii, R-i",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "P-iii, Q-i, R-ii",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "P-ii, Q-i, R-iii",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "P-i, Q-ii, R-iii",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "C"
+            ],
+            "solution": {
+                "text": "Algorithm \nDesign paradigms \n(P) Kruskal \n(ii) Greedy  \n(Q) Quicksort \n(i)  Divide and conquer \n(R) Floyd-Warshall \n(iii) Dynamic \nprogramming",
+                "images": [
+                    "assets/Algorithms/ALGO_Dynamic_Programming_P45_X4993.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "ALGO_DYNAMIC_PROGRAMMING_2016_Q14",
+            "subject": "Algorithms",
+            "topic": "Dynamic Programming",
+            "subtopic": "programming",
+            "year": 2016,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 14,
+            "tags": [
+                "Dynamic Programming",
+                "programming",
+                "Algorithms"
+            ],
+            "question": {
+                "text": "The Floyd-Warshall alorithm for all-pair shortest \npaths computation is based on",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "Greedy paradigm",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "Divide-and-conquer paradigm",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "Neither Greedy nor Divide-and-conquer nor \n0/1 Knapsack Problem",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "C"
+            ],
+            "solution": {
+                "text": "The Floyd-Warshall's algorithm is based on \ndynamic programming. It is used to find all the pair \nshortest path for every pair (i, j), there exists two \npossibilities for every pair: \n• \nIf k is not an intermediate vertex in the shortest \npath from (i) to (j) then the value of dist[i][j] \nremains same. \n• \nIf k is an intermediate vertex in the shortest path \nfrom (i) to (j), then the value is updated as \ndist[i][j] + dist[k].",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "ALGO_DYNAMIC_PROGRAMMING_2018_Q15",
+            "subject": "Algorithms",
+            "topic": "Dynamic Programming",
+            "subtopic": "0/1 Knapsack Problem",
+            "year": 2018,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 15,
+            "tags": [
+                "Dynamic Programming",
+                "0/1 Knapsack Problem",
+                "Algorithms"
+            ],
+            "question": {
+                "text": "Consider the weights and values of items listed \nbelow. Note that there is only one unit of each item. \nItem  \nNumber \nWeight in (Kgs) \nValue in \n(Rupees) \n\nThe task is to pick a subset of these items such that \ntheir total weight is not more than 11 kgs and their \ntotal value is maximized. Moreover, no item may \nbe split. The total value of items picked by an \noptimal algorithm is denoted by Vopt. A greedy \nalgorithm sorts the items by their value-to-weight \nratios in descending order and packs them greedily, \nstarting from the first item in the ordered list. The \ntotal value of items picked by the greedy algorithm \nis denoted by Vgreedy.  \n\nThe value of Vopt - Vgreedy is _______. \n\nMatrix Chain Multiplication",
+                "images": [],
+                "latex": [],
+                "tables": [
+                    {
+                        "headers": [
+                            "Item Number",
+                            "Weight in (Kgs)",
+                            "Value in (Rupees)"
+                        ],
+                        "rows": [
+                            [
+                                "1",
+                                "10",
+                                "60"
+                            ],
+                            [
+                                "2",
+                                "7",
+                                "28"
+                            ],
+                            [
+                                "3",
+                                "4",
+                                "20"
+                            ],
+                            [
+                                "4",
+                                "2",
+                                "24"
+                            ]
+                        ]
+                    }
+                ]
+            },
+            "options": [],
+            "correctAnswer": [
+                "16"
+            ],
+            "solution": {
+                "text": "M = 11 \n\nUsing optimal algorithm, Vopt = 60 \nItem No. \nWeight \nValue \nV/W \n\n \n \n \n \n\n Greedy approach:  \n\n Weight  2 + 4  \n\n ⸫ Value = 44 \n\n VGreedy = 44 \n\n Vopt - VGreedy = 60 - 44 = 16.",
+                "images": [
+                    "assets/Algorithms/ALGO_Dynamic_Programming_P45_X4993.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "ALGO_DYNAMIC_PROGRAMMING_2018_Q16",
+            "subject": "Algorithms",
+            "topic": "Dynamic Programming",
+            "subtopic": "Matrix Chain Multiplication",
+            "year": 2018,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 16,
+            "tags": [
+                "Dynamic Programming",
+                "Matrix Chain Multiplication",
+                "Algorithms"
+            ],
+            "question": {
+                "text": "Assume that multiplying a matrix G1 of dimension P \n× Q with another matrix G2 of dimension q \\times r \nrequires pqr scalar multiplications. Computing the \nproduct of n matrices G1 G2 G3 …. Gn can be done by \nparenthesizing in different ways. Define GiGi + l., as \nan \nexplicitly \ncomputed \npair \nfor \na \ngiven \nparenthesizing if they arc directly multiplied. For \nexample, in the matrix multiplication chain \nG1G2G3G4G5G6 \nusing \nparenthesization \n(G1(G2G3))(G4(G5G6)), G2G3 and G5G6 are the only \nexplicitly computed pairs.  \n\nConsider a matrix multiplication chain F1F2F3F4F5, \nwhere matrices F1, F2, F3, F4 and F5 are of \ndimensions 2 \\times 25, 25 \\times 3, 3 \\times 16, 16 \\times 1 and 1 \\times \n1000, respectively. In the parenthesization of \nF1F2F3F4F5 that minimizes the total number of scalar \nmultiplications, the explicitly computed pairs is/are",
+                "images": [],
+                "latex": [],
+                "tables": [
+                    {
+                        "headers": [
+                            "Algorithm",
+                            "Design paradigms"
+                        ],
+                        "rows": [
+                            [
+                                "(P) Kruskal",
+                                "(i) Divide and conquer"
+                            ],
+                            [
+                                "(Q) Quicksort",
+                                "(ii) Greedy"
+                            ],
+                            [
+                                "(R) Floyd-Warshall",
+                                "(iii) Dynamic programming"
+                            ]
+                        ]
+                    }
+                ]
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "F1F2 and F3 F4 only",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "F2F3 only",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "F3F4 only",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "F1F2 and F4F5 only",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "C"
+            ],
+            "solution": {
+                "text": "(\n(\n)(\n)\n(\n)\nF F F F\nF\n\n\n\n\n\nIf we perform parenthesization such that F3F4 forms \na pair then it will reduce the total number of scalar \nmultiplications.",
+                "images": [
+                    "assets/Algorithms/ALGO_Dynamic_Programming_P45_X4993.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "ALGO_DYNAMIC_PROGRAMMING_2016_Q17",
+            "subject": "Algorithms",
+            "topic": "Dynamic Programming",
+            "subtopic": "multiplications, the explicitly computed pairs is/are",
+            "year": 2016,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 17,
+            "tags": [
+                "Dynamic Programming",
+                "multiplications, the explicitly computed pairs is/are",
+                "Algorithms"
+            ],
+            "question": {
+                "text": "Let A1, A2, A3, and A4 be four matrices of \ndimensions 10 \\times 5, 5 \\times 20, 20 \\times 10, and 10 \\times 5, \nrespectively. The minimum number of scaler \nmultiplication required to find the product \nA1A2A3A4 using the basic matrix multiplication \nmethod is_________.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "1500"
+            ],
+            "solution": {
+                "text": "5 * 20 * 5 + 0 + 20 * 10 * 5 = 1500.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "ALGO_DYNAMIC_PROGRAMMING_2021_Q18",
+            "subject": "Algorithms",
+            "topic": "Dynamic Programming",
+            "subtopic": "method is_________.",
+            "year": 2021,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 18,
+            "tags": [
+                "Dynamic Programming",
+                "method is_________.",
+                "Algorithms"
+            ],
+            "question": {
+                "text": "GATE-2011 : 2M] \n\nFour matrices M1, M2, M3 and M4 of dimensions p \\times \nq, q \\times r, r \\times s and s \\times t respectively can be multiplied \nin several ways with different number of total scalar \nmultiplications. For example when multiplied as \n((M1 \\times M2) \\times (M3 \\times M4)), the total number of scalar \nmultiplications is pqr + rst + prt. When multiplied as \n(((M1 \\times M2) \\times M3) \\times M4), the total number of scalar \nmultiplications is pqr + prs + pst. If p = 10, q = 100, \nr = 20, s = 5 and t = 80, then the minimum number \nof scalar multiplications needed is?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "248000",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "44000",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "19000",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "25000",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "C"
+            ],
+            "solution": {
+                "text": "M1 = P \\times Q, M2 = Q \\times R, M3 = R \\times S \n\n M4 = S \\times T, P = 10; Q = 100; \n\n R = 20; \n\n S = 5; \n\n T = 80; \n\n\nNumber of scalar multiplications = minimum of \n(I, II, III, IV, V).",
+                "images": [
+                    "assets/Algorithms/ALGO_Dynamic_Programming_P46_X5074.png",
+                    "assets/Algorithms/ALGO_Dynamic_Programming_P46_X5078.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        }
+    ]
+}

@@ -1,0 +1,3222 @@
+{
+    "subject": "Operating System",
+    "topic": "Process Management & CPU Scheduling",
+    "questionCount": 35,
+    "questions": [
+        {
+            "id": "OS_PROCESS_MANAGEMENT_CPU_SCHEDULING_2011_Q01",
+            "subject": "Operating System",
+            "topic": "Process Management & CPU Scheduling",
+            "subtopic": "Introduction & Background",
+            "year": 2011,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 1,
+            "tags": [
+                "Process Management & CPU Scheduling",
+                "Introduction & Background",
+                "Operating System"
+            ],
+            "question": {
+                "text": "A computer handles several interrupt sources of \nwhich of the following are relevant for this question. \n• \nInterrupt from CPU temperature sensor (raises \ninterrupt if CPU  temperature is too high) \n• \nInterrupt from Mouse (raises interrupt if the \nmouse is moved or a button is pressed) \n• \nInterrupt from Keyboard (raises interrupt when \na key is pressed or released) \n• \nInterrupt from Hard Disk (raises interrupt when \na disk read is completed) \n\nWhich one of these will be handled at the HIGHEST \npriority?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "Interrupt from Hard Disk",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "Interrupt from Mouse",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "Interrupt from Keyboard",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "Interrupt from CPU temperature sensor \n\nProcess concept",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "D"
+            ],
+            "solution": {
+                "text": "Interrupt from CPU temperature sensor should  be \ngiven highest priority. Delaying a CPU temprature \nsensor could result in major consequences, \noverheated CPU can damage internal circuits, and \nhence hampering entire computer system.  \n\nThe priority of above events is given as: \n\nCPU temprature sensor > Hard disk > Mouse > \nKeyboard.  \n\nTherefore, option d is the correct answer.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "OS_PROCESS_MANAGEMENT_CPU_SCHEDULING_2023_Q02",
+            "subject": "Operating System",
+            "topic": "Process Management & CPU Scheduling",
+            "subtopic": "Process concept",
+            "year": 2023,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MSQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 2,
+            "tags": [
+                "Process Management & CPU Scheduling",
+                "Process concept",
+                "Operating System"
+            ],
+            "question": {
+                "text": "Which one or more of the following need to be saved \non a context switch from one thread (T1) of a \nprocess to another thread (T2) of the same process?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "Page table base register",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "Stack pointer",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "Program counter",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "General purpose registers",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "B",
+                "C",
+                "D"
+            ],
+            "solution": {
+                "text": "Page table base register is used to access the virtual \naddress space, as all threads share the same address \nspace, so there is no need to save it. Therfore, option \nA is incorrect.  \n\n Every thread has its own stack pointer, program \ncounter, and general purpose registers, so we need \nto save them. Therefore,  Option B, C, and D are \ncorrect.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "OS_PROCESS_MANAGEMENT_CPU_SCHEDULING_2020_Q03",
+            "subject": "Operating System",
+            "topic": "Process Management & CPU Scheduling",
+            "subtopic": "process to another thread (T2) of the same process?",
+            "year": 2020,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 3,
+            "tags": [
+                "Process Management & CPU Scheduling",
+                "process to another thread (T2) of the same process?",
+                "Operating System"
+            ],
+            "question": {
+                "text": "Consider the following statements about process \nstate transitions for a system using preemptive \nscheduling. \n\nI. \nA running process can move to ready state. \n\nII. A ready process can move to running state. \n\nIII. A blocked process can move to running state. \n\nIV. A blocked process can move to ready state. \n\nWhich of the above statements arc TRUE?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "I, II, III and IV",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "II and III only",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "I, II and IV only",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "I, II and III only",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "C"
+            ],
+            "solution": {
+                "text": "A process state diagram with pre-emptive \nscheduling is as follows: \n\n\nSo, from the given diagram we can say \n\nI. \nA running process can move to ready state. \n\nII. A ready process can move to running state. \n\n IV. A blocked process can move to ready state. \n\nTherefore, option C is correct.",
+                "images": [
+                    "assets/Operating System/OS_Process_Management_CPU_Scheduling_P9_X1299.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "OS_PROCESS_MANAGEMENT_CPU_SCHEDULING_2015_Q04",
+            "subject": "Operating System",
+            "topic": "Process Management & CPU Scheduling",
+            "subtopic": "Which of the above statements arc TRUE?",
+            "year": 2015,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 4,
+            "tags": [
+                "Process Management & CPU Scheduling",
+                "Which of the above statements arc TRUE?",
+                "Operating System"
+            ],
+            "question": {
+                "text": "The maximum number of processes that can be in \nReady state for a computer system with n CPUs is",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "n",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "n2",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "2n",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "Independent of n",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "D"
+            ],
+            "solution": {
+                "text": "The maximum number of processes present in the \nready state is independent of number of CPU's the \nsystem have. Number of processes in ready state \ndepends upon the size of ready queue. Therefore, \noption D is the correct answer.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "OS_PROCESS_MANAGEMENT_CPU_SCHEDULING_2011_Q05",
+            "subject": "Operating System",
+            "topic": "Process Management & CPU Scheduling",
+            "subtopic": "Ready state for a computer system with n CPUs is",
+            "year": 2011,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 5,
+            "tags": [
+                "Process Management & CPU Scheduling",
+                "Ready state for a computer system with n CPUs is",
+                "Operating System"
+            ],
+            "question": {
+                "text": "Let the time taken to switch between user and kernel \nmodes of execution be T1 while the time taken to \nswitch between two user processes be T2. Which of \nthe following is TRUE?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "T1 > T2",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "T1 = T2",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "T1 < T2",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "Nothing can be said about the relation between \nT1 and T2",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "C"
+            ],
+            "solution": {
+                "text": "Given,  \n\nUser Mode \\rightarrow Kernel Mode = T1  \n\nUser process 1 \\rightarrow User process 2 = T2 [Context \nSwitching] \n\nContext switching includes mode shifting, first \npreempt the process, shift the mode from user to \nkernel, OS will save and load the PCB, again shift \nthe mode from kernel to user. \n\nFrom this we can say context switching time is \nsuperset and mode shifting is a subset. Therefore, T2 \nis greater than T1.  \n\nHence, option C is the correct answer.",
+                "images": [
+                    "assets/Operating System/OS_Process_Management_CPU_Scheduling_P9_X1295.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "OS_PROCESS_MANAGEMENT_CPU_SCHEDULING_2009_Q06",
+            "subject": "Operating System",
+            "topic": "Process Management & CPU Scheduling",
+            "subtopic": "T1 and T2",
+            "year": 2009,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 6,
+            "tags": [
+                "Process Management & CPU Scheduling",
+                "T1 and T2",
+                "Operating System"
+            ],
+            "question": {
+                "text": "In the following process state transition diagram for \na uniprocessor system, assume that there are always \nsome process in the ready state: \n\n\n\n\nNow consider the following statements: \n\nI. If a process makes a transition D, it would \nresult in another process making transition A \nimmediately \n\nII. A process P2 in blocked state can make \ntransition E while another process P1 is in \nrunning state \n\nIII. The OS uses preemptive scheduling \n\nIV. The OS uses non-preemptive scheduling \n\nWhich of the above statements are TRUE?",
+                "images": [
+                    "assets/Operating System/OS_Process_Management_CPU_Scheduling_P3_X531.png"
+                ],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "I and II",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "I and III",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "II and III",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "II and IV \n\n\nCPU Scheduling Algorithms",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "C"
+            ],
+            "solution": {
+                "text": "If a process is completed it is not necessary that you \nshould load a new process into memory. Therefore, \nstatement I is false.  \n\nA process P2 in blocked state can make transition E \nwhile another process P1 is in running state. TRUE. \nProcess moving from block to ready state and \nanother process is in running state, this situation is \npossible and hence statement II is true.  \n\nThe OS uses preemptive scheduling.  TRUE. The \ngiven diagram makes a transition from running to \nready state and hence this indicates that processes \ncan be preempted while running. So, statement III is \nalso true and statement IV is false.  \n\nHence, option C is the correct answer.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "OS_PROCESS_MANAGEMENT_CPU_SCHEDULING_2023_Q07",
+            "subject": "Operating System",
+            "topic": "Process Management & CPU Scheduling",
+            "subtopic": "CPU Scheduling Algorithms",
+            "year": 2023,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MSQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 7,
+            "tags": [
+                "Process Management & CPU Scheduling",
+                "CPU Scheduling Algorithms",
+                "Operating System"
+            ],
+            "question": {
+                "text": "Which one or more of the following CPU scheduling \nalgorithms can potentially cause starvation?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "First-in First-Out",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "Round Robin",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "Priority Scheduling",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "Shortest Job First",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "A",
+                "C",
+                "D",
+                "C",
+                "D"
+            ],
+            "solution": {
+                "text": "First-In-First-Out may suffer from starvation in \nsome exceptional case. In FIFO if a process has \narrived then it will definitely get CPU once all the \nprocesses arrived before that are serviced. But \nprocesses may starve when a process has very long \nburst time and wait in waiitng queue.  \n\nRound robin never suffers from starvation because \nevery process gets time to execute on CPU  in \ncircular manner.  \n\nPriority Scheduling suffers from starvation as \nprocesses with lower priority may starve for \nprocessor if higher prioirty process keeps arriving.  \n\nShortest Job First also suffers from starvation as \nprocesses with higher burst time may starve for \nprocessor when processes with lower burst time \nkeeps on arriving.  \n\nTherefore, option C and D are correct",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "OS_PROCESS_MANAGEMENT_CPU_SCHEDULING_2022_Q08",
+            "subject": "Operating System",
+            "topic": "Process Management & CPU Scheduling",
+            "subtopic": "algorithms can potentially cause starvation?",
+            "year": 2022,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 8,
+            "tags": [
+                "Process Management & CPU Scheduling",
+                "algorithms can potentially cause starvation?",
+                "Operating System"
+            ],
+            "question": {
+                "text": "Consider four processes P, Q, R, and S scheduled on \na CPU as per round robin algorithm with a time \nquantum of 4 units. The processes arrive in the order \nP, Q,  R, S, all at time t = 0. There is exactly one \ncontext switch from S to Q, exactly one context \nswitch from R to Q, and exactly two context \nswitches from Q to R. There is no context switch \nfrom S to P. Switching to a ready process after the \ntermination of another process is also considered a \ncontext switch. Which one of the following is NOT \npossible as CPU burst time (in time units) of these \nprocesses?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "P = 4, Q = 10, R = 6, S = 2",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "P = 2, Q = 9, R = 5, S = 1",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "P = 4, Q = 12, R = 5, S = 4",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "P = 3, Q = 7, R = 7, S = 3",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "D"
+            ],
+            "solution": {
+                "text": "Given,  \n1. Switching to ready processes after termination \nof currently executing process also a context \nswitch. \n2. There is no context switch from S to P. \n(Therefore P should be completed within 1 TQ) \n3. There are exactly two context switches from Q \nto R (Therefore Q and R both should requires \nmore than 1 TQ) \n\n4. There is exactly one context switch from R to Q \n(Therefore Q require more time than R) \n5. Exactly one context swich from R to S. \n(Therefore S should be complete with in 1 TQ \notherwise another CS from R to S required.) \n6. Exactly one conext switch from S to Q. \n S \\rightarrow Q = 1 \n R \\rightarrow Q = 1 \n Q \\rightarrow R = 2 \n S \\rightarrow P = No context switch \nFrom the given points, we can conclude: \n 1.  Burst Time (P) \\le 4 \n 2.  Burst Time (Q) > 8 \n 3.  Burst Time (S) \\le 4 \n\n→ Round Robin (Time Quantum = 4) \n\n\n\n\nWe have said that Burst Time (Q) > 8. Only option D \ndoes not satisfy this situation and hence it is NOT \npossible as CPU bursts.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "OS_PROCESS_MANAGEMENT_CPU_SCHEDULING_2021_Q09",
+            "subject": "Operating System",
+            "topic": "Process Management & CPU Scheduling",
+            "subtopic": "P = 3, Q = 7, R = 7, S = 3",
+            "year": 2021,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MSQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 9,
+            "tags": [
+                "Process Management & CPU Scheduling",
+                "P = 3, Q = 7, R = 7, S = 3",
+                "Operating System"
+            ],
+            "question": {
+                "text": "Which of the following statement(s) is/are correct in \nthe context of CPU scheduling?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "Turnaround time includes waiting time.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "The goal is to only maximize CPU utilization \nand minimize throughput.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "Round-robin policy can be used even when the \nCPU time required by each of the processes is \nnot known apriori.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "Implementing preemptive scheduling needs \n\nhardware support.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "A",
+                "C",
+                "D"
+            ],
+            "solution": {
+                "text": "(a) Turnaround \ntime \nincludes \nwaiting \ntime. \nCORRECT. As, Turnaround time = waiting time \n+ burst time.  \n\n(b) The goal is to only maximize CPU utilization \nand minimize throughput. INCORRECT.  The \ngoal of CPU scheduling is to increase the CPU \nutilization and throughput, and minimise the \nresponse time.  \n\n(c) Round-robin policy can be used even when the \nCPU time required by each of the processes is \nnot known apriori. CORRECT. Round robin \npolicy works irrespective of burst time of the \nprocess, it gives equal amount of time quantum \nto each process on processor.  \n\n(d) Implementing preemptive scheduling needs \nhardware support. CORRECT. To preempt a \nprocess, hardware support is required, a timer \ninterrupt is generated whenever time quantum \nexpires and the interrupted process is enqueued \nin ready queue and anohter process is scheduled \nto the CPU.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "OS_PROCESS_MANAGEMENT_CPU_SCHEDULING_2021_Q10",
+            "subject": "Operating System",
+            "topic": "Process Management & CPU Scheduling",
+            "subtopic": "hardware support.",
+            "year": 2021,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 10,
+            "tags": [
+                "Process Management & CPU Scheduling",
+                "hardware support.",
+                "Operating System"
+            ],
+            "question": {
+                "text": "Three processes arrive at time zero with CPU bursts \nof 16, 20 and 10 milliseconds. If the scheduler has \nprior knowledge about the length of the CPU bursts, \nthe minimum achievable average waiting time for \nthese three processes in a non-preemptive scheduler \n(rounded \nto \nnearest \ninteger) \nis \n_______ \nmilliseconds.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "12"
+            ],
+            "solution": {
+                "text": "It is given that we have to find out the minimum \nachievable average waiting time for these three \nprocesses in a non-preemptive scheduler. This is \nalways possible with Shortest Job First CPU \nscheduling algorithm. Hence, we will be using SJF \nto solve this problem.  \n\nGantt chart using SJF: \nP3 \nP1 \nP2 \n          0     10      26    46     \n\nAV.W.T =\n=\n+\n+\n=\n\n\nTherefore, 12 is the correct answer.",
+                "images": [],
+                "latex": [],
+                "tables": [
+                    {
+                        "headers": [
+                            "P 3",
+                            "P 1",
+                            "P 2"
+                        ],
+                        "rows": []
+                    }
+                ]
+            }
+        },
+        {
+            "id": "OS_PROCESS_MANAGEMENT_CPU_SCHEDULING_2020_Q11",
+            "subject": "Operating System",
+            "topic": "Process Management & CPU Scheduling",
+            "subtopic": "milliseconds.",
+            "year": 2020,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 11,
+            "tags": [
+                "Process Management & CPU Scheduling",
+                "milliseconds.",
+                "Operating System"
+            ],
+            "question": {
+                "text": "Consider the following set of processes, assumed to \nhave arrived at time 0. Consider the CPU scheduling \nalgorithms Shortest Job First (SJF) and Round \nRobin (RR). For RR, assume that the processes are \nscheduled in the order P1, P2, P3, P4. \n\n\nProcesses \nP1 \nP2 \nP3 \nP4 \nBurst time (in ms) \n\nIf the time quantum for RR is 4 ms, then the absolute \nvalue of the difference between the average \nturnaround times (in ms) of SJF and RR (round off to \n2 decimal places) is _______.",
+                "images": [],
+                "latex": [],
+                "tables": [
+                    {
+                        "headers": [
+                            "Processes",
+                            "P 1",
+                            "P 2",
+                            "P 3",
+                            "P 4"
+                        ],
+                        "rows": [
+                            [
+                                "Burst time (in ms)",
+                                "8",
+                                "7",
+                                "2",
+                                "4"
+                            ]
+                        ]
+                    }
+                ]
+            },
+            "options": [],
+            "correctAnswer": [
+                "5.25"
+            ],
+            "solution": {
+                "text": "P.NO \nArrive Time \nBurst Time \nP1 \nP2 \nP3 \nP4 \n\n\n\nGantt chart using SJF: \n\n\nCPU \nP3 \nP4 \nP2 \nP1 \n\n\n\n0        2       6       13     21 \n\n\n                 Time \n\nTAT = Completion time- arrival time \n\n TAT P1 = 21 - 0 = 21 \n\n TAT P2 = 13 - 0 = 13 \n\n TAT P3 = 2 - 0 = 2 \n\n TAT P4 = 6 - 0 = 6 \n\nAverage TAT  = \n4  =  10.5 \n\nRound Robin \n\n Ready Queue-  𝑃1 ;  𝑃2 ;  𝑃3 ;  𝑃4 ;  𝑃1 ;  𝑃2 ;  \n\nGantt chart using round robin: \nCPU \nP1 \nP2 \nP3 \nP4 \nP1 \nP2 \n\n\n\n 0       4       8       10     14     18     21 \n\n TAT \n\n TAT P1 = 18 \n\n TAT P2 = 21 \n\n TAT P3 = 10 \n\n TAT P4 = 14 \n\nTotal = 63 \n\nAverage TAT  = \n4  =  15.75 \n\n  Difference = [15.75 - 10.5] = 5.25",
+                "images": [],
+                "latex": [],
+                "tables": [
+                    {
+                        "headers": [
+                            "P 3",
+                            "P 4",
+                            "P 2",
+                            "P 1"
+                        ],
+                        "rows": []
+                    },
+                    {
+                        "headers": [
+                            "P 1",
+                            "P 2",
+                            "P 1",
+                            "P 4",
+                            "P 3"
+                        ],
+                        "rows": []
+                    },
+                    {
+                        "headers": [
+                            "P.No",
+                            "Arrival Time",
+                            "Burst Time",
+                            "Priority",
+                            "Completion Time",
+                            "Turnaround Time",
+                            "Waiting Time"
+                        ],
+                        "rows": [
+                            [
+                                "P1",
+                                "0",
+                                "11",
+                                "2",
+                                "49",
+                                "49",
+                                "38"
+                            ],
+                            [
+                                "P2",
+                                "5",
+                                "28",
+                                "0 (Highest)",
+                                "33",
+                                "28",
+                                "0"
+                            ],
+                            [
+                                "P3",
+                                "12",
+                                "2",
+                                "3",
+                                "51",
+                                "39",
+                                "37"
+                            ],
+                            [
+                                "P4",
+                                "2",
+                                "10",
+                                "1",
+                                "40",
+                                "38",
+                                "28"
+                            ],
+                            [
+                                "P5",
+                                "9",
+                                "16",
+                                "4 (Lowest)",
+                                "67",
+                                "58",
+                                "42"
+                            ]
+                        ]
+                    },
+                    {
+                        "headers": [
+                            "P 1",
+                            "P 2",
+                            "P 3",
+                            "P 4",
+                            "P 1",
+                            "P 2"
+                        ],
+                        "rows": []
+                    },
+                    {
+                        "headers": [
+                            "P 1",
+                            "P 2",
+                            "P 1",
+                            "P 3",
+                            "P 4",
+                            ""
+                        ],
+                        "rows": []
+                    }
+                ]
+            }
+        },
+        {
+            "id": "OS_PROCESS_MANAGEMENT_CPU_SCHEDULING_2019_Q12",
+            "subject": "Operating System",
+            "topic": "Process Management & CPU Scheduling",
+            "subtopic": "2 decimal places) is _______.",
+            "year": 2019,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 12,
+            "tags": [
+                "Process Management & CPU Scheduling",
+                "2 decimal places) is _______.",
+                "Operating System"
+            ],
+            "question": {
+                "text": "Consider the following four processes with arrival \ntimes (in milliseconds) and their length of CPU \nbursts (in milliseconds) as shown below: \nProcess \nP1 \nP2 \nP3 \nP4 \nArrival time  \nCPU burst time  \nZ \n\n\n\nThese processes are run on a single processor using \npreemptive Shortest Remaining Time First scheduling \nalgorithm. If the average waiting time of the processes \nis 1 millisecond, then the value of Z is __________.",
+                "images": [],
+                "latex": [],
+                "tables": [
+                    {
+                        "headers": [
+                            "Process",
+                            "P 1",
+                            "P 2",
+                            "P 3",
+                            "P 4"
+                        ],
+                        "rows": [
+                            [
+                                "Arrival time",
+                                "0",
+                                "1",
+                                "3",
+                                "4"
+                            ],
+                            [
+                                "CPU burst time",
+                                "3",
+                                "1",
+                                "3",
+                                "Z"
+                            ]
+                        ]
+                    }
+                ]
+            },
+            "options": [],
+            "correctAnswer": [
+                "2"
+            ],
+            "solution": {
+                "text": "P.NO \nArrive Time \nBurst Time \nP1 \nP2 \nP3 \nP4 \nZ \n\n\n\nAverage Waiting Time = 1 ms \n\n\nCASE I: \nIf Z < 3 \n\nGantt chart using SRTF: \n\nP1 \nP2 \nP1 \nP4 \n P3  \n\n             0       1        2       4          4 + Z      7 + Z \nAverage waiting Time = 1\n(\n1)\nz\n+\n+\n+\n\n=\nz +\n+1 ms  \n⇒ \nz +\n+1⇒ Z + 2 = 4⇒ Z + 4 - 2 = 2 \n ⇒ Z = 2 ms \nCASE II: If Z > 3 \nAverage Waiting Time > 1 ms \nCPU \nP1 \nP2 \nP1 \nP3 \n P4  \n\n\n\n\n0       1        2       4       7   7 + Z \n\n Average waiting Time = 1\n+\n+ +\n= ms \n\n⇒ 5/4 ≠1 \n          ⇒ 1.25≠ 1 \nP.No \nArrival \nTime \nBurst \nTime \nPriority \nCompletion \nTime \nTurnaround \nTime \nWaiting \nTime \nP1 \nP2 \n(Highest) \nP3 \nP4 \nP5 \n(Lowest) \n\n\nSo, the value of Z could not be greater than 3, and \nhence the correct answer is 2.",
+                "images": [],
+                "latex": [],
+                "tables": [
+                    {
+                        "headers": [
+                            "P 3",
+                            "P 4",
+                            "P 2",
+                            "P 1"
+                        ],
+                        "rows": []
+                    },
+                    {
+                        "headers": [
+                            "P 1",
+                            "P 2",
+                            "P 1",
+                            "P 4",
+                            "P 3"
+                        ],
+                        "rows": []
+                    },
+                    {
+                        "headers": [
+                            "P.No",
+                            "Arrival Time",
+                            "Burst Time",
+                            "Priority",
+                            "Completion Time",
+                            "Turnaround Time",
+                            "Waiting Time"
+                        ],
+                        "rows": [
+                            [
+                                "P1",
+                                "0",
+                                "11",
+                                "2",
+                                "49",
+                                "49",
+                                "38"
+                            ],
+                            [
+                                "P2",
+                                "5",
+                                "28",
+                                "0 (Highest)",
+                                "33",
+                                "28",
+                                "0"
+                            ],
+                            [
+                                "P3",
+                                "12",
+                                "2",
+                                "3",
+                                "51",
+                                "39",
+                                "37"
+                            ],
+                            [
+                                "P4",
+                                "2",
+                                "10",
+                                "1",
+                                "40",
+                                "38",
+                                "28"
+                            ],
+                            [
+                                "P5",
+                                "9",
+                                "16",
+                                "4 (Lowest)",
+                                "67",
+                                "58",
+                                "42"
+                            ]
+                        ]
+                    },
+                    {
+                        "headers": [
+                            "P 1",
+                            "P 2",
+                            "P 3",
+                            "P 4",
+                            "P 1",
+                            "P 2"
+                        ],
+                        "rows": []
+                    },
+                    {
+                        "headers": [
+                            "P 1",
+                            "P 2",
+                            "P 1",
+                            "P 3",
+                            "P 4",
+                            ""
+                        ],
+                        "rows": []
+                    }
+                ]
+            }
+        },
+        {
+            "id": "OS_PROCESS_MANAGEMENT_CPU_SCHEDULING_2017_Q13",
+            "subject": "Operating System",
+            "topic": "Process Management & CPU Scheduling",
+            "subtopic": "is 1 millisecond, then the value of Z is __________.",
+            "year": 2017,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 13,
+            "tags": [
+                "Process Management & CPU Scheduling",
+                "is 1 millisecond, then the value of Z is __________.",
+                "Operating System"
+            ],
+            "question": {
+                "text": "Consider the set of processes with arrival time (in \nmilliseconds), CPU burst time (in milliseconds), and \npriority (0 is the highest priority) shown below. \nNone of the process have I/O burst time. \nProcess  \nArrival \nTime  \nBurst \nTime \nPriority \nP1 \nP2 \nP3 \nP4 \nP5 \n\n The average waiting time (in milliseconds) of all the \nprocesses using preemptive priority scheduling \nalgorithm is ___.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "29"
+            ],
+            "solution": {
+                "text": "P.No  \nArrival \nTime  \nBurst \nTime \nPriority \nP1 \nP2 \n(Highest) \nP3 \nP4 \nP5 \n(Lowest) \n\nGantt chart using Pre-emptive priority scheduling \nalgorithm: \nP1 \nP4 \nP2 \nP4 \n P1  \nP3 \nP5 \n\n0       2        5       33     40    49        51    67 \n\nAverage Waiting Time  = 38\n+\n+\n+\n+\n\n\n\n\n\n= 145\n5 =",
+                "images": [
+                    "assets/Operating System/OS_Process_Management_CPU_Scheduling_P11_X1547.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "OS_PROCESS_MANAGEMENT_CPU_SCHEDULING_2017_Q14",
+            "subject": "Operating System",
+            "topic": "Process Management & CPU Scheduling",
+            "subtopic": "algorithm is ___.",
+            "year": 2017,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 14,
+            "tags": [
+                "Process Management & CPU Scheduling",
+                "algorithm is ___.",
+                "Operating System"
+            ],
+            "question": {
+                "text": "Consider the following CPU processes with arrival \ntimes (in milliseconds) and length of CPU bursts (in \nmilliseconds) as given below: \nProcess \nArrival Time \nBurst Time \nP1 \nP2 \nP3 \nP4 \n\n If the pre-emptive shortest remaining time first \nscheduling algorithm is used to schedule the \nprocesses, then the average waiting time across all \nprocesses is ___ milliseconds.",
+                "images": [],
+                "latex": [],
+                "tables": [
+                    {
+                        "headers": [
+                            "Process",
+                            "Arrival Time",
+                            "Processing Time"
+                        ],
+                        "rows": [
+                            [
+                                "A",
+                                "0",
+                                "3"
+                            ],
+                            [
+                                "B",
+                                "1",
+                                "6"
+                            ],
+                            [
+                                "C",
+                                "4",
+                                "4"
+                            ],
+                            [
+                                "D",
+                                "6",
+                                "2"
+                            ]
+                        ]
+                    },
+                    {
+                        "headers": [
+                            "Process",
+                            "Arrival Time",
+                            "Burst Time"
+                        ],
+                        "rows": [
+                            [
+                                "P 1",
+                                "0",
+                                "7"
+                            ],
+                            [
+                                "P 2",
+                                "3",
+                                "3"
+                            ],
+                            [
+                                "P 3",
+                                "5",
+                                "5"
+                            ],
+                            [
+                                "P 4",
+                                "6",
+                                "2"
+                            ]
+                        ]
+                    }
+                ]
+            },
+            "options": [],
+            "correctAnswer": [
+                "3"
+            ],
+            "solution": {
+                "text": "P.NO \nArrive Time \nBurst Time \nP1 \nP2 \nP3 \nP4 \n\nGantt chart using SRTF scheduling algorithm: \nP1 \nP2 \nP4 \nP1 \nP3  \n\n0       3        6       8      12     17 \nP.N\nO \nArrival \nTime \nBurst \nTime \nComplet\nion time \nTurnarou\nnd time \nWaitin\ng time \nP1 \nP2 \nP3 \nP4 \n\nAV.W.T =\n=\n+\n+\n+\n\n\nAverage Waiting Time = 3.0",
+                "images": [],
+                "latex": [],
+                "tables": [
+                    {
+                        "headers": [
+                            "P 3",
+                            "P 4",
+                            "P 2",
+                            "P 1"
+                        ],
+                        "rows": []
+                    },
+                    {
+                        "headers": [
+                            "P 1",
+                            "P 2",
+                            "P 1",
+                            "P 4",
+                            "P 3"
+                        ],
+                        "rows": []
+                    },
+                    {
+                        "headers": [
+                            "P.No",
+                            "Arrival Time",
+                            "Burst Time",
+                            "Priority",
+                            "Completion Time",
+                            "Turnaround Time",
+                            "Waiting Time"
+                        ],
+                        "rows": [
+                            [
+                                "P1",
+                                "0",
+                                "11",
+                                "2",
+                                "49",
+                                "49",
+                                "38"
+                            ],
+                            [
+                                "P2",
+                                "5",
+                                "28",
+                                "0 (Highest)",
+                                "33",
+                                "28",
+                                "0"
+                            ],
+                            [
+                                "P3",
+                                "12",
+                                "2",
+                                "3",
+                                "51",
+                                "39",
+                                "37"
+                            ],
+                            [
+                                "P4",
+                                "2",
+                                "10",
+                                "1",
+                                "40",
+                                "38",
+                                "28"
+                            ],
+                            [
+                                "P5",
+                                "9",
+                                "16",
+                                "4 (Lowest)",
+                                "67",
+                                "58",
+                                "42"
+                            ]
+                        ]
+                    },
+                    {
+                        "headers": [
+                            "P 1",
+                            "P 2",
+                            "P 3",
+                            "P 4",
+                            "P 1",
+                            "P 2"
+                        ],
+                        "rows": []
+                    },
+                    {
+                        "headers": [
+                            "P 1",
+                            "P 2",
+                            "P 1",
+                            "P 3",
+                            "P 4",
+                            ""
+                        ],
+                        "rows": []
+                    }
+                ]
+            }
+        },
+        {
+            "id": "OS_PROCESS_MANAGEMENT_CPU_SCHEDULING_2016_Q15",
+            "subject": "Operating System",
+            "topic": "Process Management & CPU Scheduling",
+            "subtopic": "processes is ___ milliseconds.",
+            "year": 2016,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 15,
+            "tags": [
+                "Process Management & CPU Scheduling",
+                "processes is ___ milliseconds.",
+                "Operating System"
+            ],
+            "question": {
+                "text": "Consider the following processes, with the arrival \ntime and the length of the CPU burst given in \nmilliseconds. The scheduling algorithm used is \npreemptive shortest remaining-time first. \nProcess \nArrival Time \nBurst Time \nP1 \nP2 \nP3 \nP4 \n\n The average turn around time of these processes \nis___ milliseconds.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "8.2",
+                "8.3"
+            ],
+            "solution": {
+                "text": "Gantt chart using SRTF: \nP1 \nP2 \nP3 \nP2 \nP4  \nP1 \n\n0       3        7       8      10      13      20 \nProcess Arrival \nTime \nBurst \nTime \nCompletion \nTime \nTurnaround \nTime \nP1 \nP2 \nP3 \nP4 \n\nAV.TAT =\n=\n+\n+ +\n = 8.25",
+                "images": [],
+                "latex": [],
+                "tables": [
+                    {
+                        "headers": [
+                            "P.NO",
+                            "Arrive Time",
+                            "Burst Time"
+                        ],
+                        "rows": [
+                            [
+                                "P 1",
+                                "0",
+                                "8"
+                            ],
+                            [
+                                "P 2",
+                                "0",
+                                "7"
+                            ],
+                            [
+                                "P 3",
+                                "0",
+                                "2"
+                            ],
+                            [
+                                "P 4",
+                                "0",
+                                "4"
+                            ]
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "id": "OS_PROCESS_MANAGEMENT_CPU_SCHEDULING_2016_Q16",
+            "subject": "Operating System",
+            "topic": "Process Management & CPU Scheduling",
+            "subtopic": "is___ milliseconds.",
+            "year": 2016,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 16,
+            "tags": [
+                "Process Management & CPU Scheduling",
+                "is___ milliseconds.",
+                "Operating System"
+            ],
+            "question": {
+                "text": "Consider an arbitrary set of CPU-bound processes \nwith unequal CPU burst lengths submitted at the \nsame time to a computer system. Which one of the \nfollowing process scheduling algorithms would \nminimize the average waiting time in the ready \nqueue?",
+                "images": [],
+                "latex": [],
+                "tables": [
+                    {
+                        "headers": [
+                            "Process",
+                            "Arrival Time",
+                            "Burst Time",
+                            "Priority"
+                        ],
+                        "rows": [
+                            [
+                                "P 1",
+                                "0",
+                                "11",
+                                "2"
+                            ],
+                            [
+                                "P 2",
+                                "5",
+                                "28",
+                                "0"
+                            ],
+                            [
+                                "P 3",
+                                "12",
+                                "2",
+                                "3"
+                            ],
+                            [
+                                "P 4",
+                                "2",
+                                "10",
+                                "1"
+                            ],
+                            [
+                                "P 5",
+                                "9",
+                                "16",
+                                "4"
+                            ]
+                        ]
+                    }
+                ]
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "Shortest remanining time first",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "Round - robin with time quantum less then the \nshortest CPU burst",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "Uniform random",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "Highest priority first with priority proportional \nto CPU burst length",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "A"
+            ],
+            "solution": {
+                "text": "Shortest job first (SJF) minimizes the waiting time, \nSJF gives the minium average waiting time as \ncomapred with other algorithms. Here it is given \nthat arrival time of all processes is same, so SRTF \nacts same as SJF.  \n\n\nTherefore, option A is correct.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "OS_PROCESS_MANAGEMENT_CPU_SCHEDULING_2015_Q17",
+            "subject": "Operating System",
+            "topic": "Process Management & CPU Scheduling",
+            "subtopic": "to CPU burst length",
+            "year": 2015,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 17,
+            "tags": [
+                "Process Management & CPU Scheduling",
+                "to CPU burst length",
+                "Operating System"
+            ],
+            "question": {
+                "text": "For the processes listed in the following table, which \nof the following scheduling schemes will give the \nlowest average turnaround time? \nProcess \nArrival Time \nProcessing Time \nA \nB \nC \nD",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "First come First serve.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "Non-preemptive shortest job first.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "Shortest Remaining time.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "Round Robin with Quantum value two.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "C"
+            ],
+            "solution": {
+                "text": "Shortest remaining time first or Shortest job first \nwill always generate minimum average turnaround \ntime and average waiting time. Here also \npreemptive SJF or SRTF will always give minimum \naverage waiting time as comapred to non-\npreemptive SJF. Therefore, option C is the correct \nanswer.",
+                "images": [],
+                "latex": [],
+                "tables": [
+                    {
+                        "headers": [
+                            "Prio",
+                            "Period",
+                            "P.NO",
+                            "A.T",
+                            "B.T",
+                            "Insta"
+                        ],
+                        "rows": [
+                            [
+                                "1/3",
+                                "3",
+                                "T1",
+                                "1",
+                                "1",
+                                "1; 4; 7; 10; 13; 16…"
+                            ],
+                            [
+                                "1/7",
+                                "7",
+                                "T2",
+                                "1",
+                                "2",
+                                "1; 8; 15; …"
+                            ],
+                            [
+                                "1/20",
+                                "4",
+                                "T3",
+                                "1",
+                                "4",
+                                "1; 21; 41; …"
+                            ]
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "id": "OS_PROCESS_MANAGEMENT_CPU_SCHEDULING_2015_Q18",
+            "subject": "Operating System",
+            "topic": "Process Management & CPU Scheduling",
+            "subtopic": "D",
+            "year": 2015,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 18,
+            "tags": [
+                "Process Management & CPU Scheduling",
+                "D",
+                "Operating System"
+            ],
+            "question": {
+                "text": "Consider a uniprocessor system executing three \ntasks T1, T2 and T3, each of which is composed of an \ninfinite sequence of jobs (or instances) which arrive \nperiodically at intervals of 3, 7 and 20 milliseconds, \n\nrespectively. The priority of each task is the inverse \nof its period, and the available tasks are scheduled in \norder of priority, which is  the highest priority task \nscheduled first. Each instance of T1, T2 and T3, \nrequires an execution time of 1, 2 and 4 \nmilliseconds, respectively. Given that all task \ninitially arrive at the beginning of the 1st millisecond \nand task preemptions are allowed, the first instance \nof T3 completes its execution at the end of ___ \nmilliseconds.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "12"
+            ],
+            "solution": {
+                "text": "Prio Period P.NO A.T B.T \nInsta \n1/3 \nT1 \n1; 4; 7; 10; 13; 16… \n1/7 \nT2 \n 1; 8; 15; … \n1/20 \nT3 \n 1; 21; 41; … \n\nPre-Prio: \n\nR.O 𝑇11 ; 𝑇21 ; 𝑇31 ;  𝑇12 ;  𝑇13;   𝑇22 ;  𝑇14 ; \n\nGantt Chart: \n\n\n\nSo, at the end of 12 millisecond and at the beginning \nof 13 millisecond the first instance of T3 completed \nits execution.  \n\nTherefore, 12 is the correct answer.",
+                "images": [
+                    "assets/Operating System/OS_Process_Management_CPU_Scheduling_P14_X2240.png",
+                    "assets/Operating System/OS_Process_Management_CPU_Scheduling_P14_X2242.png"
+                ],
+                "latex": [],
+                "tables": [
+                    {
+                        "headers": [
+                            "P.No",
+                            "Arrival Time",
+                            "Burst Time",
+                            "IOBT"
+                        ],
+                        "rows": [
+                            [
+                                "A",
+                                "0",
+                                "100",
+                                "500"
+                            ],
+                            [
+                                "B",
+                                "5",
+                                "350",
+                                "500"
+                            ],
+                            [
+                                "C",
+                                "10",
+                                "200",
+                                "500"
+                            ]
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "id": "OS_PROCESS_MANAGEMENT_CPU_SCHEDULING_2014_Q19",
+            "subject": "Operating System",
+            "topic": "Process Management & CPU Scheduling",
+            "subtopic": "milliseconds.",
+            "year": 2014,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 19,
+            "tags": [
+                "Process Management & CPU Scheduling",
+                "milliseconds.",
+                "Operating System"
+            ],
+            "question": {
+                "text": "first \nscheduling \nalgorithm \nfor \npre-emptive \nscheduling of processes. Consider the following set \nof processes with their arrival times and CPU burst \ntimes (in milliseconds): \nProcess \nArrival Time \nBurst Time \nP1 \nP2 \nP3 \nP4 \n\nThe average waiting time (in milliseconds) of the \nprocesses is ______.",
+                "images": [],
+                "latex": [],
+                "tables": [
+                    {
+                        "headers": [
+                            "Process",
+                            "Arrival Time",
+                            "Burst Time"
+                        ],
+                        "rows": [
+                            [
+                                "P 1",
+                                "0",
+                                "12"
+                            ],
+                            [
+                                "P 2",
+                                "2",
+                                "4"
+                            ],
+                            [
+                                "P 3",
+                                "3",
+                                "6"
+                            ],
+                            [
+                                "P 4",
+                                "8",
+                                "5"
+                            ]
+                        ]
+                    }
+                ]
+            },
+            "options": [],
+            "correctAnswer": [
+                "5.5"
+            ],
+            "solution": {
+                "text": "Gantt Chart using SRTF:  \n\nP1 \nP2 \nP3 \nP4 \nP1  \n\n\n 0       2        6       12     17     27 \nProcess \nArrival \nTime \nBurst \nTime \nCompleti\non Time \nTurnaro\nund Time \nWaiting \nTime \nP1 \nP2 \nP3 \nP4 \n\nAV.W.T =\n+\n+\n+\n=\n=\n\n\nSo, 5.5 ms is the average waiting time.",
+                "images": [],
+                "latex": [],
+                "tables": [
+                    {
+                        "headers": [
+                            "P.N O",
+                            "Arrival Time",
+                            "Burst Time",
+                            "Complet ion time",
+                            "Turnarou nd time",
+                            "Waitin g time"
+                        ],
+                        "rows": [
+                            [
+                                "P 1",
+                                "0",
+                                "7",
+                                "12",
+                                "12",
+                                "5"
+                            ],
+                            [
+                                "P 2",
+                                "3",
+                                "3",
+                                "6",
+                                "3",
+                                "0"
+                            ],
+                            [
+                                "P 3",
+                                "5",
+                                "5",
+                                "17",
+                                "12",
+                                "7"
+                            ],
+                            [
+                                "P 4",
+                                "6",
+                                "2",
+                                "8",
+                                "2",
+                                "0"
+                            ]
+                        ]
+                    },
+                    {
+                        "headers": [
+                            "P.No",
+                            "Arrival Time",
+                            "Burst Time",
+                            "Priority"
+                        ],
+                        "rows": [
+                            [
+                                "P 1",
+                                "0",
+                                "11",
+                                "2"
+                            ],
+                            [
+                                "P 2",
+                                "5",
+                                "28",
+                                "0 (Highest)"
+                            ],
+                            [
+                                "P 3",
+                                "12",
+                                "2",
+                                "3"
+                            ],
+                            [
+                                "P 4",
+                                "2",
+                                "10",
+                                "1"
+                            ],
+                            [
+                                "P 5",
+                                "9",
+                                "16",
+                                "4 (Lowest)"
+                            ]
+                        ]
+                    },
+                    {
+                        "headers": [
+                            "P 1",
+                            "P 2",
+                            "P 3",
+                            "P 2",
+                            "P 4",
+                            "P 1"
+                        ],
+                        "rows": []
+                    },
+                    {
+                        "headers": [
+                            "P 1",
+                            "P 4",
+                            "P 2",
+                            "P 4",
+                            "P 1",
+                            "P 3",
+                            "P 5"
+                        ],
+                        "rows": []
+                    },
+                    {
+                        "headers": [
+                            "Process",
+                            "Arrival Time",
+                            "Burst Time",
+                            "Completion Time",
+                            "Turnaround Time"
+                        ],
+                        "rows": [
+                            [
+                                "P 1",
+                                "0",
+                                "10",
+                                "20",
+                                "20"
+                            ],
+                            [
+                                "P 2",
+                                "3",
+                                "6",
+                                "10",
+                                "7"
+                            ],
+                            [
+                                "P 3",
+                                "7",
+                                "1",
+                                "8",
+                                "1"
+                            ],
+                            [
+                                "P 4",
+                                "8",
+                                "3",
+                                "13",
+                                "5"
+                            ]
+                        ]
+                    },
+                    {
+                        "headers": [
+                            "P.NO",
+                            "Arrive Time",
+                            "Burst Time"
+                        ],
+                        "rows": [
+                            [
+                                "P 1",
+                                "0",
+                                "7"
+                            ],
+                            [
+                                "P 2",
+                                "3",
+                                "3"
+                            ],
+                            [
+                                "P 3",
+                                "5",
+                                "5"
+                            ],
+                            [
+                                "P 4",
+                                "6",
+                                "2"
+                            ]
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "id": "OS_PROCESS_MANAGEMENT_CPU_SCHEDULING_2014_Q20",
+            "subject": "Operating System",
+            "topic": "Process Management & CPU Scheduling",
+            "subtopic": "processes is ______.",
+            "year": 2014,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 20,
+            "tags": [
+                "Process Management & CPU Scheduling",
+                "processes is ______.",
+                "Operating System"
+            ],
+            "question": {
+                "text": "Three processes A, B and C each execute a loop of \n100 iterations. In each iteration of the loop, a process \nperforms a single computation that requires tc CPU \nmilliseconds and then initates a single I/O operation \nthat lasts for tio  milliseconds. It is assumed that the \ncomputer where the processes execute has sufficient \nnumber of I/O devices and the OS of the computer \nassigns different I/O devices to each process. Also, \nthe scheduling overhead of the OS is negligible. The \nprocesses have the following characteristics: \nProcess id \ntc \ntio \nA \n100 ms  \n500 ms \nB  \n350 ms \n500 ms \nC \n200 ms  \n500 ms \n\nThe process A, B and C are started at times 0, 5 and \n10 milliseconds respectively, in a pure time-sharing \nsystem (round robin scheduling) that uses a time \nslice of 50 milliseconds. The time in milliseconds at \nwhich process C would complete its first I/O \noperation is ___.",
+                "images": [],
+                "latex": [],
+                "tables": [
+                    {
+                        "headers": [
+                            "Process id",
+                            "t c",
+                            "t io"
+                        ],
+                        "rows": [
+                            [
+                                "A",
+                                "100 ms",
+                                "500 ms"
+                            ],
+                            [
+                                "B",
+                                "350 ms",
+                                "500 ms"
+                            ],
+                            [
+                                "C",
+                                "200 ms",
+                                "500 ms"
+                            ]
+                        ]
+                    }
+                ]
+            },
+            "options": [],
+            "correctAnswer": [
+                "1000"
+            ],
+            "solution": {
+                "text": "Given,  \n\nTime Quantum= 50 \nP.No \nArrival \nTime \nBurst \nTime \nIOBT \nA \nB \nC \n\nGantt Chart: \n\n\nC has completed its IO at time 1000 ms.",
+                "images": [],
+                "latex": [],
+                "tables": [
+                    {
+                        "headers": [
+                            "P.N O",
+                            "Arrival Time",
+                            "Burst Time",
+                            "Complet ion time",
+                            "Turnarou nd time",
+                            "Waitin g time"
+                        ],
+                        "rows": [
+                            [
+                                "P 1",
+                                "0",
+                                "7",
+                                "12",
+                                "12",
+                                "5"
+                            ],
+                            [
+                                "P 2",
+                                "3",
+                                "3",
+                                "6",
+                                "3",
+                                "0"
+                            ],
+                            [
+                                "P 3",
+                                "5",
+                                "5",
+                                "17",
+                                "12",
+                                "7"
+                            ],
+                            [
+                                "P 4",
+                                "6",
+                                "2",
+                                "8",
+                                "2",
+                                "0"
+                            ]
+                        ]
+                    },
+                    {
+                        "headers": [
+                            "P.No",
+                            "Arrival Time",
+                            "Burst Time",
+                            "Priority"
+                        ],
+                        "rows": [
+                            [
+                                "P 1",
+                                "0",
+                                "11",
+                                "2"
+                            ],
+                            [
+                                "P 2",
+                                "5",
+                                "28",
+                                "0 (Highest)"
+                            ],
+                            [
+                                "P 3",
+                                "12",
+                                "2",
+                                "3"
+                            ],
+                            [
+                                "P 4",
+                                "2",
+                                "10",
+                                "1"
+                            ],
+                            [
+                                "P 5",
+                                "9",
+                                "16",
+                                "4 (Lowest)"
+                            ]
+                        ]
+                    },
+                    {
+                        "headers": [
+                            "P 1",
+                            "P 2",
+                            "P 3",
+                            "P 2",
+                            "P 4",
+                            "P 1"
+                        ],
+                        "rows": []
+                    },
+                    {
+                        "headers": [
+                            "P 1",
+                            "P 4",
+                            "P 2",
+                            "P 4",
+                            "P 1",
+                            "P 3",
+                            "P 5"
+                        ],
+                        "rows": []
+                    },
+                    {
+                        "headers": [
+                            "Process",
+                            "Arrival Time",
+                            "Burst Time",
+                            "Completion Time",
+                            "Turnaround Time"
+                        ],
+                        "rows": [
+                            [
+                                "P 1",
+                                "0",
+                                "10",
+                                "20",
+                                "20"
+                            ],
+                            [
+                                "P 2",
+                                "3",
+                                "6",
+                                "10",
+                                "7"
+                            ],
+                            [
+                                "P 3",
+                                "7",
+                                "1",
+                                "8",
+                                "1"
+                            ],
+                            [
+                                "P 4",
+                                "8",
+                                "3",
+                                "13",
+                                "5"
+                            ]
+                        ]
+                    },
+                    {
+                        "headers": [
+                            "P.NO",
+                            "Arrive Time",
+                            "Burst Time"
+                        ],
+                        "rows": [
+                            [
+                                "P 1",
+                                "0",
+                                "7"
+                            ],
+                            [
+                                "P 2",
+                                "3",
+                                "3"
+                            ],
+                            [
+                                "P 3",
+                                "5",
+                                "5"
+                            ],
+                            [
+                                "P 4",
+                                "6",
+                                "2"
+                            ]
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "id": "OS_PROCESS_MANAGEMENT_CPU_SCHEDULING_2014_Q21",
+            "subject": "Operating System",
+            "topic": "Process Management & CPU Scheduling",
+            "subtopic": "operation is ___.",
+            "year": 2014,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 21,
+            "tags": [
+                "Process Management & CPU Scheduling",
+                "operation is ___.",
+                "Operating System"
+            ],
+            "question": {
+                "text": "Consider the following set of processes that need to \nbe scheduled on a single CPU. All the times are \ngiven in milliseconds. \n\n\nProcess \nName \nArrival \nTime \nExecution  \nTime \nA \nB \nC \nD \nE \n\nUsing the shortest remaining time first scheduling \nalgorithm, the average process turnaround time (in \nmsec) is __",
+                "images": [],
+                "latex": [],
+                "tables": [
+                    {
+                        "headers": [
+                            "Processes",
+                            "P 1",
+                            "P 2",
+                            "P 3",
+                            "P 4"
+                        ],
+                        "rows": [
+                            [
+                                "Burst time (in ms)",
+                                "8",
+                                "7",
+                                "2",
+                                "4"
+                            ]
+                        ]
+                    }
+                ]
+            },
+            "options": [],
+            "correctAnswer": [
+                "7.2"
+            ],
+            "solution": {
+                "text": "Gantt Chart using SRTF: \nA \nB \nA \nC \nE \nD \n\n0       3        5       8       12     15     21       \n\nAV.TAT =\nAV.TAT =\n+\n+\n+\n+\n=",
+                "images": [],
+                "latex": [],
+                "tables": [
+                    {
+                        "headers": [
+                            "P.N O",
+                            "Arrival Time",
+                            "Burst Time",
+                            "Complet ion time",
+                            "Turnarou nd time",
+                            "Waitin g time"
+                        ],
+                        "rows": [
+                            [
+                                "P 1",
+                                "0",
+                                "7",
+                                "12",
+                                "12",
+                                "5"
+                            ],
+                            [
+                                "P 2",
+                                "3",
+                                "3",
+                                "6",
+                                "3",
+                                "0"
+                            ],
+                            [
+                                "P 3",
+                                "5",
+                                "5",
+                                "17",
+                                "12",
+                                "7"
+                            ],
+                            [
+                                "P 4",
+                                "6",
+                                "2",
+                                "8",
+                                "2",
+                                "0"
+                            ]
+                        ]
+                    },
+                    {
+                        "headers": [
+                            "P.No",
+                            "Arrival Time",
+                            "Burst Time",
+                            "Priority"
+                        ],
+                        "rows": [
+                            [
+                                "P 1",
+                                "0",
+                                "11",
+                                "2"
+                            ],
+                            [
+                                "P 2",
+                                "5",
+                                "28",
+                                "0 (Highest)"
+                            ],
+                            [
+                                "P 3",
+                                "12",
+                                "2",
+                                "3"
+                            ],
+                            [
+                                "P 4",
+                                "2",
+                                "10",
+                                "1"
+                            ],
+                            [
+                                "P 5",
+                                "9",
+                                "16",
+                                "4 (Lowest)"
+                            ]
+                        ]
+                    },
+                    {
+                        "headers": [
+                            "P 1",
+                            "P 2",
+                            "P 3",
+                            "P 2",
+                            "P 4",
+                            "P 1"
+                        ],
+                        "rows": []
+                    },
+                    {
+                        "headers": [
+                            "P 1",
+                            "P 4",
+                            "P 2",
+                            "P 4",
+                            "P 1",
+                            "P 3",
+                            "P 5"
+                        ],
+                        "rows": []
+                    },
+                    {
+                        "headers": [
+                            "Process",
+                            "Arrival Time",
+                            "Burst Time",
+                            "Completion Time",
+                            "Turnaround Time"
+                        ],
+                        "rows": [
+                            [
+                                "P 1",
+                                "0",
+                                "10",
+                                "20",
+                                "20"
+                            ],
+                            [
+                                "P 2",
+                                "3",
+                                "6",
+                                "10",
+                                "7"
+                            ],
+                            [
+                                "P 3",
+                                "7",
+                                "1",
+                                "8",
+                                "1"
+                            ],
+                            [
+                                "P 4",
+                                "8",
+                                "3",
+                                "13",
+                                "5"
+                            ]
+                        ]
+                    },
+                    {
+                        "headers": [
+                            "P.NO",
+                            "Arrive Time",
+                            "Burst Time"
+                        ],
+                        "rows": [
+                            [
+                                "P 1",
+                                "0",
+                                "7"
+                            ],
+                            [
+                                "P 2",
+                                "3",
+                                "3"
+                            ],
+                            [
+                                "P 3",
+                                "5",
+                                "5"
+                            ],
+                            [
+                                "P 4",
+                                "6",
+                                "2"
+                            ]
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "id": "OS_PROCESS_MANAGEMENT_CPU_SCHEDULING_2013_Q22",
+            "subject": "Operating System",
+            "topic": "Process Management & CPU Scheduling",
+            "subtopic": "msec) is __",
+            "year": 2013,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 22,
+            "tags": [
+                "Process Management & CPU Scheduling",
+                "msec) is __",
+                "Operating System"
+            ],
+            "question": {
+                "text": "A scheduling algorithm assigns priority proportional \nto the waiting time of a process. Every process starts \nwith priority zero (the lowest priority). The \nscheduler re-evaluates the process priorities every T \ntime units and decides the next process to schedule. \nWhich one of the following is TRUE if the processes \nhave no I/O operations and all arrive at time zero?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "This algorithm is equivalent to the first-come \nfirst-serve algorithm",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "This algorithm is equivalent to the round-robin \nalgorithm",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "This algorithm is equivalent to the shortest-job-\nfirst algorithm",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "This algorithm is equivalent to the shortest-\nremaining-time-first algorithm",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "B"
+            ],
+            "solution": {
+                "text": "This algorithm will behave as preemptive FCFS and \nis equivalent to the round-robin algorithm. \nTherefore, option B is the correct answer.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "OS_PROCESS_MANAGEMENT_CPU_SCHEDULING_2012_Q23",
+            "subject": "Operating System",
+            "topic": "Process Management & CPU Scheduling",
+            "subtopic": "remaining-time-first algorithm",
+            "year": 2012,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 23,
+            "tags": [
+                "Process Management & CPU Scheduling",
+                "remaining-time-first algorithm",
+                "Operating System"
+            ],
+            "question": {
+                "text": "Consider the 3 processes, P1, P2 and P3 shown in \ntable.  \nProcess \nArrival Time \nTime Units \nRequired \nP1 \nP2 \nP3 \n\nThe completion order of the 3 processes under the \npolicies FCFS and RR2 (round robin scheduling \nwith CPU quantum of 2-time units) are:",
+                "images": [],
+                "latex": [],
+                "tables": [
+                    {
+                        "headers": [
+                            "Process",
+                            "Arrival Time",
+                            "Time Units Required"
+                        ],
+                        "rows": [
+                            [
+                                "P 1",
+                                "0",
+                                "5"
+                            ],
+                            [
+                                "P 2",
+                                "1",
+                                "7"
+                            ],
+                            [
+                                "P 3",
+                                "3",
+                                "4"
+                            ]
+                        ]
+                    }
+                ]
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "FCFS: P1, P2, P3, RR2: P1, P2, P3",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "FCFS: P1, P3, P2, RR2: P1, P3, P2",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "FCFS: P1, P2, P3, RR2: P1, P3, P2",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "FCFS: P1, P3, P2, RR2: P1, P2, P3",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "C"
+            ],
+            "solution": {
+                "text": "In FCFS all the process's gets executed as per their \ntime of arrival, so using FCFS processes will be \ncompleted as P1, P2, P3 \n\nNow, checking the completion sequence using \nround-robin scheduling: \nP.No \nArrival Time \n Burst Time \n\n\nRound robin Time Qunatum = 2  \n\nReady Queue-  \n𝑃1 ; 𝑃2 ; 𝑃1 ;  𝑃3 ;  𝑃2;   𝑃1 ;  𝑃3 ; 𝑃2 \n\nGantt Chart: \nP1\nP2\nP1\nP3\nP2\nP1\nP3\nP2 \n\n0       2       4      6       8     10     11      13    16  \n\nHere, Process are completed as P1, P3, P2.  \n\nSo, option C is the correct answer.",
+                "images": [],
+                "latex": [],
+                "tables": [
+                    {
+                        "headers": [
+                            "P.No",
+                            "Arrival Time",
+                            "Burst Time"
+                        ],
+                        "rows": [
+                            [
+                                "1",
+                                "0",
+                                "5"
+                            ],
+                            [
+                                "2",
+                                "1",
+                                "7"
+                            ],
+                            [
+                                "3",
+                                "3",
+                                "4"
+                            ]
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "id": "OS_PROCESS_MANAGEMENT_CPU_SCHEDULING_2011_Q24",
+            "subject": "Operating System",
+            "topic": "Process Management & CPU Scheduling",
+            "subtopic": "with CPU quantum of 2-time units) are:",
+            "year": 2011,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 24,
+            "tags": [
+                "Process Management & CPU Scheduling",
+                "with CPU quantum of 2-time units) are:",
+                "Operating System"
+            ],
+            "question": {
+                "text": "Consider the following table of arrival time and burst \ntime for three processes P0, P1 and P2. \nProcess \nArrival Time \nBurst Time \nP0 \n0 ms \n9 ms \nP1 \n1 ms  \n4 ms \nP2 \n2 ms \n9 ms  \n\nThe pre-emptive shortest job first scheduling \nalgorithm is used. Scheduling is carried out only at \narrival or completion of processes. What is the \naverage waiting time for the three processes?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "5. 0 ms",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "4.33 ms",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "6.33 ms",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "7. 33 ms",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "A"
+            ],
+            "solution": {
+                "text": "Gantt Chart Preemptive SJF: \nCPU \nP0 \nP1 \nP0 \nP2 \n\n\n      0      1       5      13     22  \nP.\nNo \nArri\nval \nTim\ne \nBu\nrst \nTi\nme \nComple\ntion \nTime \nTurnar\nound \nTime \nWait\ning \nTime \nP0 \nP1 \nP2 \n\nAV.W.T =\n=\n+\n+\n=\n\n\nHence, option A is the correct answer.",
+                "images": [],
+                "latex": [],
+                "tables": [
+                    {
+                        "headers": [
+                            "P 1",
+                            "P 2",
+                            "P 3",
+                            "P 4",
+                            "P 1"
+                        ],
+                        "rows": []
+                    },
+                    {
+                        "headers": [
+                            "Process",
+                            "Arrival Time",
+                            "Burst Time",
+                            "Completi on Time",
+                            "Turnaro und Time",
+                            "Waiting Time"
+                        ],
+                        "rows": [
+                            [
+                                "P1",
+                                "0",
+                                "12",
+                                "27",
+                                "27",
+                                "15"
+                            ],
+                            [
+                                "P2",
+                                "2",
+                                "4",
+                                "6",
+                                "4",
+                                "0"
+                            ],
+                            [
+                                "P3",
+                                "3",
+                                "6",
+                                "12",
+                                "9",
+                                "3"
+                            ],
+                            [
+                                "P4",
+                                "8",
+                                "5",
+                                "17",
+                                "9",
+                                "4"
+                            ]
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "id": "OS_PROCESS_MANAGEMENT_CPU_SCHEDULING_2010_Q25",
+            "subject": "Operating System",
+            "topic": "Process Management & CPU Scheduling",
+            "subtopic": "average waiting time for the three processes?",
+            "year": 2010,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 25,
+            "tags": [
+                "Process Management & CPU Scheduling",
+                "average waiting time for the three processes?",
+                "Operating System"
+            ],
+            "question": {
+                "text": "Which of the following statements are true? \n\nI.  Shortest remaining time first scheduling may \ncause starvation. \n\nII. Preemptive scheduling may cause starvation. \n\nIII. Round robin is better than FCFS in terms of \nresponse time.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "I only",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "I and III only",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "II and III only",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "I, II and III",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "D"
+            ],
+            "solution": {
+                "text": "I.  Shortest remaining time first scheduling may \ncause starvation. TRUE. Processes with longer \nburst time may starve if processes with shorter \nburst time keeps on arriving.  \nProcess \nName \nArrival \nTime \nBurst \nTime \nCompletion \nTime \nTurnarou\nnd Time \nA \nB \nC \nD \nE \n\n\nII. Preemptive scheduling may cause starvation. \nTRUE. Preemptive scheduling may cause \nstarvation for example SRTF is preemptive \nscheudling and it can cause starvation. So this \nstatement is also correct.  \n\nIII. Round robin is better than FCFS in terms of \nresponse time. TRUE. Round robin has defined \ntime quantum for each process, therefore it has \nbetter response time than FCFS.  \n\nHence, all statements are true and option D is \ncorrect.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "OS_PROCESS_MANAGEMENT_CPU_SCHEDULING_2008_Q26",
+            "subject": "Operating System",
+            "topic": "Process Management & CPU Scheduling",
+            "subtopic": "response time.",
+            "year": 2008,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 26,
+            "tags": [
+                "Process Management & CPU Scheduling",
+                "response time.",
+                "Operating System"
+            ],
+            "question": {
+                "text": "If the time-slice used in the round-robin scheduling \npolicy is more than the maximum time required to \nexecute any process, then the policy will",
+                "images": [],
+                "latex": [],
+                "tables": [
+                    {
+                        "headers": [
+                            "Process",
+                            "Arrival Time",
+                            "Time Units Required"
+                        ],
+                        "rows": [
+                            [
+                                "P 1",
+                                "0",
+                                "5"
+                            ],
+                            [
+                                "P 2",
+                                "1",
+                                "7"
+                            ],
+                            [
+                                "P 3",
+                                "3",
+                                "4"
+                            ]
+                        ]
+                    }
+                ]
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "degenerate to shortest job first",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "degenerate to priority scheduling",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "degenerate to first come first serve",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "None of the above \n\n\n System Call",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "C"
+            ],
+            "solution": {
+                "text": "If the time-slice used in the round-robin scheduling \npolicy is more than the maximum time required to \nexecute any process, then the policy will degenerate \nto first come first serve.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "OS_PROCESS_MANAGEMENT_CPU_SCHEDULING_2023_Q27",
+            "subject": "Operating System",
+            "topic": "Process Management & CPU Scheduling",
+            "subtopic": "System Call",
+            "year": 2023,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MSQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 27,
+            "tags": [
+                "Process Management & CPU Scheduling",
+                "System Call",
+                "Operating System"
+            ],
+            "question": {
+                "text": "Which one or more of the following options \nguarantee that a computer system will transition \nfrom user mode to kernel mode?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "Function Call",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "Malloc Call",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "Page Fault",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "System Call",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "C",
+                "D"
+            ],
+            "solution": {
+                "text": "A computer system has to make a transition from \nuser mode to kernel mode, whenver a page fault \noccurs, the page fault handler will run in kernel \nmode.  \n\nSystem call alaways makes a transition from user to \nkernel mode. \n\nTherfore, option C and D are correct.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "OS_PROCESS_MANAGEMENT_CPU_SCHEDULING_2021_Q28",
+            "subject": "Operating System",
+            "topic": "Process Management & CPU Scheduling",
+            "subtopic": "from user mode to kernel mode?",
+            "year": 2021,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MSQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 28,
+            "tags": [
+                "Process Management & CPU Scheduling",
+                "from user mode to kernel mode?",
+                "Operating System"
+            ],
+            "question": {
+                "text": "Which of the following standard C library functions \nwill always invoke a system call when executed from \na single-threaded process in a UNIX/Linux operating \nsystem?",
+                "images": [],
+                "latex": [],
+                "tables": [
+                    {
+                        "headers": [
+                            "Process",
+                            "Arrival Time",
+                            "Burst Time"
+                        ],
+                        "rows": [
+                            [
+                                "P 0",
+                                "0 ms",
+                                "9 ms"
+                            ],
+                            [
+                                "P 1",
+                                "1 ms",
+                                "4 ms"
+                            ],
+                            [
+                                "P 2",
+                                "2 ms",
+                                "9 ms"
+                            ]
+                        ]
+                    }
+                ]
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "exit",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "malloc",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "sleep",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "strlen",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "A",
+                "C"
+            ],
+            "solution": {
+                "text": "(a) exit will always invoke a system call.  \n\n(b) malloc will not invoke a system call always, it \nmay or may not invoke a system call.  \n\n(c) sleep will always invoke a system call.  \n\n(d) strlen will never invoke a system call.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "OS_PROCESS_MANAGEMENT_CPU_SCHEDULING_2019_Q29",
+            "subject": "Operating System",
+            "topic": "Process Management & CPU Scheduling",
+            "subtopic": "malloc",
+            "year": 2019,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 29,
+            "tags": [
+                "Process Management & CPU Scheduling",
+                "malloc",
+                "Operating System"
+            ],
+            "question": {
+                "text": "The following C program is executed on a Unix/Linux \nsystem: \n\n#include<unistd.h> \n\n   int main( ) \n\n   { \n\n       int i; \n\n       for (i=0;i<10;i++) \n\n        if (i%2==0) \n\n\n          fork( ); \n\n      return 0; \n\n    } \n\nThe total number of child processes created is \n___________.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "31"
+            ],
+            "solution": {
+                "text": "We know that, n-forks creates (2n -1) child \nprocesses  \n\nn = 10; (n % 2 = 0) \\Rightarrow 5 times \n\n No of child processes = 25 - 1 = 31",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "OS_PROCESS_MANAGEMENT_CPU_SCHEDULING_2012_Q30",
+            "subject": "Operating System",
+            "topic": "Process Management & CPU Scheduling",
+            "subtopic": "___________.",
+            "year": 2012,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 30,
+            "tags": [
+                "Process Management & CPU Scheduling",
+                "___________.",
+                "Operating System"
+            ],
+            "question": {
+                "text": "A process executes the code \n fork (); \n fork (); \n fork (); \n\nThe total number of child processes created is",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "3",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "4",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "7",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "8",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "C"
+            ],
+            "solution": {
+                "text": "For, n-fork system call \\Rightarrow Total child processes = 2n \n- 1 \n\n      Here, n = 3 \n\nSo, 23 - 1 = 7 \n\nSo, option C is the correct answer.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "OS_PROCESS_MANAGEMENT_CPU_SCHEDULING_2008_Q31",
+            "subject": "Operating System",
+            "topic": "Process Management & CPU Scheduling",
+            "subtopic": "The total number of child processes created is",
+            "year": 2008,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 31,
+            "tags": [
+                "Process Management & CPU Scheduling",
+                "The total number of child processes created is",
+                "Operating System"
+            ],
+            "question": {
+                "text": "A process executes the following code \n\n for (i = 0; i < n; i++) fork (); \n\nThe total number of child processes created is",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "n",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "2n - 1",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "2n",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "2n + 1 - 1 \n\n Threads",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "B"
+            ],
+            "solution": {
+                "text": "For, n fork( ) system calls, total number of child \nprocesses created is  2n - 1.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "OS_PROCESS_MANAGEMENT_CPU_SCHEDULING_2017_Q32",
+            "subject": "Operating System",
+            "topic": "Process Management & CPU Scheduling",
+            "subtopic": "Threads",
+            "year": 2017,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 32,
+            "tags": [
+                "Process Management & CPU Scheduling",
+                "Threads",
+                "Operating System"
+            ],
+            "question": {
+                "text": "Which of the following is/are shared by all the \nthreads in a process? \n\n I. Program counter \n II. Stack \n\n III. Address space \n IV. Registers",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "I and II only",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "III only",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "IV only",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "III and IV only",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "B"
+            ],
+            "solution": {
+                "text": "Thread is the light weight process and each thread \ncomprises its own stack, program counter, register. \nOnly the address space of the thread is shared \namong threads of a single process. So, option B is \nthe correct answer.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "OS_PROCESS_MANAGEMENT_CPU_SCHEDULING_2017_Q33",
+            "subject": "Operating System",
+            "topic": "Process Management & CPU Scheduling",
+            "subtopic": "IV. Registers",
+            "year": 2017,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 33,
+            "tags": [
+                "Process Management & CPU Scheduling",
+                "IV. Registers",
+                "Operating System"
+            ],
+            "question": {
+                "text": "Threads of a process share",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "global variables but not heap",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "heap but not global variables",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "neither global variables nor heap",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "both heap and global variables",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "D"
+            ],
+            "solution": {
+                "text": "A thread of a process shares with other threads are: \nData section, Code section, Address space, \npermissions, etc. So, option D is the correct answer. \nThreads of a process shares both heap and global \nvariables.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "OS_PROCESS_MANAGEMENT_CPU_SCHEDULING_2014_Q34",
+            "subject": "Operating System",
+            "topic": "Process Management & CPU Scheduling",
+            "subtopic": "Threads of a process share",
+            "year": 2014,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 34,
+            "tags": [
+                "Process Management & CPU Scheduling",
+                "Threads of a process share",
+                "Operating System"
+            ],
+            "question": {
+                "text": "Which of the following is FALSE?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "User level thread are not scheduled by the \nkernel.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "When a user level thread is blocked, all other \nthreads of its process are blocked.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "Context switching between user level threads is \nfaster than context switching between kernel \nlevel threads.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "Kernel level threads cannot share the code \nsegment.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "D"
+            ],
+            "solution": {
+                "text": "User level threads are scheduled by the thread \nlibrary not by kernel. Kernel even don't know about \nthe existence of user level threads. So, A is correct.  \n\nWhen a user level thread is blocked, all other thread \nof its process are blocked. Option B is also correct.  \n\nContext switching between user level threads is \nfaster than kernel level thread because user level \nthreads have to store nothing, whereas kernel level \nthread save and restore registers, program counter, \netc. Therefore, option C is also correct.  \n\nKernel level threads cannot share the code segment. \nThreads can share the code segment, threads have \nseprate address space but they can share same code \nsegment.  \n\nSo, option D is incorrect.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "OS_PROCESS_MANAGEMENT_CPU_SCHEDULING_2011_Q35",
+            "subject": "Operating System",
+            "topic": "Process Management & CPU Scheduling",
+            "subtopic": "segment.",
+            "year": 2011,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 35,
+            "tags": [
+                "Process Management & CPU Scheduling",
+                "segment.",
+                "Operating System"
+            ],
+            "question": {
+                "text": "A thread is usually defined as a \"light weight \nmaintains smaller data structures for a thread than \nfor a process. In relation to this, which of the \nfollowing is TRUE?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "On per-thread basis, the OS maintains only \nCPU register state.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "The OS does not maintain a separate stack for \neach thread.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "On per-thread basis, the OS does not maintain \nvirtual memory state.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "On per-thread basis, the OS maintains only \nscheduling and accounting information.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "C"
+            ],
+            "solution": {
+                "text": "On per-thread basis, the OS maintains only CPU \nregister. INCORRECT. As it also maintains thread \nstate, thread ID, thread priority, etc. are also \nmaintained.  \n\nThe OS maintains a seprate stack for each thread, so \noption B is also INCORRECT. \n\nOn per-thread basis, the OS does not maintain \nvirtual memory state. CORRECT. Virtual memory \nstate is actually address space, and it is not unique \nfor each thread, address space is shared among \nmultiple threads.  \n\nOn per-thread basis, the OS maintains only \nscheduling \nand \naccounting \ninformation. \nINCORRECT. As thread mainatains other data \nalso like thread priority, thread state, etc.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        }
+    ]
+}

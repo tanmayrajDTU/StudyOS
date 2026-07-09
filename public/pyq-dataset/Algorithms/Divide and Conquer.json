@@ -1,0 +1,1904 @@
+{
+    "subject": "Algorithms",
+    "topic": "Divide and Conquer",
+    "questionCount": 30,
+    "questions": [
+        {
+            "id": "ALGO_DIVIDE_AND_CONQUER_2021_Q01",
+            "subject": "Algorithms",
+            "topic": "Divide and Conquer",
+            "subtopic": "C H A P T E R",
+            "year": 2021,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 1,
+            "tags": [
+                "Divide and Conquer",
+                "C H A P T E R",
+                "Algorithms"
+            ],
+            "question": {
+                "text": "Let P be an array containing n integers. Let t be the \nlowest upper bound on the number of comparisons \nof the array elements, required to find the minimum \nand maximum values in an arbitrary array of n \nelements. Which one of the following choices is \ncorrect?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "n\nt > n and t\n3 2\n\n\n\n\n\n\n\n\n",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "n\nt > n\nand t\n2n - 2\n\n\n\n\n\n\n\n\n",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "t > 2n - 2",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "t > log2 (n) and t \\le n",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "A"
+            ],
+            "solution": {
+                "text": "( )\nn\nT n\n2T\n2,   n > 2\n         =1,  n = 2\n\n\n=\n+\n\n\n\n\n\n\n( )\n3n\nT n\n- 2\n=",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "ALGO_DIVIDE_AND_CONQUER_2021_Q02",
+            "subject": "Algorithms",
+            "topic": "Divide and Conquer",
+            "subtopic": "",
+            "year": 2021,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 2,
+            "tags": [
+                "Divide and Conquer",
+                "",
+                "Algorithms"
+            ],
+            "question": {
+                "text": "For Constants a \\ge 1 and b > 1, consider the following \nrecurrence defined on the non-negative integers: \n\nn\nT(n)\na.T\nf(n)\nb\n\n\n\n\n=\n+\n\n\n\n\n\n\n\n\nWhich one of the following options is correct about \nthe recurrence T(n)?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "(\n)\nb\nb\nlog (a)\nlog (a)\nIf f(n) is\n(n\n) then T(n) is\nn\n\n",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "b\nlog (a)-e\nIf f(n) is O(n\n) for some e\n0,\n\nthen \nT(n) is \n(\n)\nb\nlog (a)\nn\n",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "If \nn\nf(n) is\n, then T(n) is\n(n log (n))\nlog (n)\n",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "If f(n) is nlog2(n), then T(n) is (n log2(n))",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "B"
+            ],
+            "solution": {
+                "text": "According to standard case of master's theorem \noption (b) is correct. \n\nMaster Theorem \n\nLet a \\ge 1 and b > 1 be constants, let f(n) be a \nfunction, and let T(n) be defined on the non-\nnegative integers by the recurrence \nT(n) = aT(n/b) + f(n), \n\nwhere we interpret n/b to mean either n/b or n/b. \nThen T(n) has the following asymptotic bounds: \n\n1. If \n(\n)\nb\nlog a\nf(n)\nn\n−\n=\nfor some constant  > 0, \nthen \n(\n)\nb\nlog a\nT(n) =\nn\n\n. \n\n2. If \n(\n)\nb\nlog a\nf(n) =\nn\n,\n\n then\n(\n)\nb\nlog a logn\nT(n)\nn\n.\n= \n\n\n3. If \n(\n)\nb\nlog a + c\nf(n) =\nn\n\n for some constant  > 0, \nand if f(n/b) \\le cf(n) for some constant c < 1 and \nall sufficiently large n, then T(n) = (f(n)).",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "ALGO_DIVIDE_AND_CONQUER_2019_Q03",
+            "subject": "Algorithms",
+            "topic": "Divide and Conquer",
+            "subtopic": "",
+            "year": 2019,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 3,
+            "tags": [
+                "Divide and Conquer",
+                "",
+                "Algorithms"
+            ],
+            "question": {
+                "text": "There are n unsorted arrays: A1, A2,..., An. Assume \nthat n is odd. Each of A1, A2, ..., An contains n \ndistinct elements. There are no common elements \nbetween any two arrays. The worst-case time \ncomplexity of computing the median of the medians \nof A1, A2, ..., An is",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "O(n log n)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "O(n2)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "O(n)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": " (n2 logn)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "B"
+            ],
+            "solution": {
+                "text": "• \nTo compute the median of an array (n) = O(n) \n• \nTo compute All medians of n - array(n) \n\n\n= n \\times O(n) \n\n\n= O(n2) \n• \nTo compute median of all n-medians = O(n) \n\n\n(\n)\n( )\n(\n)\nTotal time =O n\nO n\nO n\n+\n=",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "ALGO_DIVIDE_AND_CONQUER_2008_Q04",
+            "subject": "Algorithms",
+            "topic": "Divide and Conquer",
+            "subtopic": "of A1, A2, ..., An is",
+            "year": 2008,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 4,
+            "tags": [
+                "Divide and Conquer",
+                "of A1, A2, ..., An is",
+                "Algorithms"
+            ],
+            "question": {
+                "text": "The minimum number of comparisons required to \ndetermine if an integer appears more than n/2 times \nin a sorted array of n integers is",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "Θ (n)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "Θ (logn)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "Θ (log* n)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "Θ (1) \n\nMaximum Subarray Problem",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "C"
+            ],
+            "solution": {
+                "text": "Algorithm: \n\nMajority element (A, n, x) \\rightarrow O(logn) \n\n{ \n\n\n1. i = first occurrence of x in A. \n\n\n\nfrom left, using modified binary search \n\n\n 2. if \n\nn\nA i\nA\ni\n\n\n\n\n=\n+\n\n\n\n\n\n\n\n\nthem \n\n\n\nprint(A[i] is majority); \n\n\n\nelse \n\n\n\nprint (No); \n\n }",
+                "images": [
+                    "assets/Algorithms/ALGO_Divide_and_Conquer_P16_X983.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "ALGO_DIVIDE_AND_CONQUER_2019_Q05",
+            "subject": "Algorithms",
+            "topic": "Divide and Conquer",
+            "subtopic": "Maximum Subarray Problem",
+            "year": 2019,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 5,
+            "tags": [
+                "Divide and Conquer",
+                "Maximum Subarray Problem",
+                "Algorithms"
+            ],
+            "question": {
+                "text": "Consider a sequence of 14 elements: A = [-5, -10, 6, \n3, -1, -2, 13, 4, -9, -1, 4, 12, -3, 0]. The \nsubsequence sum \nj\nk\ni\nS(i, j) =\nA[k]\n=\n\n. Determine \nthe maximum of S(i, j), where 0 < i < j < 14. (Divide \nand conquer approach may be used.)",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "29"
+            ],
+            "solution": {
+                "text": "[Maximum sum sub-array] \n\n[By Kadane's algorithm] \n\nS(2, 11) = (6 + 3 - 1 - 2 + 13 + 4 - 9 - 1 + 4 + 12) \n                       = 29",
+                "images": [
+                    "assets/Algorithms/ALGO_Divide_and_Conquer_P16_X983.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "ALGO_DIVIDE_AND_CONQUER_2015_Q06",
+            "subject": "Algorithms",
+            "topic": "Divide and Conquer",
+            "subtopic": "and conquer approach may be used.)",
+            "year": 2015,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 6,
+            "tags": [
+                "Divide and Conquer",
+                "and conquer approach may be used.)",
+                "Algorithms"
+            ],
+            "question": {
+                "text": "An unordered list contains n distinct elements. The \nnumber of comparisons to find an element in this list \nthat is neither maximum nor minimum is?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "(n log n)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "(n)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "(log n)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "(1)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "D"
+            ],
+            "solution": {
+                "text": "A: \n\nConsider first three elements: 10, 5, 8 from the \narray, the element that is neither maximum nor \nminimum is 8. The time required to find it requires \nonly three comparisons that is constant time \ncomplexity.",
+                "images": [
+                    "assets/Algorithms/ALGO_Divide_and_Conquer_P16_X983.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "ALGO_DIVIDE_AND_CONQUER_2014_Q07",
+            "subject": "Algorithms",
+            "topic": "Divide and Conquer",
+            "subtopic": "that is neither maximum nor minimum is?",
+            "year": 2014,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 7,
+            "tags": [
+                "Divide and Conquer",
+                "that is neither maximum nor minimum is?",
+                "Algorithms"
+            ],
+            "question": {
+                "text": "The minimum number of comparisons required to \nfind the minimum and the maximum of 100 numbers \nis _______.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "148"
+            ],
+            "solution": {
+                "text": "strategy) : \n3n - 2\n\n\n\n\n\n\n\n\n( )\nn\nT n\n2T\n2,n\n\n\n=\n+\n\n\n\n\n\n\n\n= 1,   n = 2 \n\n= 0,   n = 1 \n\n3 100 - 2\n\n\n\n: 3 \\times 50 - 2 = 150 - 2 = 148",
+                "images": [],
+                "latex": [],
+                "tables": [
+                    {
+                        "headers": [
+                            "10",
+                            "5",
+                            "8",
+                            "12",
+                            "3",
+                            "9"
+                        ],
+                        "rows": []
+                    }
+                ]
+            }
+        },
+        {
+            "id": "ALGO_DIVIDE_AND_CONQUER_2010_Q08",
+            "subject": "Algorithms",
+            "topic": "Divide and Conquer",
+            "subtopic": "is _______.",
+            "year": 2010,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 8,
+            "tags": [
+                "Divide and Conquer",
+                "is _______.",
+                "Algorithms"
+            ],
+            "question": {
+                "text": "The weight of a sequence a0, a1, ..., an-1 of real \nnumbers is defined as a0 + a1/2 + ... an-1/2n-1. A \nsubsequence of a sequence is obtained by deleting \nsome elements from the sequence, keeping the order \nof the remaining elements the same. Let X denote \nthe maximum possible weight of a subsequence of \na0, a1, ... an-1 and Y the maximum possible weight of \nsubsequence of a1, a2, ..., an-1. Then X is equal to",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "max(Y, a0 + Y)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "max(Y, a0 + Y/2)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "max(Y, a0 + 2Y)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "a0 + Y/2 \n\nQuick Sort",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "B"
+            ],
+            "solution": {
+                "text": "[a0, a1 …..an-1] \\Rightarrow x = a0 + \nn-1\nn-1\na\na\na\n......\n+\n+\n+\n\n\n[a1, a2 …..an-1] \\Rightarrow y = a1 + \nn-1\nn-1\na\na\na\n......\n+\n+\n+\n\n\ny\nX\nmax y, a\n\n\n=\n+\n\n\n\n\n\n\nn-1\nn-1\na\na\na\na\n....\n+\n+\n+\n+\n\n\na\na\na\n....\n+\n+\n+\na\n\n\n+\n\n\n\n",
+                "images": [],
+                "latex": [],
+                "tables": [
+                    {
+                        "headers": [
+                            "10",
+                            "5",
+                            "8",
+                            "12",
+                            "3",
+                            "9"
+                        ],
+                        "rows": []
+                    }
+                ]
+            }
+        },
+        {
+            "id": "ALGO_DIVIDE_AND_CONQUER_2019_Q09",
+            "subject": "Algorithms",
+            "topic": "Divide and Conquer",
+            "subtopic": "Quick Sort",
+            "year": 2019,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 9,
+            "tags": [
+                "Divide and Conquer",
+                "Quick Sort",
+                "Algorithms"
+            ],
+            "question": {
+                "text": "An array of 25 distinct elements is to be sorted using \nquicksort. Assume that the pivot element is chosen \nuniformly at random. The probability that the pivot \nelement gets placed in the worst possible location in \nthe first round of partitioning (rounded off to 2 \ndecimal places) is_____.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "0.08"
+            ],
+            "solution": {
+                "text": "In the worst case the pivot can get fixed up at \neither the first or last position; \n\n∴ \nProbability \n=\n+\n=\n=",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "ALGO_DIVIDE_AND_CONQUER_2015_Q10",
+            "subject": "Algorithms",
+            "topic": "Divide and Conquer",
+            "subtopic": "decimal places) is_____.",
+            "year": 2015,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 10,
+            "tags": [
+                "Divide and Conquer",
+                "decimal places) is_____.",
+                "Algorithms"
+            ],
+            "question": {
+                "text": "Which one of the following is the recurrence \nequation for the worst-case time complexity of the \nQuicksort algorithm for sorting n (> 2) numbers? In \nthe recurrence equations given in the option below, \nc is a constant.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "T(n) = 2T(n/2) + cn",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "T(n) = T(n - 1) + T(1) + cn",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "T(n) = 2T(n - 1) + cn",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "T(n) = T(n/2) + cn",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "B"
+            ],
+            "solution": {
+                "text": "For worst case scenario, the pivot should get fixed \neither at the first or at the last position. \n\n( )\n(\n)\n( )\nT n\nT n -1\nO n\nC\n=\n+\n+",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "ALGO_DIVIDE_AND_CONQUER_2014_Q11",
+            "subject": "Algorithms",
+            "topic": "Divide and Conquer",
+            "subtopic": "c is a constant.",
+            "year": 2014,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 11,
+            "tags": [
+                "Divide and Conquer",
+                "c is a constant.",
+                "Algorithms"
+            ],
+            "question": {
+                "text": "You have an array of n elements. Suppose you \nimplement quicksort by always choosing the central \nelement of the array as the pivot. Then the tightest \nupper bound for the worst-case performance is",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "O(n2)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "O(nlogn)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "(nlogn)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "O(n3)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "A"
+            ],
+            "solution": {
+                "text": "The pivot can get fixed up at the first or last place \nin the list at all levels leading to the worst case \nbehaviour = O(n2).",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "ALGO_DIVIDE_AND_CONQUER_2014_Q12",
+            "subject": "Algorithms",
+            "topic": "Divide and Conquer",
+            "subtopic": "upper bound for the worst-case performance is",
+            "year": 2014,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 12,
+            "tags": [
+                "Divide and Conquer",
+                "upper bound for the worst-case performance is",
+                "Algorithms"
+            ],
+            "question": {
+                "text": "Let P be a quicksort program to sort numbers in \nascending order using the first element as the pivot. \nLet t1 and t2 be the number of comparisons made by \nP for the inputs [1 2 3 4 5] and [4 1 5 3 2] \nrespectively. Which one of the following holds?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "t1 = 5",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "t1 < t2",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "t1 > t2",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "t1 = t2",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "C"
+            ],
+            "solution": {
+                "text": "\n\nSo\nr\n\nt\n\ne\n\nd l\n\ni\n2 3 4 5\nst\nt\n\n             t1  is O(n2) \n\n\n\nUns\nor\nt\n\ned\ni\nl\nst\nt\n\n         t2  is O(n log n) \n\nO(n2) > O(n log n)",
+                "images": [],
+                "latex": [],
+                "tables": [
+                    {
+                        "headers": [
+                            "10",
+                            "5",
+                            "8",
+                            "12",
+                            "3",
+                            "9"
+                        ],
+                        "rows": []
+                    }
+                ]
+            }
+        },
+        {
+            "id": "ALGO_DIVIDE_AND_CONQUER_2009_Q13",
+            "subject": "Algorithms",
+            "topic": "Divide and Conquer",
+            "subtopic": "respectively. Which one of the following holds?",
+            "year": 2009,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 13,
+            "tags": [
+                "Divide and Conquer",
+                "respectively. Which one of the following holds?",
+                "Algorithms"
+            ],
+            "question": {
+                "text": "In quick sort, for sorting n elements, the (n/4)th \nsmallest element is selected as pivot using an O(n) \ntime algorithm. What is the worst case time \ncomplexity of the quick sort?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "θ(n)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "θ(n log n)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "θ(n2 )",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "θ(n2 log n)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "B"
+            ],
+            "solution": {
+                "text": "( )\n( )\nn\n3n\nT n\nT\nT\nO n\n\n\n\n\n=\n+\n+\n\n\n\n\n\n\n\n\n\n\n( )\n( )\n( )\nn\n3n\nT n\nO n\nO n\nT\nT\n\n\n\n\n=\n+\n+\n+\n\n\n\n\n\n\n\n\n\n\nBy recursion tree method = Θ(nlogn)",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "ALGO_DIVIDE_AND_CONQUER_2008_Q14",
+            "subject": "Algorithms",
+            "topic": "Divide and Conquer",
+            "subtopic": "complexity of the quick sort?",
+            "year": 2008,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 14,
+            "tags": [
+                "Divide and Conquer",
+                "complexity of the quick sort?",
+                "Algorithms"
+            ],
+            "question": {
+                "text": "Consider the Quicksort algorithm. Suppose there is a \nprocedure for finding a pivot element which splits \nthe list into two sub-lists each of which contains at \nleast one-fifth of the elements. Let T(n) be the \nnumber of comparisons required to sort n elements. \nThen",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "T(n) \\le 2T (n / 5) + n",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "T(n) \\le T (n/5) + T (4n/5) + n",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "T(n) \\le 2T (4n/5) + n",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "T(n) \\le 2T (n/2) + n \n\nMerge Sort",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "B"
+            ],
+            "solution": {
+                "text": "In the given scenario the list is divided into two \nsublists with n/5 and 4n/5 elements and n is \ncommon so the answer is T(n) \\le T (n/5) + T (4n/5) \n+ n.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "ALGO_DIVIDE_AND_CONQUER_2015_Q15",
+            "subject": "Algorithms",
+            "topic": "Divide and Conquer",
+            "subtopic": "Merge Sort",
+            "year": 2015,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 15,
+            "tags": [
+                "Divide and Conquer",
+                "Merge Sort",
+                "Algorithms"
+            ],
+            "question": {
+                "text": "Assume that a merge sort algorithm in the worst case \ntakes 30 seconds for an input of size 64. Which of \nthe following most closely approximates the \nmaximum input size of a problem that can be solved \nin 6 minutes?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "256",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "512",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "1024",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "2048",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "B"
+            ],
+            "solution": {
+                "text": "30 sec \\rightarrow 64 elements \n\n6 minutes \\rightarrow n = ? \n\nTime for merge sort = n∙logn \n\n= 64∙log64 \n\n64.6 units \n\n30 sec - 64.6 units \n\n? - 1 unit \n\n1 unit\ns\n64 6\n=\n\n\n\n1 unit\ns\n=\n\n\n\n(n) ? - 360 s \n\n64 6 unit ___'n'elements\n\n\n\n\n12 6 64____n log n\n\n\n\n\n4608 = n∙logn \n\nn\n512 9\n=\n=\n=\n\n\n∴ n = 512",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "ALGO_DIVIDE_AND_CONQUER_2012_Q16",
+            "subject": "Algorithms",
+            "topic": "Divide and Conquer",
+            "subtopic": "in 6 minutes?",
+            "year": 2012,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 16,
+            "tags": [
+                "Divide and Conquer",
+                "in 6 minutes?",
+                "Algorithms"
+            ],
+            "question": {
+                "text": "A list of n strings, each of length n, is sorted into \nlexicographic order using the merge sort algorithm \nThe worst-case running time of this computation is",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "O(n log n)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "O(n2log n)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "O(n2 + log n)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "O(n2) \n\nInsertion Sort",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "B"
+            ],
+            "solution": {
+                "text": "Merg sort (n) = n log n \n\n(n log n) n = n2 log n \n\na\nb\nx y\np\nq\nr\nt\nl\nm c d\ny\nz\nk q",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "ALGO_DIVIDE_AND_CONQUER_2021_Q17",
+            "subject": "Algorithms",
+            "topic": "Divide and Conquer",
+            "subtopic": "Insertion Sort",
+            "year": 2021,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 17,
+            "tags": [
+                "Divide and Conquer",
+                "Insertion Sort",
+                "Algorithms"
+            ],
+            "question": {
+                "text": "Consider the following array: \n\nWhich algorithm out of the following options uses \nthe least number of comparisons (among the array \nelements) to sort the above array in ascending order?",
+                "images": [],
+                "latex": [],
+                "tables": [
+                    {
+                        "headers": [
+                            "23",
+                            "32",
+                            "45",
+                            "69",
+                            "72",
+                            "73",
+                            "89",
+                            "97"
+                        ],
+                        "rows": []
+                    }
+                ]
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "Quicksort using the last element as pivot",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "Selection Sort",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "Mergesort",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "Insertion sort",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "D"
+            ],
+            "solution": {
+                "text": "Quicksort using the last element as pivot = n2  \n\nSelection Sort = n2 \n\nMergesort = n log n \n\nInsertion sort = n",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "ALGO_DIVIDE_AND_CONQUER_2016_Q18",
+            "subject": "Algorithms",
+            "topic": "Divide and Conquer",
+            "subtopic": "elements) to sort the above array in ascending order?",
+            "year": 2016,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 18,
+            "tags": [
+                "Divide and Conquer",
+                "elements) to sort the above array in ascending order?",
+                "Algorithms"
+            ],
+            "question": {
+                "text": "The worst-case running times of Insertion sort, \nMerge sort and Quick sort, respectively, are:",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "(n log n), (n log n), and (n2)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "(n2), (n2) and (n log n)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "(n2), (n log n), and (n log n)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": " (n2), (n log n), and (n2) \n\nBubble Sort",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "D"
+            ],
+            "solution": {
+                "text": "• \nFor insertion sort, we need to run two loops \nboth of order n, so worst case time complexity \nis (n2). \n• \nMerge sort takes (n log n) in all cases. \n• \nQuick sort takes (n2) in worst case if the \narray is sorted or almost sorted.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "ALGO_DIVIDE_AND_CONQUER_2016_Q19",
+            "subject": "Algorithms",
+            "topic": "Divide and Conquer",
+            "subtopic": "Bubble Sort",
+            "year": 2016,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 19,
+            "tags": [
+                "Divide and Conquer",
+                "Bubble Sort",
+                "Algorithms"
+            ],
+            "question": {
+                "text": "Assume that the algorithms considered here sorts the \ninput sequences in ascending order. If the input is \nalready in ascending order, which of the following \nare TRUE? \n\nI: Quick sort runs in (n2) time \n\nII: Bubble sort runs in (n2) time \n\nIII: Merge sort runs in (n) time \n\nIV: Insertion sort runs in (n) time",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "I and II only",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "I and III only",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "II and IV only",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "I and IV only \nSelection Sort",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "D"
+            ],
+            "solution": {
+                "text": "• \nIf the input is already sorted then running \nquick sort will give worst case time complexity \nof (n2). \n• \nBubble sort runs in constant time complexity. \n• \nMerge sort runs in (n log n). \n• \nInsertion sort will run in (n) time only.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "ALGO_DIVIDE_AND_CONQUER_2013_Q20",
+            "subject": "Algorithms",
+            "topic": "Divide and Conquer",
+            "subtopic": "Selection Sort",
+            "year": 2013,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 20,
+            "tags": [
+                "Divide and Conquer",
+                "Selection Sort",
+                "Algorithms"
+            ],
+            "question": {
+                "text": "Which one of the following is the tightest upper \nbound that represents the number of swaps required \nto sort n numbers using selection sort?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "O(log n)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "O(n)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "O(n log n)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "O(n2)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "B"
+            ],
+            "solution": {
+                "text": "In selection sort the maximum number of swaps can \nbe of order of n that is selecting the smallest element \namong all other elements and placing it to the \ncorrect position.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "ALGO_DIVIDE_AND_CONQUER_2009_Q21",
+            "subject": "Algorithms",
+            "topic": "Divide and Conquer",
+            "subtopic": "to sort n numbers using selection sort?",
+            "year": 2009,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 21,
+            "tags": [
+                "Divide and Conquer",
+                "to sort n numbers using selection sort?",
+                "Algorithms"
+            ],
+            "question": {
+                "text": "What is the number of swaps required to sort n \nelements using selection sort, in the worst case?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "(n)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "(n log n)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "(n)2",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "(n2 log n) \n\nHeap Sort",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "A"
+            ],
+            "solution": {
+                "text": "Considering the worst case, there will be one swap \nin each loop except the last one, that is n-1 swaps \nfor 1 to n. Hence the number of swaps in the worst \ncase is (n).",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "ALGO_DIVIDE_AND_CONQUER_2021_Q22",
+            "subject": "Algorithms",
+            "topic": "Divide and Conquer",
+            "subtopic": "Heap Sort",
+            "year": 2021,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 22,
+            "tags": [
+                "Divide and Conquer",
+                "Heap Sort",
+                "Algorithms"
+            ],
+            "question": {
+                "text": "We have a binary heap on n elements and wish to \ninsert n more elements (not necessarily one after \nanother) into this heap. The total time require for \nthis is",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "Θ(log n)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "Θ(n)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "Θ(n log n)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "Θ(n2)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "B"
+            ],
+            "solution": {
+                "text": "Heap with 'n' element  \n\n\n\n\n        Heapify method / Build heap \n\n(\n)\n( )\nTime: \n2n\nn\n\n= ",
+                "images": [
+                    "assets/Algorithms/ALGO_Divide_and_Conquer_P19_X2580.png",
+                    "assets/Algorithms/ALGO_Divide_and_Conquer_P19_X2582.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "ALGO_DIVIDE_AND_CONQUER_2021_Q23",
+            "subject": "Algorithms",
+            "topic": "Divide and Conquer",
+            "subtopic": "this is",
+            "year": 2021,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 23,
+            "tags": [
+                "Divide and Conquer",
+                "this is",
+                "Algorithms"
+            ],
+            "question": {
+                "text": "Let H be a binary min-heap consistiong of n elements \nimplemented as an array. What is the worst-case \ntime complexity of an optimal algorthm to find the \nmaximum elemets in H?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "Θ(1)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "Θ(log n)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "Θ(n)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "Θ(n log n)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "C"
+            ],
+            "solution": {
+                "text": "• Maximum element in a heap lies at the leaf-\nlevel. \n• Maximum of n/2 elements; \n( )\nn\nO\nn\n\n= \n\n\n\n",
+                "images": [
+                    "assets/Algorithms/ALGO_Divide_and_Conquer_P20_X2663.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "ALGO_DIVIDE_AND_CONQUER_2020_Q24",
+            "subject": "Algorithms",
+            "topic": "Divide and Conquer",
+            "subtopic": "maximum elemets in H?",
+            "year": 2020,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 24,
+            "tags": [
+                "Divide and Conquer",
+                "maximum elemets in H?",
+                "Algorithms"
+            ],
+            "question": {
+                "text": "Consider the array representation of a binary min-\nheap containing 1023 elements. The minimum \nnumber of comparisons required to find the \nmaximum in the heap is _____.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [],
+            "solution": {
+                "text": "Maximum will lie at the leaf.  \n\n Number of nodes at leaf = 1023\n\n\n\n=\n=\n\n\n\n\n\n\n Number of comparisons needed = 512 - 1 = 511",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "ALGO_DIVIDE_AND_CONQUER_2018_Q25",
+            "subject": "Algorithms",
+            "topic": "Divide and Conquer",
+            "subtopic": "maximum in the heap is _____.",
+            "year": 2018,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 25,
+            "tags": [
+                "Divide and Conquer",
+                "maximum in the heap is _____.",
+                "Algorithms"
+            ],
+            "question": {
+                "text": "The number of possible min-heaps containing each \nvalue from {1, 2, 3, 4, 5, 6 7} exactly once is \n________.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "80"
+            ],
+            "solution": {
+                "text": "• \nLeft subtree heap: 6C3  \n• \nLeft and Right Nodes \n\nCan be arranged in 2! way \n Total so far: (6C3 * 2!) \nTotal number of possibilities = (6C3) * (2!) * \n(2!) \n=\n\n\n\n\n\n = 20 * 2 * 2 = 80.",
+                "images": [
+                    "assets/Algorithms/ALGO_Divide_and_Conquer_P20_X2661.png",
+                    "assets/Algorithms/ALGO_Divide_and_Conquer_P20_X2665.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "ALGO_DIVIDE_AND_CONQUER_2016_Q26",
+            "subject": "Algorithms",
+            "topic": "Divide and Conquer",
+            "subtopic": "________.",
+            "year": 2016,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 26,
+            "tags": [
+                "Divide and Conquer",
+                "________.",
+                "Algorithms"
+            ],
+            "question": {
+                "text": "A complete binary min-heap is made by including \neach integer in [1, 1023] exactly once. The depth of \na node in the heap is the length of the path from the \nroot of the heap to that node. Thus, the root is at \ndepth 0. The maximum depth at which integer 9 can \nappear is ______.",
+                "images": [
+                    "assets/Algorithms/ALGO_Divide_and_Conquer_P15_X1986.png",
+                    "assets/Algorithms/ALGO_Divide_and_Conquer_P15_X1988.png",
+                    "assets/Algorithms/ALGO_Divide_and_Conquer_P15_X1990.png"
+                ],
+                "latex": [],
+                "tables": [
+                    {
+                        "headers": [
+                            "Array Index",
+                            "1",
+                            "2",
+                            "3",
+                            "4",
+                            "5",
+                            "6",
+                            "7",
+                            "8",
+                            "9"
+                        ],
+                        "rows": [
+                            [
+                                "Value",
+                                "40",
+                                "30",
+                                "20",
+                                "10",
+                                "15",
+                                "16",
+                                "17",
+                                "8",
+                                "4"
+                            ]
+                        ]
+                    }
+                ]
+            },
+            "options": [],
+            "correctAnswer": [
+                "8"
+            ],
+            "solution": {
+                "text": "The maximum depth at which integer 9 can appear is \n8 for the given condition.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "ALGO_DIVIDE_AND_CONQUER_2015_Q27",
+            "subject": "Algorithms",
+            "topic": "Divide and Conquer",
+            "subtopic": "appear is ______.",
+            "year": 2015,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 27,
+            "tags": [
+                "Divide and Conquer",
+                "appear is ______.",
+                "Algorithms"
+            ],
+            "question": {
+                "text": "Consider the following array of elements <89, 19, \n50, 17, 12, 15, 2, 5, 7, 11, 6, 9, 100>. The minimum \nnumber of interchanges needed to convert it into a \nmax-heap is",
+                "images": [
+                    "assets/Algorithms/ALGO_Divide_and_Conquer_P15_X1986.png",
+                    "assets/Algorithms/ALGO_Divide_and_Conquer_P15_X1988.png",
+                    "assets/Algorithms/ALGO_Divide_and_Conquer_P15_X1990.png"
+                ],
+                "latex": [],
+                "tables": [
+                    {
+                        "headers": [
+                            "Array Index",
+                            "1",
+                            "2",
+                            "3",
+                            "4",
+                            "5",
+                            "6",
+                            "7",
+                            "8",
+                            "9"
+                        ],
+                        "rows": [
+                            [
+                                "Value",
+                                "40",
+                                "30",
+                                "20",
+                                "10",
+                                "15",
+                                "16",
+                                "17",
+                                "8",
+                                "4"
+                            ]
+                        ]
+                    }
+                ]
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "4",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "5",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "2",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "3",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "D"
+            ],
+            "solution": {
+                "text": "The minimum number of interchanges needed to \nconvert it into a max heap = 1 + 1 + 1 = 3.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "ALGO_DIVIDE_AND_CONQUER_2015_Q28",
+            "subject": "Algorithms",
+            "topic": "Divide and Conquer",
+            "subtopic": "max-heap is",
+            "year": 2015,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 28,
+            "tags": [
+                "Divide and Conquer",
+                "max-heap is",
+                "Algorithms"
+            ],
+            "question": {
+                "text": "Consider a max heap, represented by the array: \n\n40, 30, 20, 10, 15, 16, 17, 8, 4 \nArray \nIndex \n8 9 \nValue \n40 30 20 10 15 16 17 8 4 \n\nNow consider that a value 35 is inserted into this \nheap. After insertion, the new heap is",
+                "images": [
+                    "assets/Algorithms/ALGO_Divide_and_Conquer_P15_X1986.png",
+                    "assets/Algorithms/ALGO_Divide_and_Conquer_P15_X1988.png",
+                    "assets/Algorithms/ALGO_Divide_and_Conquer_P15_X1990.png"
+                ],
+                "latex": [],
+                "tables": [
+                    {
+                        "headers": [
+                            "Array Index",
+                            "1",
+                            "2",
+                            "3",
+                            "4",
+                            "5",
+                            "6",
+                            "7",
+                            "8",
+                            "9"
+                        ],
+                        "rows": [
+                            [
+                                "Value",
+                                "40",
+                                "30",
+                                "20",
+                                "10",
+                                "15",
+                                "16",
+                                "17",
+                                "8",
+                                "4"
+                            ]
+                        ]
+                    }
+                ]
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "40, 30, 20, 10, 15, 16, 17, 8, 4, 35",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "40, 35, 20, 10, 30, 16, 17, 8, 4, 15",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "40, 30, 20, 10, 35, 16, 17, 8, 4, 15",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "40, 35, 20, 10, 15, 16, 17, 8, 4, 30",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "B"
+            ],
+            "solution": {
+                "text": "A: \n30 20 \n15 16 17 \n\n\n\nA: 40, 35, 20, 10, 30, 16, 17, 8, 4, 15",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "ALGO_DIVIDE_AND_CONQUER_2013_Q29",
+            "subject": "Algorithms",
+            "topic": "Divide and Conquer",
+            "subtopic": "heap. After insertion, the new heap is",
+            "year": 2013,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 29,
+            "tags": [
+                "Divide and Conquer",
+                "heap. After insertion, the new heap is",
+                "Algorithms"
+            ],
+            "question": {
+                "text": "The number of elements that can be sorted in Θ(log \nn) time using heap sort is",
+                "images": [
+                    "assets/Algorithms/ALGO_Divide_and_Conquer_P15_X1992.png"
+                ],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "Θ(1)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "logn\n",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "logn\nloglogn\n\n\n\n\n\n",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "Θ(log n)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "C"
+            ],
+            "solution": {
+                "text": "Time of heap sort: O(n log n) \n\n(\n)\n(\n)\nO\nlogn loglogn\nO lognloglogn\n\n\n\nTime of heap sort = n.log n \n\nTime = \nlog n\nlogn\nlog\nlog log n\nloglogn\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n        = \n(\n)\nlog n\nloglogn - logloglogn\nlog n \n\n                 = \n(\n)\nlog n\nlogn -\nlogloglogn\nlogn\nlog logn \n= ",
+                "images": [
+                    "assets/Algorithms/ALGO_Divide_and_Conquer_P21_X2734.png",
+                    "assets/Algorithms/ALGO_Divide_and_Conquer_P21_X2736.png"
+                ],
+                "latex": [],
+                "tables": [
+                    {
+                        "headers": [
+                            "40",
+                            "30",
+                            "20",
+                            "10",
+                            "15",
+                            "16",
+                            "17",
+                            "8",
+                            "4"
+                        ],
+                        "rows": []
+                    }
+                ]
+            }
+        },
+        {
+            "id": "ALGO_DIVIDE_AND_CONQUER_2011_Q30",
+            "subject": "Algorithms",
+            "topic": "Divide and Conquer",
+            "subtopic": "",
+            "year": 2011,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 30,
+            "tags": [
+                "Divide and Conquer",
+                "",
+                "Algorithms"
+            ],
+            "question": {
+                "text": "A max-heap is a heap where the value of each parent \nis greater than or equal to the value of its children. \nWhich of the following is a max-heap?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "B"
+            ],
+            "solution": {
+                "text": "The max heap property is only satisfied by option \n(b), as in option (a) the heap is not a complete binary \ntree or an almost complete binary tree.  \n\nIn option (c) max heap property is not satisfied as \nnode value 8 is the leaf node and a child of a value \nthat is smaller than itself, that is 5. \n\nIn option (d) max heap property is violated as node \nvalue 10 is in leaf node and a child of a value that is \nsmaller than itself. \n\nHowever, in option (b) the max heap property is \nsatisfied.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        }
+    ]
+}

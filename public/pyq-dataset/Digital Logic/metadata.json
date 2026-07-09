@@ -1,0 +1,23 @@
+{
+    "subject": "Digital Logic",
+    "totalTopics": 4,
+    "totalQuestions": 80,
+    "topics": [
+        {
+            "name": "Number System and Binary Codes",
+            "questionCount": 18
+        },
+        {
+            "name": "Boolean Algebra, Logic Gates and K-Maps",
+            "questionCount": 33
+        },
+        {
+            "name": "Combinational Logic Circuits",
+            "questionCount": 11
+        },
+        {
+            "name": "Sequential Circuits",
+            "questionCount": 18
+        }
+    ]
+}

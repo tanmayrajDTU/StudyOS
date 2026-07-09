@@ -1,0 +1,772 @@
+{
+    "subject": "Discrete Mathematics",
+    "topic": "Combinatorics",
+    "questionCount": 17,
+    "questions": [
+        {
+            "id": "DM_COMBINATORICS_2023_Q01",
+            "subject": "Discrete Mathematics",
+            "topic": "Combinatorics",
+            "subtopic": "Permutation",
+            "year": 2023,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 1,
+            "tags": [
+                "Combinatorics",
+                "Permutation",
+                "Discrete Mathematics"
+            ],
+            "question": {
+                "text": "Let U = {1, 2,...,n}, where n is a large positive \ninteger greater than 1000. Let k be a positive integer \nless than n. Let A, B be subsets of U with |A| = |B| = \nk and A \\cap B = . We say that a permutation of U \nseparates A from B if one of the following is true.  \n\nAll members of A appear in the permutation before \nany of the members of B. \n\nAll members of B appear in the permutation before \nany of the members of A. \n\nHow many permutations of U separate A from B?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "n!",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "(\n2 )!\nn\nn\nk\nk\n\n\n−\n\n\n\n",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "(\n2 )!( !)\nn\nn\nk\nk\nk\n\n\n−\n\n\n\n",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "(\n2 )!( !)\nn\nn\nk\nk\nk\n\n\n−\n\n\n\n",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "D"
+            ],
+            "solution": {
+                "text": "\n\nu = 1, 2, 3.......n\nn > 2000\n\n\n• \n|A| = |B| = k & A  B =  \n• \n|A| = k such that A  u \n• \n|B| = k such that B  u \n• \nK is positive integer less than n. \n• \nNumber of permutation for every element of A \nthat appear before element of B. \n\n(\n)\nn\n2k\nC\n* n -2k ! \nk! \\times k!\n\n\n• \nNumber of permutations for all element of B \nappear before element of A. \n\n(\n)\nn\n2k\nC\n* n -2k ! \nk! \\times k!\n\n\n\nTotal permutation = \nn\n2k\n C\n\n (n - 2k)! \\times k! \\times \nk!. \n\nTherefore option (d) is the right choice.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "DM_COMBINATORICS_2020_Q02",
+            "subject": "Discrete Mathematics",
+            "topic": "Combinatorics",
+            "subtopic": "",
+            "year": 2020,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 2,
+            "tags": [
+                "Combinatorics",
+                "",
+                "Discrete Mathematics"
+            ],
+            "question": {
+                "text": "The number of permutations of the characters in \nLILAC so that no character appears in its original \nposition, if the two L's are indistinguishable, is ____. \nCombinations",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "12"
+            ],
+            "solution": {
+                "text": "1 2 3 4 5 \n\nL I L A C \n L L \n\n\n\n\n\n_ \nL \n_ \nL \n_ \n\n_ \n_ \n_ \nL \nL \n\n_ \nL \n_ \n_ \nL \n\n\n\n 4   5  \\rightarrow 3C2 ways = 3 ways. \n\n\n↓ \n↓ \n↓ \n\n→ 2 ways \n\n= \n3 \\times  2  \\times  2 \n\n→ 2! \n\n=  12 ways .",
+                "images": [
+                    "assets/Discrete Mathematics/DM_Combinatorics_P37_X888.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "DM_COMBINATORICS_2015_Q03",
+            "subject": "Discrete Mathematics",
+            "topic": "Combinatorics",
+            "subtopic": "Combinations",
+            "year": 2015,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 3,
+            "tags": [
+                "Combinatorics",
+                "Combinations",
+                "Discrete Mathematics"
+            ],
+            "question": {
+                "text": "The number of 4 digit numbers having their digits in \nnon-decreasing order (from left to right) constructed \nby using the digits belonging to the set {1, 2, 3} is \n______.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "15"
+            ],
+            "solution": {
+                "text": "{1, 2, 3} \n\n1 1 1 1\n1 1 1  2\n1 1 1 3\n\n\n\n\n\n2 3\n2 2\n2  2    2\n3  3\n3 3\n3 3\n\n\n\n\n\n→ 3 3 3 3  \n\n10 + 4 + 1 = 15 \n\n\n1 1\n1 1\n2  3\n1 1\n3 3\n\n\n\n \\rightarrow  1 3 3   3 2 2 2 3",
+                "images": [
+                    "assets/Discrete Mathematics/DM_Combinatorics_P37_X888.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "DM_COMBINATORICS_2014_Q04",
+            "subject": "Discrete Mathematics",
+            "topic": "Combinatorics",
+            "subtopic": "______.",
+            "year": 2014,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 4,
+            "tags": [
+                "Combinatorics",
+                "______.",
+                "Discrete Mathematics"
+            ],
+            "question": {
+                "text": "Each of the nine words in the sentence \"The quick \nbrown fox jumps over the lazy dog\" is written on a \nseparate piece of paper. These nine pieces of paper \nare kept in a box. One of the pieces is drawn at \nrandom from the box. The expected length of the \nworld drawn is ___.  (The answer should be rounded \nto one decimal place).",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "3.8",
+                "3.9"
+            ],
+            "solution": {
+                "text": "\n+ \n+\n+ \n+\n\n+ \n+\n\n+ \n\n\n= 3\n+\n+\n+\n+\n+\n+\n+\n+\n=\n=",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "DM_COMBINATORICS_2014_Q05",
+            "subject": "Discrete Mathematics",
+            "topic": "Combinatorics",
+            "subtopic": "to one decimal place).",
+            "year": 2014,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 5,
+            "tags": [
+                "Combinatorics",
+                "to one decimal place).",
+                "Discrete Mathematics"
+            ],
+            "question": {
+                "text": "A pennant is a sequence of numbers, each number \nbeing 1 or 2. An n-pennant is a sequence of \nnumbers with sum equal to n. For example, (1,1,2) \nis a 4-pennants. The set of all possible 1-pennant is \n{(1)}, the set of all possible 2-pennants is {(2), \n(1,1)} and the set of all 3-pennants is {(2,1), \n(1,1,1,), (1,2)}. Note that the pennant (1,2) is not \nthe same as the pennant (2,1). The number of 10-\npennants is ________.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "88.9",
+                "89.1"
+            ],
+            "solution": {
+                "text": "an  1  \n\n\n\n{1}  \n{2} \n{1, 2} \n\n\na1 = 1 \n{1, 1} {2, 1} \n\n\n\n\na2 = 2 {1, 1, 1} \n\n\n\n\n\na3 =3 \n\na4 = 5  \n\n1, 2, 3, 5, 8, 13, 21, 34, 55, 89, a10",
+                "images": [
+                    "assets/Discrete Mathematics/DM_Combinatorics_P37_X888.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "DM_COMBINATORICS_2008_Q06",
+            "subject": "Discrete Mathematics",
+            "topic": "Combinatorics",
+            "subtopic": "pennants is ________.",
+            "year": 2008,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 6,
+            "tags": [
+                "Combinatorics",
+                "pennants is ________.",
+                "Discrete Mathematics"
+            ],
+            "question": {
+                "text": "In how many ways can b blue balls and r red balls \nbe distributed in n distinct boxes?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "(\n) (\n)\n(\n)\n(\n)\nn\nb -1 ! n\nr -1\nn -1 !b! n -1 !r!\n+\n+",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "(\n)\n(\n)\n(\n) (\n) (\n)\nn\nb\nr -1!\nn -1 ! n -1 ! b - r !\n+\n+",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "n!\nb!r!",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "(\n)\n(\n)\n(\n)\nn\nb\nr -1 !\nn! b\nr -1 !\n+\n+\n+\n\n\n\nBinomial Identities",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "A"
+            ],
+            "solution": {
+                "text": "(\n)\n(\n)\n(\n)\n(\n)\nb\nn -1 !\nR\nn -1 !\nn -1 ! \n b!\nR!\nn -1\n+\n+\n\n\n",
+                "images": [
+                    "assets/Discrete Mathematics/DM_Combinatorics_P37_X888.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "DM_COMBINATORICS_2015_Q07",
+            "subject": "Discrete Mathematics",
+            "topic": "Combinatorics",
+            "subtopic": "Binomial Identities",
+            "year": 2015,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 7,
+            "tags": [
+                "Combinatorics",
+                "Binomial Identities",
+                "Discrete Mathematics"
+            ],
+            "question": {
+                "text": "The number of divisors of 2100 is _______.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "36"
+            ],
+            "solution": {
+                "text": "N = \na\nb\nc\nP .P .P ..... \n\n=  \n(a + 1) \\times (b + 1) \\times (c + 1) \n\n\n2100 = 3 \\times 700 = 3 \\times 7 \\times 100 \n\n=  3 \\times 7 \\times 2 \\times 50 \n\n\n2100 = 22 \\times 31 \\times 52 \\times 71 \n\n= \n(2 + 1) \\times (1 + 1) \\times (2 + 1) \\times (1 + 1) \n\n= \n3 \\times 2 \\times 3 \\times 2 = 6 \\times 6 = 36",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "DM_COMBINATORICS_2015_Q08",
+            "subject": "Discrete Mathematics",
+            "topic": "Combinatorics",
+            "subtopic": "The number of divisors of 2100 is _______.",
+            "year": 2015,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 8,
+            "tags": [
+                "Combinatorics",
+                "The number of divisors of 2100 is _______.",
+                "Discrete Mathematics"
+            ],
+            "question": {
+                "text": "(\n)\nx 1\nx x\n=\n+\n\n = ____",
+                "images": [
+                    "assets/Discrete Mathematics/DM_Combinatorics_P35_X4039.png"
+                ],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "0.99"
+            ],
+            "solution": {
+                "text": "n = 1 x = 2 x = 3 \n\n....\n+\n+\n+\n\n\n1- 2\n\n+\n\n\n\n\n- 3\n\n+\n\n\n\n\n- 4\n.....\n\n\n+\n\n\n\n\n- 100\n\n\n\n\n\n\n\n\n= \n100 -1\n1- 100\n=\n=\n= 0.99",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "DM_COMBINATORICS_2014_Q09",
+            "subject": "Discrete Mathematics",
+            "topic": "Combinatorics",
+            "subtopic": "= ____",
+            "year": 2014,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 9,
+            "tags": [
+                "Combinatorics",
+                "= ____",
+                "Discrete Mathematics"
+            ],
+            "question": {
+                "text": "The number of distinct positive inetegral factors of \n2014 is _____.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "8"
+            ],
+            "solution": {
+                "text": "n \n =  \na\nb\nc\nP\nP\nP\n\n\n\n\n\n\n(a + 1) \\times (b + 1) \\times (c + 1) \n\n\n\n2014 = 2 \\times 19 \\times 53 \n\n\n=  21 \\times 191 \\times 531 \n\n\n\n(1 + 1) \\times (1 + 1) \\times (1 + 1)= 2.2.2 = 23 = 8",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "DM_COMBINATORICS_2008_Q10",
+            "subject": "Discrete Mathematics",
+            "topic": "Combinatorics",
+            "subtopic": "2014 is _____.",
+            "year": 2008,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 10,
+            "tags": [
+                "Combinatorics",
+                "2014 is _____.",
+                "Discrete Mathematics"
+            ],
+            "question": {
+                "text": "Let,\n1 i2 k\ni odd\nP\n\n\n=\nand \n1 i 2k\ni even\nQ\n\n=\ni, where k is \npositive integer. Then \n\n(a) P = Q - k \n(b) P = Q + k \n\n(c) P = Q \n(d) P = Q + 2k \n\nGenerating Functions",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "a"
+            ],
+            "solution": {
+                "text": "P = 1 + 3 + 5 + 7 ….(2k - 1) \n\n= (2 -1) + (4 - 1) + (6 - 1) ….(2k -1) \n\n= (2 + 4 + 6 + 8) + (-1, -1, -1, -1….-k) \n\n= Q - K",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "DM_COMBINATORICS_2021_Q11",
+            "subject": "Discrete Mathematics",
+            "topic": "Combinatorics",
+            "subtopic": "Generating Functions",
+            "year": 2021,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 11,
+            "tags": [
+                "Combinatorics",
+                "Generating Functions",
+                "Discrete Mathematics"
+            ],
+            "question": {
+                "text": "[GATE-2018-: 2M] \n\nWhich one of the following is a closed form \nexpression for the generating function of the \nsequence {an}, where an = 2n + 3 for all n = 0, 1, 2, \n…?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "(1\n)x\n−",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "(1\n)\nx\nx\n−",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "2 -\n(1\n)\nx\nx\n−",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "(1\n)\nx\nx\n−\n−",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "D"
+            ],
+            "solution": {
+                "text": "an = 2n = 3 \n\n=  \n.\n(2\n3).\nn\nn\nn\nn\nan x\nn\nx\n\n\n=\n=\n=\n+\n\n\n\n\n=  \n2 .\n3.\nn\nn\nn\nn\nn x\nx\n\n\n=\n=\n+\n\n\n\n\n=  \n2(1.x + 2x2 + 3x3 ….) + 3(1 + x + x2 = x3 …) \n\n\n( )\n. n\nn\nG x\nan x\n\n=\n=\n\n\n=  \n2 (1\n...)\n3 1\nx\nx\nx\nx\nx\n\n\n+\n+\n+\n+ \n\n−\n\n\n\n\n=  \n(1- )\nx\nx\nx\n+ −\n\n\n=  \n(\n)\n(1\n)\n(1\n)\n(1\n)\nx\nx\nx\nx\nx\n−\n+\n−\n−\n−\n\n\n= \n\n3(1\n)\n(1\n)\n(1\n)\nx\nx\nx\nx\nx\nx\n+\n−\n+ −\n=\n−\n−\n= \n(1\n)\nx\nx\n−\n−",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "DM_COMBINATORICS_2017_Q12",
+            "subject": "Discrete Mathematics",
+            "topic": "Combinatorics",
+            "subtopic": "−",
+            "year": 2017,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 12,
+            "tags": [
+                "Combinatorics",
+                "−",
+                "Discrete Mathematics"
+            ],
+            "question": {
+                "text": "If the ordinary generating function of a sequence \n\nn n\na\n\n= is \n,\n(1\n)\nz\nz\n+\n−\nthen a3 - a0 is equal to \n\n\n\n\n\nRecurrence Relation",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "15"
+            ],
+            "solution": {
+                "text": ".\n(\n1)\n1!\n2!\n(1\n)n\nn x\nn n\nx\nx\n+\n= +\n+\n−\n(\n1)(\n2)\n...\n3!\nn n\nn\nx\n+\n+\n+\n\n\n3 2\n3 4\n3 4 5\n1!\n2!\n3!\n(1\n)\nn\nz\n\n\n\n=\n= +\n+\n+\n−\n…  \n\n= \n....\nz\nz\nz\n+\n+\n+\n\n\n(\n)\n1 3\n.\nz\nz\nz\nz\n= +\n+\n+\n−\n\n\n(\n)\n(\n)\n\n1 3\n...\nz\nz\nz\nz\nz\nz\n+\n=\n+\n+\n+\n+\n−\n\n\n= 1 + 3z + 6z2 + 10z3 … z + 3z2 + 6z3 + 10z4… \n\n....\n(1\n)\nz\nz\nz\nz\nz\n+\n= +\n=\n+\n+\n−\n\n\n....\na z\na z\na z\na z\n+\n+\n+\n+\n\n\na\na\na\na\n=\n=\n=\n=\n\n\n!\na\na\na\na\n=\n=\n−\n = 16 - 1 = 15",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "DM_COMBINATORICS_2023_Q13",
+            "subject": "Discrete Mathematics",
+            "topic": "Combinatorics",
+            "subtopic": "Recurrence Relation",
+            "year": 2023,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 13,
+            "tags": [
+                "Combinatorics",
+                "Recurrence Relation",
+                "Discrete Mathematics"
+            ],
+            "question": {
+                "text": "The Lucas sequence Ln is defined by the recurrence \nrelation: \n\nLn = Ln−1 + Ln−2,  for \n n \\ge 3, \n\nwith L1 = 1 and L2 = 3. \n\nWhich one of the options given is TRUE?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "n\nn\nn\nL\n\n\n\n\n+\n−\n=\n+\n\n\n\n\n\n\n\n",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "n\nn\nn\nL\n\n\n\n\n+\n−\n=\n−\n\n\n\n\n\n\n\n",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "n\nn\nn\nL\n\n\n\n\n+\n−\n=\n+\n\n\n\n\n\n\n\n",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "n\nn\nn\nL\n\n\n\n\n+\n−\n=\n−\n\n\n\n\n\n\n\n",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "A"
+            ],
+            "solution": {
+                "text": "Ln = Ln-1 + Ln-2, for n > 3  \n\nL1 =1 and L2 = 3 \n\nPutting L = 1 and 2 in option one, we get \n\nL\n\n\n\n\n+\n−\n=\n+\n\n\n\n\n\n\n\n\n\n\n\n\n=\n+\n = 1   \n\nL\n\n\n\n\n+\n−\n=\n+\n\n\n\n\n\n\n\n\n\n\n\n\n = (a + b)2 + (a - b)2 \n\n       = 2(a2 + b2) \n\n\n\n\n=\n+\n\n\n\n\n\n=\n\n=\n\n\nTherefore option (a) is correct.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "DM_COMBINATORICS_2016_Q14",
+            "subject": "Discrete Mathematics",
+            "topic": "Combinatorics",
+            "subtopic": "",
+            "year": 2016,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 14,
+            "tags": [
+                "Combinatorics",
+                "",
+                "Discrete Mathematics"
+            ],
+            "question": {
+                "text": "Consider the recurrence relation a1 = 8, an = 6n2 + \n2n + an-1. Let a99 = K \\times 104. \n\nThe value of K is ______.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "197.9",
+                "198.1"
+            ],
+            "solution": {
+                "text": "an = 6n2 +2n + an-1. \n\n=  6n2 = 2n + 6(n - 1)2 + 2(n - 1) + an-2.  \n\n=  6n2 + 2n + 6(n - 1)2 + 2(n - 1) + 6(n - 2)2  \n\n\n+ 2(n -    2) ….. \n\n=  6 (n2 + (n - 1)2 + (n - 2)2 + … + 2[n + (n - 1) + \n(n - 2)…1] \n\n=  \n(\n1)(2\n1)\n(\n1)\nn n\nn\nn n\n+\n+\n+\n\n\n\n\n+\n\n\n\n\n\n\n\n\n\n\n=  n(n + 1) (2n +1) + n(n + 1) \n\n=  n(n + 1) [2n + 1 +1] = n(n + 1) (2n + 2) \n\n=  2n(n + 1) (n + 1) = 2n(n + 1)2 \n\n\nan =  2n(n + 1)2, n = 99 \n\na99 =  2 \\times 99 (99 + 1)2 \n\n =  198 (102)2 = 198 \\times 104.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "DM_COMBINATORICS_2016_Q15",
+            "subject": "Discrete Mathematics",
+            "topic": "Combinatorics",
+            "subtopic": "The value of K is ______.",
+            "year": 2016,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 15,
+            "tags": [
+                "Combinatorics",
+                "The value of K is ______.",
+                "Discrete Mathematics"
+            ],
+            "question": {
+                "text": "The coefficient of x12 in (x3+ x4 + x5 + x6 +…)3     is       \n.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "10"
+            ],
+            "solution": {
+                "text": "C\nC\n=\n=\n (x3 + x4 + x5 +x6+…)3 \n\n(\n)\n3x\n[1 + x + x 2 + x3 +…]3 \n\n(\n)\nx\nx\nx\nx\n−\n\n=\n−\n\n\n−\n\n\n= x9 \n(\n)\n....\n..\nC\nx\n\n\n−\n−\n\n \n\n=\n( ) ( )\n.... 1 5\nC\nC\nx\nx\nx\nx\n\n\n−\n=\n\n\n\n\nx −= 1 + x + x 2 + x3 + x4+….  \n\n(\n)\n-3\n1 3\n3 1\nC\nC\n= −\n+ −\nC\nC\n=\n=\n=",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "DM_COMBINATORICS_2016_Q16",
+            "subject": "Discrete Mathematics",
+            "topic": "Combinatorics",
+            "subtopic": ".",
+            "year": 2016,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 16,
+            "tags": [
+                "Combinatorics",
+                ".",
+                "Discrete Mathematics"
+            ],
+            "question": {
+                "text": "Let a\nn be the number of n-bit strings that do NOT \ncontain two consecutive 1's. Which one of the \nfollowing is the recurrence relation for an?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "a\nn = a\nn-1 + 2a\nn-2",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "a\nn = a\nn-1 + a\nn-2",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "a\nn = 2a\nn-1 + a\nn-2",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "a\nn = 2a\nn-1 + 2a\nn-2",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "B"
+            ],
+            "solution": {
+                "text": "a1 \n2 bit \n3 bit \na1 = 2 \n\n\na2 = 3 \n\n\n\n\n\n\n\n\na3 = 5 \n\nan = an-1 + an-2",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "DM_COMBINATORICS_2015_Q17",
+            "subject": "Discrete Mathematics",
+            "topic": "Combinatorics",
+            "subtopic": "n-2",
+            "year": 2015,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 17,
+            "tags": [
+                "Combinatorics",
+                "n-2",
+                "Discrete Mathematics"
+            ],
+            "question": {
+                "text": "Let a\nn represent the number of bit strings of length n \ncontaining two consecutive 1s. What is the \nrecurrence relation for a\nn?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "an−2 + an−1+ 2n−2",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "an−2 + 2an−1 + 2n−2",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "2an−2 + an−1 + 2n−2",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "2an−2 + 2an−1+2n−",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "A"
+            ],
+            "solution": {
+                "text": "Do not 11 \n\n\n1 bit \n2 bit \n3bit \na1 = 2 \n\n\na2 = 2 \n\n\n\n\n\n\n\n\na3 = 6 \n\n\na2 = 2 \n\na1 = 2 \n\na3 = 6 \n\na1 = a2 = 3 a3 = 6 \n\nan = an-1 + an-2 \n\ncontain 11 \n\n2n - an= 2n-1 - an-1 + 2n-2 - an-2 \n\n(2n - 2n-1-2n-2) + an-1 + an-2 = an \n\n2n-2(22-21-1) + an-1 + an-2 = an \n\n2n-2 + an-1 + an-2 = an \n\n\n\n\n\n\n\n\n\n",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        }
+    ]
+}

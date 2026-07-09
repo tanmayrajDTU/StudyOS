@@ -1,0 +1,27 @@
+{
+    "subject": "Operating System",
+    "totalTopics": 5,
+    "totalQuestions": 121,
+    "topics": [
+        {
+            "name": "Process Management & CPU Scheduling",
+            "questionCount": 35
+        },
+        {
+            "name": "Process Synchronization",
+            "questionCount": 24
+        },
+        {
+            "name": "Deadlocks",
+            "questionCount": 14
+        },
+        {
+            "name": "Memory Management",
+            "questionCount": 34
+        },
+        {
+            "name": "File System & Disk Management",
+            "questionCount": 14
+        }
+    ]
+}

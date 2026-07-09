@@ -1,0 +1,1730 @@
+{
+    "subject": "Algorithms",
+    "topic": "Asymptotic Analysis",
+    "questionCount": 24,
+    "questions": [
+        {
+            "id": "ALGO_ASYMPTOTIC_ANALYSIS_2023_Q01",
+            "subject": "Algorithms",
+            "topic": "Asymptotic Analysis",
+            "subtopic": "Asymptotic Notation",
+            "year": 2023,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MSQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 1,
+            "tags": [
+                "Asymptotic Analysis",
+                "Asymptotic Notation",
+                "Algorithms"
+            ],
+            "question": {
+                "text": "Let f and g be functions of natural numbers given \nby f(n) = n and g(n) = n2.  \n\nWhich of the following statements is/are TRUE?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "f  O(g)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "f  (g)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "f  o(g)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "f  (g)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "A",
+                "C"
+            ],
+            "solution": {
+                "text": "Given f is 'n' and g is \"n2\" we can conclude that  \nf(n) = O(g) that is f(n) can be smaller than or equal \nto O(g).",
+                "images": [
+                    "assets/Algorithms/ALGO_Asymptotic_Analysis_P7_X987.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "ALGO_ASYMPTOTIC_ANALYSIS_2023_Q02",
+            "subject": "Algorithms",
+            "topic": "Asymptotic Analysis",
+            "subtopic": "Which of the following statements is/are TRUE?",
+            "year": 2023,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MSQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 2,
+            "tags": [
+                "Asymptotic Analysis",
+                "Which of the following statements is/are TRUE?",
+                "Algorithms"
+            ],
+            "question": {
+                "text": "Consider functions Function_1 and Function_2 \nexpressed in pseudocode as follows: \n Function_1 \n    while n > 1 do \n         for i = 1 to n do \n              x = x + 1; \n         end for \n         n = n/2 \n    end while \n Function_2 \n     for i = 1 to 100 ∗ n \ndo \n           x = x + 1; \n       end for \n\nLet f1(n) and f2(n) denote the number of times the \nstatement \"x = x + 1\" is executed in Function_1 and \nFunction_2, respectively.  \n\nWhich of the following statement is/are TRUE?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "f1(n)  (f2(n))",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "f1(n)  o(f2(n))",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "f1(n)  (f2(n))",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "f1(n)  O(n)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "A",
+                "D"
+            ],
+            "solution": {
+                "text": "f1(n) = \nn\nn\nn\nn\nn\n...\n2k\n+\n+\n+\n+\n\n\n\n\n= \nn\nk\ni\ni\n=\n\n\n\n\n\n\n\n = \nk\nn 1\n\n\n\n\n−\n\n\n\n\n\n\n\n\n\n\n= n - \nk\nn\n2 = n - 1 = O(n) \n\n( )\n( )\n( )\n( )\nf\nn\nO n ;f\nn\nO n\n=\n=",
+                "images": [
+                    "assets/Algorithms/ALGO_Asymptotic_Analysis_P7_X983.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "ALGO_ASYMPTOTIC_ANALYSIS_2022_Q03",
+            "subject": "Algorithms",
+            "topic": "Asymptotic Analysis",
+            "subtopic": "Which of the following statement is/are TRUE?",
+            "year": 2022,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 3,
+            "tags": [
+                "Asymptotic Analysis",
+                "Which of the following statement is/are TRUE?",
+                "Algorithms"
+            ],
+            "question": {
+                "text": "Which one of the following statements is TRUE for \nall positive functions f(n)?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "f(n2) = (f(n)2), when 𝑓(𝑛) is a polynomial.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "f(n2) = o(f(n)2)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "f(n2) = O(f(n)2), when f(n) is an exponential \nfunction.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "f(n2) = (f(n)2)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "A"
+            ],
+            "solution": {
+                "text": "f(n2) = ((f(n)2) \n\nf(n) = n \n\nf(n2) = n2 \n\n(f(n))2 = n2 \n\nf(n) = 2n, (f(n))2 = (2n)2 = 22n  \n\nf(n2) = (\n)\nn\n2n\nf n\n;2\n=\n\n\nn2;  2n.log2  \n\n n2 > 2n.",
+                "images": [
+                    "assets/Algorithms/ALGO_Asymptotic_Analysis_P7_X983.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "ALGO_ASYMPTOTIC_ANALYSIS_2021_Q04",
+            "subject": "Algorithms",
+            "topic": "Asymptotic Analysis",
+            "subtopic": "function.",
+            "year": 2021,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 4,
+            "tags": [
+                "Asymptotic Analysis",
+                "function.",
+                "Algorithms"
+            ],
+            "question": {
+                "text": "Which of the given options provides the increasing \norder of asymptotic complexity of functions f1, f2, f3 \nand f4? \n\nF1(n) = 2n \nF2(n) = n3/2  \n\nF3(n) = n log2n  \nF4(n) = n log2 n",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "f3, f2, f4, f1",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "f3, f2, f1, f4",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "f2, f3, f1, f4",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "f2, f3, f4, f1",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "A"
+            ],
+            "solution": {
+                "text": "n. log < n3/2 < nlogn < 2n \n\nf\nf\nf < f\n\n",
+                "images": [
+                    "assets/Algorithms/ALGO_Asymptotic_Analysis_P7_X983.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "ALGO_ASYMPTOTIC_ANALYSIS_2021_Q05",
+            "subject": "Algorithms",
+            "topic": "Asymptotic Analysis",
+            "subtopic": "F4(n) = n log2 n",
+            "year": 2021,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 5,
+            "tags": [
+                "Asymptotic Analysis",
+                "F4(n) = n log2 n",
+                "Algorithms"
+            ],
+            "question": {
+                "text": "Consider the following three functions: \n\nf1 = 10n, f2 = n(logn, f3 = \nn\nn\n\n\nWhich one of the following options arranges the \nfunctions in the increasing order of asymptotic \ngrowth rate?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "f3, f2, f1",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "f2, f1, f3",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "f1, f2, f3",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "f2, f3, f1",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "D"
+            ],
+            "solution": {
+                "text": "n\nlogn\nn\n10 ; n\n; n\n\n\nn.log ;(logn) ;\nn.logn \n\nf2 < f3 < f1",
+                "images": [
+                    "assets/Algorithms/ALGO_Asymptotic_Analysis_P7_X983.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "ALGO_ASYMPTOTIC_ANALYSIS_2017_Q06",
+            "subject": "Algorithms",
+            "topic": "Asymptotic Analysis",
+            "subtopic": "growth rate?",
+            "year": 2017,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 6,
+            "tags": [
+                "Asymptotic Analysis",
+                "growth rate?",
+                "Algorithms"
+            ],
+            "question": {
+                "text": "Consider the following functions from positive \nintegers to real numbers: \n\n\n10,\nn, n, log n, n \n\nThe CORRECT arrangement of the above functions \nin increasing order of asymptotic complexity is:",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "log n,\n,10,\nn, n\nn",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "100 ,10, log n, n, n\nn",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "10,\n,\nn, log n, n\nn",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "100 , log n,10,\nn, n\nn",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "B"
+            ],
+            "solution": {
+                "text": "n grows faster than log and slower than linear \nwhereas n grows linearly and 100\nn decreases with \nn.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "ALGO_ASYMPTOTIC_ANALYSIS_2015_Q07",
+            "subject": "Algorithms",
+            "topic": "Asymptotic Analysis",
+            "subtopic": "n",
+            "year": 2015,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 7,
+            "tags": [
+                "Asymptotic Analysis",
+                "n",
+                "Algorithms"
+            ],
+            "question": {
+                "text": "Let f(n) = n and g(n) = n(1 + sin n), where n is a positive \ninteger. Which of the following statements is/are \ncorrect? \n\nI:  f(n) = O(g(n)) \nII:  f(n) = (g(n))",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "Only I",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "Only II",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "Both I and II",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "Neither I nor II",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "D"
+            ],
+            "solution": {
+                "text": "f(n) = n; g(n) = n1+ sin n \n\nsin value ranges from -1 to +1 (using trichotomy \nproperty)",
+                "images": [],
+                "latex": [],
+                "tables": [
+                    {
+                        "headers": [
+                            "Data Structur e",
+                            "FIND",
+                            "INSERT",
+                            "DELETE",
+                            "DEC - KEY",
+                            "Total time"
+                        ],
+                        "rows": [
+                            [
+                                "Unsorted Array",
+                                "N. logn",
+                                "N",
+                                "logn",
+                                "logn",
+                                "N. log n"
+                            ],
+                            [
+                                "Min- Heap",
+                                "N. logn",
+                                "N.log N",
+                                "(log n)3/2",
+                                "(log n)3/2",
+                                "N.log N"
+                            ],
+                            [
+                                "Sorted Array",
+                                "(log n)3/2",
+                                "N2",
+                                "N. log n",
+                                "N. log n",
+                                "N2"
+                            ],
+                            [
+                                "Sorted D.L.L",
+                                "N. log n",
+                                "N2",
+                                "log n",
+                                "N. log n",
+                                "N2"
+                            ]
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "id": "ALGO_ASYMPTOTIC_ANALYSIS_2015_Q08",
+            "subject": "Algorithms",
+            "topic": "Asymptotic Analysis",
+            "subtopic": "II:  f(n) = (g(n))",
+            "year": 2015,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 8,
+            "tags": [
+                "Asymptotic Analysis",
+                "II:  f(n) = (g(n))",
+                "Algorithms"
+            ],
+            "question": {
+                "text": "Consider the equality \nn\ni\n0 i\nX\n=\n=\n\nand the following \nchoices for X. \n\n I: (n4) \nII: (n5) \n\nIII: O(n5) \nIV: (n4) \n\nThe equality above remains correct if X is replaced \nby",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "Only I",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "Only II",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "I or III or IV but not II",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "II or III or IV but not I",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "C"
+            ],
+            "solution": {
+                "text": "i\nn(n\n1)\n\n\n+\n\n\n= \n\n\n\n\n\n\n\n\n      = O(n4) \n\n      = (n4) \n\n      = (n4)",
+                "images": [],
+                "latex": [],
+                "tables": [
+                    {
+                        "headers": [
+                            "Data Structur e",
+                            "FIND",
+                            "INSERT",
+                            "DELETE",
+                            "DEC - KEY",
+                            "Total time"
+                        ],
+                        "rows": [
+                            [
+                                "Unsorted Array",
+                                "N. logn",
+                                "N",
+                                "logn",
+                                "logn",
+                                "N. log n"
+                            ],
+                            [
+                                "Min- Heap",
+                                "N. logn",
+                                "N.log N",
+                                "(log n)3/2",
+                                "(log n)3/2",
+                                "N.log N"
+                            ],
+                            [
+                                "Sorted Array",
+                                "(log n)3/2",
+                                "N2",
+                                "N. log n",
+                                "N. log n",
+                                "N2"
+                            ],
+                            [
+                                "Sorted D.L.L",
+                                "N. log n",
+                                "N2",
+                                "log n",
+                                "N. log n",
+                                "N2"
+                            ]
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "id": "ALGO_ASYMPTOTIC_ANALYSIS_2015_Q09",
+            "subject": "Algorithms",
+            "topic": "Asymptotic Analysis",
+            "subtopic": "by",
+            "year": 2015,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 9,
+            "tags": [
+                "Asymptotic Analysis",
+                "by",
+                "Algorithms"
+            ],
+            "question": {
+                "text": "An algorithm performs (logN)1/2 find operations, N \ninsert operation, (logN)1/2 delete operations, and \n(logN)1/2 decrease-key operations on a set of data \nitems with keys drawn from a linearly ordered set. \nFor a delete operation, a pointer is provided to the \nrecord that must be deleted. For the decrease-key \noperation, a pointer is provided to the record that has \nits key decreased. Which one of the following data \nstructures is the most suited for the algorithm to use, \nif the goal is to achieve the best total asymptotic \ncomplexity considering all the operations?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "Unsorted array",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "Min - heap",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "Sorted array",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "Sorted doubly linked list",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "A"
+            ],
+            "solution": {
+                "text": "1. Find: \nlogn; \n\n2. Insert: N \n\n3. Delete: \nlogn \n\n4. Decrement key: \nlogn \nData \nStructur\ne \nFIND INSERT DELETE DEC \n- KEY \nTotal \ntime \nUnsorted \n Array \nN. logn \nN \nlogn \nlogn N. log n \nMin- \nHeap \nN. logn N.log N (log n)3/2 (log n)3/2 N.log N \nSorted \nArray \n(log n)3/2 \nN2 \nN. log n N. log n \nN2 \nSorted \n D.L.L \nN. log n \nN2 \nlog n N. log n \nN2",
+                "images": [],
+                "latex": [],
+                "tables": [
+                    {
+                        "headers": [
+                            "Data Structur e",
+                            "FIND",
+                            "INSERT",
+                            "DELETE",
+                            "DEC - KEY",
+                            "Total time"
+                        ],
+                        "rows": [
+                            [
+                                "Unsorted Array",
+                                "N. logn",
+                                "N",
+                                "logn",
+                                "logn",
+                                "N. log n"
+                            ],
+                            [
+                                "Min- Heap",
+                                "N. logn",
+                                "N.log N",
+                                "(log n)3/2",
+                                "(log n)3/2",
+                                "N.log N"
+                            ],
+                            [
+                                "Sorted Array",
+                                "(log n)3/2",
+                                "N2",
+                                "N. log n",
+                                "N. log n",
+                                "N2"
+                            ],
+                            [
+                                "Sorted D.L.L",
+                                "N. log n",
+                                "N2",
+                                "log n",
+                                "N. log n",
+                                "N2"
+                            ]
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "id": "ALGO_ASYMPTOTIC_ANALYSIS_2012_Q10",
+            "subject": "Algorithms",
+            "topic": "Asymptotic Analysis",
+            "subtopic": "complexity considering all the operations?",
+            "year": 2012,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 10,
+            "tags": [
+                "Asymptotic Analysis",
+                "complexity considering all the operations?",
+                "Algorithms"
+            ],
+            "question": {
+                "text": "Let W(n) and A(n) denote respectively, the worst \ncase and average case running time of an algorithm \nexecuted on an input of size n. Which of the \nfollowing is ALWAYS TRUE?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "A(n) = (W(n))}",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "A(n) =  (W(n))",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "A(n) = O(W(n))",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "A(n) = o(W(n))\"",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "C"
+            ],
+            "solution": {
+                "text": "B(n) \\le A(n) \\le W(n) \n\n A(n) = O(W(n))",
+                "images": [],
+                "latex": [],
+                "tables": [
+                    {
+                        "headers": [
+                            "Data Structur e",
+                            "FIND",
+                            "INSERT",
+                            "DELETE",
+                            "DEC - KEY",
+                            "Total time"
+                        ],
+                        "rows": [
+                            [
+                                "Unsorted Array",
+                                "N. logn",
+                                "N",
+                                "logn",
+                                "logn",
+                                "N. log n"
+                            ],
+                            [
+                                "Min- Heap",
+                                "N. logn",
+                                "N.log N",
+                                "(log n)3/2",
+                                "(log n)3/2",
+                                "N.log N"
+                            ],
+                            [
+                                "Sorted Array",
+                                "(log n)3/2",
+                                "N2",
+                                "N. log n",
+                                "N. log n",
+                                "N2"
+                            ],
+                            [
+                                "Sorted D.L.L",
+                                "N. log n",
+                                "N2",
+                                "log n",
+                                "N. log n",
+                                "N2"
+                            ]
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "id": "ALGO_ASYMPTOTIC_ANALYSIS_2008_Q11",
+            "subject": "Algorithms",
+            "topic": "Asymptotic Analysis",
+            "subtopic": "following is ALWAYS TRUE?",
+            "year": 2008,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 11,
+            "tags": [
+                "Asymptotic Analysis",
+                "following is ALWAYS TRUE?",
+                "Algorithms"
+            ],
+            "question": {
+                "text": "Consider the following functions:  \n•   f(n) = 2n \n•   f(n) n!  \n•   h(n) = nlogn  \n\nWhich of the following statements about the \nasymptotic behaviour of f(n), g(n), and h(n) is true?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "f(n) = O(g(n)); g(n) = O(h(n))",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "f(n) = Ω(g(n)); g(n) = O(h(n))",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "g(n) = O(f(n)); h(n) = O(f(n))",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "h(n) = O(f(n)); g(n) = Ω (f(n))",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "D"
+            ],
+            "solution": {
+                "text": "n\nn\nlogn\nn\nn\nn.log 2\nnlogn\n(logn)\nn\nnlogn\n(logn)\n\n\nTherefore: h\nf\ng\n\n",
+                "images": [],
+                "latex": [],
+                "tables": [
+                    {
+                        "headers": [
+                            "Data Structur e",
+                            "FIND",
+                            "INSERT",
+                            "DELETE",
+                            "DEC - KEY",
+                            "Total time"
+                        ],
+                        "rows": [
+                            [
+                                "Unsorted Array",
+                                "N. logn",
+                                "N",
+                                "logn",
+                                "logn",
+                                "N. log n"
+                            ],
+                            [
+                                "Min- Heap",
+                                "N. logn",
+                                "N.log N",
+                                "(log n)3/2",
+                                "(log n)3/2",
+                                "N.log N"
+                            ],
+                            [
+                                "Sorted Array",
+                                "(log n)3/2",
+                                "N2",
+                                "N. log n",
+                                "N. log n",
+                                "N2"
+                            ],
+                            [
+                                "Sorted D.L.L",
+                                "N. log n",
+                                "N2",
+                                "log n",
+                                "N. log n",
+                                "N2"
+                            ]
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "id": "ALGO_ASYMPTOTIC_ANALYSIS_2008_Q12",
+            "subject": "Algorithms",
+            "topic": "Asymptotic Analysis",
+            "subtopic": "asymptotic behaviour of f(n), g(n), and h(n) is true?",
+            "year": 2008,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 12,
+            "tags": [
+                "Asymptotic Analysis",
+                "asymptotic behaviour of f(n), g(n), and h(n) is true?",
+                "Algorithms"
+            ],
+            "question": {
+                "text": "Arrange the followign functions in increasing \nasymptotic order: \n\nA. n1/3 \n      B. en \nC. n7/4 \n\nD. nlog9n \n E. 1.0000001n",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "A, D, C, E, B",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "D, A, C, E, B",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "A, C, D, E, B",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "A, C, D, B, E \n\nFinding Time Complexity",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "A"
+            ],
+            "solution": {
+                "text": "For the given scenario we can observe that: \n• \nn1/3  < n7/4 and n1/3 <   nlog9n \n• \n1.0000001n  <  en  and 1.0000001n  <  n7/4 \n• \nnlog9n <   1.0000001n  \n• \n n7/4 is asymptotically larger than nlog9n. (If we \ntake n common from both the functions then n3/4 \nis larger than log9n). \n• \nThus, n1/3 < nlog9n < n7/4 < 1.0000001n < en.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "ALGO_ASYMPTOTIC_ANALYSIS_2020_Q13",
+            "subject": "Algorithms",
+            "topic": "Asymptotic Analysis",
+            "subtopic": "Finding Time Complexity",
+            "year": 2020,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 13,
+            "tags": [
+                "Asymptotic Analysis",
+                "Finding Time Complexity",
+                "Algorithms"
+            ],
+            "question": {
+                "text": "What is the worst-case time complexity of inserting \nn elements into an empty linked list, if the linked list \nneeds to be maintained in sorted order?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "(n log n)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "(n)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "(1)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "(n)2",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "D"
+            ],
+            "solution": {
+                "text": "Total comparision's: (1 + 2 + 3 + … + n - 1) \n\n\n\n\n: n(n\n1)\n−\n\n\n\n\n\n: O(n2) \n\n\n\n\n: (n2) \n\n\n\n\n:  (n2)",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "ALGO_ASYMPTOTIC_ANALYSIS_2017_Q14",
+            "subject": "Algorithms",
+            "topic": "Asymptotic Analysis",
+            "subtopic": "needs to be maintained in sorted order?",
+            "year": 2017,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 14,
+            "tags": [
+                "Asymptotic Analysis",
+                "needs to be maintained in sorted order?",
+                "Algorithms"
+            ],
+            "question": {
+                "text": "Consider the following C function. \n\nint fun (int n) \n\n{ \nint i, j; \n\n\nfor (i = 1; i < = n; i ++){ \n\n           for (j = 1; j < n; j + = i) \n\n\n { \n\n\n  printf{\"%d %d\", i, j); \n\n\n } \n\n\n} \n\n} \n\n\nTime complexity of fun in terms of  notation is",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "( n n )",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "(n2)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "(n log n)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "(n2 log n)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "C"
+            ],
+            "solution": {
+                "text": "i = 1, n, +1 \n\nj =1, n, +i \n\ni = 1, i = 2, i = 3 \n\n\nn\nn\nj\n1, n, j =\n, j\n=\n=\n\n\nn\nn\nn\nn\nn\n+\n+\n+\n+\n\n\nn\nn\n=\n\n\n\n\n\n\n\n\nx\nx\n\n\nT(n) = n.logn = (n.logn)",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "ALGO_ASYMPTOTIC_ANALYSIS_2016_Q15",
+            "subject": "Algorithms",
+            "topic": "Asymptotic Analysis",
+            "subtopic": "Time complexity of fun in terms of  notation is",
+            "year": 2016,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 15,
+            "tags": [
+                "Asymptotic Analysis",
+                "Time complexity of fun in terms of  notation is",
+                "Algorithms"
+            ],
+            "question": {
+                "text": "The given diagram shows the flowchart for a \nrecursive function A(n). Assume that all statements, \nexcept for the recursive calls, have O(1) time \ncomplexity. If the worst-case time complexity of this \nfunction is O(n), then the least possible value \n(accurate up to two decimal positions) of  is _____. \n\nFlow chart for Recursive Function A(n)",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "2.2",
+                "2.4"
+            ],
+            "solution": {
+                "text": "T(n) = 5.T(n/2) + C \n\nFirst check C is it\n(\n)\nlog 5\nO n\n,\n−\n yes \n\n(\n)\n(\n)\nlog 5\nT(n)is\nn\nn\n\n\n= ",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "ALGO_ASYMPTOTIC_ANALYSIS_2015_Q16",
+            "subject": "Algorithms",
+            "topic": "Asymptotic Analysis",
+            "subtopic": "Flow chart for Recursive Function A(n)",
+            "year": 2015,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 16,
+            "tags": [
+                "Asymptotic Analysis",
+                "Flow chart for Recursive Function A(n)",
+                "Algorithms"
+            ],
+            "question": {
+                "text": "Consider the following C function \n\n int fun1 (int n) \n\n{ \n\n\n      int i, j, k, p, q = 0; \n\n      for (i = 1; i < n; ++i) \n\n\n{ \n\n\n  p = 0; \n\n\n for (j = n; j > 1; j = j /2) \n\n               ++p; \n\n\nfor (k =1; k < p; k = k*2) \n\n               ++q; \n\n\n}  \n\n\nreturn q; \n\n} \n\nWhich one of the following most closely \napproximates the return value of the function fun1?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "n3",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "n(log n)2",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "n log n",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "n log (log n)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "D"
+            ],
+            "solution": {
+                "text": "[log logn + log logn + … +]n \n\nreturn(q) = n.log logn  \n\nfor (i = 1; i < n; ++i): n \n\n\nfor (j = n; j > 1; j = j /2): log n \n\nfor (k =1; k < p; k = k*2): log p(log log n)",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "ALGO_ASYMPTOTIC_ANALYSIS_2013_Q17",
+            "subject": "Algorithms",
+            "topic": "Asymptotic Analysis",
+            "subtopic": "approximates the return value of the function fun1?",
+            "year": 2013,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 17,
+            "tags": [
+                "Asymptotic Analysis",
+                "approximates the return value of the function fun1?",
+                "Algorithms"
+            ],
+            "question": {
+                "text": "Consider the following function: \n\nint unknown (int n) \n\n   { \n\n\nint i, j, k = 0; \n\n\nfor (i = n/2; i < = n; i++) \n\n\n      for(j = 2; j < = n; j = j*2) \n\n\n           k = k + n/2; \n\n\nreturn(k); \n\n   }  \n\nThe return value of the function is ___.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "(n2)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "(n2 log n)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "(n)3",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "(n3 log n)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "B"
+            ],
+            "solution": {
+                "text": "• \nfor (i = n/2; i < = n; i++) : n\n• \nfor(j = 2; j < = n; j = j*2) \nk = k + n/2;                        : n\n2 log n \n\nOverall Complexity: n\nn .logn\n\n\n\n\n\n\n\n\n\n\n.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "ALGO_ASYMPTOTIC_ANALYSIS_2010_Q18",
+            "subject": "Algorithms",
+            "topic": "Asymptotic Analysis",
+            "subtopic": "The return value of the function is ___.",
+            "year": 2010,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 18,
+            "tags": [
+                "Asymptotic Analysis",
+                "The return value of the function is ___.",
+                "Algorithms"
+            ],
+            "question": {
+                "text": "Two alternative packages A and B are available for \nprocessing a database having 10k records. Package \nA requires 0.0001n2 time units and package B \nrequires 10nlog10n time units to process n records. \nwhat is the smallest value of k for which package B \nwill be preferred over A?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "12",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "10",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "6",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "5",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "C"
+            ],
+            "solution": {
+                "text": "10.n.log10n < 0.0001n2  \n\nk\n.k<10\n.10\n−\nk \n\nk\nk\n\n \\Rightarrow k = 6 \\Rightarrow \n\n\n\n\n k = 6",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "ALGO_ASYMPTOTIC_ANALYSIS_2009_Q19",
+            "subject": "Algorithms",
+            "topic": "Asymptotic Analysis",
+            "subtopic": "will be preferred over A?",
+            "year": 2009,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 19,
+            "tags": [
+                "Asymptotic Analysis",
+                "will be preferred over A?",
+                "Algorithms"
+            ],
+            "question": {
+                "text": "The running time of an algorithm is represented by \nthe following recurrence relation: \n\nn\nn\nn\nT(n) =\nT\ncm otherwise\n\n\n\n\n\n\n\n+\n\n\n\n\n\n\n\n\n\n\n\nWhich of the following represents the time \ncomplexity of the algorithm?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "(n)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "(n log n)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "(n)2",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "(n2 log n) \n\nSolving Recurrence Relation",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "A"
+            ],
+            "solution": {
+                "text": "T(n) = T(n/3) + cn \n\na = 1; b = 3; f(n) = cn \n\nMaster method: \n\nI. \ncn is O(n0 - ), dissatified  \n\nII. cn is (n0·logkn), dissatified    \n\nIII. cn is it (n0 + ) fn  = 1 \na. f(n/b) \\le .f(n) satisfied \n\n1 ⋅\ncn\n3  ≤ .cn; 𝛿  =\n3 < 1  \n\n T(n) is (f(n)) \n\n(n)",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "ALGO_ASYMPTOTIC_ANALYSIS_2021_Q20",
+            "subject": "Algorithms",
+            "topic": "Asymptotic Analysis",
+            "subtopic": "Solving Recurrence Relation",
+            "year": 2021,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 20,
+            "tags": [
+                "Asymptotic Analysis",
+                "Solving Recurrence Relation",
+                "Algorithms"
+            ],
+            "question": {
+                "text": "Consider the following recurrence relation: \n\nn\n2n\nT\nT\n7n\nif n\nT(n)\nif n\n\n\n\n\n\n\n\n\n\n\n+\n+\n\n\n\n\n\n\n\n\n\n\n= \n\n\n\n\n\n=\n\n\n\nWhich one of the following options is correct? \nStart\nA n\n( /2)\nReturn\nReturn\nReturn\nReturn\nA n\n( /2)\nA n\n( /2)\nA n\n( /2)\nA n\n( /2)\nA n\n( /2)",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "T(n) = (n log n)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "T(n) = (n5/2)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "T(n) = (n)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "T(n) = (logn)5/2",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "C"
+            ],
+            "solution": {
+                "text": "T(n) = T(n/2) + T(2n/5) + 7n, n > 1 \n\nT(n/2) = T(n/4) + T(2n/10) + 7n/2 \n\nT(2n/5) = T(2n/10) + T(4n/25) + 7.2n/5 \n\nRecursive Tree \n\n\nTotal time = an + b = O(n)  = (n) = (n).",
+                "images": [
+                    "assets/Algorithms/ALGO_Asymptotic_Analysis_P10_X1496.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "ALGO_ASYMPTOTIC_ANALYSIS_2020_Q21",
+            "subject": "Algorithms",
+            "topic": "Asymptotic Analysis",
+            "subtopic": "( /2)",
+            "year": 2020,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 21,
+            "tags": [
+                "Asymptotic Analysis",
+                "( /2)",
+                "Algorithms"
+            ],
+            "question": {
+                "text": "For parameters a and b, both of which are (1), T(n) \n= T(n1/a) + 1, and T(b) = 1. Then T(n) is",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "Θ(log2 log2 n)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "Θ(loga logb n)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "Θ(logb logan)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "Θ(logab n)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "B"
+            ],
+            "solution": {
+                "text": "T(n) = T(n1/a) + 1; T(b) = 1 \n\nT(n) = T(n1/a) + 1 \n\n  …(1) \n\n(\n)\n(\n)\n1/a\n1/a\nT n\nT n\n=\n+ \n\n  …(2) \n\n\n(\n)\n1/a\nT(n)\nT n\n=\n+\n\n\n  …(3) \n\n\n(\n)\n1/a\nT n\n=\n+\n\n\n  …(4) \n\n\n\n(\n)\nK\n1/a\nT n\nK\n=\n+\n\n\n  …(5) \n\n           = T(b) + loga (logbn) \n\n\n  = 1 + loga . logbn \n\n\n\nK\n1/a\nn\nb\n=\n\n\n\n\nK\n1 .log n\nlog b\na\n=\n\n\n\n\nK\nK\nb\nlog n\na\na\nlog n\nlog b =\n\n=\n\n\n \\therefore K = loga logbn  \n\n\nT(n) = (loga . logbn)",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "ALGO_ASYMPTOTIC_ANALYSIS_2017_Q22",
+            "subject": "Algorithms",
+            "topic": "Asymptotic Analysis",
+            "subtopic": "= T(n1/a) + 1, and T(b) = 1. Then T(n) is",
+            "year": 2017,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 22,
+            "tags": [
+                "Asymptotic Analysis",
+                "= T(n1/a) + 1, and T(b) = 1. Then T(n) is",
+                "Algorithms"
+            ],
+            "question": {
+                "text": "Consider the recurrence function \n\n(\n)\n(n)\n2T\nn\nn\nT\nn\n\n+\n\n\n= \n\n\n\n\n\nThen T(n) in terms of  notation is?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "(log log n)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "(log n)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "(\nn )",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "(n)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "B"
+            ],
+            "solution": {
+                "text": "(\n)\nT(n)\n2.T\nn\n=\n+ \n\n T(n) = 2.T(n1/2) + 1 \n\n\n  …(1) \n\n T(n1/2) = 2.T(n1/4) + 1 \n\n\n  …(2) \n\n T(n) = 2[2.T(n1/4) + 1] +1 \n\n         = 4.T(n1/4) + 3 \n\n\n  …(3) \n\n\n(\n)\n(\n)\n1/2\n  2 .T n\n2 - 1\n=\n+\n\n  …(3) \n\n\n\n\n(\n)\n(\n)\nK\n/2\nK\nK\n  2 .T n\n- 1\n=\n+\n\n  …(4) \n\n\n\nK\n1/2\nn\n=\n\n\n\nK\n1 .logn\nlog 2\n=\n\n\n 2K = log n \n\n T(n) = logn.T(2) + log n - 1 \n\n T(n) = 2.logn + log n - 1 \n\n\n T(n) = (log n)",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "ALGO_ASYMPTOTIC_ANALYSIS_2014_Q23",
+            "subject": "Algorithms",
+            "topic": "Asymptotic Analysis",
+            "subtopic": "n )",
+            "year": 2014,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 23,
+            "tags": [
+                "Asymptotic Analysis",
+                "n )",
+                "Algorithms"
+            ],
+            "question": {
+                "text": "Which one of the following correctly determines the \nsolution of the recurrence relation with T(1) = 1? \n\nn\nT(n) =\n2T\nlogn\n\n\n\n\n\n+\n\n\n\n\n\n\n\n\n",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "(n)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "(n log n)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "(n2)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "(log)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "A"
+            ],
+            "solution": {
+                "text": "a = 2; b = 2; f(n) = log n \n\nlog n is it O(n1 - ) , yes, here  = 0.5 \n\n T(n) is (n)",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "ALGO_ASYMPTOTIC_ANALYSIS_2008_Q24",
+            "subject": "Algorithms",
+            "topic": "Asymptotic Analysis",
+            "subtopic": "",
+            "year": 2008,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 24,
+            "tags": [
+                "Asymptotic Analysis",
+                "",
+                "Algorithms"
+            ],
+            "question": {
+                "text": "When n = 22k for some k \\ge 0, the recurrence relation \nT(n) \n(\n)\n2T n / 2\nn,T(1)\n+\n= evaluated to:",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "(\n)\nn logn\n+",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "n logn",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "n log\nn",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "nlog n",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "A"
+            ],
+            "solution": {
+                "text": "n = 22k; k \\ge 0 \n\nT(n) = \nn\nT\nn\n\n\n\n\n\n+\n\n\n\n\n\n\n; T(1) = 1 \n\n( )\nn\nT n\nT\nn\n\n\n=\n\n+\n\n\n\n\n\n\n….(1) \n\nn\nn\nn\nT\nT\n\n\n\n\n\n\n\n\n\n\n\n\n=\n\n+\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n…..(2) \n\nn\nn\nn\nT\nT\n\n\n\n\n\n\n\n\n\n\n\n\n=\n\n+\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n( )\nn\nn\nT n\nT\nn\n\n\n\n\n\n\n=\n\n+\n+\n\n\n\n\n\n\n\n\n\n\n          = \nn\n2 .T\n2 n\nn\n\n+\n+\n\n\n\n\n\n…..(3) \n\n          = \nn\nn\n2 2\nT\n2 n\n\n\n\n\n\n\n\n+\n+\n\n\n\n\n\n\n\n\n\n\n             = \nn\nT\n3 n\n\n\n\n+\n\n\n\n\n\n\n…..(4) \n\n   ( )\nn\nT n\n2 .T\n4 n\n\n\n\n\n=\n+\n\n\n\n\n\n\n\n\n…..(5) \n\n\n      =\nn\nT\n2.2 n\n\n\n\n\n\n+\n\n\n\n\n\n\n\n\n\n     = \nk\n2.k\nn\nT\n2.k n\n\n\n\n\n\n+\n\n\n\n\n\n\n\n……(6) \n\n\n2k\nn\n= \n\n\n⇒ n = 22k \n\n\n2k = logn \n\n\n⇒ k = logn\n\n\n\n= (\n)\nlog n\n.T(1)\n+\nlogn\n.\n. n \n\n\nn 1\nn logn\n+\n\n\n\n\n( )\n(\n)\nT n\nn 1 logn\n=\n+",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        }
+    ]
+}

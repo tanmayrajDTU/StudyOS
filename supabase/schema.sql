@@ -15,6 +15,7 @@ DROP TABLE IF EXISTS public.lectures CASCADE;
 DROP TABLE IF EXISTS public.modules CASCADE;
 DROP TABLE IF EXISTS public.subjects CASCADE;
 DROP TABLE IF EXISTS public.profiles CASCADE;
+DROP TABLE IF EXISTS public.pyq_progress CASCADE;
 
 -- Clean up auth triggers and trigger functions
 DROP TRIGGER IF EXISTS on_auth_user_created ON auth.users;
@@ -47,7 +48,8 @@ CREATE TABLE public.subjects (
   roadmap_days integer NOT NULL DEFAULT 120,
   is_hidden boolean NOT NULL DEFAULT false,
   created_at timestamp with time zone DEFAULT now() NOT NULL,
-  updated_at timestamp with time zone DEFAULT now() NOT NULL
+  updated_at timestamp with time zone DEFAULT now() NOT NULL,
+  UNIQUE (user_id, name)
 );
 
 -- 3. modules table
@@ -137,6 +139,25 @@ CREATE TABLE public.activity_log (
   created_at timestamp with time zone DEFAULT now() NOT NULL
 );
 
+-- 10. pyq_progress table
+CREATE TABLE public.pyq_progress (
+  id uuid DEFAULT gen_random_uuid() PRIMARY KEY,
+  user_id uuid REFERENCES public.profiles(id) ON DELETE CASCADE NOT NULL,
+  question_id text NOT NULL,
+  attempted boolean NOT NULL DEFAULT false,
+  solved boolean NOT NULL DEFAULT false,
+  incorrect boolean NOT NULL DEFAULT false,
+  bookmarked boolean NOT NULL DEFAULT false,
+  marked_for_review boolean NOT NULL DEFAULT false,
+  attempt_count integer NOT NULL DEFAULT 0,
+  time_taken integer NOT NULL DEFAULT 0,
+  last_attempt timestamp with time zone,
+  first_solved timestamp with time zone,
+  created_at timestamp with time zone DEFAULT now() NOT NULL,
+  updated_at timestamp with time zone DEFAULT now() NOT NULL,
+  UNIQUE(user_id, question_id)
+);
+
 -- ENABLE ROW LEVEL SECURITY
 ALTER TABLE public.profiles ENABLE ROW LEVEL SECURITY;
 ALTER TABLE public.subjects ENABLE ROW LEVEL SECURITY;
@@ -147,6 +168,7 @@ ALTER TABLE public.revisions ENABLE ROW LEVEL SECURITY;
 ALTER TABLE public.roadmap ENABLE ROW LEVEL SECURITY;
 ALTER TABLE public.roadmap_items ENABLE ROW LEVEL SECURITY;
 ALTER TABLE public.activity_log ENABLE ROW LEVEL SECURITY;
+ALTER TABLE public.pyq_progress ENABLE ROW LEVEL SECURITY;
 
 -- CREATE RLS SECURITY POLICIES (Strictly restrict to authorized email)
 -- 1. Profiles Policy
@@ -248,6 +270,12 @@ USING (
 -- 9. Activity Log Policy
 CREATE POLICY "Allow read/write access to activity log for authorized user only"
 ON public.activity_log
+FOR ALL
+USING (auth.jwt() ->> 'email' = 'tanmayraj1705@gmail.com' AND auth.uid() = user_id);
+
+-- 10. PYQ Progress Policy
+CREATE POLICY "Allow read/write access to pyq_progress for authorized user only"
+ON public.pyq_progress
 FOR ALL
 USING (auth.jwt() ->> 'email' = 'tanmayraj1705@gmail.com' AND auth.uid() = user_id);
 

@@ -1,0 +1,2620 @@
+{
+    "subject": "Programming and Data Structures",
+    "topic": "Trees",
+    "questionCount": 41,
+    "questions": [
+        {
+            "id": "PDS_TREES_2021_Q01",
+            "subject": "Programming and Data Structures",
+            "topic": "Trees",
+            "subtopic": "Implementation of Tree",
+            "year": 2021,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 1,
+            "tags": [
+                "Trees",
+                "Implementation of Tree",
+                "Programming and Data Structures"
+            ],
+            "question": {
+                "text": "[GATE-2023 2M] \n\nLet A be a priority queue for maintaining a set of \nelements. Suppose A is implemented using a max-\nheap data structure. The operation EXTRACT-\nMAX(A) extracts and deletes the maximum element \nfrom A. The operation INSERT(A, key) inserts a \nnew element key in A. The properties of a max-heap \nare preserved at the end of each of these operations. \nWhen A contains n elements, which one of the \nfollowing statements about the worst case running \ntime of these two operations is TRUE?",
+                "images": [
+                    "assets/Programming and Data Structures/PDS_Trees_P81_X7379.png"
+                ],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "Both EXTRACT-MAX(A) and INSERT(A, \nkey) run in O(1).",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "Both EXTRACT-MAX(A) and INSERT(A, \nkey) run in O(log(n)).",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "EXTRACT-MAX(A) runs in O(1) whereas \nINSERT(A, key) runs in O(n).",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "EXTRACT-MAX(A) runs in O(1) whereas \nINSERT(A, key) runs in O(log(n)).",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "B"
+            ],
+            "solution": {
+                "text": "Suppopse we have a max heap \n\n\nArray Representation: \n\n\n\n\nStructure after delete an element:      \n\n\nSwap last with first element: \n[Now Heapify] \nOperations: \n         A[1]: Max element \n\nSwap A[1] \\rightarrow A[n] \n\nn = n - 1 \n\n\n\n\n\nDelete element 100: \n\n\nSwap 90 with 20: \n\n\nApply heapify method: \n\nHeapify method will take O(n) time. \n\n\nHeight of heap = O(logn) \n\nEXTRACT Max = O(logn)time \n\nINSERT: \n\nSuppose a max heap \n\n\n\nInsert 200 in given heap \n\nInsert (A,key) ⇒ O(logn) \n\n\n\nParent is smallelr (swap) \n\n\n200 is greater than 80. So, we need to swap  \n\n\nNow, a max-heap \n\nTotal inertion time = O(logn) \n\nSo, operation will take O(n) time.",
+                "images": [
+                    "assets/Programming and Data Structures/PDS_Trees_P87_X7887.png",
+                    "assets/Programming and Data Structures/PDS_Trees_P87_X7889.png",
+                    "assets/Programming and Data Structures/PDS_Trees_P87_X7890.png",
+                    "assets/Programming and Data Structures/PDS_Trees_P87_X7892.png",
+                    "assets/Programming and Data Structures/PDS_Trees_P87_X7894.png",
+                    "assets/Programming and Data Structures/PDS_Trees_P87_X7895.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "PDS_TREES_2023_Q02",
+            "subject": "Programming and Data Structures",
+            "topic": "Trees",
+            "subtopic": "INSERT(A, key) runs in O(log(n)).",
+            "year": 2023,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 2,
+            "tags": [
+                "Trees",
+                "INSERT(A, key) runs in O(log(n)).",
+                "Programming and Data Structures"
+            ],
+            "question": {
+                "text": "Which one of the following sequences when stored \nin an array at locations  \n          A[1], . . . , A[10] forms a max-heap?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "23, 17, 10, 6, 13, 14, 1, 5, 7, 12",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "23, 17, 14, 7, 13, 10, 1 ,5, 6, 12",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "23, 17, 14, 6, 13, 10, 1, 5, 7, 15",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "23, 14, 17, 1, 10, 13, 16, 12, 7, 5",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "B"
+            ],
+            "solution": {
+                "text": "Max heap : every node satisfy  \n\n x >( c1, c2 ) \n\nNode value > its child value \n\n\n14 must be parent. \n\nIt is satisfying all the property of Max- Heap. \n\nLike that we will check option c and d.",
+                "images": [
+                    "assets/Programming and Data Structures/PDS_Trees_P89_X8175.png",
+                    "assets/Programming and Data Structures/PDS_Trees_P89_X8177.png",
+                    "assets/Programming and Data Structures/PDS_Trees_P89_X8179.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "PDS_TREES_2020_Q03",
+            "subject": "Programming and Data Structures",
+            "topic": "Trees",
+            "subtopic": "23, 14, 17, 1, 10, 13, 16, 12, 7, 5",
+            "year": 2020,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 3,
+            "tags": [
+                "Trees",
+                "23, 14, 17, 1, 10, 13, 16, 12, 7, 5",
+                "Programming and Data Structures"
+            ],
+            "question": {
+                "text": "Consider the array representation of a binary min-\nheap containing 1023 elements. The minimum \nnumber of comparisons required to find the maximum \nin the heap is_____.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "511"
+            ],
+            "solution": {
+                "text": "In a min-heap the maximum element can be present \nat a leaf node. \n\nProperty of min heap \n\nFor any node x \n\nx\nc ,c\n\n\n\n\nLargest among x, c1, c2 cannot be x. \n\nEither of child can be maximum \n\n Greatest element can be at a node which does not \nhave any child \\Rightarrow leaf node. \n\nNumber of leaf node a heap with n element = n\n\n\n\n\n\n\n\n\nIn the question, n = 1023 \n\nNumber of leaf nodes = 1023\n\n\n\n\n\n\n= 512 \n\nTo find max among 10 elements \\Rightarrow 9 comparisons \nare required \n\nTo find max among n element \\Rightarrow (n-1) comparisons \nare required \n\nTo find max among 512 element \\Rightarrow (512 -1) \ncomparisons are required \n\n = 511 comparisons.",
+                "images": [
+                    "assets/Programming and Data Structures/PDS_Trees_P89_X8181.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "PDS_TREES_2019_Q04",
+            "subject": "Programming and Data Structures",
+            "topic": "Trees",
+            "subtopic": "in the heap is_____.",
+            "year": 2019,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 4,
+            "tags": [
+                "Trees",
+                "in the heap is_____.",
+                "Programming and Data Structures"
+            ],
+            "question": {
+                "text": "Consider the following statements: \n\nI. \nThe smallest element in a max-heap is always \nat a leaf node \n\nII. The second largest element in a max-heap is \nalways a child of a root node \n\nIII. A max-heap can be constructed from a binary \nsearch tree in (n) time \n\nIV. A binary search tree can be constructed from a \nmax-heap in (n) time \n\nWhich of the above statements are TRUE?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "I, II and III",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "I, II and IV",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "I, III and IV",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "II, III and IV",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "A"
+            ],
+            "solution": {
+                "text": "I.  First statement is true as in a max-heap, the \nsamllest element can not be a node having some \nchild. \n\n              x > c1, c2 \n\nSo, the smallest can be either c1 and c2 \n\nII. 2nd largest elements is a max-heap most be at \nlevel 1. So, this statement is also correct. \n\nIII. Third statement is true as we can use build-\nheap method to construct the heap in  (N) \ntime. \n\nIV. is false because it will take O(n logn) time \n\nSo, (a) is correct.",
+                "images": [
+                    "assets/Programming and Data Structures/PDS_Trees_P89_X8183.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "PDS_TREES_2021_Q05",
+            "subject": "Programming and Data Structures",
+            "topic": "Trees",
+            "subtopic": "Which of the above statements are TRUE?",
+            "year": 2021,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 5,
+            "tags": [
+                "Trees",
+                "Which of the above statements are TRUE?",
+                "Programming and Data Structures"
+            ],
+            "question": {
+                "text": "Let H be a binary min-heap consisting of n elements \nimplemented as an array. What is the worst case time \ncomplexity of an optimal algorithm to find the \nmaximum element in H?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "(1)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "(log n)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "(n)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "(n log n)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "C"
+            ],
+            "solution": {
+                "text": "In a min-heap, every node satisfy the property that \nnode-value is samller than child- value. \n\n\n\n\n          x < c1, c2 \n\ni,e the largest among node and children can not be \nnode i.e only child can be larger. \n\nSo, a node with some child can not be largest i.e \nlargest element must not have any child.  \n\n⇒ Only leaf nodes can have largest element \n\nAlmost n\n\n\n\n\n\n\n number of leaf nodes are present in a \nheap to find largest among these \n( )\nn\nO\nO n\n\n=\n\n\n\n\n\nleaves possible  \n\nNumber of compareisons for n elemnts =O(n) = \n (n)",
+                "images": [
+                    "assets/Programming and Data Structures/PDS_Trees_P90_X8183.png",
+                    "assets/Programming and Data Structures/PDS_Trees_P90_X8252.png",
+                    "assets/Programming and Data Structures/PDS_Trees_P90_X8254.png",
+                    "assets/Programming and Data Structures/PDS_Trees_P90_X8256.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "PDS_TREES_2017_Q06",
+            "subject": "Programming and Data Structures",
+            "topic": "Trees",
+            "subtopic": "maximum element in H?",
+            "year": 2017,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 6,
+            "tags": [
+                "Trees",
+                "maximum element in H?",
+                "Programming and Data Structures"
+            ],
+            "question": {
+                "text": "Consider \nthe \nfollowing \narray \nof \nelements  \n〈89,19,50,17,12,15,2,5,7,11,6,9,100〉. \n\nThe minimum number of interchanges needed to \nconvert it into a max-heap is",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "4",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "5",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "2",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "3",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "D"
+            ],
+            "solution": {
+                "text": "The given question is saying about build-heap \nalgorithm. \n\nGiven,  \n\n89, 19, 50, 17, 12, 15, 2, 5, 7, 11, 6, 9, 100 \n\nCorresponding heap: \n\n\n\n\n Swap \n\nWe need to work internal nodes \n\n 1,2,3,4,5,6 \n(1) \nwith index 6\n\n\n\n\n\n\n\n\n\nBuild- Heap \n\nWith index 3 \n\n\nIndex 2 \\Rightarrow heap prop. Already satisfied  \n\n\nTotal 3 swaps required. So, option (d) is the correct \nanswer.",
+                "images": [
+                    "assets/Programming and Data Structures/PDS_Trees_P90_X8250.png",
+                    "assets/Programming and Data Structures/PDS_Trees_P90_X8258.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "PDS_TREES_2016_Q07",
+            "subject": "Programming and Data Structures",
+            "topic": "Trees",
+            "subtopic": "convert it into a max-heap is",
+            "year": 2016,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 7,
+            "tags": [
+                "Trees",
+                "convert it into a max-heap is",
+                "Programming and Data Structures"
+            ],
+            "question": {
+                "text": "A complete binary min-heap is made by including \neach integer in [1,1023] exactly once. The depth of a \nnode in the heap is the length of the path from the \nroot of the heap to that node. Thus, the root is at \ndepth 0. The maximum depth at which integer 9 can \nappear is _______.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "8"
+            ],
+            "solution": {
+                "text": "N< c1, c2 . In min-heap, every node is smaller than \nits child.  \n\n\n\n2nd smaller cannot go beyond level 1. \n\nkth smallest cannot be beyond (k-1) level  \n\nWhy \\Rightarrow there are only (k -1) smaller elements than \nkth smallest and path from root to kth smallest must \ngo through these (k-1) elements.  \n\nEnsure: Enough nodes \n\nLevel 0 \\rightarrow 2º = 1 \n\nLevel 1 \\rightarrow 21 = 2 \n\nupto level 1 = 21+1 -1 = 3 \n\nupto level 2 22+1 - = 7 \n\n             : \n             : \n\nupto level 7 \\Rightarrow 27+1-1 = 28-1 = 255 \n\nupto level 8th \\Rightarrow 28+1 = 511 \n\nWe are having more than 511. \n\n Deepest level for 9 is 8 \n\n\nSo, 8 is the correct answer.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "PDS_TREES_2016_Q08",
+            "subject": "Programming and Data Structures",
+            "topic": "Trees",
+            "subtopic": "appear is _______.",
+            "year": 2016,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 8,
+            "tags": [
+                "Trees",
+                "appear is _______.",
+                "Programming and Data Structures"
+            ],
+            "question": {
+                "text": "An operator delete(i) for a binary heap data structure \nis to be designed to delete the item in the i-th node. \nAssume that the heap is implemented in an array and \ni refers to the i-th index of the array. If the heap tree \nhas depth d (number of edges on the path from the \nroot to the farthest leaf), then what is the time \ncomplexity to re-fix the heap efficiently after the \nremoval of the element?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "O(1)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "O(d) but not O(1)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "O(2d) but not O(d)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "O(d2d) but not O(2d)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "B"
+            ],
+            "solution": {
+                "text": "Delete (i) \\rightarrow delete ith element  \n\nO(1) time \n\nBut we need to maintain heap property after deletion  \n\nTo delete ith element \\Rightarrow replace it with last element \n          i.e.  A[i] A [n] \n\nThe, n = n -1 \n\nApply Heapify algorithm to re- fix the heap \n\nIt takess \\Rightarrow O (logn) time in worst case \n\nBut here it is given that d is the depth \n\nSo, heapify will take O(d).  \n\nTherefore, option (b) is the correct answer.",
+                "images": [
+                    "assets/Programming and Data Structures/PDS_Trees_P91_X8313.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "PDS_TREES_2014_Q09",
+            "subject": "Programming and Data Structures",
+            "topic": "Trees",
+            "subtopic": "removal of the element?",
+            "year": 2014,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 9,
+            "tags": [
+                "Trees",
+                "removal of the element?",
+                "Programming and Data Structures"
+            ],
+            "question": {
+                "text": "Consider the C function given below. Assume that \nthe array list A contains 𝑛 (> 0) elements, sorted in \nascending order. \n\nint ProcessArray (int *list A, int x, int n){ \n\n𝑖𝑛𝑡 𝑖, 𝑗, 𝑘; \n\n𝑖 = 0; \n\n𝑗 = 𝑛 − 1; \n\n𝑑𝑜 { \n\n𝑘 = ( 𝑖 + 𝑗 ) / 2; \n\n𝑖𝑓 ( 𝑥 < = 𝑙𝑖𝑠𝑡𝐴[𝑘] ) \n\n𝑗 = 𝑘 − 1; \n\n𝐼𝑓 ( 𝑙𝑖𝑠𝑡𝐴 [𝑘] < = 𝑥 ) \n\n𝑖 = 𝑘 + 1; \n\n} \n          𝑤ℎ𝑖𝑙𝑒 ( 𝑖 < = 𝑗 ); \n         𝑖𝑓( 𝑙𝑖𝑠𝑡𝐴[𝑘] = = 𝑥 ) return ( k ); \n\nelse \n\nreturn - 1;} \n\nWhich one of the following statements about the \nfunction Process Array is CORRECT?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "It will run into an infinite loop when x is not in \nlist A.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "It is an implementation of binary search.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "It will always find the maximum element in list \nA",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "It will return - 1 even when x is present in list \nA.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "B"
+            ],
+            "solution": {
+                "text": "Given code is Implementation of binary search \nwhenever we found the target element i.e. x both if \nconditions become true. \n\nCode for first if: \n\nj =k - 1 \\Rightarrow update j to k - 1 \n\nCode of second if: \n\ni = k + 1 \n\nj\nk\ni\nk\n=\n−\n\n=\n+ \n\n\n i > j \n\n Condition inside while loop become false and we \ncome out of loop. \n\nSo, given code is an implementation of binary \nsearch.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "PDS_TREES_2014_Q10",
+            "subject": "Programming and Data Structures",
+            "topic": "Trees",
+            "subtopic": "A.",
+            "year": 2014,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 10,
+            "tags": [
+                "Trees",
+                "A.",
+                "Programming and Data Structures"
+            ],
+            "question": {
+                "text": "Consider the pseudocode given below. The function  \nDoSomething ( ) takes as a argument a pointer to the \nroot of an arbitrary tree represented by the   \nleftMostChild - rightSibling representation. Each \nnode of the tree is of type treeNode. \n\ntypedef struct treeNode* treeptr; \n\nstruct treeNode \n         { \n\ntreeptr leftMostChild, rightSibling; \n\n}; \n\nint DoSomething (treeptr tree) \n          { \n\nint value = 0; \n\nif (tree ! = NULL) { \n       if (tree \\rightarrow left MostChild = = NULL) value = 1; \n       else \n          value = DoSomething(tree \\rightarrow leftMostChild); \n       value = value + DoSomething(tree \\rightarrow rightSibling); \n\n} \n\nreturn (value); \n\n} \n          When the pointer to the root of a tree is passed as the \nargument to DoSomething, the value returned by \nthye function corresponds to the",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "number of internal nodes in the tree.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "height of the tree.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "number of nodes without a right sibling in the \ntree.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "number of leaf nodes in the tree.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "D"
+            ],
+            "solution": {
+                "text": "Current node is a leaf node \n\n// if left most child pointer is NULL \n\n there is no child of node under consideration.  \n\n\nIf there is no left child we are counting the \nnumber of leaf nodes.",
+                "images": [
+                    "assets/Programming and Data Structures/PDS_Trees_P92_X8373.png",
+                    "assets/Programming and Data Structures/PDS_Trees_P92_X8379.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "PDS_TREES_2014_Q11",
+            "subject": "Programming and Data Structures",
+            "topic": "Trees",
+            "subtopic": "tree.",
+            "year": 2014,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 11,
+            "tags": [
+                "Trees",
+                "tree.",
+                "Programming and Data Structures"
+            ],
+            "question": {
+                "text": "A priority queue is implemented as Max-Heap. \nInitially, it has 5 elements. The level-order traversal \nof the heap is:  10, 8, 5, 3, 2. Two new elements 1 \nand 7 are inserted into the heap in that order. The \nlevel-order traversal of the heap after the insertion \nof the elements is:",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "10, 8, 7, 3, 2, 1, 5",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "10, 8, 7, 2, 3, 1, 5",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "10, 8, 7, 1, 2, 3, 5",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "10, 8, 7, 5, 3, 2, 1",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "A"
+            ],
+            "solution": {
+                "text": "Initial: \n\n\n\n\n\nLevel order traversal of max heap  \n\n= 10, 8, 7, 3, 2, 1, 5",
+                "images": [
+                    "assets/Programming and Data Structures/PDS_Trees_P91_X8307.png",
+                    "assets/Programming and Data Structures/PDS_Trees_P91_X8309.png",
+                    "assets/Programming and Data Structures/PDS_Trees_P91_X8311.png",
+                    "assets/Programming and Data Structures/PDS_Trees_P91_X8315.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "PDS_TREES_2011_Q12",
+            "subject": "Programming and Data Structures",
+            "topic": "Trees",
+            "subtopic": "of the elements is:",
+            "year": 2011,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 12,
+            "tags": [
+                "Trees",
+                "of the elements is:",
+                "Programming and Data Structures"
+            ],
+            "question": {
+                "text": "A max-heap is a heap where the value of each parent \nis greater than or equal to the value of its children. \nWhich of the following is a max-heap?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "Statements for linked answer for next two \nquestion(13 & 14)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "B"
+            ],
+            "solution": {
+                "text": "Max- heap \n\nSatisfy max heap property only option (b) \n\n\n3. \n(c) \n\n(a) \nParent must be greater.  \n\n\n\n\n\n13 is greater than 12 (Parent)  \n\n\nNot a max-heap \n\n(b) \n\n\n\nNot a max heap because 16 must be parent of 14 and \n10. \n\n(c) \n\n\n(d)",
+                "images": [
+                    "assets/Programming and Data Structures/PDS_Trees_P91_X8307.png",
+                    "assets/Programming and Data Structures/PDS_Trees_P91_X8309.png",
+                    "assets/Programming and Data Structures/PDS_Trees_P91_X8311.png",
+                    "assets/Programming and Data Structures/PDS_Trees_P91_X8315.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "PDS_TREES_2009_Q13",
+            "subject": "Programming and Data Structures",
+            "topic": "Trees",
+            "subtopic": "question(13 & 14)",
+            "year": 2009,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 13,
+            "tags": [
+                "Trees",
+                "question(13 & 14)",
+                "Programming and Data Structures"
+            ],
+            "question": {
+                "text": "Which one of the following array represents a binary \nmax-heap?",
+                "images": [
+                    "assets/Programming and Data Structures/PDS_Trees_P83_X7569.png"
+                ],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "{25, 12, 16, 13, 10, 8, 14}",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "{25, 14, 13, 16, 10, 8, 12}",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "{25, 14, 16, 13, 10, 8, 12}",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "{25, 14, 12, 13, 10, 8, 16}",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "C"
+            ],
+            "solution": {
+                "text": "",
+                "images": [
+                    "assets/Programming and Data Structures/PDS_Trees_P87_X931.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "PDS_TREES_2009_Q14",
+            "subject": "Programming and Data Structures",
+            "topic": "Trees",
+            "subtopic": "max-heap?",
+            "year": 2009,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 14,
+            "tags": [
+                "Trees",
+                "max-heap?",
+                "Programming and Data Structures"
+            ],
+            "question": {
+                "text": "Consider a binary max-heap implemented using an \narray. \n\nWhat is the content of the array after two delete \noperations on the correct answer to the previous \nquestion?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "{ 14, 13, 12, 10, 8 }",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "{ 14, 12, 13, 8, 10 }",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "{ 14, 13, 8, 12, 10 }",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "{ 14, 13, 12, 8, 10 }",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "D"
+            ],
+            "solution": {
+                "text": "n = 7 \n\nA = [1]  A [n] swap root element with last \nelement. \n\nn = n -1 \n\nheapify on A [1] \n\n\nanother delete \n(i) swap 12, 16 \n\n\n\n\n\n(ii) n = n-1 \n\n\n\n\n\n (iii)  Heapify",
+                "images": [
+                    "assets/Programming and Data Structures/PDS_Trees_P92_X8377.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "PDS_TREES_2008_Q15",
+            "subject": "Programming and Data Structures",
+            "topic": "Trees",
+            "subtopic": "question?",
+            "year": 2008,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 15,
+            "tags": [
+                "Trees",
+                "question?",
+                "Programming and Data Structures"
+            ],
+            "question": {
+                "text": "We have a binary heap on n elements and wish to \ninsert n more elements (not necessarily one after \nanother) into this heap. The total time required for \nthis is:",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "(\n)\n\nlog n\n",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "( )\nn\n",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "(\n)\n\n\n\nn log n\n",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "(\n)\nn\n\n\nTree Traversal",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "B"
+            ],
+            "solution": {
+                "text": "1 insert O (logn) \n(i) Inset n element without anything \n(ii) Apply build heap algorithm on 2n element  \n\nTime Complexity = O(2n) = O(n)",
+                "images": [
+                    "assets/Programming and Data Structures/PDS_Trees_P92_X8377.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "PDS_TREES_2023_Q16",
+            "subject": "Programming and Data Structures",
+            "topic": "Trees",
+            "subtopic": "Tree Traversal",
+            "year": 2023,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 16,
+            "tags": [
+                "Trees",
+                "Tree Traversal",
+                "Programming and Data Structures"
+            ],
+            "question": {
+                "text": "Consider the C function foo and the binary tree \nshown. \ntypedef struct node { \n     int val; \n    struct node *left, *right; \n} node; \nint foo( node *p ) { \n   int retval; \n   if ( p = = NULL ) \n       return 0; \n   else { \n   retval = p \\rightarrow val + foo( p  \\rightarrow left ) + foo( p →right \n); \n      printf( \"%d \", retval ); \n      return retval; \n   } \n} \n\nWhen foo is called with a pointer to the root node of \nthe given binary tree, what will it print?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "3 8 5 13 11 10",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "3 5 8 10 11 13",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "3 8 16 13 24 50",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "3 16 8 50 24 13",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "C"
+            ],
+            "solution": {
+                "text": "P is a root node  \n\n\nOutput = 3, 8, 16, 13, 24, 50 \n\nOutput matched with option (c)",
+                "images": [
+                    "assets/Programming and Data Structures/PDS_Trees_P93_X8423.png",
+                    "assets/Programming and Data Structures/PDS_Trees_P93_X8433.png",
+                    "assets/Programming and Data Structures/PDS_Trees_P93_X8429.png",
+                    "assets/Programming and Data Structures/PDS_Trees_P93_X8431.png",
+                    "assets/Programming and Data Structures/PDS_Trees_P93_X8433.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "PDS_TREES_2021_Q17",
+            "subject": "Programming and Data Structures",
+            "topic": "Trees",
+            "subtopic": "3 16 8 50 24 13",
+            "year": 2021,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 17,
+            "tags": [
+                "Trees",
+                "3 16 8 50 24 13",
+                "Programming and Data Structures"
+            ],
+            "question": {
+                "text": "Consider the following statements. \nS1: The sequence of procedure calls corresponds to \na preorder traversal of the activation tree. \nS2: The sequence of procedure returns corresponds \nto a postorder traversal of the activation tree. \nWhich one of the following options is correct?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "S1 is true and S2 is false",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "S1 is false and S2 is true",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "S1 is true and S2 is true",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "S1 is false and S2 is false",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "C"
+            ],
+            "solution": {
+                "text": "S1 : Ture \n\nTo perform func/procedure calls. \n\nA functioni/procedure (parent) \n\nmust call child functions \n\nMain A( )  \n\n{ \n\nA( ); \n\nB( ); \n\n} \n\nA( ) \n\n{ \n\nC( ); \n\n\nD( ); \n\n} \n\nC( ) \n\n{ \n\n- \n\n- \n\n} \n\nD( ) \n\n{ \n\n- \n\n- \n\n} \n\n\n\n\n\nS2: True because in order that parent func return its \nvaule, its child must provide (return) value to it. \n\nMain () \n\n{ \n\nInt s; \n\nS = A( ) + B( ) \n\nPf (\"%d, S\") \n\n} \n\nInt A( ) \n\n{ \n\nReturn (C) + D( ); \n\n} \n\nInt B( ) \n\n{ \n\nRetrun 1; \n\n} \n\nint  \n\nC( ); \n\n{ \n\nreturn 2 \n\n} \n\nint D( ) \n\n{ \n\nreturn 3; \n\n} \n\nProcedure return call: \n\n\nProcedure return call = C ( ), D( ), A( ), B( ), S \n\nIt is nothing but post order.",
+                "images": [
+                    "assets/Programming and Data Structures/PDS_Trees_P93_X8423.png",
+                    "assets/Programming and Data Structures/PDS_Trees_P93_X8433.png",
+                    "assets/Programming and Data Structures/PDS_Trees_P93_X8429.png",
+                    "assets/Programming and Data Structures/PDS_Trees_P93_X8431.png",
+                    "assets/Programming and Data Structures/PDS_Trees_P93_X8433.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "PDS_TREES_2020_Q18",
+            "subject": "Programming and Data Structures",
+            "topic": "Trees",
+            "subtopic": "S1 is false and S2 is false",
+            "year": 2020,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 18,
+            "tags": [
+                "Trees",
+                "S1 is false and S2 is false",
+                "Programming and Data Structures"
+            ],
+            "question": {
+                "text": "The preorder traversal of a binary search tree is 15 \n10, 12, 11, 20, 18, 16, 19. \n\nWhich one of the following is the postorder traversal \nof the tree?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "20, 19, 18, 16, 15, 12, 11, 10",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "11, 12, 10, 16, 19, 18, 20, 15",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "19, 16, 18, 20, 11, 12, 10, 15",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "10, 11, 12, 15, 16, 18, 19, 20",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "B"
+            ],
+            "solution": {
+                "text": "The in-order traversal of a BST is increasing order \nof keys.  \n\n\n\nWe know, first element of preorder traversal is the \nroot node of entire tree.   \n\nMark this node in Inorder traversal  \n\nNow we will insert 10 (next node in preorder) in the \nBST. \n\n to find the position of 10 \n          \\Rightarrow just check position of 10 in Inorder traversal \nw.r.t. the marked node. \n\n{10 is the left of 15}  \n\nSimilarly, finding position for each other element \n\nNow we can find the post-order traversal \n\n\n\nPost-order traversal: 11,12, 10, 16, 19, 18, 20, 15. \nTherefore, option B is the correct answer.",
+                "images": [
+                    "assets/Programming and Data Structures/PDS_Trees_P95_X8589.png",
+                    "assets/Programming and Data Structures/PDS_Trees_P95_X8591.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "PDS_TREES_2018_Q19",
+            "subject": "Programming and Data Structures",
+            "topic": "Trees",
+            "subtopic": "of the tree?",
+            "year": 2018,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 19,
+            "tags": [
+                "Trees",
+                "of the tree?",
+                "Programming and Data Structures"
+            ],
+            "question": {
+                "text": "The postorder traversal of a binary tree is \n8,9,6,7,4,5,2,3,1. The inorder traversal of the same \ntree is 8,6,9,4,7,2,5,1,3. The height of a tree is the \nlength of the longest path from the root to any leaf. \nThe height of the binary tree above is ______",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "4"
+            ],
+            "solution": {
+                "text": "Height = 4 of the tree.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "PDS_TREES_2017_Q20",
+            "subject": "Programming and Data Structures",
+            "topic": "Trees",
+            "subtopic": "The height of the binary tree above is ______",
+            "year": 2017,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 20,
+            "tags": [
+                "Trees",
+                "The height of the binary tree above is ______",
+                "Programming and Data Structures"
+            ],
+            "question": {
+                "text": "The pre-order traversal of a binary search tree is \ngiven by 12,8,6,2,7,9,10,16,15,19,17,20. Then the \npost-order traversal of this tree is:",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "2,6,7,8,9,10,12,15,16,17,19,20",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "2,7,6,10,9,8,15,17,20,19,16,12",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "7,2,6,8,9,10,20,17,19,15,16,12",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "7,6,2,10,9,8,15,16,17,20,19,12",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "B"
+            ],
+            "solution": {
+                "text": "The Inorder traversal of a BST is increasing order of \nkeys.  \n\nInorder: Left subtree- Root Node- Right subtree \n\nPre-order: Root Node- Left subtree - Right subtree \n\n\n\n\nPost-order traversal of this tree: 2, 7, 6, 10, 9, 8, 15, \n17, 20 19, 12. So, option (b) is the correct answer.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "PDS_TREES_2015_Q21",
+            "subject": "Programming and Data Structures",
+            "topic": "Trees",
+            "subtopic": "post-order traversal of this tree is:",
+            "year": 2015,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 21,
+            "tags": [
+                "Trees",
+                "post-order traversal of this tree is:",
+                "Programming and Data Structures"
+            ],
+            "question": {
+                "text": "Which of the following is/are correct inorder \ntraversal sequence(s) of binary search tree(s)? \n\n1. 3, 5, 7, 8, 15, 19, 25 \n\n2. 5, 8, 9, 12, 10, 15, 25 \n\n3. 2, 7, 10, 8, 14, 16, 20 \n\n4. 4, 6, 7, 9, 18, 20, 25",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "1 and 4 only",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "2 and 3 only",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "2 and 4 only",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "2 only",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "A"
+            ],
+            "solution": {
+                "text": "In-order traversal of a BST is increasing order of \nkeys. \n1. Increasing order of keys (🗸) \n2. Not increasing order of key cannot be in-order \ntraversal of a BST (×) \n3. Not increasing order of keys (×) \n4. Increasing order of keys (🗸) \nOnly 1 and 4 are Inorder traversals, therefore, option \na is correct answer.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "PDS_TREES_2013_Q22",
+            "subject": "Programming and Data Structures",
+            "topic": "Trees",
+            "subtopic": "traversal sequence(s) of binary search tree(s)?",
+            "year": 2013,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 22,
+            "tags": [
+                "Trees",
+                "traversal sequence(s) of binary search tree(s)?",
+                "Programming and Data Structures"
+            ],
+            "question": {
+                "text": "The preorder traversal sequence of a binary search \ntree is 30, 20, 10, 15, 25, 23, 39, 35, 42. Which one \nof the following is the postorder traversal sequence \nof the same tree?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "10, 20, 15, 23, 25, 35, 42, 39, 30",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "15, 10, 25, 23, 20, 42, 35, 39, 30",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "15, 20, 10, 23, 25, 42, 35, 39, 30",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "15, 10, 23, 25, 20, 35, 42, 39, 30",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "D"
+            ],
+            "solution": {
+                "text": "BST: The in-order traversal is increasing order of \nkeys.  \n\n\nInsert nodes in the tree from left to right in pre-\norder. \n\nBecause pre-order gives first node as a root nods  \n\n\nTree: \n\n\nPost order = 15, 10, 23, 25, 20, 35, 42, 39, 30",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "PDS_TREES_2008_Q23",
+            "subject": "Programming and Data Structures",
+            "topic": "Trees",
+            "subtopic": "of the same tree?",
+            "year": 2008,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 23,
+            "tags": [
+                "Trees",
+                "of the same tree?",
+                "Programming and Data Structures"
+            ],
+            "question": {
+                "text": "The following three are known to be the preorder, \ninorder and postorder sequences of a binary tree. But \nit is not known which is which. \nI. \nMBCAFHPYK \nII. KAMCBYPFH \n III.  MABCKYFPH \n Pick the true statement from the following.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "I and II are preorder and inorder sequences, \nrespectively",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "I and III are preorder and postorder sequences, \nrespectively",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "II is the inorder sequence, but nothing more \ncan be said about the other two sequences",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "II and III are the preorder and inorder \nsequences, respectively",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "D"
+            ],
+            "solution": {
+                "text": "I.  MBCAFHPYK \nPreorder: Root, LT, RT \n\nII.  KAMCBYPFH \nPostorder: LT, RT, Root \n\nIII.  MABCKYFPH \n\nLet I be preorder  \n\n Root \\Rightarrow M \n\n\nOut of II and III one must be the postorder & \ntherefore M must be the lost node in any then but it \nis not. \n\nHence, I is not preorder  \n\nLet II be preorder  \n\n K is root node I has k in last  \n\n I is postorder \n\n& remaining trarversal i.e. III is Inorder.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "PDS_TREES_2022_Q24",
+            "subject": "Programming and Data Structures",
+            "topic": "Trees",
+            "subtopic": "sequences, respectively",
+            "year": 2022,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 24,
+            "tags": [
+                "Trees",
+                "sequences, respectively",
+                "Programming and Data Structures"
+            ],
+            "question": {
+                "text": "Suppose a binary search tree with 1000 distinct \nelements is also a complete binary tree. The tree is \nstored using the array representation of binary heap \ntrees. Assuming that the array indices start with 0, \nthe 3rd largest element of the tree is stored at \nindex_____________.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "509"
+            ],
+            "solution": {
+                "text": "BST: keys are stored in some orderd way \n\nThe in-order traversal is increasing order of keys. \n1. Consider an BST \n\n\n\n\nIn - order : 7 10 20 \n\n2.Take another BST \n\n\n\n\nIn - Order = 3 7 8 11 11 12 \n\nFor a binary tree of height h, if all levels are \nfull,then number of nodes = 2h+1  - 1 \n          If a height is 3 of CBT then number of nodes must \nbe 24 - 1 = 15 \n\n           Height = 3 \n           Level = 4 \n           Number of nodes = 15 \n          If in CBT having L level then number of nodes \n = 2L - 1 \n\n If N = 1000, all the levels are not full. \n\n\n\n\nTill Height 8 or level 9 Number of nodes = 29 - 1 \n         Number of nodes = 511 \n\nFor last level to be full number of nodes = 29 = 512 \n\nNumber of nodes remaining = 1000 - 511 = 489 \n\nIn second last level (256 Nodes) 244 nodes having \n2 child and 1 node having only 1 child and \nremaining  are countion in leaf node.  \n\n3 largest element index value must be 509.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "PDS_TREES_2021_Q25",
+            "subject": "Programming and Data Structures",
+            "topic": "Trees",
+            "subtopic": "index_____________.",
+            "year": 2021,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 25,
+            "tags": [
+                "Trees",
+                "index_____________.",
+                "Programming and Data Structures"
+            ],
+            "question": {
+                "text": "A binary search tree T contains n distinct elements. \nWhat is the time complexity of picking an element \nin T that is smaller than the maximum element in T?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": " (n log n)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": " (n)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": " (log n)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": " (1)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "D"
+            ],
+            "solution": {
+                "text": "We want any element other than maximum or we \ncan say any element which is not maximum would \nbe our element. \n\nSo, we need to pick any 2 elements starting from \nroot node, then return the smaller from these 2 \nelement. \n\n⇒ Complexity would be Θ(1)",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "PDS_TREES_2017_Q26",
+            "subject": "Programming and Data Structures",
+            "topic": "Trees",
+            "subtopic": "in T that is smaller than the maximum element in T?",
+            "year": 2017,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 26,
+            "tags": [
+                "Trees",
+                "in T that is smaller than the maximum element in T?",
+                "Programming and Data Structures"
+            ],
+            "question": {
+                "text": "Let T be a binary search tree with 15 nodes. \n\nThe minimum and maximum possible heights of T \nare: \n\nNote: The height of a tree with a single node is 0.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "4 and 15 respectively",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "3 and 14 respectively",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "4 and 14 respectively",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "3 and 15 respectively",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "B"
+            ],
+            "solution": {
+                "text": "Let n = 5 \n\nMaximum Height can be achieve when minimum \nnodes are present at every level. \n\ni.e. only 1 node at each level. \n\n\n\n\n\nMin. height of a binary tree with 5 nodes \n\n\n\n\nheight = 3  \n\nMinimum height =3 \n\nMaximum height = 14 \n\nTherefore, option B is the correct answer. \n\n\nLet n = 5\nn = 15\nput max.\nnumber of nodes\nat every level",
+                "images": [
+                    "assets/Programming and Data Structures/PDS_Trees_P97_X8725.png",
+                    "assets/Programming and Data Structures/PDS_Trees_P97_X8727.png",
+                    "assets/Programming and Data Structures/PDS_Trees_P97_X8729.png",
+                    "assets/Programming and Data Structures/PDS_Trees_P97_X8731.png",
+                    "assets/Programming and Data Structures/PDS_Trees_P97_X8733.png",
+                    "assets/Programming and Data Structures/PDS_Trees_P97_X8735.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "PDS_TREES_2016_Q27",
+            "subject": "Programming and Data Structures",
+            "topic": "Trees",
+            "subtopic": "Note: The height of a tree with a single node is 0.",
+            "year": 2016,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 27,
+            "tags": [
+                "Trees",
+                "Note: The height of a tree with a single node is 0.",
+                "Programming and Data Structures"
+            ],
+            "question": {
+                "text": "The number of ways in which the numbers \n1,2,3,4,5,6,7 can be inserted in an empty binary \nsearch tree, such that the resulting tree has height 6, \nis _______.  \n\nNote: The height of a tree with a single node is 0.",
+                "images": [],
+                "latex": [],
+                "tables": [
+                    {
+                        "headers": [
+                            "Array Index",
+                            "1",
+                            "2",
+                            "3",
+                            "4",
+                            "5",
+                            "6",
+                            "7",
+                            "8",
+                            "9"
+                        ],
+                        "rows": [
+                            [
+                                "Value",
+                                "40",
+                                "30",
+                                "20",
+                                "10",
+                                "15",
+                                "16",
+                                "17",
+                                "8",
+                                "4"
+                            ]
+                        ]
+                    }
+                ]
+            },
+            "options": [],
+            "correctAnswer": [
+                "64"
+            ],
+            "solution": {
+                "text": "We cannot have any node with 2 child nodes.  \n\nAt every level \\Rightarrow 1 node can be there (either to left \nor to right) \n\nFrom 1st level till 2nd last level 2 choices are there \n\nLast level \\Rightarrow only one choice \n\nFor six levels: 2×2×2×2×2×2×1 = 64",
+                "images": [
+                    "assets/Programming and Data Structures/PDS_Trees_P99_X8854.png",
+                    "assets/Programming and Data Structures/PDS_Trees_P99_X8856.png",
+                    "assets/Programming and Data Structures/PDS_Trees_P99_X8860.png",
+                    "assets/Programming and Data Structures/PDS_Trees_P99_X8862.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "PDS_TREES_2015_Q28",
+            "subject": "Programming and Data Structures",
+            "topic": "Trees",
+            "subtopic": "Note: The height of a tree with a single node is 0.",
+            "year": 2015,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 28,
+            "tags": [
+                "Trees",
+                "Note: The height of a tree with a single node is 0.",
+                "Programming and Data Structures"
+            ],
+            "question": {
+                "text": "While inserting the elements 71,65,84,69,67,83 in an \nempty binary search tree (BST) in the sequence \nshown, the element in the lowest level is",
+                "images": [],
+                "latex": [],
+                "tables": [
+                    {
+                        "headers": [
+                            "Array Index",
+                            "1",
+                            "2",
+                            "3",
+                            "4",
+                            "5",
+                            "6",
+                            "7",
+                            "8",
+                            "9"
+                        ],
+                        "rows": [
+                            [
+                                "Value",
+                                "40",
+                                "30",
+                                "20",
+                                "10",
+                                "15",
+                                "16",
+                                "17",
+                                "8",
+                                "4"
+                            ]
+                        ]
+                    }
+                ]
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "65",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "67",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "69",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "83",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "B"
+            ],
+            "solution": {
+                "text": "71, 65, 84, 69, 67, 83 \n(1) Insert \n\n\n(2) Insert 65    65< \n\n\n\n(3) Insert 84    \n\n\n\n\n(4) Inset 69 \n\n\n\n\n\n\n(5) Insert 67 \n\n\n(6) Insert 83 \n\n\nLowest level element= 67. So, option (b) is the \ncorrect answer.",
+                "images": [
+                    "assets/Programming and Data Structures/PDS_Trees_P98_X8800.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "PDS_TREES_2015_Q29",
+            "subject": "Programming and Data Structures",
+            "topic": "Trees",
+            "subtopic": "shown, the element in the lowest level is",
+            "year": 2015,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 29,
+            "tags": [
+                "Trees",
+                "shown, the element in the lowest level is",
+                "Programming and Data Structures"
+            ],
+            "question": {
+                "text": "A binary tree T has 20 leaves. The number of nodes \nin T having two children is ______",
+                "images": [],
+                "latex": [],
+                "tables": [
+                    {
+                        "headers": [
+                            "Array Index",
+                            "1",
+                            "2",
+                            "3",
+                            "4",
+                            "5",
+                            "6",
+                            "7",
+                            "8",
+                            "9"
+                        ],
+                        "rows": [
+                            [
+                                "Value",
+                                "40",
+                                "30",
+                                "20",
+                                "10",
+                                "15",
+                                "16",
+                                "17",
+                                "8",
+                                "4"
+                            ]
+                        ]
+                    }
+                ]
+            },
+            "options": [],
+            "correctAnswer": [
+                "19"
+            ],
+            "solution": {
+                "text": "Number of nodes with two child = Number of nodes \nwith no child (leaf node) -1 \n\n\n\n\nSo, 19 is the correct answer",
+                "images": [
+                    "assets/Programming and Data Structures/PDS_Trees_P99_X8858.png",
+                    "assets/Programming and Data Structures/PDS_Trees_P99_X8864.png",
+                    "assets/Programming and Data Structures/PDS_Trees_P99_X8866.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "PDS_TREES_2015_Q30",
+            "subject": "Programming and Data Structures",
+            "topic": "Trees",
+            "subtopic": "in T having two children is ______",
+            "year": 2015,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 30,
+            "tags": [
+                "Trees",
+                "in T having two children is ______",
+                "Programming and Data Structures"
+            ],
+            "question": {
+                "text": "Consider a max heap, represented by the array: 40, \n30, 20, 10, 15, 16, 17, 8, 4. \nArray \nIndex \n8 9 \nValue 40 30 20 10 15 16 17 8 4 \n\nNow consider that a value 35 is inserted into this \nheap. After insertion, the new heap is",
+                "images": [],
+                "latex": [],
+                "tables": [
+                    {
+                        "headers": [
+                            "Array Index",
+                            "1",
+                            "2",
+                            "3",
+                            "4",
+                            "5",
+                            "6",
+                            "7",
+                            "8",
+                            "9"
+                        ],
+                        "rows": [
+                            [
+                                "Value",
+                                "40",
+                                "30",
+                                "20",
+                                "10",
+                                "15",
+                                "16",
+                                "17",
+                                "8",
+                                "4"
+                            ]
+                        ]
+                    }
+                ]
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "40, 30, 20, 10, 15, 16, 17, 8, 4, 35",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "40, 35, 20, 10, 30, 16, 17, 8, 4, 15",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "40, 30, 20, 10, 35, 16, 17, 8, 4, 15",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "40, 35, 20, 10, 15, 16, 17, 8, 4, 30",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "B"
+            ],
+            "solution": {
+                "text": "Given, 40, 30, 20, 10, 15, 16, 17, 8, 4 \n\nCorresponding heap: \n\n\n\n\n\n\n\nSo, 40, 35, 20, 10, 30, 16, 17, 8, 4, 15. Option b is the \ncorrect answer.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "PDS_TREES_2015_Q31",
+            "subject": "Programming and Data Structures",
+            "topic": "Trees",
+            "subtopic": "heap. After insertion, the new heap is",
+            "year": 2015,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 31,
+            "tags": [
+                "Trees",
+                "heap. After insertion, the new heap is",
+                "Programming and Data Structures"
+            ],
+            "question": {
+                "text": "The height of a tree is the length of the longest root-\nto-leaf path in it.  \n\nThe maximum and minimum number of nodes in a \nbinary tree of height 5 are",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "63 and 6, respectively",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "64 and 5, respectively",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "32 and 6, respectively",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "31 and 5, respectively",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "A"
+            ],
+            "solution": {
+                "text": "So, option a is the correct answer.",
+                "images": [
+                    "assets/Programming and Data Structures/PDS_Trees_P100_X8923.png",
+                    "assets/Programming and Data Structures/PDS_Trees_P100_X8925.png",
+                    "assets/Programming and Data Structures/PDS_Trees_P100_X8929.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "PDS_TREES_2014_Q32",
+            "subject": "Programming and Data Structures",
+            "topic": "Trees",
+            "subtopic": "binary tree of height 5 are",
+            "year": 2014,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 32,
+            "tags": [
+                "Trees",
+                "binary tree of height 5 are",
+                "Programming and Data Structures"
+            ],
+            "question": {
+                "text": "Consider a rooted n node binary tree represented \nusing pointers. The best upper bound on the time \nrequired to determine the number of subtrees having \nexactly 4 nodes is  𝑂(𝑛𝑎 log𝑏 𝑛). Then the value of a \n+ 10b is____.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "1"
+            ],
+            "solution": {
+                "text": "we need to use bottom up approach \n\nCount = 0; // global \n\nint f (struct node * Root) \n\n{  \n\nif (Root = = NULL) \n\nreturn 0 ; \n\nint l = f (Root \\rightarrow left); \nInsert 35\n\n\nint r = f (Root \\rightarrow Right); \n\nif (l + r +1 = = 4) \n\ncount + +; \n\nreturn l + r + 1; \n\n} \n\nTime = O(n)  \n\nGiven time = (\n)\na\nb\nO n log n \n\n a = 1 \n\n b = 0 \n\n (\n)\na\nb\nO n log n = a + 10 \\times b = 1 + 10 \\times 0 = 1",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "PDS_TREES_2012_Q33",
+            "subject": "Programming and Data Structures",
+            "topic": "Trees",
+            "subtopic": "+ 10b is____.",
+            "year": 2012,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 33,
+            "tags": [
+                "Trees",
+                "+ 10b is____.",
+                "Programming and Data Structures"
+            ],
+            "question": {
+                "text": "The height of a tree is defined as the number of edges \non the longest path in the tree. The function shown \nin the pseudo-code below is invoked as the height \n(root) to compute the height of a binary tree rooted \nat the tree pointer root. \n\nint height (treeptr n)  \n           { \n\n  if ( n = = NULL) return -1; \n\n  if ( n \\rightarrow left = = null ) \n\n  if ( n \\rightarrow right = = NULL ) return 0; \n\n      else return  B1 ;//Box1 \n\n  else { \n\n      h1 = height (n \\rightarrow left); \n\n      if (n \\rightarrow right = = NULL ) return (1 + h1); \n\n     else { \n\nh2 = height ( n \\rightarrow right ); \n\nreturn  B2 ;//Box2 \n\n     } \n\n  } \n\n} \n\nThe appropriate expression for the two boxes B1 and \nB2 are",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "B1: (1 + height (n \\rightarrow right))  \n\n\nB2: (1 + max (h1, h2))",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "B1: (height (n \\rightarrow right)) \n\n\nB2: (1 + max (h1, h2))",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "B1: height (n \\rightarrow right)) \n\n\nB2:  max (h1, h2)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "B1: (1 + height (n \\rightarrow right)) \n\n\nB2: max (h1, h2))",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "A"
+            ],
+            "solution": {
+                "text": "Height (h) = 3 \n\n\n• \nIf LT = empty and RT = empty \n\n\n\n\n\nIf RT = = NULL \n\n\nh = 1 + h (LT) \n\n\nIf LT = = NULL \n\n\nh = 1 + h(RT) \n• \nRT, LT \\Rightarrow  non - empty \n\n\n1 + max (h (LT), h (RT))  \n\n B1: \n\n\n\nh = 1 + h(RT) \n\n\nB1: 1 + height (n \\rightarrow Right) \n\n\n\nB2: \n\n\n B2 = 1 + max (h1, h2)",
+                "images": [
+                    "assets/Programming and Data Structures/PDS_Trees_P100_X8921.png",
+                    "assets/Programming and Data Structures/PDS_Trees_P100_X8927.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "PDS_TREES_2011_Q34",
+            "subject": "Programming and Data Structures",
+            "topic": "Trees",
+            "subtopic": "B2: max (h1, h2))",
+            "year": 2011,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 34,
+            "tags": [
+                "Trees",
+                "B2: max (h1, h2))",
+                "Programming and Data Structures"
+            ],
+            "question": {
+                "text": "We are given a set of n distinct elements and an \nunlabeled binary tree with  n nodes. In how many \nways can we populate the tree with the given set so \nthat it becomes a binary search tree?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "0",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "1",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "n!",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "2n\nn\nC\n(n\n1)\n+",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "B"
+            ],
+            "solution": {
+                "text": "• \n Given a binary tree structure with n nodes and \nalso given n distinct elements. \n• \n Let n = 5 \n\n\n10, 13, 18, 19, 35 \n\nBecause it is BST,  \n\n\n\nkeys are ordered in some way.  \n\nSmallest element must be to the left of root node (1 \nchoice) \n\n\n b < a < (c, d, e) \n\n \nb =\n\n\n 13, 18, 19, 35 are remaining \n\n a < all keys in right subtree  \n\n\n\n\namong remaining keys, the smallest is the root node \n\n\n\na =\n\n\nRemaining: 18, 19, 35 \n\n\n\n\nd < c < e\nonly1 choice\n\n\n\n\n\nHence, option (b) is correct.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "PDS_TREES_2008_Q35",
+            "subject": "Programming and Data Structures",
+            "topic": "Trees",
+            "subtopic": "+",
+            "year": 2008,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 35,
+            "tags": [
+                "Trees",
+                "+",
+                "Programming and Data Structures"
+            ],
+            "question": {
+                "text": "You are given the postorder traversal, P, of a binary \nsearch tree on the n elements 1, 2,  …., n. You have \nto determine the unique binary search tree that has P \nas its postorder traversal. What is the time \ncomplexity of the most efficient algorithm for doing \nthis?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "(\n)\n\nlog n\n",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "( )\nn\n",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "(\n)\n\n\nnlog n\n",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "none of the above, as the tree cannot be \n\nuniquely determined.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "B"
+            ],
+            "solution": {
+                "text": "BST: The in-order traversal is increasing order of \nkeys. \n\nIn-order: 1, 2, 3, 4, ……..n \n\nPost-order -----------------------Root \n(i) \nfrom Post-order \\rightarrow lost node is the root node O(1) \ntime. \n\nFinding this root node in in-order traversal (sorted \narray)  \n\nBS→ O(logn) \n\nIn-order:  1, 2, 3, 4………n \n\nPost order:                           Root \n(1) \nFrom Post-order →last node is the root node O(1) \n\nFinding this root node in inorder traversal (if sorted \narray then, BS→ O(logn)) \n\n\n\nIf k element in left subtree then in right subtree \nelement must be n - k - 1.  \n\n(n-k -1) \n\nT(n) = O(logn) + T(k) + T(n - k - 1) \n\n\nRecursively follow. \n\nT(n) = T(k) + T (n-k-1) + O (logn) \n\nT(n) = O(n logn) \n\nBut \n\nIn-order [ ] \n\nlet\n1,2,3,....n root \n\nwe can find any element in O(1) time \n\n         Left (1…. 5) 6 (7….10) \n\nT(n)  \n= O(1) + T(k) + T(n - k -1) \n\nHence, option (b) is correct.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "PDS_TREES_2008_Q36",
+            "subject": "Programming and Data Structures",
+            "topic": "Trees",
+            "subtopic": "uniquely determined.",
+            "year": 2008,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 36,
+            "tags": [
+                "Trees",
+                "uniquely determined.",
+                "Programming and Data Structures"
+            ],
+            "question": {
+                "text": "A binary tree with n > 1 nodes has 𝑛1, 𝑛2  𝑎𝑛𝑑 𝑛3  \nnodes of degree one, two and three respectively. The \ndegree of a node is a defined as the number of its \nneighbours.  \n\nStarting with the above tree, while there remains a \nnode v of degree two in the tree, add an edge between \nthe two neighbors of v and then remove v from the \ntree. \n\nHow many edges will remain at the end of the \nprocess?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "2 ∗ 𝑛 1 − 3",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "n2 + 2 ∗ 𝑛1 − 2",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "𝑛3 − 𝑛2",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "𝑛2 + 𝑛1 - 2",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "A"
+            ],
+            "solution": {
+                "text": "1 - 2\nn\nn\n=\n Already know \n\n\n\nIn 1 such removal \\Rightarrow 1 edge remove  \n\nRepeat this process until all nodes of degree 2 \nremoved  \n\n n2 times we need to repeat \n\n n2 ×1 edge will be removed in over all process \n\nNumber of edges initially = n - 1 = n1 + n2 + n3 - 1  \n\nAfter complete process edges, remaining = (n1+ n2+ \nn3 -1) - 1×n2 \n\n= n1+ n3 -1 = n1+ n1 -2-1  = 2* n1-3",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "PDS_TREES_2008_Q37",
+            "subject": "Programming and Data Structures",
+            "topic": "Trees",
+            "subtopic": "process?",
+            "year": 2008,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 37,
+            "tags": [
+                "Trees",
+                "process?",
+                "Programming and Data Structures"
+            ],
+            "question": {
+                "text": "A binary tree with n > 1 nodes has 𝑛1, 𝑛2  𝑎𝑛𝑑 𝑛3  \nnodes of degree one, two and three respectively. The \ndegree of a node is a defined as the number of its \nneighbours.  \n\n𝑛3 can be expressed as:",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "𝑛1 + 𝑛2−1",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "𝑛1−2",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "[((𝑛1+𝑛2)/2)]",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "𝑛2−1",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "B"
+            ],
+            "solution": {
+                "text": "Basics: \n\n\n\nn1 = 4   \nn2 = 2 \nn3 = 2 \n4 + 1 - 1 = 4  (False) n3 most be 2 \n(b) 4 - 2 =2  (True)  \n(c) [5/2] = [2.5] = Either 2 or 3 \n(d) 0 \n\n\nn1= 3, n2= 1,      n3= 1, \n(a) 1 \n(b) (3 +1) /2 = 2 cannot be our answer.  \n\nMethod 2: \n\nTotal number of nodes n = n1 + n2 + n3 \n\nSum of degree of all the nodes = 2|E| \n\n= 2 (n-1) \n\n= 2 (n1 + n2 + n3 -1) \n\n= n1 \\times 1 + n2 \\times 2 + n3 \\times 3  \n\nn1 + 2n2 + 3n3 = 2n1 + 2n2 + 2n3 -2 \n\nn3 = 2n1 - n1 - 2 \n\nn3 = n1 - 2 \n\nSo, option (b) is correct. \n\n\n\n\n\n\na\nc\nb\nd\ne\nf\ng\nd\ne\nb\na\nc\nf\ng\nd\ne\nb\nc\nf\ng\n\n\n1 edge added\ndegree 2 node deleted\nor\n2 edge removed",
+                "images": [
+                    "assets/Programming and Data Structures/PDS_Trees_P102_X9054.png",
+                    "assets/Programming and Data Structures/PDS_Trees_P102_X9057.png",
+                    "assets/Programming and Data Structures/PDS_Trees_P102_X9059.png",
+                    "assets/Programming and Data Structures/PDS_Trees_P102_X9061.png",
+                    "assets/Programming and Data Structures/PDS_Trees_P102_X9063.png",
+                    "assets/Programming and Data Structures/PDS_Trees_P102_X9065.png"
+                ],
+                "latex": [],
+                "tables": [
+                    {
+                        "headers": [
+                            "1",
+                            "2",
+                            "3",
+                            "4",
+                            "5",
+                            "6",
+                            "7",
+                            "8",
+                            "9",
+                            "10"
+                        ],
+                        "rows": []
+                    }
+                ]
+            }
+        },
+        {
+            "id": "PDS_TREES_2008_Q38",
+            "subject": "Programming and Data Structures",
+            "topic": "Trees",
+            "subtopic": "𝑛3 can be expressed as:",
+            "year": 2008,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 38,
+            "tags": [
+                "Trees",
+                "𝑛3 can be expressed as:",
+                "Programming and Data Structures"
+            ],
+            "question": {
+                "text": "A Binary Search Tree (BST) stores values in the \nrange 37 to 573. Consider the following sequence of \nkeys. \n\nI.  81, 537, 102, 439, 285, 376, 305 \n\nII.  52, 97, 121, 195, 242, 381, 472 \n\nIII.  142, 248, 520, 386, 345, 270, 307 \n\nIV. 550, 149, 507, 395, 463, 402, 270 \n\nSuppose the BST has been unsuccessfully searched \nfor key 273. Which all of the above sequence list \nnodes in the order in which we could have \nencountered them in the search?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "II and III only",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "I and III only",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "III and IV only",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "III only",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "D"
+            ],
+            "solution": {
+                "text": "I.  \n\n\nII.  \n\n\nAll keys must be smaller than 381. \n\nIII.   142, 248, 520, 386, 345, 270, 307 \n\n\n\n\nIV. 550, 149, 507, 395, 463, 402, 270 \n\n\n463 cannot be in left subtree of 395.",
+                "images": [
+                    "assets/Programming and Data Structures/PDS_Trees_P103_X9187.png",
+                    "assets/Programming and Data Structures/PDS_Trees_P103_X9189.png",
+                    "assets/Programming and Data Structures/PDS_Trees_P103_X9191.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "PDS_TREES_2020_Q39",
+            "subject": "Programming and Data Structures",
+            "topic": "Trees",
+            "subtopic": "encountered them in the search?",
+            "year": 2020,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 39,
+            "tags": [
+                "Trees",
+                "encountered them in the search?",
+                "Programming and Data Structures"
+            ],
+            "question": {
+                "text": "What is the worst case time complexity of inserting \nn2 elements into an AVL-tree with n elements \ninitially?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "(n4)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "(n2)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "(n2 log n)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "(n3)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "C"
+            ],
+            "solution": {
+                "text": "AVL tree is height balanced tree and the height of \nan AVL tree with n element is O(log2n) \n\n1st insertion time = O(logn) \n\n2nd insertion time = O(log(n + 1)) \n\nAs AVL tree contain (n + 1) elements after 1st \ninsertion \n\n3rd insertion = O(log(n + 2)) \n\n. \n\n. \n\nn2 insert  = O(log (n + n2 - 1)) \n\n\nTotal T.C = O(logn) + O(log (n + 1) + O(log (n + \n2)) +……+ O(log(n + n2 - 1)) \n\n= Olog (n * (n + 1)) * (n + 2) * … * (n + n2 - 1)  \n\n(\n)\nn\nO logn\n\n\nO(n2 log n) \n(c) is correct",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "PDS_TREES_2009_Q40",
+            "subject": "Programming and Data Structures",
+            "topic": "Trees",
+            "subtopic": "initially?",
+            "year": 2009,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 40,
+            "tags": [
+                "Trees",
+                "initially?",
+                "Programming and Data Structures"
+            ],
+            "question": {
+                "text": "What is the maximum height of any AVL-tree with \n7 nodes? Assume that the height of a tree with a \nsingle node is 0.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "2",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "3",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "4",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "5",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "B"
+            ],
+            "solution": {
+                "text": "n(h) = 1+ n (h-1) + n(h -2)  \n          minimum nodes with height h. \n\nn (0)  \n=1 \n\nn (1)  \n= 2 \n\nn (2)  \n= 1+ n(1) +n(0) = 1+2 +1 = 4 \n\nn(3)  \n= 1 + n(2) + n(1) \n\n\n\n= 1 + 4 + 2 = 7 \n\n\n\nn(3)=7",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "PDS_TREES_2008_Q41",
+            "subject": "Programming and Data Structures",
+            "topic": "Trees",
+            "subtopic": "single node is 0.",
+            "year": 2008,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 41,
+            "tags": [
+                "Trees",
+                "single node is 0.",
+                "Programming and Data Structures"
+            ],
+            "question": {
+                "text": "Which of the following is TRUE?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "The cost of searching an AVL tree is Θ(log 𝑛) \nbut that of a binary search tree is O(n)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "The cost of searching an AVL tree is Θ(log 𝑛) \nbut that of a complete binary tree is Θ(𝑛log 𝑛)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "The cost of searching a binary search tree is O \n(log n) but that of an AVL tree is Θ(𝑛)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "The cost of searching an AVL tree is Θ(𝑛log 𝑛) \nbut that of a binary search tree is O(n)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "A"
+            ],
+            "solution": {
+                "text": "AVL tree is height balance tree (also a search tree) \n\nHeight of AVL tree = O(log2n)  \n\nsearching time = O(log2n) \n\nBinary search tree: \n\n\n\nSearching time = O(n) \n\nThe height of complete binary tree = O(log2n) but it \nis not a search tree. Element order arranged \nrandomly (not in some ordered way)  \n\nSearching time = O(n)",
+                "images": [
+                    "assets/Programming and Data Structures/PDS_Trees_P105_X9292.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        }
+    ]
+}
