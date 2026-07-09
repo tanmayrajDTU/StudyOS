@@ -1,0 +1,31 @@
+{
+    "subject": "Algorithms",
+    "totalTopics": 6,
+    "totalQuestions": 127,
+    "topics": [
+        {
+            "name": "Asymptotic Analysis",
+            "questionCount": 24
+        },
+        {
+            "name": "Divide and Conquer",
+            "questionCount": 30
+        },
+        {
+            "name": "Greedy Techniques",
+            "questionCount": 13
+        },
+        {
+            "name": "Graph Based Algorithm",
+            "questionCount": 22
+        },
+        {
+            "name": "Dynamic Programming",
+            "questionCount": 18
+        },
+        {
+            "name": "Miscellaneous Topics",
+            "questionCount": 20
+        }
+    ]
+}

@@ -1,0 +1,1590 @@
+{
+    "subject": "Computer Networks",
+    "topic": "Datal Link Layer",
+    "questionCount": 22,
+    "questions": [
+        {
+            "id": "CN_DATAL_LINK_LAYER_2023_Q01",
+            "subject": "Computer Networks",
+            "topic": "Datal Link Layer",
+            "subtopic": "Flow Control Policies of Data Link Layer",
+            "year": 2023,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 1,
+            "tags": [
+                "Datal Link Layer",
+                "Flow Control Policies of Data Link Layer",
+                "Computer Networks"
+            ],
+            "question": {
+                "text": "Suppose two hosts are connected by a point-to-point \nlink and they are configured to use Stop-and-Wait \nprotocol for reliable data transfer. Identify in which \none of the following scenarios, the utilization of the \nlink is the lowest.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "Longer link length and lower transmission rate",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "Longer link length and higher transmission rate",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "Shorter link length and lower transmission rate",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "Shorter link length and higher transmission rate",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "B"
+            ],
+            "solution": {
+                "text": "Efficiency () = \n2( )\na\n+\n\n\np\nt\nT\na = T\n\n\nTransmission Time (Tt) = Frame Size\nBandwidth \n\nPropagation time (TP) = Length\nVelocity \n\n = \np\nt\nT\n1+2 T\n\n\n\n\n\n\n\n\n• \nTP increases then overall efficiency will \ndecrease \n(as \ndenominator \nbigger \nthan \nthe \nnumerator) \n\n• \nAlso, if bandwidth (Transmission Rate) is \nhigher than Tt value will be small and hence Tp \n/ Tt will be a large value. \n\n• \nTherefore, to get overall  low, higher link \nlength and higher transmission rate is required.",
+                "images": [
+                    "assets/Computer Networks/CN_Datal_Link_Layer_P16_X901.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "CN_DATAL_LINK_LAYER_2022_Q02",
+            "subject": "Computer Networks",
+            "topic": "Datal Link Layer",
+            "subtopic": "link is the lowest.",
+            "year": 2022,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 2,
+            "tags": [
+                "Datal Link Layer",
+                "link is the lowest.",
+                "Computer Networks"
+            ],
+            "question": {
+                "text": "Consider a 100Mbps link between an earth station \n(sender) and a satellite(receiver) at an altitude of \n2100Km. The signal propagates at a speed of 3×108 \nm/s. The time taken (in milliseconds, rounded off to \ntwo decimal places) for the receiver to completely \nreceive a packet of 1000 bytes transmitted by the \nsender is __________.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "7.07",
+                "7.09"
+            ],
+            "solution": {
+                "text": "Given, \n\nd = 2100 km, v = 3 ×108 m /sec. \n\nPd  = d\nu \n\n = \n2100 km\n3×10 km/sec\n\n\n = 7 \\times 10-3 sec. = 7 msec \n\nPacket size  = 1000 byte \n\n\n        = 8000 bits \n\n             B  = 100 mbps \n\n\n   = 100 \\times 106 bits/sec.  \n\nTd  = \nPkt size\nBandwidth \n\n =  0.08 \\times 10-3 sec. \n\n =  0.08 m sec. \nTd (pkt) \n\n\n\nTotal time taken to send a packet form source to \ndestination = Td (pkt) + Pd (pkt) \n\n                   = 0.08 + 7 = 7.08 m sec. \n\nData Link Layer",
+                "images": [
+                    "assets/Computer Networks/CN_Datal_Link_Layer_P16_X901.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "CN_DATAL_LINK_LAYER_2021_Q03",
+            "subject": "Computer Networks",
+            "topic": "Datal Link Layer",
+            "subtopic": "sender is __________.",
+            "year": 2021,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 3,
+            "tags": [
+                "Datal Link Layer",
+                "sender is __________.",
+                "Computer Networks"
+            ],
+            "question": {
+                "text": "Consider the sliding window flow-control protocol \noperating between a sender and a receiver over a full-\nduplex error-free link. Assume the following: \n• \nThe time taken for processing the data frame by \nthe receiver is negligible. \n• \nThe \ntime \ntaken \nfor \nprocessing \nthe \nacknowledgement frame by the sender is \nnegligible. \n• \nThe sender has infinite number of frames \navailable for transmission. \n• \nThe size of the data frame is 2000 bits and the \nsize of the acknowledgement frame is 10 bits.  \n• \nThe link data rate in each direction is 1mbps (= \n106 bits per second). \n• \nOne way propagation delay of the link is 100 \nmilliseconds. \n\nThe minimum value of the sender's window size in \nterms of the number of frames, (rounded to the \nnearest integer) needed to achieve a link utilization \nof 50% is _____.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "50",
+                "52"
+            ],
+            "solution": {
+                "text": "Frame size  = 2000 bits \n\nBandwidth   = 106 bit/sec. \n\n               Pd = 100 m /sec. \n\n               𝜂 \n= 50% (\n2) \n\nTd (frame) \n= Frame size\nBandwidth \n\n\n=\n200 bits\n10 bit/sec.\n\n\n\n= 2×10-3 sec. \n\n\n\n                  = 2 msec. \n\nAck size  \n= 10 bits \n\n      Td (Ack) = Ack size\nBandwidth \n\n\n= \n10 bits\n10 bits/sec\n\n\n\n= 10-5 ×103 m sec. \n\n\n\n= 10-2 msec. \n\n\n= 1 m sec\n. \n\n\n= 0.01 m sec. \n\nLink utilization (𝜂) = Useful time\nTotal time  \n\n(\n)\n(\n)\nd\nd\nd\nd\nrd\nd\nN× T\nframe\n1 2\nT\nframe\n2 P + Q\nP\nT (Ack)\n=\n+ \n+\n+\n\n\nN \\times 2\n2 100\n=\n+ \n+\n\n\n4N = 202.01 \n\nN = \n\n\nN = 50.51\n\n\n\n \n\nN = 51",
+                "images": [
+                    "assets/Computer Networks/CN_Datal_Link_Layer_P16_X901.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "CN_DATAL_LINK_LAYER_2017_Q04",
+            "subject": "Computer Networks",
+            "topic": "Datal Link Layer",
+            "subtopic": "of 50% is _____.",
+            "year": 2017,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 4,
+            "tags": [
+                "Datal Link Layer",
+                "of 50% is _____.",
+                "Computer Networks"
+            ],
+            "question": {
+                "text": "The values of parameters for the Stop-and-Wait \nARQ protocol are as given below: \n• Bit rate of the transmission channel = 1 Mbps \n• Propagation delay from sender to receiver = 0.75 ms. \n• Time to process a frame = 0.25 ms. \n• Number of bytes in the information frame = 1980. \n• Number of bytes in the acknowledgement frame = \n20. \n• Number of overhead bytes in the information frame \n= 20. \n\nAssume that there are no transmission errors. Then, \nthe \ntransmission \nefficiency \n(expressed \nin \npercentage) of the Stop-and-Wait ARQ protocol for \nthe above parameters is _______ (correct to 2 \ndecimal places).",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "86.5",
+                "89.5"
+            ],
+            "solution": {
+                "text": "B = 106  bit /sec. \n\n\nPd = 0.75 m sec/ \n\nPacket size  = data + Header \n\nFrame size = 1980 + 20 \n\n\n= 20,00 byte   \n\n\n= 16,000 bits \n\nTd (frame) \n= Frame size\nBandwidth \n\n\n= \n16,000 bits\n10 bits / sec.\n\n\n\n= 16 msec. \n\n\n\n     Ack size  = 20 byte = 160 bits \n\n     Td (ack)   = Ack size\nBandwidth \n\n\n= \n160 bits\n10 bit/sec\n\n\n\n= 160 ×10-6 sec. \n\n\n= .16 ×10-6 sec.   \n\n                     = 0.16 m sec. \n\nuseful time\ntotal time\n=\n\n\n(\n)\n(\n)\n(\n)\nd\nd\nd\nd\nrd\nd\nT\nframe\nη = T\nframe + 2 \\times P + Q + P + T\nAck\n\n\n\n=\n+\n\n+\n+\n+\n\n\n=\n\n\n=\n\n\n89.33%\n=",
+                "images": [
+                    "assets/Computer Networks/CN_Datal_Link_Layer_P16_X901.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "CN_DATAL_LINK_LAYER_2017_Q05",
+            "subject": "Computer Networks",
+            "topic": "Datal Link Layer",
+            "subtopic": "decimal places).",
+            "year": 2017,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 5,
+            "tags": [
+                "Datal Link Layer",
+                "decimal places).",
+                "Computer Networks"
+            ],
+            "question": {
+                "text": "Consider two hosts X and Y connected by a single \ndirect link of rate 106 bits/sec. The distance between \nthe two hosts is 10,000 km and the propagation speed \nalong the link is 2×108 m/sec. Hosts X sends a file of \n50,000 bytes as one large message to host Y \ncontinuously. Let the transmission and propagation \ndelays be p milliseconds and q milliseconds, \nrespectively. Then the values of p and q are.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "p = 50 and q = 100",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "p = 50 and q = 400",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "p = 100 and q = 50",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "p = 400 and q = 50 \n\nData Link Layer",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "D"
+            ],
+            "solution": {
+                "text": "B = 106  bit /sec. \n\n\nPacket size  = 50,000 byte \n\n\n= 8 ×50,000 bits \n\n\n= 4,00000 bits   \n\n\n\nTd (P) \n= Packet size\nBandwidth \n\n\n= \n4,00000 bits\n10 bits/sec\n\n\n\n= 400×10-3 sec.   \n\n\n                 P = 400 m/sec. \n\n                 d = 10,000 km \n\n                 v = 2 \\times 108 m/sec. = 2×105 km/sec.  \n\n          Pd (q) = Distance\nVelocity \n\n\n= \n10,000 km\n2×10 km/sec\n\n\n\n= 50 ×10-3 sec.  \n\n                    q  = 50 msec.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "CN_DATAL_LINK_LAYER_2016_Q06",
+            "subject": "Computer Networks",
+            "topic": "Datal Link Layer",
+            "subtopic": "Data Link Layer",
+            "year": 2016,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 6,
+            "tags": [
+                "Datal Link Layer",
+                "Data Link Layer",
+                "Computer Networks"
+            ],
+            "question": {
+                "text": "A sender used the Stop-and-wait ARQ protocol for \nreliable transmission of frames. Frames are of size \n1000 bytes and the transmission rate at the sender is \n80 Kbps (1 Kbps = 1000 bits/second). Size of an \nacknowledgement is 100 bytes and the transmission \nrate at the receiver is 8 Kbps. The one-way \npropagation delay is 100 milliseconds. Assuming no \nframe is lost, the sender throughput is _______ \nbytes/second.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "2500"
+            ],
+            "solution": {
+                "text": "Pd = 100 m sec. \n\n = 100 \\times 10-3 sec. \n\n = 10-1 sec. = \n10sec. \n\nFrame size = 1000 Byte = 8000 bits \n\nB (Sender) = 80 kbps \n\n\n       = 80 \\times 103 bits/sec. \n\nTd (frame) = Frame size\nBandwidth   = \n8000 bits\n80×10 bits/sec\n\n\n\n=\nsec.\n\n\nAck size  \n= 100 byte \n\n\n\n= 800 bits \n\nB (Receiver)  = 8 ×103 bit/sec. \n\nTd (Ack)  \n= Ack size\nBandwidth    \n\n\n\n\n= \n=\nsec\n8 \\times 10 bit/sec\n\n\nThroughput  = Frame size\nBandwidth \n\n\n\n\n(\n)\n(\n)\nd\nd\nd\nrd\nd\n800bits\nT\nframe + 2 \\times P + Q + P + T\nAck\n=\n\n\n\n   = \n800 bits\nsec + 2 \\times \nsec, + \nsec,\n\n\n  = 800 bits\n0.4 sec \n\n\n  = 20,000 bits/sec. \n\n\n  = 20,000 byte/sec\n\n\nThroughput = 2500 byte /sec.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "CN_DATAL_LINK_LAYER_2015_Q07",
+            "subject": "Computer Networks",
+            "topic": "Datal Link Layer",
+            "subtopic": "bytes/second.",
+            "year": 2015,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 7,
+            "tags": [
+                "Datal Link Layer",
+                "bytes/second.",
+                "Computer Networks"
+            ],
+            "question": {
+                "text": "Consider a 128 \\times 103 bits/second satellite \ncommunication link with one way propagation delay \nof 150 milliseconds. Selective retransmission \n(repeat) protocol is used on this link to send data with \na frame size of 1 kilobyte. Neglect the transmission \ntime of acknowledgement. The minimum number of \nbits required for the sequence number field to \nachieve 100% utilization is ________.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "4"
+            ],
+            "solution": {
+                "text": "B = 128 \\times 103  bits/sec. \n\nPd  = 150 m sec. \n\nFrame size  = 1 KB \n\n\n   = 1024  byte \n\n\n   = 8 \\times 1024 bits \n\n Td(frame)  = Frame size\nBandwidth   \n\n\n\n   = \n8 1024bit\n128 10 bits/sec\n\n\n\n\n\n\n   = 64 \\times 10-3 sec.  \n\n\n   = 64 m sec. \n\n\n\nuseful\ntotal time\n=\n\n= \n(\n)\n(\n)\n(\n)\ns d\nd\nd\nd\nrd\nd\nW T\nframe\nT\nframe + 2 \\times P + Q + P + T\nAck\n\ns\nW\n2 150\n\n=\n+ \n\n\ns\nW\n=\n\n Ws = 5.68 \n Ws ≅6 \nIn selective repeat minimum sequence number \nrequired = 6 + 6 = 12 \n\n  2k = 12  \n\nData Link Layer \n\n  2k = 24 \n\n  K = 4 bit",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "CN_DATAL_LINK_LAYER_2015_Q08",
+            "subject": "Computer Networks",
+            "topic": "Datal Link Layer",
+            "subtopic": "achieve 100% utilization is ________.",
+            "year": 2015,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 8,
+            "tags": [
+                "Datal Link Layer",
+                "achieve 100% utilization is ________.",
+                "Computer Networks"
+            ],
+            "question": {
+                "text": "Consider a network connecting two systems located \n8000 kilometers apart. The bandwidth of the network \nis 500×106 bits per second. The propagation speed of \nthe media is 4×106 meters per second. It is needed to \ndesign a Go-Back-N sliding window protocol for \nthis network. The average packet size is 107 bits. The \nnetwork is to be used to its full capacity. \n\nAssume that processing delays at nodes are \nnegligible. Then, the minimum size in bits of the \nsequence number field has to be_____.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "8"
+            ],
+            "solution": {
+                "text": "Given, \n\nd = 8000 Km \n\n\nB = 500×106 bits/sec.  \n\nu = 4 \\times 106 m /sec. \n\n         Packet size/Frame size = 107 bits \n\nu = 4 \\times 103 km/sec. \n\n\nPd  = d\nu \n\n= \n8000km\n2sec\n4 10 km/sec\n=\n\n\n\n\n\nTd (frame) = Frame size\nBandwidth \n\n10 bits\n0.02sec\n500 10 bits/sec\n=\n=\n\n. \n\n𝜂 \n= useful time\ntotal time \n\n(\n)\n(\n)\n(\n)\nd\nd\nd\nd\nrd\nd\nN \\times T\nframe\nT\nframe + 2 \\times P + Q + P + T\nAck\n=\n\n\nN \\times 0.02\n=\nI\n0.02 + 2 \\times 2 \n\nN=\n\nN  = 201 \n\nMinimum sequence number required in GB-N =  \n\n201 +1 = 202 \n\n2k = 202 \n\n2k = 28 \n\nK = 8 bit",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "CN_DATAL_LINK_LAYER_2015_Q09",
+            "subject": "Computer Networks",
+            "topic": "Datal Link Layer",
+            "subtopic": "sequence number field has to be_____.",
+            "year": 2015,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 9,
+            "tags": [
+                "Datal Link Layer",
+                "sequence number field has to be_____.",
+                "Computer Networks"
+            ],
+            "question": {
+                "text": "A link has a transmission speed of 106 bits/sec. It \nuses data packets of size 1000 bytes each. Assume \nthat \nthe \nacknowledgement \nhas \nnegligible \ntransmission delay, and that its propagation delay is \nthe same as the data propagation delay. Also assume \nthat the processing delays at nodes are negligible. \nThe efficiency of the stop-and-wait protocol in this \nsetup is exactly 25%. The value of the one-way \npropagation delay (in milliseconds) is _______.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "12"
+            ],
+            "solution": {
+                "text": "Given, \n\nFrame size  = 1000 byte \n\n\n          = 8000 byte  \n\n\n\n=\n\n\n               B  = 106 bits/sec.  \n\n Td (frame)  = Frame size\nBandwidth \n\n\n        = \n8000 bits\n10 bits/sec\n\n\n\n\n= 8 \\times 10-3 sec. \n\n\n\n= 8 m sec. \n\n\n          = useful time\ntotal time \n\n(\n)\n(\n)\n(\n)\nd\nd\nd\nd\nrd\nd\nT\nframe\n1 =\nT\nframe + 2 \\times P + Q + P + T\nAck\n\n\nD\n=\n8 + 2 \\times p\n\n\n8 + 2× Pd  = 32 \n\n2× Pd  = 32 - 8 \n\n      2× Pd  = 24 \n\n          P  = 12 m sec.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "CN_DATAL_LINK_LAYER_2015_Q10",
+            "subject": "Computer Networks",
+            "topic": "Datal Link Layer",
+            "subtopic": "propagation delay (in milliseconds) is _______.",
+            "year": 2015,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 10,
+            "tags": [
+                "Datal Link Layer",
+                "propagation delay (in milliseconds) is _______.",
+                "Computer Networks"
+            ],
+            "question": {
+                "text": "Suppose that the stop-and -wait protocol is used on a \nlink with a bit rate of 64 kilobits per second and 20 \nmilliseconds propagation delay. Assume that the \ntransmission time for the acknowledgement and the \nprocessing time at nodes are negligible. Then the \nminimum frame size in bytes to achieve a link \nutilization of at least 50% is _______.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "320"
+            ],
+            "solution": {
+                "text": "Given, \n\nB = 64×103 bit/sec,  Pd = 20 m sec. \n\n > 0.5 \n\n\n\n\nuse ful ltime 1\n³\ntotal time\n\n(\n)\n(\n)\n(\n)\nd\nd\nd\nd\nrd\nd\nT\nframe\nT\nframe + 2 \\times P + Q + P + T\nAck\n\n\n\n\n(\n)\n(\n)\nd\nd\nd\nT\nframe\nT\nframe + 2× P\n\n\n\n\n⇒ 2 \\times Td (Frame) > Td (frame) +2 \\times Pd \n\n⇒ Td (frame) > 2 \\times Pd \n\n\n⇒Frame size\nBandwidth\n  > 2 \\times Pd \n\n⇒ \n𝐿\n𝐵> 2 \\times 𝑃𝑑 \n\n⇒ L > 2 \\times Pd \\times B \n\n⇒ L > 2 \\times 20 \\times 10-3 sec \\times 64 ×10-3 bits/sec. \n\n⇒ L > 2 \\times 20 \\times 64 bits \n\n⇒ \n64 byte\nL\n\n\n\n\n\n⇒ L > 320 byte",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "CN_DATAL_LINK_LAYER_2014_Q11",
+            "subject": "Computer Networks",
+            "topic": "Datal Link Layer",
+            "subtopic": "utilization of at least 50% is _______.",
+            "year": 2014,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 11,
+            "tags": [
+                "Datal Link Layer",
+                "utilization of at least 50% is _______.",
+                "Computer Networks"
+            ],
+            "question": {
+                "text": "Consider a selective repeat sliding window protocol \nthat uses a frame size of 1 KB to send data on a 1.5 \nMbps link with a one-way latency of 50 msec. To \nachieve a link utilization of 60%, the minimum \nnumber of bits required to represent the sequence \nnumber field is _____________. \nCommon Data for Next Two Questions",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "5"
+            ],
+            "solution": {
+                "text": "Given,  \n\nFrame size = 1KB = 1024 Byte = 8 \\times 1024 bits \n\n\n\n= 8192 bits \n\nB   = 1.5 mbps \n\n\n= 1.5 \\times 106 bits/sec. \n\nPd   = 50 msec.  \n\nTd(frame)  =  Frame size\nBandwidth \n\n\n\n= \n8192 bits\n1.5 10 bits/sec.\n\n\n\n\n\n= 5461.33 \\times 10-6 sec. \n\n\n\n= 5.461 \\times 10-3 sec. \n\n\n\n= 5.461 m sec. \n\n  = useful time\ntotal time = 60% = 0.6 \n\n(\n)\n(\n)\n(\n)\ns\nd\nd\nd\nd\nrd\nd\nW \\times T\nFrame\n0.6 = T\nFrame + 2 \\times P + Q + P + T\nAck\n\n\ns\nW\n\n=\n+\n\n\n\ns\n105.461×0.6\nW = \n\n\ns\nW =\n\n\n\n\n\nMinimum sequence Number required in SR  \n\n= 12+12 = 24 \n\n2k = 24 \n\n2k = 25 \n\nK = 5 bit",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "CN_DATAL_LINK_LAYER_2009_Q12",
+            "subject": "Computer Networks",
+            "topic": "Datal Link Layer",
+            "subtopic": "Common Data for Next Two Questions",
+            "year": 2009,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 12,
+            "tags": [
+                "Datal Link Layer",
+                "Common Data for Next Two Questions",
+                "Computer Networks"
+            ],
+            "question": {
+                "text": "Frames of 1000 bits are sent over a 106 bps duplex \nlink between two hosts. The propagation time is \n25ms. Frames are to be transmitted into this link to \nmaximally pack them in transit (within the link). \n\nWhat is the minimum number of bits (I) that will be \nrequired to represent the sequence numbers \ndistinctly? Assume that no time gap needs to be \ngiven between transmission of two frames.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "I = 2",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "I = 3",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "I = 4",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "I = 5",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "D"
+            ],
+            "solution": {
+                "text": "Frame size = 1000 bits \n\nB = 106 bps = 106 bits/sec, Pd = 25 msec. \n\nd\nFramesize\nT (frame) = Bandwidth \n\n\n\n    = \n1000 bits\n10 bits / sec.\n= 10-3 sec. = 1 msec. \n\nMaximally packed means capacity of link \n\nCapacity of link  = B× Pd \n\n\n\n\n= 106 bit/sec. \\times 25×10-3 sec. \n\n\n\n\n= 25 ×103 bits \n\n\n\n\n= 25,000 bits \n\nNumber  of frame = 25,000 bits\n1000 bits\n=\n\n\n\n                  2l  = 25 \n\n\n                     2l   = 25 \n\n\n\n\n5 bit\nl =",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "CN_DATAL_LINK_LAYER_2009_Q13",
+            "subject": "Computer Networks",
+            "topic": "Datal Link Layer",
+            "subtopic": "given between transmission of two frames.",
+            "year": 2009,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 13,
+            "tags": [
+                "Datal Link Layer",
+                "given between transmission of two frames.",
+                "Computer Networks"
+            ],
+            "question": {
+                "text": "Let I be the minimum number of bits (I) that will be \nrequired to represent the sequence numbers \ndistinctly assuming that no time gap needs to be \ngiven between transmission of two frames. \n\nSuppose that the sliding window protocol is used \nwith the sender window size of 2I, where I is the \nnumbers of bits as mentioned earlier and \nacknowledgements are always piggy backed. After \nsending 2I frames, what is the minimum time the \nsender will have to wait before starting transmission \nof the next frame? (Identify the closest choice \nignoring the frame processing time)",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "16 ms",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "18 ms",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "20 ms",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "22 ms",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "C"
+            ],
+            "solution": {
+                "text": "Sender window size = 2l = 25 = 32 \n\nMinimum time the sender will have to wait before \ntransmitting the next frame = total time - useful time \n\n= Total time - Ws \\times Td  \n\n= 52 m sec. - 32 \\times 1 msec. \n\n= 20 msec.  \n\n(\n)\nd\nd\nd\nTotal time - T\nframe + 2× P + Q\nrd\n+ P\n(\n)\nd\n+ T\nAck \n\n = 1 msec. + 2× 25msec. + 1 msec. \n\nData Link Layer \n\n(ACK is piggy backed we are assuming frame size \nfor piggybacking is also 1000 bits.) \n\n= 52 msec.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "CN_DATAL_LINK_LAYER_2008_Q14",
+            "subject": "Computer Networks",
+            "topic": "Datal Link Layer",
+            "subtopic": "ignoring the frame processing time)",
+            "year": 2008,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 14,
+            "tags": [
+                "Datal Link Layer",
+                "ignoring the frame processing time)",
+                "Computer Networks"
+            ],
+            "question": {
+                "text": "A satellite link connects two ground stations. The \naltitude of the satellite is and speed of the signal is 3 \n× 108 m/s. What should be the packet size for a \nchannel utilization of 25% for a satellite link using \ngo-back- 127 sliding window protocol? Assume that \nthe acknowledgment packets are negligible in size \nand that there are no errors during communication.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "120 bytes",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "60 bytes",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "240 bytes",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "90 bytes \nError Control Policies",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "A"
+            ],
+            "solution": {
+                "text": "v = 3 ×108 m/sec. \n\n = 1\n4 , GB - 127 \n\nN = 127 \n\nd = 36,504 ×2 = 73008 km \n\nPd = \nd\n73,008 km\n3 10 km\nv =\n\n\n\n            = 24336 ×10-5 sec. = 0.24336 sec. \n\nUseful time\nEfficiency = Total time \nd\nd\nd\nd\nN× T (PKt)\nT (PKt)\n2×P + Q\n=\n+\nrd\n+ P\nd\n + T (ACk)\n                             0         0             0\n\n\nd\nd\nd\nT (Pkt)\nT (Pkt)+2×P\n\n=\n\n\n127 \\times 4 ×Td (Pkt) = Td (Pkt) +2 \\times Pd \n\n508 Td = Td + 2× Pd \n\n507 Td = 2× Pd \n\nd\nd\nP\nT\n\n=\n\n\nd\n2 0.24336sec.\nT\n\n=\n\n\nL\n2 0.24336sec.\nB\n\n=\n\n\n0.24336 sec\nL = \n\n. 10 bits/ sec.\n\n\n\nL = 960 bits  \n\nL = \nByte\n\n\nL = 120 Byte.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "CN_DATAL_LINK_LAYER_2021_Q15",
+            "subject": "Computer Networks",
+            "topic": "Datal Link Layer",
+            "subtopic": "Error Control Policies",
+            "year": 2021,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 15,
+            "tags": [
+                "Datal Link Layer",
+                "Error Control Policies",
+                "Computer Networks"
+            ],
+            "question": {
+                "text": "Assume that a 12-bit Hamming codeword consisting \nof 8-bit data and 4 check bits is d8 d7 d6 d5 c8 d4 d4 d3 \nd2 c4 d1 c2 c1, where the data bits and the check bits \nare given in the following tables: \nData bits \nd8 d7 d6 d5 d4 d3 d2 d1 \nx \n\nCheck bits \nc8 c4 c2 c1 \ny \n\nWhich one of the following choices gives the correct \nvalues of x and y?",
+                "images": [],
+                "latex": [],
+                "tables": [
+                    {
+                        "headers": [
+                            "Data bits",
+                            "",
+                            "",
+                            "",
+                            "",
+                            "",
+                            "",
+                            ""
+                        ],
+                        "rows": [
+                            [
+                                "d 8",
+                                "d 7",
+                                "d 6",
+                                "d 5",
+                                "d 4",
+                                "d 3",
+                                "d 2",
+                                "d 1"
+                            ],
+                            [
+                                "1",
+                                "1",
+                                "0",
+                                "x",
+                                "0",
+                                "1",
+                                "0",
+                                "1"
+                            ]
+                        ]
+                    }
+                ]
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "x is 0 and y is 0",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "x is 0 and y is 1",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "x is 1 and y is 0",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "x is 1 and y is 1",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "A"
+            ],
+            "solution": {
+                "text": "C1 \nC2 \nC4 \nC8 \ny \nx \n\n C1 \nX \n\nX = 0 (for even parity) \n\n C2 \n\nNumber of 1's→ even (even parity) \n\nC4 \n\n Number of 1's \\rightarrow even (even parity) \n\nC8 \ny \nx \n\n \\rightarrow even parity (y = 0)",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "CN_DATAL_LINK_LAYER_2021_Q16",
+            "subject": "Computer Networks",
+            "topic": "Datal Link Layer",
+            "subtopic": "values of x and y?",
+            "year": 2021,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 16,
+            "tags": [
+                "Datal Link Layer",
+                "values of x and y?",
+                "Computer Networks"
+            ],
+            "question": {
+                "text": "Consider the cyclic redundancy check (CRC) based \nerror detecting scheme having the generator \npolynomial X3 + X + 1. Suppose the message \nm4m3m2m1m0 =11000 is to be transmitted. Check \nbits c2c1c0 are appended at the end of the message by \nthe transmitter using the above CRC scheme, The \ntransmitted \nbit \nstring \nis \ndenoted \nby \nm4m3m2m1m0c2c1c0. The value of the check bit \nsequence c2c1c0 is",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "101",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "110",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "100",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "111",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "C"
+            ],
+            "solution": {
+                "text": "Generator = X3+ X+ 1 \n                           = 1.X3 + 0.X2 + 1.X1 + 1.X0 \n                                           = (1011)2",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "CN_DATAL_LINK_LAYER_2017_Q17",
+            "subject": "Computer Networks",
+            "topic": "Datal Link Layer",
+            "subtopic": "sequence c2c1c0 is",
+            "year": 2017,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 17,
+            "tags": [
+                "Datal Link Layer",
+                "sequence c2c1c0 is",
+                "Computer Networks"
+            ],
+            "question": {
+                "text": "Consider a binary code that consists of only four \nvalid codewords as given below: 00000, 01011, \n10101, 11110. \n\nLet the minimum Hamming distance of the code be \nP and the maximum number of erroneous bits that \ncan be corrected by the code be q. Then the values of \np and q are.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "p = 3 and q = 1",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "p = 3 and q = 2",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "p = 4 and q = 1",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "p = 4 and q = 2",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "A"
+            ],
+            "solution": {
+                "text": "0 0 0 0 0 (a) \n\n0 1 0 1 1 (b) \n\n1 0 1 0 1 (c) \n\n1 1 1 1 0 (d) \n\nHamming distance (a, b) = 3 \n\nHamming distance (a, c) = 3 \n\nHamming distance (a, d) = 4  \n\nHamming distance (b, c) = 4 \n\nHamming distance (b, d) = 3 \n\nMinimum Hamming distance = 3 \n\nMin Hamming distance required to correct 'd' bit \nerror = 2d + 1 \n\n2d + 1 = 3 \n\n2d = 2 \n\nd = 1",
+                "images": [
+                    "assets/Computer Networks/CN_Datal_Link_Layer_P21_X2525.png"
+                ],
+                "latex": [],
+                "tables": [
+                    {
+                        "headers": [
+                            "C1",
+                            "C2",
+                            "3",
+                            "C4",
+                            "5",
+                            "6",
+                            "7",
+                            "C8",
+                            "9",
+                            "10",
+                            "11",
+                            "12"
+                        ],
+                        "rows": [
+                            [
+                                "0",
+                                "1",
+                                "1",
+                                "0",
+                                "0",
+                                "1",
+                                "0",
+                                "y",
+                                "x",
+                                "0",
+                                "1",
+                                "1"
+                            ]
+                        ]
+                    },
+                    {
+                        "headers": [
+                            "1",
+                            "3",
+                            "5",
+                            "7",
+                            "9",
+                            "11"
+                        ],
+                        "rows": [
+                            [
+                                "0",
+                                "1",
+                                "0",
+                                "0",
+                                "X",
+                                "1"
+                            ]
+                        ]
+                    },
+                    {
+                        "headers": [
+                            "2",
+                            "3",
+                            "6",
+                            "7",
+                            "10",
+                            "11"
+                        ],
+                        "rows": [
+                            [
+                                "1",
+                                "1",
+                                "1",
+                                "0",
+                                "0",
+                                "1"
+                            ]
+                        ]
+                    },
+                    {
+                        "headers": [
+                            "4",
+                            "5",
+                            "6",
+                            "7",
+                            "12"
+                        ],
+                        "rows": [
+                            [
+                                "0",
+                                "0",
+                                "1",
+                                "0",
+                                "1"
+                            ]
+                        ]
+                    },
+                    {
+                        "headers": [
+                            "8",
+                            "9",
+                            "10",
+                            "11",
+                            "12"
+                        ],
+                        "rows": [
+                            [
+                                "y",
+                                "x",
+                                "0",
+                                "1",
+                                "1"
+                            ],
+                            [
+                                "0",
+                                "0",
+                                "0",
+                                "1",
+                                "1"
+                            ]
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "id": "CN_DATAL_LINK_LAYER_2017_Q18",
+            "subject": "Computer Networks",
+            "topic": "Datal Link Layer",
+            "subtopic": "p and q are.",
+            "year": 2017,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 18,
+            "tags": [
+                "Datal Link Layer",
+                "p and q are.",
+                "Computer Networks"
+            ],
+            "question": {
+                "text": "A computer network uses polynomials over GF (2) \nfor error checking with 8 bits as information bits and \nuses x3 + x + 1 as the generator polynomial to \ngenerate the check bits. In this network, the message \n01011011 is transmitted as",
+                "images": [],
+                "latex": [],
+                "tables": [
+                    {
+                        "headers": [
+                            "Check bits",
+                            "",
+                            "",
+                            ""
+                        ],
+                        "rows": [
+                            [
+                                "c 8",
+                                "c 4",
+                                "c 2",
+                                "c 1"
+                            ],
+                            [
+                                "y",
+                                "0",
+                                "1",
+                                "0"
+                            ]
+                        ]
+                    }
+                ]
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "01011011010",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "01011011011",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "01011011101",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "01011011100",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "C"
+            ],
+            "solution": {
+                "text": "Given, x3 +x + 1 \n\n\n = 1- x3 + 0.x2 + 1.x1 + 1xº \n\n\n = 1011 \n\n\n\nCRC = 101  \n\nTransmitted data: 01011011101",
+                "images": [
+                    "assets/Computer Networks/CN_Datal_Link_Layer_P21_X2525.png"
+                ],
+                "latex": [],
+                "tables": [
+                    {
+                        "headers": [
+                            "C1",
+                            "C2",
+                            "3",
+                            "C4",
+                            "5",
+                            "6",
+                            "7",
+                            "C8",
+                            "9",
+                            "10",
+                            "11",
+                            "12"
+                        ],
+                        "rows": [
+                            [
+                                "0",
+                                "1",
+                                "1",
+                                "0",
+                                "0",
+                                "1",
+                                "0",
+                                "y",
+                                "x",
+                                "0",
+                                "1",
+                                "1"
+                            ]
+                        ]
+                    },
+                    {
+                        "headers": [
+                            "1",
+                            "3",
+                            "5",
+                            "7",
+                            "9",
+                            "11"
+                        ],
+                        "rows": [
+                            [
+                                "0",
+                                "1",
+                                "0",
+                                "0",
+                                "X",
+                                "1"
+                            ]
+                        ]
+                    },
+                    {
+                        "headers": [
+                            "2",
+                            "3",
+                            "6",
+                            "7",
+                            "10",
+                            "11"
+                        ],
+                        "rows": [
+                            [
+                                "1",
+                                "1",
+                                "1",
+                                "0",
+                                "0",
+                                "1"
+                            ]
+                        ]
+                    },
+                    {
+                        "headers": [
+                            "4",
+                            "5",
+                            "6",
+                            "7",
+                            "12"
+                        ],
+                        "rows": [
+                            [
+                                "0",
+                                "0",
+                                "1",
+                                "0",
+                                "1"
+                            ]
+                        ]
+                    },
+                    {
+                        "headers": [
+                            "8",
+                            "9",
+                            "10",
+                            "11",
+                            "12"
+                        ],
+                        "rows": [
+                            [
+                                "y",
+                                "x",
+                                "0",
+                                "1",
+                                "1"
+                            ],
+                            [
+                                "0",
+                                "0",
+                                "0",
+                                "1",
+                                "1"
+                            ]
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "id": "CN_DATAL_LINK_LAYER_2009_Q19",
+            "subject": "Computer Networks",
+            "topic": "Datal Link Layer",
+            "subtopic": "01011011 is transmitted as",
+            "year": 2009,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 19,
+            "tags": [
+                "Datal Link Layer",
+                "01011011 is transmitted as",
+                "Computer Networks"
+            ],
+            "question": {
+                "text": "Let G(x) be the generator polynomial used for CRC \nchecking. What is the condition that should be \nsatisfied by G(x) to detect odd number of bits in \nerror?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "G(x) contains more than two terms",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "G(x) does not divide 1 + xk, for any k not \nexceeding the frame length.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "1 + x is a factor of G(x)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "G(x) has an odd number of terms. \n\nData Link Layer",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "C"
+            ],
+            "solution": {
+                "text": "If G(x) has a factor of x+1 then it can detect odd \nnumber of bits error.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "CN_DATAL_LINK_LAYER_2008_Q20",
+            "subject": "Computer Networks",
+            "topic": "Datal Link Layer",
+            "subtopic": "Data Link Layer",
+            "year": 2008,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 20,
+            "tags": [
+                "Datal Link Layer",
+                "Data Link Layer",
+                "Computer Networks"
+            ],
+            "question": {
+                "text": "Data transmitted on a link use the following 2D \nparity scheme for error detection: \n\nEach sequence of 28 bits is arranged in a 4 \\times 7 matric \n(rows r0 through r3, and columns d7 through d1) and \nis padded with a column d0 and row r4 of parity bits \ncomputed using the Even parity scheme. Each bit of \ncolumn d0 (respectively, row r4) gives the parity of \nthe corresponding row (respectively, column). These \n40 bits are transmitted over the data link. \n\nD7 \nd6 \nd5 \nd4 \nd3 \nd2 \nd1 \nd0 \nr0 \nr1 \nr2 \nr3 \nr4 \n\nThe table shows data received by a receiver and has \nn corrupted bits, What is the minimum possible value \nof n?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "1",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "2",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "3",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "4",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "C"
+            ],
+            "solution": {
+                "text": "2-D parity scheme and column do and row r4 of \nparity bits computed using even parity scheme. \n\nd7 \nd6 \nd5 \nd4 \nd3 \nd2 \nd1 \nd0 \nr0 \nr1 \n0 1  \n0 \\times \n(error) \nr2 \nr3 \nr4 \n1 0 \n0 1 \n\n🗸 \n🗸 \n× \n(error) \n🗸 \n🗸 \n× \n(error) \n🗸 \n× \n(error) \n          Bits got corrupted are: \n\n(r1, d5), (r4, d2), (r4, d0) \n\nTotal three bits got corrupted. \n\n\n\nData Link Layer",
+                "images": [],
+                "latex": [],
+                "tables": [
+                    {
+                        "headers": [
+                            "",
+                            "d 7",
+                            "d 6",
+                            "d 5",
+                            "d 4",
+                            "d 3",
+                            "d 2",
+                            "d 1",
+                            "d 0"
+                        ],
+                        "rows": [
+                            [
+                                "r 0",
+                                "0",
+                                "1",
+                                "0",
+                                "1",
+                                "0",
+                                "0",
+                                "1",
+                                "1"
+                            ],
+                            [
+                                "r 1",
+                                "1",
+                                "1",
+                                "0 1",
+                                "0",
+                                "1",
+                                "1",
+                                "1",
+                                "0 × (error)"
+                            ],
+                            [
+                                "r 2",
+                                "0",
+                                "0",
+                                "0",
+                                "1",
+                                "0",
+                                "1",
+                                "0",
+                                "0"
+                            ],
+                            [
+                                "r 3",
+                                "0",
+                                "1",
+                                "1",
+                                "0",
+                                "1",
+                                "0",
+                                "1",
+                                "0"
+                            ],
+                            [
+                                "r 4",
+                                "1",
+                                "1",
+                                "0",
+                                "0",
+                                "0",
+                                "1 0",
+                                "1",
+                                "0 1"
+                            ],
+                            [
+                                "",
+                                "🗸",
+                                "🗸",
+                                "× (error)",
+                                "🗸",
+                                "🗸",
+                                "× (error)",
+                                "🗸",
+                                "× (error)"
+                            ]
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "id": "CN_DATAL_LINK_LAYER_2008_Q21",
+            "subject": "Computer Networks",
+            "topic": "Datal Link Layer",
+            "subtopic": "of n?",
+            "year": 2008,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 21,
+            "tags": [
+                "Datal Link Layer",
+                "of n?",
+                "Computer Networks"
+            ],
+            "question": {
+                "text": "How many bytes of data can be sent in 15 seconds \nover a serial link with baud rate of 9600 in \nasynchronous mode with odd parity and two stop bits \nin the frame?",
+                "images": [],
+                "latex": [],
+                "tables": [
+                    {
+                        "headers": [
+                            "",
+                            "D 7",
+                            "d 6",
+                            "d 5",
+                            "d 4",
+                            "d 3",
+                            "d 2",
+                            "d 1",
+                            "d 0"
+                        ],
+                        "rows": [
+                            [
+                                "r 0",
+                                "0",
+                                "1",
+                                "0",
+                                "1",
+                                "0",
+                                "0",
+                                "1",
+                                "1"
+                            ],
+                            [
+                                "r 1",
+                                "1",
+                                "1",
+                                "0",
+                                "0",
+                                "1",
+                                "1",
+                                "1",
+                                "0"
+                            ],
+                            [
+                                "r 2",
+                                "0",
+                                "0",
+                                "0",
+                                "1",
+                                "0",
+                                "1",
+                                "0",
+                                "0"
+                            ],
+                            [
+                                "r 3",
+                                "0",
+                                "1",
+                                "1",
+                                "0",
+                                "1",
+                                "0",
+                                "1",
+                                "0"
+                            ],
+                            [
+                                "r 4",
+                                "1",
+                                "1",
+                                "0",
+                                "0",
+                                "0",
+                                "1",
+                                "1",
+                                "0"
+                            ]
+                        ]
+                    }
+                ]
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "10,000 bytes",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "12,000 bytes",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "15,000 bytes",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "27,000 bytes \nFraming",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "B"
+            ],
+            "solution": {
+                "text": "Given  \n\nBaud rate = 9600 Bps \n\nMode: Asynchronous mode with odd parity and \nstop bits \n\nNote: In asynchronous mode data is transmitted in \nthe form of byte or character. \n\nStar bit = 1 \n\nOdd parity bit =1 \n\nStop bit = 2 \n\nNumber of bits sent in 1 byte = 8 + 1 + 1 + 2 = 12 \nbits  \n\nBaud rate = 9600\n bytes /sec = 800 bytes/sec. \n\nIn 1 sec.                800 bytes \n\nThen In 15 sec.                15 \\times 800 = 12000 bytes",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "CN_DATAL_LINK_LAYER_2014_Q22",
+            "subject": "Computer Networks",
+            "topic": "Datal Link Layer",
+            "subtopic": "Framing",
+            "year": 2014,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 22,
+            "tags": [
+                "Datal Link Layer",
+                "Framing",
+                "Computer Networks"
+            ],
+            "question": {
+                "text": "A bit-stuffing based framing protocol uses an 8-bit \ndelimiter pattern of 01111110. If the output bit-string \nafter stuffing is 01111100101, then the input bit-\nstring is:",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "0111110100",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "0111110101",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "0111111101",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "0111111111",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "B"
+            ],
+            "solution": {
+                "text": "8-bit delimiter pattern (flag) = 01111110 \n\nOutput bit string = 01111100101 \n\nIn bit stuffing a bit in stuffed in the input data after \nevery continuous 1's, one less than in the flag or \ndelimiter pattern. \n\nOutput data: 01111100101 \n\n                                 \n\n\n\n       Bit is stuffed in the input data \n\nSo, the input data will be: 0111110101",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        }
+    ]
+}

@@ -1,0 +1,31 @@
+{
+    "subject": "Theory Of Computation",
+    "totalTopics": 6,
+    "totalQuestions": 126,
+    "topics": [
+        {
+            "name": "Finite Automata and Transducer",
+            "questionCount": 24
+        },
+        {
+            "name": "Regular Expression",
+            "questionCount": 17
+        },
+        {
+            "name": "Regular Language and Grammar",
+            "questionCount": 13
+        },
+        {
+            "name": "Context Free Language and Context Free Grammar",
+            "questionCount": 35
+        },
+        {
+            "name": "Turing Machine (Recursive and RELs)",
+            "questionCount": 20
+        },
+        {
+            "name": "Undecidability and Reducibility",
+            "questionCount": 17
+        }
+    ]
+}

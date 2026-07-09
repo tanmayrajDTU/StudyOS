@@ -1,0 +1,2023 @@
+{
+    "subject": "Operating System",
+    "topic": "Deadlocks",
+    "questionCount": 14,
+    "questions": [
+        {
+            "id": "OS_DEADLOCKS_2019_Q01",
+            "subject": "Operating System",
+            "topic": "Deadlocks",
+            "subtopic": "Deadlock Handling",
+            "year": 2019,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 1,
+            "tags": [
+                "Deadlocks",
+                "Deadlock Handling",
+                "Operating System"
+            ],
+            "question": {
+                "text": "Consider the following snapshot of a system running \nn concurrent processes. Process i is holding Xi \ninstances of a resources R, 1 \\le i \\le n. Assume that all \ninstances of R are currently in use. Further, for all i, \nprocess i can place a request for at most Yi additional \ninstances of R while holding the Xi instances it \nalready has. Of the n processes, there are  exactly \ntwo processes p and q such that Yp = Yq = 0. Which \none of the following conditions guarantees that no \nother process apart form p and q can complete \nexecution?",
+                "images": [],
+                "latex": [],
+                "tables": [
+                    {
+                        "headers": [
+                            "",
+                            "Allocation",
+                            "",
+                            "",
+                            "",
+                            ""
+                        ],
+                        "rows": [
+                            [
+                                "",
+                                "",
+                                "E",
+                                "F",
+                                "G",
+                                ""
+                            ],
+                            [
+                                "P 0",
+                                "",
+                                "1",
+                                "0",
+                                "1",
+                                ""
+                            ],
+                            [
+                                "P 1",
+                                "",
+                                "1",
+                                "1",
+                                "2",
+                                ""
+                            ],
+                            [
+                                "P 2",
+                                "",
+                                "1",
+                                "0",
+                                "3",
+                                ""
+                            ],
+                            [
+                                "P 3",
+                                "",
+                                "2",
+                                "0",
+                                "0",
+                                ""
+                            ]
+                        ]
+                    },
+                    {
+                        "headers": [
+                            "",
+                            "Max",
+                            "",
+                            "",
+                            "",
+                            ""
+                        ],
+                        "rows": [
+                            [
+                                "",
+                                "",
+                                "E",
+                                "F",
+                                "G",
+                                ""
+                            ],
+                            [
+                                "P 0",
+                                "",
+                                "4",
+                                "3",
+                                "1",
+                                ""
+                            ],
+                            [
+                                "P 1",
+                                "",
+                                "2",
+                                "1",
+                                "4",
+                                ""
+                            ],
+                            [
+                                "P 2",
+                                "",
+                                "1",
+                                "3",
+                                "3",
+                                ""
+                            ],
+                            [
+                                "P 3",
+                                "",
+                                "5",
+                                "4",
+                                "1",
+                                ""
+                            ]
+                        ]
+                    }
+                ]
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "Xp + Xq < Min {Yk | 1 \\le k \\le n, k \\neq p, k \\neq q}",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "Xp + Xq < Max {Yk | 1 \\le k \\le n, k \\neq  p, k \\neq  q}",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "Min (Xp, Xq \\ge Min {Yk | 1 \\le k \\le n, k \\neq p, \nk \\neq q}",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "Min (Xp, Xq \\le Max {Yk | 1 \\le k \\le n, k \\neq p, \nk \\neq q}",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "A"
+            ],
+            "solution": {
+                "text": "\\pi \nalloc \nrequest \nAvail/R \np1 \nx1 \ny1 \np2 \nx2 \ny2 \n\n. \n. \n. \n\n. \n. \n. \n\npp \nxp \n\nP= \nxp \n\n. \n. \n. \n\n. \n. \n. \n\npn \nxn \nyn \n\n\n<Pp, pq \n\n't' : (xp + xq): Avail \n\n(xp + xq) < min (yk) \n\nk \\neq (p, q)",
+                "images": [],
+                "latex": [],
+                "tables": [
+                    {
+                        "headers": [
+                            "Pid",
+                            "Max E F G",
+                            "Allocation E F G",
+                            "Need E F G",
+                            "Available E F G"
+                        ],
+                        "rows": [
+                            [
+                                "Po",
+                                "4 3 1",
+                                "1 0 1",
+                                "3 3 0",
+                                "3 0 0"
+                            ],
+                            [
+                                "P1",
+                                "2 1 4",
+                                "1 1 2",
+                                "1 0 2",
+                                "4 3 1"
+                            ],
+                            [
+                                "P2",
+                                "1 3 3",
+                                "1 0 3",
+                                "0 3 0",
+                                ""
+                            ],
+                            [
+                                "P3",
+                                "5 4 1",
+                                "2 0 0",
+                                "3 4 1",
+                                ""
+                            ]
+                        ]
+                    },
+                    {
+                        "headers": [
+                            "Pid",
+                            "Max E F G",
+                            "Allocation E F G",
+                            "Need E F G",
+                            "Available E F G"
+                        ],
+                        "rows": [
+                            [
+                                "Po",
+                                "4 3 1",
+                                "1 0 1",
+                                "3 3 0",
+                                "3 0 0"
+                            ],
+                            [
+                                "P1",
+                                "2 1 4",
+                                "1 1 2",
+                                "1 0 2",
+                                "4 3 1"
+                            ],
+                            [
+                                "P2",
+                                "1 3 3",
+                                "1 0 3",
+                                "0 3 0",
+                                "5 3 4"
+                            ],
+                            [
+                                "P3",
+                                "5 4 1",
+                                "2 0 0",
+                                "3 4 1",
+                                ""
+                            ]
+                        ]
+                    },
+                    {
+                        "headers": [
+                            "Pid",
+                            "Max E F G",
+                            "Allocation E F G",
+                            "Need E F G",
+                            "Available E F G"
+                        ],
+                        "rows": [
+                            [
+                                "Po",
+                                "4 3 1",
+                                "1 0 1",
+                                "3 3 0",
+                                "3 0 0"
+                            ]
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "id": "OS_DEADLOCKS_2018_Q02",
+            "subject": "Operating System",
+            "topic": "Deadlocks",
+            "subtopic": "k ≠ q}",
+            "year": 2018,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 2,
+            "tags": [
+                "Deadlocks",
+                "k ≠ q}",
+                "Operating System"
+            ],
+            "question": {
+                "text": "In a system, there are three types of resources: E, F \nand G. Four processes  P0, P1, P2 and P3 execute \nconcurrently. At the outset, the processes have \ndeclared their maximum resource requirements \nusing a matrix named Max as given below. For \nexample, Max[P2, F] is the maximum number of \ninstances of F that P2 would require. The number of \ninstances of the resources allocated to the various \nprocesses at any given state is given by a matrix \nnamed Allocation. \n\nConsider a state of the system with the Allocation \nmatrix as shown below and in which 3 instances of \nE and 3 instances of F are the only resources \navailable. \n\nForm the perspective of deadlock avoidance, which \none of the following is true? \nAllocation \n\nMax \n\nE \nF \nG \n\n\nE \nF \nG \nP0 \n\nP0 \nP1 \n\nP1 \nP2 \n\nP2 \nP3 \n\nP3",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "The system is in safe state.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "The system is not in safe state, but would be \nsafe if one more instance of E were available.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "The system is not in safe state, but would be \nsafe if one more instance of F were available.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "The system is not in safe state, but would be \nsafe if one more instance of G were available.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "A"
+            ],
+            "solution": {
+                "text": "Resource Allocation Matrix: \nPid \nMax \nE F G \nAllocation \nE F G \nNeed \nE F G \nAvailable \nE F G \nPo \n4 3 1 \n1 0 1 \n3 3 0 \n3 0 0 \nP1 \n2 1 4 \n1 1 2 \n1 0 2 \n\nP2 \n1 3 3 \n1 0 3 \n0 3 0 \n\nP3 \n5 4 1  \n2 0 0 \n3 4 1 \n\n\nP0 can be executed. And the available will be \nPid \nMax \nE F G \nAllocation \nE F G \nNeed \nE F G \nAvailable \nE F G \nPo \n4 3 1 \n1 0 1 \n3 3 0 \n3 0 0 \nP1 \n2 1 4 \n1 1 2 \n1 0 2 \n4 3 1  \nP2 \n1 3 3 \n1 0 3 \n0 3 0 \n\nP3 \n5 4 1  \n2 0 0 \n3 4 1 \n\n\nNow, P2's can be satisfied, so P2 will be executed \nand \nPid \nMax \nE F G \nAllocation \nE F G \nNeed \nE F G \nAvailable \nE F G \nPo \n4 3 1 \n1 0 1 \n3 3 0 \n3 0 0 \nP1 \n2 1 4 \n1 1 2 \n1 0 2 \n4 3 1  \nP2 \n1 3 3 \n1 0 3 \n0 3 0 \n5 3 4 \nP3 \n5 4 1  \n2 0 0 \n3 4 1 \n\n\nNow, P1's need can be satisfied, so P1 will be \nexecuted and \n\nPid \nMax \nE F G \nAllocation \nE F G \nNeed \nE F G \nAvailable \nE F G \nPo \n4 3 1 \n1 0 1 \n3 3 0 \n3 0 0 \nP1 \n2 1 4 \n1 1 2 \n1 0 2 \n4 3 1  \nP2 \n1 3 3 \n1 0 3 \n0 3 0 \n5 3 4 \nP3 \n5 4 1  \n2 0 0 \n3 4 1 \n6 4 6 \n\nNow, we can satisfy needs of P3. Therefore,  \nPid \nMax \nE F G \nAllocation \nE F G \nNeed \nE F G \nAvailable \nE F G \nPo \n4 3 1 \n1 0 1 \n3 3 0 \n3 0 0 \nP1 \n2 1 4 \n1 1 2 \n1 0 2 \n4 3 1  \nP2 \n1 3 3 \n1 0 3 \n0 3 0 \n5 3 4 \nP3 \n5 4 1  \n2 0 0 \n3 4 1 \n6 4 6 \n\n\n\n\n8 4 6 \n\nSafe sequence will be: < 𝑃𝑜, P2, P1, P3 > \n\nSystem state is safe \n\nSo, option A is True.",
+                "images": [
+                    "assets/Operating System/OS_Deadlocks_P36_X1295.png"
+                ],
+                "latex": [],
+                "tables": [
+                    {
+                        "headers": [
+                            "P1",
+                            "2 1 4",
+                            "1 1 2",
+                            "1 0 2",
+                            ""
+                        ],
+                        "rows": [
+                            [
+                                "P2",
+                                "1 3 3",
+                                "1 0 3",
+                                "0 3 0",
+                                ""
+                            ],
+                            [
+                                "P3",
+                                "5 4 1",
+                                "2 0 0",
+                                "3 4 1",
+                                ""
+                            ]
+                        ]
+                    },
+                    {
+                        "headers": [
+                            "p i",
+                            "alloc",
+                            "request",
+                            "Avail/R"
+                        ],
+                        "rows": [
+                            [
+                                "p 1",
+                                "x 1",
+                                "y 1",
+                                "0"
+                            ],
+                            [
+                                "p 2",
+                                "x 2",
+                                "y 2",
+                                ""
+                            ],
+                            [
+                                ".",
+                                ".",
+                                ".",
+                                ""
+                            ],
+                            [
+                                ".",
+                                ".",
+                                ".",
+                                ""
+                            ],
+                            [
+                                "p p",
+                                "x p",
+                                "0",
+                                ""
+                            ],
+                            [
+                                "P=",
+                                "x p",
+                                "0",
+                                ""
+                            ],
+                            [
+                                ".",
+                                ".",
+                                ".",
+                                ""
+                            ],
+                            [
+                                ".",
+                                ".",
+                                ".",
+                                ""
+                            ],
+                            [
+                                "p n",
+                                "x n",
+                                "y n",
+                                ""
+                            ]
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "id": "OS_DEADLOCKS_2017_Q03",
+            "subject": "Operating System",
+            "topic": "Deadlocks",
+            "subtopic": "safe if one more instance of G were available.",
+            "year": 2017,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 3,
+            "tags": [
+                "Deadlocks",
+                "safe if one more instance of G were available.",
+                "Operating System"
+            ],
+            "question": {
+                "text": "A multithreaded program P executes with x number \nof threads and uses y number of locks for ensuring \nmutual exclusion while operating on shared memory \nlocations. All locks in the program are non-\nreentrant, i.e., if a thread holds a lock l, then it cannot \nre-acquire lock l without releasing it. If a thread is \nunable to acquire a lock, it blocks until the lock \nbecomes available. The minimum value of x and the \nminimum value of y together for which execution of \nP can result in a deadlock are:",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "x = 1, y = 2",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "x = 2, y = 1",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "x = 2, y = 2",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "x = 1, y = 1",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "D"
+            ],
+            "solution": {
+                "text": "The question is asking for the minimum value of x \nand the minimum value of y together for which \nexecution of P can result in a deadlock are: \n\nSo, checking for the minimum value x = 1, y = 1.  \n\nDeadlock is possible in this scenario the condition \nis process should perform down/wait operation \ntwice. If down operation on lock is performed \ntwice, then deadlock is possible.  \n\nTherefore, option D is correct.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "OS_DEADLOCKS_2017_Q04",
+            "subject": "Operating System",
+            "topic": "Deadlocks",
+            "subtopic": "P can result in a deadlock are:",
+            "year": 2017,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 4,
+            "tags": [
+                "Deadlocks",
+                "P can result in a deadlock are:",
+                "Operating System"
+            ],
+            "question": {
+                "text": "A system shares 9 tape drives. The current allocation \nand maximum requirement of tape drives for that \nprocesses are shown below: \n\nProcess \nCurrent \nAllocation \nMaximum \nRequirement  \nP1 \nP2 \nP3 \n\nWhich of the following best describes current state \nof the system?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "Safe, Deadlocked",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "Safe, Not Deadlocked",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "Not Safe, Deadlocked",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "Not Safe, Not Deadlocked",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "B"
+            ],
+            "solution": {
+                "text": "Resource Allocation Matrix: \nPid \nMax \nR \nAllocation \nR \nNeed \nR \nAvail \nR \nP1 \nP2 \n\nP3 \n\n\nP3's need can be satisfied and the available will \nbecome \nPid Max \nR \nAllocation \nR \nNeed \nR  \nAvail \nR \nP1 \nP2 \nP3 \n\n\nNow, P2's need can be fulfilled.  \nPid Max \nR \nAllocation \nR \nNeed \nR  \nAvail \nR \nP1 \nP2 \nP3 \n\nNow, P1's need can be fulfilled.  \nPid Max \nR \nAllocation \nR \nNeed \nR  \nAvail \nR \nP1 \nP2 \nP3 \n\n\n\n\n\nR = 9 \n\nSafe sequence: P3, P2, P1 \n\n∴ System is safe and not deadlocked \n\nSo, option B is correct.",
+                "images": [
+                    "assets/Operating System/OS_Deadlocks_P36_X1295.png"
+                ],
+                "latex": [],
+                "tables": [
+                    {
+                        "headers": [
+                            "P1",
+                            "2 1 4",
+                            "1 1 2",
+                            "1 0 2",
+                            ""
+                        ],
+                        "rows": [
+                            [
+                                "P2",
+                                "1 3 3",
+                                "1 0 3",
+                                "0 3 0",
+                                ""
+                            ],
+                            [
+                                "P3",
+                                "5 4 1",
+                                "2 0 0",
+                                "3 4 1",
+                                ""
+                            ]
+                        ]
+                    },
+                    {
+                        "headers": [
+                            "p i",
+                            "alloc",
+                            "request",
+                            "Avail/R"
+                        ],
+                        "rows": [
+                            [
+                                "p 1",
+                                "x 1",
+                                "y 1",
+                                "0"
+                            ],
+                            [
+                                "p 2",
+                                "x 2",
+                                "y 2",
+                                ""
+                            ],
+                            [
+                                ".",
+                                ".",
+                                ".",
+                                ""
+                            ],
+                            [
+                                ".",
+                                ".",
+                                ".",
+                                ""
+                            ],
+                            [
+                                "p p",
+                                "x p",
+                                "0",
+                                ""
+                            ],
+                            [
+                                "P=",
+                                "x p",
+                                "0",
+                                ""
+                            ],
+                            [
+                                ".",
+                                ".",
+                                ".",
+                                ""
+                            ],
+                            [
+                                ".",
+                                ".",
+                                ".",
+                                ""
+                            ],
+                            [
+                                "p n",
+                                "x n",
+                                "y n",
+                                ""
+                            ]
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "id": "OS_DEADLOCKS_2015_Q05",
+            "subject": "Operating System",
+            "topic": "Deadlocks",
+            "subtopic": "of the system?",
+            "year": 2015,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 5,
+            "tags": [
+                "Deadlocks",
+                "of the system?",
+                "Operating System"
+            ],
+            "question": {
+                "text": "Consider the following policies for preventing \ndeadlock in a system with mutually exclusive \nresources. \n\nI. \nProcesses should acquire all their resources at \nthe beginning of execution. If any resource is \nnot available, all resources acquired so far are \nreleased. \n\nII. \nThe resources are numbered uniquely, and \nprocesses are allowed to request for resources \nonly in increasing resource numbers. \n\nIII. The resources are numbered uniquely, and \nprocesses are allowed to request for resources \nonly in decreasing resource numbers. \n\nIV. The resources are numbered uniquely. A \nprocess is allowed to request only for a resource \nwith resource number larger than its currently \nheld resources. \n\nWhich of the above policies can be used for \npreventing deadlock?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "Any one of I and III but not II or IV",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "Any one of I, III and IV but not II",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "Any one of II and III but not I or IV",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "Any one of I, II, III and IV",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "D"
+            ],
+            "solution": {
+                "text": "A deadlock will never take place if any one of the \nfollowing condition is preempted.  \n1. Hold & Wait \n2. Circular Wait \n\n3. Mutual Exclusion \n4. No-Preemption \n\nStatement I violates hold & wait.  \n\nStatement II violates circular wait. \n\nStatement III violates circular wait. \n\nStatement IV also violates circualr wait by making \ndependency graph acyclic.  \n\nTherefore, option D is correct.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "OS_DEADLOCKS_2014_Q06",
+            "subject": "Operating System",
+            "topic": "Deadlocks",
+            "subtopic": "preventing deadlock?",
+            "year": 2014,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 6,
+            "tags": [
+                "Deadlocks",
+                "preventing deadlock?",
+                "Operating System"
+            ],
+            "question": {
+                "text": "An operating system uses the Banker's algorithm for \ndeadlock avoidance when managing the allocation \nof three resource types X, Y and Z to three processes \nP0, P1, and P2. The table given below represents the \ncurrent system state. Here, the Allocation matrix \nshows the current number of resources of each type \nallocated to each process and the Max matrix shows \nthe maximum number of resources of each type \nrequired by each process during its execution. \n\nAllocation \nMax \n\nX        Y      Z \nX      Y       Z \nP0 \n0        0        1 \n8       4       3 \nP1 \n3        2        0 \n6       2       0 \nP2 \n2         1       1 \n3        3      3 \n\nThere are 3 units of type X, 2 units of type Y and 2 \nunits of type Z still available. The system is currently \nin a safe state. Consider the following independent \nrequests for additional resources in the current state: \n\nREQ 1: P0 requests 0 units of X, 0 units of Y and 2 \nunits of Z \n\nREQ 2: P1 requests 2 units of X, 0 units of Y and 0 \nunits of Z \n\nWhich one of the following is TRUE?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "Only REQ 1 can be permitted.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "Only REQ 2 can be permitted.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "Both REQ 1 and REQ 2 can be permitted",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "Neither REQI nor REQ 2 can be permitted",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "B"
+            ],
+            "solution": {
+                "text": "Resource allocation table: \nPid \nMax \nX Y Z \nAlloc \nX Y Z \nNeed \nX Y Z \nAvail \nX Y Z \nP0 \n8 4 3 \n0 0 1 \n8 4 2 \n 3 2 2 \nP1 \n6 2 0 \n3 2 0 \n3 0 0 \n\nP2 \n3 3 3 \n2 1 1 \n1 2 2 \n\n\nRequest 1 needs [0, 0, 2] resources for process P1, \nthen the system will become \nPid \nMax \nX Y Z \nAlloc \nX Y Z \nNeed \nX Y Z \nAvail \nX Y Z \nP0 \n8 4 3 \n0 0 3 \n8 4 0 \n 3 2 0 \nP1 \n6 2 0 \n3 2 0 \n3 0 0 \n\nP2 \n3 3 3 \n2 1 1 \n1 2 2 \n\n\nNow, we can satisfy need of process P1, after \nallotting resources to P1, \nPid \nMax \nX Y Z \nAlloc \nX Y Z \nNeed \nX Y Z \nAvail \nX Y Z \nP0 \n8 4 3 \n0 0 3 \n8 4 0 \n 3 2 0 \nP1 \n6 2 0 \n3 2 0 \n3 0 0 \n 6 4 0  \nP2 \n3 3 3 \n2 1 1 \n1 2 2 \n\n\nNow, with the given available resources, the need \nof neither P2 nor P0 can be satisfied, system is \nunsafe, Therefore, Req1 cannot be granted.  \n\nNow, checking for Req2. Request 2 needs [2, 0, 0] \nPid \nMax \nX Y Z \nAlloc \nX Y Z \nNeed \nX Y Z \nAvail \nX Y Z \nP0 \n8 4 3 \n0 0 1 \n8 4 2 \n 1 2 2 \nP1 \n6 2 0 \n5 2 0 \n1 0 0 \n\nP2 \n3 3 3 \n2 1 1 \n1 2 2 \n\n\nP1's need can be satisfied and available will become \nPid \nMax \nX Y Z \nAlloc \nX Y Z \nNeed \nX Y Z \nAvail \nX Y Z \nP0 \n8 4 3 \n0 0 1 \n8 4 2 \n 1 2 2 \nP1 \n6 2 0 \n5 2 0 \n1 0 0 \n 6 4 2  \nP2 \n3 3 3 \n2 1 1 \n1 2 2 \n\n\nNow, P2's request can be granted and after \ncompleting P2 the new available will become.  \nPid \nMax \nX Y Z \nAlloc \nX Y Z \nNeed \nX Y Z \nAvail \nX Y Z \nP0 \n8 4 3 \n0 0 1 \n8 4 2 \n 1 2 2 \nP1 \n6 2 0 \n5 2 0 \n1 0 0 \n 6 4 2  \nP2 \n3 3 3 \n2 1 1 \n1 2 2 \n 8 5 3 \n\nWith 8, 5, 3. Need of P0 can be fulfilled easily.  \n\nHence Req2 can be granted.  \n(a)  System is unsafe\n∴ Req1 is Not granted \n(b) < P1, P2, P0> \n System is safe\n Req2 is granted",
+                "images": [],
+                "latex": [],
+                "tables": [
+                    {
+                        "headers": [
+                            "Pid",
+                            "Max R",
+                            "Allocation R",
+                            "Need R",
+                            "Avail R"
+                        ],
+                        "rows": [
+                            [
+                                "P1",
+                                "7",
+                                "3",
+                                "4",
+                                "2"
+                            ],
+                            [
+                                "P2",
+                                "6",
+                                "1",
+                                "5",
+                                ""
+                            ],
+                            [
+                                "P3",
+                                "5",
+                                "3",
+                                "2",
+                                ""
+                            ]
+                        ]
+                    },
+                    {
+                        "headers": [
+                            "Pid",
+                            "Max E F G",
+                            "Allocation E F G",
+                            "Need E F G",
+                            "Available E F G"
+                        ],
+                        "rows": [
+                            [
+                                "Po",
+                                "4 3 1",
+                                "1 0 1",
+                                "3 3 0",
+                                "3 0 0"
+                            ],
+                            [
+                                "P1",
+                                "2 1 4",
+                                "1 1 2",
+                                "1 0 2",
+                                "4 3 1"
+                            ],
+                            [
+                                "P2",
+                                "1 3 3",
+                                "1 0 3",
+                                "0 3 0",
+                                "5 3 4"
+                            ],
+                            [
+                                "P3",
+                                "5 4 1",
+                                "2 0 0",
+                                "3 4 1",
+                                "6 4 6"
+                            ],
+                            [
+                                "",
+                                "",
+                                "",
+                                "",
+                                "8 4 6"
+                            ]
+                        ]
+                    },
+                    {
+                        "headers": [
+                            "Pid",
+                            "Max R",
+                            "Allocation R",
+                            "Need R",
+                            "Avail R"
+                        ],
+                        "rows": [
+                            [
+                                "P1",
+                                "7",
+                                "3",
+                                "4",
+                                "2"
+                            ],
+                            [
+                                "P2",
+                                "6",
+                                "1",
+                                "5",
+                                "5"
+                            ],
+                            [
+                                "P3",
+                                "5",
+                                "3",
+                                "2",
+                                ""
+                            ]
+                        ]
+                    },
+                    {
+                        "headers": [
+                            "Pid",
+                            "Max R",
+                            "Allocation R",
+                            "Need R",
+                            "Avail R"
+                        ],
+                        "rows": [
+                            [
+                                "P1",
+                                "7",
+                                "3",
+                                "4",
+                                "2"
+                            ],
+                            [
+                                "P2",
+                                "6",
+                                "1",
+                                "5",
+                                "5"
+                            ],
+                            [
+                                "P3",
+                                "5",
+                                "3",
+                                "2",
+                                "6"
+                            ]
+                        ]
+                    },
+                    {
+                        "headers": [
+                            "Pid",
+                            "Max R",
+                            "Allocation R",
+                            "Need R",
+                            "Avail R"
+                        ],
+                        "rows": [
+                            [
+                                "P1",
+                                "7",
+                                "3",
+                                "4",
+                                "2"
+                            ],
+                            [
+                                "P2",
+                                "6",
+                                "1",
+                                "5",
+                                "5"
+                            ],
+                            [
+                                "P3",
+                                "5",
+                                "3",
+                                "2",
+                                "6"
+                            ],
+                            [
+                                "",
+                                "",
+                                "",
+                                "",
+                                "9"
+                            ]
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "id": "OS_DEADLOCKS_2008_Q07",
+            "subject": "Operating System",
+            "topic": "Deadlocks",
+            "subtopic": "Which one of the following is TRUE?",
+            "year": 2008,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 7,
+            "tags": [
+                "Deadlocks",
+                "Which one of the following is TRUE?",
+                "Operating System"
+            ],
+            "question": {
+                "text": "Which of the following is NOT true of deadlock \nprevention and deadlock avoidance schemes?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "In deadlock prevention, the request for resources \nis always granted if the resulting state is safe",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "In deadlock avoidance, the request for resources \nis always granted if the resulting state is safe",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "Deadlock avoidance is less restrictive than \ndeadlock prevention",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "Deadlock avoidance requires knowledge of \nresource requirements a priori. \n\n\nResource Allocation Graph",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "A"
+            ],
+            "solution": {
+                "text": "In deadlock prevention, we need to ensure one of \nthe four conditions (hold & wait, circular wait, \nmutual exclusion and no-pre-emption) to avoid \ndeadlock, but there may be a case where resulting \nstate is safe but the resource request is rejected. So, \noption A is not always true.  \n\nIn deadlock avoidance, if the resulting state is safe, \nthen request is always granted and deadlock \navoidance is less restrictive than deadlock \nprevention. So, option B, C both are true. \n\nIn deadlock avoidance, knowledge of resource \nrequirements must be known apriori. True.  \n\nTherefore, option A is correct.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "OS_DEADLOCKS_2022_Q08",
+            "subject": "Operating System",
+            "topic": "Deadlocks",
+            "subtopic": "Resource Allocation Graph",
+            "year": 2022,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MSQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 8,
+            "tags": [
+                "Deadlocks",
+                "Resource Allocation Graph",
+                "Operating System"
+            ],
+            "question": {
+                "text": "Which of the following statements is/are TRUE with",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "Circular wait is a necessary condition for the \nformation of deadlock.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "In a system where each resource has more \nthan one instance, a cycle in its wait-for graph \nindicates the presence of a deadlock.b",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "If the current allocation of resources to \nprocesses leads the system to unsafe state, \nthen deadlock will necessarily occur.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "In the resource-allocation graph of a system, \nif every edge is an assignment edge, then the \nsystem is not in deadlock state.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "A",
+                "D"
+            ],
+            "solution": {
+                "text": "(a) \nCircular wait is a necessary condition for the \nformation of deadlock. TRUE \n(b) \nIn a system where each resource has more \nthan one instance, a cycle in its wait-for \ngraph indicates the presence of a deadlock. \nFALSE. Every cycle is not a deadlock but \nevery deadlock have a cycle.  \n(c) \nIf the current allocation of resources to \nprocesses leads the system to unsafe state, \nthen deadlock will necessarily occur. \nFALSE. Every unsafe state is not deadlock.  \n(d) \nIn the resource-allocation graph of a system, \nif every edge is an assignment edge, then the \nsystem is not in deadlock state. TRUE. Only \nhold without wait doesn't cause deadlock. \n Therefore, option A, D are correct.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "OS_DEADLOCKS_2018_Q09",
+            "subject": "Operating System",
+            "topic": "Deadlocks",
+            "subtopic": "system is not in deadlock state.",
+            "year": 2018,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 9,
+            "tags": [
+                "Deadlocks",
+                "system is not in deadlock state.",
+                "Operating System"
+            ],
+            "question": {
+                "text": "Consider a system with 3 processes that share 4 \ninstances of the same resource type. Each process \ncan request a maximum of K instances. Resource \ninstances can be requested and released only one at \na time. The largest value of K that will always avoid \ndeadlock is ______.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "2"
+            ],
+            "solution": {
+                "text": "Given,  \n\nR = 4 \n\nTo avoid deadlock, so each process can have \nmaximum of k-1 resources.  \nRequired \nP1  \nK -1 \nP2  \nK -1 \nP3  \nK -1 \n\nR = 4 \n\nCondition for deadlock = (3K - 3) +1 \n\n⇒ 3K -2 = 4 \n\n⇒ 3K = 6 \n\n∴K=2 \n\nSo, 2 is the correct answer.",
+                "images": [
+                    "assets/Operating System/OS_Deadlocks_P38_X5220.png"
+                ],
+                "latex": [],
+                "tables": [
+                    {
+                        "headers": [
+                            "Pid",
+                            "Max X Y Z",
+                            "Alloc X Y Z",
+                            "Need X Y Z",
+                            "Avail X Y Z"
+                        ],
+                        "rows": [
+                            [
+                                "P 0",
+                                "8 4 3",
+                                "0 0 1",
+                                "8 4 2",
+                                "1 2 2"
+                            ],
+                            [
+                                "P 1",
+                                "6 2 0",
+                                "5 2 0",
+                                "1 0 0",
+                                ""
+                            ],
+                            [
+                                "P 2",
+                                "3 3 3",
+                                "2 1 1",
+                                "1 2 2",
+                                ""
+                            ]
+                        ]
+                    },
+                    {
+                        "headers": [
+                            "Pid",
+                            "Max X Y Z",
+                            "Alloc X Y Z",
+                            "Need X Y Z",
+                            "Avail X Y Z"
+                        ],
+                        "rows": [
+                            [
+                                "P 0",
+                                "8 4 3",
+                                "0 0 1",
+                                "8 4 2",
+                                "1 2 2"
+                            ],
+                            [
+                                "P 1",
+                                "6 2 0",
+                                "5 2 0",
+                                "1 0 0",
+                                "6 4 2"
+                            ],
+                            [
+                                "P 2",
+                                "3 3 3",
+                                "2 1 1",
+                                "1 2 2",
+                                ""
+                            ]
+                        ]
+                    },
+                    {
+                        "headers": [
+                            "Pid",
+                            "Max X Y Z",
+                            "Alloc X Y Z",
+                            "Need X Y Z",
+                            "Avail X Y Z"
+                        ],
+                        "rows": [
+                            [
+                                "P 0",
+                                "8 4 3",
+                                "0 0 1",
+                                "8 4 2",
+                                "3 2 2"
+                            ],
+                            [
+                                "P 1",
+                                "6 2 0",
+                                "3 2 0",
+                                "3 0 0",
+                                ""
+                            ],
+                            [
+                                "P 2",
+                                "3 3 3",
+                                "2 1 1",
+                                "1 2 2",
+                                ""
+                            ]
+                        ]
+                    },
+                    {
+                        "headers": [
+                            "Pid",
+                            "Max X Y Z",
+                            "Alloc X Y Z",
+                            "Need X Y Z",
+                            "Avail X Y Z"
+                        ],
+                        "rows": [
+                            [
+                                "P 0",
+                                "8 4 3",
+                                "0 0 1",
+                                "8 4 2",
+                                "1 2 2"
+                            ],
+                            [
+                                "P 1",
+                                "6 2 0",
+                                "5 2 0",
+                                "1 0 0",
+                                "6 4 2"
+                            ],
+                            [
+                                "P 2",
+                                "3 3 3",
+                                "2 1 1",
+                                "1 2 2",
+                                "8 5 3"
+                            ]
+                        ]
+                    },
+                    {
+                        "headers": [
+                            "Pid",
+                            "Max X Y Z",
+                            "Alloc X Y Z",
+                            "Need X Y Z",
+                            "Avail X Y Z"
+                        ],
+                        "rows": [
+                            [
+                                "P 0",
+                                "8 4 3",
+                                "0 0 3",
+                                "8 4 0",
+                                "3 2 0"
+                            ],
+                            [
+                                "P 1",
+                                "6 2 0",
+                                "3 2 0",
+                                "3 0 0",
+                                ""
+                            ],
+                            [
+                                "P 2",
+                                "3 3 3",
+                                "2 1 1",
+                                "1 2 2",
+                                ""
+                            ]
+                        ]
+                    },
+                    {
+                        "headers": [
+                            "Pid",
+                            "Max X Y Z",
+                            "Alloc X Y Z",
+                            "Need X Y Z",
+                            "Avail X Y Z"
+                        ],
+                        "rows": [
+                            [
+                                "P 0",
+                                "8 4 3",
+                                "0 0 3",
+                                "8 4 0",
+                                "3 2 0"
+                            ],
+                            [
+                                "P 1",
+                                "6 2 0",
+                                "3 2 0",
+                                "3 0 0",
+                                "6 4 0"
+                            ],
+                            [
+                                "P 2",
+                                "3 3 3",
+                                "2 1 1",
+                                "1 2 2",
+                                ""
+                            ]
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "id": "OS_DEADLOCKS_2015_Q10",
+            "subject": "Operating System",
+            "topic": "Deadlocks",
+            "subtopic": "deadlock is ______.",
+            "year": 2015,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 10,
+            "tags": [
+                "Deadlocks",
+                "deadlock is ______.",
+                "Operating System"
+            ],
+            "question": {
+                "text": "A system has 6 identical resources and N processes \ncompeting for them. Each process can request at \nmost 2 resources. Which one of the following values \nof N could lead to a deadlock?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "1",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "2",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "3",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "4",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "D"
+            ],
+            "solution": {
+                "text": "Pi = 2 (R) \n\nIf we allot 2 resources to 3 processes, then total \nresource required = 6. Hence, no deadlock.  \n\nThe number of processes, so the system should be \nin deadlock will be 4. Each processes requires 2 \nresources at most. Total resource required= 8.",
+                "images": [
+                    "assets/Operating System/OS_Deadlocks_P38_X5220.png"
+                ],
+                "latex": [],
+                "tables": [
+                    {
+                        "headers": [
+                            "Pid",
+                            "Max X Y Z",
+                            "Alloc X Y Z",
+                            "Need X Y Z",
+                            "Avail X Y Z"
+                        ],
+                        "rows": [
+                            [
+                                "P 0",
+                                "8 4 3",
+                                "0 0 1",
+                                "8 4 2",
+                                "1 2 2"
+                            ],
+                            [
+                                "P 1",
+                                "6 2 0",
+                                "5 2 0",
+                                "1 0 0",
+                                ""
+                            ],
+                            [
+                                "P 2",
+                                "3 3 3",
+                                "2 1 1",
+                                "1 2 2",
+                                ""
+                            ]
+                        ]
+                    },
+                    {
+                        "headers": [
+                            "Pid",
+                            "Max X Y Z",
+                            "Alloc X Y Z",
+                            "Need X Y Z",
+                            "Avail X Y Z"
+                        ],
+                        "rows": [
+                            [
+                                "P 0",
+                                "8 4 3",
+                                "0 0 1",
+                                "8 4 2",
+                                "1 2 2"
+                            ],
+                            [
+                                "P 1",
+                                "6 2 0",
+                                "5 2 0",
+                                "1 0 0",
+                                "6 4 2"
+                            ],
+                            [
+                                "P 2",
+                                "3 3 3",
+                                "2 1 1",
+                                "1 2 2",
+                                ""
+                            ]
+                        ]
+                    },
+                    {
+                        "headers": [
+                            "Pid",
+                            "Max X Y Z",
+                            "Alloc X Y Z",
+                            "Need X Y Z",
+                            "Avail X Y Z"
+                        ],
+                        "rows": [
+                            [
+                                "P 0",
+                                "8 4 3",
+                                "0 0 1",
+                                "8 4 2",
+                                "3 2 2"
+                            ],
+                            [
+                                "P 1",
+                                "6 2 0",
+                                "3 2 0",
+                                "3 0 0",
+                                ""
+                            ],
+                            [
+                                "P 2",
+                                "3 3 3",
+                                "2 1 1",
+                                "1 2 2",
+                                ""
+                            ]
+                        ]
+                    },
+                    {
+                        "headers": [
+                            "Pid",
+                            "Max X Y Z",
+                            "Alloc X Y Z",
+                            "Need X Y Z",
+                            "Avail X Y Z"
+                        ],
+                        "rows": [
+                            [
+                                "P 0",
+                                "8 4 3",
+                                "0 0 1",
+                                "8 4 2",
+                                "1 2 2"
+                            ],
+                            [
+                                "P 1",
+                                "6 2 0",
+                                "5 2 0",
+                                "1 0 0",
+                                "6 4 2"
+                            ],
+                            [
+                                "P 2",
+                                "3 3 3",
+                                "2 1 1",
+                                "1 2 2",
+                                "8 5 3"
+                            ]
+                        ]
+                    },
+                    {
+                        "headers": [
+                            "Pid",
+                            "Max X Y Z",
+                            "Alloc X Y Z",
+                            "Need X Y Z",
+                            "Avail X Y Z"
+                        ],
+                        "rows": [
+                            [
+                                "P 0",
+                                "8 4 3",
+                                "0 0 3",
+                                "8 4 0",
+                                "3 2 0"
+                            ],
+                            [
+                                "P 1",
+                                "6 2 0",
+                                "3 2 0",
+                                "3 0 0",
+                                ""
+                            ],
+                            [
+                                "P 2",
+                                "3 3 3",
+                                "2 1 1",
+                                "1 2 2",
+                                ""
+                            ]
+                        ]
+                    },
+                    {
+                        "headers": [
+                            "Pid",
+                            "Max X Y Z",
+                            "Alloc X Y Z",
+                            "Need X Y Z",
+                            "Avail X Y Z"
+                        ],
+                        "rows": [
+                            [
+                                "P 0",
+                                "8 4 3",
+                                "0 0 3",
+                                "8 4 0",
+                                "3 2 0"
+                            ],
+                            [
+                                "P 1",
+                                "6 2 0",
+                                "3 2 0",
+                                "3 0 0",
+                                "6 4 0"
+                            ],
+                            [
+                                "P 2",
+                                "3 3 3",
+                                "2 1 1",
+                                "1 2 2",
+                                ""
+                            ]
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "id": "OS_DEADLOCKS_2014_Q11",
+            "subject": "Operating System",
+            "topic": "Deadlocks",
+            "subtopic": "of N could lead to a deadlock?",
+            "year": 2014,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 11,
+            "tags": [
+                "Deadlocks",
+                "of N could lead to a deadlock?",
+                "Operating System"
+            ],
+            "question": {
+                "text": "A system contains three programs, and each requires \nthree tape units for its operation. The minimum \nnumbe of tape units which the system must have",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "7"
+            ],
+            "solution": {
+                "text": "Number of processes, N = 3 \n\nMin (R) \n\nPi →3 (R) \n\nMinimum number of resource unit so the deadlock \nnever arises is, 7, upto 6 resources each process can \nhave 2 resources each and result into deadlock. But \nwith 7 resources, at least one processes' need will \nbe satisfied and hence other processes can also \nproceed.  \n\nP\nP\nP\n−\n−\n+ =\n−",
+                "images": [
+                    "assets/Operating System/OS_Deadlocks_P38_X5220.png"
+                ],
+                "latex": [],
+                "tables": [
+                    {
+                        "headers": [
+                            "Pid",
+                            "Max X Y Z",
+                            "Alloc X Y Z",
+                            "Need X Y Z",
+                            "Avail X Y Z"
+                        ],
+                        "rows": [
+                            [
+                                "P 0",
+                                "8 4 3",
+                                "0 0 1",
+                                "8 4 2",
+                                "1 2 2"
+                            ],
+                            [
+                                "P 1",
+                                "6 2 0",
+                                "5 2 0",
+                                "1 0 0",
+                                ""
+                            ],
+                            [
+                                "P 2",
+                                "3 3 3",
+                                "2 1 1",
+                                "1 2 2",
+                                ""
+                            ]
+                        ]
+                    },
+                    {
+                        "headers": [
+                            "Pid",
+                            "Max X Y Z",
+                            "Alloc X Y Z",
+                            "Need X Y Z",
+                            "Avail X Y Z"
+                        ],
+                        "rows": [
+                            [
+                                "P 0",
+                                "8 4 3",
+                                "0 0 1",
+                                "8 4 2",
+                                "1 2 2"
+                            ],
+                            [
+                                "P 1",
+                                "6 2 0",
+                                "5 2 0",
+                                "1 0 0",
+                                "6 4 2"
+                            ],
+                            [
+                                "P 2",
+                                "3 3 3",
+                                "2 1 1",
+                                "1 2 2",
+                                ""
+                            ]
+                        ]
+                    },
+                    {
+                        "headers": [
+                            "Pid",
+                            "Max X Y Z",
+                            "Alloc X Y Z",
+                            "Need X Y Z",
+                            "Avail X Y Z"
+                        ],
+                        "rows": [
+                            [
+                                "P 0",
+                                "8 4 3",
+                                "0 0 1",
+                                "8 4 2",
+                                "3 2 2"
+                            ],
+                            [
+                                "P 1",
+                                "6 2 0",
+                                "3 2 0",
+                                "3 0 0",
+                                ""
+                            ],
+                            [
+                                "P 2",
+                                "3 3 3",
+                                "2 1 1",
+                                "1 2 2",
+                                ""
+                            ]
+                        ]
+                    },
+                    {
+                        "headers": [
+                            "Pid",
+                            "Max X Y Z",
+                            "Alloc X Y Z",
+                            "Need X Y Z",
+                            "Avail X Y Z"
+                        ],
+                        "rows": [
+                            [
+                                "P 0",
+                                "8 4 3",
+                                "0 0 1",
+                                "8 4 2",
+                                "1 2 2"
+                            ],
+                            [
+                                "P 1",
+                                "6 2 0",
+                                "5 2 0",
+                                "1 0 0",
+                                "6 4 2"
+                            ],
+                            [
+                                "P 2",
+                                "3 3 3",
+                                "2 1 1",
+                                "1 2 2",
+                                "8 5 3"
+                            ]
+                        ]
+                    },
+                    {
+                        "headers": [
+                            "Pid",
+                            "Max X Y Z",
+                            "Alloc X Y Z",
+                            "Need X Y Z",
+                            "Avail X Y Z"
+                        ],
+                        "rows": [
+                            [
+                                "P 0",
+                                "8 4 3",
+                                "0 0 3",
+                                "8 4 0",
+                                "3 2 0"
+                            ],
+                            [
+                                "P 1",
+                                "6 2 0",
+                                "3 2 0",
+                                "3 0 0",
+                                ""
+                            ],
+                            [
+                                "P 2",
+                                "3 3 3",
+                                "2 1 1",
+                                "1 2 2",
+                                ""
+                            ]
+                        ]
+                    },
+                    {
+                        "headers": [
+                            "Pid",
+                            "Max X Y Z",
+                            "Alloc X Y Z",
+                            "Need X Y Z",
+                            "Avail X Y Z"
+                        ],
+                        "rows": [
+                            [
+                                "P 0",
+                                "8 4 3",
+                                "0 0 3",
+                                "8 4 0",
+                                "3 2 0"
+                            ],
+                            [
+                                "P 1",
+                                "6 2 0",
+                                "3 2 0",
+                                "3 0 0",
+                                "6 4 0"
+                            ],
+                            [
+                                "P 2",
+                                "3 3 3",
+                                "2 1 1",
+                                "1 2 2",
+                                ""
+                            ]
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "id": "OS_DEADLOCKS_2010_Q12",
+            "subject": "Operating System",
+            "topic": "Deadlocks",
+            "subtopic": "numbe of tape units which the system must have",
+            "year": 2010,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 12,
+            "tags": [
+                "Deadlocks",
+                "numbe of tape units which the system must have",
+                "Operating System"
+            ],
+            "question": {
+                "text": "A system has n resources R0, R1, …, Rn - 1, and k \nprocesses P0, P1, …, Pk - 1 . The implementation of \nthe resource request logic of each process Pi,  is as \nfollows: \n\nif (i% 2 == 0) { \n\nif (i < n) request Ri;  \n\nif (i + 2 < n) request Ri + 2;   \n\n} \n\nelse { \n\nif (i < n) request Rn - i; \n\nif (i + 2 < n) request Rn - i- 2 ; \n\n} \n\nIn which one of the following situations is a deadlock \npossible?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "n = 40, k = 26",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "n = 21, k = 12",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "n = 20, k = 10",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "n = 41, k = 19",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "B"
+            ],
+            "solution": {
+                "text": "• \nBased on Resource Request logic, Even \nNumbered processes are Requesting Even \nnumber resource. \n• \nFor \nPreventing/Avoiding \nDeadlock, \nodd \nnumbered processes should request odd \nnumbered resources. \n• \nIn the else part, when 'n' is odd, then process \nwill request even numbered resources & may \nform cycle, which will lead to Deadlock. \n Only in option (B) & (D) there is a possibility \nof deadlock. \nOption (B): \nM = 2k; k = 12 \nP0 \\rightarrow  R0, R2 \nP1 \\rightarrow  R20, R18 \nP2 \\rightarrow  R2, R4 \nP3 \\rightarrow  R18, R16 \nP4 \\rightarrow  R4, R6 \nP5 \\rightarrow  R16, R14 \nP6 \\rightarrow  R6, R8 \nP7 \\rightarrow  R14, R12 \nP8 \\rightarrow  R8, R10 \nP9 \\rightarrow  R12, R10 \nP10 \\rightarrow  R10, R11 \nP11 \\rightarrow  R10, R8 \n\n\n𝑃8 →𝑅8, 𝑅10\n𝑃11 →𝑅10, 𝑅8 Deadlock \n\nSimilarly, for Option (d) there is no - overlap with \nresources.",
+                "images": [],
+                "latex": [],
+                "tables": [
+                    {
+                        "headers": [
+                            "P → R , R 0 0 2",
+                            "P → R , R 1 20 18"
+                        ],
+                        "rows": [
+                            [
+                                "P → R , R 2 2 4",
+                                "P → R , R 3 18 16"
+                            ],
+                            [
+                                "P → R , R 4 4 6",
+                                "P → R , R 5 16 14"
+                            ],
+                            [
+                                "P → R , R 6 6 8",
+                                "P → R , R 7 14 12"
+                            ],
+                            [
+                                "P → R , R 8 8 10",
+                                "P → R , R 9 12 10"
+                            ],
+                            [
+                                "P → R , R 10 10 11",
+                                "P → R , R 11 10 8"
+                            ]
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "id": "OS_DEADLOCKS_2009_Q13",
+            "subject": "Operating System",
+            "topic": "Deadlocks",
+            "subtopic": "possible?",
+            "year": 2009,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 13,
+            "tags": [
+                "Deadlocks",
+                "possible?",
+                "Operating System"
+            ],
+            "question": {
+                "text": "Consider a system with 4 types of resources R1 (3 \nunits), R2(2 units), R3(3 units), R4(2 units). A non-\npreemptive resource allocation policy is used. At \nany given instance, a request is not entertained if it \ncannot be completely satisfied.  Three processes P1, \nP2, P3 request the resources as follows if executed \nindependently. \nProcess Pl: \nt = 0 : requests 2 units of \nR2 \nt = 1: requests 1 unit of R3 \nt = 3: requests 2 units of RI \nt = 5: releases 1 unit of R2 \nand 1 unit of RI \nt = 7 : releases 1 unit of R3 \nt = 8 : requests 2 units of \nR4 \nt = 10 : Finishes \nProcess P2: \nt = 0: requests 2 \nunits of R3  \nt = 2 : requests 1 \nunit of R4 \nt = 4 : requests 1 \nunit of Rl \nt = 6 : releases 1 \nunit of R3 \nt = 8 : Finishes \nProcess P3: \nt = 0: requests \n1 unit of R4 \nt = 2: requests \n2 units of Rl \nt = 5: releases \n2 units of Rl \nt = 7: requests \n1 unit of R2 \nt = 8: requests \n1 unit of R3 \nt = 9: Finishes \n\n\nWhich one of the following statements is TRUE if \nall three processes run concurrently starting at time t \n= 0?",
+                "images": [],
+                "latex": [],
+                "tables": [
+                    {
+                        "headers": [
+                            "Process Pl: t = 0 : requests 2 units of R2 t = 1: requests 1 unit of R3 t = 3: requests 2 units of RI t = 5: releases 1 unit of R2 and 1 unit of RI t = 7 : releases 1 unit of R3 t = 8 : requests 2 units of R4 t = 10 : Finishes",
+                            "Process P2: t = 0: requests 2 units of R3 t = 2 : requests 1 unit of R4 t = 4 : requests 1 unit of Rl t = 6 : releases 1 unit of R3 t = 8 : Finishes",
+                            "Process P3: t = 0: requests 1 unit of R4 t = 2: requests 2 units of Rl t = 5: releases 2 units of Rl t = 7: requests 1 unit of R2 t = 8: requests 1 unit of R3 t = 9: Finishes"
+                        ],
+                        "rows": []
+                    }
+                ]
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "All processes will finish without any deadlock.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "Only P1 and P2 will be in deadlock.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "Only P1 and P3 will be in deadlock.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "All three processes will be in deadlock",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "A"
+            ],
+            "solution": {
+                "text": "List of events at time Ti \n\n\nNo Deadlock",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "OS_DEADLOCKS_2008_Q14",
+            "subject": "Operating System",
+            "topic": "Deadlocks",
+            "subtopic": "= 0?",
+            "year": 2008,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 14,
+            "tags": [
+                "Deadlocks",
+                "= 0?",
+                "Operating System"
+            ],
+            "question": {
+                "text": "requires a process to release all resources before \nmaking a request for another resource. \n\nSelect the TRUE statement from the following:",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "Both starvation and deadlock can occur.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "Starvation can occur but deadlock cannot occur.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "Starvation cannot occur but deadlock can occur.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "Neither starvation nor deadlock can occur.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "B"
+            ],
+            "solution": {
+                "text": "In such a policy starvation can occur as every time \na process requests for a resource it has to release all \nthe acquired resources. If the process has not \nutilized acquired resources properly then it has to \nrepeat this when the process requests for another \nresource and improper utilization of resources can \nlead to starvation.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        }
+    ]
+}

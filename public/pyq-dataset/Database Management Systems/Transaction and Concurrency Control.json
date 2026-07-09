@@ -1,0 +1,1979 @@
+{
+    "subject": "Database Management Systems",
+    "topic": "Transaction and Concurrency Control",
+    "questionCount": 24,
+    "questions": [
+        {
+            "id": "DBMS_TRANSACTION_AND_CONCURRENCY_CONTROL_2021_Q01",
+            "subject": "Database Management Systems",
+            "topic": "Transaction and Concurrency Control",
+            "subtopic": "Transaction Concept",
+            "year": 2021,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 1,
+            "tags": [
+                "Transaction and Concurrency Control",
+                "Transaction Concept",
+                "Database Management Systems"
+            ],
+            "question": {
+                "text": "Suppose a database system crashes again while \nrecovering \nfrom \na \nprevious \ncrash. \nAssume \ncheckpointing is not done by the database either \nduring the transactions or during recovery. Which of \nthe following statement is/are correct?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "The same undo and redo list will be used while \nrecovering again",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "The system cannot recover any further",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "All the transactions that are already undone and \nredone will not be recovered again",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "The database will become inconsistent",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "A"
+            ],
+            "solution": {
+                "text": "Recovery system maintains a log of all the current \nand previous transactions. \n\nThose transaction that commit perform Redo \noperation while the transactions that do not commit \nperform undo operation. \n\nOld value: \n=\nx\n7 5  \n\nx =\nUndo \n\nData Item Old value New value \nTime t = 1 \nx \nTime t = 2 \nx \n\n\nx =\nRedo",
+                "images": [],
+                "latex": [],
+                "tables": [
+                    {
+                        "headers": [
+                            "",
+                            "Data Item",
+                            "Old value",
+                            "New value"
+                        ],
+                        "rows": [
+                            [
+                                "Time t = 1",
+                                "x",
+                                "5",
+                                "7"
+                            ],
+                            [
+                                "Time t = 2",
+                                "x",
+                                "7",
+                                "9"
+                            ]
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "id": "DBMS_TRANSACTION_AND_CONCURRENCY_CONTROL_2016_Q02",
+            "subject": "Database Management Systems",
+            "topic": "Transaction and Concurrency Control",
+            "subtopic": "redone will not be recovered again",
+            "year": 2016,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 2,
+            "tags": [
+                "Transaction and Concurrency Control",
+                "redone will not be recovered again",
+                "Database Management Systems"
+            ],
+            "question": {
+                "text": "Suppose a database schedule S involves transaction \nT1……, Tn. Construct the precedence graph of S with \nvertices representing the transactions and edges \nrepresenting the conflicts. If S is serializable, which \none of the following orderings of the vertices of the \nprecedence graph is guaranteed to yield a serial \nschedule?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "Topological order",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "Depth-first order",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "Breadth-first order",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "Ascending order of transaction indices",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "A"
+            ],
+            "solution": {
+                "text": "S is serializable, as the graph is Acyclic \n\nTopological sorting",
+                "images": [],
+                "latex": [],
+                "tables": [
+                    {
+                        "headers": [
+                            "a",
+                            "_",
+                            "_",
+                            "_",
+                            "_",
+                            "f"
+                        ],
+                        "rows": [
+                            [
+                                "a",
+                                "b",
+                                "c",
+                                "d",
+                                "e",
+                                "f"
+                            ],
+                            [
+                                "a",
+                                "d",
+                                "e",
+                                "b",
+                                "c",
+                                "f"
+                            ],
+                            [
+                                "a",
+                                "b",
+                                "d",
+                                "c",
+                                "e",
+                                "f"
+                            ],
+                            [
+                                "a",
+                                "b",
+                                "d",
+                                "e",
+                                "c",
+                                "f"
+                            ],
+                            [
+                                "a",
+                                "d",
+                                "b",
+                                "e",
+                                "c",
+                                "f"
+                            ],
+                            [
+                                "a",
+                                "d",
+                                "b",
+                                "c",
+                                "e",
+                                "f"
+                            ]
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "id": "DBMS_TRANSACTION_AND_CONCURRENCY_CONTROL_2016_Q03",
+            "subject": "Database Management Systems",
+            "topic": "Transaction and Concurrency Control",
+            "subtopic": "schedule?",
+            "year": 2016,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 3,
+            "tags": [
+                "Transaction and Concurrency Control",
+                "schedule?",
+                "Database Management Systems"
+            ],
+            "question": {
+                "text": "Which one of the following is NOT a part of the ACID \nproperties of database transactions?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "Atomicity",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "Consistency",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "Isolation",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "Deadlock-freedom",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "D"
+            ],
+            "solution": {
+                "text": "In A C I D: \n\nA stands for Atomicity \n\nC stands for Consistency \n\nI stands for Isolation \n\nD stands for Durability",
+                "images": [
+                    "assets/Database Management Systems/DBMS_Transaction_and_Concurrency_Control_P27_X809.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "DBMS_TRANSACTION_AND_CONCURRENCY_CONTROL_2016_Q04",
+            "subject": "Database Management Systems",
+            "topic": "Transaction and Concurrency Control",
+            "subtopic": "properties of database transactions?",
+            "year": 2016,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 4,
+            "tags": [
+                "Transaction and Concurrency Control",
+                "properties of database transactions?",
+                "Database Management Systems"
+            ],
+            "question": {
+                "text": "Consider the following directed graph: \n\n\nThe number of different topological ordering of the \nvertices of the graph is",
+                "images": [
+                    "assets/Database Management Systems/DBMS_Transaction_and_Concurrency_Control_P22_X2187.png"
+                ],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "6"
+            ],
+            "solution": {
+                "text": "a \n_ \n_ \n_ \n_ \nf \na \nb \nc \nd \ne \nf \na \nd \ne \nb \nc \nf \na \nb \nd \nc \ne \nf \na \nb \nd \ne \nc \nf \na \nd \nb \ne \nc \nf \na \nd \nb \nc \ne \nf \n\nDatabase Management System \n\nThere exists 6 topological orders for the given graph.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "DBMS_TRANSACTION_AND_CONCURRENCY_CONTROL_2015_Q05",
+            "subject": "Database Management Systems",
+            "topic": "Transaction and Concurrency Control",
+            "subtopic": "vertices of the graph is",
+            "year": 2015,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 5,
+            "tags": [
+                "Transaction and Concurrency Control",
+                "vertices of the graph is",
+                "Database Management Systems"
+            ],
+            "question": {
+                "text": "Consider a simple checkpointing protocol and the \nfollowing set of operations in the log. \n\n(start, T4); (write, T4, y, 2, 3); (start, T1); \n\n(commit, T4); (write, T1, z, 5, 7); \n\n(checkpoint); \n\n(start, T2); (write, T2, x, 1, 9); (commit, T2); \n\n(start, T3); (write, T3, z, 7, 2); \n\nIf a crash happens now and the system tries to recover \nusing both undo and redo operations, what are the \ncontents of the undo list and the redo list?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "Undo: T3, T1; Redo: T2",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "Undo: T3, T1; Redo: T2, T4",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "Undo: none; Redo: T2, T4, T3, T1",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "Undo: T3, T1, T4; Redo: T2",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "A"
+            ],
+            "solution": {
+                "text": "Redo: T2 \n\nUndo: T1,T3",
+                "images": [
+                    "assets/Database Management Systems/DBMS_Transaction_and_Concurrency_Control_P28_X3250.png",
+                    "assets/Database Management Systems/DBMS_Transaction_and_Concurrency_Control_P28_X3256.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "DBMS_TRANSACTION_AND_CONCURRENCY_CONTROL_2015_Q06",
+            "subject": "Database Management Systems",
+            "topic": "Transaction and Concurrency Control",
+            "subtopic": "contents of the undo list and the redo list?",
+            "year": 2015,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 6,
+            "tags": [
+                "Transaction and Concurrency Control",
+                "contents of the undo list and the redo list?",
+                "Database Management Systems"
+            ],
+            "question": {
+                "text": "Consider the following transaction involving two \nbank accounts x and y \n\n[read (x) ; x: = x-50 ; write(x) ; read(y) ; y: = y + 50; \nwrite(y);] \n\n\nThe constraint that the sum of the accounts x and y \nshould remain constant is that of",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "Atomicity",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "Consistency",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "Isolation",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "Durability \n\nSerializable Schedule(Conflict and View)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "B"
+            ],
+            "solution": {
+                "text": "Consistency ensures integrity of the data before and \nafter the transaction operations have been performed \nthat is the initial value before the start of the \noperations should match with the value that is \nobtained after the operations have completed.",
+                "images": [
+                    "assets/Database Management Systems/DBMS_Transaction_and_Concurrency_Control_P28_X3252.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "DBMS_TRANSACTION_AND_CONCURRENCY_CONTROL_2022_Q07",
+            "subject": "Database Management Systems",
+            "topic": "Transaction and Concurrency Control",
+            "subtopic": "Serializable Schedule(Conflict and View)",
+            "year": 2022,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 7,
+            "tags": [
+                "Transaction and Concurrency Control",
+                "Serializable Schedule(Conflict and View)",
+                "Database Management Systems"
+            ],
+            "question": {
+                "text": "Let Ri,(z) and Wi (z) denote read and write operations \non a data element z by a transaction Ti, respectively. \nConsider the schedule S with four transactions. \n\nS: R4(x)R2(x) R3(x) R1(y) W1(y) W2(x) W3(y) R4(y) \n\nWhich one of the following serial schedules is conflict \nequivalent to S ?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "T1 \\rightarrow T3 \\rightarrow T4 \\rightarrow T2",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "T1 \\rightarrow T4 \\rightarrow T3 \\rightarrow T2",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "T4 \\rightarrow T1 \\rightarrow T3 \\rightarrow T2",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "T3 \\rightarrow T1 \\rightarrow T4 \\rightarrow T2",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "A"
+            ],
+            "solution": {
+                "text": "Ti: R(Q) \nBefore Tj = W(Q) \n\nTi: W(Q) Before Tj = R(Q) \n\nTi: W(Q) Before Tj = R(Q) \nSame Data item (Q) \n\n\n\n\n( )\n( )\n( )\n( )\n( )\n( )\nR Q\n- W Q\nW Q\n- R Q\nconflict operation\nW Q\n- W Q\n\n\n\n\n\n\n\nS: R4(x)R2(x) R3(x) R1(y) W1(y) W2(x) W3(y) R4(y) \nT1 \nT2 \nT3 \nT4 \n\n\n\nR(x) \n\nR(x) \n\n\n\n\nR(x) \n\nR(y) \n\n\n\nW(y) \n\n\n\n\nW(x) \n\n\n\n\nW(y)  \n\n\n\nR(y) \n\n\nSeralizablility order as T1 \\rightarrow T3 \\rightarrow T4 \\rightarrow T2 \n\nAlternate Method  \n\nS: R4(x)R2(x) R3(x) R1(y) W1(y) W2(x) W3(y) R4(y) \n\nFor data item x:  \n\n\nT4 \\rightarrow T2 (R4(x) →W2(x)) \n\n\nT3 \\rightarrow T2 (R3(x) →W2(x)) \n\nFor data item y: \n\n\nT1 \\rightarrow T3 (R1(y) \\rightarrow W3(y)) \n\n\nT1 \\rightarrow T3 (W1(y) \\rightarrow W3(y)) \n\n\nT1 \\rightarrow T4 (W1(y) \\rightarrow R4(y)) \n\n\nT3 \\rightarrow T4 (W3(y) \\rightarrow R4(y)) \n\n\n\nSeralizablility order as T1 \\rightarrow T3 \\rightarrow T4→ T2",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "DBMS_TRANSACTION_AND_CONCURRENCY_CONTROL_2021_Q08",
+            "subject": "Database Management Systems",
+            "topic": "Transaction and Concurrency Control",
+            "subtopic": "equivalent to S ?",
+            "year": 2021,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 8,
+            "tags": [
+                "Transaction and Concurrency Control",
+                "equivalent to S ?",
+                "Database Management Systems"
+            ],
+            "question": {
+                "text": "Let S be the following schedule of operations of three \ntransactions T1, T2 and T3 in a relational database \nsystem: \n\nR2 (Y), R1(X), R3(Z), R1(Y), W1(X), R2(Z), W2(Y), \nR3(X), W3(Z) \n\nConsider the statements P and Q below: \n\nP: S is conflict-serializable. \n\nQ: If T3 commits before T1 finishes, then S is \nrecoverable. \n\nWhich one of the following choices is correct?",
+                "images": [],
+                "latex": [],
+                "tables": [
+                    {
+                        "headers": [
+                            "T 1",
+                            "RA",
+                            "RC",
+                            "WD",
+                            "",
+                            "",
+                            "",
+                            "WB",
+                            "",
+                            "Commit",
+                            ""
+                        ],
+                        "rows": [
+                            [
+                                "T 2",
+                                "",
+                                "",
+                                "",
+                                "RB",
+                                "WB",
+                                "RD",
+                                "",
+                                "WC",
+                                "",
+                                "Commit"
+                            ]
+                        ]
+                    },
+                    {
+                        "headers": [
+                            "T 1",
+                            "",
+                            "",
+                            "",
+                            "",
+                            "RA",
+                            "RC",
+                            "WD",
+                            "WB",
+                            "Commit",
+                            ""
+                        ],
+                        "rows": [
+                            [
+                                "T 2",
+                                "RB",
+                                "WB",
+                                "RD",
+                                "WC",
+                                "",
+                                "",
+                                "",
+                                "",
+                                "",
+                                "Commit"
+                            ]
+                        ]
+                    }
+                ]
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "Both P and Q are true.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "P is true and Q is false.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "P is false and Q is true.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "Both P and Q are false.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "B"
+            ],
+            "solution": {
+                "text": "R2 (Y), R1(X), R3(Z), R1(Y), W1(X), R2(Z), W2(Y), \nR3(X), W3(Z) \nT1 \nT2 \nT3 \n\nR(y) \n\nR(x) \n\n\n\n\nR(z) \nR(y) \n\n\nW(x) \n\n\n\nR(z) \n\n\nW(y) \n\n\n\nR(x) \n\n\nW(z) \n\n\nCommit \n\n\n\nConflict Serializable  \n\nS1:  True < T1 T2 T3> \n\nIrrecoverable or Non-Recoverable schedule  \n(Ti) \n(Tj) \nT1 \nT2 \nW(Q) \n\n\nR(Q) \nC/R \n\n\n→ Commit \n\nRecoverable schedule",
+                "images": [
+                    "assets/Database Management Systems/DBMS_Transaction_and_Concurrency_Control_P29_X3392.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "DBMS_TRANSACTION_AND_CONCURRENCY_CONTROL_2021_Q09",
+            "subject": "Database Management Systems",
+            "topic": "Transaction and Concurrency Control",
+            "subtopic": "Which one of the following choices is correct?",
+            "year": 2021,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 9,
+            "tags": [
+                "Transaction and Concurrency Control",
+                "Which one of the following choices is correct?",
+                "Database Management Systems"
+            ],
+            "question": {
+                "text": "Let r1(z) and w1(z) denote read and write operations \nrespectively on a data item z by a transaction Ti. \nConsider the following two schedules: \n\nS1: r1(x) r1(y) r2(x) r2(y) w2(y) w1(x) \n\nS2: r1(x) r2(x) r2(y) w2(y) r1(y) w1(x) \n\nWhich one of the following options is correct?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "S1 is conflict serializable, and S2 is not conflict \nserializable",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "S1 is not conflict serializable, and S2 is conflict \nserializable",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "Both S1 and S2 are conflict serializable",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "Neither S1 nor S2 is conflict serializable",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "B"
+            ],
+            "solution": {
+                "text": "Conflict operation \n\nR(A) - W(A) \n\nW(A) - R(A) \n\nW(A) - W(A) \n\nS1: r1(x) r1(y) r2(x) r2(y) w2(y) w1(x) \n\nIf cycle exists in the precedence graph, not conflict \nserializable. \n\n\nS2: r1(x) r2(x) r2(y) w2(y) r1(y) w1(x) \n\nConflict serializable as the precedence graph is \nacyclic. \n\nT2  \\rightarrow T1 \n\nDatabase Management System",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "DBMS_TRANSACTION_AND_CONCURRENCY_CONTROL_2020_Q10",
+            "subject": "Database Management Systems",
+            "topic": "Transaction and Concurrency Control",
+            "subtopic": "serializable",
+            "year": 2020,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 10,
+            "tags": [
+                "Transaction and Concurrency Control",
+                "serializable",
+                "Database Management Systems"
+            ],
+            "question": {
+                "text": "Consider a schedule of transaction T1 and T2: \nT1 RA \nRC \nWD \nWB  Commit \nT2 \nRB WB \nRD \nWC \nCommit \n\nHere, RX stand for \"Read (X) and WX stands for \n\"Write(X)\". Which one of the following schedules is \nconflict equivalent to the above schedule?",
+                "images": [],
+                "latex": [],
+                "tables": [
+                    {
+                        "headers": [
+                            "T 1",
+                            "RA",
+                            "",
+                            "",
+                            "RC",
+                            "",
+                            "WD",
+                            "",
+                            "WB",
+                            "Commit",
+                            ""
+                        ],
+                        "rows": [
+                            [
+                                "T 2",
+                                "",
+                                "RB",
+                                "WB",
+                                "",
+                                "RD",
+                                "",
+                                "WC",
+                                "",
+                                "",
+                                "Commit"
+                            ]
+                        ]
+                    },
+                    {
+                        "headers": [
+                            "T 1",
+                            "",
+                            "",
+                            "",
+                            "RA",
+                            "RC",
+                            "WD",
+                            "WB",
+                            "",
+                            "Commit",
+                            ""
+                        ],
+                        "rows": [
+                            [
+                                "T 2",
+                                "",
+                                "RB",
+                                "WB",
+                                "RD",
+                                "",
+                                "",
+                                "",
+                                "WC",
+                                "",
+                                "Commit"
+                            ]
+                        ]
+                    },
+                    {
+                        "headers": [
+                            "T 1",
+                            "RA",
+                            "RC",
+                            "WD",
+                            "WB",
+                            "",
+                            "",
+                            "",
+                            "",
+                            "Commit",
+                            ""
+                        ],
+                        "rows": [
+                            [
+                                "T 2",
+                                "",
+                                "",
+                                "",
+                                "",
+                                "RB",
+                                "WB",
+                                "RD",
+                                "WC",
+                                "",
+                                "Commit"
+                            ]
+                        ]
+                    }
+                ]
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "T1  \n\n\nRA RC WD WB \n Commit \n\nT2  RB WB RD \n\n\n\nWC \n\nCommit",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "T1 RA RC WD WB  \n\n\n\nCommit \n\nT2 \n\n\n\n\nRB WB RD WC \n\nCommit",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "T1 RA RC WD  \n\n WB \n\nCommit \n\nT2 \n\n\n\nRB WB RD\n\nWC \n\nCommit",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "T1  \n\n\n\nRA RC WD WB Commit \n\nT2 RBWB RD WC  \n\n\n\n\nCommit",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "A"
+            ],
+            "solution": {
+                "text": "In the given question, \n\nConflict operations \n\nR2(B) - W1(B) \n\nW2(B) - W1(B) \n\nR1(C) - W2(C) \n\nR2 (D) - W1(D) \nOR \n\nR(B) - W(B) : T2 \\rightarrow T1 \n\nW(B) - W(B) : T2 \\rightarrow T1 \n\nR(C) - W(C) : T1 \\rightarrow T2 \n\nR(D) - W(D) : T2 \\rightarrow T1 \n\nIn option (a), the conflicts are as follows: \n\nR2(B) - W1(B) \n\nW2(B) - W1(B) \n\nR1(C) - W2(C) \n\nR2 (D) - W1(D) \nOR \n\nR(B) - W(B) : T2 \\rightarrow T1 \n\nW(B) - W(B) : T2 \\rightarrow T1 \n\nR(C) - W(C) : T1 \\rightarrow T2 \n\nR(D) - W(D) : T2 \\rightarrow T1 \n\nIn option (b), the conflicts are as follows: \n\nW1(B) - R2(B)     \n\nW1(B) - W2(B)           \n\nR1(C)- W2(C)               \n\nW1 (D) - R2(D)            \nOR \n\nW(B) - R(B) : T1 \\rightarrow T2       \n\nW(B) - W(B) : T1 \\rightarrow T2     \n\nR(C) - W(C) : T1 \\rightarrow T2        \n\nW(D) - R(D) : T1 \\rightarrow T2      \n\nIn option (c), the conflicts are as follows: \n\nR2(B) - W1(B) \n\nW2(B) - W1(B) \n\nR1(C)- W2(C) \n\nW1 (D) - R2 (D)    \nOR \n\nR(B) - W(B) : T2 \\rightarrow T1 \n\nW(B) - W(B) : T2 \\rightarrow T1 \n\nR(C) - W(C) : T1 \\rightarrow T2 \n\nW(D) - R(D) : T1 \\rightarrow T2    \n\nIn option (d), the conflicts are as follows: \n\nR2(B) - W1(B) \n\nW2(B) - W1(B) \n\nW2(C)- R1(C)     \n\nR2 (D) - W1(D) \nOR \n\nR(B) - W(B) : T2 \\rightarrow T1 \n\nW(B) - W(B) : T2 \\rightarrow T1 \n\nW(C) - R(C) : T2 \\rightarrow T1      \n\nR(D) - W(D) : T2 \\rightarrow T1",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "DBMS_TRANSACTION_AND_CONCURRENCY_CONTROL_2014_Q11",
+            "subject": "Database Management Systems",
+            "topic": "Transaction and Concurrency Control",
+            "subtopic": "Commit",
+            "year": 2014,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 11,
+            "tags": [
+                "Transaction and Concurrency Control",
+                "Commit",
+                "Database Management Systems"
+            ],
+            "question": {
+                "text": "Consider the transactions T1, T2 and T3 and the \nschedules S1 and S2 given below. \n\nT1: r1(X); r1(Z); w1(X); w1(Z) \n\nT2:  r2(Y) ; r2(Z) ; w2(Z) \n\nT3: r3(Y); r3(X); w3(Y) \n\nS1: r1(X); r3(Y); r3(X); r2(Y); r2(Z); w3(Y); w2(Z); \nr1(Z); w1(X); w1(Z) \n\nS2:  r1(X); r3(Y); r2(Y); r3(X); r1(Z); r2(Z); w3(Y); \nw1(X); w2(Z); w1(Z) \n\nDatabase Management System \n\nWhich one of the following statements about the \nschedules is TRUE?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "Only S1 is conflict-serializable.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "Only S2 is conflict-serializable.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "Both S1 and S2 are conflict-serializable.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "Neither S1 nor S2 is conflict-serializable.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "A"
+            ],
+            "solution": {
+                "text": "Schedule S1 : \n\n\nSchedule S2: below schedule wrong including \nprecedence graph: \n\n\nTherefore, only S1 is conflict serializable schedule \nbut not schedule S2.",
+                "images": [
+                    "assets/Database Management Systems/DBMS_Transaction_and_Concurrency_Control_P31_X3620.png",
+                    "assets/Database Management Systems/DBMS_Transaction_and_Concurrency_Control_P31_X3622.png",
+                    "assets/Database Management Systems/DBMS_Transaction_and_Concurrency_Control_P31_X3624.png",
+                    "assets/Database Management Systems/DBMS_Transaction_and_Concurrency_Control_P31_X3626.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "DBMS_TRANSACTION_AND_CONCURRENCY_CONTROL_2014_Q12",
+            "subject": "Database Management Systems",
+            "topic": "Transaction and Concurrency Control",
+            "subtopic": "schedules is TRUE?",
+            "year": 2014,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 12,
+            "tags": [
+                "Transaction and Concurrency Control",
+                "schedules is TRUE?",
+                "Database Management Systems"
+            ],
+            "question": {
+                "text": "Consider the following schedule S of transactions T1, \nT2, T3 and T4; \nT1 \n T2 \nT3 \nT4 \n\nReads(X) \n\n\n\n\nWrites (X) \nCommit \n\nWrites (x)  \nCommit \n\n\n\n\nWrites(Y);  \nReads (Z); \nCommit  \n\n\n\n\n\nReads (X); \nReads (Y); \nCommit \n\nWhich one of the following statements is CORRECT?",
+                "images": [],
+                "latex": [],
+                "tables": [
+                    {
+                        "headers": [
+                            "T1",
+                            "T2",
+                            "T3",
+                            "T4"
+                        ],
+                        "rows": [
+                            [
+                                "",
+                                "Reads(X)",
+                                "",
+                                ""
+                            ],
+                            [
+                                "",
+                                "",
+                                "Writes (X) Commit",
+                                ""
+                            ],
+                            [
+                                "Writes (x) Commit",
+                                "",
+                                "",
+                                ""
+                            ],
+                            [
+                                "",
+                                "Writes(Y); Reads (Z); Commit",
+                                "",
+                                ""
+                            ],
+                            [
+                                "",
+                                "",
+                                "",
+                                "Reads (X); Reads (Y); Commit"
+                            ]
+                        ]
+                    },
+                    {
+                        "headers": [
+                            "T1",
+                            "T2",
+                            "T3"
+                        ],
+                        "rows": [
+                            [
+                                "Read (X)",
+                                "",
+                                ""
+                            ],
+                            [
+                                "",
+                                "Read (Y)",
+                                ""
+                            ],
+                            [
+                                "",
+                                "",
+                                "Read (Y)"
+                            ],
+                            [
+                                "",
+                                "Write (Y)",
+                                ""
+                            ],
+                            [
+                                "Write (X)",
+                                "",
+                                ""
+                            ],
+                            [
+                                "",
+                                "",
+                                "Write (X)"
+                            ],
+                            [
+                                "",
+                                "Read (X)",
+                                ""
+                            ],
+                            [
+                                "",
+                                "Write (X)",
+                                ""
+                            ]
+                        ]
+                    }
+                ]
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "S is conflict-serializable but not recoverable",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "S is not conflict-serializable but is recoverable",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "S is both conflict-serializable and recoverable",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "S is neither conflict-serializable nor is it \nrecoverable",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "C"
+            ],
+            "solution": {
+                "text": "To check for conflict serializability we check the \nprecedence graph, which is as below: \n\n\nSince there exists no cycle in the precedence graph \ntherefore it is conflict serializable schedule. \n\nFor Recoverable schedule we check for write-read \nuncommitted / dirty Read. In the given Schedule \nthere exists no uncommitted Read, so it is \nRecoverable and Cascade-less also, no write-write \nconflict so it is strict recoverable. \n\n\nHere C/R represents Commit or Rollback operation.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "DBMS_TRANSACTION_AND_CONCURRENCY_CONTROL_2014_Q13",
+            "subject": "Database Management Systems",
+            "topic": "Transaction and Concurrency Control",
+            "subtopic": "recoverable",
+            "year": 2014,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 13,
+            "tags": [
+                "Transaction and Concurrency Control",
+                "recoverable",
+                "Database Management Systems"
+            ],
+            "question": {
+                "text": "Consider the following four schedules due to three \ntransactions (indicated by the subscript using read and \nwrite on a data item x, denoted by r(x) and w(x) \nrespectively. Which one of them is conflict \nserializable?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "r1(x) ; r2(x) ; w1(x) ; r3(x) ; w2(x)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "r2(x) ; r1(x) ; w2(x) ; r3(x) ; w1(x)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "r3(x) ; r2(x) ; r1(x) ; w2(x) ; w1(x)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "r2(x) ; w2(x) ; r3(x) ; r1(x) ; w1(x)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [],
+            "solution": {
+                "text": "For conflict serializability we check the precedence \ngraph:  \n1. \nIf cycle present then not conflict serializable \nschedule. \n2. \nIf no cycle, then schedule is conflict serializable \nschedule. \n\nDatabase Management System \n\n(a) \n\n\n(b)  \n\n\n\n(c) \n\n\n\n(d)",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "DBMS_TRANSACTION_AND_CONCURRENCY_CONTROL_2012_Q14",
+            "subject": "Database Management Systems",
+            "topic": "Transaction and Concurrency Control",
+            "subtopic": "serializable?",
+            "year": 2012,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 14,
+            "tags": [
+                "Transaction and Concurrency Control",
+                "serializable?",
+                "Database Management Systems"
+            ],
+            "question": {
+                "text": "Consider the following transactions with data items P \nand Q initialized to zero: \n\nT1: read (P);  \n\n\nread (Q);  \n\n\nif P = 0 then Q := Q + 1 ;  \n\n\nwrite (Q). \n\nT2: read (Q) ; \n\n\nread (P);  \n\n\nif Q = 0 then P := P + 1 ;  \n\n\nwrite (P). \n\nAny non-serial interleaving of T1 and T2 for \nconcurrent execution leads to",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "a serializable schedule",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "a schedule that is not conflict serializable",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "a conflict serializable schedule",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "a schedule for which a precedence graph cannot \nbe drawn",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "B"
+            ],
+            "solution": {
+                "text": "T1: read (P) \n\n\nread (Q) \n\n\nif P = 0 then Q = Q +1 \n\n\nwrite (Q) \n\nT2: read (Q) \n\n\nread (P) \n\n\nif Q = 0 then P = P +1 \n\n\nwrite (P) \nT1 \nT2 \nread(P) \n\n\nread (Q) \nread (P) \nIf Q = 0 then P: P + 1 \nwrite (P) \nread (Q) \nIf P = 0 then Q = Q + 1 \nwrite (Q) \n\n\n\n• Cycle in the precedence graph therefore not \nconflict serializable but it may be view \nserializable.    \n• View serializable (view equivalent) \n\nFor each data item \n(1) Initial Read same order \n(2) Final -write same order \n(3) Write-Read (updated-read) same order \n\n\nCheck for view serializable: \nT1 \nT2 \nread(P) \nread (Q) \nif P = 0 then Q; = Q + 1 \nwrite (Q)  \n\n\nread (Q) \nread (P) \nif Q = 0 then P: P + 1 \nwrite (P) \n     <T1, T2> \n\nUpdated read on data item Q is T1 \\rightarrow T2 exists \ntherefore it fails.  \nT1 \nT2 \n\n\n\n\nread (P) \nread (Q) \nIf Q = 0 then Q: Q + 1 \nwrite (Q) \nread (Q) \nread (P) \nIf Q = 0 then P: P +1 \nwrite (P) \n\n<T2, T1> \n\nUpdated read on data item Q is T2 \\rightarrow T1 exists \ntherefore it fails. \n\nThe given schedule is not view serializable as well.",
+                "images": [
+                    "assets/Database Management Systems/DBMS_Transaction_and_Concurrency_Control_P32_X3666.png",
+                    "assets/Database Management Systems/DBMS_Transaction_and_Concurrency_Control_P32_X3668.png",
+                    "assets/Database Management Systems/DBMS_Transaction_and_Concurrency_Control_P32_X3670.png",
+                    "assets/Database Management Systems/DBMS_Transaction_and_Concurrency_Control_P32_X3672.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "DBMS_TRANSACTION_AND_CONCURRENCY_CONTROL_2010_Q15",
+            "subject": "Database Management Systems",
+            "topic": "Transaction and Concurrency Control",
+            "subtopic": "be drawn",
+            "year": 2010,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 15,
+            "tags": [
+                "Transaction and Concurrency Control",
+                "be drawn",
+                "Database Management Systems"
+            ],
+            "question": {
+                "text": "Consider the following schedule for transactions T1, \nT2 and T3: \nT1 \nT2 \nT3 \nRead (X) \n\n\n\nRead (Y) \n\n\n\nRead (Y) \n\nWrite (Y)  \nWrite (X)  \n\n\n\nWrite (X) \n\nRead (X) \n\n\nWrite (X)   \n\nWhich one of the schedules below is the correct \nserialization of the above?",
+                "images": [],
+                "latex": [],
+                "tables": [
+                    {
+                        "headers": [
+                            "T1",
+                            "T2",
+                            "T3",
+                            "T4"
+                        ],
+                        "rows": [
+                            [
+                                "",
+                                "Reads(X)",
+                                "",
+                                ""
+                            ],
+                            [
+                                "",
+                                "",
+                                "Writes (X) Commit",
+                                ""
+                            ],
+                            [
+                                "Writes (x) Commit",
+                                "",
+                                "",
+                                ""
+                            ],
+                            [
+                                "",
+                                "Writes(Y); Reads (Z); Commit",
+                                "",
+                                ""
+                            ],
+                            [
+                                "",
+                                "",
+                                "",
+                                "Reads (X); Reads (Y); Commit"
+                            ]
+                        ]
+                    },
+                    {
+                        "headers": [
+                            "T1",
+                            "T2",
+                            "T3"
+                        ],
+                        "rows": [
+                            [
+                                "Read (X)",
+                                "",
+                                ""
+                            ],
+                            [
+                                "",
+                                "Read (Y)",
+                                ""
+                            ],
+                            [
+                                "",
+                                "",
+                                "Read (Y)"
+                            ],
+                            [
+                                "",
+                                "Write (Y)",
+                                ""
+                            ],
+                            [
+                                "Write (X)",
+                                "",
+                                ""
+                            ],
+                            [
+                                "",
+                                "",
+                                "Write (X)"
+                            ],
+                            [
+                                "",
+                                "Read (X)",
+                                ""
+                            ],
+                            [
+                                "",
+                                "Write (X)",
+                                ""
+                            ]
+                        ]
+                    }
+                ]
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "T1 \\rightarrow T3 →T2",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "T2 →T1 →T3",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "T2 \\rightarrow T3 →T1",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "T3 →T 1 →T 2",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "A"
+            ],
+            "solution": {
+                "text": "No cycle in the precedence graph, therefore conflict \nserializable schedule and equivalent to the serial \nschedule: (T1 T3 T2).",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "DBMS_TRANSACTION_AND_CONCURRENCY_CONTROL_2009_Q16",
+            "subject": "Database Management Systems",
+            "topic": "Transaction and Concurrency Control",
+            "subtopic": "serialization of the above?",
+            "year": 2009,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 16,
+            "tags": [
+                "Transaction and Concurrency Control",
+                "serialization of the above?",
+                "Database Management Systems"
+            ],
+            "question": {
+                "text": "Consider two transactions T1 and T2, and four \nschedules S1, S2, S3, S4 of T1 and T2 as given below: \n\nT1:  R1 [x] W1 [x] W1 [y];  \n\nT2: R2 [x] R2 [y] W2 [y];  \n\nS1:  R1 [x] R2 [x] R2 [y] W1 [x] W1 [y] W2 [y];  \n\nS2:  R1 [x] R2 [x] R2 [y] W1 [x] W2 [y] W1 [y];  \n\nS3: R1 [x] W1 [x] R2 [x] W1 [y] R2 [y] W2 [y];  \n\nS4:  R2 [x] R2 [y] R1 [x] W1 [x] W1 [y] W2 [y]; \n\n\nWhich of the above schedules are conflict \nserializable?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "S1 and S2",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "S2 and S3",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "S3 only",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "S4 only",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "B"
+            ],
+            "solution": {
+                "text": "Schedule S1  \n\n\nSchedule S2  \n\n\nSchedule S3  \n\n\nSchedule S4 \n\n\n\n\nDatabase Management System",
+                "images": [
+                    "assets/Database Management Systems/DBMS_Transaction_and_Concurrency_Control_P33_X3751.png",
+                    "assets/Database Management Systems/DBMS_Transaction_and_Concurrency_Control_P33_X3753.png",
+                    "assets/Database Management Systems/DBMS_Transaction_and_Concurrency_Control_P33_X3755.png",
+                    "assets/Database Management Systems/DBMS_Transaction_and_Concurrency_Control_P33_X3757.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "DBMS_TRANSACTION_AND_CONCURRENCY_CONTROL_2008_Q17",
+            "subject": "Database Management Systems",
+            "topic": "Transaction and Concurrency Control",
+            "subtopic": "serializable?",
+            "year": 2008,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 17,
+            "tags": [
+                "Transaction and Concurrency Control",
+                "serializable?",
+                "Database Management Systems"
+            ],
+            "question": {
+                "text": "Consider the following three schedules of transactions \nT1, T2 and T3. [Notation: In the following NYO \nrepresents the action Y (R for read, W for write) \nperformed by transaction N on object O.] \n\nS1:  2RA  2WA  3RC  2WB  3WA  3WC  1RA  1RB  \n1WA  1WB \n\nS2:  3RC  2RA  2WA  2WB  3WA  1RA  1RB  1WA  \n1WB  3WC \n\nS3:  2RA  3RC  3WA  2WA  2WB  3WC  1RA  1RB  \n1WA  1WB \n\nWhich of the following statements is TRUE?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "S1, S2 and S3 are all conflict equivalent to each \nother",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "No two of S1, S2 and S3 are conflict equivalent \nto each other",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "S2 is conflict equivalent to S 3, but not to S1",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "S1 is conflict equivalent to S2, but not to S3 \n\nFinding Number of Serializable Schedule",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "D"
+            ],
+            "solution": {
+                "text": "Schedule S1 \n\n\nConflict pairs are as follows: \n\n1. R2(A) -W3(A) \n\n2. R2(A) - W1(A) \n\n3. W2(A) - W3(A) \n\n4. W2(A) - R1(A) \n\n5. W2(A) - W1(A) \n\n6. W2(B) - R1(B) \n\n7. W2(B) - W1(B) \n\n8. W3(A) - R1(A) \n\n9. W3(A) - W1(A) \n\nSchedule S2 \n\n\nConflict pairs are as follows: \n\n1. R2(A) - W3(A) \n\n2. R2(A) - W1(A) \n\n3. W2(A) - W3(A) \n\n4. W2(A) - R1(A) \n\n5. W2(A) - W1(A) \n\n6. W2(B) - R1(B) \n\n7. W2(B) - W1(B) \n\n8. W3(A) - R1(A) \n\n9. W3(A) - W1(A) \n\nAll conflict operation pair in S1 and S2 are in same \norder. \n\nSchedule S3 \n\n\nSo, here S1 is conflict equivalent to S2, but not to S3.",
+                "images": [
+                    "assets/Database Management Systems/DBMS_Transaction_and_Concurrency_Control_P33_X3751.png",
+                    "assets/Database Management Systems/DBMS_Transaction_and_Concurrency_Control_P33_X3753.png",
+                    "assets/Database Management Systems/DBMS_Transaction_and_Concurrency_Control_P33_X3755.png",
+                    "assets/Database Management Systems/DBMS_Transaction_and_Concurrency_Control_P33_X3757.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "DBMS_TRANSACTION_AND_CONCURRENCY_CONTROL_2017_Q18",
+            "subject": "Database Management Systems",
+            "topic": "Transaction and Concurrency Control",
+            "subtopic": "Finding Number of Serializable Schedule",
+            "year": 2017,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 18,
+            "tags": [
+                "Transaction and Concurrency Control",
+                "Finding Number of Serializable Schedule",
+                "Database Management Systems"
+            ],
+            "question": {
+                "text": "Two transaction T1 and T2 are given as \n\nT1: r1(X) w1(X) r1(Y) w1(Y) \n\nT2: r2(Y) w2(Y) r2(Z) w2(Z) \n\nWhere ri (V) denotes a read operation by transaction \nTi on a variable V and wi (V) denotes a write operation \nby transaction Ti on a variable V. The total number of \nconflict serializable schedules than can be formed by \nT1 and T2 is _______ \n\nRecoverable Schedule",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "54"
+            ],
+            "solution": {
+                "text": "T1 \\rightarrow T2 \n\nT2 \\rightarrow T1 \n\nT1 : r1(x)w1 (x) r1(y) w1(y) \n\nT2 : r2(y) w2 (y) r2(z) w2(z) \n\nHow to find number of conflict serializable \nschedules. \n\nT1 \\rightarrow (T2) & T2→ (T1) \n\nT1 \\rightarrow T2  \n\nr1(x) w1(x) r1(y) w1(y) r2(y) w2(y) r2(z) w2(z) \n\n\nT1 \\rightarrow (T2) : 1 \n\nT1 : r1(x) w1(x) r1(y) w1(y) \n\nT2 : r2(y) w2(y) r2(z) w2(z) \n\nT2 \\rightarrow (T1) \n\nr2(z) w2(z) can be placed any where but only after \nw2(y) \n\n\nCase I \nr1(x) w1(x) w2(y) \nr1(y) \nw1(y) \n\nCase II r1(x) w2(y) w1(x) \nr1(y) \nw1(y) \n\nCase III w2(y) r1(x) \nw1(x) \nr1(y) \nw1(y) \n\nNow check for r2(y). \n\nCase I \n\n\nfor r2(z) w2(z) \n\nout of three places either we can place together [3C1] \nOR place them separately [3C2] \n\n 3 \\times [3C1 + 3C2] \n\n3 \\times [3 + 3] \n\nCase I - 18 ways \n\nCase II \n\n\nSit together (or) separately \n\n4C1 + 4C2 \n\nr2(y) \\rightarrow 2 \n\n2 \\times [4C1 + 4C2] \n\n2 \\times [4 + 6] \n\nCase II = 20 \n\nCase III \n\n\n 1 \\times [5C1 + 5C2] \n\n Sit together 5C1 OR sit Separately 5C2 \n\n1× [5C1 + 5C2] \n\n5 + 10 = 15 \n\nCase III : 15 ways \n\nTherefore, T2 \\rightarrow T1 : Case I + Case II + Case III \n\n= 18 + 20 + 15 =53 \n\nT2 \\rightarrow (T1) = 53 ways \n\nT1 \\rightarrow (T2) : 1 way \n\nTotal conflict serializable 54 schedules.",
+                "images": [
+                    "assets/Database Management Systems/DBMS_Transaction_and_Concurrency_Control_P34_X3845.png",
+                    "assets/Database Management Systems/DBMS_Transaction_and_Concurrency_Control_P34_X3847.png",
+                    "assets/Database Management Systems/DBMS_Transaction_and_Concurrency_Control_P34_X3849.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "DBMS_TRANSACTION_AND_CONCURRENCY_CONTROL_2016_Q19",
+            "subject": "Database Management Systems",
+            "topic": "Transaction and Concurrency Control",
+            "subtopic": "Recoverable Schedule",
+            "year": 2016,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 19,
+            "tags": [
+                "Transaction and Concurrency Control",
+                "Recoverable Schedule",
+                "Database Management Systems"
+            ],
+            "question": {
+                "text": "Consider the following database schedule with two \ntransactions, T1 and T2. \n\nS = r2(X) ; r1(X) ; r2(Y) ; w1(X) ; r1(Y) ; w2(X) ; \na1 ; a2  \n\nWhere ri (Z) denotes a read operation by transaction \nTi on a variable Z, wi(Z) denotes a write operation by \nTi on a variable Z and ai denotes an abort by transation \nTi. \n\nWhich one of the following statements about the \nabove schedule is TRUE?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "S is non-recoverable",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "S is recoverable, but has a cascading abort",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "S does not have a cascading abort",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "S is strict",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "C"
+            ],
+            "solution": {
+                "text": "Recoverable, Cascadeless (no cascadeding roll back) \nbecause there exists no uncommitted read but not \nstrict schedule. \n\n\nDatabase Management System",
+                "images": [
+                    "assets/Database Management Systems/DBMS_Transaction_and_Concurrency_Control_P35_X3905.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "DBMS_TRANSACTION_AND_CONCURRENCY_CONTROL_2015_Q20",
+            "subject": "Database Management Systems",
+            "topic": "Transaction and Concurrency Control",
+            "subtopic": "above schedule is TRUE?",
+            "year": 2015,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 20,
+            "tags": [
+                "Transaction and Concurrency Control",
+                "above schedule is TRUE?",
+                "Database Management Systems"
+            ],
+            "question": {
+                "text": "Consider the following partial Schedule S involving \ntwo transactions T1 and T2. Only the read and the \nwrite operations have been shown. The read operation \non data item P is denoted by read (P) and the write \noperation on data item P is denoted by write (P). \nTime Transaction-id  \n\nT1 \nT2 \n1. \nread(A) \n\n2. \nwrite(A) \n\n3. \n\nread(C) \n4. \n\nwrite(C) \n5. \n\nread(B) \n6. \n\nwrite(B) \n7. \n\nread(A) \n8. \n\ncommit \n9. \n\n\n\nSuppose that the transaction T1 fails immediately \nafter time instance 9. Which one of the following \nstatements is correct?",
+                "images": [],
+                "latex": [],
+                "tables": [
+                    {
+                        "headers": [
+                            "Time",
+                            "Transaction-id",
+                            ""
+                        ],
+                        "rows": [
+                            [
+                                "",
+                                "T1",
+                                "T2"
+                            ],
+                            [
+                                "1.",
+                                "read(A)",
+                                ""
+                            ],
+                            [
+                                "2.",
+                                "write(A)",
+                                ""
+                            ],
+                            [
+                                "3.",
+                                "",
+                                "read(C)"
+                            ],
+                            [
+                                "4.",
+                                "",
+                                "write(C)"
+                            ],
+                            [
+                                "5.",
+                                "",
+                                "read(B)"
+                            ],
+                            [
+                                "6.",
+                                "",
+                                "write(B)"
+                            ],
+                            [
+                                "7.",
+                                "",
+                                "read(A)"
+                            ],
+                            [
+                                "8.",
+                                "",
+                                "commit"
+                            ],
+                            [
+                                "9.",
+                                "",
+                                ""
+                            ]
+                        ]
+                    }
+                ]
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "T2 must be aborted and then both T1 and T2 must \nbe restarted to ensure transaction atomicity.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "Schedule S is non recoverable and cannot ensure \ntransaction atomicity.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "Only T2 must be aborted and then restarted to \nensure transaction atomicity.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "Schedule S is recoverable and can ensure \natomicity and nothing else needs to be done. \n\nDatabase Management System \nLock Based/TME Stamp Protocol",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "B"
+            ],
+            "solution": {
+                "text": "(a) Both T1 & T2 Restarted, ensure  \n\n\natomicity: Incorrect. \n\n(b) Non Recoverable & cannot ensure  \n\n\nAtomicity: Correct \n\n\n Cannot perform undo of Transaction T2 \nbecause T2 commits. \n\n(c) Incorrect, Because T2 performs commit so only \nRedo operation can be performed. \n\n(d) Recoverable: Incorrect.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "DBMS_TRANSACTION_AND_CONCURRENCY_CONTROL_2019_Q21",
+            "subject": "Database Management Systems",
+            "topic": "Transaction and Concurrency Control",
+            "subtopic": "Lock Based/TME Stamp Protocol",
+            "year": 2019,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 21,
+            "tags": [
+                "Transaction and Concurrency Control",
+                "Lock Based/TME Stamp Protocol",
+                "Database Management Systems"
+            ],
+            "question": {
+                "text": "Consider the following two statements about database \ntransaction schedules: \n\nI.  Strict two-phase locking protocol generates \nconflict serializable schedules that are also \nrecoverable. \n\nII.  Timestamp-ordering \nconcurrency \ncontrol \nprotocol with Thomas Write Rule can generate \nview serializable schedules that are not conflict \nserializable. \n\nWhich of the above statements is/are True?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "I only",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "II only",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "Both I and II",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "Neither I nor II",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "C"
+            ],
+            "solution": {
+                "text": "Strict 2PL: 2PL+ All Exclusive [x Lock] held by the \ntransaction until Commit (or) Rollback \n(OR) \n\n2PL + All Exclusive Lock (x Lock) Release by the \ntransaction after commit or rollback. \n\n\nThomas write Rule: Obsolete write ensures view \nserializable but not conflict serializable.",
+                "images": [
+                    "assets/Database Management Systems/DBMS_Transaction_and_Concurrency_Control_P36_X3970.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "DBMS_TRANSACTION_AND_CONCURRENCY_CONTROL_2017_Q22",
+            "subject": "Database Management Systems",
+            "topic": "Transaction and Concurrency Control",
+            "subtopic": "Which of the above statements is/are True?",
+            "year": 2017,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 22,
+            "tags": [
+                "Transaction and Concurrency Control",
+                "Which of the above statements is/are True?",
+                "Database Management Systems"
+            ],
+            "question": {
+                "text": "In a database system, unique timestamps are assigned \nto each transaction using Lamport's logical clock. Let \nTS(T1) and TS(T2) be the timestamps of transactions \nT1 and T2 respectively. Besides, T1 holds a lock on \nthe resource R and T2 has requested a conflicting lock \non the same resource R. The following algorithm is \nused to prevent deadlocks in the database system \nassuming that a killed transaction is restarted with the \nsame timestamp. \n\nif TS(T2)<TS(T1) then \n\nT1 is killed \n\nelse T2 waits \n\nAssume any transaction that is not killed terminates \neventually. Which of the following is TRUE about the \ndatabase system that uses the above algorithm to \nprevent deadlocks?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "The database system is both deadlock-free and \nstarvation-free.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "The database system is deadlock-free, but not \nstarvation-free",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "The database system is starvation-free, but not \ndeadlock-free.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "The database system is neither deadlock-free nor \nstarvation-free.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "A"
+            ],
+            "solution": {
+                "text": "Deadlock prevention algorithm  \n\n(1) Wait - Die: Transaction T1 Request a Data item \ncurrently held by Tj, Ti is allowed to wait only \n\n\nTime stamp of Ti [TS (Ti)] is smaller than that of \nTj. \n\n(2) Wound -wait: Transaction Ti Request a data \nitem currently held Tj then Ti is allowed to wait \nonly if time stamp of Ti [TS(Ti)] is larger than \nthat of Tj.  \n\nWound wait: Older Transaction kills the younger \nTransaction. But restarted with same time stamp. \nTS(T1): 10 \nTS(T2): 20",
+                "images": [
+                    "assets/Database Management Systems/DBMS_Transaction_and_Concurrency_Control_P37_X4009.png",
+                    "assets/Database Management Systems/DBMS_Transaction_and_Concurrency_Control_P37_X4011.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "DBMS_TRANSACTION_AND_CONCURRENCY_CONTROL_2016_Q23",
+            "subject": "Database Management Systems",
+            "topic": "Transaction and Concurrency Control",
+            "subtopic": "starvation-free.",
+            "year": 2016,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 23,
+            "tags": [
+                "Transaction and Concurrency Control",
+                "starvation-free.",
+                "Database Management Systems"
+            ],
+            "question": {
+                "text": "Consider the following two phase locking protocol. \nSuppose a transaction T accesses (for read or write \noperations), a certain set of objects {O1, …….Ok}. \nThis is done in the following manner: \n\nStep 1. T acquires exclusive locks to O1,... OK, in \nincreasing order of their addresses. \n\nStep 2. The required operations are performed. \n\nStep 3. All locks are released. \n\nThis protocol will",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "guarantee serializability and deadlock-freedom",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "guarantee neither serializability nor deadlock-\nfreedom",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "guarantee serializability but not deadlock-\nfreedom",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "guarantee deadlock-freedom but not \nserializability",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "A"
+            ],
+            "solution": {
+                "text": "STEP-1: T acquire x lock (Exclusive lock) O1 …. Ok \nin increasing order of the address i.e.  other \ntransaction cannot take any lock on that data item. \n\n\nTj \n\nSame Data Item \nS \nX \nTi \nS \nYes \nNo \n\nX \nNo \nNo \n\nSTEP-2: Required operation are performed. \n\nSTEP-3: All lock are released. \n\n\n& Serializability order is determined by lock point.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "DBMS_TRANSACTION_AND_CONCURRENCY_CONTROL_2010_Q24",
+            "subject": "Database Management Systems",
+            "topic": "Transaction and Concurrency Control",
+            "subtopic": "serializability",
+            "year": 2010,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 24,
+            "tags": [
+                "Transaction and Concurrency Control",
+                "serializability",
+                "Database Management Systems"
+            ],
+            "question": {
+                "text": "Which of the following concurrency control protocols \nensure both conflict serializability and freedom from \ndeadlock? \nI. 2-phase locking \nII. Time-stamp ordering",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "I only",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "II only",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "Both I and II",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "Neither I nor II",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "B"
+            ],
+            "solution": {
+                "text": "2PL ensures conflict serializability but may not be \nfree from deadlock.",
+                "images": [
+                    "assets/Database Management Systems/DBMS_Transaction_and_Concurrency_Control_P37_X4013.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        }
+    ]
+}

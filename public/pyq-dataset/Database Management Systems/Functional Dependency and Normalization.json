@@ -1,0 +1,1352 @@
+{
+    "subject": "Database Management Systems",
+    "topic": "Functional Dependency and Normalization",
+    "questionCount": 21,
+    "questions": [
+        {
+            "id": "DBMS_FUNCTIONAL_DEPENDENCY_AND_NORMALIZATION_2022_Q01",
+            "subject": "Database Management Systems",
+            "topic": "Functional Dependency and Normalization",
+            "subtopic": "Finding Number of Candidate Key",
+            "year": 2022,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 1,
+            "tags": [
+                "Functional Dependency and Normalization",
+                "Finding Number of Candidate Key",
+                "Database Management Systems"
+            ],
+            "question": {
+                "text": "Consider a relation R(A, B, C, D, E) with the \nfollowing three functional dependencies. \n\n    AB \\rightarrow C ; BC \\rightarrow D ; C \\rightarrow E; \n\nThe number of super keys in the relation R is \n_________.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "8"
+            ],
+            "solution": {
+                "text": "Given Relation R(ABCDE) having following FD \nsets: {AB \\rightarrow C, BC→ D, C→ E} \n\n[AB]+ = {A, B, C, D, E} \n\n[A]+ = {A} \n\n[B]+ = {B} \n\nThe proper subset of \"AB\" is not determining all \nattributes. Thus, AB is minimal set of attributes \nwhich determines all attributes. So, AB is candidate \nkey. \n\nNow, R (A, B, C, D, E) \n\nCandidate key = AB \n\nAny combination of non-prime attribute with the \ncandidate key will yield super key: \n\nAB combined with {Φ, C, D, E, CD, DE, CE, CDE} \n\nTotal Number of super keys with combinations with \nthe remaining (n - 2) attributes (where n is the \nnumber of Attributes) \n\n= 25 - 2 \\Rightarrow 23 \n\n 8 Super keys for the relation R that is{AB, ABC, \nABD, ABE, ABCD, ABDE, ABCE, ABCDE}",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "DBMS_FUNCTIONAL_DEPENDENCY_AND_NORMALIZATION_2016_Q02",
+            "subject": "Database Management Systems",
+            "topic": "Functional Dependency and Normalization",
+            "subtopic": "_________.",
+            "year": 2016,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 2,
+            "tags": [
+                "Functional Dependency and Normalization",
+                "_________.",
+                "Database Management Systems"
+            ],
+            "question": {
+                "text": "Which of the following is NOT a super key in a \nrelational schema with attributes V, W, X, Y, Z and \nprimary key VY ?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "V X Y Z",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "V W X Z",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "V W X Y",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "V W X Y Z",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "B"
+            ],
+            "solution": {
+                "text": "Method 1: \n\nSuper key: Any super set of candidate key (primary \nkey) is super key. \n\nGiven that \"VY\" is primary key so, any super set of \n\"VY\" will be a super key: \n\n(a) vxyz \n\n(b)  vwxz (y is not present)  \\therefore not super key \n\n(c) vwxy \n\n(d) vwxyz \n\nSo, vwxz is not a super key.  \n\nMethod 2: \n\nAttributes = V, W, X, Y, Z \n\nPrimary key = VY \n\nTotal super key = 23 = 8 \n\n= {VY, VYX, VYW, VYZ, VYXW, VYXZ, \n      VYWZ, VYWXZ} \n\nVWXZ is not a super key \n\nHence, option b is correct.",
+                "images": [
+                    "assets/Database Management Systems/DBMS_Functional_Dependency_and_Normalization_P14_X809.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "DBMS_FUNCTIONAL_DEPENDENCY_AND_NORMALIZATION_2014_Q03",
+            "subject": "Database Management Systems",
+            "topic": "Functional Dependency and Normalization",
+            "subtopic": "primary key VY ?",
+            "year": 2014,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 3,
+            "tags": [
+                "Functional Dependency and Normalization",
+                "primary key VY ?",
+                "Database Management Systems"
+            ],
+            "question": {
+                "text": "The maximum number of superkeys for the relation \nschema R (E, F, G, H) with E as the key is \n______________.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "8"
+            ],
+            "solution": {
+                "text": "Super key: \n\nAny super set of candidate key is a super key.  \n\nR(EFGH) \n\nCandidate Key = [E] \n\nNumber of super keys = 2n-1 (n is number of \nattributes) \n\n\n= 24 - 1 = 23  \n\n\n= 8 super keys  \nOR \n\nR(EFGH) \n\n23 = 8 super keys. \n\nThe super keys of R(EFGH)- \n\nE, EF, EG, EH, EFG, EGH, EFH, EFGH}",
+                "images": [
+                    "assets/Database Management Systems/DBMS_Functional_Dependency_and_Normalization_P14_X809.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "DBMS_FUNCTIONAL_DEPENDENCY_AND_NORMALIZATION_2014_Q04",
+            "subject": "Database Management Systems",
+            "topic": "Functional Dependency and Normalization",
+            "subtopic": "______________.",
+            "year": 2014,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 4,
+            "tags": [
+                "Functional Dependency and Normalization",
+                "______________.",
+                "Database Management Systems"
+            ],
+            "question": {
+                "text": "Consider the relation scheme R = (E, F, G, H, I, J, K, \nL, M, N ) and the set of functional dependencies \n\n{{E, F}} \\rightarrow {G}, {F} \\rightarrow {I, J},{E, H} \\rightarrow {K, L}, \n{K} \\rightarrow {M},{L} \\rightarrow {N}} on R. \n\nWhat is the key for R?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "{E, F}",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "{E, F, H}",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "{E, F, H, K, L}",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "{E}",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "B"
+            ],
+            "solution": {
+                "text": "Relation R(EFGHIJKLMN) \n\n{EF \\rightarrow G, F \\rightarrow IJ, EH \\rightarrow KL, K \\rightarrow M, L \\rightarrow N} \n\n(a) [EF]+ = {EFGIJ} \n\n(b) [E]+ = {E} \n\n(c) [EFH]+ = {EFGHIJKLMN}; \n\nSince, (EFH)+ contains all the attributes of R, EFH is \nthe key for R.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "DBMS_FUNCTIONAL_DEPENDENCY_AND_NORMALIZATION_2013_Q05",
+            "subject": "Database Management Systems",
+            "topic": "Functional Dependency and Normalization",
+            "subtopic": "What is the key for R?",
+            "year": 2013,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 5,
+            "tags": [
+                "Functional Dependency and Normalization",
+                "What is the key for R?",
+                "Database Management Systems"
+            ],
+            "question": {
+                "text": "Relation R has eight attributes ABCDEFGH. \n\nFields of R contain only atomic values. \n\nF = {CH \\rightarrow G, A \\rightarrow BC, B \\rightarrow CFH, E \\rightarrow A, F \\rightarrow EG} \nis a set of functional \n\ndependencies (FDs) so that F+ is exactly the set of FDs \nthat hold for R. \n\nHow many candidate keys does the relation R have?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "3",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "4",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "5",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "6 \n\nMembership Set and Equality between FD Sets",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "B"
+            ],
+            "solution": {
+                "text": "Given FD set: \n\n{CH \\rightarrow G, A \\rightarrow B, A \\rightarrow C, B \\rightarrow C, B \\rightarrow F,  \n\nB \\rightarrow H, E \\rightarrow A, F \\rightarrow E, F \\rightarrow G}. \n\n[A]+ = [ABCEFGH] \n\nD is not present in FD set, whenever any attribute not \npresent in FD then add that attribute in a candidate \nkey. \n\n[AD]+ = {ABCDEFGH} \n\n[ED]+ = {ABCDEFGH} \n\n[FD]+ = {ABCDEFGH} \n\n[BD]+ = {ABCDEFGH} \n\nCandidate keys = [AD, ED, FD, BD] \n\nHence, 4 Candidate keys for the relation R.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "DBMS_FUNCTIONAL_DEPENDENCY_AND_NORMALIZATION_2021_Q06",
+            "subject": "Database Management Systems",
+            "topic": "Functional Dependency and Normalization",
+            "subtopic": "Membership Set and Equality between FD Sets",
+            "year": 2021,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MSQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 6,
+            "tags": [
+                "Functional Dependency and Normalization",
+                "Membership Set and Equality between FD Sets",
+                "Database Management Systems"
+            ],
+            "question": {
+                "text": "Suppose the following functional dependencies hold \non a relation U with attributes P, Q, R, S, and T: \n\n•   P \\rightarrow QR \n\n•   RS \\rightarrow T \n\nWhich of the following functional dependencies can \nbe inferred from the above functional dependencies?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "PS \\rightarrow T",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "R \\rightarrow T",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "P \\rightarrow R",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "PS \\rightarrow Q",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "A",
+                "C",
+                "D"
+            ],
+            "solution": {
+                "text": "Given relation: U(P, Q, R, S, T) \n\nGiven FD set: {P \\rightarrow QR, RS \\rightarrow T} \n\n(a) (PS)+ = {PQRST}; PS \\rightarrow T can be inferred. \n\n(b) (R)+ = {R}; R \\rightarrow T cannot be inferred. \n\n(c) (P)+ = {PQR};P \\rightarrow R can be inferred. \n\n(d) (PS)+ = {PQRST}; PS \\rightarrow Q can be inferred.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "DBMS_FUNCTIONAL_DEPENDENCY_AND_NORMALIZATION_2015_Q07",
+            "subject": "Database Management Systems",
+            "topic": "Functional Dependency and Normalization",
+            "subtopic": "be inferred from the above functional dependencies?",
+            "year": 2015,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 7,
+            "tags": [
+                "Functional Dependency and Normalization",
+                "be inferred from the above functional dependencies?",
+                "Database Management Systems"
+            ],
+            "question": {
+                "text": "Consider the relation X(P, Q, R, S, T, U) with the \nfollowing set of functional dependencies \n\nF = { {P, R} \\rightarrow {S, T}; {P, S, U} \\rightarrow {Q, R};} \n\nWhich of the following is the trivial functional \ndependency in F+ is closure of F ?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "{P, R} \\rightarrow {S, T}",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "{P, R} \\rightarrow {R, T}",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "{P, S} \\rightarrow {S}",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "{P, S, U} \\rightarrow {Q} \n\nMinimal Cover",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "C"
+            ],
+            "solution": {
+                "text": "X \\rightarrow Y is trivial functional dependency if and only if, \nX  Y  \n\nPS \\rightarrow S  \n\nPS   S; So, it is a trivial FD. \n\nOption b is a semi-trivial FD. Hence, it is incorrect. \n\n\nDatabase Management System",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "DBMS_FUNCTIONAL_DEPENDENCY_AND_NORMALIZATION_2017_Q08",
+            "subject": "Database Management Systems",
+            "topic": "Functional Dependency and Normalization",
+            "subtopic": "Minimal Cover",
+            "year": 2017,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 8,
+            "tags": [
+                "Functional Dependency and Normalization",
+                "Minimal Cover",
+                "Database Management Systems"
+            ],
+            "question": {
+                "text": "The following functional dependencies hold true for \nthe relational schema R {V, W, X, Y, Z}: \n\n[V \\rightarrow W; VW \\rightarrow X; Y \\rightarrow VX; Y \\rightarrow Z] \n\nWhich of the following is irreducible equivalent for \nthis set of functional dependencies?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "V\nW\nV\nX\nY\nV\nY\nZ\n→\n→\n→\n→",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "V\nW\nW\nX\nY\nV\nY\nZ\n→\n→\n→\n→",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "V\nW\nV\nX\nY\nV\nY\nX\nY\nZ\n→\n→\n→\n→\n→",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "V\nW\nW\nX\nY\nV\nY\nX\nY\nZ\n→\n→\n→\n→\n→\n\n\nProperties of Decomposition",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "A"
+            ],
+            "solution": {
+                "text": "Given FDs are as follows:   \n\nV \\rightarrow W, VW →X, Y→ VX, Y \\rightarrow Z \n\nStep 1: Split the FD such that R.H.S contain single \nattribute. \n\nV \\rightarrow W, VW \\rightarrow X, Y \\rightarrow V, Y \\rightarrow X, Y \\rightarrow Z  \n\nStep 2: Find the redundant (extraneous) attribute \nfrom L.H.S of FD and delete them.  \n\nVW \\rightarrow X, [W]+ = {W}; V is not extraneous. \n\nNOTE: The attribute V will be extraneous if [W]+ \ncontain V. So, [V]+ = {VW…}; W is extraneous \nattribute. Thus, W is extraneous as [V]+ contain W \n\nV \\rightarrow W, V \\rightarrow X, Y \\rightarrow V, Y \\rightarrow X, Y \\rightarrow Z  \n\nStep 3: \nFind the redundant FD and delete them \nfrom FD set. \n\nNOTE: A functional dependency in the set is \nredundant if it can be derived from the other \nfunctional dependencies in the set. \n• \nY \\rightarrow X is redundant as it can be derived from  \nY \\rightarrow V and V \\rightarrow X. \n\nHence, the minimal cover is:  \n\nV\nW\nV\nX\nY\nV\nY\nZ\n→\n→\n→\n→",
+                "images": [
+                    "assets/Database Management Systems/DBMS_Functional_Dependency_and_Normalization_P16_X1655.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "DBMS_FUNCTIONAL_DEPENDENCY_AND_NORMALIZATION_2021_Q09",
+            "subject": "Database Management Systems",
+            "topic": "Functional Dependency and Normalization",
+            "subtopic": "Properties of Decomposition",
+            "year": 2021,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 9,
+            "tags": [
+                "Functional Dependency and Normalization",
+                "Properties of Decomposition",
+                "Database Management Systems"
+            ],
+            "question": {
+                "text": "Consider the relation R(P, Q, S, T, X, Y, Z, W) with \nthe following functional dependencies \n\nPQ \\rightarrow X ; P \\rightarrow YX ; Q \\rightarrow Y ; Y \\rightarrow ZW \n\nConsider the decomposition of the relation R into the \nconstituent relations according to the following two \ndecomposition schemes \n\nD1: R = [(P, Q, S, T); (P, T, X); (Q, Y); (Y, Z, W)]  \n\nD2: R = [(P, Q, S); (T, X); (Q, Y); (Y, Z, W)] \n\nWhich one of the following options is correct?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "D1 is a lossless decomposition, but D2 is a lossy \ndecomposition.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "D1 is a lossy decomposition, but D2 is a lossless \ndecomposition.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "Both D1 and D2 are lossless decompositions.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "Both D1 and D2 are lossy decompositions.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "A"
+            ],
+            "solution": {
+                "text": "F: [PQ \\rightarrow X, P \\rightarrow XY, Q \\rightarrow Y, Y \\rightarrow ZW] \n\nD1:  R1(PQST) R2 (PTX) R3 (QY) R4 (YZW) \n\nR1: (PQST)  R2 (PTX) = PT  \n\n\n  [PT]+ = [PTXY…] super key of R2 \n\nR12 (PQSTX)  R3 (QY) = Q  \n\n[Q]+ = [QY…..] Super key of R3 \n\nR123 (PQSTXY)  R4 (YZW) = Y \n\n[Y]+ = [YZW] Super key of R4 \n\nR1234 (PQSTXYZW) \n\nD1 is lossless decomposition \n\n\nD1: Lossless Decomposition \n\nR (PQSTXYZW) \n\nF: [PQ \\rightarrow X, P \\rightarrow YX, Q \\rightarrow Y, Y \\rightarrow ZW] \n\nR1(PQS) R2(TX) R3(QY) R4(YZW) \n\nR3(QY)  R4(YZW) Y \n\nR34(QYZW) \n\n[Y]+ = [YZW] Super key of R4 \n\nR1(PQS)  R34(QYZW) Q \n\n [Q]+ = [QYZW…..] Super key of R34 \n\nBut in R134 (PQSYZW)  R2 (TX)- \n\nNo Common Attribute is present. \n\nD2 is a lossy decomposition.   \n\n\nNo Common Attribute \n\nD2: Lossy Decomposition",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "DBMS_FUNCTIONAL_DEPENDENCY_AND_NORMALIZATION_2019_Q10",
+            "subject": "Database Management Systems",
+            "topic": "Functional Dependency and Normalization",
+            "subtopic": "decomposition.",
+            "year": 2019,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 10,
+            "tags": [
+                "Functional Dependency and Normalization",
+                "decomposition.",
+                "Database Management Systems"
+            ],
+            "question": {
+                "text": "Let the set of functional dependencies F = {QR \\rightarrow S, \nR \\rightarrow P, S \\rightarrow Q} hold on a relation schema  \nX = (PQRS). X is not in BCNF. Suppose X is \ndecomposed into two schemas Y and Z, where Y = (P \nR) and Z = (Q R S). \n\nConsider the two statements given below. \n\nI. Both Y and Z are in BCNF \n\nII. Decomposition of X into Y and Z is dependency \npreserving and lossless \n\nWhich of the above statements is/are correct?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "Both I and II",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "I only",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "II only",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "Neither I nor II",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "C"
+            ],
+            "solution": {
+                "text": "I:  INCORRECT  \n\nX (PQRS) [QR \\rightarrow S, R \\rightarrow P, S \\rightarrow Q] \n\n[QR]+ = [QRSP] \n\nQR is Candidate key  \n\nS \\rightarrow Q \n\n[SR]+ = [SRQP] \n\nSR is Candidate key \n\nCandidate key = [QR, SR] \n\nX \\rightarrow Y \n\nS\nQ X: is Not Superkey\nR\nP\n→\n\n\n→\n\n\n\nSo, relation is not in BCNF \n\n\nSo, relation Y \nis in BCNF \nS \\rightarrow Q \n \nNot a super key \nZ is not in BCNF \n\n\nII: CORRECT \n\nThe union of the attribute set of Y and Z is equivalent \nto R.  \n\nY (PR)  Z (QRS) = R \n\n[R]+ = [RP] ; Super key of Y. \n\nR \\rightarrow P preserved in Y and QR \\rightarrow RS, S \\rightarrow Q \npreserved in Z. \n\nLossless and dependency preserving decomposition.",
+                "images": [
+                    "assets/Database Management Systems/DBMS_Functional_Dependency_and_Normalization_P17_X1719.png",
+                    "assets/Database Management Systems/DBMS_Functional_Dependency_and_Normalization_P17_X1721.png"
+                ],
+                "latex": [],
+                "tables": [
+                    {
+                        "headers": [
+                            "R (AB) 1",
+                            "R (BC) 2",
+                            "R (BD) 3"
+                        ],
+                        "rows": [
+                            [
+                                "A → B",
+                                "B→ C",
+                                "D → B"
+                            ],
+                            [
+                                "",
+                                "C → B",
+                                "B → D"
+                            ]
+                        ]
+                    },
+                    {
+                        "headers": [
+                            "R (AB) 1",
+                            "R (BC) 2",
+                            "R (BD) 3"
+                        ],
+                        "rows": [
+                            [
+                                "A → B",
+                                "B → C",
+                                "D → B"
+                            ]
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "id": "DBMS_FUNCTIONAL_DEPENDENCY_AND_NORMALIZATION_2008_Q11",
+            "subject": "Database Management Systems",
+            "topic": "Functional Dependency and Normalization",
+            "subtopic": "Which of the above statements is/are correct?",
+            "year": 2008,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 11,
+            "tags": [
+                "Functional Dependency and Normalization",
+                "Which of the above statements is/are correct?",
+                "Database Management Systems"
+            ],
+            "question": {
+                "text": "Let R(A, B, C, D) be a relational schema with the \nfollowing functional dependencies: \n\nA \\rightarrow B, B \\rightarrow C, C \\rightarrow D and D \\rightarrow B \n\nThe decomposition of R into (A, B),(B, C), (B, D)",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "Gives a lossless join, and is dependency \npreserving",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "Gives a lossless join, but is not dependency \npreserving",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "Does not give a lossless join, but is dependency \npreserving",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "Does not give a lossless join and is not \ndependency preserving. \n\nNormal Form",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "A"
+            ],
+            "solution": {
+                "text": "Consider the following relation R (ABCD) with FD \nset as {A \\rightarrow B, B \\rightarrow C, C \\rightarrow D, D \\rightarrow B} \n\nDecompose relation: (A, B) (B, C) (B, D) \n\n(1) R1(AB) ⋃ R2(BC) ⋃R3(BD) ⇒ R[ABCD]  \n\nR1(AB)⋂ R2(BC) = B \n\n[B]+ = [BCD] Super key of R2  \n\nR12(ABC) ⋂ R3(BD)= B \n\n[B+] = [BCD] super key of R3 \n\nR123 (ABCD) \n\nLossless join \n\n R1(AB)  R2(BC)  \nR3(BD) \n Dependency preserving: \nR1(AB) \nR2(BC) \nR3(BD) \n  A \\rightarrow B  \n  B→ C \nD \\rightarrow B \nC \\rightarrow B \nB \\rightarrow D \n [A]+ = [ABCD] \n [B]+ = [BCD] \n [C]+ = [CDB] \n [D]+ = [DBC] \n A \\rightarrow B, B \\rightarrow C, D \\rightarrow B, C \\rightarrow B, B \\rightarrow D \n A \\rightarrow B, B \\rightarrow C, D \\rightarrow B, C \\rightarrow D \n If F1⋃ F2 ⋃ F3 ……⋃ Fn ≡ F (Dependency \npreserving) \nOR \n\n\n        R1(AB) \n      R2(BC) \n       R3(BD) \nR1(AB) \nR2(BC) \nR3(BD) \nA \\rightarrow B \nB \\rightarrow C \nD \\rightarrow B \n\nDatabase Management System \n\n C \\rightarrow D Indirectly preserved  \n C \\rightarrow B in R2, and B \\rightarrow D in R3 \n \\therefore Dependency is preserved. \nHence, option (a) is correct",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "DBMS_FUNCTIONAL_DEPENDENCY_AND_NORMALIZATION_2022_Q12",
+            "subject": "Database Management Systems",
+            "topic": "Functional Dependency and Normalization",
+            "subtopic": "Normal Form",
+            "year": 2022,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 12,
+            "tags": [
+                "Functional Dependency and Normalization",
+                "Normal Form",
+                "Database Management Systems"
+            ],
+            "question": {
+                "text": "In a relational data model, which one of the following \nstatements is TRUE?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "A relation with only two attributes is always in \nBCNF.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "If all attributes of a relation are prime attributes, \nthen the relation is in BCNF.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "Every relation has at least one non-prime \nattribute.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "BCNF \ndecompositions \npreserve \nfunctional \ndependencies.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "A"
+            ],
+            "solution": {
+                "text": "(a) A relation with two attributes always in BCNF: \n\nTrue  \n\n\nBCNF: Every non-trivial FD x \\rightarrow y is in BCNF \nif and only if x is super key. \n\n\nLet us consider the following instances with two \nattributes: \n\n\nR (AB) [A \\rightarrow B] \n\n\nCandidate key = [A] \n\n\nA is super key \n\n\nR (AB) [B \\rightarrow A] \n\n\nCandidate key = [B] \n\n\nB is super key \n\n\nR (AB) [A \\rightarrow B, B \\rightarrow A] \n\n\nCandidate key = A, B \n\n\nA & B are super keys. . \n(b) If all attributes of relation are prime attributes, \nthen relation is in BCNF: False \n\nThere may exist a possibility that one prime \nattribute may determine another prime attribute. \nSuch a FD is allowed in 3NF but not in BCNF \ndesign. \n\n(c) False \n\n\nR(ABCD) [A→B, B→ C, C \\rightarrow A] \n\n\nCandidate key = [AD, BD, CD] \n\n\nKey/Prime Attribute = [A, B, C, D] \n\nHere all attributes are prime/key attribute and R is \nin 3NF. So, it is not mandatory that there must \nexist at least one non-prime attribute for a 3NF \ndesign. However, the correct statement is \"Every \nrelation has at-least one prime attribute\". \n\n(d) BCNF Preserve functional Dependency: False \n\n\nR (ABCD) [AB \\rightarrow CD, D \\rightarrow A]  \n\n\nCandidate key = [AB, DB] \n\n\nNot in BCNF (\nD→ A; D is not a super key) \n\n\nBCNF Decomposition \n\n\n\n  R\nB  C  D\n\n    R\nD  A\n\n\nThe above decomposition satisfies BCNF design. \nIt is lossless but not dependency preserving.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "DBMS_FUNCTIONAL_DEPENDENCY_AND_NORMALIZATION_2020_Q13",
+            "subject": "Database Management Systems",
+            "topic": "Functional Dependency and Normalization",
+            "subtopic": "dependencies.",
+            "year": 2020,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 13,
+            "tags": [
+                "Functional Dependency and Normalization",
+                "dependencies.",
+                "Database Management Systems"
+            ],
+            "question": {
+                "text": "Consider a relational table R that is in 3 NF, but not in \nBCNF. Which one of the following statements is \nTRUE? \n\nDatabase Management System",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "R has a non-trivial functional dependency \nX \\rightarrow A, where X is not a superkey and A is a \nprime attribute.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "R has a non-trivial functional dependency \nX \\rightarrow A, where X is not a superkey and A is a non-\nprime attribute and X is not a proper subset of any \nkey.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "R has a non-trivial functional dependency \nX \\rightarrow A, where X is not a superkey and A is a non-\nprime attribute and X is a proper subset of some \nkey.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "A cell in R holds a set instead of an atomic value.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "A"
+            ],
+            "solution": {
+                "text": "3NF: R is in 3NF \n\nIf every X→ Y (Non-Trivial FD) \n\nsatisfies the following conditions \n\nX: Super key or \n\nY: Prime key Attribute  \n\nBCNF \n\nR is in BCNF if every non-trivial  \n\nX→ Y FD must satisfy the following condition: \n\nX: Superkey \n\nX \\rightarrow A is in 3NF But Not in BCNF  \n\nX : is Not Superkey (Not in BCNF) \n\nThen  \n\nFor 3NF design, A must be a prime Attribute.",
+                "images": [
+                    "assets/Database Management Systems/DBMS_Functional_Dependency_and_Normalization_P18_X1839.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "DBMS_FUNCTIONAL_DEPENDENCY_AND_NORMALIZATION_2018_Q14",
+            "subject": "Database Management Systems",
+            "topic": "Functional Dependency and Normalization",
+            "subtopic": "key.",
+            "year": 2018,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 14,
+            "tags": [
+                "Functional Dependency and Normalization",
+                "key.",
+                "Database Management Systems"
+            ],
+            "question": {
+                "text": "Consider the following four relational schemas. For \neach schema, all non-trivial functional dependencies \nare listed. The underlined attributes are the respective \nprimary keys. \n\nSchema I: \n\nRegistration (rollno, courses) \n\nField 'courses' is a set-valued attribute containing the \nset of courses a student has registered for. \n\nNon-trivial functional dependency: \n\nrollno \\rightarrow courses \n\nSchema II: \n\nRegistration (rollno, courseid, email) \n\nNon-trivial functional dependencies: \n\nrollno, courseid \\rightarrow email \n\nemail \\rightarrow rollno \n\nSchema III: \n\nRegistration (rollno, courseid, marks, grade) \n\nNon-trivial functional dependencies: \n\nrollno, courseid \\rightarrow marks, grade \n\nmarks \\rightarrow grade \n\nSchema IV: \n\nRegistration (rollno, courseid, credit) \n\nNon-trivial functional dependencies: \n\nrollno, courseid \\rightarrow credit \n\ncourseid \\rightarrow credit \n\nWhich one of the relational schemas above is in 3 NF \nbut not in BCNF?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "Schema I",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "Schema II",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "Schema III",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "Schema IV",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "B"
+            ],
+            "solution": {
+                "text": "SCHEMA-I: \n\nRegistration (rollno. course) \n\nrollno \\rightarrow course is in BCNF because rollno is a super \nkey. So, schema I is in BCNF. \n\nSCHEMA-II: \n\nRegistration (rollno. courseid. email)  \n\nI. rollno courseid \\rightarrow email \n\nII. email \\rightarrow rollno. \n\nCandidate keys  = [rollno courseid, email courseid] \n\nFD - I: rollno course id \\rightarrow email \\rightarrow BCNF \n\nFD-II: email \\rightarrow roll no; email is Not superkey, but \nrollno is key/Prime Attribute. \n\nSo, SCHEMA-II is in 3NF But Not is BCNF.",
+                "images": [
+                    "assets/Database Management Systems/DBMS_Functional_Dependency_and_Normalization_P18_X1839.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "DBMS_FUNCTIONAL_DEPENDENCY_AND_NORMALIZATION_2014_Q15",
+            "subject": "Database Management Systems",
+            "topic": "Functional Dependency and Normalization",
+            "subtopic": "but not in BCNF?",
+            "year": 2014,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 15,
+            "tags": [
+                "Functional Dependency and Normalization",
+                "but not in BCNF?",
+                "Database Management Systems"
+            ],
+            "question": {
+                "text": "Given the following two statements: \n\nS1: Every table with two single-valued attributes is in \n1 NF, 2 NF, 3 NF and BCNF. \n\nS2: AB \\rightarrow C, D \\rightarrow E, E \\rightarrow C is a minimal cover for \nthe set of functional dependencies AB \\rightarrow C, \nD \\rightarrow E, AB \\rightarrow E, E \\rightarrow C. \n\nWhich one of the following is CORRECT?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "S1 is TRUE and S2 is FALSE.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "Both S1 and S2 are TRUE.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "S1 is FALSE and S2 TRUE.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "Both S1 and S2 are FALSE.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [],
+            "solution": {
+                "text": "Consider the following examples: \nR (AB) [A→B] \nCandidate key \n= [A] \nA is super key \nSo, R is  \nin BCNF \nR(AB) [A→B, \nB \\rightarrow A] \nCandidate key \n= (A, B) \nA and B are super \nkeys \nSo, R is in BCNF  \nR(AB) [B \\rightarrow A] \nCandidate key \n= [B]  \nB is super key So, \nR is in BCNF  \nA relation with two attributes is always in BCNF \nimplies it is in 1NF, 2NF, 3NF and BCNF. S1 is correct. \nOR \nA set A is called the minimal cover of set B iff \n\n(a) A covers B and \n\n(b) B covers A and \n\n(c) A is irreducible \n\nGiven FD set (B): {AB \\rightarrow C, D \\rightarrow E, AB \\rightarrow E, \nE \\rightarrow C} \n\nGiven minimal cover(A): {AB \\rightarrow C, D \\rightarrow E, \nE \\rightarrow C} \n(1) Check if A covers B \n\nA cover B means all FD's of B will be reducible using \nFD's of A or Every FD of B is A member of A \n\n(AB)+ = {A B C} (D)+ = {D E} (E)+ = {E C} \n\n\n(AB) + is not determining E \n         \n\nAB \\rightarrow E is not covered by the given minimal cover. \n\n Statement S2 is FALSE.",
+                "images": [],
+                "latex": [],
+                "tables": [
+                    {
+                        "headers": [
+                            "R (AB) [A→B] Candidate key = [A] A is super key So, R is in BCNF",
+                            "R(AB) [A→B, B → A] Candidate key = (A, B) A and B are super keys So, R is in BCNF",
+                            "R(AB) [B → A] Candidate key = [B] B is super key So, R is in BCNF"
+                        ],
+                        "rows": []
+                    }
+                ]
+            }
+        },
+        {
+            "id": "DBMS_FUNCTIONAL_DEPENDENCY_AND_NORMALIZATION_2013_Q16",
+            "subject": "Database Management Systems",
+            "topic": "Functional Dependency and Normalization",
+            "subtopic": "Which one of the following is CORRECT?",
+            "year": 2013,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 16,
+            "tags": [
+                "Functional Dependency and Normalization",
+                "Which one of the following is CORRECT?",
+                "Database Management Systems"
+            ],
+            "question": {
+                "text": "Relation R has eight attributes ABCDEFGH. \n\nFields of R contain only atomic values. \n\nF = {CH \\rightarrow G, A \\rightarrow BC, B \\rightarrow CFH, E \\rightarrow A, F \\rightarrow E \nG} is a set of functional dependencies (FDs) so that \nF+ is exactly the set of FDs that hold for R. \n\nThe relation R is",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "in 1 NF, but not in 2 NF.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "in 2 NF, but not in 3 NF.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "in 3 NF, but not in BCNF.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "in BCNF.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "A"
+            ],
+            "solution": {
+                "text": "Given FD set - \n F = {CH \\rightarrow G, A \\rightarrow BC, B \\rightarrow CFH, E →A,  \n F \\rightarrow EG} \n Candidate keys - {AD, ED, FD, BD} \n Non-key/non-prime attribute = {C, G, H} \n Testing of normal forms  \n\nBCN\nF \n3NF \nCH→\nG \n× \n× \nA→B\nC \n× \n- \nB→CF\nH \n× \n- \nE→\nA \n× \n- \nF→E\nG \n× \n- \n\nA \\rightarrow C, B \\rightarrow C, B \\rightarrow H, F \\rightarrow G violates 2NF \n\n2NF - proper subset of CK should not determine \nnon-prime subset of CK - \n\n{A}+ = {A B C F H G} \n\n{B}+  \n   non-prime \n\n{D}+ \n\n{E}+ \n\n{F}+ \n\n The relation is not in 2NF \n(a) It is in 1NF but not in 2NF. \n\n\nDatabase Management System",
+                "images": [],
+                "latex": [],
+                "tables": [
+                    {
+                        "headers": [
+                            "BCN F 3NF",
+                            "CH→ G × ×",
+                            "A→B C × -",
+                            "B→CF H × -",
+                            "E→ A × -",
+                            "F→E G × -"
+                        ],
+                        "rows": []
+                    }
+                ]
+            }
+        },
+        {
+            "id": "DBMS_FUNCTIONAL_DEPENDENCY_AND_NORMALIZATION_2012_Q17",
+            "subject": "Database Management Systems",
+            "topic": "Functional Dependency and Normalization",
+            "subtopic": "The relation R is",
+            "year": 2012,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 17,
+            "tags": [
+                "Functional Dependency and Normalization",
+                "The relation R is",
+                "Database Management Systems"
+            ],
+            "question": {
+                "text": "Which of the following is TRUE?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "Every relation in 3 NF is also in BCNF",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "A relation R is in 3 NF if every non-prime \nattribute of R is fully functionally dependent on \nevery key of R",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "Every relation in BCNF is also in 3 NF",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "No relation can be in both BCNF and 3 NF",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "C"
+            ],
+            "solution": {
+                "text": "3NF definition \n\nEvery non trivial FD X \\rightarrow Y is in 3 NF iff \n\nX: super key or \n\nY: key/Prime attribute \n\nEvery non trivial FD X \\rightarrow Y is in BCNF iff , X : \nSuper key \n\nOption (a): False  \n\nLet us assume- \n\nR (ABCD) with FD set as [AB \\rightarrow CD, D \\rightarrow A] \n\nCandidate key = [AB, DB] \n\nAB \\rightarrow CD \nD→A \n3NF \nYES (as AB is a \ncandidate key) \nYES (as A is a \nprime attribute) \nBCNF \nYES (as AB is a \ncandidate key) \nNO (D is not a \ncandidate key) \n\n(c) True. \n\nLet us assume, R (AB) with FD set [A \\rightarrow B] \n\nCandidate key = [A] \n\nSince, A is the key, R is in BCNF and also in 3NF.",
+                "images": [],
+                "latex": [],
+                "tables": [
+                    {
+                        "headers": [
+                            "BCN F 3NF",
+                            "CH→ G × ×",
+                            "A→B C × -",
+                            "B→CF H × -",
+                            "E→ A × -",
+                            "F→E G × -"
+                        ],
+                        "rows": []
+                    }
+                ]
+            }
+        },
+        {
+            "id": "DBMS_FUNCTIONAL_DEPENDENCY_AND_NORMALIZATION_2009_Q18",
+            "subject": "Database Management Systems",
+            "topic": "Functional Dependency and Normalization",
+            "subtopic": "every key of R",
+            "year": 2009,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 18,
+            "tags": [
+                "Functional Dependency and Normalization",
+                "every key of R",
+                "Database Management Systems"
+            ],
+            "question": {
+                "text": "Consider the following relational schema: \n\nSuppliers(sid: integer, sname: string, city: string, \nstreet: string) \n\nParts(pid: integer, pname:string, color:string) \n\nCatalog (sid:integer, pid:integer, cost:real) \n\nAssume that, in the suppliers relation above, each \nsupplier and each street within a city has a unique \nname, and (sname, city) forms a candidate key. No \nother functional dependencies are implied other than \nthose implied by primary and candidate keys. Which \none of the following is TRUE about the above \nschema?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "The schema is in BCNF",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "The schema is in 3NF but not in BCNF",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "The schema is in 2NF but not in 3NF",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "The schema is not in 2NF",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "A"
+            ],
+            "solution": {
+                "text": "Supplier (Sid, Sname, City, Street) \n\nEach supplier, each street within a city has a unique \nname \n\nSid Street City \\rightarrow Sname \n\nSname City form a candidate key \n\nSname City \\rightarrow Sid Street \n\nSid is primary key. \n\nSid \\rightarrow Sname City Street \n\nKeys (Sid, Sname City) \n\nCheck 2NF, as there is no partial dependency so R is \nin 2NF \n\nCheck 3NF in X \\rightarrow Y, either X is a super key or Y is \nthe prime attribute \n\nI. \nSid Street City \\rightarrow Sname \n\nII. Sname City \\rightarrow Sid Street \n\nIII. Sid \\rightarrow Sname City Street \n\n∴ R is 3NF \n\nCheck for BCNF  \n\nX is super key, therefore R is in BCNF.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "DBMS_FUNCTIONAL_DEPENDENCY_AND_NORMALIZATION_2008_Q19",
+            "subject": "Database Management Systems",
+            "topic": "Functional Dependency and Normalization",
+            "subtopic": "schema?",
+            "year": 2008,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 19,
+            "tags": [
+                "Functional Dependency and Normalization",
+                "schema?",
+                "Database Management Systems"
+            ],
+            "question": {
+                "text": "Consider the following relational schemes for a \nlibrary database: \n\nBook (Title, Author, Catalog_no, Publisher, Year, \nprice) \n\nCollection (Title, Author, Catalog_no) \n\nWith the following functional dependencies: \n\nI.  TitleAuthor \\rightarrow Catalog_no \n\nII.  Catalog_no \\rightarrow Title Author Publisher Year \n\nIII.  Publisher Title Year \\rightarrow Price \n\nAssume { Author, Title} is the key for both schemes. \n\nWhich of the following statements is true?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "Both Book and Collection are in BCNF",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "Both Book and Collection are in 3 NF only",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "Book is in 2 NF and Collection is in 3 NF",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "Both Book and Collection are in 2 NF only",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "C"
+            ],
+            "solution": {
+                "text": "Book (Title, Author, Catalog_no, Publisher, Year, \nprice) \n\nCollection (Title, Author, Catalog_no) \n\nFD I.  \nTitleAuthor ⟶ Catalog_no \n\nFD II.  Catalog_no ⟶ Title Author Publisher Year \n\nFD III.  Publisher Title Year ⟶ Price \n\nKey = [Author Title] \n\nCollection (Title, Author, Catalog_no) \n\nFD I. TitleAuthor ⟶ Catalog_no   \n\nThe relation Collection is in BCNF because Title \nAuthor is a super key \n\nCollection is in BCNF so its in also in 3NF, 2NF \nand 1NF. \n\nKey = [Author Title] \n\nBook (Title, Author, Catalog_no, Publisher, Year, \nprice) \n\nFD I.  \nTitle Author \\rightarrow Catalog_no \n\nFD II.  Catalog_no \\rightarrow Title Author Publisher Year \n\nFD III.  Publisher Title Year \\rightarrow Price \n\nIn FD II Catalog_no \\rightarrow Title Author \n\nPublisher Year  \n\nCatalog no is a key \n\nCandidate key = [Title author, catalog] \n\nIn book schema  \n\nFD I. Satisfy BCNF \n\nFD II. Satisfy BCNF \n\n\nFD III. Publisher Title Year \\rightarrow Price \n\nSatisfy 2NF but not 3NF \n\nBecause neither publisher title year is super key \n\nNor price is key/prime attribute \n\n Book is in 2NF only.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "DBMS_FUNCTIONAL_DEPENDENCY_AND_NORMALIZATION_2008_Q20",
+            "subject": "Database Management Systems",
+            "topic": "Functional Dependency and Normalization",
+            "subtopic": "Which of the following statements is true?",
+            "year": 2008,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 20,
+            "tags": [
+                "Functional Dependency and Normalization",
+                "Which of the following statements is true?",
+                "Database Management Systems"
+            ],
+            "question": {
+                "text": "Let R(A, B, C, D, E, P, G) be a relational schema in \nwhich the following functional dependencies are \nknown to hold: \n\nAB→CD, DE→P, C→E, P→C and B→G. \n\nThe relational schema R is",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "in BCNF",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "in 3NF, but not in BCNF",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "in 2NF, but not in 3 NF",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "not in 2NF \n\nDecomposition into Higher Normal Form",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "D"
+            ],
+            "solution": {
+                "text": "Consider relation R(ABCDEPG) with FD set as \n[AB \\rightarrow CD, DE \\rightarrow P, C \\rightarrow E, P \\rightarrow C, B \\rightarrow G] \n\n[AB]+ = [ABCDEPG] \n\n[A]+ = [A] \n\n[B]+ = [BG] \n\nAB is candidate key ….(1) \n\nThere aren't multiple candidate keys. \n\nPrime/key attributes = [A, B] \n\nNon-prime/ non key attribute= [C, D, E, P, G] \n\nA relational design is not in 2NF if there exists B \\rightarrow \nG (partial dependency).  \n\nB (Proper subset of candidate key) \\rightarrow G (non key \nattribute) Violation of 2NF. \n\n R is not in 2 NF",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "DBMS_FUNCTIONAL_DEPENDENCY_AND_NORMALIZATION_2016_Q21",
+            "subject": "Database Management Systems",
+            "topic": "Functional Dependency and Normalization",
+            "subtopic": "Decomposition into Higher Normal Form",
+            "year": 2016,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 21,
+            "tags": [
+                "Functional Dependency and Normalization",
+                "Decomposition into Higher Normal Form",
+                "Database Management Systems"
+            ],
+            "question": {
+                "text": "A database of research articles in a journal uses the \nfollowing schema. \n\n(VOLUME, NUMBER, STARTPAGE, ENDPAGE, \nTITLE, YEAR, PRICE) \n\nThe primary key is (VOLUME, NUMBER, \nSTARTPAGE, ENDPAGE) and the following \nfunctional dependencies exist in the schema. \n\n(VOLUME, NUMBER, STARTPAGE, ENDPAGE) \n→ TITLE \n\n(VOLUME, NUMBER) \\rightarrow YEAR \n\n(VOLUME, NUMBER, STARTPAGE, ENDPAGE) \n→ PRICE \n\nThe database is redesigned to use the following \nschemas. \n\n(VOLUME, NUMBER, STARTPAGE, ENDPAGE, \nTITLE, PRICE) \n\n(VOLUME, NUMBER, YEAR) \n\nWhich is the weakest normal form that the new \ndatabase satisfies, but the old one does not?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "1 NF",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "2 NF",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "3 NF",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "BCNF \n\n\n\n\nDatabase Management System",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "B"
+            ],
+            "solution": {
+                "text": "Journal (VOLUME, NUMBER, STARTPAGE, \nENDPAGE, TITLE, YEAR, PRICE) \n\nFD I: (VOLUME, NUMBER, STARTPAGE, \nENDPAGE) \\rightarrow TITLE \n\nFD II: (VOLUME, NUMBER) \\rightarrow YEAR \n\nFD III: (VOLUME, NUMBER, STARTPAGE, \nENDPAGE) \\rightarrow PRICE \n\nKeys: \n(VOLUME, \nNUMBER, \nSTARTPAGE, \nENDPAGE) \n\nFD I: is in BCNF or satisfy BCNF definition \n\n(Because in x \\rightarrow y, x is super key) \n\nFD III: is in BCNF or satisfy BCNF definition \n\nBut FD II (VOLUME, NUMBER) \\rightarrow YEAR not \nsatisfy 2NF definition because the non-key attribute \nis not fully dependent on key or proper subset of \ncandidate key \\rightarrow non-key attribute, violation of 2NF \nexists. \n\nFD II: \n\nJournal Not in 2 NF \n\nRedesign \n\nSchema \n\nSC I: Volume, Number, Start page, end page, Title \nprice \n\nSC II: Volume Number year \n\nSchema I: Volume number start page end page Title \nprice \n\nFD I: Volume Number start page end page \\rightarrow Title \nprice. \n\nFD II: Volume Number start page end page \\rightarrow Price \n\n Satisfy BCNF definition is schema I \n\nSchema II: Volume number year \n\nVolume Number \\rightarrow year \n\n Satisfy BCNF definition \n\nNew design is in BCNF but old design  \n\nOnly 1 NF but not satisfy 2NF",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        }
+    ]
+}

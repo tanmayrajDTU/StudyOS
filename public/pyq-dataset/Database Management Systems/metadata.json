@@ -1,0 +1,27 @@
+{
+    "subject": "Database Management Systems",
+    "totalTopics": 5,
+    "totalQuestions": 114,
+    "topics": [
+        {
+            "name": "Database Design and ER Model",
+            "questionCount": 14
+        },
+        {
+            "name": "Functional Dependency and Normalization",
+            "questionCount": 21
+        },
+        {
+            "name": "Transaction and Concurrency Control",
+            "questionCount": 24
+        },
+        {
+            "name": "Relational Algebra, SQL Queries, TRC",
+            "questionCount": 41
+        },
+        {
+            "name": "File Organization and Indexing",
+            "questionCount": 14
+        }
+    ]
+}

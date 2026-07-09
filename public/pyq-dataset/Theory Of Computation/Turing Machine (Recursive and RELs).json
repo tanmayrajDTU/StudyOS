@@ -1,0 +1,1299 @@
+{
+    "subject": "Theory Of Computation",
+    "topic": "Turing Machine (Recursive and RELs)",
+    "questionCount": 20,
+    "questions": [
+        {
+            "id": "TOC_TURING_MACHINE_RECURSIVE_AND_RELS_2019_Q01",
+            "subject": "Theory Of Computation",
+            "topic": "Turing Machine (Recursive and RELs)",
+            "subtopic": "Turing Machine",
+            "year": 2019,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 1,
+            "tags": [
+                "Turing Machine (Recursive and RELs)",
+                "Turing Machine",
+                "Theory Of Computation"
+            ],
+            "question": {
+                "text": "Consider the following sets: \n\nS1:  Set of all recursively enumerable languages \nover the alphabet {0, 1} \n\nS2:  Set of all syntactically valid C programs \n\nS3:   Set of all languages over the alphabet {0, 1} \n\nS4:   Set of all non-regular languages over the \nalphabet 0, 1} \n\nWhich of the above sets are uncountable?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "S1 and S2",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "S3 and S4",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "S2 and S3",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "S1 and S4",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "B"
+            ],
+            "solution": {
+                "text": "S1:  Set of all recursively enumerable languages \nover the alphabet {0, 1} \n\n   Set of RELs is Countable. \n\nS2:  Set of all syntactically valid C programs \n\n   All C, C++, Java, etc. are Countable. \n\nS3:   Set of all languages over the alphabet {0, 1} \n\n   Set of all languages = 2* is Uncountable. \n\nS4:   Set of all non-regular languages over the \nalphabet {0, 1} \n\nSet of all regular languages is Countable but set of \nall non-regular language is Uncountable.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "TOC_TURING_MACHINE_RECURSIVE_AND_RELS_2017_Q02",
+            "subject": "Theory Of Computation",
+            "topic": "Turing Machine (Recursive and RELs)",
+            "subtopic": "Which of the above sets are uncountable?",
+            "year": 2017,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 2,
+            "tags": [
+                "Turing Machine (Recursive and RELs)",
+                "Which of the above sets are uncountable?",
+                "Theory Of Computation"
+            ],
+            "question": {
+                "text": "Let A and B be finite alphabets and let # be a symbol \noutside both A and B. Let f be a total function from \nA* to B*. We say f is computable if there exists a \nTuring machine M which given an input x in A*, \nalways halts with f(x) on its tape. Let Lf denote the \nlanguage {x # f(x)|x  A*}. Which of the following \nstatements is true?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "f is computable if and only if Lf  is recursive.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "f is computable if and only if Lf  is recursively \nenumerable.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "If f is computable then Lf is recursive, but not \nconversely.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "If f is computable then Lf is recursively \nenumerable, but not conversely.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "A",
+                "D"
+            ],
+            "solution": {
+                "text": "*\n*\nA\nB\nf\n⎯⎯⎯⎯⎯→\n\n\na1 \\rightarrow f (a1) = b1 \n\na2 \\rightarrow f (a2) = b2 \n\na3 \\rightarrow f (a3) = b3 \n\na4 \\rightarrow f (a4) = b4 \n\n                    \n\nLf = {a1# f(a1), a2 #, f(a2)……. } \n• \nLexicographical order is possible. So, Lf is \nrecursive. \n• \nIf L is REL then f may/may not be computable. \n• \nIf f is computable then Lf is recursively \nenumerable, but not conversely.",
+                "images": [
+                    "assets/Theory Of Computation/TOC_Turing_Machine_Recursive_and_RELs_P43_X1369.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "TOC_TURING_MACHINE_RECURSIVE_AND_RELS_2014_Q03",
+            "subject": "Theory Of Computation",
+            "topic": "Turing Machine (Recursive and RELs)",
+            "subtopic": "enumerable, but not conversely.",
+            "year": 2014,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 3,
+            "tags": [
+                "Turing Machine (Recursive and RELs)",
+                "enumerable, but not conversely.",
+                "Theory Of Computation"
+            ],
+            "question": {
+                "text": "Let  be a finite non-empty alphabet and let 2* be \nthe power set of *. Which one of the following is \nTRUE?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "Both 2* and * is countable",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "2* is countable and * is uncountable",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "2* is uncountable and * is countable",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "Both  2* and * are uncountable",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "C"
+            ],
+            "solution": {
+                "text": "• \n* = Set of all strings = Regular \nRegular is countable. \n• \n2* = Set of all languages  \nSet of all languages is uncountable. \nHence, option (c) is correct.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "TOC_TURING_MACHINE_RECURSIVE_AND_RELS_2011_Q04",
+            "subject": "Theory Of Computation",
+            "topic": "Turing Machine (Recursive and RELs)",
+            "subtopic": "TRUE?",
+            "year": 2011,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 4,
+            "tags": [
+                "Turing Machine (Recursive and RELs)",
+                "TRUE?",
+                "Theory Of Computation"
+            ],
+            "question": {
+                "text": "Which of the following pairs have DIFFERENT \nexpressive power",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "Deterministic finite automata (DFA) and Non-\ndeterministic finite automata (NFA)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "Deterministic push down automata (DPDA) and \nNon-deterministic push down automata (NPDA)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "Deterministic single-tape Turing machine and \nNon-deterministic single - tape Turing machine",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "Single-tape Turing machine and multi-tape \nTuring machine",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "B"
+            ],
+            "solution": {
+                "text": "• \nDFA ≡ NFA \n• \nDPDA  NPDA \n• \nDTM ≡ NTM whether it is a single tape or \nmulti tape.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "TOC_TURING_MACHINE_RECURSIVE_AND_RELS_2011_Q05",
+            "subject": "Theory Of Computation",
+            "topic": "Turing Machine (Recursive and RELs)",
+            "subtopic": "Turing machine",
+            "year": 2011,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 5,
+            "tags": [
+                "Turing Machine (Recursive and RELs)",
+                "Turing machine",
+                "Theory Of Computation"
+            ],
+            "question": {
+                "text": "Consider the languages L1, L2 and L3 are given \nbelow: \n\nL1 = {0p 1q│p, q  N}, \n\nL2 = {0p 1q│p, q  N and p = q}  and \n\nL3 = {0p 1q 0r | p, q, r  N and p = q = r} \n\nWhich of the following statements is NOT TRUE?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "Push Down Automata (PDA) can be used to \nrecognize L1 and L2",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "L1 is a regular language",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "All the three languages are context free",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "Turing machines can be used to recognize all \nthe languages",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "C"
+            ],
+            "solution": {
+                "text": "L1 = {0p1q│p, q  N} 0* 1* \\Rightarrow Regular \n\nL2 = {0p1q│p, q  N and p = q}  and \\Rightarrow DCFL \n\nL3 = {0p1q0r |p, q, r  N and p = q = r} \\Rightarrow CSL \n\nHence, option (c) is correct.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "TOC_TURING_MACHINE_RECURSIVE_AND_RELS_2008_Q06",
+            "subject": "Theory Of Computation",
+            "topic": "Turing Machine (Recursive and RELs)",
+            "subtopic": "the languages",
+            "year": 2008,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 6,
+            "tags": [
+                "Turing Machine (Recursive and RELs)",
+                "the languages",
+                "Theory Of Computation"
+            ],
+            "question": {
+                "text": "Which of the following is true for the language {ap | \np is a prime number}?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "It is not accepted by a Turning Machine",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "It is regular but not context-free",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "It is context-free but not regular",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "It is neither regular nor context-free, but \naccepted by a Turing machine \n\nRecursive and RE Language Identification",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "D"
+            ],
+            "solution": {
+                "text": "• \n{ap | p is a prime number} it is a CSL language. \nEvery CSL is recursive and RE. \nHence, option (d) is correct.",
+                "images": [],
+                "latex": [],
+                "tables": [
+                    {
+                        "headers": [
+                            "List-I",
+                            "List-II"
+                        ],
+                        "rows": [
+                            [
+                                "A. Checking that identifier are declared before their use",
+                                "L=wcw|w(a|b)* 3."
+                            ],
+                            [
+                                "B. Number of formal parameters in the declaration of a function agrees with the number of actual parameters in a use of that function",
+                                "1. L=a nb mc nd m| n1,m1"
+                            ],
+                            [
+                                "C. Arithmetic expressions with matched pairs of parentheses",
+                                "2. X→XbX | XcX | dXf | g"
+                            ],
+                            [
+                                "D. Palindromes",
+                                "4. X → bXb | cXc | "
+                            ]
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "id": "TOC_TURING_MACHINE_RECURSIVE_AND_RELS_2023_Q07",
+            "subject": "Theory Of Computation",
+            "topic": "Turing Machine (Recursive and RELs)",
+            "subtopic": "Recursive and RE Language Identification",
+            "year": 2023,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MSQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 7,
+            "tags": [
+                "Turing Machine (Recursive and RELs)",
+                "Recursive and RE Language Identification",
+                "Theory Of Computation"
+            ],
+            "question": {
+                "text": "Which of the following statements is/are correct?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "The intersection of two redular languages is \nregular.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "The intersection of two context-free languages \nis context-free.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "The intersection of two recursive languages is \nrecursive.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "The intersection of two recusively enumerable \nlanguages is recursively enumerable.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "A",
+                "C",
+                "D"
+            ],
+            "solution": {
+                "text": "(a)  The intersection of two redular languages is \nregular.  \n\n\n Reg  Reg \\Rightarrow Reg   \nTrue \n\n(b)  The intersection of two context-free languages \nis context-free.  \n\n\n CFL  CFL \\Rightarrow CSL   \nFalse \n\n(c)  The intersection of two recursive languages is \nrecursive. \n\n\n Rec  Rec \\Rightarrow Rec   \nTrue \n\n(d) The intersection of two recusively enumerable \nlanguages is recursively enumerable. \n\n\n REL  REL \\Rightarrow REL  \nTrue",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "TOC_TURING_MACHINE_RECURSIVE_AND_RELS_2017_Q08",
+            "subject": "Theory Of Computation",
+            "topic": "Turing Machine (Recursive and RELs)",
+            "subtopic": "languages is recursively enumerable.",
+            "year": 2017,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 8,
+            "tags": [
+                "Turing Machine (Recursive and RELs)",
+                "languages is recursively enumerable.",
+                "Theory Of Computation"
+            ],
+            "question": {
+                "text": "Consider the following languages:  \n\nL1 = {aP |p is a prime number}  \n\nL2 = {an bm c2m | n \\ge 0, m \\ge 0}  \n\nL3 = {an bn c2n | n \\ge 0}  \n\nL4 = {an bn | n \\ge 1}  \n\nWhich of the following are CORRECT?  \n\nI. L1 is context-free but not regular.  \n\nII. L2 is not context-free.  \n\nIII. L3 is not context-free but recursive.  \n\nIV. L4 deterministic context-free.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "I, II and IV only",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "II and III only",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "I and IV only",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "III and IV only",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "D"
+            ],
+            "solution": {
+                "text": "L1 = {aP |p is a prime number}  \\Rightarrow Not CFL \n\nL2 = {an bm c2m | n \\ge 0, m \\ge 0} \\Rightarrow DCFL \n\nL3 = {an bn c2n | n \\ge 0} \\Rightarrow Not CFL \n\nL4 = {an bn |n \\ge 1} \\Rightarrow DCFL",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "TOC_TURING_MACHINE_RECURSIVE_AND_RELS_2013_Q09",
+            "subject": "Theory Of Computation",
+            "topic": "Turing Machine (Recursive and RELs)",
+            "subtopic": "IV. L4 deterministic context-free.",
+            "year": 2013,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 9,
+            "tags": [
+                "Turing Machine (Recursive and RELs)",
+                "IV. L4 deterministic context-free.",
+                "Theory Of Computation"
+            ],
+            "question": {
+                "text": "Consider the following languages \n\nL1 = {0p1q0r | p, q, r \\ge 0} \n\nL2 = {0p1q0r | p, q, r \\ge 0 p \\neq r} \n\nWhich one of the following statements is FALSE?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "L2 is context-free",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "L1  L2 is context-free",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "Complement of L2 is recursive",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "Complement of L1 is context-free but not \nregular",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "D"
+            ],
+            "solution": {
+                "text": "• \nL1 = {0p1q0r | p, q, r \\ge 0} \n     = 0*1*0* is Regular language \n• \nL2 = {0p1q0r | p, q, r \\ge 0 p \\neq r} \n     = DCFL language \n• \nL1  L2 = Regular  DCFL = DCFL \n• \nDCFL\nDCFL\n=\n\n• \nRegular\nRegular\n=",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "TOC_TURING_MACHINE_RECURSIVE_AND_RELS_2008_Q10",
+            "subject": "Theory Of Computation",
+            "topic": "Turing Machine (Recursive and RELs)",
+            "subtopic": "regular",
+            "year": 2008,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 10,
+            "tags": [
+                "Turing Machine (Recursive and RELs)",
+                "regular",
+                "Theory Of Computation"
+            ],
+            "question": {
+                "text": "Match List-I with List-II and select the correct \nanswer using the codes given below the lists: \n\nList-I \n\nA.  Checking that identifier are declared before their \nuse \n\nB.  Number of formal parameters in the declaration \nof a function agrees with the number of actual \nparameters in a use of that function \n\nC.  Arithmetic expressions with matched pairs of \nparentheses \n\nD.  Palindromes \n\nList-II \n\n1. \n\n\nn\nm\nn\nm\nL\na b c d | n\n1,m\n=\n\n\n\n\n2. X\nXbX | XcX | dXf | g\n→\n\n\n3. \n(\n)\n\n\n*\nL\nwcw|w\na|b\n=\n\n\n\n4. X \n bXb | cXc | \n→\n   \n\nCodes:  \n\n\na \nb \nc \nd",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "1",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "3",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "3",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "1 \n\nClosure Properties of Recursive and Rels",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "C"
+            ],
+            "solution": {
+                "text": "List-I \nList-II \nA. Checking that \nidentifier are declared \nbefore their use \n3. \n(\n)\n\n\n*\nL\nwcw|w\na|b\n=\n\n\nB. Number of formal \nparameters in the \ndeclaration of a \nfunction agrees with \nthe number of actual \nparameters in a use of \nthat function \n1. \n\n\nn\nm\nn\nm\nL\na b c d | n\n1,m\n=\n\n\n\nC. Arithmetic \nexpressions with \nmatched pairs of \nparentheses \n2. X\nXbX | XcX | dXf | g\n→\n\nD. Palindromes \n4. X \n bXb | cXc | \n→\n \n\nHence, option (c) is correct.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "TOC_TURING_MACHINE_RECURSIVE_AND_RELS_2022_Q11",
+            "subject": "Theory Of Computation",
+            "topic": "Turing Machine (Recursive and RELs)",
+            "subtopic": "Closure Properties of Recursive and Rels",
+            "year": 2022,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MSQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 11,
+            "tags": [
+                "Turing Machine (Recursive and RELs)",
+                "Closure Properties of Recursive and Rels",
+                "Theory Of Computation"
+            ],
+            "question": {
+                "text": "Which of the following statements is / are TRUE?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "Every subset of a recursively enumerable \nlanguage is recursive.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "If a language L and its complement L are both \nrecursively enumerable, then L must be \nrecursive.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "Complement of a context-free language must be \nrecursive.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "If L1 and L2 are regular, then L1  L2 must be \ndeterministic context - free.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "B",
+                "C",
+                "D"
+            ],
+            "solution": {
+                "text": "(a) Every subset of a recursively enumerable \nlanguage is recursive. FALSE \n\n\nBecause subset is not closed under any \nlanguage. \n\n\n(b) If a language L and its complement L are both \nrecursively enumerable, then L must be \nrecursive. TRUE \n\n(c) CFL = CSL \n\n\nEvery \nCSL \nis \nrecursive \nand \nrecursive \nenumerable. \n\n(d) Regular  Regular = Regular \n\n\nEvery Regular language is DCFL, CFL, \nRecursive and RE.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "TOC_TURING_MACHINE_RECURSIVE_AND_RELS_2021_Q12",
+            "subject": "Theory Of Computation",
+            "topic": "Turing Machine (Recursive and RELs)",
+            "subtopic": "deterministic context - free.",
+            "year": 2021,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 12,
+            "tags": [
+                "Turing Machine (Recursive and RELs)",
+                "deterministic context - free.",
+                "Theory Of Computation"
+            ],
+            "question": {
+                "text": "Let <M> denote an encoding of an automaton M. \nSuppose that Σ = {0, 1}. Which of the following \nlanguages is/are NOT recursive?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "L = {<M> | M is a DFA such that L(M) = ∅}",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "L = {<M> | M is a DFA such that L(M) = Σ*}",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "L = {<M> | M is a PDA such that L(M) = ∅}",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "L = {<M> | M is a PDA such that L(M) = Σ*}",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "D"
+            ],
+            "solution": {
+                "text": "(a) Emptiness for DFA is decidable (Recursive). \n\n (b) Totality for DFA is decidable (Recursive). \n\n (c) Emptiness for PDA is decidable (Recursive). \n\n(d) Totality for PDA is undecidable (Not \nRecursive).",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "TOC_TURING_MACHINE_RECURSIVE_AND_RELS_2018_Q13",
+            "subject": "Theory Of Computation",
+            "topic": "Turing Machine (Recursive and RELs)",
+            "subtopic": "languages is/are NOT recursive?",
+            "year": 2018,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 13,
+            "tags": [
+                "Turing Machine (Recursive and RELs)",
+                "languages is/are NOT recursive?",
+                "Theory Of Computation"
+            ],
+            "question": {
+                "text": "The set of all recursively enumerable languages is",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "Closed under complementation.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "Closed under intersection.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "A subset of the set of all recursive language.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "An uncountable set.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "B"
+            ],
+            "solution": {
+                "text": "The set of all recursively enumerable language is \nCountable and closed under Intersection but not \nclosed under Complementation. \n\nThe set of all RELs is superset of Set of all \nrecursive languages.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "TOC_TURING_MACHINE_RECURSIVE_AND_RELS_2016_Q14",
+            "subject": "Theory Of Computation",
+            "topic": "Turing Machine (Recursive and RELs)",
+            "subtopic": "The set of all recursively enumerable languages is",
+            "year": 2016,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 14,
+            "tags": [
+                "Turing Machine (Recursive and RELs)",
+                "The set of all recursively enumerable languages is",
+                "Theory Of Computation"
+            ],
+            "question": {
+                "text": "Consider the following types of languages:  \n\n\nL1: Regular,  L2: Context-free, L3: Recursive, \nL4: Recursively enumerable.  \n\nWhich of the following is/are TRUE? \n\nI. \nL  L4 is recursively enumerable. \n\nII. \nL  L3 is recursive. \n\nIII. L1*  L2 is context-free. \n\nIV. L1  \nL  is context-free.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "I only",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "I and III only",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "I and IV only",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "I, II and III only",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "D"
+            ],
+            "solution": {
+                "text": "• \nRecursive\nRE = Recursive\nRE = RE\n\n\n.  \n• \nCFL\nRecursive = CSL\nRecursive\nRecursive.\n\n\n=\n\n• \n(Regular)*  CFL = Regular  CFL = CFL. \n• \nRegular\nCFL\nRegular\nCSL = CSL\n\n=\n\n\nHence, option (d) is correct.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "TOC_TURING_MACHINE_RECURSIVE_AND_RELS_2015_Q15",
+            "subject": "Theory Of Computation",
+            "topic": "Turing Machine (Recursive and RELs)",
+            "subtopic": "L  is context-free.",
+            "year": 2015,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 15,
+            "tags": [
+                "Turing Machine (Recursive and RELs)",
+                "L  is context-free.",
+                "Theory Of Computation"
+            ],
+            "question": {
+                "text": "For any two languages L1 and L2 such that L1 is \ncontext free and  L2  is recursively enumerable but \nnot recursive, which of the following is/are \nnecessarily true? \n\nI. \nL (complement of L1) is recursive \n\nII.  \nL (complement of L2) is recursive \n\nIII.  \nL   is context-free \n\nIV.  \nL  L2 is recursively enumerable",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "1 only",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "3 only",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "3 and 4 only",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "1 and 4 only",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "D"
+            ],
+            "solution": {
+                "text": "L1 : CFL \n\nL1 : RE but not Recursive \n\nI. \nCFL = CSL \n\n\nEvery CSL is recursive and recursive \nenumerable. \n\nII. RE but not Recursive\nNOT RE\n=\n\n\nIII. CFL = CSL(may/may not be CFL) but it will \nbe CSL \n\nIV. CFL\nRE = CSL\nRE = RE\n\n",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "TOC_TURING_MACHINE_RECURSIVE_AND_RELS_2014_Q16",
+            "subject": "Theory Of Computation",
+            "topic": "Turing Machine (Recursive and RELs)",
+            "subtopic": "L  L2 is recursively enumerable",
+            "year": 2014,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 16,
+            "tags": [
+                "Turing Machine (Recursive and RELs)",
+                "L  L2 is recursively enumerable",
+                "Theory Of Computation"
+            ],
+            "question": {
+                "text": "Let L be a language and L be its complement. Which \none of the following is NOT a viable possibility?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "Neither L nor L is recursively enumerable (r.e.).",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "One of L and L is r.e. but not recursive; the \nother is not r.e.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "Both L and L are r.e. but not recursive.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "Both L and L are recursive.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "C"
+            ],
+            "solution": {
+                "text": "(a) Neither L nor L is recursively enumerable \n(r.e.). \nIt is possible that both L and L are not RELs.  \n(b) One of L and L is r.e. but not recursive; the \nother is not r.e. \nIf L is RE but not REC, then L is always NOT \nRE. \n(c) It is impossible to have both L and L are r.e. \nbut not recursive.  \n(d) Both L and L are recursive. \nIf L is recursive, L must be recursive. \nHence, option (c) is correct.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "TOC_TURING_MACHINE_RECURSIVE_AND_RELS_2010_Q17",
+            "subject": "Theory Of Computation",
+            "topic": "Turing Machine (Recursive and RELs)",
+            "subtopic": "other is not r.e.",
+            "year": 2010,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 17,
+            "tags": [
+                "Turing Machine (Recursive and RELs)",
+                "other is not r.e.",
+                "Theory Of Computation"
+            ],
+            "question": {
+                "text": "Let L1 be a recursive language. Let L2 and L3 be \nlanguage that are recursively enumerable but not \nrecursive. Which of the following statements is not \nnecessarily true?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "L2 - L1 is recursively enumerable",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "L1 - L3 is recursively enumerable",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "L2  L3 is recursively enumerable",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "L2  L3  is recursively enumerable",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "B"
+            ],
+            "solution": {
+                "text": "L1 = Recursive \n\nL2 = RE but not Recursive \n\nL3 = RE but not Recursive \n• \nL2 - L1 = L2  \n1L \n\n                     = RE but not Recursive  Recursive \n\n                     = RE \n• \nL1 - L3 = L1  \nL \n\n                     = L1  NOT REL \n\n                   = Need not be RE \n• \nRE but not Rec  RE but not Rec = RE. \n• \nRE but not Rec  RE but not Rec = RE.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "TOC_TURING_MACHINE_RECURSIVE_AND_RELS_2009_Q18",
+            "subject": "Theory Of Computation",
+            "topic": "Turing Machine (Recursive and RELs)",
+            "subtopic": "necessarily true?",
+            "year": 2009,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 18,
+            "tags": [
+                "Turing Machine (Recursive and RELs)",
+                "necessarily true?",
+                "Theory Of Computation"
+            ],
+            "question": {
+                "text": "Let L = L1  L2, where L1 and L2 are languages as \ndefined below: \n\nL1 = {am bm can bn | m, n \\ge 0} \n\nL2 = {aibjck | i, j, k \\ge 0} \n\nThen L is",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "Not recursive",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "Regular",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "Context-free but not regular",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "Recursively enumerable but not context-free",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "C"
+            ],
+            "solution": {
+                "text": "• \nL1 = {am bm can bn | m, n \\ge 0} \n            = CFL \n• \nL2 = {aibjck | i, j, k \\ge 0} \n                     =a*b*c* = Regular  \n• \nL = L1  L2 \n\n          = am bm c = DCFL \n\nHence, option (c)is correct",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "TOC_TURING_MACHINE_RECURSIVE_AND_RELS_2008_Q19",
+            "subject": "Theory Of Computation",
+            "topic": "Turing Machine (Recursive and RELs)",
+            "subtopic": "Then L is",
+            "year": 2008,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 19,
+            "tags": [
+                "Turing Machine (Recursive and RELs)",
+                "Then L is",
+                "Theory Of Computation"
+            ],
+            "question": {
+                "text": "Which of the following statements is false?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "Every NFA can be converted to an equivalent \nDFA.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "Every non-deterministic Turing machine can be \nconverted to an equivalent deterministic Turing \nmachine.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "Every regular language is also a context-free \nlanguage.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "Every subset of a recursively enumerable set is \nrecursive.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "D"
+            ],
+            "solution": {
+                "text": "Subset is not closed under any language. \n\nHence, option (d) is correct.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "TOC_TURING_MACHINE_RECURSIVE_AND_RELS_2008_Q20",
+            "subject": "Theory Of Computation",
+            "topic": "Turing Machine (Recursive and RELs)",
+            "subtopic": "recursive.",
+            "year": 2008,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 20,
+            "tags": [
+                "Turing Machine (Recursive and RELs)",
+                "recursive.",
+                "Theory Of Computation"
+            ],
+            "question": {
+                "text": "If L and L are recursively enumerable then L is",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "regular",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "context-free",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "context-sensitive",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "recursive",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "D"
+            ],
+            "solution": {
+                "text": "L and L are recursively enumerable if and only if L \nis recursive. \n\nHence, option (d) is correct.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        }
+    ]
+}

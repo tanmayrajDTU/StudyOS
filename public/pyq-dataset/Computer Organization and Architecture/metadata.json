@@ -1,0 +1,27 @@
+{
+    "subject": "Computer Organization and Architecture",
+    "totalTopics": 5,
+    "totalQuestions": 116,
+    "topics": [
+        {
+            "name": "Machine Instruction and Addressing Modes",
+            "questionCount": 24
+        },
+        {
+            "name": "ALU and Control Unit",
+            "questionCount": 5
+        },
+        {
+            "name": "Instruction Pipelining",
+            "questionCount": 27
+        },
+        {
+            "name": "Memory Hierarchy",
+            "questionCount": 47
+        },
+        {
+            "name": "I/O Interface",
+            "questionCount": 13
+        }
+    ]
+}

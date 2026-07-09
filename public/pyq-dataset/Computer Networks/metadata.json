@@ -1,0 +1,31 @@
+{
+    "subject": "Computer Networks",
+    "totalTopics": 6,
+    "totalQuestions": 113,
+    "topics": [
+        {
+            "name": "Basic Concepts and IPv4 Addressing",
+            "questionCount": 14
+        },
+        {
+            "name": "Datal Link Layer",
+            "questionCount": 22
+        },
+        {
+            "name": "MAC Layer",
+            "questionCount": 9
+        },
+        {
+            "name": "Network Layer",
+            "questionCount": 30
+        },
+        {
+            "name": "Transport Layer",
+            "questionCount": 25
+        },
+        {
+            "name": "Application Layer",
+            "questionCount": 13
+        }
+    ]
+}

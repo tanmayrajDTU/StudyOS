@@ -1,0 +1,3050 @@
+{
+    "subject": "Computer Organization and Architecture",
+    "topic": "Memory Hierarchy",
+    "questionCount": 47,
+    "questions": [
+        {
+            "id": "COA_MEMORY_HIERARCHY_2017_Q01",
+            "subject": "Computer Organization and Architecture",
+            "topic": "Memory Hierarchy",
+            "subtopic": "Cache Memory and Cache Organisation",
+            "year": 2017,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 1,
+            "tags": [
+                "Memory Hierarchy",
+                "Cache Memory and Cache Organisation",
+                "Computer Organization and Architecture"
+            ],
+            "question": {
+                "text": "Consider a two-level cache hierarchy with L1 and L2 \ncaches. An application incurs 1.4 memory accesses \nper instruction on average. For this application, the \nmiss rate of L1 cache is 0.1; the L2 cache experiences \non average, 7 misses per 1000 instructions. The miss \nrate of L2 expressed correct to two decimal places is \n______.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "0.05"
+            ],
+            "solution": {
+                "text": "",
+                "images": [
+                    "assets/Computer Organization and Architecture/COA_Memory_Hierarchy_P42_X928.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "COA_MEMORY_HIERARCHY_2017_Q02",
+            "subject": "Computer Organization and Architecture",
+            "topic": "Memory Hierarchy",
+            "subtopic": "______.",
+            "year": 2017,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 2,
+            "tags": [
+                "Memory Hierarchy",
+                "______.",
+                "Computer Organization and Architecture"
+            ],
+            "question": {
+                "text": "[MCQ  \n  \n\nIn a two-level cache system, the access times of L1 \nand L2 caches are 1 and 8 clock cycles, respectively. \nThe miss penalty from the L2 cache to main memory \nis 18 clock cycles. The miss rate of L1 cache is twice \nthat of L2. The average memory access time \n(AMAT) of this cache system is 2 cycles. The miss \nrates of L1 and L2 respectively are:",
+                "images": [
+                    "assets/Computer Organization and Architecture/COA_Memory_Hierarchy_P36_X4826.png"
+                ],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "0.111 and 0.056",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "0.056 and 0.111",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "0.0892 and 0.1784",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "0.1784 and 0.0892",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "A"
+            ],
+            "solution": {
+                "text": "",
+                "images": [
+                    "assets/Computer Organization and Architecture/COA_Memory_Hierarchy_P42_X928.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "COA_MEMORY_HIERARCHY_2014_Q03",
+            "subject": "Computer Organization and Architecture",
+            "topic": "Memory Hierarchy",
+            "subtopic": "rates of L1 and L2 respectively are:",
+            "year": 2014,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 3,
+            "tags": [
+                "Memory Hierarchy",
+                "rates of L1 and L2 respectively are:",
+                "Computer Organization and Architecture"
+            ],
+            "question": {
+                "text": "In designing a computer's cache system, the cache \nblock (or cache line) size is an important parameter. \nWhich one of the following statements is correct in \nthis context?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "A Smaller block size implies better spatial \nlocality",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "A Smaller block size implies a smaller cache tag \nand hence lower cache tag overhead",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "A Smaller block size implies a larger cache tag \nand hence lower cache hit time",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "A Smaller block size incurs a lower cache miss \npenalty \nMapping Techniques",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "D"
+            ],
+            "solution": {
+                "text": "",
+                "images": [
+                    "assets/Computer Organization and Architecture/COA_Memory_Hierarchy_P42_X928.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "COA_MEMORY_HIERARCHY_2023_Q04",
+            "subject": "Computer Organization and Architecture",
+            "topic": "Memory Hierarchy",
+            "subtopic": "Mapping Techniques",
+            "year": 2023,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 4,
+            "tags": [
+                "Memory Hierarchy",
+                "Mapping Techniques",
+                "Computer Organization and Architecture"
+            ],
+            "question": {
+                "text": "An 8-way set associative cache of size 64 KB (1 KB \n= 1024 bytes) is used in a system with 32-bit \naddress. The address is sub-divided into TAG, \nINDEX, and BLOCK OFFSET. The number of bits \nin the TAG is ______________.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "19"
+            ],
+            "solution": {
+                "text": "",
+                "images": [
+                    "assets/Computer Organization and Architecture/COA_Memory_Hierarchy_P43_X930.png",
+                    "assets/Computer Organization and Architecture/COA_Memory_Hierarchy_P43_X5330.png",
+                    "assets/Computer Organization and Architecture/COA_Memory_Hierarchy_P43_X5332.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "COA_MEMORY_HIERARCHY_2021_Q05",
+            "subject": "Computer Organization and Architecture",
+            "topic": "Memory Hierarchy",
+            "subtopic": "in the TAG is ______________.",
+            "year": 2021,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 5,
+            "tags": [
+                "Memory Hierarchy",
+                "in the TAG is ______________.",
+                "Computer Organization and Architecture"
+            ],
+            "question": {
+                "text": "Consider a computer system with a byte-addressable \nprimary memory of size 232 bytes. Assume the \ncomputer system has a direct-mapped cache of size \n32 KB (1 KB = 210  bytes), and each cache block is \nof size 64 bytes. \n\nThe size of the tag field is _______bits.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "17"
+            ],
+            "solution": {
+                "text": "",
+                "images": [
+                    "assets/Computer Organization and Architecture/COA_Memory_Hierarchy_P43_X930.png",
+                    "assets/Computer Organization and Architecture/COA_Memory_Hierarchy_P43_X5330.png",
+                    "assets/Computer Organization and Architecture/COA_Memory_Hierarchy_P43_X5332.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "COA_MEMORY_HIERARCHY_2021_Q06",
+            "subject": "Computer Organization and Architecture",
+            "topic": "Memory Hierarchy",
+            "subtopic": "The size of the tag field is _______bits.",
+            "year": 2021,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 6,
+            "tags": [
+                "Memory Hierarchy",
+                "The size of the tag field is _______bits.",
+                "Computer Organization and Architecture"
+            ],
+            "question": {
+                "text": "Consider a set-associative cache of size 2 KB (1 KB \n= 210  bytes) with cache block size of 64 bytes. \nAssume that the cache is byte - addressable and a 32-\nbit address is used for accessing the cache. If the \nwidth of the tag field is 22 bits, the associativity of \nthe ache is _____.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "2"
+            ],
+            "solution": {
+                "text": "",
+                "images": [
+                    "assets/Computer Organization and Architecture/COA_Memory_Hierarchy_P44_X5562.png",
+                    "assets/Computer Organization and Architecture/COA_Memory_Hierarchy_P44_X5564.png",
+                    "assets/Computer Organization and Architecture/COA_Memory_Hierarchy_P44_X5566.png",
+                    "assets/Computer Organization and Architecture/COA_Memory_Hierarchy_P44_X5570.png",
+                    "assets/Computer Organization and Architecture/COA_Memory_Hierarchy_P44_X5571.png",
+                    "assets/Computer Organization and Architecture/COA_Memory_Hierarchy_P44_X5572.png",
+                    "assets/Computer Organization and Architecture/COA_Memory_Hierarchy_P44_X5574.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "COA_MEMORY_HIERARCHY_2020_Q07",
+            "subject": "Computer Organization and Architecture",
+            "topic": "Memory Hierarchy",
+            "subtopic": "the ache is _____.",
+            "year": 2020,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 7,
+            "tags": [
+                "Memory Hierarchy",
+                "the ache is _____.",
+                "Computer Organization and Architecture"
+            ],
+            "question": {
+                "text": "A computer system with a word length of 32 bits has \na 16 MB byte-addressable main memory and a 64 \nKB, 4-way set associative cache memory with a \nblock size of 256 bytes. Consider the following four \nphysical addresses represented in hexadecimal \nnotation. \n\nA1 = 0 \\times 42C8A4, A2 = 0 \\times 546888, A3 = 0 \\times \n6A289C, A4 = 0 \\times 5E4880  \n\nWhich one of the following is TRUE?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "A1 and A3 are mapped to the same cache set.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "A2 and A3 are mapped to the same cache set.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "A3 and A4 are mapped to the same cache set.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "A1 and A4 are mapped to different cache sets.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "B"
+            ],
+            "solution": {
+                "text": "",
+                "images": [
+                    "assets/Computer Organization and Architecture/COA_Memory_Hierarchy_P44_X5562.png",
+                    "assets/Computer Organization and Architecture/COA_Memory_Hierarchy_P44_X5564.png",
+                    "assets/Computer Organization and Architecture/COA_Memory_Hierarchy_P44_X5566.png",
+                    "assets/Computer Organization and Architecture/COA_Memory_Hierarchy_P44_X5570.png",
+                    "assets/Computer Organization and Architecture/COA_Memory_Hierarchy_P44_X5571.png",
+                    "assets/Computer Organization and Architecture/COA_Memory_Hierarchy_P44_X5572.png",
+                    "assets/Computer Organization and Architecture/COA_Memory_Hierarchy_P44_X5574.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "COA_MEMORY_HIERARCHY_2019_Q08",
+            "subject": "Computer Organization and Architecture",
+            "topic": "Memory Hierarchy",
+            "subtopic": "Which one of the following is TRUE?",
+            "year": 2019,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 8,
+            "tags": [
+                "Memory Hierarchy",
+                "Which one of the following is TRUE?",
+                "Computer Organization and Architecture"
+            ],
+            "question": {
+                "text": "A certain processor uses a fully associative cache of \nsize 16 kB. The cache block size is 16 bytes. Assume \nthat the main memory is byte addressable and uses a \n32-bit address. How many bits are required for the \nTag and the Index fields respectively in the \naddresses generated by the processor?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "24-bits and 0-bits",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "28-bits and 4-bits",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "24-bits and 4-bits",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "28-bits and 0-bits",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "D"
+            ],
+            "solution": {
+                "text": "",
+                "images": [
+                    "assets/Computer Organization and Architecture/COA_Memory_Hierarchy_P44_X5562.png",
+                    "assets/Computer Organization and Architecture/COA_Memory_Hierarchy_P44_X5564.png",
+                    "assets/Computer Organization and Architecture/COA_Memory_Hierarchy_P44_X5566.png",
+                    "assets/Computer Organization and Architecture/COA_Memory_Hierarchy_P44_X5570.png",
+                    "assets/Computer Organization and Architecture/COA_Memory_Hierarchy_P44_X5571.png",
+                    "assets/Computer Organization and Architecture/COA_Memory_Hierarchy_P44_X5572.png",
+                    "assets/Computer Organization and Architecture/COA_Memory_Hierarchy_P44_X5574.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "COA_MEMORY_HIERARCHY_2018_Q09",
+            "subject": "Computer Organization and Architecture",
+            "topic": "Memory Hierarchy",
+            "subtopic": "addresses generated by the processor?",
+            "year": 2018,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 9,
+            "tags": [
+                "Memory Hierarchy",
+                "addresses generated by the processor?",
+                "Computer Organization and Architecture"
+            ],
+            "question": {
+                "text": "The size of the physical address space of a processor \nis 2p bytes. The word length is 2wbytes. The capacity \nof cache memory is 2n bytes. The size of each cache \nblock is 2m words. For a K-way set-associative cache \nmemory, the length (in number of bits) of the tag \nfield is",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "P - N - log2 K",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "P - N + log2 K",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "P - N - M - W - log2 K",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "P - N - M - W + log2 K",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "B"
+            ],
+            "solution": {
+                "text": "",
+                "images": [
+                    "assets/Computer Organization and Architecture/COA_Memory_Hierarchy_P45_X5645.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "COA_MEMORY_HIERARCHY_2017_Q10",
+            "subject": "Computer Organization and Architecture",
+            "topic": "Memory Hierarchy",
+            "subtopic": "field is",
+            "year": 2017,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 10,
+            "tags": [
+                "Memory Hierarchy",
+                "field is",
+                "Computer Organization and Architecture"
+            ],
+            "question": {
+                "text": "Consider a machine with a byte addressable main \nmemory of 232 bytes divided into blocks of size 32 \nbytes. Assume that a direct mapped cache having \n512 cache lines is used with this machine. The size \nof the tag field in bits is _____.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "12",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "16",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "18",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "24",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "C"
+            ],
+            "solution": {
+                "text": "",
+                "images": [
+                    "assets/Computer Organization and Architecture/COA_Memory_Hierarchy_P45_X5645.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "COA_MEMORY_HIERARCHY_2017_Q11",
+            "subject": "Computer Organization and Architecture",
+            "topic": "Memory Hierarchy",
+            "subtopic": "of the tag field in bits is _____.",
+            "year": 2017,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 11,
+            "tags": [
+                "Memory Hierarchy",
+                "of the tag field in bits is _____.",
+                "Computer Organization and Architecture"
+            ],
+            "question": {
+                "text": "A cache memory unit with capacity of N words and \nblock size of B Words is to be designed. If it is \ndesigned as a direct mapped cache, the length of the \nTAG field is 10 bits. If the cache unit is now \ndesigned as a 16-way set-associative cache, the \nlength of the TAG field is _____ bits.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "14"
+            ],
+            "solution": {
+                "text": "",
+                "images": [
+                    "assets/Computer Organization and Architecture/COA_Memory_Hierarchy_P46_X5739.png",
+                    "assets/Computer Organization and Architecture/COA_Memory_Hierarchy_P46_X5743.png",
+                    "assets/Computer Organization and Architecture/COA_Memory_Hierarchy_P46_X5745.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "COA_MEMORY_HIERARCHY_2016_Q12",
+            "subject": "Computer Organization and Architecture",
+            "topic": "Memory Hierarchy",
+            "subtopic": "length of the TAG field is _____ bits.",
+            "year": 2016,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 12,
+            "tags": [
+                "Memory Hierarchy",
+                "length of the TAG field is _____ bits.",
+                "Computer Organization and Architecture"
+            ],
+            "question": {
+                "text": "The width of the physical address on a machine is 40 \nbits. The width of the tag field in a 512 KB 8-way \nset associative cache is ______bits.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "24",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "20",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "30",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "40",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "A"
+            ],
+            "solution": {
+                "text": "",
+                "images": [
+                    "assets/Computer Organization and Architecture/COA_Memory_Hierarchy_P46_X5739.png",
+                    "assets/Computer Organization and Architecture/COA_Memory_Hierarchy_P46_X5743.png",
+                    "assets/Computer Organization and Architecture/COA_Memory_Hierarchy_P46_X5745.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "COA_MEMORY_HIERARCHY_2015_Q13",
+            "subject": "Computer Organization and Architecture",
+            "topic": "Memory Hierarchy",
+            "subtopic": "set associative cache is ______bits.",
+            "year": 2015,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 13,
+            "tags": [
+                "Memory Hierarchy",
+                "set associative cache is ______bits.",
+                "Computer Organization and Architecture"
+            ],
+            "question": {
+                "text": "Consider a machine with a byte addressable main \nmemory of 220 bytes, block size of 16 bytes and a \ndirect mapped cache having 212 cache lines. Let the \naddresses of two consecutive bytes in main memory \nbe (E201F)16 and (E2020)16. What are the tag and \ncache line address (in hex) for main memory address \n(E201F)16?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "E, 201",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "F, 201",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "E, E20",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "2, 01F",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "A"
+            ],
+            "solution": {
+                "text": "",
+                "images": [
+                    "assets/Computer Organization and Architecture/COA_Memory_Hierarchy_P47_X5857.png",
+                    "assets/Computer Organization and Architecture/COA_Memory_Hierarchy_P47_X5860.png"
+                ],
+                "latex": [],
+                "tables": [
+                    {
+                        "headers": [
+                            "TAG",
+                            "Line offset",
+                            "Word offset"
+                        ],
+                        "rows": []
+                    },
+                    {
+                        "headers": [
+                            "TAG (10 bit)",
+                            "Set offset",
+                            "Word offset"
+                        ],
+                        "rows": []
+                    }
+                ]
+            }
+        },
+        {
+            "id": "COA_MEMORY_HIERARCHY_2014_Q14",
+            "subject": "Computer Organization and Architecture",
+            "topic": "Memory Hierarchy",
+            "subtopic": "(E201F)16?",
+            "year": 2014,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 14,
+            "tags": [
+                "Memory Hierarchy",
+                "(E201F)16?",
+                "Computer Organization and Architecture"
+            ],
+            "question": {
+                "text": "A 4-way set-associative cache memory unit with a \ncapacity of 16 KB is built using a block size of 8 \nwords. The word length is 32 bits. The size of the \nphysical address space is 4 GB. The number of bits \nfor the TAG field is _______.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "20"
+            ],
+            "solution": {
+                "text": "",
+                "images": [
+                    "assets/Computer Organization and Architecture/COA_Memory_Hierarchy_P47_X5857.png",
+                    "assets/Computer Organization and Architecture/COA_Memory_Hierarchy_P47_X5860.png"
+                ],
+                "latex": [],
+                "tables": [
+                    {
+                        "headers": [
+                            "TAG",
+                            "Line offset",
+                            "Word offset"
+                        ],
+                        "rows": []
+                    },
+                    {
+                        "headers": [
+                            "TAG (10 bit)",
+                            "Set offset",
+                            "Word offset"
+                        ],
+                        "rows": []
+                    }
+                ]
+            }
+        },
+        {
+            "id": "COA_MEMORY_HIERARCHY_2014_Q15",
+            "subject": "Computer Organization and Architecture",
+            "topic": "Memory Hierarchy",
+            "subtopic": "for the TAG field is _______.",
+            "year": 2014,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 15,
+            "tags": [
+                "Memory Hierarchy",
+                "for the TAG field is _______.",
+                "Computer Organization and Architecture"
+            ],
+            "question": {
+                "text": "If the associativity of a processor cache is doubled \nwhile keeping the capacity and block size \nunchanged, which one of the following is guaranteed \nto be NOT affected?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "Width of tag comparator",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "Width of set index decoder",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "Width of way selection multiplexer",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "Width of processor to main memory data bus",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "D"
+            ],
+            "solution": {
+                "text": "",
+                "images": [
+                    "assets/Computer Organization and Architecture/COA_Memory_Hierarchy_P47_X5857.png",
+                    "assets/Computer Organization and Architecture/COA_Memory_Hierarchy_P47_X5860.png"
+                ],
+                "latex": [],
+                "tables": [
+                    {
+                        "headers": [
+                            "TAG",
+                            "Line offset",
+                            "Word offset"
+                        ],
+                        "rows": []
+                    },
+                    {
+                        "headers": [
+                            "TAG (10 bit)",
+                            "Set offset",
+                            "Word offset"
+                        ],
+                        "rows": []
+                    }
+                ]
+            }
+        },
+        {
+            "id": "COA_MEMORY_HIERARCHY_2013_Q16",
+            "subject": "Computer Organization and Architecture",
+            "topic": "Memory Hierarchy",
+            "subtopic": "to be NOT affected?",
+            "year": 2013,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 16,
+            "tags": [
+                "Memory Hierarchy",
+                "to be NOT affected?",
+                "Computer Organization and Architecture"
+            ],
+            "question": {
+                "text": "In a k-way set associative cache, the cache is divided \ninto v sets, each of which consists of k lines. The \nlines of a set are placed in sequence one after \nanother. The lines in set s are sequenced before the \nlines in set (s + 1). The main memory blocks are \nnumbered 0 onwards. The main memory block \nnumbered 'j' must be mapped to any one of the \ncache lines from",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "(j mod v) * k to (j mod v) * k + (k-1)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "(j mod v) * (j mod v) + (k-1)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "(j mod k) to (j mod k) + (v-1)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "(j mod k) * v (j mod k) * v+ (v-1) \n\nCommon Data for next two questions: \nConsider a computer with a 4-ways set-associative mapped \ncache of the following characteristics: a total of 1 MB of \nmain memory, a word size of 1 byte, a block size of 128 \nwords and a cache size of 8 KB.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "A"
+            ],
+            "solution": {
+                "text": "",
+                "images": [
+                    "assets/Computer Organization and Architecture/COA_Memory_Hierarchy_P48_X6007.png",
+                    "assets/Computer Organization and Architecture/COA_Memory_Hierarchy_P48_X6009.png",
+                    "assets/Computer Organization and Architecture/COA_Memory_Hierarchy_P48_X6011.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "COA_MEMORY_HIERARCHY_2008_Q17",
+            "subject": "Computer Organization and Architecture",
+            "topic": "Memory Hierarchy",
+            "subtopic": "words and a cache size of 8 KB.",
+            "year": 2008,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 17,
+            "tags": [
+                "Memory Hierarchy",
+                "words and a cache size of 8 KB.",
+                "Computer Organization and Architecture"
+            ],
+            "question": {
+                "text": "While accessing the memory location 0C795H by \nthe CPU, the contents of the TAG field of the \ncorresponding cache line is",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "000011000",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "110001111",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "00011000",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "110010101",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "A"
+            ],
+            "solution": {
+                "text": "",
+                "images": [
+                    "assets/Computer Organization and Architecture/COA_Memory_Hierarchy_P48_X6007.png",
+                    "assets/Computer Organization and Architecture/COA_Memory_Hierarchy_P48_X6009.png",
+                    "assets/Computer Organization and Architecture/COA_Memory_Hierarchy_P48_X6011.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "COA_MEMORY_HIERARCHY_2008_Q18",
+            "subject": "Computer Organization and Architecture",
+            "topic": "Memory Hierarchy",
+            "subtopic": "corresponding cache line is",
+            "year": 2008,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 18,
+            "tags": [
+                "Memory Hierarchy",
+                "corresponding cache line is",
+                "Computer Organization and Architecture"
+            ],
+            "question": {
+                "text": "The number of bits in the TAG, SET and WORD \nfields, respectively are:",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "7, 6, 7",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "8, 5, 7",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "8, 6, 6",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "9, 4, 7 \n\nCommon Data for next tree questions: \nConsider a machine with a 2-way set associative data cache \nof size 64Kbytes and block size 16 bytes. The cache is \nmanaged using 32 bit virtual addresses and the page size is \n4 Kbytes. A program to be run on this machine begins as \nfollows: \ndouble ARR [1024] [1024] \nInt i, j; \n/ * Initalize array ARR to 0.0 */ \nfor (i = 0; i < 1024; i ++) \nfor (j = 0; j < 1024; j++) \nARR [i] [j] = 0.0; \nThe size of double 8 bytes. Array ARR is in memory \nstarting at the beginning of virtual page 0×FF000 and \nstored in row major order. The cache is initially empty and \nno pre-fetching is done. The only data memory references \nmade by the program are those to array ARR.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "D"
+            ],
+            "solution": {
+                "text": "",
+                "images": [
+                    "assets/Computer Organization and Architecture/COA_Memory_Hierarchy_P49_X6113.png",
+                    "assets/Computer Organization and Architecture/COA_Memory_Hierarchy_P49_X6115.png",
+                    "assets/Computer Organization and Architecture/COA_Memory_Hierarchy_P49_X6117.png",
+                    "assets/Computer Organization and Architecture/COA_Memory_Hierarchy_P49_X6118.png"
+                ],
+                "latex": [],
+                "tables": [
+                    {
+                        "headers": [
+                            "E",
+                            "201",
+                            "F"
+                        ],
+                        "rows": [
+                            [
+                                "4 bits",
+                                "12 bits",
+                                "4 bits"
+                            ]
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "id": "COA_MEMORY_HIERARCHY_2008_Q19",
+            "subject": "Computer Organization and Architecture",
+            "topic": "Memory Hierarchy",
+            "subtopic": "made by the program are those to array ARR.",
+            "year": 2008,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 19,
+            "tags": [
+                "Memory Hierarchy",
+                "made by the program are those to array ARR.",
+                "Computer Organization and Architecture"
+            ],
+            "question": {
+                "text": "The cache hit ratio for this initialization loop is",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "0%",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "25%",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "50%",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "5%",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "C"
+            ],
+            "solution": {
+                "text": "",
+                "images": [
+                    "assets/Computer Organization and Architecture/COA_Memory_Hierarchy_P49_X6113.png",
+                    "assets/Computer Organization and Architecture/COA_Memory_Hierarchy_P49_X6115.png",
+                    "assets/Computer Organization and Architecture/COA_Memory_Hierarchy_P49_X6117.png",
+                    "assets/Computer Organization and Architecture/COA_Memory_Hierarchy_P49_X6118.png"
+                ],
+                "latex": [],
+                "tables": [
+                    {
+                        "headers": [
+                            "E",
+                            "201",
+                            "F"
+                        ],
+                        "rows": [
+                            [
+                                "4 bits",
+                                "12 bits",
+                                "4 bits"
+                            ]
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "id": "COA_MEMORY_HIERARCHY_2008_Q20",
+            "subject": "Computer Organization and Architecture",
+            "topic": "Memory Hierarchy",
+            "subtopic": "The cache hit ratio for this initialization loop is",
+            "year": 2008,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 20,
+            "tags": [
+                "Memory Hierarchy",
+                "The cache hit ratio for this initialization loop is",
+                "Computer Organization and Architecture"
+            ],
+            "question": {
+                "text": "Which of the following array elements has the same \ncache index as APR [0][0]?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "ARR [0][4]",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "ARR [4][0]",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "ARR [0][5]",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "ARR [5][0]",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "B"
+            ],
+            "solution": {
+                "text": "",
+                "images": [
+                    "assets/Computer Organization and Architecture/COA_Memory_Hierarchy_P50_X6219.png",
+                    "assets/Computer Organization and Architecture/COA_Memory_Hierarchy_P50_X6221.png",
+                    "assets/Computer Organization and Architecture/COA_Memory_Hierarchy_P50_X6223.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "COA_MEMORY_HIERARCHY_2008_Q21",
+            "subject": "Computer Organization and Architecture",
+            "topic": "Memory Hierarchy",
+            "subtopic": "cache index as APR [0][0]?",
+            "year": 2008,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 21,
+            "tags": [
+                "Memory Hierarchy",
+                "cache index as APR [0][0]?",
+                "Computer Organization and Architecture"
+            ],
+            "question": {
+                "text": "The total size of the tags in the cache directory is",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "32 kbits",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "34 kbits",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "64 kbits",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "68 kbits \n\nCache Replacement Techniques",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "D"
+            ],
+            "solution": {
+                "text": "",
+                "images": [
+                    "assets/Computer Organization and Architecture/COA_Memory_Hierarchy_P50_X6219.png",
+                    "assets/Computer Organization and Architecture/COA_Memory_Hierarchy_P50_X6221.png",
+                    "assets/Computer Organization and Architecture/COA_Memory_Hierarchy_P50_X6223.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "COA_MEMORY_HIERARCHY_2022_Q22",
+            "subject": "Computer Organization and Architecture",
+            "topic": "Memory Hierarchy",
+            "subtopic": "Cache Replacement Techniques",
+            "year": 2022,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MSQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 22,
+            "tags": [
+                "Memory Hierarchy",
+                "Cache Replacement Techniques",
+                "Computer Organization and Architecture"
+            ],
+            "question": {
+                "text": "Consider a system with 2 KB direct mapped data \ncache with a block size of 64 bytes. The system has \na physical address space of 64 KB and a word length \nof 16 bits. During the execution of a program, four \ndata words P, Q, R, and S are accessed in that order \n10 times (i.e., PQRSPQRS…). Hence, there are 40 \naccesses to data cache altogether. Assume that the \ndata cache is initially empty and no other data words \nare accessed by the program. The addresses of the \nfirst bytes of P, Q, R, and S are 0xA248, 0xC28A, \n0xCA8A, and 0xA262, respectively. For the \nexecution of the above program, which of the \nfollowing statements is/are TRUE with respect to \nthe data cache?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "Every access to S is a hit.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "Once P is brought to the cache it is never \nevicted.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "At the end of the execution only R and S reside \nin the cache.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "Every access to R evicts Q from the cache.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "A",
+                "B",
+                "D"
+            ],
+            "solution": {
+                "text": "",
+                "images": [
+                    "assets/Computer Organization and Architecture/COA_Memory_Hierarchy_P50_X6219.png",
+                    "assets/Computer Organization and Architecture/COA_Memory_Hierarchy_P50_X6221.png",
+                    "assets/Computer Organization and Architecture/COA_Memory_Hierarchy_P50_X6223.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "COA_MEMORY_HIERARCHY_2017_Q23",
+            "subject": "Computer Organization and Architecture",
+            "topic": "Memory Hierarchy",
+            "subtopic": "in the cache.",
+            "year": 2017,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 23,
+            "tags": [
+                "Memory Hierarchy",
+                "in the cache.",
+                "Computer Organization and Architecture"
+            ],
+            "question": {
+                "text": "Consider a 2-way set associative cache with 256 \nblocks and uses LRU replacement. Initially the \ncache is empty. Conflict misses are those misses \nwhich occur due to contention of multiple blocks for \nthe same cache set. Compulsory misses occur due to \nfirst time access to the block. The following \nsequence of accesses to memory blocks (0, 128, 256, \n128, 0, 128, 256, 128, 1, 129, 257, 129, 1, 129, 257, \n129) is repeated 10 times. The number of conflict \nmisses experienced by the cache is ______.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "76"
+            ],
+            "solution": {
+                "text": "",
+                "images": [
+                    "assets/Computer Organization and Architecture/COA_Memory_Hierarchy_P51_X6288.png",
+                    "assets/Computer Organization and Architecture/COA_Memory_Hierarchy_P51_X6291.png",
+                    "assets/Computer Organization and Architecture/COA_Memory_Hierarchy_P51_X6295.png"
+                ],
+                "latex": [],
+                "tables": [
+                    {
+                        "headers": [
+                            "TAG",
+                            "SET OFFSET",
+                            "WORD OFFSET"
+                        ],
+                        "rows": [
+                            [
+                                "17 bit",
+                                "11 bit",
+                                "4 bit"
+                            ]
+                        ]
+                    },
+                    {
+                        "headers": [
+                            "Page Number",
+                            "Page Offset (d)"
+                        ],
+                        "rows": [
+                            [
+                                "20 bit",
+                                "12 bit"
+                            ]
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "id": "COA_MEMORY_HIERARCHY_2014_Q24",
+            "subject": "Computer Organization and Architecture",
+            "topic": "Memory Hierarchy",
+            "subtopic": "misses experienced by the cache is ______.",
+            "year": 2014,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 24,
+            "tags": [
+                "Memory Hierarchy",
+                "misses experienced by the cache is ______.",
+                "Computer Organization and Architecture"
+            ],
+            "question": {
+                "text": "An access sequence of cache block address of length \nN and contains n unique block addresses. The \nnumber of unique block addresses between two \nconsecutive accesses to the same block address is \nbounded above by 𝓀-. What is the miss ratio if the \naccess sequence is passed through a cache of \nassociativity A \\ge 𝓀 exercising least-recently used \nreplacement policy?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "n\nN",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "N",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "A",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "k\nn",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "A"
+            ],
+            "solution": {
+                "text": "",
+                "images": [
+                    "assets/Computer Organization and Architecture/COA_Memory_Hierarchy_P51_X6288.png",
+                    "assets/Computer Organization and Architecture/COA_Memory_Hierarchy_P51_X6291.png",
+                    "assets/Computer Organization and Architecture/COA_Memory_Hierarchy_P51_X6295.png"
+                ],
+                "latex": [],
+                "tables": [
+                    {
+                        "headers": [
+                            "TAG",
+                            "SET OFFSET",
+                            "WORD OFFSET"
+                        ],
+                        "rows": [
+                            [
+                                "17 bit",
+                                "11 bit",
+                                "4 bit"
+                            ]
+                        ]
+                    },
+                    {
+                        "headers": [
+                            "Page Number",
+                            "Page Offset (d)"
+                        ],
+                        "rows": [
+                            [
+                                "20 bit",
+                                "12 bit"
+                            ]
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "id": "COA_MEMORY_HIERARCHY_2009_Q25",
+            "subject": "Computer Organization and Architecture",
+            "topic": "Memory Hierarchy",
+            "subtopic": "n",
+            "year": 2009,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 25,
+            "tags": [
+                "Memory Hierarchy",
+                "n",
+                "Computer Organization and Architecture"
+            ],
+            "question": {
+                "text": "Consider a 4-way set associative cache (initially \nempty) with total 16 cache blocks. The main \nmemory consists of 256 blocks and the request for \nmemory blocks is in the following order: \n\n0, 255, 1, 4, 3, 8, 133, 159, 216, 129, 63, 8, 48, 32, \n73, 92, 155 \n\nWhich one of the following memory block will NOT \nbe in cache if LRU replacement policy is used?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "3",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "8",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "129",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "216 \nCache Updation Policy",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "D"
+            ],
+            "solution": {
+                "text": "",
+                "images": [
+                    "assets/Computer Organization and Architecture/COA_Memory_Hierarchy_P52_X6403.png",
+                    "assets/Computer Organization and Architecture/COA_Memory_Hierarchy_P52_X6405.png",
+                    "assets/Computer Organization and Architecture/COA_Memory_Hierarchy_P52_X6407.png"
+                ],
+                "latex": [],
+                "tables": [
+                    {
+                        "headers": [
+                            "TAG",
+                            "Set offset",
+                            "Block 1 word offset"
+                        ],
+                        "rows": []
+                    },
+                    {
+                        "headers": [
+                            "",
+                            "(in Hex virtual address)",
+                            "Set Index"
+                        ],
+                        "rows": [
+                            [
+                                "APR [0] [0]",
+                                "FF 000 000",
+                                "000 0000 0000"
+                            ],
+                            [
+                                "APR [0] [4]",
+                                "FF 000 020",
+                                "000 0000 0010"
+                            ],
+                            [
+                                "APR [4] [0]",
+                                "FF 008 000",
+                                "000 0000 0000"
+                            ],
+                            [
+                                "APR [0] [5]",
+                                "FF 000 028",
+                                "000 0000 0010"
+                            ]
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "id": "COA_MEMORY_HIERARCHY_2022_Q26",
+            "subject": "Computer Organization and Architecture",
+            "topic": "Memory Hierarchy",
+            "subtopic": "Cache Updation Policy",
+            "year": 2022,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MSQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 26,
+            "tags": [
+                "Memory Hierarchy",
+                "Cache Updation Policy",
+                "Computer Organization and Architecture"
+            ],
+            "question": {
+                "text": "Let WB and WT be two set associative cache \norganizations that use LRU algorithm for cache \nblock replacement. WB is a write back cache and \nWT is a write through cache. Which of the following \nstatements is/are FALSE?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "Each cache block in WB and WT has a dirty bit.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "Every write hit in WB leads to a data transfer \nfrom cache to main memory.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "Eviction of a block from WT will not lead to \ndata transfer from cache to main memory.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "A read miss in WB will never lead to eviction \nof a dirty block from WB.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "A",
+                "B",
+                "D"
+            ],
+            "solution": {
+                "text": "",
+                "images": [
+                    "assets/Computer Organization and Architecture/COA_Memory_Hierarchy_P52_X6403.png",
+                    "assets/Computer Organization and Architecture/COA_Memory_Hierarchy_P52_X6405.png",
+                    "assets/Computer Organization and Architecture/COA_Memory_Hierarchy_P52_X6407.png"
+                ],
+                "latex": [],
+                "tables": [
+                    {
+                        "headers": [
+                            "TAG",
+                            "Set offset",
+                            "Block 1 word offset"
+                        ],
+                        "rows": []
+                    },
+                    {
+                        "headers": [
+                            "",
+                            "(in Hex virtual address)",
+                            "Set Index"
+                        ],
+                        "rows": [
+                            [
+                                "APR [0] [0]",
+                                "FF 000 000",
+                                "000 0000 0000"
+                            ],
+                            [
+                                "APR [0] [4]",
+                                "FF 000 020",
+                                "000 0000 0010"
+                            ],
+                            [
+                                "APR [4] [0]",
+                                "FF 008 000",
+                                "000 0000 0000"
+                            ],
+                            [
+                                "APR [0] [5]",
+                                "FF 000 028",
+                                "000 0000 0010"
+                            ]
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "id": "COA_MEMORY_HIERARCHY_2022_Q27",
+            "subject": "Computer Organization and Architecture",
+            "topic": "Memory Hierarchy",
+            "subtopic": "of a dirty block from WB.",
+            "year": 2022,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 27,
+            "tags": [
+                "Memory Hierarchy",
+                "of a dirty block from WB.",
+                "Computer Organization and Architecture"
+            ],
+            "question": {
+                "text": "A cache memory that has a hit rate of 0.8 has an access \nlatency 10 ns and miss penalty 100 ns. An optimization \nis done on the cache to reduce the miss rate. \n\nHowever, the optimization results in an increase of \ncache access latency to 15 ns, whereas the miss \npenalty is not affected. The minimum hit rate \n(rounded off to two decimal places) needed after the \noptimization such that it should not increase the \naverage memory access time is _____________.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "0.85"
+            ],
+            "solution": {
+                "text": "",
+                "images": [
+                    "assets/Computer Organization and Architecture/COA_Memory_Hierarchy_P53_X6541.png",
+                    "assets/Computer Organization and Architecture/COA_Memory_Hierarchy_P53_X6543.png"
+                ],
+                "latex": [],
+                "tables": [
+                    {
+                        "headers": [
+                            "TAG",
+                            "LINE(L.O) OFFSET",
+                            "WORDOFFSET (W.O)"
+                        ],
+                        "rows": []
+                    },
+                    {
+                        "headers": [
+                            "10100",
+                            "01001",
+                            "001000"
+                        ],
+                        "rows": []
+                    },
+                    {
+                        "headers": [
+                            "11000",
+                            "01010",
+                            "001010"
+                        ],
+                        "rows": []
+                    },
+                    {
+                        "headers": [
+                            "11001",
+                            "01010",
+                            "001010"
+                        ],
+                        "rows": []
+                    },
+                    {
+                        "headers": [
+                            "10100",
+                            "01001",
+                            "100010"
+                        ],
+                        "rows": []
+                    }
+                ]
+            }
+        },
+        {
+            "id": "COA_MEMORY_HIERARCHY_2021_Q28",
+            "subject": "Computer Organization and Architecture",
+            "topic": "Memory Hierarchy",
+            "subtopic": "average memory access time is _____________.",
+            "year": 2021,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 28,
+            "tags": [
+                "Memory Hierarchy",
+                "average memory access time is _____________.",
+                "Computer Organization and Architecture"
+            ],
+            "question": {
+                "text": "Assume a two-level inclusive cache hierarchy. L1 \nand L2, where L2 is the larger of the two. Consider \nthe following statements. \n\nS1: Read misses in a write through L1 cache do not \nresult in write backs of dirty lines to the L2. \n\nS2: Write allocate policy must be used in \nconjunction with write through caches and no-write \nallocate policy is used with write back caches. \n\nWhich of the following statements is correct?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "S1 is true and S2 is true.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "S1 is true and S2 is false.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "S1 is false and S2 is true.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "S1 is false and S2 is false.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "D"
+            ],
+            "solution": {
+                "text": "",
+                "images": [
+                    "assets/Computer Organization and Architecture/COA_Memory_Hierarchy_P53_X6541.png",
+                    "assets/Computer Organization and Architecture/COA_Memory_Hierarchy_P53_X6543.png"
+                ],
+                "latex": [],
+                "tables": [
+                    {
+                        "headers": [
+                            "TAG",
+                            "LINE(L.O) OFFSET",
+                            "WORDOFFSET (W.O)"
+                        ],
+                        "rows": []
+                    },
+                    {
+                        "headers": [
+                            "10100",
+                            "01001",
+                            "001000"
+                        ],
+                        "rows": []
+                    },
+                    {
+                        "headers": [
+                            "11000",
+                            "01010",
+                            "001010"
+                        ],
+                        "rows": []
+                    },
+                    {
+                        "headers": [
+                            "11001",
+                            "01010",
+                            "001010"
+                        ],
+                        "rows": []
+                    },
+                    {
+                        "headers": [
+                            "10100",
+                            "01001",
+                            "100010"
+                        ],
+                        "rows": []
+                    }
+                ]
+            }
+        },
+        {
+            "id": "COA_MEMORY_HIERARCHY_2020_Q29",
+            "subject": "Computer Organization and Architecture",
+            "topic": "Memory Hierarchy",
+            "subtopic": "Which of the following statements is correct?",
+            "year": 2020,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 29,
+            "tags": [
+                "Memory Hierarchy",
+                "Which of the following statements is correct?",
+                "Computer Organization and Architecture"
+            ],
+            "question": {
+                "text": "A direct mapped cache memory of 1 MB has a block \nsize of 256 bytes. The cache has an access time of 3 \nns and a hit rate of 94%. During a cache miss, it takes \n20 ns to bring the first word of a block from the main \nmemory, while each subsequent word takes 5 ns. \nThe word size is 64 bits. The average memory access \ntime in ns (round off to 1 decimal place) is _____.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "13.3",
+                "13.5"
+            ],
+            "solution": {
+                "text": "",
+                "images": [
+                    "assets/Computer Organization and Architecture/COA_Memory_Hierarchy_P53_X6541.png",
+                    "assets/Computer Organization and Architecture/COA_Memory_Hierarchy_P53_X6543.png"
+                ],
+                "latex": [],
+                "tables": [
+                    {
+                        "headers": [
+                            "TAG",
+                            "LINE(L.O) OFFSET",
+                            "WORDOFFSET (W.O)"
+                        ],
+                        "rows": []
+                    },
+                    {
+                        "headers": [
+                            "10100",
+                            "01001",
+                            "001000"
+                        ],
+                        "rows": []
+                    },
+                    {
+                        "headers": [
+                            "11000",
+                            "01010",
+                            "001010"
+                        ],
+                        "rows": []
+                    },
+                    {
+                        "headers": [
+                            "11001",
+                            "01010",
+                            "001010"
+                        ],
+                        "rows": []
+                    },
+                    {
+                        "headers": [
+                            "10100",
+                            "01001",
+                            "100010"
+                        ],
+                        "rows": []
+                    }
+                ]
+            }
+        },
+        {
+            "id": "COA_MEMORY_HIERARCHY_2019_Q30",
+            "subject": "Computer Organization and Architecture",
+            "topic": "Memory Hierarchy",
+            "subtopic": "time in ns (round off to 1 decimal place) is _____.",
+            "year": 2019,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 30,
+            "tags": [
+                "Memory Hierarchy",
+                "time in ns (round off to 1 decimal place) is _____.",
+                "Computer Organization and Architecture"
+            ],
+            "question": {
+                "text": "A certain processor deploys a single-level cache. \nThe cache block size is 8 words and the word size is \n4 bytes. The memory system uses a 60-MHz clock. \nTo service a cache miss, the memory controller first \ntakes 1 cycle to accept the starting address of the \nblock, it then takes 3 cycles to fetch all the eight \nwords of the block, and finally transmits the words \nof the requested block at the rate of 1 word per cycle. \nThe maximum bandwidth for the memory requested \n\nblock at the rate of 1 word per cycle. The maximum \nbandwidth for the memory system when the \nprogram running on the processor issues a series of \nread operations is _______×106  bytes/sec.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "160"
+            ],
+            "solution": {
+                "text": "",
+                "images": [
+                    "assets/Computer Organization and Architecture/COA_Memory_Hierarchy_P54_X6670.png",
+                    "assets/Computer Organization and Architecture/COA_Memory_Hierarchy_P54_X6672.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "COA_MEMORY_HIERARCHY_2017_Q31",
+            "subject": "Computer Organization and Architecture",
+            "topic": "Memory Hierarchy",
+            "subtopic": "read operations is _______×106  bytes/sec.",
+            "year": 2017,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 31,
+            "tags": [
+                "Memory Hierarchy",
+                "read operations is _______×106  bytes/sec.",
+                "Computer Organization and Architecture"
+            ],
+            "question": {
+                "text": "The read access times and the hit ratios for different \ncache \nRead access time (in \nnano seconds) \nHit ratio \nI-cache \nD-cache \nL2-\ncache \n\n\nThe read access time of main memory is 90 \nnanoseconds. Assume that the caches use the \nreferred word-first read policy and the write back \npolicy. Assume that all the caches are direct mapped \ncaches. Assume that the dirty bit is always 0 for all \nthe blocks in the caches. In execution of a program, \n60% of memory reads are for instruction fetch and \n40% are for memory operand fetch. The average \nread access time in nanoseconds (up to 2 decimal \nplaces) is ________.",
+                "images": [],
+                "latex": [],
+                "tables": [
+                    {
+                        "headers": [
+                            "cache",
+                            "Read access time (in nano seconds)",
+                            "Hit ratio"
+                        ],
+                        "rows": [
+                            [
+                                "I-cache D-cache L2- cache",
+                                "2 2 8",
+                                "0.8 0.9 0.9"
+                            ]
+                        ]
+                    }
+                ]
+            },
+            "options": [],
+            "correctAnswer": [
+                "4.72"
+            ],
+            "solution": {
+                "text": "",
+                "images": [
+                    "assets/Computer Organization and Architecture/COA_Memory_Hierarchy_P54_X6670.png",
+                    "assets/Computer Organization and Architecture/COA_Memory_Hierarchy_P54_X6672.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "COA_MEMORY_HIERARCHY_2016_Q32",
+            "subject": "Computer Organization and Architecture",
+            "topic": "Memory Hierarchy",
+            "subtopic": "places) is ________.",
+            "year": 2016,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 32,
+            "tags": [
+                "Memory Hierarchy",
+                "places) is ________.",
+                "Computer Organization and Architecture"
+            ],
+            "question": {
+                "text": "A file system uses an in-memory cache to cache disk \nblocks. The miss rate of the cache is shown in the \nfigure. The latency to read a block from the cache is \n1 ms and to read a block from the disk is 10 ms. \nAssume that the cost of checking whether a block \nexists in the cache is negligible. Available cache \nsizes are in multiples of 10 MB. \n\n\nThe smallest cache size required to ensure an \naverage read latency of less than 6 ms is ______MB.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "30"
+            ],
+            "solution": {
+                "text": "",
+                "images": [
+                    "assets/Computer Organization and Architecture/COA_Memory_Hierarchy_P55_X6765.png",
+                    "assets/Computer Organization and Architecture/COA_Memory_Hierarchy_P55_X6767.png",
+                    "assets/Computer Organization and Architecture/COA_Memory_Hierarchy_P55_X6769.png",
+                    "assets/Computer Organization and Architecture/COA_Memory_Hierarchy_P55_X6771.png",
+                    "assets/Computer Organization and Architecture/COA_Memory_Hierarchy_P55_X6773.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "COA_MEMORY_HIERARCHY_2015_Q33",
+            "subject": "Computer Organization and Architecture",
+            "topic": "Memory Hierarchy",
+            "subtopic": "average read latency of less than 6 ms is ______MB.",
+            "year": 2015,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 33,
+            "tags": [
+                "Memory Hierarchy",
+                "average read latency of less than 6 ms is ______MB.",
+                "Computer Organization and Architecture"
+            ],
+            "question": {
+                "text": "Assume that for a certain processor, a read request \ntakes 50 nanoseconds on a cache miss and 5 \nnanoseconds on a cache hit. Suppose while running \na program, it was observed that 80% of the \nprocessor's read requests result in a cache hit. The \naverage read access time in nanoseconds is _______.",
+                "images": [],
+                "latex": [],
+                "tables": [
+                    {
+                        "headers": [
+                            "cache",
+                            "Read access time (in nano seconds)",
+                            "Hit ratio"
+                        ],
+                        "rows": [
+                            [
+                                "I-cache D-cache L2- cache",
+                                "2 2 8",
+                                "0.8 0.9 0.9"
+                            ]
+                        ]
+                    }
+                ]
+            },
+            "options": [],
+            "correctAnswer": [
+                "14"
+            ],
+            "solution": {
+                "text": "",
+                "images": [
+                    "assets/Computer Organization and Architecture/COA_Memory_Hierarchy_P55_X6765.png",
+                    "assets/Computer Organization and Architecture/COA_Memory_Hierarchy_P55_X6767.png",
+                    "assets/Computer Organization and Architecture/COA_Memory_Hierarchy_P55_X6769.png",
+                    "assets/Computer Organization and Architecture/COA_Memory_Hierarchy_P55_X6771.png",
+                    "assets/Computer Organization and Architecture/COA_Memory_Hierarchy_P55_X6773.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "COA_MEMORY_HIERARCHY_2014_Q34",
+            "subject": "Computer Organization and Architecture",
+            "topic": "Memory Hierarchy",
+            "subtopic": "average read access time in nanoseconds is _______.",
+            "year": 2014,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 34,
+            "tags": [
+                "Memory Hierarchy",
+                "average read access time in nanoseconds is _______.",
+                "Computer Organization and Architecture"
+            ],
+            "question": {
+                "text": "The memory access time is 1 nanosecond for a read \noperation with a hit in cache, 5 nanoseconds for a \nread operation with a miss in cache, 2 nanoseconds \nfor a write operation with a hit in cache and 10 \nnanoseconds for a write operation with a miss in \ncache. Execution of a sequence of instructions \ninvolves 100 instruction fetch operations, 60 \nmemory operand read operations and 40 memory \noperand write operations. The cache hit-ratio is 0.9. \nThe average memory access time (in nanoseconds) \nin executing the sequence of instructions is _____. \n\nCommon Data for next two questions: \nA Computer has a 256 Kbyte, 4-way set associative, write \nback data cache with block size of 32 Bytes. The processor \nsends 32-bit addresses to the cache controller. Each cache \ntag directory entry contains, in addition to address tag, 2 \nvalid bits, 1 modified bit and 1 replacement bit.",
+                "images": [],
+                "latex": [],
+                "tables": [
+                    {
+                        "headers": [
+                            "cache",
+                            "Read access time (in nano seconds)",
+                            "Hit ratio"
+                        ],
+                        "rows": [
+                            [
+                                "I-cache D-cache L2- cache",
+                                "2 2 8",
+                                "0.8 0.9 0.9"
+                            ]
+                        ]
+                    }
+                ]
+            },
+            "options": [],
+            "correctAnswer": [
+                "1.68"
+            ],
+            "solution": {
+                "text": "",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "COA_MEMORY_HIERARCHY_2012_Q35",
+            "subject": "Computer Organization and Architecture",
+            "topic": "Memory Hierarchy",
+            "subtopic": "valid bits, 1 modified bit and 1 replacement bit.",
+            "year": 2012,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 35,
+            "tags": [
+                "Memory Hierarchy",
+                "valid bits, 1 modified bit and 1 replacement bit.",
+                "Computer Organization and Architecture"
+            ],
+            "question": {
+                "text": "The number of bits in the tag field of an address is",
+                "images": [],
+                "latex": [],
+                "tables": [
+                    {
+                        "headers": [
+                            "cache",
+                            "Read access time (in nano seconds)",
+                            "Hit ratio"
+                        ],
+                        "rows": [
+                            [
+                                "I-cache D-cache L2- cache",
+                                "2 2 8",
+                                "0.8 0.9 0.9"
+                            ]
+                        ]
+                    }
+                ]
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "11",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "14",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "16",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "27",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "C"
+            ],
+            "solution": {
+                "text": "",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "COA_MEMORY_HIERARCHY_2012_Q36",
+            "subject": "Computer Organization and Architecture",
+            "topic": "Memory Hierarchy",
+            "subtopic": "The number of bits in the tag field of an address is",
+            "year": 2012,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 36,
+            "tags": [
+                "Memory Hierarchy",
+                "The number of bits in the tag field of an address is",
+                "Computer Organization and Architecture"
+            ],
+            "question": {
+                "text": "The size of the cache tag directory is",
+                "images": [],
+                "latex": [],
+                "tables": [
+                    {
+                        "headers": [
+                            "cache",
+                            "Read access time (in nano seconds)",
+                            "Hit ratio"
+                        ],
+                        "rows": [
+                            [
+                                "I-cache D-cache L2- cache",
+                                "2 2 8",
+                                "0.8 0.9 0.9"
+                            ]
+                        ]
+                    }
+                ]
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "160 Kbits",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "136 Kbits",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "40 Kbits",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "32 Kbits",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "A"
+            ],
+            "solution": {
+                "text": "",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "COA_MEMORY_HIERARCHY_2011_Q37",
+            "subject": "Computer Organization and Architecture",
+            "topic": "Memory Hierarchy",
+            "subtopic": "The size of the cache tag directory is",
+            "year": 2011,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 37,
+            "tags": [
+                "Memory Hierarchy",
+                "The size of the cache tag directory is",
+                "Computer Organization and Architecture"
+            ],
+            "question": {
+                "text": "An 8KB direct-mapped write back cache is \norganized as multiple blocks, each of size 32 bytes. \nThe processor generates 32-bit addresses. The cache \ncontroller maintains the tag information for each \ncache block comprising of the following. \n\n1Valid bit \n\n1Modified bit \n\nAs many bits as the minimum needed to identify the \nmemory block mapped in the cache. \n\nWhat is the total size of memory needed at the cache \ncontroller to store meta-data (tags) for the cache?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "4864 bits",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "6144bits",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "6656 bits",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "5376 bits \n\n\nCommon Data for next two questions: \nA Computer system has an L1 and L2 cache, an L2 cache, \nand a main memory unit connected as shown below. The \nblock size in L1 cache is 4 words. The block size in L2 \ncache is 16 words. The memory access times are 2 \nnanoseconds, 20 nanoseconds and 200 nanoseconds for L1 \ncache, L2 cache and main memory unit respectively.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "D"
+            ],
+            "solution": {
+                "text": "",
+                "images": [
+                    "assets/Computer Organization and Architecture/COA_Memory_Hierarchy_P57_X6917.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "COA_MEMORY_HIERARCHY_2010_Q38",
+            "subject": "Computer Organization and Architecture",
+            "topic": "Memory Hierarchy",
+            "subtopic": "cache, L2 cache and main memory unit respectively.",
+            "year": 2010,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 38,
+            "tags": [
+                "Memory Hierarchy",
+                "cache, L2 cache and main memory unit respectively.",
+                "Computer Organization and Architecture"
+            ],
+            "question": {
+                "text": "When there is a miss in L1 cache and a hit in L2 \ncache, a block is transferred from L2 cache to L1 \ncache. What is the time taken for this transfer?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "2 nanoseconds",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "20 nanoseconds",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "22 nanosecond",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "88 nanoseconds",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "C"
+            ],
+            "solution": {
+                "text": "",
+                "images": [
+                    "assets/Computer Organization and Architecture/COA_Memory_Hierarchy_P57_X6917.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "COA_MEMORY_HIERARCHY_2010_Q39",
+            "subject": "Computer Organization and Architecture",
+            "topic": "Memory Hierarchy",
+            "subtopic": "cache. What is the time taken for this transfer?",
+            "year": 2010,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 39,
+            "tags": [
+                "Memory Hierarchy",
+                "cache. What is the time taken for this transfer?",
+                "Computer Organization and Architecture"
+            ],
+            "question": {
+                "text": "When there is a miss in both L1 cache and L2 cache, \nfirst a block is transferred from main memory to L2 \ncache, and then a block is transferred from L2 cache \nto L1 cache. What is the total time taken for these \ntransfers?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "222 nanoseconds",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "888 nanoseconds",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "902 nanoseconds",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "968 nanoseconds",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "C"
+            ],
+            "solution": {
+                "text": "",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "COA_MEMORY_HIERARCHY_2008_Q40",
+            "subject": "Computer Organization and Architecture",
+            "topic": "Memory Hierarchy",
+            "subtopic": "transfers?",
+            "year": 2008,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 40,
+            "tags": [
+                "Memory Hierarchy",
+                "transfers?",
+                "Computer Organization and Architecture"
+            ],
+            "question": {
+                "text": "For inclusion to hold between two cache level L1 \nand L2 in a multilevel cache hierarchy, which of the \nfollowing are necessary? \n\n1. \nL1 must be a write-through cache \n\n2. \nL2 must be write-through cache \n\n3. \nThe associativity of L2 must be greater that of \nL1 \n\n4. \nThe L2 cache must be at least as large as the L1 \ncache",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "4 only",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "1 and 4 only",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "1,2 and 4 only",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "1,2,3 and 4 \n\nMain Memory",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "A"
+            ],
+            "solution": {
+                "text": "",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "COA_MEMORY_HIERARCHY_2023_Q41",
+            "subject": "Computer Organization and Architecture",
+            "topic": "Memory Hierarchy",
+            "subtopic": "Main Memory",
+            "year": 2023,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 41,
+            "tags": [
+                "Memory Hierarchy",
+                "Main Memory",
+                "Computer Organization and Architecture"
+            ],
+            "question": {
+                "text": "A 4 kilobyte (KB) byte-addressable memory is \nrealized using four 1 KB memory blocks. Two input \naddress lines (IA4 and IA3) are connected to the chip \nselect (CS) port of these memory blocks through a \ndecoder as shown in the figure. The remaining ten \ninput address lines from IA11-IA0 are connected to \nthe address port of these blocks. The chip select (CS) \nis active high \n\n\nThe input memory addresses (IA11-IA0), in \ndecimal, for the starting locations \n\n(Addr=0) of each block (indicated as X1, X2, X3, X4 \nin the figure) are among the \n\noptions given below. Which one of the following \noptions is CORRECT?",
+                "images": [
+                    "assets/Computer Organization and Architecture/COA_Memory_Hierarchy_P41_X5130.png",
+                    "assets/Computer Organization and Architecture/COA_Memory_Hierarchy_P41_X5132.png"
+                ],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "(0, 1, 2, 3)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "(0, 1024, 2048, 3072)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "(0, 8, 16, 24)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "(0, 0, 0, 0)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "C"
+            ],
+            "solution": {
+                "text": "",
+                "images": [
+                    "assets/Computer Organization and Architecture/COA_Memory_Hierarchy_P59_X7104.png",
+                    "assets/Computer Organization and Architecture/COA_Memory_Hierarchy_P59_X7106.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "COA_MEMORY_HIERARCHY_2018_Q42",
+            "subject": "Computer Organization and Architecture",
+            "topic": "Memory Hierarchy",
+            "subtopic": "options is CORRECT?",
+            "year": 2018,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 42,
+            "tags": [
+                "Memory Hierarchy",
+                "options is CORRECT?",
+                "Computer Organization and Architecture"
+            ],
+            "question": {
+                "text": "A 32-bit wide main memory unit with a capacity of \n1 GB is built using 256 M ×4-bit DRAM chips. The \nnumber of rows of memory cells in the DRAM chip \nis 214. The time taken to perform one refresh \noperation is 50 nanoseconds. The refresh period is 2 \nmilliseconds. The percentage (Rounded to the \nclosest integer) of the time available for performing \nthe memory read/write operations in the main \nmemory unit is________.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "59",
+                "60"
+            ],
+            "solution": {
+                "text": "",
+                "images": [
+                    "assets/Computer Organization and Architecture/COA_Memory_Hierarchy_P59_X7104.png",
+                    "assets/Computer Organization and Architecture/COA_Memory_Hierarchy_P59_X7106.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "COA_MEMORY_HIERARCHY_2016_Q43",
+            "subject": "Computer Organization and Architecture",
+            "topic": "Memory Hierarchy",
+            "subtopic": "memory unit is________.",
+            "year": 2016,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 43,
+            "tags": [
+                "Memory Hierarchy",
+                "memory unit is________.",
+                "Computer Organization and Architecture"
+            ],
+            "question": {
+                "text": "A processor can support a maximum memory of 4 \nGB, where the memory is word-addressable (a word \nconsists of two bytes). The size of the address bus of \nthe processor is at least ______bits.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "31"
+            ],
+            "solution": {
+                "text": "",
+                "images": [
+                    "assets/Computer Organization and Architecture/COA_Memory_Hierarchy_P59_X7104.png",
+                    "assets/Computer Organization and Architecture/COA_Memory_Hierarchy_P59_X7106.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "COA_MEMORY_HIERARCHY_2014_Q44",
+            "subject": "Computer Organization and Architecture",
+            "topic": "Memory Hierarchy",
+            "subtopic": "the processor is at least ______bits.",
+            "year": 2014,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 44,
+            "tags": [
+                "Memory Hierarchy",
+                "the processor is at least ______bits.",
+                "Computer Organization and Architecture"
+            ],
+            "question": {
+                "text": "Consider a main memory system that consists of 8 \nmemory modules attached to the system bus, which \nis one word wide. When a write request is made, the \nbus is occupied for 100 nanoseconds (ns) by the \ndata, address, and control signals. During the same \n100 ns, and for 500 ns thereafter, the addressed \nmemory module executes one cycle accepting and \nstoring the data. The (internal) Operation of different \nmemory modules may overlap in time, but only one \nrequest can be on the bus at any time. The maximum \nnumber of stores (of one word each) that can be \ninitiated in 1 millisecond is _____.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "10000"
+            ],
+            "solution": {
+                "text": "",
+                "images": [
+                    "assets/Computer Organization and Architecture/COA_Memory_Hierarchy_P60_X7211.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "COA_MEMORY_HIERARCHY_2013_Q45",
+            "subject": "Computer Organization and Architecture",
+            "topic": "Memory Hierarchy",
+            "subtopic": "initiated in 1 millisecond is _____.",
+            "year": 2013,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 45,
+            "tags": [
+                "Memory Hierarchy",
+                "initiated in 1 millisecond is _____.",
+                "Computer Organization and Architecture"
+            ],
+            "question": {
+                "text": "A RAM chip has capacity of 1024 words of 8 bits \neach (1K \\times 8). The number of 2 \\times 4 decoders with \nenable line needed to construct a 16 K×16 RAM \nfrom 1K \\times 8 RAM is",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "4",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "5",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "6",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "7",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "B"
+            ],
+            "solution": {
+                "text": "",
+                "images": [
+                    "assets/Computer Organization and Architecture/COA_Memory_Hierarchy_P60_X7211.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "COA_MEMORY_HIERARCHY_2010_Q46",
+            "subject": "Computer Organization and Architecture",
+            "topic": "Memory Hierarchy",
+            "subtopic": "from 1K × 8 RAM is",
+            "year": 2010,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 46,
+            "tags": [
+                "Memory Hierarchy",
+                "from 1K × 8 RAM is",
+                "Computer Organization and Architecture"
+            ],
+            "question": {
+                "text": "A main memory unit with a capacity of 4 megabytes \nis built using 1M \\times 1-bit DRAM chips. Each DRAM \nchip has 1K rows of cells with 1K cells in each row. \nThe time taken for a single refresh operation is 100 \nnanoseconds. The time required to perform one \nrefresh operation on all the cells in the memory unit \nis",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "100 nanoseconds",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "100*210 nanoseconds",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "100*220 nanoseconds",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "3200*220 nanoseconds",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "B"
+            ],
+            "solution": {
+                "text": "",
+                "images": [
+                    "assets/Computer Organization and Architecture/COA_Memory_Hierarchy_P61_X7293.png",
+                    "assets/Computer Organization and Architecture/COA_Memory_Hierarchy_P61_X7295.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "COA_MEMORY_HIERARCHY_2009_Q47",
+            "subject": "Computer Organization and Architecture",
+            "topic": "Memory Hierarchy",
+            "subtopic": "is",
+            "year": 2009,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 47,
+            "tags": [
+                "Memory Hierarchy",
+                "is",
+                "Computer Organization and Architecture"
+            ],
+            "question": {
+                "text": "How many 32K \\times 1 RAM chips are needed to \nprovide a memory capacity of 256 K-bytes?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "8",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "32",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "64",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "128",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "C"
+            ],
+            "solution": {
+                "text": "1. (0.05 to 0.05) \n\n1 instruction takes = 1.4 memory access (reference) \n\n1000 instruction takes = 1.4 \\times 1000 = 1400 memory \nreference (access) \n\nTotal memory reference (access) = 1400  \n\nL1 miss rate = 0.1 \n\n\nL2 Miss rate = 7\n=\n=\n\n\nAlternate approach: \n\nNumber of misses occurred in  \n\nL2 = \n=\n=\n\n\nMiss rate of L2 = \nTotal misses occured in L\nMiss rate of L\n\n\n\n\n         = 0.005\n0.1 =\n\n\n\n2. (a) \n\nL1 miss rate twice that of L2 \n\n\n\nL1 cache access time = 1 clock cycle \n\nL2 cache access time = 8 clock cycle \n\nMm access = 18 clock cycle \n\nTavg = 2 clock cycle \n\nAssume, \n\nL2 miss rate = x \n\nL1 = 2x \n\nTavg = Hit time L1 + (miss rate L1)  \n\n[(Hit time L2 +  miss rate L2) (mm access time)] \n\n2 = 1 + 2x [8 + x (18)] \n\n1 = 1 + 2x[8 + 18 x] \n\n1 = 1 + 16 x+ 36x2 \n\n36x\n16x -1\n+\n=\n\n\na = 36 \n\nb = 16  \n\nc = -1 \n\nb\nb\n4ac\n2a\n−\n−\n\n\n⇒ \n(\n)\n256 - 4 36\n-1\n2 36\n−\n\n\n\n\n\n\n⇒\n−\n\n+\n\n\n⇒ \n−\n\n [miss rate cannot -v] \n\n⇒ \n−\n+\n\n\n⇒16\n−\n+\n=\n= 1\n18 =\n\n\nx\n=\n\n\n\nL2 miss rate (x) = 0.0556  0.056 \n\nL1 = miss rate = 2 \\times 0.056 = 0.1112  0.111 \n\n\n\n\n3. (d) \n\n(a) Incorrect because:  \n\n\nSpatial locality: Adjacent word (Data) \n\n\nIf block size 4B  \n\n\n\nMm to cm complete block transferred \n\n\nIf block size 8 B \n\n\n(b) Incorrect because  \n\n\nPA = 10 bits, cm = 32 bytes,  Block size = 2 bytes \n\n\nCase I: \n\n\nDirect mapping \n\n\n\nNumber of lines = 32\n2 =\n\n\n\nCase II: block size = 4Byte \n\n\n\nNumber of lines = 32\n= \n\n\nCase III: Block size = 16 byte \n\n\n\nNumber of lines = 32\n16 =\n\n\n\nBut in fully associative :  \n\n\nCase I : Block size = 2bytes \n\n\n\nCase II: Block size = 4 byte \n\n\n\nCase III: Block size = 16 byte \n\n\n(c) incorrect  \n\n(d) correct because  \n\n\nSmaller block size \\Rightarrow then lower miss penalty \n\nIf B.S = 2 words or 2 bytes ⇒ only 2 W or 2 bytes \nbring from mm to cm  \n\nIf B.S = 16 words or 16 byte ⇒ 16 W or 16 byte \nmm to cm ie miss peanalty increase. \n\n\n\n\n4. (19 to 19) \n\n8 way set Associative. \n\nCache size = 64kB, \n\nPhysical address = 32 bit \n\nCache size = 64 KB = 216 Byte. \n\nDirect Mapping: \n\n\nBut In Question 8 way set Associative. \n\nLog2(8) = 3bit \n\n8 Way set Associative \n\n\nTAG = 32-13 = 19bit  \n\nAlternate approach \n\n8 Way set Associative \n\nCache size = 64 KB \n\nPhysical address = 32bit \n\nAssume Block size = 1 Byte \n\nNumber of lines = CMsize\nBlocksize\n\n\n\n\n(\n)\n64KB\n64K 2\nLine\n1B\n=\n=\n\n\nLine off set = log2 216 = 16 bit \n\n\n8 Way set associative \n\nNumber of set = \n#Lines\nN\nways\n=\n=\n−\n\n\nSet offset = 13 bit \n\n\nTag = 32-13 = 19bit. \n\n\n\n5. (17 to 17) \n\nMain memory size = 232 Byte \n\nCache size = 32 KB \n\nBlock size = 64 byte \n\nDirect mapped cache: \n\nMm size 232 byte = physical address (P.A) = 32 bit \n\nCache size = 32 kB = 215 Byte \n\nBlock size = 64 Byte ⇒ word offset = log2(64) = 6 bits \n\nNumber of Lines: = \nCM size\n2 B\nBlock size\n2 B\n=\n=\n\n\nLine offset = log2(29)   \n\n9 bits \n\nDirect mapped: - \n\n\nTAG = 32 - (9 + 6) = 32 - 15 = 17 bits \n\n\n6. (2 to 2) \n\nPhysical address (P.A) = 32 bit \n\nCache size = 2 KB = 211 Bytes \n\nBlock size = 64 byte = 26 byte \n\nTag field = 22 bit \n\nNumber of sets = 24 = 16 set \n\nSet offset (SO) = 4 \n\nWord offset = [log2 block size] ⇒ [log2 64] \n\n\nWord offset\n6 bit\n=\n\n\nSet associative cache. \n\n\n# LINES [#CM blocks] = cm Size\nBlock size  \n\n⇒ \n2 B\n32 lines\n2 B\n=\n=\n\n\n# \n#Lines\nSet\nN\nway\n=\n−\n\n\n16 = \nN\nway\n−\n\n\nN-way = 32\n16 =\n\n\n\n7. (b) \n\nMain memory = 16 MB = 224 byte \n\nCache size = 64 MB = 216 Byte \n\nBlock size = 256 B = 28 Byte \n\n4 way set associative \n\nA1 : Ox 42C 8A4 \n\nA2 Ox 546 888 \n\nA3: Ox 6A2 89C \n\nA4: Ox 5E4 880 \n\nPhysical address = 24 bit \n\nWord offset = log2 (block size) \n\n= [log2 256] ⇒ 8 bit \n\nWord Offset\n8 bit\n=\n\n\nNumber of line = \nCM size\n2 B\nBlock size\n2 B\n=\n=\n\n\nNumber of Set = Number of LINES\nNo\nway\n=\n=\n−\n\n\nSet offset (S.O) = 6 bit \n\n\n\nA1 and A4 mapped to the same cache set \n\nA2 and A3 are mapped to the same cache set \n\n\n\n8. (d) \n\nPhysical address = 32 bit \n\nCache size = 16 kB \n\nBlock size = 16 byte \n\nWord offset = [log2 block size] ⇒[log216] \n\nWord offset = 4bit \n\nFully associative cache \n\n\nTAG: 28 bit word offset = 4 bit \n\nIndex: 0 bit \n\n\n\n9. (b) \n\nP.A.S = 2p byte , word length = 2w byte \n\nCache = 2n byte \n\nBlock size = 2m words \n\nK-way set associative \n\n\nBlock size = 2m word (each word size = 2w byte) \n\n⇒ 2m \\times 2w Byte \n\nm+w\nBlock size=2\n Byte \n\nWord offset =m+w Bits \n\nNumber of LINEs = \nn\nm w\nCM size\nBlock size\n+\n=\n\n\nNumber of Set = \nN-M-W\nNumber of Lines\nN\nway\nK\n=\n−\n\n\nSet offset ⇒ log2 (# SET) ⇒ log2( \nN-M-W\nK\n\n\n\n\n\n\n\n\n\n\n⇒ Log2(2(N--M-W) - log2k  \n\n⇒ \nN - M - W - log k \n\n\nTAG : = P.A - (S.O + W.O) \n\n⇒ \n(\n)\nP - N - M - W - log k\nM\nW\n+\n+\n\n\nTAG\nP - N\nlog k\n\n+\n\n\n\n10. (c) \n\nMM size of 232 byte \n\nPhysical address (P.A) = 32 bit \n\nBlock size = 32 bytes \n\nWord offset = [log232] \n\nWord offset = 5 bit \n\nNumber of lines = 512; direct mapped cache \n\nLine offset (L.O) = [log2 512] \n\nLine Offset\n9 bit\n=\n\n\n\nTAG = 32 - (9 + 5) \n\nTAG = 32 - 14 \n\nTAG 18 bit\n=\n\n\n\n\n11. (14 to 14) \n\nDirect mapped cache \n\n\n16 ways set associative (assume log = n bit) \n\nNumber of set = \nN\nNumber of Line\nB\nN ways\n\n\n\n\n= \n\n\n\n\n\n\n\nSet offset = \nN\nB\nlog\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n⇒ \nN\nlog\n- log 16\nB\n\n\n\n\n\n\n\n ⇒ \nN\nlog\n- 4\nB\n\n\n\n\n\n\n\n\nlog\n+\nN\nlog\nB +\nB\nn\nlog\n=\n+\nN\n- 4\nlog\nB\n\n\n+\n\n\n\n\nB \n\n10 = n - 4 ⇒ n = 14 bit \n\nTAG 14 bit\n=\n\n\nAlternate Approach  \n\nDirect mapped cache:  \nTAG  \nLine offset \nWord offset \n\n      10 bits \n\n16 way set associate cache: \nTAG (10 bit) \nSet offset \nWord offset \n\n\n16-way set associate 1 set we can store 16 way (16 \nmm block), so in index now we require 4 less bits \ncompare to direct mapped \n\nNow, TAG = 10 + 4 \n\nTAG = 14 bits \n\nProof. \n\nMM = 1 MB cache size - 16 kB, block size = 128 byte \n\nPA = 20 bit  \n\nDirect method cache \n\nWord offset = [log2128] = 7 bit \n\nNumber of LINES = CM size\nblock size = \n16 kB\n128B\n=\n\n\n\n= 27 lines \n\nL.O = 7 bit \n\n\n16-way set associate cache \n\nNumber of set = Number of  line\nN\nways\n−\n(\n)\n2 set\n8 set\n16ways\n=\n=\n=\n\n\nset offset = 3bit \n\n\ncache size = N word, block size = B word  \n\nTag = 10 bits \n\nWord offset = log2B \n\nNumber of line = CM size\nN\nBlock size\nB\n=\n\n\nL.O = log2 N\nB\n\n\n\n\n\n\n\n\n\n12. (a) \n\nPhysical address (P.A) = 40 bits \n\nCache size = 512 KB = 219 \n\n8-way set associative \n\nP.A = TAG + set offset + word offset \n\nTAG set offset \n word offset\n40bits\n+\n+\n=\n…..(1) \n\nCache = Number of sets \\times block per set \\times block size \n\n512 KB = Number of Sets \\times 8 \\times block size \n\n[216] KB = Number of sets \\times block size \n\nset offset \n word offset\n16 bit\n+\n=\n ……(2) \n\n\n\nTAG + set offset + word offset = 40 bit \n\nTAG + 16 bits = 40 bits \n\nTAG = 40 - 16 \n\nTAG\n24 bits\n=\n\n\n13. (a) \n\nMain memory = 220 byte \n\nBlock size = 16 bytes \n\nNumber of lines = 212 \n\nMm size = 220 Byte \n\nP.A = 20 bit \n\nWord offset = [log216] \n\nWord offset = 4bit \n\n# lines = 212 \n\nLine offset = 12bit \n\n\nDirect mapped cache: \n\n\n\nNote: A : 10 \n\n\nB : 11 \n\n\nC : 12 \n\n\n\nD : 13 \n\n\nE : 14 \n\n\nF : 15 \n\nMain memory address  = (E2021F)16 \nE \nF \n4 bits \n12 bits \n4 bits \n\nTag = E  \n\nCache line number = 201 \n\n14. (20 to 20) \n\nMain (physical) memory = 4GB = 232 Byte \n\n                      Cache size  = 16 kB \n\n                         Word size  = 32 bits \n\n                        Block size  = 8 words \n\n4-way set associative \n\n              Physical address  = 32 bits \n\n            1 word size 32 bit  = 4 byte \n\n                      Block size  = 8 words \n\n\n\n\n= 8 \\times 4 bytes \n\n\n\n\n= 32 bytes \n\nWord offset = [log232] = 5 bit \n\nNumber of lines = CM Size\nBlock size  \n\n\n\n\n16kB\n2 B\n2 lines\n32B\n2 B\n=\n=\n=\n\n\nNumber of set = Number of  LINE\nN\nway\n−\n\n\n\n\n128 set\n=\n=\n=\n\n\nSet offset = 7bit \n\n\nTAG = 32 - (7 + 5) \n\nTAG\n20 bit\n=\n\n\n15. (d) \n\nPA = 20 bit (mm = 1MB), cach size = 16 MB, Block \nsize = 64 byte \n\nDirect mapping: \n\n\nNumber of line = CM size\nBlock size = \n16kB\n64B\n=\n = 28 \n\n2-way set associative;  \n\n\nNumber of set = \nLines\nN\nway\n=\n=\n−\n\n\n\n\n4 way set associative \n\nNumber of set = \nLines\nN\nway\n=\n=\n−\n\n\n\n\n16. (a) \n\nNumber of sets = each set consit 'k' lines \n\nSet associative mapping \n\nK mod S or mm request (mod) # set \n\n(J mod V) \n\nFind first Line of any set  \n\nEach set contiant 4 lines (k = 4) \n\nSet 0 ⇒ 0 \\times 4 = 0 \n\nSet 1 = 1 \\times 4 = 4 \n\nSet 2 = 2 \\times 4 = 8 \n\nSet 3 = 3 \\times 4 = 12 \n\nFor first Line, set number \\times k \n\n0 \\times 4  to 0 \\times 4 + (4 - 1) = 0 to 3 \n\n1 \\times 4 to 1 \\times 4 + (4 - 1) = 4 to 7x \\times k to x \\times k + (k - 1) \n\n\n\nEach set containt 8 lines \n\nK = 8 \n\nFirst line of any set \n\nSet 0 = 0 \\times 8 = 0 \n\nSet 1 = 1 \\times 8 = 8 \n\nSet 2 = 2 \\times 8 = 16 \n\nSet number \\times k \n\n0 to 7 \n\n0 \\times 8 to 0 \\times 8 + (8 - 1) \n\n1 \\times 8 to 1 \\times 8 + (8 - 1) \n\n8 to 15  \n\n\n\n(j mod v) \\times k to  \n\n(j mod v) \\times k + (k - 1) \n\n\n17. (a) \n\n\n\n\n\n18. (d) \n\nMain memory size  = 1 MB (220 B) \n\nCache size = 8 KB \n\n1 word size = 1 byte \n\nBlock size = 128 words \n\nBlock size = 128 ×1 B = 128 bytes \n\nWord offset = log2 128  = 7 bits \n\nNumber of lines =\ncm size\nBlock size = \n8 KB\n128 B =\n\n\nNumber of sets = \n16 sets\n2 =\n=\n\n\nSet offset = log2 16 = 4 \n\n\nTag = 20 - (4 + 7) = 9 bits \n\n\n19. (c) \n\nBlock size = 16 byte  \n\nDouble = 8 byte \n\ni.e each block cache [cache block] contain 2 element \nof the Array \n\nGiven \n\nRow major = Accessing in serial order APR [0, 0] \n[0, 1] [0, 2] [0, 3] \n\nFor i = 0 \\Rightarrow j = 0 to 1023 (1024 times) \n\nFor i = 1 \\Rightarrow j = 0 to 1023 (1024 times) \n\nFrist element of array \n\n\n\n\n20. (b) \n\nPage size = 4 KB \n\nPage offset(d) = [log2 page size] = [log2 4KB] \n\nd = 12 bit \n\nStart address = (FF000)16 \n\n\n\n\n\n     V.A = 32 bit \nTAG \nSET OFFSET WORD OFFSET \n17 bit \n11 bit \n4 bit \n\n11bit\n1413121110 9 8 7 6 5 4 3 210 \n\nPaging  \nV.A = 32 bit \n\n\n\n\n\nPage Number \nPage Offset (d) \n20 bit \n12 bit \n\nAPR[0][0]          FF000 \n\n       \n\nIst element of the Array \\Rightarrow Start from (FF000)16[Page \nNumber] and Page offset (000)F  \n\n(FF000 000) \n\nAPR[0][0] =  \n\n\nRow Major \n\n\nAPR[0][4] = 5th element of the Ist row, i.e [0] [0], [0] \n[1], [0, 2] [0, 3] \n\nIst row 5th element (i.e already 4 element passed) \n\n4 \\times 8 = 32 \n\n\n\nRow Major \n\nAPR[4][0] = Ist element of the 5th row [Row No 0, 1, \n2, 3] \n\nAnd each row 1024 element \n\n4 \\times 1024 \\times 8 \n\n22 \\times 210 \\times 23= 215 \nOR \n\n4 \\times 1024 \\times 8 \n\n22 \\times 210 \\times 8 \n\n212 \\times 8 = 4k \\times 8 \n\n…. 217 216 215 214 213 212 211 210 29 28 27 26 25 24 23 22 \n21 20  \n\n\nRow Major \n\nAPR[0][5] = First row, 6th element \n[[0][0], 0.1, 0.2, 0.3, 0.4]\n5 element\n\n\n5 \\times 8 = 40 ( )16 \n\n\n\n(in Hex virtual \naddress) \nSet Index \nAPR [0] [0] \nFF 000 000 \n000 0000 0000 \nAPR [0] [4] \nFF 000 020 \n000 0000 0010 \nAPR [4] [0] \nFF 008 000 \n000 0000 0000 \nAPR [0] [5] \nFF 000 028 \n000 0000 0010 \n\nMatch APR [4] [0] \n\n21. (d) \n\n2 way set associative, block size = 16 B, VA = 32 bit \n\nCache size = 64 KB \n\nBlock size = 16 Byte \n\nBlock offset = [log2 block size] = log216 = 4 bit \n\nNumber of lines = \ncm size\n64 KB\nblock size\n16B\n=\n\n\n\n= \n2 lines\n=\n\n\nNumber of set = \nNumber of lines\nN- way\n=\n2 set\n=\n\n\nSet offset = 11 bit \n\nVIVT \n\nVirtual Index and virtually Tag \n\n\n\n\n         32 bit \nTAG \nSet offset \nBlock 1 word offset  \n17 bit \n11 bit \n4 bit \n\n2 way set associative \n\nTAG = 32 - (11 + 4) \n\nTag memory size = number of lines \\times Tag bits \n\n                             = 212 \\times 17 bit = 22 \\times 17 \\times 210 bit \n\n                             = 68 k bits  \nOR \n\nTag memory size = Number of set \\times Block per set \\times \nTag bit \n\n= 211 \\times 2 \\times 17 bit = 2 \\times 2 \\times 17 \\times 210 bit \n\nTag memory size = 68 k bits \n\n22. (a, b, d) \n\nCache size = 2KB \\Rightarrow 211 B \n\nBlock size = 64 Byte = 26 B \n\nWord offset = log2(block size) \\Rightarrow log2(26) \n\n\nWord offset (W.O) \\Rightarrow 6 bits \n\nPhysical memory (MM) = 64KB = 216Byte.  \n\nPhysical address (P.A) = 16 bits  \n\nNumber of lines = \nCache size\n2 B\n2 Lines\nBlock size\n2 B\n=\n=\n\n\nLine offset (L.O) = 5 bits. \n\nDirect Mapping:  \n16bit\nTAG LINE(L.O) WORDOFFSET\nOFFSET\n(W.O)\n5bit\n5bit\n6bit\n⎯⎯⎯⎯⎯\n⎯⎯⎯⎯⎯→\n\n\nP:OxA248 \nTAG(5bit) Line  \noffset \nWord offset \n(6bit) \n\n\n   Line No : 9 \n\nQ:OxC28A \nTAG(5bit) Line  \nOffset (5bit) \nWord offset \n(6bit) \n\n\n   Line No : 10 \n\nR:OxCA8A \nTAG(5bit) Line  \nOffset (5bit) \nWord offset \n(6bit) \n\n\n   Line No : 10 \n\nS:OxA262 \nTAG(5bit) Line  \nOffset (5bit) \nWord offset \n(6bit) \n\n\n\n\nLine No : 9 \n\nLine Number  \n\n\nHere P and S same main memory block and mapped \nto the same cache line number.  \n\n\nHere Q and R are the different main memory block but \nmapped to the same cache line number.  \n\n\nEvery access to S is a hit.: True. \n\nOnce P is brought to the cache it is never evicted.  \n\n: True. \n\nAt the end of the execution only R and S reside in  \n\nthe cache.: False \n\nEvery access to R evicts Q from the cache. : True. \n\n23. (76 to 76) \n\n\nNumber of CM blocks = 256 \n\n(Number of Lines) \n\n2-way set associative \n\nNumber of set = 256\n=\n\n\n\nSET S\n=\n\n\nK MODS = i \n\nK MOD128 = i \n\nK : mm block number \n\nS : Number of cm set \n\ni = cache set number \n\n1st time \n\n2nd time \n\n\n\n\n24. (a) \n\nA \\ge k \n\n1 2 3 1 2 5 1 4 6 ⇒ N\n=\n\n\nUnique block address (1, 2, 3, 4, 5, 6) ⇒ n\n=\n\n\nMin miss 6\n9 [cold/compulsory miss.]  \nOR \n\n1 2 4 1 5 6 1 8 9 1 7 8 2 5 3 ⇒ N 15\n=\n\n\nn = 9 Unique block address N\n=\n\n\nmin miss = 9\n15 (compulsory) \n\nminimum number of misses = n. [compulsory miss] \n\nfor maximum misses \n\nk concept \n\nWorst case: 71 3 6 7 \n\n                   51 2 4 5 \n\nAt most k [k =3] \n\n\nAssociativity A\nk\n\n\n\n\nCase I: \n\nMaximum allocation in same cache set (Any) \n\n\nCase II: If that unique address repeated \n\n\n\n\n\n                    k = 3\nAt most k unique = 3 address\n                   1, 2, 4\n\n\nNo other extra miss  \n\n\n\nTotal number of misses = n \n\nn\nMiss ratio = \nN \n\nAlternate approach: \n\nTotal access = N so divide by 'N' so option (c) and (d) \nwrong \n\nUnique block address = n \n\nSo minimum not 1\nN option (b) also wrong \n\nn\nN \n\n\n25. (d) \n\nMm = 256 block \n\nCache = 16 block \n\nnumber of line = 16 \n\n4 way set  Associative \n\nnumber of set = Number of LINES\nN\nways\n=\n−\n\n\nNumber of SETS=4 \n\nK MOD S = i \nOr \n\nCache set address = mm block mod number of cm set \n\nk MOD 4\ni\n=\n\n\n\n\n\n\n26. (a, b, d) \n\n\nWrite through (Both cm & mm update at a same time) \n(simultaneously) so no need of dirty bit \n\nWrite Back: (first cache is update & mm update later). \n\n\nFalse \n\n(a) Incorrect, WB has dirty bit. \n\n(b) Incorrect/False: \n\n(c) Corect because in WT both cache memory & main \n       memory update at the same time. \n\n(d) False/Incorrect, depends on mapping technique &  \n       replacement algorithm. \n\n\n\n27. (0.85 to 0.85) \n\nRange (0.85 to 0.85) \n\nCache Hit Rate [h] = 0.8 \n\nCache Access Time [tc] = 10 ns. \n\nMiss penalty (M.P) = 100 ns.  \n\nTavg = h \\times tc + (1 - h) (M.P + tc) \n\n\n= 0.8 \\times 10 + (1 - 0.8) (100 + 10) \n\n\n= 8 + 0.2(110) \n\nTavg = 30 ns.  \n\nMemory with optimization (new) \n\nWants to reduce the miss rate ie increase the Hit Rate.  \n\nMiss penalty = 100 ns (not affected in new) \n\nTavg = 30 ns.  \n\nCache Access Time(tcnew) = 15 ns \n\nCache Hit Rate = hnew.  \n\nTavg = hnew \\times tcnew + (1 - hnew)(M.P + tcnew) \n\n30 = 15 \\times hnew + (1 - hnew) (100 + 15) \n\n30 = 15 hnew + 115 - 115 hnew \n\n85 = 100 hnew \n\nhnew = 85/100 \n\nhnew = 0.85 \n\nMethod 2 \n\nCache Hit Rate [h] = 0.8 \n\nCache Access Time [tc] = 10 ns. \n\nMiss Penalty (M.P) = 100 ns.  \n\nSo, its Hierarchical Access.  \n\nTavg = cache time + (1 - h) miss penalty \n\n       = 10 + (1 - 0.8) 100 \n\nTavg = 30 ns \n\nMemory with optimization (new) \n\nWants to reduce the miss rate ie increase the Hit Rate.  \n\nNew miss penalty = 100 ns (not affected in new) \n\nTavgnew = 30 ns. (not affected in new) \n\nCache Access Time (tcnew) = 15 ns.  \n\nCache Hit Rate = hnew \n\nTavgnew = Cache time + (1 - hnew) miss penalty  \n\n30 = 15 + (1 - hnew) 100 \n\n30 = 15 + 100 - 100 hnew \n\n100 hnew = 85 \n\nhnew = 85/100 \n\nhnew = 0.85 \n\n\n\n28. (d) \n\n\nS1: Write through \\rightarrow simultaneous update in L1 and \nNO role of dirty bit because here, its simultaneous \nupdate. \n\nIf miss occur directly replace the block \n\n\nS2: Write through: No write allocate. \n\nWrite back: Write allocation \n\nIncorrect \n\n\n\n29. (13.3 to 13.5) \n\nBlock size =256 bytes \n\nWord size = 64 bit = 8 bytes \n\nCache bit ratio = 94% \n\nCache access time [tc] = 3 nesec. \n\nFirst word takes 20 and each subsequent word take \n5 nsec. \n\nNumber of word = 256 B\n8 B\n=\n\n\nTavg = 0.94 \\times 3 + (1 - 0.94) (3 + 20 + 31×5) \n\n⇒ 2.82 + 0.06 [178] \n\n⇒ 2.82 + 10.68 \n\n⇒ 13.5 sec \n\n\n\n30. (160 to 160) \n\nClock frequency = 60 MHz \n\nCycle time = \nsec\nclock frequency\nl0\n=\n\n\n\nCache block size = 8 Words \n\n1 word size = 4 Bytes \n\nBlock size = 4 Bytes \n\nBlock size = 8 \\times 4 byte = 32 Byte \n\nTotal time taken to  \n\nTransfer cache block = \n\n (\n)\n(\n)\n12 cycle\nTransmit 1 word\nAccept\nFetch\nper cycle\n+\n+\n=\n\n\n\n\n\n\n\n\nBand width = \nTotal data\n32Byte\n12 cycle\n60 10\n=\n\n\n\n\n\n\n\n\n\n⇒ 32Byte\n\n10 sec\n\n\n\n= 160 \\times 106 bytes/sec \n\n\n31. (4.72 to 4.72) \n\n\nTavg read instn fetch = H1T1 + (1 - H1)H2(T2 + T1)  \n                       + (1 -H1) (1 - H2) H3 (Tm + T2 + T1) \n\nInstn fetch = 0.8 \\times 2 + (1 - 0.8) 0.9 (8 + 2) + (1 - 0.8) \n                 (1 - 0.9) [90 + 8 + 2] \n\n⇒ 1.6 + (0.2)(0.9)10 + (0.2)(0.1)(100) \n\nTavgread instn fetch = 5.4 nsec \n\nTavgread operand fetch = H1T + (1 - H1)H2(T2 + T1)  \n                          +(1 - H1) (1 - H2) H3 (Tm + T2 + T1) \n\n= 0.9 \\times 2 + ( 1 - 0.9) 0.9 (8 + 2) (0.1)(0.1)  \n   (90 + 8 + 2) \n\n= 1.8 + 0.9 + 1 = 3.7 nsec \n\nTavgread acceesstime = frequency of instn fetch \\times Tavgread instn \nfetch + frequency of operand fetch \\times Tavg operand fetch  \n\n= 0.60 \\times 5.4 + - 0.40 \\times 3.7 \n\nread access time\navg\nT\n4.72 nsec\n=\n\n\n\n32. \n(30 to 30) \n\nCache access time [tc] = 1msec \n\nDisk access time [td] = 10 msec \n\nCase I: When cache size is 10 MB that time miss \nrate 10.8. \n\nTavg = h \\times tc + *(1 - h) (tD + tC) \n\n⇒ 0.2 ×1 + (0.8) (10 +1) ⇒ 0.2 + 0.8 (11) \n\nTavg = 9 msec at 10 MB cache size \n\nCase II: When size is 20 MB that time miss rate  \n= 0.6 \n\nTavg = 0.4 \\times 1 + 0.6 [10 + 1] \n\n⇒ 0.4 + 0.6 [11] ⇒ 0.4 + 6.6 \n\navg\nT\n7msec\n=\n at 20 MB \n\nCase III: When cache size is 30 MB, that time miss \nrate = 0.4 \n\nHit rate (h) = 1- 0.4 = 0.6 \n\nTavg = h \\times tc + (1 - h) (tD + tc) \n\n⇒ 0.6 \\times 1 + (0.4) (10 + 1) ⇒ 0.6 + 0.4(11) \n\n⇒ 0.6 + 4.4 \n\navg\nT\n5msec\n=\n at 30 MB cache size \n\nCase IV: When size 40 MB, that time miss rate 0.35 \n\nTavg = h \\times tc + (1 - h) (tD + tC)  \n\n⇒ 0.65 (1) + (0.35) (10 + 1) ⇒ 0.65 + 0.35 (11) \n\n⇒ 0.65 + 3.85 \n\navg\nT\n4.5msec\n=\n at cache size 40 MB \n\nCase V: when cache size is 50 MB that time miss \nrate = 0.3 \n\nTavg = h \\times tC + (1 - h) (tD + tC) \n\n⇒ 0.7 \\times 1 + (0.3) (10 + 1) \n\navg\nT\n4msec\n=\n\n\nHence, the smallest cache size required to ensure an \naverage read latency of less than 6 ms will be 30 MB. \n\n\n33. (14 to 14) \n\nHit ratio = 80% \n\nCache read hit takes = 5 nsec \n\nRead miss = 50 nsec \n\nTavg = 0.80 \\times 5 + (1 - 0.80) \\times 50 \n\n⇒ 4 + (0.20) 50 \n\n⇒ = 4 + 10 \n\navg\nT\n14 nsec\n=\n\n\n\n34. (1.68 to 1.68) \n\n100 instruciton fetch operation + 60 memmory \noperand read  + 40 memory operand write \n\nTotal # Instn/operatin = 200 \n\n100 instruction fetch operation (memory read) and 60 \nmemory read \n\nTotal memory read operation = 100 + 60 = 160 \n\nRead: tC = 1 ns \n\nHit ratio = 0.9 \n\nTreadmiss = 5 nsec \n\nTavgread = 0.9 \\times 1 + (0.1)(5) \n\n⇒ 0.9 + 0.5 = 1.4 nsec \n\nTotal time required to perform read operation = 160 \\times \n1.4 = 224 nsec \n\n40 memory write operation \n\nWrite: \n\ntC = 2nsec \n\nHit ratio = 0.9 \n\nTwirtemiss = 10 ns \n\nTavgwrite = 0.9 \\times 2 + 0.1 (10) \n\n⇒ 1.8 + 1 \n\navgwrite\nT\n=\n\n\n\nTotal time taken to perform write operation = 40 \\times 2.8 \n\n= 112 nsec \n\nTotal time taken for 200 instructions = 224 + 112 = \n336 nsec \n\nAverage memory access time = 336\n1.68 nsec\n200 =\n\n\n\n35. (c) \n\nTag\n16 bit\n=\n\n\nPhysical address = 32 bit \n\nCache size = 256 k byte \n\nBlock size = 32 byte \n\n4 way set associative [22] \n\nWord offset = [ log2 blog size] ⇒ [log2 32] \n\nWord offset = 5 bit \n\nNumber lines = CM size\n256kB\nBlock size\n32B\n=\nT\n2 B\n2 B\n=\n\n\n\n\nLines\n=\n\n\nNumber  set = \nNumber Lines\n2 set\nN.way\n=\n=\n\n\nS. O = 11 bit \n\n\nTAG 16bits\n=\n\n\n\n\n36. (a) \n\nTag directory size = Number of of lines \\times tag entry in \nbits \n\n= 213 \\times [16 + 2 + 1+1] bits \n\n= 23 \\times 20 \\times 210 bits = 160 k bits \n\n\n\n37. (d) \n\nPhysical address = 32 bit \n\n1 valid bit \n\nCache size = 8 kB \n\n1 modified bit \n\nBlock size = 32 byte \n\nWord offset = [log2 Block size] ⇒ [log232] \n\nWord offset\n5 bit\n=\n\n\n# lines = \nCM size\n8kB\n2 lines\nBlock size\n32byte\n=\n=\n=\n\n\n#LINES\n=\n\n\nLine offset [L.0] =[log2256] \n\nL.O 8 bit\n=\n\n\n(direct mapped cache) \n\n\nTAG ⇒ 32 - (8 + 5) \n\nTAG 19 bit\n=\n\n\nWrite back cache = Tag entry = 19 + 1 + 1 = 21 bits \n\nTag memory size = number of lines \\times Tag entry size \n\n⇒ 256 \\times 21 bit \n\nTAG memory size\n5376 bit\n=\n\n\n\n38. (c) \n\n\n\nTime taken to transfer L2 to L1 = time to read word \nfrom L2 + update or write/store in L1 \n\n= 20 + 2 = 22 nsec \n\n\n\n39. (c) \n\nTime taken to transfer data from mm to L2 = Time to \nread word from mm +  time to store or update write in \nL2. \n\n4[200 + 20] ⇒ 4 \\times 220 = 880 nsec \n\nTime taken to transfer data from L2 to L1 = time to \nread word form L2 + time to store or update / write \nword in L1 \n\n= 20 + 2 = 22 nsec. \n\nTotal time to transfer data  \n\n\n= 880 (mm to L2) + 22 (L2 to L1) \n\nFrom mm to L2 and L2 to L1 = 902 nsec. \n\n\n\n40. (a) \n\n\n1. L1 must be write through cache: not correct always \n\n(we can use write back cache) \n\n2. L2: not correct \n\n3. Not correct \n\n4. Correct : its necessary  \n\nl\nL\nL\n\n\n\n\n41. (c) \n\nIA4 IA3 Connect to decodes. \n\nIA4 \nIA3 \n\n0 : x1 enabled \n\n1 :  x2 enabled \n\n0 :  x3 enabled \n\n1 :  x4 enabled \n\n\n\nIA6 IA5 IA4 IA3 IA2 IA1 IA0 \n\n\n0→ x1 enabled (0) \n\n\n1→ x2 enabled (8) \n\n\n0→ x3 enabled (16) \n\n\n1→ x4 enabled (24) \n\n\n\n42. (59 to 60) \n\nIn chip total number of rows = 214 \n\nTime to per form one refresh operation = 50 nsecs \n\nTotal time taken to refresh operation in all rows  \n\n= 214 \\times 50 nsecs \n\n⇒ 24 \\times 210 \\times 50 = 819200nsec = 0.8192 msec. \n\nRefresh period = 2 msec  \n\n= 0.8192 msec \n\nPercentage  of time spend in refersh operation = \n40.96%\n=\n\n\nPercentage of time available for read write operation  \n\n=100 - 40.96 = 59.04%  \n\n\nAlternate method \n\nTotal time taken for refresh operation = 0.8192 msec \n\n\nRefresh period = 2 msec \n\nTime available for read/write operationi = 2 - 0.8192 \n⇒ 1.1808 msec \n\n%time available for read/write operation = \n59.04%\n=\n\n\n\n\n43. (31 to 31) \n\nMain memory size = 4 GB [232 byte] \n\n1 word size = 2 Byte \n\nMemory is word addressable  \n\n1 word\n2Byte\n=\n\n\n4 G Byte \\rightarrow 4 G Byte Word\n2 G word\n2 Byte\n→\n\n\nWord addressable  \n\nMm size = 2G word \n\n⇒ 21230 word = 231 words  \n\nAddress  bus size\n31 Bit\n=\n\n\n\n\n44. (10000 to 10000) \n\nStarting 0 to 100 ns ⇒ data is available in bus for \nmodule 0 \n\n0 to 100 ⇒ module 0 ⇒ 100 ns  + 500 = 600 nsec \n\n100 to 200 ⇒ module 1 ⇒ 200 ns  + 500 = 700 nsec \n\n200 to 300 ⇒ module 2 ⇒ 300 ns  + 500 = 800 nsec \n\n300 to 400 ⇒ module 3 ⇒ 400 ns  + 500 = 900 nsec \n\n400 to 500 ⇒ module 4 ⇒ 500 ns  + 500 = 1000 nsec \n\n500 to 600 ⇒ module 5 ⇒ 600 ns  + 500 = 1100 nsec \n\n600 to 700 ⇒ module 6 ⇒ 700 ns  + 500 = 1200 nsec \n\n700 to 800 ⇒ module 7 ⇒ 800 ns  + 500 = 1300 nsec \n\nIn every 100 ns, initiate 1 word data to the bus. \n\n\n bus→ initate one request (1 word request)  \n\nFor 1 milli second number of words we can initate \n\n⇒ \n-3\n-9\n1 millisec\n100 nsec\n100 10\n=\n=\n\n = 10,000 \n\n\n\n45. (b) \n\nRAM CHIP size = 1 k \\times 8 (1024 word, 8 bit) \n\nWants to contruct RAM of size = 16 k \\times 16 \n\nNumber of RAM chip requried = 16 k\n\n1k×8\n\n\n⇒ 16 \\times 2 RAM chip ⇒ 16 lines \n\nDecoder (4 \\times 16) required  \n\n\n\n\nAsking how many 2 \\times 4 decodes required \n\nTotal 2 \\times 4 decodes is = 4 + 1 = 5 \n\n\n\n\n\n46. (b) \n\nMm capacity = 4m byte \n\n1DRAM size = 1 m \\times 1 bit \n\n\nNumber of RAM chip = \n4 m Byte\n4 m 8bit\n1m 1bit\n1m 1bit\n\n\n=\n\n\n\n\n= 32 RAM chip \n\nNote: Dram chip one refresh ⇒ one row is refresh \n(one row cells) \n\nTotal number of rows = 210 \n\nIn 1 chip, total number of refresh required = 210 refresh \noperations  \n\n1 refresh operation takes = 100 nsec. \n\n1 Chip refresh time = 210 \\times 100 nsec \n\nNote: all ram chip are refresh in parallel \n\nTotal refersh time = \n100nsec\n\n\n\n\n\n47. (c) \n\nMemory capcity = 256 k Byte \n\nEach ram chip size = 32 k \\times 1 bit \n\nNumer of ram chip required = \nMM size\nRAM chip size\n\n\n= 256 k Byte\n32k 1bit\n\n = \n8256 k\n \\times 8 Bit\n32k\n1 bit\n\n=",
+                "images": [
+                    "assets/Computer Organization and Architecture/COA_Memory_Hierarchy_P61_X7293.png",
+                    "assets/Computer Organization and Architecture/COA_Memory_Hierarchy_P61_X7295.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        }
+    ]
+}

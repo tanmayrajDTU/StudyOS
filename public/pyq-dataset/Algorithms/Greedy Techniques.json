@@ -1,0 +1,677 @@
+{
+    "subject": "Algorithms",
+    "topic": "Greedy Techniques",
+    "questionCount": 13,
+    "questions": [
+        {
+            "id": "ALGO_GREEDY_TECHNIQUES_2014_Q01",
+            "subject": "Algorithms",
+            "topic": "Greedy Techniques",
+            "subtopic": "Basics of Greedy",
+            "year": 2014,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 1,
+            "tags": [
+                "Greedy Techniques",
+                "Basics of Greedy",
+                "Algorithms"
+            ],
+            "question": {
+                "text": "Suppose P, Q, R, S, T are sorted sequences having \nlengths 20, 24, 30, 35, 50 respectively. They are to \nbe merged into a single sequence by merging \ntogether two sequences at a time. The number of \ncomparisons that will be needed in the worst case by \nthe optimal algorithm for doing this is______. \n\nHuffman Code Problem",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "358"
+            ],
+            "solution": {
+                "text": "L1: n L2: m: The number of comparisons needed \nto merge them into a single sorted list = (n + m - 1) \n\nP, Q, R, S, T = 20, 24, 30, 35, 50 \n\n\nTotal comparisons: 158 + 93 + 64 + 43 = 358.",
+                "images": [
+                    "assets/Algorithms/ALGO_Greedy_Techniques_P25_X3047.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "ALGO_GREEDY_TECHNIQUES_2021_Q02",
+            "subject": "Algorithms",
+            "topic": "Greedy Techniques",
+            "subtopic": "Huffman Code Problem",
+            "year": 2021,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MSQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 2,
+            "tags": [
+                "Greedy Techniques",
+                "Huffman Code Problem",
+                "Algorithms"
+            ],
+            "question": {
+                "text": "Consider the string abbccddeee. Each letter in the \nstring must be assigned a binary code satisfying the \nfollowing properties:  \n\n1. For any two letters, the code assigned to one \nletter must not be a prefix of the code assigned \nto the other letter.  \n\n2. For any two letters of the same frequency, the \nletter which occurs earlier in the dictionary order \nis assigned a code whose length is at most the \nlength of the code assigned to the other letter.  \n\nAmong the set of all binary code assignments which \nsatisfy the above two properties, what is the \nminimum length of the encoded string?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "23",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "25",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "21",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "30",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "A"
+            ],
+            "solution": {
+                "text": "a \\rightarrow 1 \n\nb \\rightarrow 2 \n\nc \\rightarrow 2 \n\nd \\rightarrow 2 \n\ne \\rightarrow 3 \n\n\n<abbccddeee> : 3 + (3 + 3) + (2 + 2) + (2 + 2) + \n(2 + 2 + 2) \n\na = 100 (3) \n\nb = 101 (3) \n\nc = 00 (2) \n\nd = 01 (2) \n\ne = 11 (2) \n\n<abbccddeee> : 10010110100000101111111.",
+                "images": [
+                    "assets/Algorithms/ALGO_Greedy_Techniques_P25_X983.png",
+                    "assets/Algorithms/ALGO_Greedy_Techniques_P25_X3049.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "ALGO_GREEDY_TECHNIQUES_2017_Q03",
+            "subject": "Algorithms",
+            "topic": "Greedy Techniques",
+            "subtopic": "minimum length of the encoded string?",
+            "year": 2017,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 3,
+            "tags": [
+                "Greedy Techniques",
+                "minimum length of the encoded string?",
+                "Algorithms"
+            ],
+            "question": {
+                "text": "A message is made up entirely of characters from the \nset X = {P, Q, R, S, T}. The table of probabilities for \neach of the characters is shown below: \nCharacter \nProbability \nP \nQ \nR \nS \nT \nTotal \n\nIf a message of 100 characters over X is encoded \nusing Huffman coding, then the expected length of \nthe encoded message in bits is _____.  \n\nKruskal's Algorithm",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "225"
+            ],
+            "solution": {
+                "text": "<P, Q, R, S, T> = <0.22, 0.34, 0.17, 0.19, 0.08 \n\n\nP \\rightarrow 01 (2 bits) \n\nQ \\rightarrow 11 (2 bits) \n\nR \\rightarrow 101 (3 bits) \n\nS \\rightarrow 00 (2 bits) \n\nT \\rightarrow 100 (3 bits) \n\nn\ni\nAverage number of bits\ndi.qi\nchar\n=\n=\n\n\n= 2 * 0.22 + 2 * 0.34 + 3 * 0.17 + 2 * 0.19 + 3 * 0.08 \n\n= 0.44 + 0.68 + 0.51 + 0.38 + 0.24 = 2.25 \n\nNumber of bits for 100 char's = 100 \\times 2.25 = 225.",
+                "images": [
+                    "assets/Algorithms/ALGO_Greedy_Techniques_P26_X3175.png",
+                    "assets/Algorithms/ALGO_Greedy_Techniques_P26_X3179.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "ALGO_GREEDY_TECHNIQUES_2015_Q04",
+            "subject": "Algorithms",
+            "topic": "Greedy Techniques",
+            "subtopic": "Kruskal's Algorithm",
+            "year": 2015,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 4,
+            "tags": [
+                "Greedy Techniques",
+                "Kruskal's Algorithm",
+                "Algorithms"
+            ],
+            "question": {
+                "text": "The graph shown below has 8 edges with distinct \ninteger edge weights. The minimum spanning tree \n(MST) is of weight 36 and contains the edges: {(A, \nC), (B, C), (B, E), (E, F), (D, F)}. The edge weights \nof only those edges which are in the MST are given \nin the figure shown below. The minimum possible \nsum of weights of all 8 edges of this graph is \n________.",
+                "images": [
+                    "assets/Algorithms/ALGO_Greedy_Techniques_P22_X2835.png"
+                ],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "69"
+            ],
+            "solution": {
+                "text": "Sum = 36 + 10 + 16 + 7 = 69.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "ALGO_GREEDY_TECHNIQUES_2009_Q05",
+            "subject": "Algorithms",
+            "topic": "Greedy Techniques",
+            "subtopic": "________.",
+            "year": 2009,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 5,
+            "tags": [
+                "Greedy Techniques",
+                "________.",
+                "Algorithms"
+            ],
+            "question": {
+                "text": "Consider the following graph: \n\n\nWhich one of the following is NOT the sequence of \nedges added to the minimum spanning tree using \nKruskal's algorithm?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "(b, e) (e, f) (a, c) (b, c) (f, g) (c, d)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "(b, e) (e, f) (a, c) (f, g) (b, c) (c, d)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "(b, e) (a, c) (e, f) (b, c) (f, g) (c, d)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "(b, e) (e, f) (b, c) (a, c) (f, g) (c, d) \n\nPrim's Algorithm",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "D"
+            ],
+            "solution": {
+                "text": "In kruskals the edges are added in the non-\nincreasing order. Only option (d) applies the \nalgorithm correctly.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "ALGO_GREEDY_TECHNIQUES_2021_Q06",
+            "subject": "Algorithms",
+            "topic": "Greedy Techniques",
+            "subtopic": "Prim's Algorithm",
+            "year": 2021,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 6,
+            "tags": [
+                "Greedy Techniques",
+                "Prim's Algorithm",
+                "Algorithms"
+            ],
+            "question": {
+                "text": "Let G = (V, E) be any connected undirected edge-\nweighted graph. The weights of the edges in E are \npositive and distinct. Consider the following \nstatements: \n\nI: Minimum spanning Tree of G is always unique. \n\nII: Shortest path between any two vertices of G is \nalways unique. \n\nWhich of the above statements is/are necessarily \ntrue?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "I only",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "II only",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "Both I and II",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "Neither I nor II",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "A"
+            ],
+            "solution": {
+                "text": "For the above graph statement, I follow but for the \nsame graph statement II fails. The shortest path \nbetween node 2 and node 3 is of weight 3 but it is \nnot unique. There are two paths:  \n• \nNode 2 to Node 3 via Node 1.  \n• \nNode 2 to Node 3.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "ALGO_GREEDY_TECHNIQUES_2021_Q07",
+            "subject": "Algorithms",
+            "topic": "Greedy Techniques",
+            "subtopic": "true?",
+            "year": 2021,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 7,
+            "tags": [
+                "Greedy Techniques",
+                "true?",
+                "Algorithms"
+            ],
+            "question": {
+                "text": "[GATE-2020 2M] \n\nConsider a graph G = (V, E), where V = {v1, v2 \n…v100}, E = {vi, vj} |1 \\le i \\le j \\le 100}, and weight of \nthe edge (vi, vj) is |i - j|. The weight of minimum \nspanning tree of G is ____.",
+                "images": [
+                    "assets/Algorithms/ALGO_Greedy_Techniques_P23_X2950.png"
+                ],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "99"
+            ],
+            "solution": {
+                "text": "V\nV\nV\nV\n....V\nV\n⎯⎯→\n⎯⎯→\n⎯⎯→\n⎯⎯→\n⎯⎯→\n\n\nNumber of edges needed = 99 \\times 1 = 99.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "ALGO_GREEDY_TECHNIQUES_2018_Q08",
+            "subject": "Algorithms",
+            "topic": "Greedy Techniques",
+            "subtopic": "spanning tree of G is ____.",
+            "year": 2018,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 8,
+            "tags": [
+                "Greedy Techniques",
+                "spanning tree of G is ____.",
+                "Algorithms"
+            ],
+            "question": {
+                "text": "Consider the following undirected graph G: \n\nChoose a value of x that will maximize the number \nof minimum weight spanning trees (MWSTs) of G. \nThe number of MWSTs of G for this value of x is \n_______.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "4"
+            ],
+            "solution": {
+                "text": "If x = 5, we can have 2 possible options  \n\n\nThe number of spanning trees = 2C1 * 2C1 \n\n\n    = 2 * 2 = 4.",
+                "images": [
+                    "assets/Algorithms/ALGO_Greedy_Techniques_P26_X3177.png",
+                    "assets/Algorithms/ALGO_Greedy_Techniques_P26_X3181.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "ALGO_GREEDY_TECHNIQUES_2016_Q09",
+            "subject": "Algorithms",
+            "topic": "Greedy Techniques",
+            "subtopic": "_______.",
+            "year": 2016,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 9,
+            "tags": [
+                "Greedy Techniques",
+                "_______.",
+                "Algorithms"
+            ],
+            "question": {
+                "text": "Let G be weighted connected undirected graph with \ndistinct positive edge weights. If every edge weight \nis increased by the same value, then which of the \nfollowing statements is/are TRUE? \n• \nP: Minimum spanning tree of G does not \nchange. \n• \nQ: Shortest path between any pair of vertices \ndoes not change.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "P only",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "Q only",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "Neither P nor Q",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "Both P and Q",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "A"
+            ],
+            "solution": {
+                "text": "To the above graph we are adding a constant value \n100. The M.S.T of the graph before adding the \nconstant and after is shown below: \n\n\nAfter adding a constant 100 the shortest path from \nnode 2 to node 3 = 107. \n\nAfter adding a constant 100 the path from node 2 to \nnode 3 = 110. \n\nThis proves that even after adding a constant value \nto the edge weights the minimum spanning tree of \nthe graph does not change.",
+                "images": [
+                    "assets/Algorithms/ALGO_Greedy_Techniques_P27_X3252.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "ALGO_GREEDY_TECHNIQUES_2016_Q10",
+            "subject": "Algorithms",
+            "topic": "Greedy Techniques",
+            "subtopic": "does not change.",
+            "year": 2016,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 10,
+            "tags": [
+                "Greedy Techniques",
+                "does not change.",
+                "Algorithms"
+            ],
+            "question": {
+                "text": "Let G be a complete undirected graph on 4 vertices, \nhaving 6 edges with weights being 1, 2, 3, 4, 5 and \n6. The maximum possible weight that a minimum \nweight spanning tree of G can have is _____.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "7"
+            ],
+            "solution": {
+                "text": "The maximum possible weight that a minimum \nweight spanning tree of G can have is 7.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "ALGO_GREEDY_TECHNIQUES_2016_Q11",
+            "subject": "Algorithms",
+            "topic": "Greedy Techniques",
+            "subtopic": "weight spanning tree of G can have is _____.",
+            "year": 2016,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 11,
+            "tags": [
+                "Greedy Techniques",
+                "weight spanning tree of G can have is _____.",
+                "Algorithms"
+            ],
+            "question": {
+                "text": "G = (V, E) is an undirected simple graph in which \neach edge has a distinct weight, and e is a particular \nedge of G. Which of the following statements about \nthe minimum spanning trees (MSTs) of G is/are \nTRUE? \n\nI: If e is the lightest edge of some cycle in G, then \nevery MST of G includes e. \n\nII: If e is the heaviest edge of some cycle in G, then \nevery MST of G excludes e.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "I only",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "II only",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "Both I and II",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "Neither I nor II \nb\ne\nc\nf\ng\na\nd",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "B"
+            ],
+            "solution": {
+                "text": "Given that V = a, b, c, d and E = ab, bc, cd, da, ac, \nlet G = (V, E) be a graph.  \n\n• \nAssign the following weights to the edges: \nab = 1, bc = 2, cd = 4, da = 5, ac = 3. The MST \nabcd with cost 7 (= ab + bc + cd) does not \ninclude ac, which is obviously the cycle's \nlightest edge.  \n\n• \nAssign the following weights to the edges: ab = \n6, bc = 7, cd = 4, da = 5, and ac = 3. The MST \nbacd with cost 13 (= ba + ac + cd) includes ac \nsince it is the cycle cdac's lightest edge.  \n\nTherefore, the lightest edge may or may not be \nincluded in the MSTs of G.  \n\n• \nLet e be the heaviest edge. Consider the least \nspanning tree that includes e. A cycle will be \nproduced if we increase the spanning tree's edge \ncount by one. Suppose we add edge e' to the \nspanning tree which generated cycle C. We can \nreduce the cost of the minimum spanning tree if \nwe choose an edge other than e from C for \nremoval which implies that e must not be in \nminimum spanning tree and we get a \ncontradiction.",
+                "images": [
+                    "assets/Algorithms/ALGO_Greedy_Techniques_P27_X3256.png",
+                    "assets/Algorithms/ALGO_Greedy_Techniques_P27_X3258.png",
+                    "assets/Algorithms/ALGO_Greedy_Techniques_P27_X3260.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "ALGO_GREEDY_TECHNIQUES_2011_Q12",
+            "subject": "Algorithms",
+            "topic": "Greedy Techniques",
+            "subtopic": "d",
+            "year": 2011,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 12,
+            "tags": [
+                "Greedy Techniques",
+                "d",
+                "Algorithms"
+            ],
+            "question": {
+                "text": "Let G = (V, E) be a weighted undirected graph and \nlet T be a Minimum Spanning Tree (MST) of G \nmaintained using adjacency lists. Suppose a new \nweighted edge (u, v)  V  V is added to G. The \nworst-case time complexity of determining if T is \nstill an MST of the resultant graph is",
+                "images": [
+                    "assets/Algorithms/ALGO_Greedy_Techniques_P24_X3021.png"
+                ],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "(|E| + |V|)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "(|E|  |V|)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "(|E| log |V|)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "(|V|)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "D"
+            ],
+            "solution": {
+                "text": "A Tree having 'n' vertices will always have (n - 1) \nedges.  \n\n |V| = |E| + 1 \n\nG \nT \n\n\nE : O (E) : O(v) \n\nA tree having n vertices will always have n - 1 \nedges.",
+                "images": [
+                    "assets/Algorithms/ALGO_Greedy_Techniques_P28_X3305.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "ALGO_GREEDY_TECHNIQUES_2008_Q13",
+            "subject": "Algorithms",
+            "topic": "Greedy Techniques",
+            "subtopic": "still an MST of the resultant graph is",
+            "year": 2008,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 13,
+            "tags": [
+                "Greedy Techniques",
+                "still an MST of the resultant graph is",
+                "Algorithms"
+            ],
+            "question": {
+                "text": "Dijkstra's single source shortest path algorithm \nwhen run from vertex a in the above graph, \ncomputes the correct shortest path distance to",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "Only vertex a",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "Only vertices a, e, f, g, h",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "Only vertices a, b, c, d",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "All the vertices",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "D"
+            ],
+            "solution": {
+                "text": "Destination-d-values \nVertex  \nselected \na \nb \nc d \ne \nf \ng h \n{a} \n- \n      \n{a, b} \n- \n3  -2    \n{a, b, e} \n- \n3  -2 0   \n{a, b, e, f} \n- \n3  -2 0 3  \n{a, b, e, f,  g} \n- \n3  -2 0 3 5 \n{a, b, e, f, g, c} \n- \n3 6 -2 0 3 5 \n{a, b, e, f, g, c, h} \n- \n3 6 -2 0 3 5 \n\nThus, the above graph computes the correct shorest \npath distance two all the vertices.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        }
+    ]
+}

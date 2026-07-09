@@ -1,0 +1,1011 @@
+{
+    "subject": "Compiler Design",
+    "topic": "Code Optimization",
+    "questionCount": 17,
+    "questions": [
+        {
+            "id": "CD_CODE_OPTIMIZATION_2022_Q01",
+            "subject": "Compiler Design",
+            "topic": "Code Optimization",
+            "subtopic": "C H A P T E R",
+            "year": 2022,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 1,
+            "tags": [
+                "Code Optimization",
+                "C H A P T E R",
+                "Compiler Design"
+            ],
+            "question": {
+                "text": "For a statement S in a program, in the context of \nliveness analysis, the following sets are defined \n\nUSE(S) : the set of variables used in S \n\nIN (S) : the set of variables that are live at the entry \nof S  \n\nOUT (S) : the set of variables that are live at the exit \nof S \n\nConsider a basic block that consists of two \nstatements, S1 followed by S2.  \n\nWhich one of the following statements is correct?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "OUT (S1 ) = IN(S2 )",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "OUT (S1 ) = IN(S1 )∪USE(S1 )",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "OUT (S1 ) = IN(S2 )∪OUT(S2 )",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "OUT (S1 ) = USE(S1 )∪IN(S2 )",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "A"
+            ],
+            "solution": {
+                "text": "For two statements S1 and S2, If S2 executes after \nS1 then we will first compute IN and OUT sets for \nS2 and then we will do it for S1. Here OUT(S1) will \nbe same as IN(S2) in the backward analysis. \n\n\nOUT (S1) purely depends on IN(S2).  \n\nTherefor, OUT(S1) = IN(S2). \n\nOption A is the correct answer.",
+                "images": [
+                    "assets/Compiler Design/CD_Code_Optimization_P33_X3073.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "CD_CODE_OPTIMIZATION_2021_Q02",
+            "subject": "Compiler Design",
+            "topic": "Code Optimization",
+            "subtopic": "Which one of the following statements is correct?",
+            "year": 2021,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 2,
+            "tags": [
+                "Code Optimization",
+                "Which one of the following statements is correct?",
+                "Compiler Design"
+            ],
+            "question": {
+                "text": "Consider the following ANSI C code segment: \n\nz = x + 3 + y →f1 + y \\rightarrow f2; \n\nfor (i = 0; i < 200; i = i + 2) { \n\n   if (z > i) { \n\n      p = p + x + 3; \n\n      q = q + y \\rightarrow f1; \n\n   } else { \n\n      p = p + y \\rightarrow f2; \n\n      q = q + x + 3; \n\n  } \n\n} \n\nAssume that the variable y points to a struct  \n\n(allocated on the heap) containing two fields f1 and \nf2, and the local variables x, y, z, p, q, and i are \nallotted \nregisters. \nCommon \nsub-expression \nelimination (CSE) optimization is applied on the \ncode. The number of addition and dereference \noperations (of the form y \\rightarrow f1 or y \\rightarrow f2) in the \noptimized code, respectively, are:",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "403 and 102",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "203 and 2",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "303 and 102",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "303 and 2",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "D"
+            ],
+            "solution": {
+                "text": "Computing common sub expressions outside the \nloop: \n\nt1 = x + 3;              // Here 1 addition happens \n\nt2 = y \\rightarrow f1;            // 1 dereference \n\nt3 = y \\rightarrow f2;            // 1 dereference \n\nz = t1 + t2 + t3;        // 2 additions required to \nperform this instruction \n\nfor (i = 0; i < 200; i = i + 2)     // 100 additions will \nhappen, i=i+2 executed 100 times \n\n{ \n\n\nif (z > i)  \n\n\n{ \n\n\n\np = p + t1;                  \n\n\n\nq = q + t2; \n\n\n} \n\n\nelse \n\n\n{ \n\n\n\np = p + t3;  \n\n\n\nq = q + t1; \n\n\n}                                        // 2 additions will \nhappen for each iteration of loop whether \"if \nblock\" or \"else block\" is executed.  \n\n} \n\n 100 *2 +100 + 3 = 303 additions \n 2 dereference operations \nIn the above code, total 303 additions and 2 \ndereference operations performed. \n\nSo, option D is the correct answer",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "CD_CODE_OPTIMIZATION_2009_Q03",
+            "subject": "Compiler Design",
+            "topic": "Code Optimization",
+            "subtopic": "optimized code, respectively, are:",
+            "year": 2009,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 3,
+            "tags": [
+                "Code Optimization",
+                "optimized code, respectively, are:",
+                "Compiler Design"
+            ],
+            "question": {
+                "text": "Which of the following statements are TRUE? \n\nI: \nThere exist parsing algorithms for some \nprogramming languages whose complexities \nare \nless than θ(n3). \n\nII: A programming language which allows \nrecursion can be implemented with static storage \nallocation. \n\nIII: No L-attributed definition can be evaluated in \nthe framework of bottom-up  parsing. \n\nIV: Code improving transformations can be \nperformed at both source language and intermediate \ncode level.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "I and II",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "I and IV",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "III and IV",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "I, III and IV",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "B"
+            ],
+            "solution": {
+                "text": "I. \n\"There exist parsing algorithms for some \nprogramming languages whose complexities \nare less than θ(n3)\" is TRUE. For example, \nCYK algorithm.  \nII. \n\"A programming language which allows \nrecursion can be implemented with static \n\nstorage allocation\" is FALSE. A programming \nlanguage which allows recursion can be \nimplemented with stack storage allocation. \nIII. \"No L-attributed definition can be evaluated in \nthe framework of bottom-up parsing\" is \nFALSE. Every S-attributed definition is also \nL-attributed definition and hence they can be \nevaluated in the framework of bottom-up \nparsing.  \nIV. \"Code improving transformations can be \nperformed at both source language and \nintermediate code level\" is TRUE.  \n\nSo, statement I and IV are true, and hence option b \nis the correct amswer.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "CD_CODE_OPTIMIZATION_2015_Q04",
+            "subject": "Compiler Design",
+            "topic": "Code Optimization",
+            "subtopic": "code level.",
+            "year": 2015,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 4,
+            "tags": [
+                "Code Optimization",
+                "code level.",
+                "Compiler Design"
+            ],
+            "question": {
+                "text": "A variable x is said to be live at a statement Si in a \nprogram if the following  \n1. three conditions hold simultaneously: \n2. There exists a statement 𝑆𝑗 that uses 𝑥 \n3. There is a path from Si to Sj in the flow graph \ncorresponding to the program \n\nThe path has no intervening assignment to 𝑥 \nincluding at 𝑆𝑖 and 𝑆𝑗 \n\n\n\n\n\n\nThe variables which are live both at the statement in \nbasic block 2 and at the statement in basic block 3 of \nthe above control flow graph are:",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "p, s, u",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "r, s, u",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "r, u",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "q, v",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "C"
+            ],
+            "solution": {
+                "text": "In the given CFG: \n\n\n\n\n\n\n\nWe have p, q, r, s, v, and u variables in the above \nCFG \n\nVariable live at Basic Block 2: {r, u} \n\nVariable live at Basic Block 3: {r, s, u} \n\nVariable live at both Basisc Blocks 2 and 3: {r, u} \n\nSo, option C is correct.",
+                "images": [
+                    "assets/Compiler Design/CD_Code_Optimization_P33_X733.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "CD_CODE_OPTIMIZATION_2014_Q05",
+            "subject": "Compiler Design",
+            "topic": "Code Optimization",
+            "subtopic": "the above control flow graph are:",
+            "year": 2014,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 5,
+            "tags": [
+                "Code Optimization",
+                "the above control flow graph are:",
+                "Compiler Design"
+            ],
+            "question": {
+                "text": "Consider the basic block given below. \n\n a = b + c  \n\n c = a + d \n\n d = b + c \n\n e = d − b \n\n a = e + b \n\nThe minimum number of nodes and edges present in \nthe DAG representation of the above basic block \nrespectively are",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "6 and 6",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "8 and 10",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "9 and 12",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "4 and 4",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "A"
+            ],
+            "solution": {
+                "text": "a = e +b \n\n= (d - b) + b \n\n= ([b + c] - b) + b  \n= ([b + (a + d) ] - b) + b \n\n= ([b + (b + c] + d) - b) + b \n\na = b + ([b + c] + d) \n\nCorresponding DAG representation: \n\nThere are total 6 nodes and 6 edges. So, option a is \ncorrect answer.",
+                "images": [
+                    "assets/Compiler Design/CD_Code_Optimization_P33_X733.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "CD_CODE_OPTIMIZATION_2021_Q06",
+            "subject": "Compiler Design",
+            "topic": "Code Optimization",
+            "subtopic": "respectively are",
+            "year": 2021,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 6,
+            "tags": [
+                "Code Optimization",
+                "respectively are",
+                "Compiler Design"
+            ],
+            "question": {
+                "text": "GATE-2014 : 1M] \n\nWhich one of the following is FALSE?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "A basic block is a sequence of instructions \nwhere control enters the sequence at the \nbeginning and exits at the end.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "Available expression analysis can be used for \ncommon subexpression elimination.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "Live variable analysis can be used for dead \ncode elimination.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "x = 4 \\times 5 ⇒ x = 20 is an example of common \nsubexpression elimination.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "D"
+            ],
+            "solution": {
+                "text": "(a) \"A basic block is a sequence of instructions \nwhere control enters the sequence at the \nbeginning and exits at the end\" is TRUE. In a \nbasic block control only enters at the beginning \nand exits at the end. Control never enters in the \nmiddle of the instruction and never exits from \nthe middle of the sequence of instructions.  \n\n(b) \"Available expression analysis can be used for \ncommon subexpression elimination\" is TRUE \n\n(c) \"Live variable analysis can be used for dead \ncode elimination\" is TRUE, with backward \nanalysis we can use live variable for dead code \nelimination.  \n\n(d) \"x = 4 \\times 5 ⇒ x = 20 is an example of common \nsubexpression elimination\" is FALSE. This is \nan example of constant folding.  \n\nSo, option D is correct answer.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "CD_CODE_OPTIMIZATION_2014_Q07",
+            "subject": "Compiler Design",
+            "topic": "Code Optimization",
+            "subtopic": "subexpression elimination.",
+            "year": 2014,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 7,
+            "tags": [
+                "Code Optimization",
+                "subexpression elimination.",
+                "Compiler Design"
+            ],
+            "question": {
+                "text": "The minimum number of arithmetic operations \nrequired to evaluate the polynomial P(X) = X5 + \n4X3 + 6X + 5 for a given value of X, using only one \ntemporary variable is_________. \n\n\nCommon Data for Next two Questions: \n\nThe following code segment is executed on a \nprocessor which allows only register operands \nin its instructions. Each instruction can have \natmost \ntwo \nsource \noperands \nand \none \ndestinations operand. Assume that all variables \nare dead after this code segment.  \n\nc = a + b; \n\nd = c * a; \n\ne = c + a; \n\nx = c * c; \n\nif (x > a) { \n          y = a * a;} \n\n else { \n\n d = d * d; \n\n e = e * e; \n\n }",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "7"
+            ],
+            "solution": {
+                "text": "Given, P(X) = X5 + 4X3 + 6X + 5 \n\n\n\n\n= X5 + 4X3 + 6X + 5 \n\n\n\n\n=   X [X4 + 4X2 + 6] + 5  \n\n\nSo, there are total 4 multiplication and 3 additions, \nso total 7 arithmetic operation are required.",
+                "images": [
+                    "assets/Compiler Design/CD_Code_Optimization_P35_X3271.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "CD_CODE_OPTIMIZATION_2013_Q08",
+            "subject": "Compiler Design",
+            "topic": "Code Optimization",
+            "subtopic": "}",
+            "year": 2013,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 8,
+            "tags": [
+                "Code Optimization",
+                "}",
+                "Compiler Design"
+            ],
+            "question": {
+                "text": "Suppose the instruction set architecture of the \nprocessor has only two registers. The only allowed \ncompiler optimization is code motion, which moves \nstatements from one place to another while \npreserving correctness. What is the minimum \nnumber of spills to memory in the compiled code?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "0",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "1",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "2",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "3",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "B"
+            ],
+            "solution": {
+                "text": "Sol. Spill to memory means how many extra \nregisters/memory/variables are required.  \n\nCode motion can be performed as follows: \n\nc = a + b; //a and b in register and b replaced by the \nresult c after the instruction \n\nx = c * c; //x replaces c in register and c is spilled \n(moved to memory) \n\nif (x > a) { //x and a in memory \n\ny = a * a;  \n\n d = c * a; //spilled c taken from memory and \nreplaces x in register.  \n\ne = c + a;  \n\n}  \n\nelse {  \n\nd = c * a; //spilled c taken from memory and replaces \nx in register. d replaces a in register \n\nd = d * d; //c and d are in register \n\ne = c + a; //a  is taken from memory and e replaces \nc in the register (a taken from memory is not a spill, \nit is a fill) \n\ne = e * e;  \n\n}  \n\nSo, minimum 1 spill is required in the compiled code.",
+                "images": [
+                    "assets/Compiler Design/CD_Code_Optimization_P35_X3273.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "CD_CODE_OPTIMIZATION_2013_Q09",
+            "subject": "Compiler Design",
+            "topic": "Code Optimization",
+            "subtopic": "number of spills to memory in the compiled code?",
+            "year": 2013,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 9,
+            "tags": [
+                "Code Optimization",
+                "number of spills to memory in the compiled code?",
+                "Compiler Design"
+            ],
+            "question": {
+                "text": "What is the minimum number of registers needed in \nthe instruction set architecture of the processor to \ncompile this code segment without any spill to \nmemory? Do not apply any optimization other than \noptimizing register allocation.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "3",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "4",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "5",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "6",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "B"
+            ],
+            "solution": {
+                "text": "It is said not to apply any code optimisation other \nthan register allocation.  \n\nAllocation with 3 registers: \n\nc = a + b; //a, c in register \n\nd = c * a; //a, c, d in register \n\ne = c + a; //a, c, e in register, d spilled.  \n\nAllocation with 4 registers: \n\nc = a + b; //a, c in register \n\nd = c * a; //a, c, d in register \n\ne = c + a; //a, c, d, e in register \n\nx = c * c; //a, x, d, e in register \n\nif (x > a) {  \n\n y = a * a;  \n\n}  \n\nelse {  \n\n d = d * d;  \n\ne = e * e;  \n\n}  \n\nWith 4 registers, no spilling is there, so option B is \nthe correct answer.",
+                "images": [
+                    "assets/Compiler Design/CD_Code_Optimization_P35_X3271.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "CD_CODE_OPTIMIZATION_2011_Q10",
+            "subject": "Compiler Design",
+            "topic": "Code Optimization",
+            "subtopic": "optimizing register allocation.",
+            "year": 2011,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 10,
+            "tags": [
+                "Code Optimization",
+                "optimizing register allocation.",
+                "Compiler Design"
+            ],
+            "question": {
+                "text": "Consider evaluating the following expression tree on \na machine with load-store architecture in which \nmemory can be accessed only through load and store \ninstructions. The variables a, b, c, d and e are initially \nstored in memory. The binary operators used in this \nexpression tree can be evaluated by the machine only \nwhen the operands are in registers. The instructions \nproduce result only in a register. If no intermediate \nresults can be stored in memory, what is the \nminimum number of registers needed to evaluate this \nexpression?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "2",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "9",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "5",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "3",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "D"
+            ],
+            "solution": {
+                "text": "From the above diagram we can see, three registers \nare required R1, R2, and R3. Therefore, option d is \nthe correct answer.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "CD_CODE_OPTIMIZATION_2008_Q11",
+            "subject": "Compiler Design",
+            "topic": "Code Optimization",
+            "subtopic": "expression?",
+            "year": 2008,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 11,
+            "tags": [
+                "Code Optimization",
+                "expression?",
+                "Compiler Design"
+            ],
+            "question": {
+                "text": "intermediate code because",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "They enhance the portability of the compiler to \nthe target processors",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "Program analysis is more accurate on \nintermediate code than on machine code",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "The information from data flow analysis cannot \notherwise be used for optimization",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "The information from the front end cannot \notherwise be used for optimization \n\nData Flow Analysis",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "A"
+            ],
+            "solution": {
+                "text": "intermediate code because they enhance the \nportability of the compiler to the target processors.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "CD_CODE_OPTIMIZATION_2023_Q12",
+            "subject": "Compiler Design",
+            "topic": "Code Optimization",
+            "subtopic": "Data Flow Analysis",
+            "year": 2023,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 12,
+            "tags": [
+                "Code Optimization",
+                "Data Flow Analysis",
+                "Compiler Design"
+            ],
+            "question": {
+                "text": "Consider the control flow graph shown. \n\nWhich one of the following choices lists the set of \nlive variable at the exit point of each basic block?",
+                "images": [
+                    "assets/Compiler Design/CD_Code_Optimization_P31_X2968.png"
+                ],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "B1: { }, B2: {a}, B3: {a}, B4: {a}",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "B1: {i, j}, B2: {a}, B3: {a}, B4: {i}",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "B1: { a, i, j }, B2: {a, i , j}, B3: {a, i}, B4: {a}",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "B1: { a, i , j }, B2: {a, j}, B3: {a, j}, B4: {a, i, j}",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "D"
+            ],
+            "solution": {
+                "text": "Live variables at the end of each basic block are:  \n\nB1: { a, i , j } \n\nB2: {a, j} \n\nB3: {a, j} \n\nB4: {a, i, j} \n\nSo, option D is the correct answer.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "CD_CODE_OPTIMIZATION_2021_Q13",
+            "subject": "Compiler Design",
+            "topic": "Code Optimization",
+            "subtopic": "live variable at the exit point of each basic block?",
+            "year": 2021,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 13,
+            "tags": [
+                "Code Optimization",
+                "live variable at the exit point of each basic block?",
+                "Compiler Design"
+            ],
+            "question": {
+                "text": "Consider the following C code segment: \n\na = b + c; \n\ne = a + 1; \n\nd = b + c; \n\nf = d + 1; \n\ng = e + f; \n\nIn a compiler, this code segment is represented \ninternally as a directed acyclic graph (DAG). \nThe number of nodes in the DAG is _______.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "6"
+            ],
+            "solution": {
+                "text": "g = e +1;  \n         ⇒ (a+ 1) + (d + 1) \n         ⇒ ((b + c) + 1) + ((b + c) + 1) \n\nThe corresponding DAG is as follows: \n\n\nTotal 6 nodes and 6 edges are present in the given \nDAG.",
+                "images": [
+                    "assets/Compiler Design/CD_Code_Optimization_P36_X3352.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "CD_CODE_OPTIMIZATION_2017_Q14",
+            "subject": "Compiler Design",
+            "topic": "Code Optimization",
+            "subtopic": "The number of nodes in the DAG is _______.",
+            "year": 2017,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 14,
+            "tags": [
+                "Code Optimization",
+                "The number of nodes in the DAG is _______.",
+                "Compiler Design"
+            ],
+            "question": {
+                "text": "Consider the following grammar: \n\nStmt \\rightarrow if expr then expr else expr; stmt |ε \n\nexpr \\rightarrow term relop term | term \n\nterm \\rightarrow id | number \n\nid \\rightarrow a | b | c \n\nnumber→[0-9] \n\nwhere relop is a relation operator (e.g., <,>,…), 0 \nrefers to the empty statement, and if, then, else are \nterminals. \n\nConsider a program P following the above grammar \ncontaining ten if terminals. The number of control \nflow paths in P is ______. if 𝑒1 then 𝑒2 else 𝑒3 \n\nhas 2 control flow paths, e1→e2 and e1→e3.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "1024"
+            ],
+            "solution": {
+                "text": "if e1 then e2  \n\nelse e3 \n\n\n2 \\times 2 \\times ….. 10 times = 210 = 1024 paths",
+                "images": [
+                    "assets/Compiler Design/CD_Code_Optimization_P36_X3354.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "CD_CODE_OPTIMIZATION_2015_Q15",
+            "subject": "Compiler Design",
+            "topic": "Code Optimization",
+            "subtopic": "has 2 control flow paths, e1→e2 and e1→e3.",
+            "year": 2015,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 15,
+            "tags": [
+                "Code Optimization",
+                "has 2 control flow paths, e1→e2 and e1→e3.",
+                "Compiler Design"
+            ],
+            "question": {
+                "text": "Consider the intermediate code given below: \n1. i=1 \n2. j=1 \n3. t1=5∗i \n4. t2=t1+j \n5. t3=4∗t2 \n6. t4=t3 \n7. a[t4]=−1 \n8. j=j+1 \n\n9. if j<=5 goto (3) \n10. i=i+1 \n11. if i<5 goto (2) \n\nThe number of nodes and edges in the control-flow-\ngraph constructed for the above code, respectively, \nare",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "5 and 7",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "6 and 7",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "5 and 5",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "7 and 8",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "B"
+            ],
+            "solution": {
+                "text": "The corresponding control flow graph is as follows: \n\n\nTotal, 6 nodes and 7 edges. So, option b is correct. \n\n\ni\nm\n =  - 1\n = \nj\nn\n = 10\na\nB1\nEntry\nI\n = \n, }\nN\n{\nm n\nOUT = \n, \n}\n{\n, \na i j\nGEN = { , }\nm n\nKILL = { , , }\ni j a\ni\ni\n =  + 1\n =  - 1\nj\nj\nB2\nI\n = \n, \n}\nN\n{\na i, j\nGEN = { , }\ni j\nKILL = { , }\ni j\nOUT\n{\n2 = \n, }\na j\ni\na\n =  + 1\nB4\nI\n = \n, }\nN\n{\na  j\nOUT\n{\n,\n4 = \n, \n}\na i  j\nGEN = { }\na\nKILL = { }\ni\nExit\na = 20\nB3\nI\n = }\nN\n{\nj\nOUT = { , }\na j\nGEN = { }\n\nKILL = { }\na",
+                "images": [
+                    "assets/Compiler Design/CD_Code_Optimization_P36_X3356.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "CD_CODE_OPTIMIZATION_2015_Q16",
+            "subject": "Compiler Design",
+            "topic": "Code Optimization",
+            "subtopic": "are",
+            "year": 2015,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 16,
+            "tags": [
+                "Code Optimization",
+                "are",
+                "Compiler Design"
+            ],
+            "question": {
+                "text": "In the context of abstract-syntax-tree (AST) and \ncontrol-flow-graph (CFG), which one of the \nfollowing is True?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "In both AST and CFG, let node N2 be the \nsuccessor of node N1. In the input program, \nthe code corresponding to N2 is present after \nthe code corresponding to N1",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "For any input program, neither AST nor CFG \nwill contain a cycle.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "The maximum number of successors of a node \nin an AST and a CFG depends on the input \nprogram.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "Each node in AST and CFG corresponds to at \nmost one statement in the input program.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "C"
+            ],
+            "solution": {
+                "text": "(a) \"In both AST and CFG, let node N2 be the \nsuccessor of node N1. In the input program, the \ncode corresponding to N2 is present after the \ncode corresponding to N1\" is FALSE. If loop is \npresent than control can move from any \nstatement to any statement.  \n(b) \"For any input program, neither AST nor CFG \nwill contain a cycle\" is FALSE. CFG will have \na cycle. \n(c) \"The maximum number of successors of a \nnode in an AST and a CFG depends on the \ninput program\" is TRUE.   \n(d) \"Each node in AST and CFG corresponds to at \nmost one statement in the input program\" is \nFALSE.  \nOnly option (c) is correct.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "CD_CODE_OPTIMIZATION_2009_Q17",
+            "subject": "Compiler Design",
+            "topic": "Code Optimization",
+            "subtopic": "most one statement in the input program.",
+            "year": 2009,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 17,
+            "tags": [
+                "Code Optimization",
+                "most one statement in the input program.",
+                "Compiler Design"
+            ],
+            "question": {
+                "text": "Match all items in Group 1 with correct options \nfrom those given in Group 2. \n\n\n Group 1 \n\nGroup 2 \n\nP:  Regular expression \n1.  Syntax analysis \n\nQ:  Pushdown automata 2.  Code generation \n\nR:  Dataflow analysis \n3.  Lexical analysis \n\nS: Register allocation",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "P-4, Q-1, R-2, S-3",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "P-3, Q-1, R-4, S-2",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "P-3, Q-4, R-1, S-2",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "P-2, Q-1, R-4, S-3",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "B"
+            ],
+            "solution": {
+                "text": "Regular expression is used in lexical analysis phase.  \n\nPushdown automata is used in syntax analysis \nphase. \n\nDataflow analysis is a part of code optimisation. \n\nRegister allocation is used in code generation while \ngenerating assembly code.  \n\nSo, option (b) is the correct answer.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        }
+    ]
+}

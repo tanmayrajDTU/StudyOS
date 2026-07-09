@@ -1,0 +1,261 @@
+{
+    "subject": "Compiler Design",
+    "topic": "Lexical Analysis",
+    "questionCount": 4,
+    "questions": [
+        {
+            "id": "CD_LEXICAL_ANALYSIS_2021_Q01",
+            "subject": "Compiler Design",
+            "topic": "Lexical Analysis",
+            "subtopic": "C H A P T E R",
+            "year": 2021,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 1,
+            "tags": [
+                "Lexical Analysis",
+                "C H A P T E R",
+                "Compiler Design"
+            ],
+            "question": {
+                "text": "In a compiler, keywords of a language are \nrecognized during",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "parsing of the program",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "the code generation",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "dataflow analysis",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "C"
+            ],
+            "solution": {
+                "text": "In a compiler keywords, identifiers, constans, \npunctuations, and operators are recognized during \n\nDuring the syntax analysis compiler does the \nverification of the syntax with the help of a parser.  \n\nDuring, the code generation compiler produes the \nassembly code.  \n\nDataflow analysis can perform liveness analysis, \navailable expression analysis, etc.  \n\nSo, option c is the correct answer.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "CD_LEXICAL_ANALYSIS_2021_Q02",
+            "subject": "Compiler Design",
+            "topic": "Lexical Analysis",
+            "subtopic": "recognized during",
+            "year": 2021,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 2,
+            "tags": [
+                "Lexical Analysis",
+                "recognized during",
+                "Compiler Design"
+            ],
+            "question": {
+                "text": "Which data structure in a compiler is used for \nmanaging information about variables and their \nattributes?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "Abstract syntax tree",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "Symbol table",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "Semantic stack",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "Parse table",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "B"
+            ],
+            "solution": {
+                "text": "Symbol table is used for managing information \nabout variables and their attributes. Symbol table \nmaintains all attributes information of each \nidentifier recognized during the lexical analysis.  \n\nHence, option c is the correct answer.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "CD_LEXICAL_ANALYSIS_2011_Q03",
+            "subject": "Compiler Design",
+            "topic": "Lexical Analysis",
+            "subtopic": "attributes?",
+            "year": 2011,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 3,
+            "tags": [
+                "Lexical Analysis",
+                "attributes?",
+                "Compiler Design"
+            ],
+            "question": {
+                "text": "The lexical analysis for a modern computer language \nsuch as Java needs the power of which one of the \nfollowing machine models in a necessary and \nsufficient sense?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "Finite state automata",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "Deterministic pushdown automata",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "Non-deterministic pushdown automata",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "Turing Machine \n\nFinding the Tokens",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "A"
+            ],
+            "solution": {
+                "text": "Finite Automata(regular expression) is sufficient to \nrepresent all the tokens and identifiers used during",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "CD_LEXICAL_ANALYSIS_2018_Q04",
+            "subject": "Compiler Design",
+            "topic": "Lexical Analysis",
+            "subtopic": "Finding the Tokens",
+            "year": 2018,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 4,
+            "tags": [
+                "Lexical Analysis",
+                "Finding the Tokens",
+                "Compiler Design"
+            ],
+            "question": {
+                "text": "A lexical analyzer uses the following patterns to \nrecognize three tokens T1, T2 and T3 over the \nalphabet {a, b, c}. \n\nT1: a ? (b│c)* a \n\nT2: b ? (a│c)* b \n\nT3: c ? (b│a)* c \n\nNote that x?  means 0 or 1 occurrence of the symbol \nx. Note also that the analyzer outputs the token that \nmatches the longest possible prefix.  \n\nIf the string bbaacabc is processed by the analyzer, \nwhich one of the following is the sequence of tokens \nit outputs?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "T1  T2  T3",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "T1  T1  T3",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "T2  T1  T3",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "T3 T3",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "D"
+            ],
+            "solution": {
+                "text": "Given,  \n\nHere, x? means 0 or 1 occurrence of the symbol x. \n\nWe can represent x?  as  + x using regular \nexpression. \n\nGiven string: b b a a c a b c \n\nT1 can generate upto: bba \n\nT2 can generate upto bb \n\nT3 can generate upto bbaac \n\nSo, we can see T3 can generate longest prefix of \ngiven string.  \n\nAgain, check remaining portion of input for next \nlongest prefix generator.  \n\nString left: a b c \n\nT1 cannot generate abc, it can generate abca but we \nrequire only abc \n\nT2 cannot generate abc, it can generate ab, but not \nabc \n\nT3 can generate abc.  \n\nSo, T3T3 is the correct sequence of tokens for the \ncomplete input. Hence. option d is correct answer.",
+                "images": [
+                    "assets/Compiler Design/CD_Lexical_Analysis_P7_X733.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        }
+    ]
+}

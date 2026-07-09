@@ -1,0 +1,1847 @@
+{
+    "subject": "Computer Networks",
+    "topic": "Network Layer",
+    "questionCount": 30,
+    "questions": [
+        {
+            "id": "CN_NETWORK_LAYER_2021_Q01",
+            "subject": "Computer Networks",
+            "topic": "Network Layer",
+            "subtopic": "IP Header",
+            "year": 2021,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MSQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 1,
+            "tags": [
+                "Network Layer",
+                "IP Header",
+                "Computer Networks"
+            ],
+            "question": {
+                "text": "Consider two hosts P and Q connected through a \nrouter R. The maximum transfer unit (MTU) value \nof the link between P and R is 1500 bytes, and \nbetween R and Q is 820 bytes. A TCP segment of \nsize 1400 bytes was transferred from P to Q through \nR, with IP identification value as 0x1234. Assume \nthat the IP header size is 20 bytes. Further, the packet \nis allowed to be fragmented, i.e, Don't Fragment \n(DF) flag in the IP header is not set by P.  \n\nWhich of the following statements is/ are correct?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "Two fragments are created at R and the IP \ndatagram size carrying the second fragment is \n620 bytes.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "If the second fragment is lost, R will resend the \nfragment with IP identification value 0x1234",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "If the second fragment is lost, P is required to \nresend the whole TCP segment.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "TCP destination port can be determined by \nanalyzing only the second fragment.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "A",
+                "C"
+            ],
+            "solution": {
+                "text": "",
+                "images": [
+                    "assets/Computer Networks/CN_Network_Layer_P34_X901.png",
+                    "assets/Computer Networks/CN_Network_Layer_P34_X3703.png",
+                    "assets/Computer Networks/CN_Network_Layer_P34_X3705.png",
+                    "assets/Computer Networks/CN_Network_Layer_P34_X3707.png",
+                    "assets/Computer Networks/CN_Network_Layer_P34_X3709.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "CN_NETWORK_LAYER_2020_Q02",
+            "subject": "Computer Networks",
+            "topic": "Network Layer",
+            "subtopic": "analyzing only the second fragment.",
+            "year": 2020,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 2,
+            "tags": [
+                "Network Layer",
+                "analyzing only the second fragment.",
+                "Computer Networks"
+            ],
+            "question": {
+                "text": "Consider the following statements about the \nfunctionality of an IP based router. \n\nI. \nA router does not modify the IP packets during \nforwarding. \n\nII. It is not necessary for a router to implement any \nrouting protocol. \n\nIII. A router should reassemble IP fragments if the \nMTU of the outgoing link is larger than the size \nof the incoming IP packet. \n\nWhich of the above statements is/are TRUE?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "I only",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "I and II only",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "II and III only",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "II only",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "D"
+            ],
+            "solution": {
+                "text": "Due to the TTL value changing during forwarding, \na router alters the IP packets. Since it can simply \nforward packets in all directions without performing \nany routing, a router is not required to implement \nany routing protocols. The packets are not \nassembled by the router. At the destination system, \nassembly is completed.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "CN_NETWORK_LAYER_2018_Q03",
+            "subject": "Computer Networks",
+            "topic": "Network Layer",
+            "subtopic": "Which of the above statements is/are TRUE?",
+            "year": 2018,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 3,
+            "tags": [
+                "Network Layer",
+                "Which of the above statements is/are TRUE?",
+                "Computer Networks"
+            ],
+            "question": {
+                "text": "Consider an IP packet with a length of4500 bytes that \nincludes a 20-byte IPv4 header and a 40-byte TCP \nheader. The packet is forwarded to an IPv4 router \nthat supports a Maximum Transmission Unit MTU) \nof 600 bytes. Assume that the length of the IP header \nin all the outgoing fragments of this packet is 20 \nbytes. Assume that the fragmentation offset value \nstored in the first fragment is 0. \n\nThe fragmentation offset value stored in the third \nfragment is_____.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "144"
+            ],
+            "solution": {
+                "text": "",
+                "images": [
+                    "assets/Computer Networks/CN_Network_Layer_P34_X901.png",
+                    "assets/Computer Networks/CN_Network_Layer_P34_X3703.png",
+                    "assets/Computer Networks/CN_Network_Layer_P34_X3705.png",
+                    "assets/Computer Networks/CN_Network_Layer_P34_X3707.png",
+                    "assets/Computer Networks/CN_Network_Layer_P34_X3709.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "CN_NETWORK_LAYER_2017_Q04",
+            "subject": "Computer Networks",
+            "topic": "Network Layer",
+            "subtopic": "fragment is_____.",
+            "year": 2017,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 4,
+            "tags": [
+                "Network Layer",
+                "fragment is_____.",
+                "Computer Networks"
+            ],
+            "question": {
+                "text": "The maximum number of IPv4 router addresses that \ncan be listed in the record  route (RR) option field of \nan IPv4 header is _______.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "9"
+            ],
+            "solution": {
+                "text": "Option = 40 Byte \n\n2 Bytes are resered for option type & length  \n\n40 - 2 = 38 byte  \n\nIn 38 bytes he can store 9 IPv4 address as each IPv4 \naddress is of 4 Bytes.",
+                "images": [
+                    "assets/Computer Networks/CN_Network_Layer_P34_X901.png",
+                    "assets/Computer Networks/CN_Network_Layer_P34_X3703.png",
+                    "assets/Computer Networks/CN_Network_Layer_P34_X3705.png",
+                    "assets/Computer Networks/CN_Network_Layer_P34_X3707.png",
+                    "assets/Computer Networks/CN_Network_Layer_P34_X3709.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "CN_NETWORK_LAYER_2016_Q05",
+            "subject": "Computer Networks",
+            "topic": "Network Layer",
+            "subtopic": "an IPv4 header is _______.",
+            "year": 2016,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 5,
+            "tags": [
+                "Network Layer",
+                "an IPv4 header is _______.",
+                "Computer Networks"
+            ],
+            "question": {
+                "text": "An IP datagram of size 1000 bytes arrives at a router. \nThe router has to forward this packet on a link whose \nMTU (Maximum transmission Unit) is 100 bytes. \nAssume that the size of the IP header is 20 bytes. The \nnumber of fragments that the IP datagram will be \ndivided into for transmission is __________.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "13"
+            ],
+            "solution": {
+                "text": "12 \\times 80 = 960 \n\n\n980 \\times 960 = 20B (last fragment)",
+                "images": [
+                    "assets/Computer Networks/CN_Network_Layer_P34_X901.png",
+                    "assets/Computer Networks/CN_Network_Layer_P34_X3703.png",
+                    "assets/Computer Networks/CN_Network_Layer_P34_X3705.png",
+                    "assets/Computer Networks/CN_Network_Layer_P34_X3707.png",
+                    "assets/Computer Networks/CN_Network_Layer_P34_X3709.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "CN_NETWORK_LAYER_2015_Q06",
+            "subject": "Computer Networks",
+            "topic": "Network Layer",
+            "subtopic": "divided into for transmission is __________.",
+            "year": 2015,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 6,
+            "tags": [
+                "Network Layer",
+                "divided into for transmission is __________.",
+                "Computer Networks"
+            ],
+            "question": {
+                "text": "Which one of the following fields of an IP header is \nNOT modified by a typical IP router?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "Checksum",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "Source address",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "Time to Live (TTL)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "Length",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "B"
+            ],
+            "solution": {
+                "text": "Not Changed \nMay be \nChanged \nDefinitely \nChanged \n1. VER \n2. Header \n    Length \n3. Services \n\n4. Identification \n    number \n5. DF (Don't \n    fragment \n6. Protocol \n7. SIP, DIP \n1. Total length  \n2. MF (more \n    fragment) \n3. Fragment     \n    offset  \n1. TTL \n2. Checksum",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "CN_NETWORK_LAYER_2015_Q07",
+            "subject": "Computer Networks",
+            "topic": "Network Layer",
+            "subtopic": "NOT modified by a typical IP router?",
+            "year": 2015,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 7,
+            "tags": [
+                "Network Layer",
+                "NOT modified by a typical IP router?",
+                "Computer Networks"
+            ],
+            "question": {
+                "text": "Host  A sends a UDP datagram containing 8880 \nbytes of user data to host B over an Ethernet LAN. \nEthernet frames may carry data up to 1500 bytes (i.e. \nMTU = 1500 bytes). Size of UDP header is 8 bytes \nand size of IP header is 20 bytes. There is no option \nfield in IP header. How may total number of IP \nfragments will be transmitted and what will be \ncontents of offset field in the last fragment?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "6 and 925",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "6 and 7400",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "7 and 1110",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "7 and 8880",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "C"
+            ],
+            "solution": {
+                "text": " \n\nOffset = 6 1480\n\n=\n= 1110",
+                "images": [
+                    "assets/Computer Networks/CN_Network_Layer_P35_X3890.png",
+                    "assets/Computer Networks/CN_Network_Layer_P35_X3894.png",
+                    "assets/Computer Networks/CN_Network_Layer_P35_X3896.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "CN_NETWORK_LAYER_2014_Q08",
+            "subject": "Computer Networks",
+            "topic": "Network Layer",
+            "subtopic": "contents of offset field in the last fragment?",
+            "year": 2014,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 8,
+            "tags": [
+                "Network Layer",
+                "contents of offset field in the last fragment?",
+                "Computer Networks"
+            ],
+            "question": {
+                "text": "Every host in an IPv4 network has a 1-second \nresolution real-time clock with battery backup. Each \nhost needs to generate up to 1000 unique identifiers \nper second. Assume that each host has a globally \nunique IPv4 address. Design a 50-bit globally unique \nID for this purpose. After what period (in seconds) \nwill the identifiers generated by a host wrap around?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "262",
+                "263"
+            ],
+            "solution": {
+                "text": "Number of bits in IPV4 = 32  \n\nTotal number of hosts = 232 \n\nTotal number of unique identifier (ID) generated per \nsecond = 232 ×1000  \n\nTotal number of IDS = 250  \n\nWrap around time = \nTotal IDs\nIDs generated/sec \n\n\n\n\n\n= \n ×1000\n= 262.14 sec.",
+                "images": [],
+                "latex": [],
+                "tables": [
+                    {
+                        "headers": [
+                            "Not Changed",
+                            "May be Changed",
+                            "Definitely Changed"
+                        ],
+                        "rows": [
+                            [
+                                "1. VER 2. Header Length 3. Services 4. Identification number 5. DF (Don't fragment 6. Protocol 7. SIP, DIP",
+                                "1. Total length 2. MF (more fragment) 3. Fragment offset",
+                                "1. TTL 2. Checksum"
+                            ]
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "id": "CN_NETWORK_LAYER_2014_Q09",
+            "subject": "Computer Networks",
+            "topic": "Network Layer",
+            "subtopic": "will the identifiers generated by a host wrap around?",
+            "year": 2014,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 9,
+            "tags": [
+                "Network Layer",
+                "will the identifiers generated by a host wrap around?",
+                "Computer Networks"
+            ],
+            "question": {
+                "text": "Host A (on TCP/IP v4 network A) sends an IP \ndatagram D to host B (also on TCP/IP v4 network \nB). Assume that no error occurred during the \ntransmission of D. When D reaches B, which of the \nfollowing IP header field(s) may be different from \nthat of the original datagram D? \n(i) TTL \n\n(ii) Checksum \n\n(iii) Fragment Offset",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "(i) only",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "(i) and (ii) only",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "(ii) and (iii) only",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "(i), (ii) and (iii)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "D"
+            ],
+            "solution": {
+                "text": "All the given filed TTL, Checksum, and Fragment \nOffset value may have change in their values.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "CN_NETWORK_LAYER_2014_Q10",
+            "subject": "Computer Networks",
+            "topic": "Network Layer",
+            "subtopic": "(iii) Fragment Offset",
+            "year": 2014,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 10,
+            "tags": [
+                "Network Layer",
+                "(iii) Fragment Offset",
+                "Computer Networks"
+            ],
+            "question": {
+                "text": "An IP router with a Maximum Transmission Unit \n(MTU) of 1500 bytes has received an IP packet of \nsize 4404 bytes with an IP header of length 20 bytes. \nThe values of the relevant fields in the header of the \nthird IP fragment generated by the router for this \npacket are",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "MF bit:0, Datagram Length:1444;Offset:370",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "MF bit:1, Datagram Length:1424;Offset:185",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "MF bit:1, Datagram Length:1500;Offset:370",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "MF bit:0, Datagram Length:1424;Offset:2960",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "A"
+            ],
+            "solution": {
+                "text": "",
+                "images": [
+                    "assets/Computer Networks/CN_Network_Layer_P35_X3890.png",
+                    "assets/Computer Networks/CN_Network_Layer_P35_X3894.png",
+                    "assets/Computer Networks/CN_Network_Layer_P35_X3896.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "CN_NETWORK_LAYER_2013_Q11",
+            "subject": "Computer Networks",
+            "topic": "Network Layer",
+            "subtopic": "packet are",
+            "year": 2013,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 11,
+            "tags": [
+                "Network Layer",
+                "packet are",
+                "Computer Networks"
+            ],
+            "question": {
+                "text": "In an IPv4 datagram, the M bit is 0, the value of \nHLEN is 10, the value of total length is 400 and the \nfragment offset value is 300. The position of the \ndatagram, the sequence numbers of the first and the \nlast bytes of the payload, respectively are",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "Last fragment, 2400 and 2789",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "First fragment, 2400 and 2759",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "Last fragment, 2400 and 2759",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "Middle fragment, 300 and 689",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "C"
+            ],
+            "solution": {
+                "text": "HLEN = 10 \n\nHeader size = 10 \\times 4 = 10 Byte \n\nTotal Length = 400B \n\nTotal Length = Data + Header \n\nData (Payload) = 400 - 40 = 360B \n\nOffset  = 300 Byte \n\nNumber of byte alned = 3 \\times 300  \n\n\n                           = 2400 Byte",
+                "images": [
+                    "assets/Computer Networks/CN_Network_Layer_P36_X3996.png",
+                    "assets/Computer Networks/CN_Network_Layer_P36_X4004.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "CN_NETWORK_LAYER_2010_Q12",
+            "subject": "Computer Networks",
+            "topic": "Network Layer",
+            "subtopic": "last bytes of the payload, respectively are",
+            "year": 2010,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 12,
+            "tags": [
+                "Network Layer",
+                "last bytes of the payload, respectively are",
+                "Computer Networks"
+            ],
+            "question": {
+                "text": "One of the header fields in an IP datagram is the \nTime-to-Live (TTL) field. Which of the following \nstatements best explains the need for this field?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "It can be used to prioritize packets",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "It can be used to reduce delays",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "It can be used to optimize throughput",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "It can be used to prevent packet looping \nIPv4 Protocol",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "D"
+            ],
+            "solution": {
+                "text": "TTL is used to Avoid Infinite looping",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "CN_NETWORK_LAYER_2021_Q13",
+            "subject": "Computer Networks",
+            "topic": "Network Layer",
+            "subtopic": "IPv4 Protocol",
+            "year": 2021,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 13,
+            "tags": [
+                "Network Layer",
+                "IPv4 Protocol",
+                "Computer Networks"
+            ],
+            "question": {
+                "text": "Consider the following two statements \n\nS1:  Destination MAC address of an ARP reply is \na broadcast address. \n\nS2:  Destination MAC address of an ARP request \nis a broadcast address. \n\nWhich one of the following choices is correct?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "Both  S1 and S2 are true",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "S1 is true and S is false",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "S1 is false and S2 is true",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "Both  𝑆1 and 𝑆2  are false",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "C"
+            ],
+            "solution": {
+                "text": "ARP request is broadcasting \n\nARP reply is unicasting",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "CN_NETWORK_LAYER_2019_Q14",
+            "subject": "Computer Networks",
+            "topic": "Network Layer",
+            "subtopic": "Which one of the following choices is correct?",
+            "year": 2019,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 14,
+            "tags": [
+                "Network Layer",
+                "Which one of the following choices is correct?",
+                "Computer Networks"
+            ],
+            "question": {
+                "text": "Suppose that in an IP-over-Ethernet network, a \nmachine X wishes to find the MAC address of \nanother machine Y in its subnet. Which one of the \nfollowing techniques can be used for this?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "X sends an ARP request packet to the local \ngateway's MAC address which then finds the \nMAC address of Y and sends to X.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "X sends an ARP request packet with broadcast \nMAC address in its local subnet.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "X sends an ARP request packet with broadcast \nIP address in its local subnet.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "X sends an ARP request packet to the local \ngateway's IP address which then finds the \nMAC address of Y and sends to X.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "B"
+            ],
+            "solution": {
+                "text": "",
+                "images": [
+                    "assets/Computer Networks/CN_Network_Layer_P36_X3996.png",
+                    "assets/Computer Networks/CN_Network_Layer_P36_X4004.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "CN_NETWORK_LAYER_2013_Q15",
+            "subject": "Computer Networks",
+            "topic": "Network Layer",
+            "subtopic": "MAC address of Y and sends to X.",
+            "year": 2013,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 15,
+            "tags": [
+                "Network Layer",
+                "MAC address of Y and sends to X.",
+                "Computer Networks"
+            ],
+            "question": {
+                "text": "Assume that source S and destination D are \nconnected through two intermediate routers labels R. \nDetermine how many times each packet has to visit \nthe network layer and the data link layer during a \ntransmission form S to D.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "Network layer - 4 times and Data link layer - 4 \ntimes",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "Network layer - 4 times and Data link layer - 3 \ntimes",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "Network layer - 4 times and Data link layer - 6 \ntimes",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "Network layer - 2 times and Data link layer - 6 \ntimes \nRouting Algorithm",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "C"
+            ],
+            "solution": {
+                "text": "AL→2times \nN→Intermediate Node or Router \n\nTL→2times \nAL→2 times \n\nNL→4times \nTL→2 times \n\nDLL→6times \nNL→ N + 2 times \n\nPL→6times \nDLL→2N + 2 times \n\n\n\nPL→2N + 2 times",
+                "images": [
+                    "assets/Computer Networks/CN_Network_Layer_P36_X3998.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "CN_NETWORK_LAYER_2023_Q16",
+            "subject": "Computer Networks",
+            "topic": "Network Layer",
+            "subtopic": "Routing Algorithm",
+            "year": 2023,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 16,
+            "tags": [
+                "Network Layer",
+                "Routing Algorithm",
+                "Computer Networks"
+            ],
+            "question": {
+                "text": "Which \nof \nthe \nfollowing \nstatements \nis/are \nINCORRECT about the OSPF (Open Shortest Path \nFirst) routing protocol used in the Internet?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "OSPF implements Bellman-Ford algorithm to \nfind shortest paths.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "OSPF uses Dijkstra's shortest path algorithm to \nimplement least-cost path routing.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "OSPF is used as an inter-domain routing \nprotocol.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "OSPF implements hierarchical routing.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "A",
+                "C"
+            ],
+            "solution": {
+                "text": "OSPF uses Dijkstra's algorithm not bellman ford \nalgorithm. OSPF is an intra-domain routing protocol \nnot inter domain. OSPF supports hierarchical \nnetwork design (implemented using two layers).",
+                "images": [
+                    "assets/Computer Networks/CN_Network_Layer_P36_X4000.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "CN_NETWORK_LAYER_2022_Q17",
+            "subject": "Computer Networks",
+            "topic": "Network Layer",
+            "subtopic": "protocol.",
+            "year": 2022,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 17,
+            "tags": [
+                "Network Layer",
+                "protocol.",
+                "Computer Networks"
+            ],
+            "question": {
+                "text": "Consider a network with three routers P,Q,R shown \nin the figure below. All the links have cost of unity. \n____\n____\nP\nQ\nR \n\nThe routers exchange distance vector routing \ninformation and have converged on the routing \ntables, after which the link Q-R fails. Assume that P \nand Q send out routing updates at random times, \neach at the same average rate. The probability of a \nrouting loop formation (rounded off to one decimal \nplace) between P and Q, leading to count-to-infinity \nproblem, is ______.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "0.5"
+            ],
+            "solution": {
+                "text": "In distance vector routing every router will know the \ncomplete information of the network only with the \nhelp of neighbors. \n\n\n\nIf link Q-R is broken. Then there are two possibility \nthat among P and Q which will send information \nfirst to each other. \n\n• \nIf P will send the information first to Q then Q \nwill update then its entry to reach R as 3 and \nnetwork will enter in count to infinity problem. \n• \nIf Q sends first then P will come to know that \nlink Q-R is broken and will update its entry to \nreach R as . No count to infinity problem. \nSo, the probability that network will enter in count \nto infinity problem will be: 1\n2 =",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "CN_NETWORK_LAYER_2021_Q18",
+            "subject": "Computer Networks",
+            "topic": "Network Layer",
+            "subtopic": "problem, is ______.",
+            "year": 2021,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 18,
+            "tags": [
+                "Network Layer",
+                "problem, is ______.",
+                "Computer Networks"
+            ],
+            "question": {
+                "text": "Consider a computer network using the distance \nvector routing algorithm in its network layer. The \npartial topology of the network is as shown below. \n\nThe objective is to find the shortest-cost path from \nthe router R to routers  \n\nP and Q. Assume that R does not initially know the \nshortest routes to P and Q. \n\nAssume that R has three neighboring routers denoted \nas X, Y and Z.  \n\nDuring one iteration, R measures its distance to its \nneighbors X, Y and Z as 3,2 and 5, respectively. \nRouter R gets routing vectors from its neighbors that \nindicate that the distance to router P from routers X, \nY and Z are 7, 6 and 5, respectively. The routing \nvector also indicates that the distance to router Q \nfrom routers X, Y and Z are 4,6 and 8, respectively. \nWhich of the following statement(s) is/are correct \n\nwith respect to the new routing table of R, after \nupdation during this iteration?",
+                "images": [
+                    "assets/Computer Networks/CN_Network_Layer_P30_X3536.png"
+                ],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "The distance from R to Q will be stored as 7.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "The distance from R to P will be stored as 10.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "The next hop router for a packet from R to Q is \nZ.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "The next hop router for a packet from R to P is \nY.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "A",
+                "D"
+            ],
+            "solution": {
+                "text": "R to Q \n\nR to Q = min {R-X-Q,     R-Y-Q,      R-Z-Q} \n                                  3 + 4         2 + 6        5 + 8 \n\n                         7                8             13 \n\nMin = 7 (through x) \n\nR to P \n\nR to P = min {R-X-P,     R-Y-P,      R-Z-P} \n                                    3 + 7       2 + 6        5 +5 \n\nR to p = 8 (Through y)",
+                "images": [
+                    "assets/Computer Networks/CN_Network_Layer_P37_X4072.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "CN_NETWORK_LAYER_2017_Q19",
+            "subject": "Computer Networks",
+            "topic": "Network Layer",
+            "subtopic": "Y.",
+            "year": 2017,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 19,
+            "tags": [
+                "Network Layer",
+                "Y.",
+                "Computer Networks"
+            ],
+            "question": {
+                "text": "Consider the following statements about the routing \nprotocols, Routing Information Protocol (RIP) and \nOpen Shortest Path first (OSPF) in an IPv4 network. \n\nI: RIP uses distance vector routing \n\nII: RIP packets are sent using UDP \n\nIII: OSPF packets are sent using TCP. \n\nIV: OSPF operation is based on link-state routing. \n\nWhich of the statements above are CORRECT?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "I and IV only",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "I, II and III only",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "I, II and IV only",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "II, III and IV only",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "C"
+            ],
+            "solution": {
+                "text": "RIP is based on distance vector routing. RIP uses \nUDP as transport layer protocol. And OSPF is based \non link state routing.  OSPF does not uses either \nTCP or UDP.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "CN_NETWORK_LAYER_2014_Q20",
+            "subject": "Computer Networks",
+            "topic": "Network Layer",
+            "subtopic": "Which of the statements above are CORRECT?",
+            "year": 2014,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 20,
+            "tags": [
+                "Network Layer",
+                "Which of the statements above are CORRECT?",
+                "Computer Networks"
+            ],
+            "question": {
+                "text": "Which one of the following is TRUE about the  \ninterior gateway routing protocols - Routing  \nInformation Protocol (RIP) and Open Shortest  Path \nFirst (OSPF)",
+                "images": [
+                    "assets/Computer Networks/CN_Network_Layer_P31_X3575.png"
+                ],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "RIP uses distance vector routing and OSPF uses \nlink state routing.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "OSPF uses distance vector routing and RIP uses \nlink state routing",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "Both RIP and OSPF use link state routing",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "Both RIP and OSPF use distance vector routing",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "A"
+            ],
+            "solution": {
+                "text": "Open Shortest Path First (OSPF) and Routing \nInformation Protocol (RIP) are both Interior \nGateway Protocols, i.e., they are both employed \nwithin an autonomous system. RIP is based on \ndistance vector routing. And OSPF is based on link \nstate routing.",
+                "images": [
+                    "assets/Computer Networks/CN_Network_Layer_P37_X4074.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "CN_NETWORK_LAYER_2014_Q21",
+            "subject": "Computer Networks",
+            "topic": "Network Layer",
+            "subtopic": "link state routing",
+            "year": 2014,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 21,
+            "tags": [
+                "Network Layer",
+                "link state routing",
+                "Computer Networks"
+            ],
+            "question": {
+                "text": "Consider the following three statements about link \nstate and distance vector routing protocols, for a \nlarge network with 500 network nodes and 4000 \nlinks. \n\nS1: The computational overhead in link state \nprotocols is higher than in distance vector \nprotocols. \n\nS2: A distance vector protocol (with split horizon) \navoids persistent routing loops, but not a link \nstate protocol.  \n\nS3: After a topology change, a link state protocol \nwill converge faster than a distance vector \nprotocol.  \n\nWhich one of the following is correct about Sl, S2, \nand S3?",
+                "images": [
+                    "assets/Computer Networks/CN_Network_Layer_P31_X3573.png"
+                ],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "Sl, S2, and S3 are all true.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "Sl, S2, and S3 are all false.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "Sl and S2 are true, but S3 is false.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "Sl and S3 are true, but S2 is false. \nCombined data for Next Two Questions \nConsider a network with five nodes, N1 to N5, as shown \nbelow. \nThe network uses a Distance Vector Routing protocol. \nOnce the routes have stabilized, the distance vectors at \ndifferent nodes are as following. \n\nNl : (0, 1,7, 8, 4) \n\nN2 : (1, 0, 6, 7, 3) \n\nN3 : (7, 6, 0, 2, 6) \n\nN4 : (8, 7, 2, 0, 4) \n\nN5 : (4, 3, 6, 4, 0) \n\n\n\nEach distance vector is the distance of the best \nknown path at that instance to nodes, N1 to N5, \nwhere the distance to itself is 0. Also, all links are \nsymmetric and the cost is identical in both directions. \nIn each round, all nodes exchange their distance \nvectors with their respective neighbors. Then all \nnodes update their distance vectors. In between two \nrounds, any change in cost of a link will cause the \ntwo incident node's to change only that entry in their \ndistance vectors.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "D"
+            ],
+            "solution": {
+                "text": "• \nIn link state protocols due to LSD (link state \ndatabase) the computational overhead is higher \nthan in distance vector protocols. \n\n• \nDistance vector protocols with split horizon \navoids persistent loop, but link state protocol \nthere is no loop. It avoids persistent routing \nloops. \n\n• \nThe states of the links can be known to the \nrouter with the help of trigger update and this \nvalues will be known immediately. Whenever \nthere is a change in topology trigger updates are \nused.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "CN_NETWORK_LAYER_2011_Q22",
+            "subject": "Computer Networks",
+            "topic": "Network Layer",
+            "subtopic": "distance vectors.",
+            "year": 2011,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 22,
+            "tags": [
+                "Network Layer",
+                "distance vectors.",
+                "Computer Networks"
+            ],
+            "question": {
+                "text": "The cost of link N2-N3 reduces to 2 (in both \ndirections). After the next round of updates, what \nwill be the new distance vector at node, N3?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "(3, 2, 0, 2, 5)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "(3, 2, 0, 2, 6)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "(7, 2, 0, 2, 5)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "(7, 2, 0, 2, 6)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "A"
+            ],
+            "solution": {
+                "text": "At N3 \n\nN3 Receive the distance vector from N2, N4 \n\n\n\n New Routing table at N3 \nDestination \nDistance \nNH \nN1 \nN2 \nN2 \nN2 \nN3 \n- \nN4 \nN4 \nN5 \nN2",
+                "images": [
+                    "assets/Computer Networks/CN_Network_Layer_P38_X4144.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "CN_NETWORK_LAYER_2011_Q23",
+            "subject": "Computer Networks",
+            "topic": "Network Layer",
+            "subtopic": "will be the new distance vector at node, N3?",
+            "year": 2011,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 23,
+            "tags": [
+                "Network Layer",
+                "will be the new distance vector at node, N3?",
+                "Computer Networks"
+            ],
+            "question": {
+                "text": "After the update in the previous question, the link \nN1-N2 goes down. N2 will reflect this change \nimmediately in its distance vector as cost, . After \nthe NEXT ROUND of update, what will be the cost \nto N1 in the distance vector of N3?",
+                "images": [
+                    "assets/Computer Networks/CN_Network_Layer_P32_X3621.png"
+                ],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "3",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "9",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "10",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": " \n\n\nCombined Data for Next Two Questions \n\nConsider a network with 6 routers R1 to R6 \nconnected with links having weights as shown in  the \nfollowing diagram",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "C"
+            ],
+            "solution": {
+                "text": "At N3 \n\nN3 receiver DV from N2, N4 \n\n\n\n Routing table at N3 \nDestination \nDistance \nNH \nN1 \nN4 \nN2 \n\n\nN3 \n- \nN4 \n\n\nN5",
+                "images": [
+                    "assets/Computer Networks/CN_Network_Layer_P38_X4144.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "CN_NETWORK_LAYER_2010_Q24",
+            "subject": "Computer Networks",
+            "topic": "Network Layer",
+            "subtopic": "following diagram",
+            "year": 2010,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 24,
+            "tags": [
+                "Network Layer",
+                "following diagram",
+                "Computer Networks"
+            ],
+            "question": {
+                "text": "All the routers use the distance vector based routing \nalgorithm to update their routing tables. Each router \nstarts with its routing table initialized to contain an \nentry for each neighbur with the weight of the \nrespective connecting link. After all the routing \ntables stabilize, how many links in the network will \nnever be used for carrying any data?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "4",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "3",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "2",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "1",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "C"
+            ],
+            "solution": {
+                "text": "Shortest distance from  R1 to R2 \n= 5 \n\n\nR1 to R3 \n= 3 \n\n\nR1 to R4 \n= 12 \n\n\nR1 to R5 \n= 12 \n\n\nR1 to R6 \n= 6 \n\n\nShortest distance from  R2 to R3 \n= 2 \n\n\nR2 to R4 \n= 7 \n\n\nR2 to R5 \n= 8 \n\n\nR2 to R6 \n= 12 \n\nShortest distance from  R4 to R5 \n= 1 \n\n\nR3 to R5 \n= 9 \n\n\nR3 to R6 \n= 13 \n\nShortest distance from  R4 to R5 \n= 1 \n\n\nR4 to R6 \n= 5 \n\nShortest distance from  R5 to R6 \n= 4 \n\nThe links used for the shortest path. From every \nRoutery to every other router are: \n\nR1 - R3, R2 - R3, R2 - R4, R4 - R5, R3 - R5, R5 - R6 \n\nLinks Not used = R1 - R2, R4 - R6 \n\n\n\nR to R not used\nR to R not used\n\n\n\n\n\n",
+                "images": [
+                    "assets/Computer Networks/CN_Network_Layer_P38_X4146.png",
+                    "assets/Computer Networks/CN_Network_Layer_P38_X4148.png"
+                ],
+                "latex": [],
+                "tables": [
+                    {
+                        "headers": [
+                            "Destination",
+                            "Distance",
+                            "NH"
+                        ],
+                        "rows": [
+                            [
+                                "N 1",
+                                "3",
+                                "N 2"
+                            ],
+                            [
+                                "N 2",
+                                "2",
+                                "N 2"
+                            ],
+                            [
+                                "N 3",
+                                "0",
+                                "-"
+                            ],
+                            [
+                                "N 4",
+                                "2",
+                                "N 4"
+                            ],
+                            [
+                                "N 5",
+                                "5",
+                                "N 2"
+                            ]
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "id": "CN_NETWORK_LAYER_2010_Q25",
+            "subject": "Computer Networks",
+            "topic": "Network Layer",
+            "subtopic": "never be used for carrying any data?",
+            "year": 2010,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 25,
+            "tags": [
+                "Network Layer",
+                "never be used for carrying any data?",
+                "Computer Networks"
+            ],
+            "question": {
+                "text": "Suppose the weights of all unused links in the \nprevious question are changed to 2 and the distance \nvector algorithm is used again until all routing tables \nstabilize. How many links will now remain unused?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "0",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "1",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "2",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "3",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "D"
+            ],
+            "solution": {
+                "text": "If we change the unused link value to 2 i.e.  \nR\nR\n⎯⎯→\n,\nR\nR\n⎯⎯→\n. Then R5 - R6 will \nremains unused. \n\n\n\n\n(R5 - R6) Not used",
+                "images": [
+                    "assets/Computer Networks/CN_Network_Layer_P39_X4295.png",
+                    "assets/Computer Networks/CN_Network_Layer_P39_X4299.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "CN_NETWORK_LAYER_2008_Q26",
+            "subject": "Computer Networks",
+            "topic": "Network Layer",
+            "subtopic": "stabilize. How many links will now remain unused?",
+            "year": 2008,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 26,
+            "tags": [
+                "Network Layer",
+                "stabilize. How many links will now remain unused?",
+                "Computer Networks"
+            ],
+            "question": {
+                "text": "Two popular routing algorithms are Distance \nVector(DV) and Link State (LS) routing. Which of \nthe following are true? \n\n(S1): Count to infinity is a problem only with DV \nand not LS routing \n\n(S2): In LS, the shortest path algorithm is run only at \none node \n\n(S3): In DV, the shortest path algorithm is run only \nat one node \n\n(S4): DV requires lesser number of network \nmessages than LS",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "S1, S2 and S4 only",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "S1, S3 and S4 only",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "S2 and S3 only",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "S1 and S4 only   \nSwitch, Router and Gateway",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "D"
+            ],
+            "solution": {
+                "text": "Count to infinity is a problem in distance vector \nrouting. But there is no count to infinity problem in \nlink state routing. \n\nIn link state and distance vector routing the shortest \npath algorithm is run at every node. \n\nIn link state LSDP (link state database packets) \ngenerated with latest into of the network. So, in link \nstate a greater number of network message are \nrequired.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "CN_NETWORK_LAYER_2015_Q27",
+            "subject": "Computer Networks",
+            "topic": "Network Layer",
+            "subtopic": "Switch, Router and Gateway",
+            "year": 2015,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 27,
+            "tags": [
+                "Network Layer",
+                "Switch, Router and Gateway",
+                "Computer Networks"
+            ],
+            "question": {
+                "text": "Two hosts are connected via a packet switch with 107 \nbits per second links. Each link has a propagation \ndelay of 20 microseconds. The switch begins \nforwarding a packet 35 microseconds after it \nreceives the same. If 10000 bits of data are to be \n\ntransmitted between the two hosts using a packet size \nof 5000 bits, the time elapsed between the \ntransmission of the first bit of data  and the reception \nof the last bit of the data  in microsecond is \n_________.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "1575"
+            ],
+            "solution": {
+                "text": "B = 107 bits sec. \n\nPkt size = 5000 byte \n\n\nData size = 10,000 byte \n\nNumber of Pkt = 10000B\n5000B =\n\n\nd\nPkt size\nT\nB\n=\n = \n0,000 Bits\n10 Bits/sec.\n\n\n\n\n             = 500 \\times 10-6 sec. = 500 msec. \n\n X →HOP \\Rightarrow N - Pkts \n\nTT = X [Td + Pd] + X-1(Qd + Prd] + N-1 (Td) \n\n= 2 [500 + 20] + 1 (35) + 1 \\times 500 \n\n= 1000 + 40 + 35 + 500 \n\n= 1575 msec.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "CN_NETWORK_LAYER_2012_Q28",
+            "subject": "Computer Networks",
+            "topic": "Network Layer",
+            "subtopic": "_________.",
+            "year": 2012,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 28,
+            "tags": [
+                "Network Layer",
+                "_________.",
+                "Computer Networks"
+            ],
+            "question": {
+                "text": "Consider a source computer (S) transmitting a file of \nsize 106 bits to a destination computer (D) over a \nnetwork of two routers (R1 and R2) and three link (L1, \nL2 and L3). L1 connects S to R1; L2 connects R1 to R2; \nand L3 connects R2 to D. Let each link be of length \n100 km. Assume signals travel over each link at a \nspeed of 108 meters per second. Assume that the link \nbandwidth on each link is 1Mbps. Let the file be \nbroken down into 1000 packets each of size 1000 \nbits. Find the total sum of transmission and \npropagation delays in transmitting the file from S to \nD?",
+                "images": [
+                    "assets/Computer Networks/CN_Network_Layer_P33_X3673.png"
+                ],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "1005 ms",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "1010 ms",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "3000 ms",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "3003 ms",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "A"
+            ],
+            "solution": {
+                "text": "v = 108 m/sec. \n= 105 km/sec \n\nB = 1 Mbps \n\nd\nPkt size\nT\nB\n= \n1000 bits\n10 bits/sec. = 1m sec. \n\nX →HOP \\Rightarrow N Pkts \n\n\n\n(\n)\n(\n)\nd\nd\nd\nrd\nd\nTT= X T\nP\nX-1 Q + P\nN-1 T\n+\n+\n+\n\n\n[Queuing delay & processing delay are not given so \nassume 0] \n\n= 3 [1+1] + 999 ×1 \n\n= 6 + 999 = 1005 msec.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "CN_NETWORK_LAYER_2014_Q29",
+            "subject": "Computer Networks",
+            "topic": "Network Layer",
+            "subtopic": "D?",
+            "year": 2014,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 29,
+            "tags": [
+                "Network Layer",
+                "D?",
+                "Computer Networks"
+            ],
+            "question": {
+                "text": "Consider the store and forward packet switched \nnetwork given below. Assume that the bandwidth of \neach link is 106 bytes/sec. A user on host A sends a \nfile of size 103 bytes to host B through routers R1 and \nR2 in three different ways. In the first case a single \npacket containing the complete file is transmitted \nfrom A to B. In the second case, the file is split into \n10 equal parts, and these packets are transmitted \nfrom A to B. In the third case, the file is split into 20 \nequal parts and these packets are sent from A to B. \nEach packet contains 100 bytes of header \ninformation along with the user data. Consider only \ntransmission time and ignore processing, queuing \nand propagation delays. Also assume that there are \nno error during transmission. Let T1, T2 and T3 be \nthe times taken to transmit the file in the first, second \nand third case respectively. Which one of the \nfollowing is CORRECT?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "T1 < T2 < T3",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "T1 > T2 > T3",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "T2 = T3, T3 < T1",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "T1 = T3, T3 > T2",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "D"
+            ],
+            "solution": {
+                "text": "Header size = 100B \n\nB = 106 Byte/sec \n\nFile size = 103 Byte \n\n\n      = 1000 Byte \n\n1st Case: \n\n\nPKT size = 1000 + 100 = 1100 Byte \n\nB = 106 Byte/sec. \n\nTd =  Pkt size\nBandwidth = \n1100 Byte\n10 Byte/sec. \n\n\n\n= 11× 10-4 sec. \n\n\n\n= 1.1×10-3 sec. \n\n\n\n= 1.1×10-3 sec. \n\n\n\nX→ Number of Hops/ Links \n\nTotal time = x(Td) + X(Pd) + X- 1 (Qd + Prd) \n\n= 3× 1.1 msec. + 3 \\times 0 + 2 \\times 0 (Processing dealy, \nQueuing dealy & propagation delay are given \nnegligiable) \n\n= 3.3 msec. (T1) \n\n2nd Case: \n\n10 Parts \n\nData size in each Pkt  = 1000 Byte\n100 Byte\n=\n\n\nPkt size = 100 + 100 = 200 Byte \n\nTd  = Pkt Byte\nBandwidth  \n\n\n= \n200 Byte\n10 Byte/sec. = 0.2 msec. \n\n\nFor X →HOP \\Rightarrow N Pkts \n\nTotal time = Time for 1st Pkt + Time for Remainin \n(N-1) Pkt. \n\n\n(\n)\n(\n)\nd\nd\nd\nrd\nd\nTotal time  =X T + P\nX-1 Q + P\nN-1 T\n+\n+\n\n\n= 3× 0.2 + 9×0.2 = 0.6 + 1.8 = 2.4 (T2) \n\n3rd Case: \n\n20 Part N = 20 \n\nData size in each Pkt =1000B\n= 50 Byte \n\nPkt size = 50 + 100 = 150 Byte \n\nTd = Pkt size\nBandwith = \n150B\n10 B/sec. = 0.15 msec. \n\nX \\rightarrow HoP & N- Pkt \n\nTT  = X [Td + Pd] + X-1 (Qd + Prd] + N-1 (Td) \n\n\n= 3× 0.15 + 19 \\times 0.15 \n\n\n= 0.45 + 2.28 \n\n\n= 3.3 (T3) \n\nT1 = T3 > T2",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "CN_NETWORK_LAYER_2022_Q30",
+            "subject": "Computer Networks",
+            "topic": "Network Layer",
+            "subtopic": "following is CORRECT?",
+            "year": 2022,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 30,
+            "tags": [
+                "Network Layer",
+                "following is CORRECT?",
+                "Computer Networks"
+            ],
+            "question": {
+                "text": "Consider an enterprise network with two Ethernet \nsegments, a web server and a firewall, connected via \nthree routers as shown below. \n\n\nWhat is the number of subnets inside the enterprise \nnetwork?",
+                "images": [
+                    "assets/Computer Networks/CN_Network_Layer_P33_X3674.png"
+                ],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "3",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "12",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "6",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "8",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "C"
+            ],
+            "solution": {
+                "text": "Number of subnets are calculated are number of \ninterfaces for a router. \n\nHence in the question one router is having 3 \ninterfaces (firewall web server and router) rest both \nthe routers are having 2 interfaces each.  \n\nSo, total number of interfaces (subnets) \n\n= 3 + 2 ×2 = 7 \n\nBut among these three routers 2 routers are having a \ncommon interface.  \n\nSo, total number of subnets = 7 -1 = 6",
+                "images": [
+                    "assets/Computer Networks/CN_Network_Layer_P40_X4389.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        }
+    ]
+}

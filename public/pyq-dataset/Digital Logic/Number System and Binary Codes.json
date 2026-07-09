@@ -1,0 +1,1151 @@
+{
+    "subject": "Digital Logic",
+    "topic": "Number System and Binary Codes",
+    "questionCount": 18,
+    "questions": [
+        {
+            "id": "DL_NUMBER_SYSTEM_AND_BINARY_CODES_2021_Q01",
+            "subject": "Digital Logic",
+            "topic": "Number System and Binary Codes",
+            "subtopic": "Conversion",
+            "year": 2021,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 1,
+            "tags": [
+                "Number System and Binary Codes",
+                "Conversion",
+                "Digital Logic"
+            ],
+            "question": {
+                "text": "If x and y are two decimal digits and (0.1101)2 = \n(0.8xy5)10, the decimal value of x + y is                 .",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "3"
+            ],
+            "solution": {
+                "text": "0.5   0.25   0.125   0.0625 \n\n(0.1 1 0 1)2 = ( )10 \n\n                             =  1 \\times 2-1 + 1× 2-2 + 1× 2-3 + 1× 2-4 \n\n                              =  (0.5 + 0.25 +0+ 0.625)  \n\n                   = (0.8125)10 \n           (0.8125)10= (0.8xy5)10 \n\n         x = 1    4 = 2, \nx + 4 = 1 + 2 = 3",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "DL_NUMBER_SYSTEM_AND_BINARY_CODES_2017_Q02",
+            "subject": "Digital Logic",
+            "topic": "Number System and Binary Codes",
+            "subtopic": "(0.8xy5)10, the decimal value of x + y is                 .",
+            "year": 2017,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 2,
+            "tags": [
+                "Number System and Binary Codes",
+                "(0.8xy5)10, the decimal value of x + y is                 .",
+                "Digital Logic"
+            ],
+            "question": {
+                "text": "The representation of the value of a 16-bit unsigned \ninteger X in hexadecimal number system is BCA9. \nThe representation of the value of X in octal number \nsystem is",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "136251",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "736251",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "571247",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "571244",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "A"
+            ],
+            "solution": {
+                "text": "Given X = BCA9 in Hexadecimal format  \n\nwe know in Binary system B = 1011, C = 1100,  \n\nA = 1010, 9 = 1001  \n\n(B C A 9)16 \\rightarrow ( ? )2 →( ? )8 \n\nTherefore, convert hexadecimal number system first \nin binary then octal system. \n\n\n(BCA 9)16 = (136251)8 \n\nHence correct option is (a).",
+                "images": [
+                    "assets/Digital Logic/DL_Number_System_and_Binary_Codes_P5_X626.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "DL_NUMBER_SYSTEM_AND_BINARY_CODES_2017_Q03",
+            "subject": "Digital Logic",
+            "topic": "Number System and Binary Codes",
+            "subtopic": "system is",
+            "year": 2017,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 3,
+            "tags": [
+                "Number System and Binary Codes",
+                "system is",
+                "Digital Logic"
+            ],
+            "question": {
+                "text": "Consider a quadratic equation x2 - 13x + 36 = 0 with \ncoefficients in a base b. The solutions of this equation \nin the same base b are x = 5 and x = 6. Then b =_____.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "8"
+            ],
+            "solution": {
+                "text": "Given the base of quadratic equation is b. \n\n(1)b x2 - (13)b x + (36)b = (0)b \n\nx2 - (b + 3)x + 3b + 6 = 0 \n\nLet x = 5 \n\n25 - (b + 3)5 + 3b + 6 = 0 \n\n25 - 5b - 15 + 3b + 6 = 0 \n\n                      16 - 2b = 0 \n\n                               b = 8 \n\nLet x = 6 \n\n36 - (b + 3)6 + 3b + 6 = 0 \n\n36 - 6b - 18 + 3b + 6 = 0 \n\n                      24 - 3b = 0 \n\n                               b = 8 \n\nHence correct answer is (8).",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "DL_NUMBER_SYSTEM_AND_BINARY_CODES_2015_Q04",
+            "subject": "Digital Logic",
+            "topic": "Number System and Binary Codes",
+            "subtopic": "in the same base b are x = 5 and x = 6. Then b =_____.",
+            "year": 2015,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 4,
+            "tags": [
+                "Number System and Binary Codes",
+                "in the same base b are x = 5 and x = 6. Then b =_____.",
+                "Digital Logic"
+            ],
+            "question": {
+                "text": "Consider the euqation (43)x = (y3)8 where x and y are \nunknown. The number of possible solution is             .",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "5"
+            ],
+            "solution": {
+                "text": "(43)x = (y3)8  \n(43)x = (y3)8 \n\n4x + 3 = 8y + 3 \nx > 4 \ny < 8 \n\n\n4x = 8y \n\nx = 2y \n\ny < 8 \n\nx > 4 \n\n\nX \nY \nCondition \n(×) \n(🗸) \n(🗸) \n(🗸) \n(🗸) \n(🗸) \n(🗸) \n\nTotal 5 possible solution",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "DL_NUMBER_SYSTEM_AND_BINARY_CODES_2014_Q05",
+            "subject": "Digital Logic",
+            "topic": "Number System and Binary Codes",
+            "subtopic": "unknown. The number of possible solution is             .",
+            "year": 2014,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 5,
+            "tags": [
+                "Number System and Binary Codes",
+                "unknown. The number of possible solution is             .",
+                "Digital Logic"
+            ],
+            "question": {
+                "text": "The base (or radix) of the number system such that the \nfollowing equation holds is____________. \n\n312/20 = 13.1",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "5"
+            ],
+            "solution": {
+                "text": "Let x be the base of the given number  \n\n(\n)\n(\n)\n(\n)\nx\nx\nx\n=\n\n\nThe above number in Decimal will be given as \n\n3 \\times x +1 \\times x + 2 \\times x\n2 \\times x + 0 \\times x\n= 1× x1 + 3 \\times x0 + 1 \\times x-1 \n\n3x\nx\n2x\n+\n+\n= \nx\nx\n+\n+\n\n\n3x\nx\nx\n3x\n\n\n2x\nx\n+\n+\n+\n+\n\n=\n\n\n  3x\nx\n2x\n6x\n\n+\n+\n=\n+\n+\n\n\n  x - 5x \n\n=\n\n\n(\n)\n  x - 5 x \n\n=\n\n\n\n    x = 0    x = 5 \n\nTherefore, x = 5 \n\nHence, the base of the given number will be 5.",
+                "images": [
+                    "assets/Digital Logic/DL_Number_System_and_Binary_Codes_P6_X792.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "DL_NUMBER_SYSTEM_AND_BINARY_CODES_2014_Q06",
+            "subject": "Digital Logic",
+            "topic": "Number System and Binary Codes",
+            "subtopic": "312/20 = 13.1",
+            "year": 2014,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 6,
+            "tags": [
+                "Number System and Binary Codes",
+                "312/20 = 13.1",
+                "Digital Logic"
+            ],
+            "question": {
+                "text": "Consider the equation (123)5 = (x8)y with x and y as \nunknown.  The number of possible solutions is ____.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "3"
+            ],
+            "solution": {
+                "text": "Given equation  \n\n(123)5 = (x 8)y \n\nBy Converting the above equation into decimal form \n\n(1×52 + 2×51+ 3×50) = xy + 8 \n\n38 = xy + 8 \n\nxy = 30 \n\n\nand (x < y) (y > 8) \n\nThe possible solutions are \n\nx = 1         y = 30    (✔) \n\nx = 2         y = 15   (✔) \n\nx = 3         y = 10   (✔) \n\nx = 5         y = 6     (X) \n\nFrom the above solution only 3 satisfies the given \ncondition.",
+                "images": [],
+                "latex": [],
+                "tables": [
+                    {
+                        "headers": [
+                            "X",
+                            "Y",
+                            "Condition"
+                        ],
+                        "rows": [
+                            [
+                                "2",
+                                "1",
+                                "(×)"
+                            ],
+                            [
+                                "4",
+                                "2",
+                                "(🗸)"
+                            ],
+                            [
+                                "6",
+                                "3",
+                                "(🗸)"
+                            ],
+                            [
+                                "8",
+                                "4",
+                                "(🗸)"
+                            ],
+                            [
+                                "10",
+                                "5",
+                                "(🗸)"
+                            ],
+                            [
+                                "12",
+                                "6",
+                                "(🗸)"
+                            ],
+                            [
+                                "14",
+                                "7",
+                                "(🗸)"
+                            ]
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "id": "DL_NUMBER_SYSTEM_AND_BINARY_CODES_2009_Q07",
+            "subject": "Digital Logic",
+            "topic": "Number System and Binary Codes",
+            "subtopic": "unknown.  The number of possible solutions is ____.",
+            "year": 2009,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 7,
+            "tags": [
+                "Number System and Binary Codes",
+                "unknown.  The number of possible solutions is ____.",
+                "Digital Logic"
+            ],
+            "question": {
+                "text": "(1217)8 is equivalent to",
+                "images": [
+                    "assets/Digital Logic/DL_Number_System_and_Binary_Codes_P3_X442.png",
+                    "assets/Digital Logic/DL_Number_System_and_Binary_Codes_P3_X444.png"
+                ],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "(1217)16",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "(028F)16",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "(2297)10",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "(0B17)16",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "B"
+            ],
+            "solution": {
+                "text": "First write the given number in binary representation  \n\nWrite each digit 3 bits \n\n(1217)8 = (001010001111)2 \n\n\nNow, to represent the above number in hexadecimal \nform, make the group of 4 bits. \n\n(0010 1000 1111)2 = (028F)16  \n\nHence, correct answer is option (b).",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "DL_NUMBER_SYSTEM_AND_BINARY_CODES_2008_Q08",
+            "subject": "Digital Logic",
+            "topic": "Number System and Binary Codes",
+            "subtopic": "(1217)8 is equivalent to",
+            "year": 2008,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 8,
+            "tags": [
+                "Number System and Binary Codes",
+                "(1217)8 is equivalent to",
+                "Digital Logic"
+            ],
+            "question": {
+                "text": "Let r denote number system radix. The only value(s) \nof r that satisfy the equation √121𝑟 = 11\nr is/are",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "decimal 10",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "decimal 11",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "decimal 10 and 11",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "any value > 2 \nSigned Binary Numbers",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "D"
+            ],
+            "solution": {
+                "text": "The given equation is  \n\n(\n)\n(\n)\nr\nr\n=\n\n\nLet r be any base \n\nr\nr\nr\n\n+ \n+ \n= \nr\nr\n\n+ \n\n\nr\nr\n+\n+ = r +1 \n\n(\n)\nr +\n= r +1 \n\n (r + 1) = r + 1 \n\nTake negative sign  \n\n- (r + 1) = r + 1  \n\n2r + 2 = 0 \n\nr = -1 (radix cannot be negative) \n\nTake positive sign  \n\nr + 1 = r + 1 \n\nfor all value which is greater than 2. \n\nHence, correct answer is option (d).",
+                "images": [],
+                "latex": [],
+                "tables": [
+                    {
+                        "headers": [
+                            "X",
+                            "Y",
+                            "Condition"
+                        ],
+                        "rows": [
+                            [
+                                "2",
+                                "1",
+                                "(×)"
+                            ],
+                            [
+                                "4",
+                                "2",
+                                "(🗸)"
+                            ],
+                            [
+                                "6",
+                                "3",
+                                "(🗸)"
+                            ],
+                            [
+                                "8",
+                                "4",
+                                "(🗸)"
+                            ],
+                            [
+                                "10",
+                                "5",
+                                "(🗸)"
+                            ],
+                            [
+                                "12",
+                                "6",
+                                "(🗸)"
+                            ],
+                            [
+                                "14",
+                                "7",
+                                "(🗸)"
+                            ]
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "id": "DL_NUMBER_SYSTEM_AND_BINARY_CODES_2019_Q09",
+            "subject": "Digital Logic",
+            "topic": "Number System and Binary Codes",
+            "subtopic": "Signed Binary Numbers",
+            "year": 2019,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 9,
+            "tags": [
+                "Number System and Binary Codes",
+                "Signed Binary Numbers",
+                "Digital Logic"
+            ],
+            "question": {
+                "text": "In 16-bit 2's complement representation, the decimal \nnumber -28 is:",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "1111 1111 0001 1100",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "0000 0000 1110 0100",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "1111 1111 1110 0100",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "1000 0000 1110 0100",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "C"
+            ],
+            "solution": {
+                "text": "To find 2's complement of -28 first we convert +28 \nin binary system and then take 2's  complement  \n\n  (28)10 =(0000 0000 0001 1100)2 \n\nNow  taking 2's complement of (0000 0000 0001 \n1100)2=1111 1111 111 0100 \n\nHence                  \n\n-28 \\rightarrow 1111 1111 1110 0100 \n\nTherofre correct answer is option (C)",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "DL_NUMBER_SYSTEM_AND_BINARY_CODES_2019_Q10",
+            "subject": "Digital Logic",
+            "topic": "Number System and Binary Codes",
+            "subtopic": "number -28 is:",
+            "year": 2019,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 10,
+            "tags": [
+                "Number System and Binary Codes",
+                "number -28 is:",
+                "Digital Logic"
+            ],
+            "question": {
+                "text": "Two numbers are chosen independently and \nuniformly at random from the set {1, 2, . . . . , 13}. \nThe probability (rounded off to 3 decimal places) that \ntheir 4-bit (unsigned) binary representations have the \nsame most significant bit is ______.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "0.502",
+                "0.504"
+            ],
+            "solution": {
+                "text": "Decimal \nUnsigned representation \n\nFrom above table 7 number with MSB 'O' \n\n6 number with MSB '1' \n\nTwo number are selected indepednely with same \nMSB  \n\nProbability (P)=P (MSB = 0) + P(MSB = 1) \n\nProbability (P)= 7\n\n+\n\n\n\nProbability (P)= 49\n+\n = 0.5029",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "DL_NUMBER_SYSTEM_AND_BINARY_CODES_2019_Q11",
+            "subject": "Digital Logic",
+            "topic": "Number System and Binary Codes",
+            "subtopic": "same most significant bit is ______.",
+            "year": 2019,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 11,
+            "tags": [
+                "Number System and Binary Codes",
+                "same most significant bit is ______.",
+                "Digital Logic"
+            ],
+            "question": {
+                "text": "Consider Z = X - Y, where X, Y and Z are all in sign-\nmagnitude form. X and Y are each represented in n \nbits . To avoid overflow , the representation of Z \nwould require a minimum of :",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "n bits",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "n - 1 bits",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "n + 1 bits",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "n + 2 bits",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "C"
+            ],
+            "solution": {
+                "text": "Overflow occurs when two same sign number are \nadd/sub And result we get in different sign \n\nExample \n\n3 bit sign number \n\n\n(+3) + (1.2) = +5 \n\n+\n \\rightarrow in signed it is -1 \n\nExtension of bit required to avoid overflow \n\nZ = X - Y \n\n     ↓   ↓ \n\n  n-bit  n-bit \n\nTo avoid overflow z should be (n + 1) bits",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "DL_NUMBER_SYSTEM_AND_BINARY_CODES_2018_Q12",
+            "subject": "Digital Logic",
+            "topic": "Number System and Binary Codes",
+            "subtopic": "would require a minimum of :",
+            "year": 2018,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 12,
+            "tags": [
+                "Number System and Binary Codes",
+                "would require a minimum of :",
+                "Digital Logic"
+            ],
+            "question": {
+                "text": "Consider the unsigned 8-bit fixed point binary number \nrepresentation below, b7  b6  b5  b4  b3 ⋅ b2  b1  b0 where \nthe position of the binary point is between b3 and b2 . \nAssume b7 is the most significant bit. Some of the \ndecimal numbers listed below cannot be represented \nexactly in the above representation: \n\n(i) 31.500    (ii) 0.875    (iii) 12.100    (iv) 3.001 \n\nWhich one of the following statements is true?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "None of (i), (ii), (iii), (iv) can be exactly \nrepresented",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "Only (ii) cannot be exactly represented",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "Only (iii) and (iv) cannot be exactly \nrepresented",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "Only (i) and (ii) cannot be exactly \nrepresented",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "C"
+            ],
+            "solution": {
+                "text": "Given b7  b6  b5  b4  b3 ⋅ b2  b1  b0 \n\nbefore  . 5 bit that means we can represent at max \n\nafter . 3 bit that means total 8 comibanations are  \n\nBinary \nDecimal \n\nFrom above analysis we can't represent (0.100)10 \nand (0.001)10 \n\nFrom above analysis only (iii) and (iv) cannot be \nexactly same represented.",
+                "images": [],
+                "latex": [],
+                "tables": [
+                    {
+                        "headers": [
+                            "Binary",
+                            "Decimal"
+                        ],
+                        "rows": [
+                            [
+                                "000",
+                                "0.000"
+                            ],
+                            [
+                                "001",
+                                "0.125"
+                            ],
+                            [
+                                "010",
+                                "0.250"
+                            ],
+                            [
+                                "011",
+                                "0.375"
+                            ],
+                            [
+                                "100",
+                                "0.500"
+                            ],
+                            [
+                                "101",
+                                "0.625"
+                            ],
+                            [
+                                "110",
+                                "0.750"
+                            ],
+                            [
+                                "111",
+                                "0.875"
+                            ]
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "id": "DL_NUMBER_SYSTEM_AND_BINARY_CODES_2017_Q13",
+            "subject": "Digital Logic",
+            "topic": "Number System and Binary Codes",
+            "subtopic": "represented",
+            "year": 2017,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 13,
+            "tags": [
+                "Number System and Binary Codes",
+                "represented",
+                "Digital Logic"
+            ],
+            "question": {
+                "text": "When two 8-bit numbers A\n7 . . . A\n0 and B\n7 . . .B\n0 in 2's \ncomplement representation (with A\n0 and B\n0 as the \nleast significant bits) are added using a ripple-carry \nadder, the sum bits obtained are S\n7 . . . S\n0 and the carry \nbits are C\n7 . . . C\n0.  \n\nAn overflow is said to have occurred if",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "The carry bit C7 is 1",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "All the carry bits (C7, … ,C0) are 1",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "(𝐴7 ∙𝐵7 ∙𝑆7̅̅̅ + 𝐴7̅̅̅̅ ∙𝐵7̅̅̅̅ ∙𝑆7) is 1.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "(𝐴0 ∙𝐵0 ∙𝑆0̅̅̅ + 𝐴0̅̅̅̅ ∙𝐵0̅̅̅̅ ∙𝑆0) is 1.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "C"
+            ],
+            "solution": {
+                "text": "Overflow: \n\nWhen two same sign number are added and result we \nwill get in different sign. \n\nTo avoid overflow bit extension required",
+                "images": [],
+                "latex": [],
+                "tables": [
+                    {
+                        "headers": [
+                            "Decimal",
+                            "Unsigned representation"
+                        ],
+                        "rows": [
+                            [
+                                "1",
+                                "0001"
+                            ],
+                            [
+                                "2",
+                                "0010"
+                            ],
+                            [
+                                "3",
+                                "0011"
+                            ],
+                            [
+                                "4",
+                                "0100"
+                            ],
+                            [
+                                "5",
+                                "0101"
+                            ],
+                            [
+                                "6",
+                                "0110"
+                            ],
+                            [
+                                "4",
+                                "0111"
+                            ],
+                            [
+                                "7",
+                                "0111"
+                            ],
+                            [
+                                "8",
+                                "1000"
+                            ],
+                            [
+                                "9",
+                                "1001"
+                            ],
+                            [
+                                "10",
+                                "1010"
+                            ],
+                            [
+                                "11",
+                                "1011"
+                            ],
+                            [
+                                "12",
+                                "1100"
+                            ],
+                            [
+                                "13",
+                                "1101"
+                            ]
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "id": "DL_NUMBER_SYSTEM_AND_BINARY_CODES_2016_Q14",
+            "subject": "Digital Logic",
+            "topic": "Number System and Binary Codes",
+            "subtopic": "An overflow is said to have occurred if",
+            "year": 2016,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 14,
+            "tags": [
+                "Number System and Binary Codes",
+                "An overflow is said to have occurred if",
+                "Digital Logic"
+            ],
+            "question": {
+                "text": "Consider \nan \neight-bit \nripple-carry \nadder \nfor \ncomputing the sum of A and B, where A and B are \nintegers represented in 2's complement form. If the \ndecimal value of A is one, the decimal value of B that \nleads to the longest latency for the sum to stabilize is \n_________.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "-1"
+            ],
+            "solution": {
+                "text": "Given: \n\nA = 1 in decimal form \n\nbinary form of A = 0000 0001 \n\nFor longest latency, we must have Cin = 1 at every \nstage of ripple carry adder. \n\nMaximum delay will be given when we, take B = -1 \nin decimal and (1111 1111) in binary  \n\n\n\nB = 1  1   1   1   1   1   1  1     \\Rightarrow -1 \n\n\n\nA = 0  0   0   0   0   0   0  1     \\rightarrow +1 \n\nCarry out =  1   0  0   0   0   0   0   0  0",
+                "images": [],
+                "latex": [],
+                "tables": [
+                    {
+                        "headers": [
+                            "Decimal",
+                            "Unsigned representation"
+                        ],
+                        "rows": [
+                            [
+                                "1",
+                                "0001"
+                            ],
+                            [
+                                "2",
+                                "0010"
+                            ],
+                            [
+                                "3",
+                                "0011"
+                            ],
+                            [
+                                "4",
+                                "0100"
+                            ],
+                            [
+                                "5",
+                                "0101"
+                            ],
+                            [
+                                "6",
+                                "0110"
+                            ],
+                            [
+                                "4",
+                                "0111"
+                            ],
+                            [
+                                "7",
+                                "0111"
+                            ],
+                            [
+                                "8",
+                                "1000"
+                            ],
+                            [
+                                "9",
+                                "1001"
+                            ],
+                            [
+                                "10",
+                                "1010"
+                            ],
+                            [
+                                "11",
+                                "1011"
+                            ],
+                            [
+                                "12",
+                                "1100"
+                            ],
+                            [
+                                "13",
+                                "1101"
+                            ]
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "id": "DL_NUMBER_SYSTEM_AND_BINARY_CODES_2016_Q15",
+            "subject": "Digital Logic",
+            "topic": "Number System and Binary Codes",
+            "subtopic": "_________.",
+            "year": 2016,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 15,
+            "tags": [
+                "Number System and Binary Codes",
+                "_________.",
+                "Digital Logic"
+            ],
+            "question": {
+                "text": "Let X be the number of distinct 16-bit integers in 2's \ncomplement representation. Let Y be the number of \ndistinct \n16-bit \nintegers \nin \nsign \nmagnitude \nrepresentation. Then X-Y is _________.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "1"
+            ],
+            "solution": {
+                "text": "If x is in 2's then range of x will be  \n\n-2n-1 to 2n-1 -1 \n\nHere x is 16 bits number, n = 16  \n\n-216-1 to 216-1 -1 \n\nx = 65536 \n\nIf y is in sign magnitude representation, then range \nof y will be \n\n- (2n-1-1) to + (2n-1 -1) \nn = 16 \n\n- (216-1-1) to + (216-1 -1) \n\ny = 65535  \n\nHence, x - y = 1",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "DL_NUMBER_SYSTEM_AND_BINARY_CODES_2016_Q16",
+            "subject": "Digital Logic",
+            "topic": "Number System and Binary Codes",
+            "subtopic": "representation. Then X-Y is _________.",
+            "year": 2016,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 16,
+            "tags": [
+                "Number System and Binary Codes",
+                "representation. Then X-Y is _________.",
+                "Digital Logic"
+            ],
+            "question": {
+                "text": "The 16-bit 2's complement representation of an \ninteger is  1111 1111 1111 0101; its decimal \nrepresentation is___.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "- 11 to -11"
+            ],
+            "solution": {
+                "text": "Given 16-bit number is 1111 1111 1111 0101 \nHere MSB bit is 1 that means the given number is \nnegative signed number\n\n\n2's complement of given number is 0000 0000 0000 \n1011, which is equivalent to + 11 but MSB here is 1 \nhence number is negative i.e  - 11 and correct answer \nis -11.",
+                "images": [
+                    "assets/Digital Logic/DL_Number_System_and_Binary_Codes_P9_X1239.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "DL_NUMBER_SYSTEM_AND_BINARY_CODES_2013_Q17",
+            "subject": "Digital Logic",
+            "topic": "Number System and Binary Codes",
+            "subtopic": "representation is___.",
+            "year": 2013,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 17,
+            "tags": [
+                "Number System and Binary Codes",
+                "representation is___.",
+                "Digital Logic"
+            ],
+            "question": {
+                "text": "The smallest integer that can be represented by an 8-\nbit number in 2's complement form is",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "- 256",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "- 128",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "- 127",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "0",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "B"
+            ],
+            "solution": {
+                "text": "For 2's Complement form \n\nThe range will be given by  \n\n- (2n-1) to + (2n-1 -1) \n\nFor n = 8 (Given 8 bit number) \n\nThe minimum will be  \n\n - (28-1)  \n\n - (27)  \n\n -128  \n\nThe maximum number will be given as  \n\n(2n-1) = 127 \n\nHence, correct answer is option (b).",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "DL_NUMBER_SYSTEM_AND_BINARY_CODES_2010_Q18",
+            "subject": "Digital Logic",
+            "topic": "Number System and Binary Codes",
+            "subtopic": "bit number in 2's complement form is",
+            "year": 2010,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 18,
+            "tags": [
+                "Number System and Binary Codes",
+                "bit number in 2's complement form is",
+                "Digital Logic"
+            ],
+            "question": {
+                "text": "P is a 16-bit signed integer. The 2's complement \nrepresentation of P is (F87B)16. The 2's complement \nrepresentation of 8×P is",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "(C3D8)16",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "(187B)16",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "(F878)16",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "(987B)16",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "A"
+            ],
+            "solution": {
+                "text": "Method 1: \n\nThe given number is  \n\nP = (F87B)16 \n\nP = 1111100001111011 = (-1925) \n\n2's complement of the above number will be given \nas \n\n= 0000011110000101 \n\nIts decimal representation will be \n\n 1 \\times 210 + 1 \\times 29 + 1×28 + 1 \\times 2\n7 + 4 + 2 \n\n 1024 + 512 + 256 + 128 + 4+1 = 1925 \n\nNow,  \n\n8 \\times P = 8 \\times (-1925) = -15400 \n\nIts binary representation will be 0011110000101000 \n\nNow, 2's complement of the above number will be \ngiven as \n\n\n8P →(C3D8)16 \n\nHence, correct answer is option (a) \n\nMethod 2:  \n\nP = (F87B)16   \n\n= 1111100001111011 \n\nBy multiplying 21 , number will be shifted to left by \none position, and by multiplying 23 , number will be \nshifted by 3 position to the left. \n\n 11 00 00 1111011000 \n\n\n8P \\Rightarrow (C3D8)16 \n\nHence, correct answer is option (a)",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        }
+    ]
+}

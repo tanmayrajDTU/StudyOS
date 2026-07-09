@@ -1,0 +1,1082 @@
+{
+    "subject": "Theory Of Computation",
+    "topic": "Undecidability and Reducibility",
+    "questionCount": 17,
+    "questions": [
+        {
+            "id": "TOC_UNDECIDABILITY_AND_REDUCIBILITY_2022_Q01",
+            "subject": "Theory Of Computation",
+            "topic": "Undecidability and Reducibility",
+            "subtopic": "Undecidability",
+            "year": 2022,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MSQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 1,
+            "tags": [
+                "Undecidability and Reducibility",
+                "Undecidability",
+                "Theory Of Computation"
+            ],
+            "question": {
+                "text": "Which of the following is/are undecidable?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "Given two Turing machines M1 and M2, decide \nif L(M1) = L(M2).",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "Given a Turing machine M, decide if L(M) is \nregular.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "Given a Turing machine M, decide if M accepts \nall strings.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "Given a Turing machine M, decide if M takes \nmore than 1073 steps on every string.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "A",
+                "B",
+                "C"
+            ],
+            "solution": {
+                "text": "• \nEquivalence problem for Turing machine is \nUndecidable. \n• \nRegularity problem for Turing machine is \nUndecidable. \n• \nTotality (Completeness) problem for Turing \nmachine is Undecidable. \n• \nGiven a Turing machine M, decide if M takes \nmore than 1073 steps on every string is \nDecidable.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "TOC_UNDECIDABILITY_AND_REDUCIBILITY_2021_Q02",
+            "subject": "Theory Of Computation",
+            "topic": "Undecidability and Reducibility",
+            "subtopic": "more than 1073 steps on every string.",
+            "year": 2021,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 2,
+            "tags": [
+                "Undecidability and Reducibility",
+                "more than 1073 steps on every string.",
+                "Theory Of Computation"
+            ],
+            "question": {
+                "text": "Consider the following two statements about \n\nregular languages: \nS1: Every infinite regular language contains an \nundecidable language as a subset. \n\nS2: Every finite language is regular. \n\nWhich one of the following choices is correct?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "Only S1 is true",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "Only S2 is true",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "Both S1 are S2 are true",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "Neither S1 nor S2 is true",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "C"
+            ],
+            "solution": {
+                "text": "Both Statements S1 and S2 are correct.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "TOC_UNDECIDABILITY_AND_REDUCIBILITY_2021_Q03",
+            "subject": "Theory Of Computation",
+            "topic": "Undecidability and Reducibility",
+            "subtopic": "Which one of the following choices is correct?",
+            "year": 2021,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 3,
+            "tags": [
+                "Undecidability and Reducibility",
+                "Which one of the following choices is correct?",
+                "Theory Of Computation"
+            ],
+            "question": {
+                "text": "For a Turing machine M, 〈M〉 denotes an encoding \nof M. Consider the following two languages. \n\nL1 = {〈M〉|M takes more than 2021 steps on all \ninputs}. \n\nL2 = {〈M〉|M takes more than 2021 steps on some \ninput}. \n\nWhich one of the following options is correct?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "Both L1 and L2 are decidable.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "L1 is decidable and  L2 is undecidable.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "L1 is undecidable and  L2 is decidable.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "Both  L1 and  L2 are undecidable.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "A"
+            ],
+            "solution": {
+                "text": "L1 = {〈M〉|M takes more than 2021 steps on all \ninputs} Decidable. \n\nVerify every string in length 0 to 2021.  \n\nL2 = {〈M〉|M takes more than 2021 steps on some \ninput}Decidable. \n\nVerify each string upto 2021 length. If any of these \nstrings takes more than 2021 steps, it is valid M.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "TOC_UNDECIDABILITY_AND_REDUCIBILITY_2020_Q04",
+            "subject": "Theory Of Computation",
+            "topic": "Undecidability and Reducibility",
+            "subtopic": "Which one of the following options is correct?",
+            "year": 2020,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 4,
+            "tags": [
+                "Undecidability and Reducibility",
+                "Which one of the following options is correct?",
+                "Theory Of Computation"
+            ],
+            "question": {
+                "text": "Which of the following languages are undecidable? \nNote that 〈M〉 indicates encoding of the Turing \nmachine M. \n\nL1 = {〈M〉|L(M) = ϕ} \n\nL2 = {〈M, w, q〉|M on input w reaches state q in \nexactly 100 steps} \n\nL3 = {〈M〉|L(M) is not recursive} \n\nL4 = {〈M〉|L(M) contains at least 21 members)",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "L1, L3 and L4 only",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "L2, L3 and L4 only",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "L1 and L3 only",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "L2 and L3 only",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "A"
+            ],
+            "solution": {
+                "text": "L1 = {〈M〉|L(M) = ϕ} \n\n Emptiness problem for Turing machine is \nUndecidable. \n\nL2 = {〈M, w, q〉|M on input w reaches state q in \nexactly 100 steps} \n\nFor given M, given w, run exactly 100 steps to \ncheck whether q is reachable or not Decidable. \n\nL3 = {〈M〉|L(M) is not recursive)} \\Rightarrow Undecidable. \n\nL4 = {〈M〉|L(M)contains at least 21 members)} \n\n|L(M)| \\ge 21 non trivial property is Undecidable.",
+                "images": [
+                    "assets/Theory Of Computation/TOC_Undecidability_and_Reducibility_P50_X1369.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "TOC_UNDECIDABILITY_AND_REDUCIBILITY_2018_Q05",
+            "subject": "Theory Of Computation",
+            "topic": "Undecidability and Reducibility",
+            "subtopic": "L4 = {〈M〉|L(M) contains at least 21 members)",
+            "year": 2018,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 5,
+            "tags": [
+                "Undecidability and Reducibility",
+                "L4 = {〈M〉|L(M) contains at least 21 members)",
+                "Theory Of Computation"
+            ],
+            "question": {
+                "text": "Consider the following problems. L(G) denotes the \nlanguage generated by a grammar G. L(M) denotes \nthe language accepted by a machine M. \n\nI. For an unrestricted grammar G and a string w, \nwhether  wL(G). \n\nII. Given a Turing Machine M, whether L(M) is \nregular. \n\nIII. Given two grammars G1 and G2, whether L(G1) \n= L(G2). \n\nIV. Given an NFA N, whether there is a \ndeterministic PDA P such that N and P accept \nthe same language. \n\nWhich one of the following statements is correct?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "Only I and II are undecidable",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "Only III is undecidable",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "Only II and IV are undecidable",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "Only I, II and III are undecidable",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "D"
+            ],
+            "solution": {
+                "text": "I. Membership problem for an unrestricted \ngrammar is Undecidable. \n\nII. Given a Turing Machine M, whether L(M) is \nregular. \nNon-trivial \nproblem \nfor \nTuring \nmachine is  Undecidable. \n\n\nIII. Given two grammars G1 and G2, whether \nL(G1) = L(G2). Grammar is not given assume \nunrestricted grammar for an unrestricted \ngrammar equivalence problem is Undecidable. \n\nIV. Given an NFA N, whether there is a \ndeterministic PDA P such that N and P accept \nthe same language. Decidable",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "TOC_UNDECIDABILITY_AND_REDUCIBILITY_2017_Q06",
+            "subject": "Theory Of Computation",
+            "topic": "Undecidability and Reducibility",
+            "subtopic": "Which one of the following statements is correct?",
+            "year": 2017,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 6,
+            "tags": [
+                "Undecidability and Reducibility",
+                "Which one of the following statements is correct?",
+                "Theory Of Computation"
+            ],
+            "question": {
+                "text": "Let L(R) be the language represented by regular \nexpression R. Let L(G) be the language generated by \na context free grammar G. Let L(M) be the language \naccepted by a Turing machine M. \n\nWhich of the following decision problems are \nundecidable? \n\nI. Given a regular expression R and a string w, is \n w  L(R)? \n\nII. Given a context-free grammar G, is L(G) = ϕ? \n\nIII. Given a context-free grammar G, is L(G) = Σ*  \nfor some alphabet Σ? \n\nIV. Given a Turing machine M and a string w, is \nw  L(M)?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "I and IV only",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "II and III only",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "II, III and IV only",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "III and IV only",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "D"
+            ],
+            "solution": {
+                "text": "I. \nGiven a regular expression R and a string w, \nis w  L(R)?  \n\n\nMembership problem for Regular is \nDecidable. \n\nII. \nGiven a context-free grammar G, is L(G) = ϕ? \nEmptines? \n\n\nMembership, finiteness and emptiness \nproblems for CFL are Decidable. \n\nIII. Given a context-free grammar G is L(G) = Σ* \nfor some alphabet Σ? \n\n\nTotality problem CFL is Undecidable. \n\nIV. \nGiven a Turing machine M and a string w, is \n w  L(M)?  \n\n Membership problem for Turing machine is \nUndecidable.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "TOC_UNDECIDABILITY_AND_REDUCIBILITY_2016_Q07",
+            "subject": "Theory Of Computation",
+            "topic": "Undecidability and Reducibility",
+            "subtopic": "w  L(M)?",
+            "year": 2016,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 7,
+            "tags": [
+                "Undecidability and Reducibility",
+                "w  L(M)?",
+                "Theory Of Computation"
+            ],
+            "question": {
+                "text": "Which of the following decision problems are \nundecidable \n\nI.  Given NFAs N1 & N2, is   L(N1)  L(N2) = ? \n\nII. Given a CFG G = (N, , P, S) and a string x  \n*, does x  L(G)? \n\nIII.  Given CFGs G1 and G2 is L(G1) = L (G2)? \n\nIV.  Given a TM M, is L(M) = Φ?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "I and IV only",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "II and III only",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "III and IV only",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "II and IV only",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "C"
+            ],
+            "solution": {
+                "text": "I. Dis-jointness problem for FA is Decidable. \n\n II. Membership problem for CFG is Decidable. \n\nIII. Equivalence problem for CFG is Undecidable. \n\nIV. Emptiness problem for TM is Undecidable. \n\nHence, option (c) is correct.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "TOC_UNDECIDABILITY_AND_REDUCIBILITY_2016_Q08",
+            "subject": "Theory Of Computation",
+            "topic": "Undecidability and Reducibility",
+            "subtopic": "IV.  Given a TM M, is L(M) = Φ?",
+            "year": 2016,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 8,
+            "tags": [
+                "Undecidability and Reducibility",
+                "IV.  Given a TM M, is L(M) = Φ?",
+                "Theory Of Computation"
+            ],
+            "question": {
+                "text": "Consider the following languages: \n\nL1 = {M|M takes at least 2016 steps on some \ninput}. \n\nL2 = {M|M takes at least 2016 steps on all inputs}. \n\nL3 = {M|M accepts }. \n\nWhere for each Turning machine M, M denotes a \nspecific encoding of M.  Which one of the following \nis TRUE?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "L1 is recursive and L2, L3 are not recursive.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "L2 is recursive and L1, L3 are not recursive.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "L1, L2 are recursive and L3 is not recursive.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "L1, L2, L3 are recursive .",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "C"
+            ],
+            "solution": {
+                "text": "• \nL1 = {M | M takes at least 2016 steps on \nsome input}. Decidable  \n• \nL2 = {M | M takes at least 2016 steps on all \ninputs}. Decidable  \n• \nL3 = {M | M accepts }. \nMembership problem for Turing machine is  \nUndecidable.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "TOC_UNDECIDABILITY_AND_REDUCIBILITY_2015_Q09",
+            "subject": "Theory Of Computation",
+            "topic": "Undecidability and Reducibility",
+            "subtopic": "is TRUE?",
+            "year": 2015,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 9,
+            "tags": [
+                "Undecidability and Reducibility",
+                "is TRUE?",
+                "Theory Of Computation"
+            ],
+            "question": {
+                "text": "Consider the following statements: \n\n1. The complement of every Turning decidable \nlanguage is Turning decidable. \n\n2. There exists some language which is in NP but \nis not Turing decidable. \n\n3. If L is a language in NP, L is Turing decidable. \n\nWhich of the above statements is/are True?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "Only 2",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "Only 3",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "Only 1 and 2",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "Only 1 and 3",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "D"
+            ],
+            "solution": {
+                "text": "• \nDecidable complement is always Decidable. \n• \nEvery NP problem is always Decidable.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "TOC_UNDECIDABILITY_AND_REDUCIBILITY_2014_Q10",
+            "subject": "Theory Of Computation",
+            "topic": "Undecidability and Reducibility",
+            "subtopic": "Which of the above statements is/are True?",
+            "year": 2014,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 10,
+            "tags": [
+                "Undecidability and Reducibility",
+                "Which of the above statements is/are True?",
+                "Theory Of Computation"
+            ],
+            "question": {
+                "text": "Which \none \nof \nthe \nfollowing \nproblems \nis \nundecidable?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "Deciding if a given context-free grammar is \nambiguous.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "Deciding if a given string is generated by a \ngiven context-free grammar.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "Deciding if the language generated by a given \ncontext-free grammar is empty.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "Deciding if the language generated by a given \ncontext-free grammar is finite.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "A"
+            ],
+            "solution": {
+                "text": "• \nChecking ambiguity for grammar is always \nUndecidable. \n• \nMembership problem for CFL is Decidable \n(using CYK algorithm). \n• \nEmptiness problem for CFL is Decidable. \n• \nFiniteness problem for CFL is Decidable.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "TOC_UNDECIDABILITY_AND_REDUCIBILITY_2014_Q11",
+            "subject": "Theory Of Computation",
+            "topic": "Undecidability and Reducibility",
+            "subtopic": "context-free grammar is finite.",
+            "year": 2014,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 11,
+            "tags": [
+                "Undecidability and Reducibility",
+                "context-free grammar is finite.",
+                "Theory Of Computation"
+            ],
+            "question": {
+                "text": "Let M be the encoding of a Turing machine as a \nstring over  = {0, 1}. Let L = {M|  M is a Turing \nmachine that accepts a string of length 2014}. Then, \nL is",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "decidable and recursively enumerable",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "undecidable but recursively enumerable",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "undecidable and not recursively enumerable",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "decidable but not recursively enumerable",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "B"
+            ],
+            "solution": {
+                "text": "• \nL is undecidable but partially decidable (RE). \nHence, option (b) is correct.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "TOC_UNDECIDABILITY_AND_REDUCIBILITY_2013_Q12",
+            "subject": "Theory Of Computation",
+            "topic": "Undecidability and Reducibility",
+            "subtopic": "L is",
+            "year": 2013,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 12,
+            "tags": [
+                "Undecidability and Reducibility",
+                "L is",
+                "Theory Of Computation"
+            ],
+            "question": {
+                "text": "Which of the following is/are undecidable? \n\n1. G is CFG. Is L(G) = ϕ? \n\n2. G is a CFG. Is L(G) = Σ*?  \n\n3. M is a Turing machine. Is L(M)  regular? \n\n4. A is a DFA and N is an NFA. Is L(A) = L(N)?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "3 Only",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "3 and 4 only",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "1, 2 and 3 only",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "2 and 3 only",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "D"
+            ],
+            "solution": {
+                "text": "• \nEmptiness problem for CFL is Decidable. \n• \nTotality problem for CFL is Undecidable. \n• \nRegularity problem for TM is Undecidable. \n• \nEquivalence problem for Regular is Decidable.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "TOC_UNDECIDABILITY_AND_REDUCIBILITY_2013_Q13",
+            "subject": "Theory Of Computation",
+            "topic": "Undecidability and Reducibility",
+            "subtopic": "Which of the following is/are undecidable?",
+            "year": 2013,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 13,
+            "tags": [
+                "Undecidability and Reducibility",
+                "Which of the following is/are undecidable?",
+                "Theory Of Computation"
+            ],
+            "question": {
+                "text": "Which of the following statements is/are FALSE? \n\n1. For every non-deterministic Turing machine, \nthere exists an equivalent deterministic Turing \nmachine. \n\n2. Turing recognizable languages are closed under \nunion and complementation. \n\n3. Turing decidable languages are closed under \nintersection and complementation. \n\n4. Turing recognizable languages are closed under \nunion and intersection.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "1 and 4 only",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "1 and 3 only",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "2 only",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "3 only",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "C"
+            ],
+            "solution": {
+                "text": "• \nNTM is equivalent to DTM \n• \nRELs are not closed under complement. \n• \nRecursive languages are closed under both \nintersection and complement. \n• \nRELs are closed under both union and \nintersection. \nHence, option (c) is correct.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "TOC_UNDECIDABILITY_AND_REDUCIBILITY_2012_Q14",
+            "subject": "Theory Of Computation",
+            "topic": "Undecidability and Reducibility",
+            "subtopic": "union and intersection.",
+            "year": 2012,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 14,
+            "tags": [
+                "Undecidability and Reducibility",
+                "union and intersection.",
+                "Theory Of Computation"
+            ],
+            "question": {
+                "text": "Which of the following problems are decidable? \n\n1. Does a given program ever produce an output? \n\n2. If L is a context-free language, then, is L also \ncontext-free? \n\n3. If L is a regular language, then, is L also \nregular? \n\n4. If L is a recursive language, then, is L also \nrecursive?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "1, 2, 3, 4",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "1, 2",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "2, 3, 4",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "3, 4",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "D"
+            ],
+            "solution": {
+                "text": "1. These kind of problems are non-trivial. So, it is \nUndecidable. \n\n2. If L is a context-free language, then, is L also \ncontext-free. It is Undecidable. \n\n3. If L is a regular language, then, is L also \nregular. Regular is closed under complement. \nSo, it is Decidable. \n\n4. If L is a recursive language, then, is L also \nrecursive. It is Decidable.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "TOC_UNDECIDABILITY_AND_REDUCIBILITY_2008_Q15",
+            "subject": "Theory Of Computation",
+            "topic": "Undecidability and Reducibility",
+            "subtopic": "recursive?",
+            "year": 2008,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 15,
+            "tags": [
+                "Undecidability and Reducibility",
+                "recursive?",
+                "Theory Of Computation"
+            ],
+            "question": {
+                "text": "Which of the following are decidable? \n\n1. Whether the intersection of two regular \nlanguages is infinite \n\n2. Whether a given context-free language is regular \n\n3. Whether two push-down automata accept the \nsame language \n\n4. Whether a given grammar is context-free",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "1 and 2",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "1 and 4",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "2 and 3",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "2 and 4 \n\nReducibility",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "B"
+            ],
+            "solution": {
+                "text": "1. Whether the intersection of two regular \nlanguages is infinite. \nInfiniteness problem for Regular is Decidable. \n2. Whether a given context-free language is \nregular. Undecidable \n\n3. Whether two push-down automata accept the \nsame language. \n\n\nEquivalence problem for PDA(CFL) is  \nUndecidable. \n\n4. Whether a given grammar is context-free. \nAlgorithm exists to identify the context-free \ngrammar. So this problem is Decidable.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "TOC_UNDECIDABILITY_AND_REDUCIBILITY_2016_Q16",
+            "subject": "Theory Of Computation",
+            "topic": "Undecidability and Reducibility",
+            "subtopic": "Reducibility",
+            "year": 2016,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 16,
+            "tags": [
+                "Undecidability and Reducibility",
+                "Reducibility",
+                "Theory Of Computation"
+            ],
+            "question": {
+                "text": "Let X be a recursive language and Y be a recursively \nenumerable but not recursive language. Let W and Z \nbe two languages such that Y reduces to W, and Z \nreduces to X (reduction means the standard many-\none reduction). Which one of the following \nstatements is TRUE?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "W can be recursively enumerable and Z is \nrecursive.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "W can be recursive and Z is recursively \nenumerable.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "W is not recursively enumerable and Z is \nrecursive.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "W is not recursively enumerable and Z is not \nrecursive.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "C"
+            ],
+            "solution": {
+                "text": "X: Recursive \n\nY: RE but not Recursive \n• \nY \n W\n\n\n= RE but not Recursive\nW\n\n\n= NOT RE \\le W \nSo, W can not be RE \n• \nZ\n X\n\n\n= Z\nRecursive\n\n\n= Z \\le Recursive \nSo, Z must be Recursive",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "TOC_UNDECIDABILITY_AND_REDUCIBILITY_2014_Q17",
+            "subject": "Theory Of Computation",
+            "topic": "Undecidability and Reducibility",
+            "subtopic": "recursive.",
+            "year": 2014,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 17,
+            "tags": [
+                "Undecidability and Reducibility",
+                "recursive.",
+                "Theory Of Computation"
+            ],
+            "question": {
+                "text": "Let A \\le m B  denotes that language A is mapping \nreducible (also known as many-to-one reducible) to \nlanguage B. Which one of the following is FALSE?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "If  A \\le m B  and B is recursive then A is \nrecursive.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "If A \\le m B and A is undecidable then B is \nundecidable.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "If A \\le m B and B is recursively enumerable then \nA is recursively enumerable.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "If A \\le m B and B is not recursively enumerable \nthen A is not recursively enumerable.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "D"
+            ],
+            "solution": {
+                "text": "Given A \\le m B \n• \nIf A \\le m recursive then, A will be recursive. \n• \nIf Undecidable \\le m B then, B must be \nUndecidable. \n• \nIf A \\le m RE then, A will be RE. \n• \nIf A \\le m NOT RE then, A may/may not be \nNOT RE. \nHence, option (d) is false statement in given data.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        }
+    ]
+}

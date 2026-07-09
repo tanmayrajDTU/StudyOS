@@ -1,0 +1,1304 @@
+{
+    "subject": "Programming and Data Structures",
+    "topic": "Functions and Storage Classes",
+    "questionCount": 25,
+    "questions": [
+        {
+            "id": "PDS_FUNCTIONS_AND_STORAGE_CLASSES_2019_Q01",
+            "subject": "Programming and Data Structures",
+            "topic": "Functions and Storage Classes",
+            "subtopic": "Functions",
+            "year": 2019,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 1,
+            "tags": [
+                "Functions and Storage Classes",
+                "Functions",
+                "Programming and Data Structures"
+            ],
+            "question": {
+                "text": "Consider the following C program: \n\n#include <stdio.h> \n\nint jumble (int x, int y){ \n\n          x = 2 * x + y; \n\n          return x; \n\n} \n\nint main () { \n\n            int x = 2, y = 5; \n\n            y = jumble(y, x); \n\n            x = jumble (y, x); \n\n            printf (\"%d \\n\", x); \n\n            return 0; \n\n}    \n\nThe value printed by the program is ___________.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "26"
+            ],
+            "solution": {
+                "text": "xmain = 2   26 \n\nymain = 5   12 \n\n1) ymain = jumble(5,2) \n\n\nx=12, y=2 \n\n\nx=2*x+y \n\n\nx=2*5+2 \n\n\nx=12 \n\n\nafter 1st jumble function call \n\n\nxmain=2, ymain=12 \n\n2) xmain=jumble(12,2) \n\n\nx=26,y=2 \n\n\nx=2*x+y \n\n\nx=2*12+2 \n\n\nx=26 \n\n\nafter 2nd jumble function call \n\n\nxmain=26, and ymain=12 \n\n\nlastly value of x is printed which is 26.",
+                "images": [
+                    "assets/Programming and Data Structures/PDS_Functions_and_Storage_Classes_P25_X931.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "PDS_FUNCTIONS_AND_STORAGE_CLASSES_2019_Q02",
+            "subject": "Programming and Data Structures",
+            "topic": "Functions and Storage Classes",
+            "subtopic": "The value printed by the program is ___________.",
+            "year": 2019,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 2,
+            "tags": [
+                "Functions and Storage Classes",
+                "The value printed by the program is ___________.",
+                "Programming and Data Structures"
+            ],
+            "question": {
+                "text": "Consider the following C program: \n\n#include<stdio.h> \n\nint r ( ){ \n\n\nstatic int num = 7; \n\n\nreturn num - -; \n\n} \n\nint main( ){ \n\n\nfor (r ( ); r( ); r( )) \n\n\n   printf (\"%d\", r( )); \n\n\nreturn 0; \n\n} \n\nWhich one of the following values will be displayed \non execution of the programs?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "41",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "52",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "63",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "630",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "B"
+            ],
+            "solution": {
+                "text": "r(): it will return the current value of num and returns \nnum=num-1(post decrement).  \n\n\n\nPost-decrement: A post-decrement operator is used \nto decrement the value of a variable after executing \nthe expression in which the operator is used. \n\n(1) r() will return 7 and then num is decreased by 1 \nthat is num =7, value 7 is printed and then \ndecremented. \n\n(2) r() will return 6(which is non zero) that's why \ncondition will become true and code inside the \nloop will be executed, but before reaching printf \nstatement num is decresed by 1 ie…. num \nbecomes 5. \n\n(3) printf(\"%d\"r()); \n\n\nr() inside printf will return 5 and same is printed \nand after printing num becomes 4. \n\n(4) r() is called and 4 is returned and then decreses \nthe num value by 1, hence num becomes 3. \n\n\n(5) r() will return 3 which is non zero(true) so printf \nwill be executed, before printf num value \nbecomes 2 because of post decrement. \n\n(6) printf(\"%d\",r()), r() returns 2 and same value is \nprinted. And then num becomes 1. \n\n(7) r(), will return 1 and decrements the value to \nzero. \n\n(8) r(), Here zero is returned and condition of for \nloop becomes false hence loop gets terminated. \n\nTherefore, output printed is 52 which is option b.",
+                "images": [
+                    "assets/Programming and Data Structures/PDS_Functions_and_Storage_Classes_P25_X2819.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "PDS_FUNCTIONS_AND_STORAGE_CLASSES_2018_Q03",
+            "subject": "Programming and Data Structures",
+            "topic": "Functions and Storage Classes",
+            "subtopic": "on execution of the programs?",
+            "year": 2018,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 3,
+            "tags": [
+                "Functions and Storage Classes",
+                "on execution of the programs?",
+                "Programming and Data Structures"
+            ],
+            "question": {
+                "text": "Consider the following program written in pseudo-\ncode. Assume that x and y are integers: \n\nCount (x, y) {  \n\nif (y != 1) { \n\n    if (x != 1) { \n\n    print (\"*\"); \n                     Count (x/2, y); \n\n} \n\n    else { \n\n        y = y - 1; \n\n              Count (1024, y); \n\n      } \n\n   } \n\n} \n\nThe number of times that the print statement is \nexecuted by the call Count (1024, 1024) is _______. \n\nStorage Classes",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "10230"
+            ],
+            "solution": {
+                "text": "*  If y =1, then the function will terminate without \nprinting anything. \n\nCount (x, 1) will not print anything \n\n\nelse statement will be executed when if condition \nfails. \n\nCount (1024, 1024) \n\n\n        (1) print \n\nCount (512, 1024) \n\n\n        (2) print \n\nCount (256, 1024) \n\n\n        (3) print \n\nCount (128, 1024) \n\n\n        (4) print \n\nCount (64, 1024) \n\n\n        (5) print \n\nCount (32, 1024) \n\n\n        (6) print \n\nCount (16, 1024) \n\n\n        (7) print \n\nCount (8, 1024) \n\n\n        (8) print \n\nCount (4, 1024) \n\n\n        (9) print \n\nCount (2, 1024) \n\n\n        (10) print \n\nCount (1, 1024) \n    Note:- for each such y, 10 times printf will take place \n\nCount (1024, 1024) \n\n\n      After 10 times printf \n\nCount (1, 1024) \n\nBecause x = 1 else part will be executed \n\nCount (1024, y) y \\neq 1 \n\n\n     10 times print \n\nCount (1, y) \n\n⇒ x = 1 else part will be executed \n\n1.  Count (1024, 1024) \n\n\n               after 10 time printing \n\n\nCount (1, 1024) \n\n\ny = y - 1 ⇒ y = 1023  \n\n2. Count (1024, 1023) will execute  \n\n\nCount (1024, 1023) \n\n\n                10 time \n\n\nCount (1, 1023) \n\n\nAgain, else part will execute \n\n\n\ny = 1022 \n\n\n\ncount (1024, 1022) will execute \n\n\ncount (1024, 1024) \\rightarrow 10 times \n\n\ncount (1024, 1023)  \\rightarrow 10 times \n\n\ncount (1024, 1022) \\rightarrow 10 times \n\n\n. \n\n\n. \n\n\n. \n\n\nCount (1024, 2) \\rightarrow 10 times \n\n\ni.e. count (1024, y)where y = 2, 3, …1024 \n\n\ni.e. for 1023 value of y count (1024, y) will print \n10 times \n\n\nTotal number of printf = 10 \\times 1023 = 10230",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "PDS_FUNCTIONS_AND_STORAGE_CLASSES_2015_Q04",
+            "subject": "Programming and Data Structures",
+            "topic": "Functions and Storage Classes",
+            "subtopic": "Storage Classes",
+            "year": 2015,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 4,
+            "tags": [
+                "Functions and Storage Classes",
+                "Storage Classes",
+                "Programming and Data Structures"
+            ],
+            "question": {
+                "text": "The output of the following C program is________ \n\nvoid f1 (int a, int b) { \n\nint c;  \n\nc = a; a = b; b  =c;  \n\n}  \n          void f2 (int *a, int *b) { \n\n      int c; \n\n      c = *a; *a = *b; *b = c; \n          } \n\n\n int main()   { \n              int a = 4;b = 5,c = 6; \n\n\n f1 (a,b); \n\n\n f2 (&b,&c); \n\n\n printf (\"%d\",c-a-b); \n\n}",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "-5"
+            ],
+            "solution": {
+                "text": "f2() function is swapping.  \n\n As f2 is called by passing address of b and address \n\nof c. \n\n   f2 () \\Rightarrow will swap the contents of b, c.  \n\n\n\na 4\nb 56\nc 65\n\n\n\n\n\nprintf will point the value of c - a - b \n\n5 - 4 - 6 \n\n= 5 - 10 \n\n= - 5",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "PDS_FUNCTIONS_AND_STORAGE_CLASSES_2014_Q05",
+            "subject": "Programming and Data Structures",
+            "topic": "Functions and Storage Classes",
+            "subtopic": "}",
+            "year": 2014,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 5,
+            "tags": [
+                "Functions and Storage Classes",
+                "}",
+                "Programming and Data Structures"
+            ],
+            "question": {
+                "text": "Consider the C function given below. \n\nint f( int j){ \n\nstatic int i = 50 ; \n\nint k ; \n\nif (i==j){ \n\nprintf (\"something\"); \n\nk=f(i) ; \n\nreturn 0 \n\n} else return 0 ; \n\nWhich one of the following is TRUE?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "The function returns 0 for all values of j.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "The function prints the string something for all \nvalues of j.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "The function returns 0 when j = 50.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "The function will exhaust the runtime stack or \nrun into an infinite loop when j = 50. \n\nRecursion",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "D"
+            ],
+            "solution": {
+                "text": "int f(int j){ \n\nstatic int i=50; \n\nint k; \n\nif(i= =j){ \n\n1.printf(\"something\"); \n\n2.k=f(i); \n\n3.return 0; \n\n}  \n\nelse  \n\nreturn 0 \n\n} \n\n\nf(50) will call f(50) and keeps on calling which will \nlead  to stack overflow. \n\nfor j = 50, function will never reach return statement.  \n\nOption (a): is wrong because for j=50, stack \noverflow occurs and function never reaches return \nstatement. \n\nOption (c): when j=50, function will never reach \nreturn statement. \n\nOption(b): for j!=50, function will not print anything \nthat's why (b) is also wrong. \n\nOption(d): as explained through diagram which \nshows that function will exhaust the runtime stack or \nrun into an infinite loop when j=50, therefore (d) is \ncorrect answer.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "PDS_FUNCTIONS_AND_STORAGE_CLASSES_2023_Q06",
+            "subject": "Programming and Data Structures",
+            "topic": "Functions and Storage Classes",
+            "subtopic": "Recursion",
+            "year": 2023,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 6,
+            "tags": [
+                "Functions and Storage Classes",
+                "Recursion",
+                "Programming and Data Structures"
+            ],
+            "question": {
+                "text": "The integer value printed by the ANSI-C program \ngiven below is _______________ . \n\n#include<stdio.h> \n\nint funcp(){ \n\nstatic int x = 1; \n\nx++; \n\nreturn x; \n\n} \n\nint main(){ \n\nint x,y; \n\nx = funcp(); \n\ny = funcp()+x; \n\nprintf(\"%d\\n\", (x+y)); \n\nreturn 0;",
+                "images": [
+                    "assets/Programming and Data Structures/PDS_Functions_and_Storage_Classes_P20_X2417.png",
+                    "assets/Programming and Data Structures/PDS_Functions_and_Storage_Classes_P20_X2419.png",
+                    "assets/Programming and Data Structures/PDS_Functions_and_Storage_Classes_P20_X2421.png",
+                    "assets/Programming and Data Structures/PDS_Functions_and_Storage_Classes_P20_X2423.png"
+                ],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "7"
+            ],
+            "solution": {
+                "text": "After execution of funcp 2 times, printf function \nprints the output (7) and gets deleted from activation \nrecord. \n\nSimilarly, control is returned to the main function, \nmain function also gets deleted from activation \nrecord and control is returned to operating system.  \n\nHence 7 is printed.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "PDS_FUNCTIONS_AND_STORAGE_CLASSES_2023_Q07",
+            "subject": "Programming and Data Structures",
+            "topic": "Functions and Storage Classes",
+            "subtopic": "return 0;",
+            "year": 2023,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 7,
+            "tags": [
+                "Functions and Storage Classes",
+                "return 0;",
+                "Programming and Data Structures"
+            ],
+            "question": {
+                "text": "Consider the following program: \n\nint main() \n\n{ \n\n    f1(); \n\n    f2(2); \n\n    f3(); \n\n    return(0); \n\n} \n\nint f1() \n\n{ \n\n      return(1); \n\n} \n\nint f2(int X) \n\n{ \n\n      f3(); \n\n    if (X==1) \n\n        return f1(); \n\n   else \n\n       return (X*f2(X-1)); \n\n} \n\nint f3() \n\n{ \n\n   return(5); \n\n} \n\nWhich one of the following options represents the \nactivation tree corresponding to the main function?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "A"
+            ],
+            "solution": {
+                "text": "Comparing the above tree with the given trees in \noptions. Above tree matches with the tree given in \noption A, hence a is correct answer.",
+                "images": [
+                    "assets/Programming and Data Structures/PDS_Functions_and_Storage_Classes_P28_X3149.png",
+                    "assets/Programming and Data Structures/PDS_Functions_and_Storage_Classes_P28_X3151.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "PDS_FUNCTIONS_AND_STORAGE_CLASSES_2021_Q08",
+            "subject": "Programming and Data Structures",
+            "topic": "Functions and Storage Classes",
+            "subtopic": "activation tree corresponding to the main function?",
+            "year": 2021,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 8,
+            "tags": [
+                "Functions and Storage Classes",
+                "activation tree corresponding to the main function?",
+                "Programming and Data Structures"
+            ],
+            "question": {
+                "text": "Consider the following ANSI C function: \n\n int SomeFunction(int x, int y )  \n\n{ \n\n   if ((x==1) || (y==1)) return 1; \n\n  if (x==y) return x; \n\n if (x >y) return SomeFunction (x-y, y); \n\n if (y >x) return SomeFunction (x, y-x);  \n\n} \n\nThe value returned by SomeFunction(15, 255) is____.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "15"
+            ],
+            "solution": {
+                "text": "",
+                "images": [
+                    "assets/Programming and Data Structures/PDS_Functions_and_Storage_Classes_P27_X3082.png",
+                    "assets/Programming and Data Structures/PDS_Functions_and_Storage_Classes_P27_X3084.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "PDS_FUNCTIONS_AND_STORAGE_CLASSES_2021_Q09",
+            "subject": "Programming and Data Structures",
+            "topic": "Functions and Storage Classes",
+            "subtopic": "The value returned by SomeFunction(15, 255) is____.",
+            "year": 2021,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 9,
+            "tags": [
+                "Functions and Storage Classes",
+                "The value returned by SomeFunction(15, 255) is____.",
+                "Programming and Data Structures"
+            ],
+            "question": {
+                "text": "Consider the following ANSI C program  \n\n#include < stdio.h > \n\nint foo(int x, int y, int q) { \n\nif ((x \\le 0) &&(y \\le 0)) \n\nreturn q; \n\nif (x \\le 0) \n\nreturn foo (x, y-q, q);  \n\nif (y \\le 0) \n\nreturn foo (x-q, y, q); \n\nreturn foo (x, y-q, q) + foo (x-q, y, q);  \n\n} \n\nint main(){ \n\n    int r = foo (15, 15, 10); \n\n    printf(\" %d\", r); \n\n    return 0; \n\n} \n\nThe output of the program upon execution is ______.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "60"
+            ],
+            "solution": {
+                "text": "Lets first understand the fragments of code. \n\n1) if((x \\le 0)&&(y \\le 0)) \n\n\nThe above case states that when both x and y are \nless than 0 (or) equal to zero then return 3rd \nargument(q). \n\n2) if(x \\le 0)  \n\n\nThe above case states that x < 0 and y > 0 then \ndecrement 2nd argument using 3rd argument. \n\n3) if(y < 0) \n\nThe above case states that x >0, y < 0 then decrement \nfirst argument using 3rd argument.   \n\n4) return foo (x, y - q, q) + foo (x - q, y, a) \n\nThe above case states that, when both x, y > 0 then \nfrom first function call, decrease 2nd argument using \n3rd argument and from 2nd function call, decrease first \nargument using 3rd argument.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "PDS_FUNCTIONS_AND_STORAGE_CLASSES_2019_Q10",
+            "subject": "Programming and Data Structures",
+            "topic": "Functions and Storage Classes",
+            "subtopic": "The output of the program upon execution is ______.",
+            "year": 2019,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 10,
+            "tags": [
+                "Functions and Storage Classes",
+                "The output of the program upon execution is ______.",
+                "Programming and Data Structures"
+            ],
+            "question": {
+                "text": "Consider the following C function. \n\nvoid convert (int n){ \n            if (n < 0) \n                printf(\"%d\", n); \n           else { \n                convert(n/2); \n                printf(\"%d\", n % 2); \n           } \n\n} \n\nWhich one of the following will happen when the \nfunction convert is called with any positive integer n \nas argument?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "It will print the binary representation of n and \nterminate.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "It will print the binary representation of n in the \nreverse order and terminate",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "It will print the binary representation of n but will \nnot terminate",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "It will not print anything and will not terminate.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "D"
+            ],
+            "solution": {
+                "text": "Let us try for n = 10 \n\n• \nEvery printf is waiting, statement written after \nrecursive call executes in opposite order of call. \n• \nNothing will be printed because convert(0) keeps \non calling convert(0) and it will never terminate.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "PDS_FUNCTIONS_AND_STORAGE_CLASSES_2018_Q11",
+            "subject": "Programming and Data Structures",
+            "topic": "Functions and Storage Classes",
+            "subtopic": "not terminate",
+            "year": 2018,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 11,
+            "tags": [
+                "Functions and Storage Classes",
+                "not terminate",
+                "Programming and Data Structures"
+            ],
+            "question": {
+                "text": "Consider the following C program: \n\n#include<stdio.h> \n\nint counter = 0; \n\nint calc(int a, int b) { \n\n\nint c; \n\n\ncounter++; \n\n\nif (b = = 3) return (a*a*a); \n\n\nelse { \n\n\nc = calc(a, b/3); \n\n\nreturn(c*c*c); \n\n\n} \n\n} \n\nint main ( ) { \n\n\ncalc(4, 81); \n\n\nprintf (\"%d\", counter); \n\n} \n\nThe output of this program is ______.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "4"
+            ],
+            "solution": {
+                "text": "In this program we need not focus on the return value, \nwe must focus on the counter variable. We need to \njust look for the number of times calc function is \nbeing called. \n\n\n\nNo further call \n\n value of counter variable is printed is 4",
+                "images": [
+                    "assets/Programming and Data Structures/PDS_Functions_and_Storage_Classes_P29_X3192.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "PDS_FUNCTIONS_AND_STORAGE_CLASSES_2017_Q12",
+            "subject": "Programming and Data Structures",
+            "topic": "Functions and Storage Classes",
+            "subtopic": "The output of this program is ______.",
+            "year": 2017,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 12,
+            "tags": [
+                "Functions and Storage Classes",
+                "The output of this program is ______.",
+                "Programming and Data Structures"
+            ],
+            "question": {
+                "text": "Consider the following two functions. \n\nvoid fun1(int n) { \n\n    if(n == 0) return; \n\n    printf(\"%d\", n); \n\n    fun2(n - 2); \n\n    printf(\"%d\", n); \n\n} \n\nvoid fun2(int n) { \n\n    if(n == 0) return; \n\n    printf(\"%d\", n); \n\n    fun1(++n); \n\n    printf(\"%d\", n); \n\n} \n\nThe output printed when fun1(5) is called is",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "53423122233445",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "53423120112233",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "53423122132435",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "53423120213243",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "A"
+            ],
+            "solution": {
+                "text": "(\n) \n\nn = n\nf\n+1\nfu\n;\nn1(\n++n\nn)\nun1\n\n\nprintf (\"% d\", n) \\rightarrow will print incremented value of n \n\nWe need to trace this tree from top to bottom & left \nto right \n\n\n\nWe need to trace this tree from top to bottom & left \nto right. \n\nHence, 53423122233445 is printed, therefore option \n(a) is correct",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "PDS_FUNCTIONS_AND_STORAGE_CLASSES_2017_Q13",
+            "subject": "Programming and Data Structures",
+            "topic": "Functions and Storage Classes",
+            "subtopic": "The output printed when fun1(5) is called is",
+            "year": 2017,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 13,
+            "tags": [
+                "Functions and Storage Classes",
+                "The output printed when fun1(5) is called is",
+                "Programming and Data Structures"
+            ],
+            "question": {
+                "text": "Consider the C functions foo and bar given below: \n\nint foo (int val)    {                                                 \n\nint x=0; \n\nwhile (val > 0)   { \n\n         x = x + foo(val - -);   \n\n        } \n\n  return val; \n\n} \n\nint bar (int val) { \n\nint x = 0 ; \n\nwhile (val >0){ \n\n      x = x + bar(val -1) ;  \n\n     } \n\nreturn val; \n\n} \n\nInvocation of foo(3) and bar(3) will result in:",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "Return of 6 and 6 respectively.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "Infinite \nloop \nand \nabnormal \ntermination \nrespectively",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "Abnormal \ntermination \nand \ninfinite \nloop \nrespectively",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "Both terminating abnormally.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "C"
+            ],
+            "solution": {
+                "text": "Understanding foo function \n\nx=x+foo(val--) ; \n\nval--performs post decrement.foo(val) will be called \nand then val=val-1 is performed later(after function \ncall) \n\n\nfoo(3) will call foo(3) which will again call foo(3) \nand gets called every time. \n\nInfinite recursive call keeps on increasing stack size, \nbut stack size is limited. Hence at some point of time \nstack overflow occurs ie…. abnormal termination \ntakes place. \n\nUnderstanding bar function: \n\nint bar(int val){ \n\nint x=0; \n\nwhile(val>0){ \n\nx=x+bar(val-1);} \n\nreturn val; \n\n} \n\n• \nWe are still inside loop and val > 0 is true, bar (1) \nwill again call bar(0) and again bar(0) will return \n0,  \n• \nThis process will continue ..  loop count wont be \ngetting terminated. \n• \nBut, stack size is not being exceeded at any \nmoment of time. \n• \nLeading to infinite loop Hence, correct option is \n(c).",
+                "images": [
+                    "assets/Programming and Data Structures/PDS_Functions_and_Storage_Classes_P29_X3190.png",
+                    "assets/Programming and Data Structures/PDS_Functions_and_Storage_Classes_P29_X3194.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "PDS_FUNCTIONS_AND_STORAGE_CLASSES_2016_Q14",
+            "subject": "Programming and Data Structures",
+            "topic": "Functions and Storage Classes",
+            "subtopic": "respectively",
+            "year": 2016,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 14,
+            "tags": [
+                "Functions and Storage Classes",
+                "respectively",
+                "Programming and Data Structures"
+            ],
+            "question": {
+                "text": "What will be the output of the following C program? \n\nvoid count (int n ) { \n\n    static int d=1; \n\n    printf (\"%d\", n); \n\n    printf (\"%d\", d); \n\n    d++; \n\n    if (n>1) count (n - 1); \n\n    printf (\"%d\", d); \n\n} \n\nvoid main(){ \n\n    count (3); \n\n}",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "312213444",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "312111222",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "3122134",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "3121112",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "A"
+            ],
+            "solution": {
+                "text": "On tracing the tree from top to bottom and left to right \nwe get \n\n3,1,2,2,1,3,4,4,4 \n\n Option a is correct answer.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "PDS_FUNCTIONS_AND_STORAGE_CLASSES_2016_Q15",
+            "subject": "Programming and Data Structures",
+            "topic": "Functions and Storage Classes",
+            "subtopic": "}",
+            "year": 2016,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 15,
+            "tags": [
+                "Functions and Storage Classes",
+                "}",
+                "Programming and Data Structures"
+            ],
+            "question": {
+                "text": "Consider the recursive C function that takes two \narguments unsigned int foo(unsigned int n, unsigned \nint r) { \n\nif (n  > 0) return (n%r +  foo (n/r, r )); \n\nelse return 0; \n\n} \n\nWhat is the return value of the function foo when it is \ncalled as foo(513, 2)?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "9",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "8",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "5",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "2",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "D"
+            ],
+            "solution": {
+                "text": "Answer is option (d)",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "PDS_FUNCTIONS_AND_STORAGE_CLASSES_2015_Q16",
+            "subject": "Programming and Data Structures",
+            "topic": "Functions and Storage Classes",
+            "subtopic": "called as foo(513, 2)?",
+            "year": 2015,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 16,
+            "tags": [
+                "Functions and Storage Classes",
+                "called as foo(513, 2)?",
+                "Programming and Data Structures"
+            ],
+            "question": {
+                "text": "Consider the following recursive C function. \n\nvoid get (int n) { \n\nif (n < 1) return; \n\nget (n - 1); \n\nget (n - 3); \n\nprint f (\"%d\", n); \n\n} \n\nIf get (6) function is being called in main( ) then how \nmany times will the get( ) function be invoked before \nreturning to the main()?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "15",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "25",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "35",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "45",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "B"
+            ],
+            "solution": {
+                "text": "void get (int n) { \n\nif (n < 1) return; \n\n\nget (n - 1); \\Rightarrow Recursion call with 1 less argument \n\nget (n - 3); \\Rightarrow Recursion call with 3 less argument \n\nprintf(\"%d\", n); \n\nNeed not to focus on printf statement",
+                "images": [
+                    "assets/Programming and Data Structures/PDS_Functions_and_Storage_Classes_P30_X3243.png",
+                    "assets/Programming and Data Structures/PDS_Functions_and_Storage_Classes_P30_X3245.png",
+                    "assets/Programming and Data Structures/PDS_Functions_and_Storage_Classes_P30_X3247.png",
+                    "assets/Programming and Data Structures/PDS_Functions_and_Storage_Classes_P30_X3249.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "PDS_FUNCTIONS_AND_STORAGE_CLASSES_2015_Q17",
+            "subject": "Programming and Data Structures",
+            "topic": "Functions and Storage Classes",
+            "subtopic": "returning to the main()?",
+            "year": 2015,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 17,
+            "tags": [
+                "Functions and Storage Classes",
+                "returning to the main()?",
+                "Programming and Data Structures"
+            ],
+            "question": {
+                "text": "Consider the following function written in the \n\n\nC programming language. \n\nvoid foo ( char * a){ \n\nif (* a&& * a !='  ')   { \n\nfoo (a+1) \n\nputchar (* a) \n\n} \n\n} \n\nThe output of the above function on input \n\n\"ABCD EFGH\" is",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "ABCD EFGH",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "ABCD",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "HGFE DCBA",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "DCBA",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "D"
+            ],
+            "solution": {
+                "text": "&&!   = \n\nPriority of && is less than !=  \n\nif ((*a)) && (*a! = ' ')) \n\nif will become false, Either \n\n(1)  *a = 0 (ASCI to or \\0) \n\n(2)  *a become ' ' \n\nNow, \n\nRecursion 'A'→'B'→'C'→'D'→ Recursion ends \nand then it  starts printing. \n\nPrinting is done because putchar (*a); is written after \nrecursive call. \n\nHence, DCBA is printed, i.e. option D is correct.",
+                "images": [
+                    "assets/Programming and Data Structures/PDS_Functions_and_Storage_Classes_P30_X3243.png",
+                    "assets/Programming and Data Structures/PDS_Functions_and_Storage_Classes_P30_X3245.png",
+                    "assets/Programming and Data Structures/PDS_Functions_and_Storage_Classes_P30_X3247.png",
+                    "assets/Programming and Data Structures/PDS_Functions_and_Storage_Classes_P30_X3249.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "PDS_FUNCTIONS_AND_STORAGE_CLASSES_2015_Q18",
+            "subject": "Programming and Data Structures",
+            "topic": "Functions and Storage Classes",
+            "subtopic": "\"ABCD EFGH\" is",
+            "year": 2015,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 18,
+            "tags": [
+                "Functions and Storage Classes",
+                "\"ABCD EFGH\" is",
+                "Programming and Data Structures"
+            ],
+            "question": {
+                "text": "Consider the following C function. \n\nint fun (int n){ \n\nint x=1, k ; \n\nif (n==1) return x ; \n\nfor (k=1 ; k<n ;++k) \n\nx=x+ fun (k) *  fun (n-k) ; \n\nreturn x ; \n\nThe return value of fun (5) is",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "51"
+            ],
+            "solution": {
+                "text": "x is a local variable so in every call x \n→\n\n\nfun(1) =1 \n\nfun(2) \\Rightarrow = 1 \n\nx = x + fun(1)*fun (2 -1) \n\n\n    = 1 + fun (1) * fun(1) = 1 + 1 \\times 1 = 2 \n\nfun(3) \\Rightarrow k = 1, 2 \n\nk = 1  \n\nx = x + fun(1) * fun (2) + fun(2) *fun(1) \n\n   = 1 + 1 \\times 2 + 2 \\times 1 = 1 + 2 + 2 = 5 \n\nfun (4) k = 1, 2, 3  n =4 \n\nx = x + fun(1) \\times fun(3) + fun(2) \\times fun(2) + fun(3) \\times \nfun(1) \n\n= 1 + 1 \\times 5 + 2 ×2 + 5 \\times 1 = 15 \nk = 1, 2, 3, 4 n = 5 \n\nfun(5) \n\n= 1 + fun(1) \\times fun(4) + fun(2) \\times fun(3) + fun(3) \\times \nfun(2) + fun(4) \\times fun(1) \n\n= 1 + 1 \\times 15 + 2 \\times 5 + 5 \\times 2 + 15 \\times 1 \n\n= 1 + 15 + 10 + 10 + 15  \n\n= 51",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "PDS_FUNCTIONS_AND_STORAGE_CLASSES_2014_Q19",
+            "subject": "Programming and Data Structures",
+            "topic": "Functions and Storage Classes",
+            "subtopic": "The return value of fun (5) is",
+            "year": 2014,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 19,
+            "tags": [
+                "Functions and Storage Classes",
+                "The return value of fun (5) is",
+                "Programming and Data Structures"
+            ],
+            "question": {
+                "text": "Consider the function func shown below: \n\nint func (int num) \n\n{    int count =0 ;  \n\n    while (num)  \n\n   { count ++;  \n\n\n num >>=1 ;  \n\n   } \n\n    return (count);  \n\n} \n\nThe value returned by function (435) is________.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "9"
+            ],
+            "solution": {
+                "text": "num>>1 (divided by 2) \\rightarrow num = 0 \n\nHence, 9 is the correct answer.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "PDS_FUNCTIONS_AND_STORAGE_CLASSES_2012_Q20",
+            "subject": "Programming and Data Structures",
+            "topic": "Functions and Storage Classes",
+            "subtopic": "The value returned by function (435) is________.",
+            "year": 2012,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 20,
+            "tags": [
+                "Functions and Storage Classes",
+                "The value returned by function (435) is________.",
+                "Programming and Data Structures"
+            ],
+            "question": {
+                "text": "Consider the following C code segment. \n\nint a, b, c = 0;  \n\nvoid prtFun(void);  \n\nmain() \n\n{  \n\nstatic int a = 1;       /* Line 1 */ \n\n     prtFun();  \n\na += 1; \n\nprtFun(); \n\n\n printf(\" \\n %d %d \", a, b); \n\n} \n\nvoid prtFun(void) \n\n{ \n\nstatic int a = 2;       /* Line 2 */ \n\n\n int b = 1; \n\n\n a += ++b; \n\n\n printf(\" \\n %d %d \", a, b); \n\n} \n\nWhat output will be generated by the given code \nsegment?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "3  1",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "4  2 \n\n\n4  1 \n\n6  1 \n\n\n4  2 \n\n6  1",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "4  2",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "4  2 \n\n\n6  2 \n\n4  2 \n\n\n2  0 \n\n2  0",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "C"
+            ],
+            "solution": {
+                "text": "Part-A \n\na = 0,   b = 0,     c = 0 \n\n\n\n• \n4, 2 is printed and it is deleted from activation \nrecord. \n• \nAgain prtfun () is called \n• \n6,2 is printed and it is deleted from activation \nRecord, now control is retunred to main and 2,0 is \nprinted. \n\n\n4 2\n6 2  is pointed, Hence (c) is correct option\n2 0\n\n\n",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "PDS_FUNCTIONS_AND_STORAGE_CLASSES_2012_Q21",
+            "subject": "Programming and Data Structures",
+            "topic": "Functions and Storage Classes",
+            "subtopic": "2  0",
+            "year": 2012,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 21,
+            "tags": [
+                "Functions and Storage Classes",
+                "2  0",
+                "Programming and Data Structures"
+            ],
+            "question": {
+                "text": "Consider the following C code segment \n\nint a, b, c = 0;  \n\nvoid prtFun(void);  \n\nmain() \n\n{  \n\nstatic int a = 1;       /* Line 1 */ \n\n     prtFun();  \n\na += 1; \n\nprtFun(); \n\n\n printf(\" \\n %d %d \", a, b); \n\n} \n\nvoid prtFun(void) \n\n{ \n\nstatic int a = 2;       /* Line 2 */ \n\n\n int b = 1; \n\n\n a += ++b; \n\n\n printf(\" \\n %d %d \", a, b); \n\n} \n\nWhat output will be generated by the given code \nsegment if: \n\nLine 1 is replaced by auto int a = 1; \n\nLine 2 is replaced by register int a = 2; \n\nWhat output will be generated by the given code \nsegment?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "3  1",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "3   1 \n\n\n4  1 \n\n5   2 \n\n\n4  2 \n\n5   2",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "4  2",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "4   2 \n\n\n6  2 \n\n4   2 \n\n\n2  0 \n\n2   0",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "D"
+            ],
+            "solution": {
+                "text": "Part -B \n\na = 0, \n\nb = 0 \n\nc = 0 \n\n\n\n\n\nNote that register vairable is as same as\nlocal vairable except the storage area\n\n• \nAfter printing 4, 2 printf function and printf( ) gets \ndeleted from activation record and control is \nreturned to main, again prtfun is called. \n• \nAgain 4, 2 is printed and both the functions get \ndeleted from activation record and control is \nreturned to main and 2,0 is printed.     \n\n\n( )\n4 2\n4 2 is pointed Hence, option d is correct answer\n2 0\n\n\n",
+                "images": [
+                    "assets/Programming and Data Structures/PDS_Functions_and_Storage_Classes_P32_X3353.png",
+                    "assets/Programming and Data Structures/PDS_Functions_and_Storage_Classes_P32_X3355.png",
+                    "assets/Programming and Data Structures/PDS_Functions_and_Storage_Classes_P32_X3357.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "PDS_FUNCTIONS_AND_STORAGE_CLASSES_2011_Q22",
+            "subject": "Programming and Data Structures",
+            "topic": "Functions and Storage Classes",
+            "subtopic": "2   0",
+            "year": 2011,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 22,
+            "tags": [
+                "Functions and Storage Classes",
+                "2   0",
+                "Programming and Data Structures"
+            ],
+            "question": {
+                "text": "Consider the following recursive C function that takes \ntwo arguments. unsigned int foo (unsigned int n, \nunsigned int r) \n\n  { \n           if (n>0) return ((n%r)+ foo(n/r,r)); \n           else return 0; \n\n  } \n\nWhat is the return value of the function foo when it is \ncalled as foo (345,10) ?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "345",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "12",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "5",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "3",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "B"
+            ],
+            "solution": {
+                "text": "Hence (b) is correct option",
+                "images": [
+                    "assets/Programming and Data Structures/PDS_Functions_and_Storage_Classes_P33_X3423.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "PDS_FUNCTIONS_AND_STORAGE_CLASSES_2009_Q23",
+            "subject": "Programming and Data Structures",
+            "topic": "Functions and Storage Classes",
+            "subtopic": "called as foo (345,10) ?",
+            "year": 2009,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 23,
+            "tags": [
+                "Functions and Storage Classes",
+                "called as foo (345,10) ?",
+                "Programming and Data Structures"
+            ],
+            "question": {
+                "text": "Consider the program below: \n\n#include<stdio.h> \n\nint fun(int n, int*f_p) { \n\nint t,f; \n       if(n<=1) { \n         *f_p=1; \n             return 1; \n        } \n        t=fun(n-1,f_p); \n        f=t+*f_p; \n        *f_p=t; \n           return f; \n       } \n       int main( ) \n\n{ \n            int x=15; \n            printf(\"%d\\n\",fun(5,&x)); \n            return 0; \n        } \n\nThe value printed is",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "6",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "8",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "14",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "15 \n\nScoping",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "B"
+            ],
+            "solution": {
+                "text": "Correct answer is 8 i.e. option (b).",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "PDS_FUNCTIONS_AND_STORAGE_CLASSES_2020_Q24",
+            "subject": "Programming and Data Structures",
+            "topic": "Functions and Storage Classes",
+            "subtopic": "Scoping",
+            "year": 2020,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 24,
+            "tags": [
+                "Functions and Storage Classes",
+                "Scoping",
+                "Programming and Data Structures"
+            ],
+            "question": {
+                "text": "Consider the following C functions: \n\nint fun1(int n){ \n\nstatic int i = 0 \n\nif (n > 0) { \n\n          ++i; \n\n          fun1(n-1); \n\n         } \n\nreturn (i); \n\n} \n\nint fun2 (int n) { \n\nstatic int i = 0; \n\nif (n > 0) { \n\n        i = i + fun1(n); \n\n        fun2(n-1); \n\n        } \n\nreturn (i); \n\n} \n\nThe return value of fun2 (5) is _________.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "55"
+            ],
+            "solution": {
+                "text": "Let us try to understand the working of function fun1  \n\nLet fun1(3) is called first \n\ni is an static variable  \n\n\n\nBefore fun1(3) the value of i was 0 and after fun1(3) \nthe value of i becomes 3. \n\nLet us assume fun1() is called again i.e. for the 2nd \ntime. \n\n\n\n\n• \nBefore fun1(2) value of static variable i was 3 and \nafter fun1(2) value returned is 5. Which is the \nvalue of i variable \n• \nfun 1(n) is increasing the value of static int i \nvariable and returning the incremented value. \n\nNow let us understand fun2(5). \n\n  55 is printed",
+                "images": [
+                    "assets/Programming and Data Structures/PDS_Functions_and_Storage_Classes_P33_X3427.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "PDS_FUNCTIONS_AND_STORAGE_CLASSES_2015_Q25",
+            "subject": "Programming and Data Structures",
+            "topic": "Functions and Storage Classes",
+            "subtopic": "The return value of fun2 (5) is _________.",
+            "year": 2015,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 25,
+            "tags": [
+                "Functions and Storage Classes",
+                "The return value of fun2 (5) is _________.",
+                "Programming and Data Structures"
+            ],
+            "question": {
+                "text": "Consider the following C program. \n\n#include<stdio.in> \n\nint  f1(void); \n\nint  f2(void); \n\nint  f3(void); \n\nint  x=10; \n\nint main() \n     { \n\nint x=1; \n\n      x+=f1()+f2()+f3()+f2(); \n\nprint f(\"%d\", x); \n\nreturn 0; \n\n} \n\nint f1(){int  x=25;x++;return x;} \n\nint f2(){static int=50;x++;return x;} \n\n\nint f3(){x*=10;return x;} \n\n\nThe output of the program is _____",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "230"
+            ],
+            "solution": {
+                "text": "xmain = xmain + f1( ) + f2() + f3() + f2(); \n\nf1() is called: \n\n\n\n26 is retuned by f1() \n\nxmain = xmain + f1( ) + f2() + f3() + f2(); \n\n     = 1 + 26 \n\nf2() is called: \n\nThere is local static variable which resides in memory \nthroughout the program. \n\n\n\n51 is returned but x being static, still remains in \nmemory. \n\nxmain = xmain + f1( ) + f2() + f3() + f2(); \n\n\n   = 1 + 26 + 51 \n\nf3() is called: \n\nxglobal * = 10  \n\nxglobal = 10 * 10 \n\nxglobal = 100 \n\n100 is returned \n\nxmain = xmain + f1( ) + f2() + f3() + f2(); \n\n\n   = 1 + 26 + 51 + 100 \n\nf2 () is called again \n\nVariable x is already residing in memory already. \n\n\n\n\nxmain = xmain + f1( ) + f2() + f3() + f2(); \n\n\n   = 1 + 26 + 51 + 100 + 52= 230 \n\n 230 is printed",
+                "images": [
+                    "assets/Programming and Data Structures/PDS_Functions_and_Storage_Classes_P34_X3479.png",
+                    "assets/Programming and Data Structures/PDS_Functions_and_Storage_Classes_P34_X3487.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        }
+    ]
+}

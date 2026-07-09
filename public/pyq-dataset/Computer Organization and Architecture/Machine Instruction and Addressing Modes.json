@@ -1,0 +1,1599 @@
+{
+    "subject": "Computer Organization and Architecture",
+    "topic": "Machine Instruction and Addressing Modes",
+    "questionCount": 24,
+    "questions": [
+        {
+            "id": "COA_MACHINE_INSTRUCTION_AND_ADDRESSING_MODES_2023_Q01",
+            "subject": "Computer Organization and Architecture",
+            "topic": "Machine Instruction and Addressing Modes",
+            "subtopic": "Basics of COA",
+            "year": 2023,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 1,
+            "tags": [
+                "Machine Instruction and Addressing Modes",
+                "Basics of COA",
+                "Computer Organization and Architecture"
+            ],
+            "question": {
+                "text": "Consider the IEEE-754 single precision floating \npoint numbers \n\nP = 0xC1800000 and Q = 0x3F5C2EF4. \n\nWhich one of the following corresponds to the \nproduct of these numbers \n\n(i.e., P \\times Q), represented in the IEEE-754 single \nprecision format?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "0x404C2EF4",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "0x405C2EF4",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "0xC15C2EF4",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "0xC14C2EF4",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "C"
+            ],
+            "solution": {
+                "text": "P = Ox C1800000  \n\nQ = Ox 3F5C2EF4 \n1bit \n8bit \n23bit \nS \nE  \nM \n\nBias = \n8 1\n−− bias = 127 \n\nP = Ox C1800000 \n100 0001 1 \n000 0000 0000 0000 0000 0000 \nSign \n1bit \nE(8bit) \nMantissa (23bit) \n\nS = 1(-ve)  \n\nE = 10000011 = 131 \n\nBE or E = 131 \n\nM = 00000000 \n\n(-1)S 1.M \\times 2e \n\n(-1)1 1.00000000 \\times 2131 - 127 \n\nP = -(1.00000000) \\times 2 + 4 \n\nBE = AE + bias \n\n\nOr \n\n E = e + bias \n\n e = E - bias \n\n E = 131 \n\n Bias = 127 \n\n  Q = 3F5C2EF4 \n011 1111 0 101 1100 0010 1110 1111 0100 \nSign \n1bit \nE(8bit) \nMantissa (23bit) \n\nSign = 0 (+ve)                          E = 126 bias = 127 \n\nE = 01111110 \\Rightarrow E = 126 \n e = E - bias \n\nBE or E = 126 \n 126 - 127 \n\nM = 101 1100 0010 1110 1111 0100. \n\nBias = 127 \n\nE = e + bias \n\ne = E - bias \n\n(-1)s 1.M \\times 2e \n\n(-1)0 1.101 1100 0010 1110 1111 0100 ×2126 - 127 \n\nQ = (1.101 1100 0010 1110 1111 0100) \\times 2-1 \n\nSign = -ve. \n\nP \\times Q = exponent = (+4) + (-1) = +3.  \n\nMantissa  \n\n= (1.0000) *(1.101 1100 0010 1110 1111 0100) \n\n- (1.101 1100 0010 1110 1111 0100) \\times 2 + 3 \n\nSign = 1(-ve) \n\ne = +3 \n\nbias = 127 \n\nE = e + bias \n\n   = 3 + 127 \n\nE = 130 \n\nE = 10000010 \n\n\n\n (C15C2EF4 H) \n\n2nd Approach. \n\nAlternate Approach. \nP = C1800000 \n\n\n\nS = 1(-ve) \n\n\n(-1)S 1.M \\times 2e \n\nE = 10000011  \n\n(-1)1 1.000000 \\times 2 \n\nBE or E = 131  \n\n- 1.000000 \\times 2+4 \n\nM = 00000000 \n\n- 10000.00  \n\n Bias = 28-1-1  \n\n P = - 16 \n\nBias = 127 \n\nE = e + bias \n\ne = E - bias  \n\nQ = 3F5C2EF4 \n\n\n\nS = 0 (+ve)   \n\n\n\n\nE = 01111100 \n\nBE or E = 126 \n\nM = 10111000010 …  Q   = 1.101 1100 \\times 2 - 1 \n\nBias = 129   \n\n= 0.1101 1100 \n\nE = e + bias    \n\nQ  = 0.8593   \n\ne = E - bias \n\n(-1)S 1.M \\times 2e  \n\n\n(-1)0 1.101 1100 0010 1110 \\times 2126-127 \n\nP * Q  = - 16 \\times .8593 \n\n\n\n= - (13.75) \n\nP * Q  = - 13.75 \n\n\n\n- 1101.11 \n       - 1.10111 \\times 2 + 3 \nbias\ne = +\n=\n\nE or BE = e + bias \\Rightarrow 3 + 127 \n= 130 \n\nE = 130 \nM = 10111 \\rightarrow 10000010 \nS 1 -ve\n=\n\n\n\n\n  (C15C2EF4)",
+                "images": [
+                    "assets/Computer Organization and Architecture/COA_Machine_Instruction_and_Addressing_Modes_P8_X930.png"
+                ],
+                "latex": [],
+                "tables": [
+                    {
+                        "headers": [
+                            "0",
+                            "011 1111 0",
+                            "101 1100 0010 1110 1111 0100"
+                        ],
+                        "rows": []
+                    },
+                    {
+                        "headers": [
+                            "S",
+                            "E",
+                            "M"
+                        ],
+                        "rows": []
+                    },
+                    {
+                        "headers": [
+                            "1",
+                            "100 0001 1",
+                            "000 0000 0000 0000 0000 0000"
+                        ],
+                        "rows": []
+                    }
+                ]
+            }
+        },
+        {
+            "id": "COA_MACHINE_INSTRUCTION_AND_ADDRESSING_MODES_2014_Q02",
+            "subject": "Computer Organization and Architecture",
+            "topic": "Machine Instruction and Addressing Modes",
+            "subtopic": "precision format?",
+            "year": 2014,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 2,
+            "tags": [
+                "Machine Instruction and Addressing Modes",
+                "precision format?",
+                "Computer Organization and Architecture"
+            ],
+            "question": {
+                "text": "The value of a float type variable is represented using \nthe single-precision 32-bit floating point format of \nIEEE-754 standard that uses 1 bit for sign, 8 bits for \nbiased exponent and 23 bits for mantissa. A float \ntype variable X is assigned the decimal value of \n−14.25. The representation of X in hexadecimal \nnotation is",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "C1640000H",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "416C0000H",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "41640000H",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "C16C0000H",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "A"
+            ],
+            "solution": {
+                "text": "- 14.25 \n\n 1110.01 \n\n -1110.01 \n\n - 1.11001×2+3 \n\nsign = 1 [-ve] \n\nMantissa [m] = 11001 \n\n[AE]e = +3 \n\n[BE] E \n e \n bias\n=\n+\n\n\nBE \n AE \n bias\n=\n+\n\n\nE = 3+bias = 3 +127 \n\nE \n=\n\n\nBE \n=\n\n\nIEE E 754 \n\nSingle Precision \n\n\n\nbias = 28-1 -1 = 127 \n\n\nbias \n=\n\n\nS = 1 \n\nE = 130 \\Rightarrow 10000010 \n\nM : 11001 \n\n\n[C1640000H]",
+                "images": [
+                    "assets/Computer Organization and Architecture/COA_Machine_Instruction_and_Addressing_Modes_P8_X930.png"
+                ],
+                "latex": [],
+                "tables": [
+                    {
+                        "headers": [
+                            "0",
+                            "011 1111 0",
+                            "101 1100 0010 1110 1111 0100"
+                        ],
+                        "rows": []
+                    },
+                    {
+                        "headers": [
+                            "S",
+                            "E",
+                            "M"
+                        ],
+                        "rows": []
+                    },
+                    {
+                        "headers": [
+                            "1",
+                            "100 0001 1",
+                            "000 0000 0000 0000 0000 0000"
+                        ],
+                        "rows": []
+                    }
+                ]
+            }
+        },
+        {
+            "id": "COA_MACHINE_INSTRUCTION_AND_ADDRESSING_MODES_2012_Q03",
+            "subject": "Computer Organization and Architecture",
+            "topic": "Machine Instruction and Addressing Modes",
+            "subtopic": "notation is",
+            "year": 2012,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 3,
+            "tags": [
+                "Machine Instruction and Addressing Modes",
+                "notation is",
+                "Computer Organization and Architecture"
+            ],
+            "question": {
+                "text": "The amount of ROM needed to implement at 4 bit \nmultiplier is",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "64 bits",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "128 bits",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "1Kbits",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "2 Kbits \n\nRegisters and its Types",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "D"
+            ],
+            "solution": {
+                "text": "When we multiply two 4 bit number then each result \nis 8 bit \n\n\n\n\n 4 bit  \n4 bit \n\n\n\n\n ↓               ↓  \n\nCombination 24 \n\nTotal ROM size = 24 \\times 24 \\times 8 bit \n\n⇒ 28 \\times 8 bit \n\n⇒ 28 \\times 23 bit ⇒ 211 bit  \n\n⇒ 2 \\times 210 bit \n\n= 2k bits",
+                "images": [
+                    "assets/Computer Organization and Architecture/COA_Machine_Instruction_and_Addressing_Modes_P10_X1263.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "COA_MACHINE_INSTRUCTION_AND_ADDRESSING_MODES_2010_Q04",
+            "subject": "Computer Organization and Architecture",
+            "topic": "Machine Instruction and Addressing Modes",
+            "subtopic": "Registers and its Types",
+            "year": 2010,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 4,
+            "tags": [
+                "Machine Instruction and Addressing Modes",
+                "Registers and its Types",
+                "Computer Organization and Architecture"
+            ],
+            "question": {
+                "text": "The program below uses six temporary variables \n\na, b, c, d, e, f. \n\na = 1 \n\nb = 10 \n\nc = 20 \n\nd = a + b \n\ne = c + d \n\nf = c + e \n\nb = c + e \n\ne = b + f \n\nd= 5 + e \n\nreturn d + f \n\nAssuming that all operations take their operands \nfrom registers, what is the minimum number of \nregisters needed to execute this program without \nspilling?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "2",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "3",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "4",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "6",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "B"
+            ],
+            "solution": {
+                "text": "R1 = 1(a) \n\nR2 = 10(b) \n\nR3 = 20(c) \n\n\n\nI R1  R1 + R2 \n[R1[d] = a + b] \n\nII R1  R3 + R1 \n[R1[e] = c + d] \n\nIII R2  R3 + R1 \n[R2[f] = c + e] \n\nIV R2  R3 + R1 \n[R2[b] = c + e] \n\nV R1  R2 + R2 \n[R1[e] = b + f] \n\nVI R3  R1 + 5 \nR3[d] = 5 + e \n\nVII return R2 + R3 \n\n\nMinimum 3 register required \nOR \n\n\n\n\n     a = 1, b = 10, c = 20 \n\nR1  R1 + R2 \nI. d = a + b \n\nR1  R3 + R1 \nII. e = c + d \n\nR2  R3 + R1 \nIII. f = c + e \n\nR3  R3 + R1 \nIV b = c + e \n\nR1  R2 + R3 \nV \ne = b + f \n\nR3  R1 + 5 \nVI d = 5 + e \n\nreturn R2 + R3 \nVIII return d + f",
+                "images": [
+                    "assets/Computer Organization and Architecture/COA_Machine_Instruction_and_Addressing_Modes_P9_X1150.png",
+                    "assets/Computer Organization and Architecture/COA_Machine_Instruction_and_Addressing_Modes_P9_X1152.png",
+                    "assets/Computer Organization and Architecture/COA_Machine_Instruction_and_Addressing_Modes_P9_X1154.png",
+                    "assets/Computer Organization and Architecture/COA_Machine_Instruction_and_Addressing_Modes_P9_X1156.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "COA_MACHINE_INSTRUCTION_AND_ADDRESSING_MODES_2008_Q05",
+            "subject": "Computer Organization and Architecture",
+            "topic": "Machine Instruction and Addressing Modes",
+            "subtopic": "spilling?",
+            "year": 2008,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 5,
+            "tags": [
+                "Machine Instruction and Addressing Modes",
+                "spilling?",
+                "Computer Organization and Architecture"
+            ],
+            "question": {
+                "text": "A processor that has carry, overflow and sign flag \nbits as part of its program status word (PSW) \nperforms addition of the following two 2's \ncomplement numbers 01001101 and 11101001. \nAfter the execution of this addition operation, the \nstatus of the carry, overflow and sign flags, \nrespectively will be:",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "1, 1, 0",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "1, 0, 0",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "0, 1, 0",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "1, 0, 1",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "B"
+            ],
+            "solution": {
+                "text": "Cin    \n\nout\nin\nC\n        C\n                0 1 0 0 1 1 0 1\n             + 1 1 1 0 1 0 0 1\n                0 0 1 1 0 1 1 0 \n\nOverflow  \n\nC in + cout = 1 \n\n1 + 1 = 0 \n\nCarry = 1, Sign = 0 \n\nOverflow flag = 0",
+                "images": [
+                    "assets/Computer Organization and Architecture/COA_Machine_Instruction_and_Addressing_Modes_P9_X1150.png",
+                    "assets/Computer Organization and Architecture/COA_Machine_Instruction_and_Addressing_Modes_P9_X1152.png",
+                    "assets/Computer Organization and Architecture/COA_Machine_Instruction_and_Addressing_Modes_P9_X1154.png",
+                    "assets/Computer Organization and Architecture/COA_Machine_Instruction_and_Addressing_Modes_P9_X1156.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "COA_MACHINE_INSTRUCTION_AND_ADDRESSING_MODES_2008_Q06",
+            "subject": "Computer Organization and Architecture",
+            "topic": "Machine Instruction and Addressing Modes",
+            "subtopic": "respectively will be:",
+            "year": 2008,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 6,
+            "tags": [
+                "Machine Instruction and Addressing Modes",
+                "respectively will be:",
+                "Computer Organization and Architecture"
+            ],
+            "question": {
+                "text": "The use of multiple register windows with overlap \ncauses a reduction in the number of memory \naccesses for: \n\n1. \nfunction locals and parameters \n\n2. \nregister saves and restores \n\n3. \ninstruction fetches",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "1 only",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "2 only",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "3 only",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "1, 2 and 3 \n\nTypes of Buses",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "A"
+            ],
+            "solution": {
+                "text": "1. \nFunction, Local parameter, memory Access ",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "COA_MACHINE_INSTRUCTION_AND_ADDRESSING_MODES_2019_Q07",
+            "subject": "Computer Organization and Architecture",
+            "topic": "Machine Instruction and Addressing Modes",
+            "subtopic": "Types of Buses",
+            "year": 2019,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 7,
+            "tags": [
+                "Machine Instruction and Addressing Modes",
+                "Types of Buses",
+                "Computer Organization and Architecture"
+            ],
+            "question": {
+                "text": "The chip select logic for a certain DRAM chip in a \nmemory system design is shown below. Assume that \nthe memory system has 16-address lines denoted by \nA15 to A0. What is the range of addresses (in \nhexadecimal) of the memory system that can get \nenabled by the chip select (CS) signal?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "C800 to CFFF",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "CA00 to CAFF",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "C800 to C8FF",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "DA00 to DFFF \n\nInstruction Set Architecture",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "A"
+            ],
+            "solution": {
+                "text": "A15, A14, A11 is enabled (1), A13 and A12 = 0 \n\n\nC800 to CFFF",
+                "images": [
+                    "assets/Computer Organization and Architecture/COA_Machine_Instruction_and_Addressing_Modes_P11_X1341.png"
+                ],
+                "latex": [],
+                "tables": [
+                    {
+                        "headers": [
+                            "",
+                            "Instruction",
+                            "Semantics",
+                            "Instruction Size (bytes)"
+                        ],
+                        "rows": [
+                            [
+                                "1000 -1003",
+                                "MOV R1, (5000) I 1",
+                                "R1  MEMORY [5000]",
+                                "4"
+                            ],
+                            [
+                                "1004 -1007",
+                                "MOV R2, (R3) I 2",
+                                "R2  MEMORY [R3] R2 m[3000]",
+                                "4"
+                            ],
+                            [
+                                "1008 -1009",
+                                "ADD R2, R1 I 3",
+                                "R2  R1 + R2, R2 10 + 50",
+                                "2"
+                            ],
+                            [
+                                "1010 -1013",
+                                "MOV (R3), R2 I 4",
+                                "MEMORY [R3]  R2 m[3000]  R2",
+                                "4"
+                            ],
+                            [
+                                "1014 -1015",
+                                "INC R3 I 5",
+                                "R3  R3 + 1, R3 = 3000+1",
+                                "2"
+                            ],
+                            [
+                                "1016 -1017",
+                                "DEC R1 I 6",
+                                "R1  R1 - 1, R1 = 10-1",
+                                "2"
+                            ],
+                            [
+                                "1018 -1019",
+                                "BNZ 1004 I 7",
+                                "Branch if not zero to the given absolute address",
+                                "2"
+                            ],
+                            [
+                                "1020",
+                                "HALT I 8",
+                                "Stop",
+                                "1"
+                            ]
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "id": "COA_MACHINE_INSTRUCTION_AND_ADDRESSING_MODES_2023_Q08",
+            "subject": "Computer Organization and Architecture",
+            "topic": "Machine Instruction and Addressing Modes",
+            "subtopic": "Instruction Set Architecture",
+            "year": 2023,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 8,
+            "tags": [
+                "Machine Instruction and Addressing Modes",
+                "Instruction Set Architecture",
+                "Computer Organization and Architecture"
+            ],
+            "question": {
+                "text": "[MCQ  \n  \n\nConsider the given C-code and its corresponding \nassembly code, with a few \n\noperands U1-U4 being unknown. Some useful \ninformation as well as the semantics of each unique \nassembly instruction is annotated as inline \ncomments in the code. The memory is byte-\naddressable. \n//C-code \n;assembly-code (; indicates comments) \n;r1-r5 are 32-bit integer registers \n;initialize r1=0, r2=10 \n;initialize r3, r4 with base address of a, b \nint a[10], \nb[10], i; \n// int is \n32-bit \nfor (i=0; \ni<10;i++) \na[i] = b[i] \n* 8; \nL01: jeq r1, r2, end        ;if(r1==r2) goto end \nL02: lw r5, 0(r4)             ;r5 <- Memory[r4+0] \nL03: shl r5, r5, U1           ;r5 <- r5 << U1 \nL04: sw r5, 0(r3)             ;Memory[r3+0] <- r5 \nL05: add r3, r3, U2         ;r3 <- r3+U2 \nL06: add r4, r4, U3 \nL07: add r1, r1, 1 \nL08: jmp U4                      ;goto U4 \nL09: end  \n\nWhicho of the following options is a correct \nreplacement for operands in the position (U1, U2, \nU3, U4) in the above assembly code?",
+                "images": [],
+                "latex": [],
+                "tables": [
+                    {
+                        "headers": [
+                            "Instruction",
+                            "Semantics",
+                            "Instruction Size (bytes)"
+                        ],
+                        "rows": [
+                            [
+                                "MOV R1, (5000)",
+                                "R1  MEMORY [5000]",
+                                "4"
+                            ],
+                            [
+                                "MOV R2, (R3)",
+                                "R2  MEMORY [R3]",
+                                "4"
+                            ],
+                            [
+                                "ADD R2, R1",
+                                "R2  R1 + R2",
+                                "2"
+                            ],
+                            [
+                                "MOV (R3), R2",
+                                "MEMORY [R3]  R2",
+                                "4"
+                            ],
+                            [
+                                "INC R3",
+                                "R3  R3 + 1",
+                                "2"
+                            ],
+                            [
+                                "DEC R1",
+                                "R1  R1 - 1",
+                                "2"
+                            ],
+                            [
+                                "BNZ 1004",
+                                "Branch if not zero to the given absolute address",
+                                "2"
+                            ],
+                            [
+                                "HALT",
+                                "Stop",
+                                "1"
+                            ]
+                        ]
+                    }
+                ]
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "(8, 4, 1, L02)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "(3, 4, 4, L01)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "(8, 1, 1, L02)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "(3, 1, 1, L01)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "B"
+            ],
+            "solution": {
+                "text": "U1 = 3 multiply by 8. \n\nU2 = 4 32 bit given \n\nU3 = 4 memory is byte (8bit) Addressable \n\nU4 = L01 \n\nr1 = 0 r2 = 10 \n\nr3 [a] \n\nr4 [b] \n\nr5   m [b0 + 0] \n\nU1 = 3 \n\nM [a0 + 0] \n\nU2 = 4 \n\nU3 = 4 \n\nL03 : Multiple by 8 then left shift by 3 bit \n\nU3 memory is Byte addressable but size is 32 bit \n\n32 bit  4 Byte  \n\n\nU2 = 4 \n\nU3 = 4 \n\nL08 Jmp U4 \\Rightarrow U4 = L01  \n\nBecause at L01 condition checking.",
+                "images": [
+                    "assets/Computer Organization and Architecture/COA_Machine_Instruction_and_Addressing_Modes_P10_X1261.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "COA_MACHINE_INSTRUCTION_AND_ADDRESSING_MODES_2021_Q09",
+            "subject": "Computer Organization and Architecture",
+            "topic": "Machine Instruction and Addressing Modes",
+            "subtopic": "U3, U4) in the above assembly code?",
+            "year": 2021,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 9,
+            "tags": [
+                "Machine Instruction and Addressing Modes",
+                "U3, U4) in the above assembly code?",
+                "Computer Organization and Architecture"
+            ],
+            "question": {
+                "text": "Consider the following instruction sequence where \nregisters R1, R2 and R3 are general purpose and \nMEMORY [X] denotes the content at the memory \nlocation X. \nInstruction \nSemantics \nInstruction \nSize (bytes) \nMOV R1, \n(5000) \nR1  MEMORY \n[5000] \nMOV R2, (R3) \nR2  MEMORY [R3] \nADD R2, R1 \nR2  R1 + R2 \nMOV (R3), R2 \nMEMORY [R3]  R2 \nINC R3 \nR3  R3 + 1 \nDEC R1 \nR1  R1 - 1 \nBNZ 1004 \nBranch if not zero to \nthe given absolute \naddress \nHALT \nStop \n\n\nAssume that the content of the memory location \n5000 is 10, and the content of the register R3 is 3000. \nThe content of each of the memory locations from \n3000 to 3010 is 50. The instruction sequence starts \nfrom the memory location 1000. All the numbers are \nin decimal format. Assume that the memory is byte \naddressable. \n\nAfter the execution of the program, the content of \nmemory location 3010 is _____.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "50"
+            ],
+            "solution": {
+                "text": "Instruction Semantics \nInstruction \nSize \n(bytes) \n\n-1003 \nMOV R1, \n(5000) I1 \nR1  \nMEMORY \n[5000] \nR1 = 10 \n-1007 \nMOV R2, \n(R3) I2 \nR2  \nMEMORY \n[R3] R2 \nm[3000] \nR2 = 50 \n-1009 \nADD R2, \nR1  I3 \nR2  R1 + \nR2,  R2 10 \n+ 50 \nR2 = 10 + \n50 = R2 = \n-1013 \nMOV (R3), \nR2   I4 \nMEMORY \n[R3]   R2 \nm[3000]  \nR2  \nM [3000] \n= 60 \n-1015 \nINC R3  I5 R3  R3 + 1, \nR3 = 3000+1 \nR3 = 3000 \n+ 1 \\Rightarrow R3 \n= 3001 \n-1017 \nDEC R1   I6 R1  R1 - 1, \nR1 = 10-1 \nR1 = 10 - \n1 \\Rightarrow R1 = \n-1019 \nBNZ 1004 \nI7 \nBranch if not \nzero to the \ngiven \nabsolute \naddress \n1020 HALT   I8 \nStop \nGo to \n1004 (I2) \n\n\nM [5000] = 10 \n\nR3 = 3000 \n50    60 \n50    59 \n50    58 \n50    57 \n50    56 \n50    55 \n50    54 \n50    53 \n50    52 \n50    51 \n\nR2  m [3001] = \nR = 50 \n\nR2  9 + 50 = \nR = 59 \n\nM [R3]  R2 \\rightarrow m [3001] = 59 \n\nR3  3001 + 1 R3 = 3002 \n\nR1  9 - 1 \nR = 8 \n\n2nd Part \n\nR2 m [3003] R2 = 50 \n\nR2 R1 + R2 \\Rightarrow 7 + 50 \\Rightarrow \nR = 57 \n\nM [3003] = 57 \n\nR3 = 3003 + 1 \nR = 3004 \n\nSimiarly execute  \n\nR1 = 7 \\Rightarrow \nR = 6 \n\nIn the last \nR = 0 so, m [3010] will not change \n[update]",
+                "images": [
+                    "assets/Computer Organization and Architecture/COA_Machine_Instruction_and_Addressing_Modes_P11_X1343.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "COA_MACHINE_INSTRUCTION_AND_ADDRESSING_MODES_2020_Q10",
+            "subject": "Computer Organization and Architecture",
+            "topic": "Machine Instruction and Addressing Modes",
+            "subtopic": "memory location 3010 is _____.",
+            "year": 2020,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 10,
+            "tags": [
+                "Machine Instruction and Addressing Modes",
+                "memory location 3010 is _____.",
+                "Computer Organization and Architecture"
+            ],
+            "question": {
+                "text": "A processor has 64 registers and uses 16-bit \ninstruction format. It has two types of instructions: \nI-type and R-type. Each I-type instruction contains \nan opcode, a register name, and a 4-bit immediate \nvalue. Each R-type instruction contains an opcode \nand two register names. If there are 8 distinct I-type \nopcodes, then the maximum number of distinct R-\ntype opcodes is ______.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "14"
+            ],
+            "solution": {
+                "text": "64 register ⇒ Register AF=6 bit \n\n\nTotal number of operation in R type = 24 = 16 \noperatin  \n\nAssume R type instruciton = x  \n\nNumber of free opcode after allocating R type = \n(16 - x) \n\n\n\n\n\nTotal number of operations in I type = free opcode \n× 2 increment bit in opcode \n\n   = (16 - x) \\times 26-4 ⇒ (16 - x) \\times 22 \n\nI type (Given) = 8  \n\n8 = (16 - x) \\times 4 \n\n2 = 16 - x \n\nx = 16 - 2  \n\nx =14",
+                "images": [
+                    "assets/Computer Organization and Architecture/COA_Machine_Instruction_and_Addressing_Modes_P12_X1506.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "COA_MACHINE_INSTRUCTION_AND_ADDRESSING_MODES_2018_Q11",
+            "subject": "Computer Organization and Architecture",
+            "topic": "Machine Instruction and Addressing Modes",
+            "subtopic": "type opcodes is ______.",
+            "year": 2018,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 11,
+            "tags": [
+                "Machine Instruction and Addressing Modes",
+                "type opcodes is ______.",
+                "Computer Organization and Architecture"
+            ],
+            "question": {
+                "text": "A processor has 16 integer registers (R0, R1, …., \nR15) and 64 floating point registers (F0, F1, …., \nF63). It uses a 2-byte instruction format. There are \nfour categories of instructions: Type-1, Type-2, \nType-3 and Type-4. Type-1 category consists of four \ninstructions, each with 3 integer register operands \n(3Rs). \nType-2 \ncategory \nconsists \nof \neight \ninstructions, each with 2 floating point register \noperands (2Fs). Type-3 category consists of fourteen \ninstructions, each with one integer register operand \nand one floating point register operand (1R+1F). \nType-4 category consists of N instructions, each \nwith a floating-point register operand (1F). \n\nThe maximum value of N is ________.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "32"
+            ],
+            "solution": {
+                "text": "16 Integer Register (R0, R1 R2….. R15) \n\nIR = 4 bit \n\n64 floating point Register (F0, F1 ….. F63) \n\nFR = 6 bit \n\nTYPE-1: \nOP CODE IR IR IR \n\n\n\n\n4 Instruction \n\n\nGiven: \n\nTYPE-2: \nOP CODE FR FR \n\n8 Instruction  \n\n64 floating point Register (F0, F1, F2 ……F64) \n\nFR= 6 bit \n\nInstruction size = 16 bit (2 byte) \n\nTYPE: 3  \nOP CODE IR FR \n\n\n\n\n 14 Instructions  \n\nTYPE: 4  \nOP CODE FR \n\n\n\n\n  N Instructions \n\nTYPE:- 1   \n\n\nN bit can perform 2n operation \n\nTotal number of operation in type 1 = 24 = 16 \noperation.  \n\nGiven = 4 Instruction \n\nTotal number of free after allocating type \n\n\n= 16 - 4 = 12 \n\nTYPE -2 \n\n\nIncrement bit in opcode\nTotal number of operation in type 2: Free opcode\n×2\n\n\nTotal number of operations = 12 \\times 24 - 4 =12×2º = \n12 operation  \n\nType 2 (given) = 8 Instruction (operation) \n\nTotal number of free opcode after Allocating type \n2 = 12 - 8 = 4 free code \n\nTYPE -3 \n\n\n\nTotal number of operations in type 3 = free opcode \n× 2 Increment bit in opcode  \n\n 4 \\times 26 - 4 = 4 ×22 \n\n= 16 operation/ Instruction \n\nType 3 (given) = 14 Instruction \n\nTotal number of free opcodes after allocating = 16 \n- 14  \n\nType 3 instruction = 2 Free opcodes \n\nTYPE -4 \n\n\n\nTotal number of operations in type 4 = Free \nopcode \\times   2Increment bit in opcode. \n\n(N) \\Rightarrow 2 \\times 210-6 \n\n\n 2 \\times 24 \n\n\n 32 \n\nN= 32",
+                "images": [
+                    "assets/Computer Organization and Architecture/COA_Machine_Instruction_and_Addressing_Modes_P12_X1504.png"
+                ],
+                "latex": [],
+                "tables": [
+                    {
+                        "headers": [
+                            "OP CODE",
+                            "IR",
+                            "IR",
+                            "IR"
+                        ],
+                        "rows": []
+                    }
+                ]
+            }
+        },
+        {
+            "id": "COA_MACHINE_INSTRUCTION_AND_ADDRESSING_MODES_2018_Q12",
+            "subject": "Computer Organization and Architecture",
+            "topic": "Machine Instruction and Addressing Modes",
+            "subtopic": "The maximum value of N is ________.",
+            "year": 2018,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 12,
+            "tags": [
+                "Machine Instruction and Addressing Modes",
+                "The maximum value of N is ________.",
+                "Computer Organization and Architecture"
+            ],
+            "question": {
+                "text": "The following are some events that occur after a \ndevice controller issues an interrupt while process L \nis under execution. \n\n(P)  The Processor pushes the process status of L \nonto the control stack. \n\n(Q) The processor finishes the execution of the \ncurrent instruction. \n\n(R)  The processor executes the interrupt service \nroutine. \n\n(S)  The processor pops the process status of L from \nthe control stack. \n\n(T)  The processor loads the new PC value based on \nthe interrupt. \n\nWhich one of the following is the correct order in \nwhich the events above occur?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "QPTRS",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "PTRSQ",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "TRPQS",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "QTPRS",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "A"
+            ],
+            "solution": {
+                "text": "When Interrupt occur, after completion of current \nInstruction.  \n\nInterrupt will be serviced, It push the program \ncurrent [PC] value into stack & control transfer to \nISR. \n\nQ: Process finish the current instruction \nexecution  \n\nP: \nPUSH the PC value into stack \n\nT: \nInterrupt \\rightarrow PC \n\nR: Service the Interrupt \n\nS: \nPop the PC value",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "COA_MACHINE_INSTRUCTION_AND_ADDRESSING_MODES_2016_Q13",
+            "subject": "Computer Organization and Architecture",
+            "topic": "Machine Instruction and Addressing Modes",
+            "subtopic": "which the events above occur?",
+            "year": 2016,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 13,
+            "tags": [
+                "Machine Instruction and Addressing Modes",
+                "which the events above occur?",
+                "Computer Organization and Architecture"
+            ],
+            "question": {
+                "text": "Consider a Processor with 64 registers and an \ninstruction set of size twelve. Each instruction has \nfive distinct fields, namely, opcode, two source \nregister \nidentifiers, \none \ndestination \nregister \nidentifier, and a twelve-bit immediate value. Each \ninstruction must be stored in memory in a byte-\naligned fashion. If a program has 100 instructions, \nthe amount of memory (in bytes) consumed by the \nprogram text is _____.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "500"
+            ],
+            "solution": {
+                "text": "64 Register, \nInstruction set size = 12 \n\n5 Fields = Opcode, Source Reg1, S Reg2, D Reg2, 12 \nbit Immediate field  \n\n64 Register \\Rightarrow Reg. AF = 6bit \n\n\nInst. Set = 12 \\Rightarrow Op code = 4 bit \n\n\n\nInstruction size = 4 + 6 + 6 + 6 +12 \n\n\n\n             = 34 bits  5 Byte \n\nProgram having = 100 Inst. \n\nProgram size = 100 \\times 5B = 500 byte.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "COA_MACHINE_INSTRUCTION_AND_ADDRESSING_MODES_2016_Q14",
+            "subject": "Computer Organization and Architecture",
+            "topic": "Machine Instruction and Addressing Modes",
+            "subtopic": "program text is _____.",
+            "year": 2016,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 14,
+            "tags": [
+                "Machine Instruction and Addressing Modes",
+                "program text is _____.",
+                "Computer Organization and Architecture"
+            ],
+            "question": {
+                "text": "A Processor has 40 distinct instructions and 24 \ngeneral purpose registers. A 32-bit instruction word \nhas an opcode, two register operands and an \nimmediate operand. The number of bits available for \nthe immediate operand field is _____.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "16"
+            ],
+            "solution": {
+                "text": "40 Distinct Instruction/operation \\Rightarrow OP code = \nlog 40\n\n\n\n= 6 bit \n\nOP code = 6 bit \n\n24 Register \\Rightarrow Reg.AF= 5bit \n\n32 bits Instruction \n\n\n\nImmediate field = 32 - (5 + 5 + 6) \n\n\n\n              = 32 - 16 \n\nImmediate field = 16bit",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "COA_MACHINE_INSTRUCTION_AND_ADDRESSING_MODES_2015_Q15",
+            "subject": "Computer Organization and Architecture",
+            "topic": "Machine Instruction and Addressing Modes",
+            "subtopic": "the immediate operand field is _____.",
+            "year": 2015,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 15,
+            "tags": [
+                "Machine Instruction and Addressing Modes",
+                "the immediate operand field is _____.",
+                "Computer Organization and Architecture"
+            ],
+            "question": {
+                "text": "For computers based on three-address instruction \nformats, each address field can be used to specify \nwhich of the following: \n\nS1:  A memory operand \n\nS2:  A processor register \n\nS3:  An implied accumulator register",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "Either S1 or S2",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "Either S2 or S3",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "Only S2 and S3",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "All of S1, S2 and S3",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "A"
+            ],
+            "solution": {
+                "text": "Memory operand \n\nOr \n\nRegister operand \n\nBut Accumulator is a special purpose Register",
+                "images": [
+                    "assets/Computer Organization and Architecture/COA_Machine_Instruction_and_Addressing_Modes_P12_X1508.png",
+                    "assets/Computer Organization and Architecture/COA_Machine_Instruction_and_Addressing_Modes_P12_X1504.png"
+                ],
+                "latex": [],
+                "tables": [
+                    {
+                        "headers": [
+                            "3000",
+                            "50 60"
+                        ],
+                        "rows": [
+                            [
+                                "3001",
+                                "50 59"
+                            ],
+                            [
+                                "3002",
+                                "50 58"
+                            ],
+                            [
+                                "3003",
+                                "50 57"
+                            ],
+                            [
+                                "3004",
+                                "50 56"
+                            ],
+                            [
+                                "3005",
+                                "50 55"
+                            ],
+                            [
+                                "3006",
+                                "50 54"
+                            ],
+                            [
+                                "3007",
+                                "50 53"
+                            ],
+                            [
+                                "3008",
+                                "50 52"
+                            ],
+                            [
+                                "3009",
+                                "50 51"
+                            ],
+                            [
+                                "3010",
+                                "50"
+                            ]
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "id": "COA_MACHINE_INSTRUCTION_AND_ADDRESSING_MODES_2015_Q16",
+            "subject": "Computer Organization and Architecture",
+            "topic": "Machine Instruction and Addressing Modes",
+            "subtopic": "S3:  An implied accumulator register",
+            "year": 2015,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 16,
+            "tags": [
+                "Machine Instruction and Addressing Modes",
+                "S3:  An implied accumulator register",
+                "Computer Organization and Architecture"
+            ],
+            "question": {
+                "text": "Consider \na \nprocessor \nwith \nbyte-addressable \nmemory. Assume that all registers, including \nProgram Counter (PC) and Program Status Word \n(PSW), are of size 2 bytes. A stack in the main \nmemory is implemented from memory location \n(0100)16 and it grows upward. The stack pointer (SP) \npoints to the top element of the stack. The current \nvalue of SP is (016E)16. The CALL instruction is of \ntwo words, the first word is the op-code and the \nsecond word is the starting address of the subroutine \n(one word = 2 bytes). The CALL instruction is \nimplemented as follows: \n• \nStore the current value of PC in the stack. \n• \nStore the value of PSW register in the stack. \n• \nLoad the starting address of the subroutine in \nPC. \n\nThe content of PC just before the fetch of a CALL \ninstruction is (5FA0)16. After execution of the CALL \ninstruction, the value of the stack pointer is",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "(016A)16",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "(016C)16",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "(0170)16",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "(0172)16",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "D"
+            ],
+            "solution": {
+                "text": "Given \n\nCurrent SP value is = (016E)16 \n\nPC = 2 Byte, PSW = 2 byte \n(1) Store the current value of PC into the stack. \nHere PC is 2 byte so stack pointer to increased \nby 2 bytes \n (016E)2 + 2 = [0170]16 \n016E \n + 1 \n016F \n016F \n   +1 \n\n\n\n(2) Store the value of PSW in the stack  \nHere PSW is also 2 byte long. So SP increased \nby 2 byte \n\n\n(0170)16 + 2  = (0172)16 \n\n\n                        SP = (0172)16 \n\n(3) Load the starting address of the subroutine in \nthe PC. \n\n\nPC  ISR \n\n\n(\n)16\nSP = 0172",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "COA_MACHINE_INSTRUCTION_AND_ADDRESSING_MODES_2014_Q17",
+            "subject": "Computer Organization and Architecture",
+            "topic": "Machine Instruction and Addressing Modes",
+            "subtopic": "instruction, the value of the stack pointer is",
+            "year": 2014,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 17,
+            "tags": [
+                "Machine Instruction and Addressing Modes",
+                "instruction, the value of the stack pointer is",
+                "Computer Organization and Architecture"
+            ],
+            "question": {
+                "text": "A machine has a 32-bit architecture, with 1-word \nlong instructions. It has 64 registers, each of which \nis 32 bits long. It needs to support 45 instructions, \n\nwhich have an immediate operand in addition to two \nregister operands. Assuming that the immediate \noperand is an unsigned integer, the maximum value \nof the immediate operand is ________.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "16383"
+            ],
+            "solution": {
+                "text": "Instruction size = 1 word = 32 bit \n\n45 Operation  \\Rightarrow OP code = 6 bit \n\n64 Register \\Rightarrow Register = 6 bit \n\n\n\nImmediate field   = 32 - (6 + 6 + 6) \n\n\n\n               = 32 - 18 = 14 bit \n\nn bit unsigned Range = 0 to 2n -1 \n\nImmediate field Range = 0 to 214 -1 = 16,383",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "COA_MACHINE_INSTRUCTION_AND_ADDRESSING_MODES_2011_Q18",
+            "subject": "Computer Organization and Architecture",
+            "topic": "Machine Instruction and Addressing Modes",
+            "subtopic": "of the immediate operand is ________.",
+            "year": 2011,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 18,
+            "tags": [
+                "Machine Instruction and Addressing Modes",
+                "of the immediate operand is ________.",
+                "Computer Organization and Architecture"
+            ],
+            "question": {
+                "text": "Consider evaluating the following expression tree on \na machine with load-store architecture in which \nmemory can be accessed only through load and store \ninstructions. The variables a, b, c, d and e are \ninitially stored in memory. The binary operators \nused in this expression tree can be evaluated by the \nmachine only when the operands are in registers. \nThe instructions produce result only in a register. If \nno intermediate results can be stored in memory, \nwhat is the minimum number of registers needed to \nevaluate this expression?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "2",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "9",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "5",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "3",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "D"
+            ],
+            "solution": {
+                "text": "LOAD R1 c; \n\nLOAD R2 d; \n\nADD R1 R1 R2; R1  R1 + R2 \\Rightarrow R1 = c + d \n\nLOAD R2 e; \n\nSUB R2, R2, R1; R2  R2 - R1 R2 = e - (c + d) \n\nLOAD R1 a; \n\nLOAD R3 b; \n\nSUB R1, R1, R3; R1  R1 - R3 ; R1 = (a - b) \n\nADD R3, R1, R2; R3 = (a - b) + [e - (c + d)] \nOR \n\nADD R1 R1 R2; R1  R1 + R2 \nOR \n\nADD R2 R1 R2; R2  R1 + R2 \n\n\nMinimum 3 Registers required",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "COA_MACHINE_INSTRUCTION_AND_ADDRESSING_MODES_2009_Q19",
+            "subject": "Computer Organization and Architecture",
+            "topic": "Machine Instruction and Addressing Modes",
+            "subtopic": "evaluate this expression?",
+            "year": 2009,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 19,
+            "tags": [
+                "Machine Instruction and Addressing Modes",
+                "evaluate this expression?",
+                "Computer Organization and Architecture"
+            ],
+            "question": {
+                "text": "A CPU generally handles an interrupt by executing \nan interrupt service routine",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "As soon as an interrupt is raised.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "By checking the interrupt register at the end of \nfetch cycle.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "By checking the interrupt register after \nfinishing the execution of the current \ninstruction.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "By checking the interrupt register at fixed time \nintervals.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "C"
+            ],
+            "solution": {
+                "text": "CPU will check the interrupt after finishing of \ncurrent instant execution. \n\nIf interupts is present \n\nPush PC value",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "COA_MACHINE_INSTRUCTION_AND_ADDRESSING_MODES_2008_Q20",
+            "subject": "Computer Organization and Architecture",
+            "topic": "Machine Instruction and Addressing Modes",
+            "subtopic": "intervals.",
+            "year": 2008,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 20,
+            "tags": [
+                "Machine Instruction and Addressing Modes",
+                "intervals.",
+                "Computer Organization and Architecture"
+            ],
+            "question": {
+                "text": "Which of the following must be true for the RFE \n(Return from Exception) instruction on a general-\npurpose processor. \n          1. It must be a trap instruction \n          2. It must be a privileged instruction \n          3. An exception cannot be allowed to occur during \nexecution of an RFE instruction.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "1 only",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "2 only",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "1 and 2 only",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "1, 2 and 3 only \n\nAddressing Modes",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "D"
+            ],
+            "solution": {
+                "text": "The RFE (Return from Exception) instruction must \nbe a trap instruction, a privilege instruction and an \nexception cannot be allowed to occur during \nexecution of an RFE instruction.",
+                "images": [
+                    "assets/Computer Organization and Architecture/COA_Machine_Instruction_and_Addressing_Modes_P15_X1907.png",
+                    "assets/Computer Organization and Architecture/COA_Machine_Instruction_and_Addressing_Modes_P15_X1911.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "COA_MACHINE_INSTRUCTION_AND_ADDRESSING_MODES_2017_Q21",
+            "subject": "Computer Organization and Architecture",
+            "topic": "Machine Instruction and Addressing Modes",
+            "subtopic": "Addressing Modes",
+            "year": 2017,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 21,
+            "tags": [
+                "Machine Instruction and Addressing Modes",
+                "Addressing Modes",
+                "Computer Organization and Architecture"
+            ],
+            "question": {
+                "text": "Consider the C struct defined below: \n\nstruct data { \n\nint marks [100]; \n\nchar grade; \n\nint cnumber; \n\n}; \n\nstruct data student; \n\nThe base address of student is available in register \nR1. The field student, grade can be accessed \nefficiently using",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "Post-increment addressing mode, (R1)+",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "Pre-decrement addressing mode, - (R1)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "Register direct addressing mode, R1",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "Index addressing mode, X(R1). Where X is an \noffset represented in 2's complement 16-bit \nrepresentation.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "D"
+            ],
+            "solution": {
+                "text": "X(R1) \\Rightarrow M [X + R1]",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "COA_MACHINE_INSTRUCTION_AND_ADDRESSING_MODES_2011_Q22",
+            "subject": "Computer Organization and Architecture",
+            "topic": "Machine Instruction and Addressing Modes",
+            "subtopic": "representation.",
+            "year": 2011,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 22,
+            "tags": [
+                "Machine Instruction and Addressing Modes",
+                "representation.",
+                "Computer Organization and Architecture"
+            ],
+            "question": {
+                "text": "Consider a hypothetical processor with a instruction \nof type LW R1, 20(R2), which during execution \nreads a 32-bit word from memory and stores it in a \n32-bit register R1. The effective address of the \nmemory location is obtained by the addition of a \nconstant 20 and the contents of register R2. Which \nof the following best reflects the addressing mode \nimplemented by this instruction for the operand in \nmemory?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "Immediate Addressing",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "Register Addressing",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "Register Indirect Scaled Addressing",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "Base Indexed Addressing",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "D"
+            ],
+            "solution": {
+                "text": "LW  R1, 20(R2) \n\nR1  M[20 + R2] \n\nRead 32 bit word from memory and store into 32 \nbit Register R. \n\nEA = M [20 +R2] \n\n20: Index",
+                "images": [
+                    "assets/Computer Organization and Architecture/COA_Machine_Instruction_and_Addressing_Modes_P15_X1909.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "COA_MACHINE_INSTRUCTION_AND_ADDRESSING_MODES_2008_Q23",
+            "subject": "Computer Organization and Architecture",
+            "topic": "Machine Instruction and Addressing Modes",
+            "subtopic": "memory?",
+            "year": 2008,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 23,
+            "tags": [
+                "Machine Instruction and Addressing Modes",
+                "memory?",
+                "Computer Organization and Architecture"
+            ],
+            "question": {
+                "text": "Which of the following is/are true of the auto-\nincrement addressing mode? \n          1. It is useful in creating self-relocating code. \n          2. If it is included in an instruction Set \nArchitecture, then an additional ALU is required \nfor effective address calculation \n          3. The amount of increment depends on the size of \nthe data item accessed.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "1 only",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "2 only",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "3 only",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "2 and 3 only",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "C"
+            ],
+            "solution": {
+                "text": "In auto-increment addressing mode, the amount of \nincrement depends on the size of the data item \naccessed.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "COA_MACHINE_INSTRUCTION_AND_ADDRESSING_MODES_2008_Q24",
+            "subject": "Computer Organization and Architecture",
+            "topic": "Machine Instruction and Addressing Modes",
+            "subtopic": "the data item accessed.",
+            "year": 2008,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 24,
+            "tags": [
+                "Machine Instruction and Addressing Modes",
+                "the data item accessed.",
+                "Computer Organization and Architecture"
+            ],
+            "question": {
+                "text": "[MCQ  \n  \n\nAssume that EA = (X)+ is the effective address equal \nto the contents of location X, with X Incremented by \none word length after the effective address is \ncalculated; EA =-(X) is the effective address equal to \nthe contents of location X, with X decremented by \none word length before the effective address is \ncalculated; EA = (X)- is the effective address equal \nto the contents of location X, with X decremented by \none word length after the effective address is \ncalculated. The format of the instruction is (opcode, \nsource, destination), which means (destination ← \nsource op destination). Using X as a stack pointer, \nwhich of the following instructions can pop the top \ntwo elements from the stack, perform the addition \noperation and push the result back to the stack.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "ADD (X)-,(X)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "ADD (X), (X)-",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "ADD -(X), (X)+",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "ADD -(X), (X)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "A"
+            ],
+            "solution": {
+                "text": "OPCODE source destination. \n\nDestination  ( )\n1S\nSource OPERATION \n( )\ndestination\nS\n\n\n1. (X)+: Post increment \n\n\nFirst Fetch the operand (Content) from the \nlocation X then Increment. \n\n2. (X)- Post Decrement  \n\n\nFirst Fetch the operand (Content) from the \nlocation X. then Decrement in X. \n\n3. +(X) Pre Increment \n\n\nFirst Increment in the X, then Updated Location \n[After Increment X content (Operand) is Fetch \n\n4. -(X): Pre decrement \n\n\nFirst Decrement in the X, then Updated \nLocation (After Decrement) X content \n(operand) is Fetch. \n\nAssume start from 1000 \n\n\n\n\n\n(a) ADD (X)-, X \n\n\n(X) - : Fetch then Decrement operand \n\n\nX = 999 M[1000] then X-  \n\n\nX = 999 \\Rightarrow M [999] = 100 \n\n\n200 + 100 = 300. \n\n\nADD \n\n\nPOP (Top Of Stack) \n\n\nPOP (Top Of Stack) \n\n\nALU operation (ADD) push into POP. \n\n\n200 + 100 \n\n\nSTACK: LIFO \n\n(b) ADD X, (X)- \n\n\nM [1000] = 200 \n\n\nM [1000] =200 \n\n(c) ADD - (X), (X) + \n\n\nX= First Decrement X = 999 \n\n\nM [999] = 100 \n\n\nX + Post Increment M [999] = 100 \n\n(d) ADD -(X), X \n\n -X: M [999] = 100 \n\n\nM [999] = 100",
+                "images": [
+                    "assets/Computer Organization and Architecture/COA_Machine_Instruction_and_Addressing_Modes_P15_X1909.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        }
+    ]
+}

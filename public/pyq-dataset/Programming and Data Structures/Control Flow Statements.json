@@ -1,0 +1,777 @@
+{
+    "subject": "Programming and Data Structures",
+    "topic": "Control Flow Statements",
+    "questionCount": 13,
+    "questions": [
+        {
+            "id": "PDS_CONTROL_FLOW_STATEMENTS_2019_Q01",
+            "subject": "Programming and Data Structures",
+            "topic": "Control Flow Statements",
+            "subtopic": "Decision Control Statements",
+            "year": 2019,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 1,
+            "tags": [
+                "Control Flow Statements",
+                "Decision Control Statements",
+                "Programming and Data Structures"
+            ],
+            "question": {
+                "text": "Consider the following C program: \n\n# include<stdio.h> \n\nint main (){ \n\nfloat sum = 0.0, j = 1.0, i = 2.0; \n\nwhile (i / j  >  0.0625){ \n\n\nj = j + j; \n\n\nsum = sum + i/j; \n\n\nprintf(\"%f \\n\", sum); \n\n} \n\nreturn 0; \n\n} \n\nThe number of times the variable sum will be printed, \nwhen the above program is executed, is _________.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "5"
+            ],
+            "solution": {
+                "text": "i = 20, j = 1.0 \n\n(1) j = 1.0 \n\n\n  = i/j > 0.0625 \n\n\n  = 2.0/1.0 > 0.0625(True,Printed) \n\n(2) j = 2.0 \n\n\n2.0/2.0 > 0.0625 = 1.0 > 0.0625(True,Printed) \n\n(3) j = 4.0 \n\n\n2.0/4.0 > 0.0625 \n\n\n0.5 > 0.0625(True,Printed) \n\n(4) j = 8.0 \n\n\n2.0/8.0 > 0.0625 \n\n\n0.25 > 0.0625(True,Printed) \n\n(5) j = 16.0 \n\n\n2.0/16.0 > 0.0625 \n\n\n0.125 > 0.0625(True,Printed) \n\n(6) j = 32.0 \n\n\n2.0/32.0 > 0.0625 \n\n\n0.0625 > 0.0625(False,Not printed) \n\nHence 5 times printed.",
+                "images": [
+                    "assets/Programming and Data Structures/PDS_Control_Flow_Statements_P10_X931.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "PDS_CONTROL_FLOW_STATEMENTS_2017_Q02",
+            "subject": "Programming and Data Structures",
+            "topic": "Control Flow Statements",
+            "subtopic": "when the above program is executed, is _________.",
+            "year": 2017,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 2,
+            "tags": [
+                "Control Flow Statements",
+                "when the above program is executed, is _________.",
+                "Programming and Data Structures"
+            ],
+            "question": {
+                "text": "Consider the C program fragment below which is \nmeant to divide x by y using repeated subtractions. \nThe variables x, y, q and r are all unsigned int. \n\nwhile (r >= y) \n\n{ \n\n r = r - y;  \n\nq = q + 1;                  \n\n} \n\nWhich of the following conditions on the variables x \ny, q and r before the execution of the fragment will \nensure that the loop terminates in a state satisfying the \ncondition x == (y * q + r) ?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "(q==r) &&(r==0)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "(x > 0) &&(r==x) &&(y>0)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "(q==0) &&(r==x) &&(y>0)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "(q==0) &&(y>0)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "C"
+            ],
+            "solution": {
+                "text": "Let us first understand the concept before solving. \n\nAssume x = 12, y = 5  \n\nLet's assume that we want to divide 12(x) by 5(y) \n\n\n\nPerforming above operation by using repeated \nsubtraction method then we subtract 5 two times from \n12(x). \n\nr = x = 12, y =5 \n\nInitially r =12(everything is remaining as we did not \nsubtract 5 from 12 any number of times). \n\nq = 0, because it denotes that how many times 5 has \nbeen subtracted from 12. \n\nNow,  \n(1) r = 12, y = 5 can we subtract 5 from r? yes, \nbecause r is greater than y. \n\nr = 12 - 5 = 7 \n\nq = 0 + 1 = 1(1 signifies that we have subtracted \n5 one time from 12) \n(2) r =7, y = 5 can we subtract 5 from r? yes, \nbecause r is greater than y. \n\nr = 7 - 5 = 2 \n\nq = 1 + 1 = 2(2 signifies that we have subtracted \n5 two time from 12) \n(3) r = 2, y = 5 can we subtract 5 from r? no, because \nr is less than y so we need to stop further \noperation. \n\n r = 2, q = 2  \n\n\nNow, solving question by option elimination \nmethod. \n      Initially q==0 and r = = x \n\nBefore execution of fragment the value of q is \nzero and value of r is x. which matches with \noption c.",
+                "images": [
+                    "assets/Programming and Data Structures/PDS_Control_Flow_Statements_P10_X1401.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "PDS_CONTROL_FLOW_STATEMENTS_2016_Q03",
+            "subject": "Programming and Data Structures",
+            "topic": "Control Flow Statements",
+            "subtopic": "condition x == (y * q + r) ?",
+            "year": 2016,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 3,
+            "tags": [
+                "Control Flow Statements",
+                "condition x == (y * q + r) ?",
+                "Programming and Data Structures"
+            ],
+            "question": {
+                "text": "The following function computes the maximum value \ncontained in an integer array p[ ] of size n(n \\ge 1). \n\nint max ( int * p, int n ) \n\n{ int a = 0, b = n - 1; \n\nwhile (_______ ) \n\n{ \n\n       if(p[a] \\le p[b]){a = a + 1;} \n\n       else                   { b = b - 1;} \n\n} \n\nreturn p[a]; \n\n} \n\nThe missing loop condition is",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "a !=n",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "b != 0",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "b>(a+1)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "b !=a",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "D"
+            ],
+            "solution": {
+                "text": "Let us take 1st case  \n\nn = 1 \\Rightarrow a = 0, b = 0 \n\n\n\nThis is the maximum element (1), hence loop will not \nrun, if there is single element then loop will not run. \n\nOption (a) \n\na!=n \n\n0!=1(true)  \n\nabove condition is true for only one element too. \nInstead, it has to be returned by return statement. \n\nHence it is false option. \n\nOption (b) \n\nLet us take 2nd case \n\n\n\n1st iteration:  \n\np[ a] < p[b] \\rightarrow true \n\na = a + 1 \n\n(Moving a to right side)  \n\n\n\nLet us take case 3 \n\n\n\n1st iteration: \n\np[a] < p[b] \\Rightarrow False \n\nb = b -1 \\Rightarrow b = 0 \n\n\n\nCase: 4 \n\n\n\n(i) \np[0] < p [4] \\Rightarrow false \n\n\nb = b -1 \\Rightarrow 3 \n\n\nWhy?  \n\n\nAny Smaller element cannot be maximum if an \nelement at ath index is bigger than element at bth \nindex then p[b] cannot be maximum \\Rightarrow so we \nare moving to the left (skipping this element \np[b]). \n\n(ii) p[a] < p [b] \\Rightarrow true \n\n\n10 < 30 \n\n\n10 cannot be maximum \n\n\nSkip it by moving. \n\n\nHow  \\Rightarrow by a = a + 1 \n\n(iii) p[a] < p [b] \\Rightarrow true \n\n\n20 < 30 \n\n\nSkip 20 by a = a + 1  \n\n\np[a] < p [b] \n\n\nFalse \n\n\n50 < 30 \\Rightarrow false  \n\n\n50 can be maximum, But 30 cannot be maximum. \n\n\nb = b =1 \n\n\nb = 2 \n\n\n\n\n\n\n*we are left with one element, this must be a \nmaximum element. Now we need not iterate \nfurther. \n\n\n*we need to stop whenever a=b. therefore loop \ncondition will be b!=a or a!=b . i.e. option d is \ncorrect answer.",
+                "images": [
+                    "assets/Programming and Data Structures/PDS_Control_Flow_Statements_P11_X1541.png",
+                    "assets/Programming and Data Structures/PDS_Control_Flow_Statements_P11_X1544.png",
+                    "assets/Programming and Data Structures/PDS_Control_Flow_Statements_P11_X1546.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "PDS_CONTROL_FLOW_STATEMENTS_2016_Q04",
+            "subject": "Programming and Data Structures",
+            "topic": "Control Flow Statements",
+            "subtopic": "The missing loop condition is",
+            "year": 2016,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 4,
+            "tags": [
+                "Control Flow Statements",
+                "The missing loop condition is",
+                "Programming and Data Structures"
+            ],
+            "question": {
+                "text": "The following program is to be tested for statement \ncoverage: \n\n     begin \n             if (a==b){S1 ; exit; } \n\n       else if (c==d){S2 ;} \n             else {S3 ; exit; } \n\n       S4; \n\n     end \n\nThe test cases T1, T2, T3 and T4 given below are \nexpressed in terms of the properties satisfied by the \nvalues of variables a, b, c and d. The exact values are \nnot given. \n\nT1: a, b, c and d are all equal \n\nT2: a, b, c and d are all distinct \n\n\nT3 : a=b and c !=d \n\nT4 : a !=b and c=d \n\nWhich of the test suites given below ensures coverage \nof statements S1,  S2,  S3 and S4 ?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "T1,  T2,  T3",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "T2, T4",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "T3, T4",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "T1, T2, T4",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "D"
+            ],
+            "solution": {
+                "text": "T1 : S1 \n\nT1, T2, T4(covers all) \n\nT2 : S3 \n\nT2, T3, T4(covers all) \n\nT3 : S1 \n\nT4 : S2, S4 \n\nHence option (d) is correct answer.",
+                "images": [
+                    "assets/Programming and Data Structures/PDS_Control_Flow_Statements_P11_X1541.png",
+                    "assets/Programming and Data Structures/PDS_Control_Flow_Statements_P11_X1544.png",
+                    "assets/Programming and Data Structures/PDS_Control_Flow_Statements_P11_X1546.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "PDS_CONTROL_FLOW_STATEMENTS_2015_Q05",
+            "subject": "Programming and Data Structures",
+            "topic": "Control Flow Statements",
+            "subtopic": "of statements S1,  S2,  S3 and S4 ?",
+            "year": 2015,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 5,
+            "tags": [
+                "Control Flow Statements",
+                "of statements S1,  S2,  S3 and S4 ?",
+                "Programming and Data Structures"
+            ],
+            "question": {
+                "text": "Consider the following pseudo code, where x and y \nare positive integers. \n\nbegin \n\nq:=0 \n\nr:=x ; \n\nwhile r≥y do \n\nbegin r:=r-y ; q:=q+1 ; end \n\nend \n\nThe post condition that needs to be satisfied after the \nprogram terminates is",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "{r=qx + y r < y}",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "{x=qy + r  r < y}",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "{y=qx + r  0 < r < y}",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "{q+1< r -y  y > 0}",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "B"
+            ],
+            "solution": {
+                "text": "Rewriting the code for better understanding  \n\nbegin q: = 0// q is representing Quotient  \n\nr: = x // r is representing Remainder \n\nwhile r > y do \n\nbegin  \n\nr: = r - y \n\nq: = q + 1 \n\n\n    end \n\nend \n\nThe abvoe code is representing, How to divide x by y \nusing repeated subtraction. \n\nLet x = 13, y = 5 and intially q = 0 \n\nr = 23 (everyting is remaining) \n\n(i) \nCan we subtract y(5) from r ? \n\n\nYes, r = 13 - 5 = 18 \n\n\nq = q + 1 = 0 +1 =1  \n\n\nr = 8; q = 1 (one time 5 is subtrated from 13) \n\n(ii) r = 8, q = 1 y = 5 \n\n\ncan we subtract 5 from r ? \n\n\nyes, r  = 8 - 5 = 3 \n\n\nq = q + 1 = 1 + 1 = 2 \n\n\nr = 3; q = 2 (2 times 5 is subtracted from 13) \n\n(iii) r = 3, q = 2 \n\n\ncan we subtract 5 from r  ? \n\n\nNo, because x\ny\n\nwhich is \n\n\nPost condition  \n\n\nAfter code execution \n\n\nr = 3, q = 2, x = 13 y = 5 \n\n\n\n\n\nq\ny\nr\nwe can write, 13 = \n\n\n\n\n\n+\n\n\n\nqy + r\nx =\nwhere, r  < y \n\n\n on option verification, option (b) is correct.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "PDS_CONTROL_FLOW_STATEMENTS_2014_Q06",
+            "subject": "Programming and Data Structures",
+            "topic": "Control Flow Statements",
+            "subtopic": "program terminates is",
+            "year": 2014,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 6,
+            "tags": [
+                "Control Flow Statements",
+                "program terminates is",
+                "Programming and Data Structures"
+            ],
+            "question": {
+                "text": "Consider the following function \n\ndouble f( double x){ \n\nif (abs(x*x-3)<0.01) return x; \n\nelse return f(x / 2+1.5 / x); \n\nGiven a value q (to 2 decimals) such that f(q) will \nreturn q : _________.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "1.72",
+                "1.74"
+            ],
+            "solution": {
+                "text": "abs (x2 - 3) < 0.01 \n\nabsolute value is like an value of mod  x\n\n      > = 0\nx x\nx\nx\nx\n−\n\n\n= \n\n\n\n(x2 -3) < 0.01 and -  (x2 - 3) < 0.01 \n\nx2 < 3.01 and x2 > 2.99 \n\nx < 1.735 and x > 1.729 \n\nx > 1.729 and x < 1.735 \n\nx =",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "PDS_CONTROL_FLOW_STATEMENTS_2008_Q07",
+            "subject": "Programming and Data Structures",
+            "topic": "Control Flow Statements",
+            "subtopic": "return q : _________.",
+            "year": 2008,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 7,
+            "tags": [
+                "Control Flow Statements",
+                "return q : _________.",
+                "Programming and Data Structures"
+            ],
+            "question": {
+                "text": "Choose the correct option to fill ?1 and ?2 so that the \nprogram below prints an input string in reverse order. \nAssume that the input string is terminated by a \nnewline character \n\nvoid reverse(void)  { \n\n\nint c; \n\n\nif (?1) reverse(); \n\n\n?2 \n\n} \n\nmain() { \n\nprintf (\"Enter Text\") ; printf (\"\\n\"); \n\nreverse(); printf (\"\\n\"); \n\n}",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "? 1 is (getchar ()  ! = '\\n') \n\n\n? 2 is getchar",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "? 1 is (c = getchar ())  ! = '\\n') \n\n\n? 2 is getchar (c) \n\n(c) ? 1 is (c ! = '\\n')  \n\n\n? 2 is putchar (c);",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": ";",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "? 1 is ((c = getchar ())  ! = '\\n') \n\n\n? 2 is putchar (c); \n\nSwitch Statements",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "D"
+            ],
+            "solution": {
+                "text": "(1) option A and option B can be eliminated, because \nthey are not printing anything (No putchar()). \n\n(2) In option (c), there is No getchar() to read input \nHence c is wrong. \n\n(3) \\therefore correct option is option (d).",
+                "images": [
+                    "assets/Programming and Data Structures/PDS_Control_Flow_Statements_P13_X1707.png",
+                    "assets/Programming and Data Structures/PDS_Control_Flow_Statements_P13_X1707.png",
+                    "assets/Programming and Data Structures/PDS_Control_Flow_Statements_P13_X1711.png",
+                    "assets/Programming and Data Structures/PDS_Control_Flow_Statements_P13_X1713.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "PDS_CONTROL_FLOW_STATEMENTS_2015_Q08",
+            "subject": "Programming and Data Structures",
+            "topic": "Control Flow Statements",
+            "subtopic": "Switch Statements",
+            "year": 2015,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 8,
+            "tags": [
+                "Control Flow Statements",
+                "Switch Statements",
+                "Programming and Data Structures"
+            ],
+            "question": {
+                "text": "Consider the following C program: \n\n#include<stdio.h> \n\nint main() \n\n{ \n\nint i, j, k = 0; \n     j=2 * 3 / 4 + 2.0 / 5 + 8 / 5; \n     k-=--j; \n     for (i=0; i<5; i++) \n\n{ \n\nswitch(i+k) \n\n{ \n                case 1:  \n                case 2: printf(\"\\n%d\", i+k); \n                case 3: printf(\"\\n%d\", i+k); \n                default: printf(\"\\n%d\", i+k); \n\n      } \n\n  } \n\n    return 0; \n\n} \n\nThe number of times printf statement executed is ___. \n\nIterative Statements",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "10"
+            ],
+            "solution": {
+                "text": "firstly, solving  \n\n j=2*3/4+2.0/5+8/5 \n\nwe know that, *, /  having same priority \n\n\n\nSo, before loop started \n\nj\n2*3/ 4\n2.0 / 5\n8 / 5\n=\n+\n+\n\n\nj\n6 / 4\n2.0 / 5\n8/ 5\n=\n+\n+\n\n\nj 1\n2.0 / 5\n8/ 5\n= +\n+\n\n\n2.0 is of double type  \n\n5 \\Rightarrow 5.0 (double, promoted implicitly) \n\nResults is also of type double type i.e. 0.4 \n\nj = 1 + 0.4 + \n8 / 5 \n\nj = \n5  double\nint\n+\n+\n\n\nj = 1.4 +1 \n\nj = 2.4  \n\nj is of int type. \n\nj = 2, 2 is assigned to j \n\nNow, \n\nk = --j; \n\n--j is performed \n\n j becomes 1 \n\nk - = j; \n\nk = 0 -1 = -1 \n\nSo, before the loop started, k\n-1 and j\n=\n=\n\n\nNow evaluating loop  \n\nfor (i = 0; i<5; i + +)  \n\n{ \n\nswitch (i + k) { \n\ncase 1: \n\ncase 2: printf (\"\\n%d\", i +k); \n\ncase 3: printf (\"\\n%d\", i +k); \n\ndefault: printf (\"\\n%d\", i +k); \n\n} \n\n Number of times printf executed = 1 + 1 + 3 + 3 + 2  \n\n\n\n\n         = 10 times",
+                "images": [
+                    "assets/Programming and Data Structures/PDS_Control_Flow_Statements_P14_X1828.png",
+                    "assets/Programming and Data Structures/PDS_Control_Flow_Statements_P14_X1828.png",
+                    "assets/Programming and Data Structures/PDS_Control_Flow_Statements_P14_X1828.png",
+                    "assets/Programming and Data Structures/PDS_Control_Flow_Statements_P14_X1828.png",
+                    "assets/Programming and Data Structures/PDS_Control_Flow_Statements_P14_X1828.png",
+                    "assets/Programming and Data Structures/PDS_Control_Flow_Statements_P14_X1828.png",
+                    "assets/Programming and Data Structures/PDS_Control_Flow_Statements_P14_X1828.png",
+                    "assets/Programming and Data Structures/PDS_Control_Flow_Statements_P14_X1828.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "PDS_CONTROL_FLOW_STATEMENTS_2021_Q09",
+            "subject": "Programming and Data Structures",
+            "topic": "Control Flow Statements",
+            "subtopic": "Iterative Statements",
+            "year": 2021,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 9,
+            "tags": [
+                "Control Flow Statements",
+                "Iterative Statements",
+                "Programming and Data Structures"
+            ],
+            "question": {
+                "text": "Consider the following ANSI C program \n\n# include<stdio.h> \n\nint main() \n\n{ \n\n    int i, j, count; \n\n    count =0; \n\n    i=0; \n\n    for(j=-3 ; j<=3 ; j++) \n\n   { \n\n       if((j>=0) &&(i++)) \n\n           count = count +j ; \n\n    } \n\n    count = count +i ; \n\n    printf (\"%d\", count ) ; \n\n    return 0 ; \n\nWhich one of the following options is correct?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "The program will not compile successfully",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "The program will compile successfully and \noutput 10 when executed",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "The program will compile successfully and \noutput 8 when executed.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "The program will compile successfully and \noutput 13 when executed.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "B"
+            ],
+            "solution": {
+                "text": "Initially variable count and i are initialized to zero. \n\nfor(j=-3;j<=3;j++) statement states that, for loop will \nrun from -3 to +3(-3,-2-1,0,1,2,and 3).    \n\nEvaluating if condition inside for loop \n\nj = -3 \n\n\nif((j>=0)&&(i++)) \n\n-3>=0&&(i++) →false \n\nHere we are using concept of Short Circuiting \n\nShort Circuiting: when the first operand of logical \nAND operator is 0 then 2nd operand will not be \nevaluated, if the 1st operand is 1 then 2nd operand will \nbe evaluated. \n\n(\n)\n\nwill never \nbe evaluated\n0 & &\ni + +\n\n\nThat's why  \n\nif(0)  \n\ncount = count + j will not be executed \n\nnow, j= -2 \n\nif((j>=0)&&(i++))  \n\n(\n)\n( )\n\nFalse\nwill not be\n evaluated\n0 false\n-2\n0 && \ni\n=\n+ +\n\n\n0 && (i++) \n\ncount = count + j will not be executed because, \nif(0)(if condition fails) as same as above reason. \n\nj = -1 \n\nif((j>=0)&&(i++)) \n\n(-1>=0 && (i++)) \n\n(\n)\n(\n)\n\nwill not be \nevaluated\n0 false\n0 &&\ni\n\n+ +\n\n\nagain count = count +j will not be executed because, \nif(0)(if condition fails) as same as above reason above \nmentioned. \n\nj = 0 \n\n(\n)\ntrue\nif\n       and becomes \n0 & & i\n=\n+ +\n\n\n\n\n\n\n\n\n\n\n\n\nPost Increment\n1 & & \n\n\n\ni\n\n\n\n\n\n\n\n\n\n\n+ +\n\n\nPost increment: Post increment operator is used \nwhen it is required to increment the value of the \nvariable after evaluating the expression.   \n\nInitially variable i has value 0. \n\n( )\n0 false\nafter evaluation of this \n1&&0\nstatement value of i \nbecomes 1\n→\n\n\nHence once again statement count= count + j will not \nbe executed. \n\nj = 1  \n\nif(1>=0 && i++) \n\n( )1 True\nafter evaluation of this \n1&&1\nstatement value of i \nbecomes 2.\n→\n\n\nHence if condition becomes true, so count = count +j \nwill be executed  \n\ncount = count + j \n\n= 0   +    1  \n\ncount = 1 \n\nj = 2 \n\nif(j>=0 &&(i++))  \n\n2>=0 && 2 \n\n1 && 2  \n\n(1) True \nvalue of i will become 3  \n\nAgain, if condition becomes true and statement inside \nif condition will be executed \n\ncount = count + j  \n      = 1 + 2 \n\ncount = 3  \n\nj = 3 \n\nif (j>=0 && (i++))  \n\n3>=0 && 3 \n\n\n( )1 True\n1&&1\nValue of i will become 4\n→\n\n\nAgain, if condition becomes true and statement inside \nif condition will be executed.  \n\ncount = count + j   \n\n3 + 3  \n\ncount = 6 \n\nj = 4  \n\ncondition in for loop gets failed and control of \nexecution comes outside for loop  \n\ncount=count+i \n\n6 + 4(as value of count is 6 and i is 4) \n\nHence, count = 10 and lastly 10 is printed by printf \nstatement in the end. Hence option b is correct.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "PDS_CONTROL_FLOW_STATEMENTS_2018_Q10",
+            "subject": "Programming and Data Structures",
+            "topic": "Control Flow Statements",
+            "subtopic": "output 13 when executed.",
+            "year": 2018,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 10,
+            "tags": [
+                "Control Flow Statements",
+                "output 13 when executed.",
+                "Programming and Data Structures"
+            ],
+            "question": {
+                "text": "Consider the following C code. Assume that unsigned \nlong int type length is 64 bits.  \n\nunsigned long int fun (unsigned long int n) { \n                      unsigned long int i, j=0, sum=0;  \n                      for (i=n ; i>1 ; i=i / 2) j++;  \n                      for ( ;  j>1 ; j = j / 2) sum++;  \n                      return sum;    \n\n} \n\nThe value returned when we call fun with the input 240 \nis:",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "4",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "5",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "6",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "40",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "B"
+            ],
+            "solution": {
+                "text": "for (i = n; i > 1, i = 1/2) \n\n{  \n\nj + 1; \n\n} \n\nInitially j = 0 \n\nLet us reduce the input size \n\nn = 26 \ni \ni>1 \n26 > 1 \\rightarrow True \\rightarrow j ++, j = 1 \n25 > 1  \\rightarrow True \\rightarrow j ++, j = 2 \n24 > 1  \\rightarrow True \\rightarrow j ++, j = 3 \n23 > 1 \\rightarrow True \\rightarrow j ++, j = 4 \n22 > 1 \\rightarrow True \\rightarrow j ++, j = 5 \n21 > 1 \\rightarrow True \\rightarrow j ++, j = 6 \ni \ni>1 \n20 > 1 \\rightarrow Flase \n\nfor n = 26, the first loop  \n\nwill make j as 6 \n\nfor n = 240, the loop will make j as 40 \n\nBefore second loop \n\nj= 40, sum = 0 \n\nAfter second loop  \n\nSum is 5 \n\nfor (  ; j > 1; j = j/2) \n\n{ \n\nsum ++; \n\n}   \nj \nj > 1 \n\n40 > 1 \\rightarrow True \\rightarrow sum ++  \n j = j/2  20 \n20 > 1 \\rightarrow True \\rightarrow sum ++ \nj = j /2  10 \n10 > 1 \\rightarrow True \\rightarrow sum ++ \nj = j/2   5  \n5 > 1 \\rightarrow True \\rightarrow sum ++ \nj = j/2   2  \n2 > 1 \\rightarrow True \\rightarrow sum ++ \nj = j/2   1 \n1 > 1 \\rightarrow True \\rightarrow loop ends \n\nAfter second loop sum is 5.",
+                "images": [],
+                "latex": [],
+                "tables": [
+                    {
+                        "headers": [
+                            "i",
+                            "i>1"
+                        ],
+                        "rows": [
+                            [
+                                "26",
+                                "26 > 1 → True → j ++, j = 1"
+                            ],
+                            [
+                                "25",
+                                "25 > 1 → True → j ++, j = 2"
+                            ],
+                            [
+                                "24",
+                                "24 > 1 → True → j ++, j = 3"
+                            ],
+                            [
+                                "23",
+                                "23 > 1 → True → j ++, j = 4"
+                            ],
+                            [
+                                "22",
+                                "22 > 1 → True → j ++, j = 5"
+                            ],
+                            [
+                                "21",
+                                "21 > 1 → True → j ++, j = 6"
+                            ]
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "id": "PDS_CONTROL_FLOW_STATEMENTS_2017_Q11",
+            "subject": "Programming and Data Structures",
+            "topic": "Control Flow Statements",
+            "subtopic": "is:",
+            "year": 2017,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 11,
+            "tags": [
+                "Control Flow Statements",
+                "is:",
+                "Programming and Data Structures"
+            ],
+            "question": {
+                "text": "The output of executing the following C program \nis___________. \n\n#include <studio.h> \n\nint total (int v){     \n\n  static int count = 0; \n\n         while (v){ \n\n         count += v&1;     \n\n         v >>= 1;  \n\n     } \n\n        return count;   \n\n } \n\nvoid main() \n\n{     \n\n     static int x=0; \n\n     int i=5; \n\n      for( ; i>0; i- -){ \n\n            x = x+ total (i);    \n\n           } \n\n printf (''%d\\n'', x);      \n\n}",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "23"
+            ],
+            "solution": {
+                "text": "(i) \nv & 1: is checking if the rightmost bit of v is 1. \n\n\n(If it is 1, then count value is increment by 1). \n\n(ii) v>> =1: Ensuring that every bit is checked. \n\n\nBecause count is a static variable, total(v) is \nincreasing the value of count by the number of \n\nset bits in v and also returns the incremented \nvalue. \n\nLet us assume that total (5) is called. \n\nBefore total(5)  \n\n\n\n5 \\Rightarrow 00000101 (only 2 set bits) \n\ncount \n\n\ncount is increased by 2 and returns the same value. \n\nAgain, if total (4) is called  \n\nBefore call \n\n\n4 \\rightarrow 00000100 \n\ncount is increased by 1 and same value is returned  \n\n\n\nNow, understanding below code \n\nfor (; i > 0 ; i--){ \n\nx = x + total (1) \n\n} \n\nThis loop will execute for i = 5, 4, 3, 2, 1 and  \n\nx = x + total (i) , x is initially 0  \n\n(i)\n\n\n\ni = 5  \n\n\nx = x + total (5) \n\n\n5 \\Rightarrow 00000101 (2 set bits)  \n\n\ntotal (5) \\Rightarrow increases the value of count by 2. \n\n\ncount becomes 2 & same value is returned. \n\n\n\n\n\nx = x + total  \n\n\n0 + 2 \n\n\nx becomes 2 \n\n(ii) \n\n\n\ni = 4 \n\n\nx = x + total (4) \n\n\nBinary of 4 contains only one set bit, so it will \nincrease value of count by 1 and same is \nreturned \n\n\n\n\n\nx = x + total (4) \n\n\n2 + 3  \n\n\n x = 5  \n\n(iii) i = 3  \n\n\n\n\n\nx = x + total (3) \n\n\nBinary of 3 contains 2 one's (00000011) that's \nwhy count is increased by 2 i.e. count becomes \n5 and is reutned. \n\n\nx = x + total (3) \n\n\nx =  5 + 5 \n\n\n x = 10  \n\n(iv) i = 2  \n\n\n\n\n\nBinary of two contains only one set value so \ncount is increased by 1, count becomes 6 and \nsame is returned. \n\n\nx = x + total (2)  \n\n\n10 + 6 \n\n\n\n x = 16 \n\n(v)  i = 1 \n\n\n\n\n\nBinary of 1 contains only one set value so count \nis increased by1, count becomes 7 and same is \nreturned,  \n\n\nx = x+ total (1) \n\n\n16 + 7 \n\n\n x = 23 \n\n\nFinally loop terminates and value of x gets \nprinted i.e. 23 is printed.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "PDS_CONTROL_FLOW_STATEMENTS_2016_Q12",
+            "subject": "Programming and Data Structures",
+            "topic": "Control Flow Statements",
+            "subtopic": "}",
+            "year": 2016,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 12,
+            "tags": [
+                "Control Flow Statements",
+                "}",
+                "Programming and Data Structures"
+            ],
+            "question": {
+                "text": "The following function computes 𝑋^𝑌 for positive \nintegers X and Y. \n\nint exp (int X, int Y )  { \n\nint res = 1, a = X, b = Y ; \n\nwhile (b != 0){ \n\n         if (b % 2==0) \n\n            { a=a* a ; b = b / 2 ;} \n\n        else { res = res*a;  b = b -1 ; \n\n}   \n\nreturn res;     } \n\nWhich one of the following conditions is TRUE \nbefore every iteration of the loop?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "XY = ab",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "(res * a)Y = (res * X)b",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "XY = res * ab",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "XY = (res * a)b",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "C"
+            ],
+            "solution": {
+                "text": "if (b % 2 = = 0) \n\n{ a = a*a; b= b/2; }// when b is even \n\nelse \n\n{ \n\nres = res *a;// executes when b is odd \n\nb = b -1;} \n\nLet X = 3, Y = 5 \n\nThis code will compute = 35 \n\nInitially, res = 1, a = 3, b = 5 \n\n1st iteration \n\nAs b is odd,  \n\nres = 1*3 = 3 \n\nb = 5 - 1 = 4 \n\nAfter 1st iteration \n\na = 3, b = 4, res = 3, X = 3, Y = 5 \n\nLet us check all option after \n\n1st iteration (before 2nd iteration) \n\n(a) XY = ab \n\n\n35 = 34(false) \n\n(b) (res*a)Y = (res*X)b \n\n(3*3)5 = (3*3)4(false) \n\n(c) XY = res*ab \n\n35 = 3*34(true) \n        (d)  XY = (res*a)b \n\n35 = (3*3)4(false) \n\nHence option C is correct option (this is option \nelimination method).",
+                "images": [
+                    "assets/Programming and Data Structures/PDS_Control_Flow_Statements_P16_X2055.png",
+                    "assets/Programming and Data Structures/PDS_Control_Flow_Statements_P16_X2061.png",
+                    "assets/Programming and Data Structures/PDS_Control_Flow_Statements_P16_X2063.png",
+                    "assets/Programming and Data Structures/PDS_Control_Flow_Statements_P16_X2063.png",
+                    "assets/Programming and Data Structures/PDS_Control_Flow_Statements_P16_X2065.png",
+                    "assets/Programming and Data Structures/PDS_Control_Flow_Statements_P16_X2067.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "PDS_CONTROL_FLOW_STATEMENTS_2014_Q13",
+            "subject": "Programming and Data Structures",
+            "topic": "Control Flow Statements",
+            "subtopic": "before every iteration of the loop?",
+            "year": 2014,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 13,
+            "tags": [
+                "Control Flow Statements",
+                "before every iteration of the loop?",
+                "Programming and Data Structures"
+            ],
+            "question": {
+                "text": "Consider the following pseudo code. What is the total \nnumber of multiplications to be performed? \n\nD = 2 \n\nfor i = 1 to n do \n\n   for j = i to n do \n\n       for k = j + 1  to n do        \n\n         D=D * 3",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "Half of the product of the 3 consecutive integers.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "One-third of the product of the 3 consecutive \nintegers.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "One-sixth of the product of the 3 consecutive \nintegers.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "None of the above",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "C"
+            ],
+            "solution": {
+                "text": "= 1 + 1 + 1 + ….………..+1 (How many times ?) \n\n    k = j + 1               ………..k = n \n     = last - first + 1 = n- (j + 1)  + 1 \n\n= n - j -1 + 1 =  n -j \n\n\n(\n)\nn - j\nn\nk\nj\n= +\n=\n\n\n\n(\n)\nn - j\nn\nn\ni\nj\n=\n=\n\n\n\n\n\n\n\n\n\n(n -i) + (n - (i +1)) + (n - (i + 2)) +… (n - (n - 1) + \n(n - n) \n\n= (n - i) + (n - (i + 1)) + (n - (i + 2)) +….+ 1 + 0 \n\n= 0 + 1 + 2 +…. (n - i) \n\n= 1 + 2 + …… (n - i) \n\n= (\n)(\n)\nn - i\nn - i +1\n\n\n= \n(\n)(\n)\nn - i\nn - i +1\nn\ni=\n\n\n= \n-1\n\nn\ni\nn\ni\nin\nn\n=\n\n\n+\n+\n+\n\n\n\n\n\n\n\n= \n\n\n- \n.\n\n-\n\nn\nn\nn\nn\nn\ni\ni\ni\ni\ni\nn\ni\ni n\nn\ni\n=\n=\n=\n=\n=\n+\n+\n\n\n\n\n \n\n\n=\n(\n)(\n)\n(\n)\n(\n)\n1 2\n.\nn n\nn\nn n n\nn n\nn\nn\n+\n+\n+\n+\n+\n−\n+\n−\n\n\n= \nn\n(\n)(\n)\n1 2\n1 -\nn n\nn\nn\n+\n+\n+\nn\n−\nn\n+\nn\nn\n−\n−\n\n\n= (\n)(\n)\n(\n)\n1 2\nn n\nn\nn n\n+\n+\n+\n−\n\n\n= (\n)\n\n1 2\n1 3\nn n\nn\n+\n+ −\n\n\n= (\n)(\n)\nn n\nn\n+\n−\n\n\n= \n(\n)(\n)\nn n\nn\n\n+\n−\n\n\n= (\n)( )(\n)\nn\nn\nn\n−\n+\n\n\nTherefor option (c) is correct answer.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        }
+    ]
+}

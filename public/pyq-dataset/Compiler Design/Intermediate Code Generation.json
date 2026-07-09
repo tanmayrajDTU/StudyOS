@@ -1,0 +1,304 @@
+{
+    "subject": "Compiler Design",
+    "topic": "Intermediate Code Generation",
+    "questionCount": 6,
+    "questions": [
+        {
+            "id": "CD_INTERMEDIATE_CODE_GENERATION_2021_Q01",
+            "subject": "Compiler Design",
+            "topic": "Intermediate Code Generation",
+            "subtopic": "Basics of ICG",
+            "year": 2021,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 1,
+            "tags": [
+                "Intermediate Code Generation",
+                "Basics of ICG",
+                "Compiler Design"
+            ],
+            "question": {
+                "text": "In the context of compilers, which of the following \nis/are NOT an intermediate representation of the \nsource program?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "Three address code",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "Abstract Syntax Tree (AST)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "Control Flow Graph (CFG)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "Symbol table",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "D"
+            ],
+            "solution": {
+                "text": "In the context of compilers, symbol table is not an \nintermediate representation of the source program. \nSymbol table is a table used to store attributes \ninformation and it is used in all the phases of \ncompilers. Three address code, AST, Control Flow \nGraph, and DAG are intermediate representations.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "CD_INTERMEDIATE_CODE_GENERATION_2017_Q02",
+            "subject": "Compiler Design",
+            "topic": "Intermediate Code Generation",
+            "subtopic": "source program?",
+            "year": 2017,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 2,
+            "tags": [
+                "Intermediate Code Generation",
+                "source program?",
+                "Compiler Design"
+            ],
+            "question": {
+                "text": "Consider the expression (a-1)*(((b+c)/3)+d).  \n\nLet X be the minimum number of registers required \nby an optimal code generation (without any register \nspill) algorithm for a load/store architecture, in \nwhich  \n\n(i)  only load and store instructions can have \nmemory operands and  \n\n(ii)  arithmetic instructions can have only register or \nimmediate operands.  \n\nThe value of X is______.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "2"
+            ],
+            "solution": {
+                "text": "X is minimum number of registers without any \nregister spill.  \n\nSo, \n\n\nR1 ← b \n\n\nR2 ← c  \n\n\nR1 ← R1 + R2 \n\n\nR1 ← R1 /3 \n\n\nR2 ← d \n\n\nR1 ← R1 + R2 \n\n\nR2 ← a \n\n\nR2 ← R2 - 1 \n\n\nR1 ← R2 \\times R1 \n\nMemory operands a, b, c, and d are used only with \nload/store instructions. In all arithmetic instructions, \nwe have used only register or immediate \noperand(constant). Registers R1 and R2 are enough \nto covert given expression into assembly code \nwithout any additional registers. So, Minimum \nnumber of registers required is 2.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "CD_INTERMEDIATE_CODE_GENERATION_2017_Q03",
+            "subject": "Compiler Design",
+            "topic": "Intermediate Code Generation",
+            "subtopic": "The value of X is______.",
+            "year": 2017,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 3,
+            "tags": [
+                "Intermediate Code Generation",
+                "The value of X is______.",
+                "Compiler Design"
+            ],
+            "question": {
+                "text": "Consider the following intermediate program in \nthree address code \n\n\np = a - b  \n\n\nq = p * c \n\n\np = u * v \n\n\nq = p + q \n\nWhich one of the following corresponds to a static \nsingle assignment form of the above code?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "p1 = a − b",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "p3 = a − b   \n\n\nq1 = p1∗c \n\nq4 = p3∗c \n\np1 = u ∗ v \n\np4 = u∗v \n\nq1 = p1 + q1 \n\nq5 = p4 + q4",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "p1 = a−b",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "p1 = a−b \n\n\nq1 = p2∗c \n\nq1 = p ∗ c \n\np3 = u∗v \n\nq2 = u ∗ v \n\nq2− p4 + q3 \n\nq2 = p + q",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "B"
+            ],
+            "solution": {
+                "text": "The corresponding single static assignment is  \n\np3 = a - b \n\nq4 = p3∗c \n\np4 = u∗v \n\nq5 = p4 + q4 \n\n\nAll of a, b, c, u, v, p3, p4, q4, and q5 have single static \nassignment.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "CD_INTERMEDIATE_CODE_GENERATION_2016_Q04",
+            "subject": "Compiler Design",
+            "topic": "Intermediate Code Generation",
+            "subtopic": "q2 = p + q",
+            "year": 2016,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 4,
+            "tags": [
+                "Intermediate Code Generation",
+                "q2 = p + q",
+                "Compiler Design"
+            ],
+            "question": {
+                "text": "Consider the following code segment. \n\n\n x = u − t;  \n\n\ny = x ∗ v; \n\n\nx = y + w; \n\n\ny = t − z;  \n\n\ny = x ∗ y; \n\nThe minimum number of total variables required to \nconvert the above code segment to static single \nassignment form is ______.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "10"
+            ],
+            "solution": {
+                "text": "y = x ∗ y \n\n= (y + w) ∗ (t - z) \n\n= ([x ∗ v] + w) ∗ (t - z) \n\ny = ([u - t] ∗ v + w) ∗ (t - z)  \n\nu1 = u - t \n\nu2 = u1 - v \n\nu3 = u2 - w \n\nt1 = t - z \n\nu4 = u3 - t1 \n\nTotal variables, u, v, t, w, z, u1, u2, u3, u4, t1. \n\n\nSo, total 10 variables are required for static single \nassignment form.",
+                "images": [
+                    "assets/Compiler Design/CD_Intermediate_Code_Generation_P27_X733.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "CD_INTERMEDIATE_CODE_GENERATION_2014_Q05",
+            "subject": "Compiler Design",
+            "topic": "Intermediate Code Generation",
+            "subtopic": "assignment form is ______.",
+            "year": 2014,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 5,
+            "tags": [
+                "Intermediate Code Generation",
+                "assignment form is ______.",
+                "Compiler Design"
+            ],
+            "question": {
+                "text": "For a C program accessing 𝑋[𝑖][𝑗][𝑘], the following \nintermediate code is generated by a compiler. \nAssume that the size of an integer is 32 bits and the \nsize of a character is 8 bits. \n\n\n\nt0 = i∗1024  \n\n\nt1 = j∗32  \n\n\nt2 = k∗4 \n\n\nt3 = t1+t0 \n\n\nt4 = t3+t2 \n\n\nt5 = X[t4] \n\nWhich one of the following statements about the \nsource code for the C program is CORRECT?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "X is declared as \"int X[32][32][8]\"\".",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "X is declared as \"X[4][1024][32]\".",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "X is declared as \"char X[4][32][8]\".",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "X is declared as \"char X[32][16][2]\". \nThree Address Code",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "A"
+            ],
+            "solution": {
+                "text": "t5  \n= X[t4] \n\n\n= X [t3 + t2] \n\n\n= X [t1 + t0 + k \\times 4] \n\n\n= X[j \\times 32 + i \\times 1024 + k \\times 4] \n\nt5 = X [i \\times 1024 + j \\times 32 + k \\times 4] \n         Note: & X[i][j][[k] = &  X[0][0][0] + (i×qr + j×r + \nk) \\times size of elements \n\nt5  \n= X [i \\times 256 + j \\times 8 + k] \\times 4 =  X [i \\times 32 \\times 8 \n+ j \\times 8 + k] \\times 4 \n\nComparing it with options, we can say X is declared \nas \"int X[32][32][8]\"\". Therefore, option A is the \ncorrect answer.",
+                "images": [
+                    "assets/Compiler Design/CD_Intermediate_Code_Generation_P27_X733.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "CD_INTERMEDIATE_CODE_GENERATION_2021_Q06",
+            "subject": "Compiler Design",
+            "topic": "Intermediate Code Generation",
+            "subtopic": "Three Address Code",
+            "year": 2021,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 6,
+            "tags": [
+                "Intermediate Code Generation",
+                "Three Address Code",
+                "Compiler Design"
+            ],
+            "question": {
+                "text": "The least number of temporary variables required to \ncreate a three-address code in static single \nassignment form for the expression  \n\nq+r/3+s−t∗5+u∗v/w is _______.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "8"
+            ],
+            "solution": {
+                "text": "For the given expression:  q+r/3+s−t∗5+u∗v/w, the \ncorresponding three address code is:  \n\n\n\nNow, this optimized three address code have 7 \nvariables (r, t, u, v, w, q, s). \n\nTo produce the SSA form, we will get one new \ntemporary variable in each instruction. \n\nSSA code will have 15 total variables (r, t, u, v, w, \nq, s, r1, t1, u1, u2, q1, q2, q3, q4). So, we have 7 \nvariables already defined outside expression and 8 \ntemporary variables used in the expression.",
+                "images": [
+                    "assets/Compiler Design/CD_Intermediate_Code_Generation_P28_X2746.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        }
+    ]
+}

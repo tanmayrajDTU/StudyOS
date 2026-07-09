@@ -1,0 +1,1802 @@
+{
+    "subject": "Digital Logic",
+    "topic": "Sequential Circuits",
+    "questionCount": 18,
+    "questions": [
+        {
+            "id": "DL_SEQUENTIAL_CIRCUITS_2023_Q01",
+            "subject": "Digital Logic",
+            "topic": "Sequential Circuits",
+            "subtopic": "Flip Flops",
+            "year": 2023,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 1,
+            "tags": [
+                "Sequential Circuits",
+                "Flip Flops",
+                "Digital Logic"
+            ],
+            "question": {
+                "text": "The output of a 2-input multiplexer is connected back \nto one of its inputs as shown in the figure. \n\n\nMatch the function equivalence of this circuit to one \nof the following options.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "D Flip-flop",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "D Latch",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "Half-adder",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "Demultiplexer",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "B"
+            ],
+            "solution": {
+                "text": "Qn+1 = Q S + DS \n\nQn+1 = Q.0+D.1 \nQn+1 = D \n\nQn+1 is generated after delay \n\nNow in a flip flop we always consider edge \nbut in the circuit, it is level sensitive, therefore \nthe circuit is equivalent to a D-latch.",
+                "images": [
+                    "assets/Digital Logic/DL_Sequential_Circuits_P36_X622.png"
+                ],
+                "latex": [],
+                "tables": [
+                    {
+                        "headers": [
+                            "Clock",
+                            "Q 1",
+                            "Q 0"
+                        ],
+                        "rows": [
+                            [
+                                "0",
+                                "1",
+                                "1"
+                            ],
+                            [
+                                "1",
+                                "0",
+                                "1"
+                            ],
+                            [
+                                "2",
+                                "1",
+                                "0"
+                            ],
+                            [
+                                "3",
+                                "1",
+                                "1"
+                            ],
+                            [
+                                "4",
+                                "0",
+                                "1"
+                            ],
+                            [
+                                "5",
+                                "1",
+                                "0"
+                            ],
+                            [
+                                "6",
+                                "1",
+                                "1"
+                            ]
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "id": "DL_SEQUENTIAL_CIRCUITS_2017_Q02",
+            "subject": "Digital Logic",
+            "topic": "Sequential Circuits",
+            "subtopic": "of the following options.",
+            "year": 2017,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 2,
+            "tags": [
+                "Sequential Circuits",
+                "of the following options.",
+                "Digital Logic"
+            ],
+            "question": {
+                "text": "Consider a combination of T and D flip-flops \nconnected as shown below. The output of the D flip-\nflop is connected to the input of the T flip-flop and the \noutput of the T flip-flop is connected to the input of \nthe D flip-flop. \n\n\nInitially, both Q0 and Q1 are set to 1 (before the 1st \nclock cycle). The outputs",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "Q1Q0 after the 3rd cycle are 11 and after the 4th \ncycle are 00 respectively",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "Q1Q0 after the 3rd cycle are 11 and after the 4th \ncycle are 01 respectively",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "Q1Q0 after the 3rd cycle are 00 and after the 4th \ncycle are 11 respectively",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "Q1Q0 after the 3rd cycle are 01 and after the 4th \ncycle are 01 respectively.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "B"
+            ],
+            "solution": {
+                "text": "Given present state of both flip flop before apply \nclock pulse is High (i.e. 1) \n\nClock \nQ1 \nQ0 \n\nfrom above table the output state after 3rd and 4th \nclock pulse are 11 (Q1Q0) & 01 (Q1Q0) respectively \nhence correct option is (b).",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "DL_SEQUENTIAL_CIRCUITS_2015_Q03",
+            "subject": "Digital Logic",
+            "topic": "Sequential Circuits",
+            "subtopic": "cycle are 01 respectively.",
+            "year": 2015,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 3,
+            "tags": [
+                "Sequential Circuits",
+                "cycle are 01 respectively.",
+                "Digital Logic"
+            ],
+            "question": {
+                "text": "A positive edge-triggered D flip-flop is connected to \na positive edge-triggered JK flip-flop as follows. The \nQ output of the D flip-flop is connected to both the J \nand K inputs of the JK flip-flop, while the Q output of \nthe JK flip-flop is connected to the input of the D flip-\nflop. Initially, the output of the D flip-flop is set to \nlogic one and the output of the JK flip-flop is cleared. \nWhich one of the following is the bit sequence \n(including the initial state) generated at the Q output \nof the JK flip-flop when the flip-flops are connected \nto a free-running common clock? Assume that J = K \n= 1 is the toggle mode and J = K = 0 is the state-\nholding mode of the JK flip-flop. Both the flip-flops \nhave non-zero propagation delays.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "0110110...",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "0100100...",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "011101110...",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "011001100...",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "A"
+            ],
+            "solution": {
+                "text": "According to the question, the given sequential \ncircuit will look like as follows. \n\n\n0 = S\nP\nS\nS\n1 = S\nQ\n\nCLK \nQn of JK Flip Flop \n\nFrom the above truth table the Output of JK Flip \nFlop will be \n\n0 \\rightarrow 1→1→0→1→1 \n\n= 011011... \n\nHence, correct answer is option (a).",
+                "images": [
+                    "assets/Digital Logic/DL_Sequential_Circuits_P36_X4082.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "DL_SEQUENTIAL_CIRCUITS_2014_Q04",
+            "subject": "Digital Logic",
+            "topic": "Sequential Circuits",
+            "subtopic": "have non-zero propagation delays.",
+            "year": 2014,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 4,
+            "tags": [
+                "Sequential Circuits",
+                "have non-zero propagation delays.",
+                "Digital Logic"
+            ],
+            "question": {
+                "text": "The above synchronous sequential circuit built using \nJK flip-flops is initialized with Q2Q1Q0 = 000. The \nstate sequence for this circuit for the next 3 clock \ncycles is",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "001, 010, 011",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "111, 110, 101",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "100, 110, 111",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "100, 011, 001 \nT\nFlip-\nFlop\nD\nFlip-\nFlop\nQ1\nQ0\nClock\nJ\nK\nQ2\nQ2\nJ\nK\nQ1\nQ1\nJ\nK\nQ0\nQ0\nC\nC\nC",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "C"
+            ],
+            "solution": {
+                "text": "The truth table of the given flip-flop will be   \nJK-flip flop \nCLK \nQ2 \nQ1 \nQ0 \n\nFrom the above truth table, the state sequence for next \n3 clock cycles are 100, 110 and 111. \n\nHence, correct answer is option (c).",
+                "images": [],
+                "latex": [],
+                "tables": [
+                    {
+                        "headers": [
+                            "CLK",
+                            "Q 2",
+                            "Q 1",
+                            "Q 0"
+                        ],
+                        "rows": [
+                            [
+                                "0",
+                                "0",
+                                "0",
+                                "0"
+                            ],
+                            [
+                                "1",
+                                "1",
+                                "0",
+                                "0"
+                            ],
+                            [
+                                "2",
+                                "1",
+                                "1",
+                                "0"
+                            ],
+                            [
+                                "3",
+                                "1",
+                                "1",
+                                "1"
+                            ]
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "id": "DL_SEQUENTIAL_CIRCUITS_2011_Q05",
+            "subject": "Digital Logic",
+            "topic": "Sequential Circuits",
+            "subtopic": "C",
+            "year": 2011,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 5,
+            "tags": [
+                "Sequential Circuits",
+                "C",
+                "Digital Logic"
+            ],
+            "question": {
+                "text": "The minimum number of D flip-flops needed to \ndesign a mod-258 counter is",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "9",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "8",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "512",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "258",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "A"
+            ],
+            "solution": {
+                "text": "The number of Flip Flops needed to design Mod-M \ncounter,  \n\n\n\nM \\le 2n \n\n\n\n…(i) \n\nwhere n = number of flip flops  \n\nto solve (i) by taking log on both sides we get, \n\nn \\ge log2 M \n\nn \\ge log2 258                               \n[  M = 258] \n\nn \\ge 8.01122 \n\nn \n\n\nHence, correct answer is option (a).",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "DL_SEQUENTIAL_CIRCUITS_2011_Q06",
+            "subject": "Digital Logic",
+            "topic": "Sequential Circuits",
+            "subtopic": "design a mod-258 counter is",
+            "year": 2011,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 6,
+            "tags": [
+                "Sequential Circuits",
+                "design a mod-258 counter is",
+                "Digital Logic"
+            ],
+            "question": {
+                "text": "Consider the following circuit involving three D-type \nflip-flops used in a certain type of counter \nconfiguration. If all the flip-flops were  reset to 0 at \npower on, what is the total  number of distinct outputs \n(states)  represented by PQR generated by the \ncounter?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "3",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "4",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "5",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "6",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "C"
+            ],
+            "solution": {
+                "text": "As per the given conditions, the truth table will be \ngiven as \nCLOCK \nP \nQ \nR \n\nWe can see that the above truth table is the output of \na mod- 4 counter.  \n\nHence total number of distinct states = 4 \n\nHence, correct answer is option (b)",
+                "images": [],
+                "latex": [],
+                "tables": [
+                    {
+                        "headers": [
+                            "CLOCK",
+                            "P",
+                            "Q",
+                            "R"
+                        ],
+                        "rows": [
+                            [
+                                "0",
+                                "0",
+                                "0",
+                                "0"
+                            ],
+                            [
+                                "1",
+                                "0",
+                                "1",
+                                "0"
+                            ],
+                            [
+                                "2",
+                                "0",
+                                "1",
+                                "1"
+                            ],
+                            [
+                                "3",
+                                "1",
+                                "0",
+                                "0"
+                            ],
+                            [
+                                "4",
+                                "0",
+                                "0",
+                                "0"
+                            ]
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "id": "DL_SEQUENTIAL_CIRCUITS_2011_Q07",
+            "subject": "Digital Logic",
+            "topic": "Sequential Circuits",
+            "subtopic": "counter?",
+            "year": 2011,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 7,
+            "tags": [
+                "Sequential Circuits",
+                "counter?",
+                "Digital Logic"
+            ],
+            "question": {
+                "text": "Consider the following circuit involving three D-type \nflip-flops used in a certain type of counter \nconfiguration.  \n\nIf at some instance prior to the occurrence of the clock \nedge, P, Q and R have a value 0, 1 and 0 respectively, \nwhat shall be the value of PQR after the clock edge?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "000",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "001",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "010",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "011",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "D"
+            ],
+            "solution": {
+                "text": "In the circuit PQR = 010 \n\nBefore applying the clock, input of the Flip-flop \n=011 \n\nSo, in the D-FF whatever the inputs applied that will \ncome at the output along with clock. \n\nSo, output of counter = 011 \n\nHence, correct answer is option (d).",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "DL_SEQUENTIAL_CIRCUITS_2008_Q08",
+            "subject": "Digital Logic",
+            "topic": "Sequential Circuits",
+            "subtopic": "what shall be the value of PQR after the clock edge?",
+            "year": 2008,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 8,
+            "tags": [
+                "Sequential Circuits",
+                "what shall be the value of PQR after the clock edge?",
+                "Digital Logic"
+            ],
+            "question": {
+                "text": "Consider the following state diagram and its \nrealization by a JK flip flop \n\n\n\nThe combinational circuit generates J and K in terms \nof x, y and Q. The Boolean expressions for J and K \nare:",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "(\n)\n(\n)\nx\ny 'and x\ny '\n\n",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "(\n)\nx\ny 'and x\ny\n\n",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "(\n)\nx\ny and x\ny '\n\n",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "x\ny and x\ny\n\n\n\nAsynchronous Counter",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "D"
+            ],
+            "solution": {
+                "text": "We know that truth table of JK flip-flop is given by  \nQn \nQn+1 \nJ \nK \nX \nX \nX \nX \n\nNow the truth table of given circuit is given by  \nx \ny \nQn \nQn+1 \nJ \nK \n× \n× \n× \n× \n× \n× \n× \n× \n\n Solving J & K using k-map, we get \n\n\n J\nxy\nxy\nx\ny\n=\n+\n=\n\n\n\n\n  K\nxy\ny\nx\ny\nx\n=\n+\n=\n\n\n\nHence, correct answer is option (d).",
+                "images": [],
+                "latex": [],
+                "tables": [
+                    {
+                        "headers": [
+                            "Q n",
+                            "Q n+1",
+                            "J",
+                            "K"
+                        ],
+                        "rows": [
+                            [
+                                "0",
+                                "1",
+                                "0",
+                                "X"
+                            ],
+                            [
+                                "0",
+                                "1",
+                                "1",
+                                "X"
+                            ],
+                            [
+                                "1",
+                                "0",
+                                "X",
+                                "1"
+                            ],
+                            [
+                                "1",
+                                "1",
+                                "X",
+                                "0"
+                            ]
+                        ]
+                    },
+                    {
+                        "headers": [
+                            "x",
+                            "y",
+                            "Q n",
+                            "Q n+1",
+                            "J",
+                            "K"
+                        ],
+                        "rows": [
+                            [
+                                "0",
+                                "0",
+                                "0",
+                                "0",
+                                "0",
+                                "×"
+                            ],
+                            [
+                                "0",
+                                "0",
+                                "1",
+                                "1",
+                                "×",
+                                "0"
+                            ],
+                            [
+                                "0",
+                                "1",
+                                "0",
+                                "1",
+                                "1",
+                                "×"
+                            ],
+                            [
+                                "0",
+                                "1",
+                                "1",
+                                "0",
+                                "×",
+                                "1"
+                            ],
+                            [
+                                "1",
+                                "0",
+                                "0",
+                                "1",
+                                "1",
+                                "×"
+                            ],
+                            [
+                                "1",
+                                "0",
+                                "1",
+                                "0",
+                                "×",
+                                "1"
+                            ],
+                            [
+                                "1",
+                                "1",
+                                "0",
+                                "0",
+                                "0",
+                                "×"
+                            ],
+                            [
+                                "1",
+                                "1",
+                                "1",
+                                "1",
+                                "×",
+                                "0"
+                            ]
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "id": "DL_SEQUENTIAL_CIRCUITS_2010_Q09",
+            "subject": "Digital Logic",
+            "topic": "Sequential Circuits",
+            "subtopic": "Asynchronous Counter",
+            "year": 2010,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 9,
+            "tags": [
+                "Sequential Circuits",
+                "Asynchronous Counter",
+                "Digital Logic"
+            ],
+            "question": {
+                "text": "In the sequential circuit shown below, if the initial \nvalue of the output Q1Q0 is 00,what are the next four \nvalues of Q1Q0?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "11, 10, 01, 00",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "10, 11, 01, 00",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "10, 00, 01, 11",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "11, 10, 00, 01 \nQ\nD\nQ\nQ\nClock\nD\nQ\nQ\nClock\nP\nR\nQ\nClock\nD\nQ\nQ\nD\nQ\nQ\nClock\nD\nQ\nQ\nClock\nP\nR\nQ\nClock\nD\nQ\n01,10\n01,10\n0 ,1\n0 1\n0 ,1\n0 1\nCombinational\ncicuit\nx\ny\nJ\nQ\nK\nCLK\nT\nQ\nT\nQ\nClock\nQ0\nQ1\n\nSynchronous Counter",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "A"
+            ],
+            "solution": {
+                "text": "The truth table of the above sequential circuit is \ngiven as follows. \n\nCLK \nQ1 \nQ0 \n\nFrom the above truth table, we can see that it is an \noutput of an Asynchronous down counter.    \n\nHence, correct answer is option (a).",
+                "images": [
+                    "assets/Digital Logic/DL_Sequential_Circuits_P38_X4481.png"
+                ],
+                "latex": [],
+                "tables": [
+                    {
+                        "headers": [
+                            "CLK",
+                            "Q 1",
+                            "Q 0"
+                        ],
+                        "rows": [
+                            [
+                                "0",
+                                "0",
+                                "0"
+                            ],
+                            [
+                                "1",
+                                "1",
+                                "1"
+                            ],
+                            [
+                                "2",
+                                "1",
+                                "0"
+                            ],
+                            [
+                                "3",
+                                "0",
+                                "1"
+                            ],
+                            [
+                                "4",
+                                "0",
+                                "0"
+                            ]
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "id": "DL_SEQUENTIAL_CIRCUITS_2023_Q10",
+            "subject": "Digital Logic",
+            "topic": "Sequential Circuits",
+            "subtopic": "Synchronous Counter",
+            "year": 2023,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 10,
+            "tags": [
+                "Sequential Circuits",
+                "Synchronous Counter",
+                "Digital Logic"
+            ],
+            "question": {
+                "text": "Consider a sequential digital circuit consisting of T \nflip-flops and D flip-flops as shown in the figure. \nCLKIN is the clock input to the circuit. At the \nbeginning, Q1, Q2 and Q3 have values 0, 1 and 1, \nrespectively.  \n\n\nWhich one of the given values of (Q1, Q2, Q3) can \nNEVER be obtained with this digital circuit?",
+                "images": [
+                    "assets/Digital Logic/DL_Sequential_Circuits_P34_X3953.png"
+                ],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "(0, 0, 1)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "(1, 0, 0)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "(1, 0, 1)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "(1, 1, 1)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "A"
+            ],
+            "solution": {
+                "text": "The characteristics table of given sequential \ncircuit   \nClock \nT = Q \nD = Q \nT = Q Q1 Q2 Q3 \n- \n- \n- \nT\nQ\nT\nQ\nClock\nQ0\nQ1\nAsynchronous down counter\n+ \n down\n→\n\n\nFrom above table states involved 011, 000, 100, \n010, 101, 111, 110. The only state 001 can never \nbe achieved. \n\nHence correct answer is option (a).",
+                "images": [
+                    "assets/Digital Logic/DL_Sequential_Circuits_P38_X4481.png"
+                ],
+                "latex": [],
+                "tables": [
+                    {
+                        "headers": [
+                            "Clock",
+                            "T = Q 3",
+                            "D = Q 1",
+                            "T = Q 2",
+                            "Q 1",
+                            "Q 2",
+                            "Q 3"
+                        ],
+                        "rows": [
+                            [
+                                "0",
+                                "-",
+                                "-",
+                                "-",
+                                "0",
+                                "1",
+                                "1"
+                            ],
+                            [
+                                "1",
+                                "0",
+                                "0",
+                                "1",
+                                "0",
+                                "0",
+                                "0"
+                            ],
+                            [
+                                "2",
+                                "1",
+                                "0",
+                                "0",
+                                "1",
+                                "0",
+                                "0"
+                            ],
+                            [
+                                "3",
+                                "1",
+                                "1",
+                                "0",
+                                "0",
+                                "1",
+                                "0"
+                            ],
+                            [
+                                "4",
+                                "1",
+                                "0",
+                                "1",
+                                "1",
+                                "0",
+                                "1"
+                            ]
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "id": "DL_SEQUENTIAL_CIRCUITS_2021_Q11",
+            "subject": "Digital Logic",
+            "topic": "Sequential Circuits",
+            "subtopic": "NEVER be obtained with this digital circuit?",
+            "year": 2021,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 11,
+            "tags": [
+                "Sequential Circuits",
+                "NEVER be obtained with this digital circuit?",
+                "Digital Logic"
+            ],
+            "question": {
+                "text": "Consider a 3-bit counter, designed using T flip-flops, \nas shown below. \n\n\n\nAssuming the intial state of the counter given by PQR \nas 000. What are the next three states?",
+                "images": [
+                    "assets/Digital Logic/DL_Sequential_Circuits_P34_X3951.png"
+                ],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "011,101,000",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "001,010,111",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "011,101,111",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "001,010,000",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "A"
+            ],
+            "solution": {
+                "text": "According to question , the initial state of counter is \nPQR = 000 \n\n\n\nFrom the truth table the next three states are \n\n011→101→000 \n\n\n12.. (3)\n\n\nDesign the up counter of 3bit ignore the LSB. \n\nSo, numebr of FF's are = 3",
+                "images": [
+                    "assets/Digital Logic/DL_Sequential_Circuits_P39_X4835.png",
+                    "assets/Digital Logic/DL_Sequential_Circuits_P39_X4837.png",
+                    "assets/Digital Logic/DL_Sequential_Circuits_P39_X4839.png"
+                ],
+                "latex": [],
+                "tables": [
+                    {
+                        "headers": [
+                            "Q 1",
+                            "Q 0",
+                            "Q+",
+                            "Q + 0",
+                            "T 1",
+                            "T 0"
+                        ],
+                        "rows": [
+                            [
+                                "0",
+                                "0",
+                                "0",
+                                "1",
+                                "0",
+                                "1"
+                            ],
+                            [
+                                "0",
+                                "1",
+                                "1",
+                                "0",
+                                "1",
+                                "1"
+                            ],
+                            [
+                                "1",
+                                "0",
+                                "1",
+                                "1",
+                                "0",
+                                "1"
+                            ],
+                            [
+                                "1",
+                                "1",
+                                "1",
+                                "1",
+                                "0",
+                                "0"
+                            ]
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "id": "DL_SEQUENTIAL_CIRCUITS_2021_Q12",
+            "subject": "Digital Logic",
+            "topic": "Sequential Circuits",
+            "subtopic": "as 000. What are the next three states?",
+            "year": 2021,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 12,
+            "tags": [
+                "Sequential Circuits",
+                "as 000. What are the next three states?",
+                "Digital Logic"
+            ],
+            "question": {
+                "text": "The minimum number of JK flip-flops requried to \nconstruct a synchronous counter with the count \nsequence (0,0,1,1,2,2,3,3,0,0….)is             .",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "3"
+            ],
+            "solution": {
+                "text": "",
+                "images": [
+                    "assets/Digital Logic/DL_Sequential_Circuits_P36_X622.png"
+                ],
+                "latex": [],
+                "tables": [
+                    {
+                        "headers": [
+                            "Clock",
+                            "Q 1",
+                            "Q 0"
+                        ],
+                        "rows": [
+                            [
+                                "0",
+                                "1",
+                                "1"
+                            ],
+                            [
+                                "1",
+                                "0",
+                                "1"
+                            ],
+                            [
+                                "2",
+                                "1",
+                                "0"
+                            ],
+                            [
+                                "3",
+                                "1",
+                                "1"
+                            ],
+                            [
+                                "4",
+                                "0",
+                                "1"
+                            ],
+                            [
+                                "5",
+                                "1",
+                                "0"
+                            ],
+                            [
+                                "6",
+                                "1",
+                                "1"
+                            ]
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "id": "DL_SEQUENTIAL_CIRCUITS_2018_Q13",
+            "subject": "Digital Logic",
+            "topic": "Sequential Circuits",
+            "subtopic": "sequence (0,0,1,1,2,2,3,3,0,0….)is             .",
+            "year": 2018,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 13,
+            "tags": [
+                "Sequential Circuits",
+                "sequence (0,0,1,1,2,2,3,3,0,0….)is             .",
+                "Digital Logic"
+            ],
+            "question": {
+                "text": "Consider the sequential circuit shown in the figure, \nwhere both flip-flops used are positive edge-triggered \nD flip-flops. \n\n\n\nThe number of states in the state transition diagram of \nthis circuit that have a transition back to the same state \non some value of \"in\" is ______",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "2"
+            ],
+            "solution": {
+                "text": "The characteristics table of given Flip-Flop \nInput \nD1 \nD2 \nQ+ \nQ (Out)\n+\n\n\nFrom  above chracteristics table state transistion \n\ndiagram of the given positive edge-triggered D flip \n\nflop is \n\nFrom above state transistion diagram after 2 state it \ncome back to some value.",
+                "images": [
+                    "assets/Digital Logic/DL_Sequential_Circuits_P38_X4481.png"
+                ],
+                "latex": [],
+                "tables": [
+                    {
+                        "headers": [
+                            "Clock",
+                            "T = Q 3",
+                            "D = Q 1",
+                            "T = Q 2",
+                            "Q 1",
+                            "Q 2",
+                            "Q 3"
+                        ],
+                        "rows": [
+                            [
+                                "0",
+                                "-",
+                                "-",
+                                "-",
+                                "0",
+                                "1",
+                                "1"
+                            ],
+                            [
+                                "1",
+                                "0",
+                                "0",
+                                "1",
+                                "0",
+                                "0",
+                                "0"
+                            ],
+                            [
+                                "2",
+                                "1",
+                                "0",
+                                "0",
+                                "1",
+                                "0",
+                                "0"
+                            ],
+                            [
+                                "3",
+                                "1",
+                                "1",
+                                "0",
+                                "0",
+                                "1",
+                                "0"
+                            ],
+                            [
+                                "4",
+                                "1",
+                                "0",
+                                "1",
+                                "1",
+                                "0",
+                                "1"
+                            ]
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "id": "DL_SEQUENTIAL_CIRCUITS_2017_Q14",
+            "subject": "Digital Logic",
+            "topic": "Sequential Circuits",
+            "subtopic": "on some value of \"in\" is ______",
+            "year": 2017,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 14,
+            "tags": [
+                "Sequential Circuits",
+                "on some value of \"in\" is ______",
+                "Digital Logic"
+            ],
+            "question": {
+                "text": "The next state table of a 2-bit saturating up-counter is \ngiven below. \nQ1 \nQ0 \nQ1 + \nQ0+ \n\nThe counter is built as a synchronous sequential \ncircuit using T flip-flops.  \n\nThe expressions for T1 and T0 are",
+                "images": [],
+                "latex": [],
+                "tables": [
+                    {
+                        "headers": [
+                            "Q 1",
+                            "Q 0",
+                            "Q + 1",
+                            "Q + 0"
+                        ],
+                        "rows": [
+                            [
+                                "0",
+                                "0",
+                                "0",
+                                "1"
+                            ],
+                            [
+                                "0",
+                                "1",
+                                "1",
+                                "0"
+                            ],
+                            [
+                                "1",
+                                "0",
+                                "1",
+                                "1"
+                            ],
+                            [
+                                "1",
+                                "1",
+                                "1",
+                                "1"
+                            ]
+                        ]
+                    }
+                ]
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "T\n1 = Q\n1Q\n0,  T\n0 = 𝑄1̅̅̅̅ 𝑄0̅̅̅̅",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "T\n1 = Q\n1̅̅̅Q\n0, T\n0 = 𝑄1̅̅̅̅ + 𝑄0̅̅̅̅",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "T\n1 = Q\n1 +Q\n0, T\n0 = 𝑄1̅̅̅̅ + 𝑄0̅̅̅̅",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "T\n1 = Q\n1̅̅̅Q\n0,  T\n0 = 𝑄1 + 𝑄0",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "B"
+            ],
+            "solution": {
+                "text": "Q1 \nQ0 \nQ+ \nQ0+ \nT1 \nT0 \n\nFor T0  \n\n\n\nT = Q + Q \n\nFor T1  \n\n\nT\nQ Q\n=\n\n\nHence correct answer is option (b).",
+                "images": [],
+                "latex": [],
+                "tables": [
+                    {
+                        "headers": [
+                            "Input",
+                            "D 1",
+                            "D 2",
+                            "Q+ 1",
+                            "Q +(Out) 2"
+                        ],
+                        "rows": [
+                            [
+                                "0",
+                                "0",
+                                "0",
+                                "0",
+                                "0"
+                            ],
+                            [
+                                "1",
+                                "0",
+                                "0",
+                                "1",
+                                "0"
+                            ],
+                            [
+                                "0",
+                                "0",
+                                "1",
+                                "0",
+                                "0"
+                            ],
+                            [
+                                "1",
+                                "0",
+                                "1",
+                                "1",
+                                "0"
+                            ],
+                            [
+                                "0",
+                                "1",
+                                "0",
+                                "0",
+                                "1"
+                            ],
+                            [
+                                "1",
+                                "1",
+                                "0",
+                                "1",
+                                "1"
+                            ],
+                            [
+                                "0",
+                                "1",
+                                "1",
+                                "0",
+                                "1"
+                            ],
+                            [
+                                "1",
+                                "1",
+                                "1",
+                                "1",
+                                "1"
+                            ]
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "id": "DL_SEQUENTIAL_CIRCUITS_2015_Q15",
+            "subject": "Digital Logic",
+            "topic": "Sequential Circuits",
+            "subtopic": "0 = 𝑄1 + 𝑄0",
+            "year": 2015,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 15,
+            "tags": [
+                "Sequential Circuits",
+                "0 = 𝑄1 + 𝑄0",
+                "Digital Logic"
+            ],
+            "question": {
+                "text": "Conisder a 4-bit Johnson counter an initial value of \n0000. The counting sequence of this counter is-",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "0,1,3,7,15,14,12,8,0",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "0,1,3,5,7,9,11,13,15,0",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "0,2,4,6,8,10,12,14,0",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "0,8,12,14,15,7,3,1,0",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "D"
+            ],
+            "solution": {
+                "text": "0 0 0 0→ 0 \n\n1 0 0 0→ 8 \n\n1 1 0 0→ 12 \n\n1 1 1 0→ 14 \n\n1 1 1 1→ 15 \n\n0 1 1 1→ 7 \n\n0 0 1 1→ 3 \n\n0 0 0 1→ 1",
+                "images": [],
+                "latex": [],
+                "tables": [
+                    {
+                        "headers": [
+                            "Input",
+                            "D 1",
+                            "D 2",
+                            "Q+ 1",
+                            "Q +(Out) 2"
+                        ],
+                        "rows": [
+                            [
+                                "0",
+                                "0",
+                                "0",
+                                "0",
+                                "0"
+                            ],
+                            [
+                                "1",
+                                "0",
+                                "0",
+                                "1",
+                                "0"
+                            ],
+                            [
+                                "0",
+                                "0",
+                                "1",
+                                "0",
+                                "0"
+                            ],
+                            [
+                                "1",
+                                "0",
+                                "1",
+                                "1",
+                                "0"
+                            ],
+                            [
+                                "0",
+                                "1",
+                                "0",
+                                "0",
+                                "1"
+                            ],
+                            [
+                                "1",
+                                "1",
+                                "0",
+                                "1",
+                                "1"
+                            ],
+                            [
+                                "0",
+                                "1",
+                                "1",
+                                "0",
+                                "1"
+                            ],
+                            [
+                                "1",
+                                "1",
+                                "1",
+                                "1",
+                                "1"
+                            ]
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "id": "DL_SEQUENTIAL_CIRCUITS_2014_Q16",
+            "subject": "Digital Logic",
+            "topic": "Sequential Circuits",
+            "subtopic": "Conisder a 4-bit Johnson counter an initial value of",
+            "year": 2014,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 16,
+            "tags": [
+                "Sequential Circuits",
+                "Conisder a 4-bit Johnson counter an initial value of",
+                "Digital Logic"
+            ],
+            "question": {
+                "text": "Let k = 2n. A circuit is built by giving the output of an \nn-bit binary counter as input to an n-to-2n bit decoder. \nThis circuit is equivalent to a",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "k-bit binary up counter.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "k-bit binary down counter.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "k-bit ring counter.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "k-bit Johnson counter.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "C"
+            ],
+            "solution": {
+                "text": "Let 2 \\times 4 Decoder as shown below, be at the output  \n\n\nNow, according to question 2-bit binary counter is \nconnected in the input of the above Decoder. The \noutput of the combination will be given as \nA \nB \ny0 \ny1 \ny2 \ny3 \n\n\n\n\n\nRing counter of 2n bits i.e. k-bit ring counter.  \n\nHence, correct answer is option (c)",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "DL_SEQUENTIAL_CIRCUITS_2009_Q17",
+            "subject": "Digital Logic",
+            "topic": "Sequential Circuits",
+            "subtopic": "This circuit is equivalent to a",
+            "year": 2009,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 17,
+            "tags": [
+                "Sequential Circuits",
+                "This circuit is equivalent to a",
+                "Digital Logic"
+            ],
+            "question": {
+                "text": "How many 32K \\times 1 RAM chips are needed to \nprovide a memory capacity of 256K-bytes?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "8",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "32",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "64",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "128 \nMemoery",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "C"
+            ],
+            "solution": {
+                "text": "Number of required chips for memory capacity   \n\n= 256 ×210 \\times 8 \n\nNumber of available chips for RAM capacity  \n\n= 32 ×210 \\times 1 \n\nNow, \n\nNumber of chips needed to build 256K-bytes will be \n\nNumber of chips = Required\nAvaliable = \n256 2\n32 \\times 2\n\n\n=\n\n\nHence, correct answer is option (c).",
+                "images": [
+                    "assets/Digital Logic/DL_Sequential_Circuits_P41_X5238.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "DL_SEQUENTIAL_CIRCUITS_2012_Q18",
+            "subject": "Digital Logic",
+            "topic": "Sequential Circuits",
+            "subtopic": "Memoery",
+            "year": 2012,
+            "exam": "GATE",
+            "marks": 0,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 18,
+            "tags": [
+                "Sequential Circuits",
+                "Memoery",
+                "Digital Logic"
+            ],
+            "question": {
+                "text": "The amount of ROM needed to implement a 4 bit \nmultiplier is",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "64 bits",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "128 bits",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "1 Kbits",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "2 Kbits",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "D"
+            ],
+            "solution": {
+                "text": "ROM = \nInput\noutput\n\n\n\n\n\n  =  28× 23 \n\n\n\n  =  211 \n\n\n   =  2× 210 \n\n\n\n  =  2k bits",
+                "images": [
+                    "assets/Digital Logic/DL_Sequential_Circuits_P40_X5103.png",
+                    "assets/Digital Logic/DL_Sequential_Circuits_P40_X5105.png",
+                    "assets/Digital Logic/DL_Sequential_Circuits_P40_X5109.png",
+                    "assets/Digital Logic/DL_Sequential_Circuits_P40_X5111.png",
+                    "assets/Digital Logic/DL_Sequential_Circuits_P40_X5113.png"
+                ],
+                "latex": [],
+                "tables": [
+                    {
+                        "headers": [
+                            "A",
+                            "B",
+                            "y 0",
+                            "y 1",
+                            "y 2",
+                            "y 3"
+                        ],
+                        "rows": [
+                            [
+                                "0",
+                                "0",
+                                "1",
+                                "0",
+                                "0",
+                                "0"
+                            ],
+                            [
+                                "0",
+                                "1",
+                                "0",
+                                "1",
+                                "0",
+                                "0"
+                            ],
+                            [
+                                "1",
+                                "0",
+                                "0",
+                                "0",
+                                "1",
+                                "0"
+                            ],
+                            [
+                                "1",
+                                "1",
+                                "0",
+                                "0",
+                                "0",
+                                "1"
+                            ]
+                        ]
+                    }
+                ]
+            }
+        }
+    ]
+}

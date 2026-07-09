@@ -1,0 +1,1124 @@
+{
+    "subject": "Theory Of Computation",
+    "topic": "Regular Expression",
+    "questionCount": 17,
+    "questions": [
+        {
+            "id": "TOC_REGULAR_EXPRESSION_2021_Q01",
+            "subject": "Theory Of Computation",
+            "topic": "Regular Expression",
+            "subtopic": "C H A P T E R",
+            "year": 2021,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MSQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 1,
+            "tags": [
+                "Regular Expression",
+                "C H A P T E R",
+                "Theory Of Computation"
+            ],
+            "question": {
+                "text": "represent(s) the set of all binary numbers that are \ndivisible by three? Assume that the string  is \ndivisible by three.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "(0 + 1(01* 0)* 1)*",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "(0 + 11 + 10(1 + 00)* 01)*",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "(0*(1(01* 0)* 1)*)*",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "(0 + 11 + 11(1 + 00)* 00)*",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "A",
+                "B",
+                "C"
+            ],
+            "solution": {
+                "text": "→*q0  \nq0 \nq1 \n      q1 \nq2 \nq0 \n      q2 \nq1 \nq2 \n\n\nApproach 1: First delete q2 then q1. \n\nDelete q2: \n\n\nDelete q1: \n=  \n\n\nR = (0 + 1 (01 * 0) * 1)* = (0*(1(01* 0)* 1)*)* \n\nCompare with (a + b)* = (a*b*)*   \n\nApproach 2: First delete q1 then q2. \n\nDelete q1 : \n\n\n\nDelete q2: \n=",
+                "images": [
+                    "assets/Theory Of Computation/TOC_Regular_Expression_P17_X1369.png",
+                    "assets/Theory Of Computation/TOC_Regular_Expression_P17_X2236.png",
+                    "assets/Theory Of Computation/TOC_Regular_Expression_P17_X2238.png",
+                    "assets/Theory Of Computation/TOC_Regular_Expression_P17_X2240.png",
+                    "assets/Theory Of Computation/TOC_Regular_Expression_P17_X2242.png",
+                    "assets/Theory Of Computation/TOC_Regular_Expression_P17_X2244.png"
+                ],
+                "latex": [],
+                "tables": [
+                    {
+                        "headers": [
+                            "",
+                            "0",
+                            "1"
+                        ],
+                        "rows": [
+                            [
+                                "→*q 0",
+                                "q 0",
+                                "q 1"
+                            ],
+                            [
+                                "q 1",
+                                "q 2",
+                                "q 0"
+                            ],
+                            [
+                                "q 2",
+                                "q 1",
+                                "q 2"
+                            ]
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "id": "TOC_REGULAR_EXPRESSION_2020_Q02",
+            "subject": "Theory Of Computation",
+            "topic": "Regular Expression",
+            "subtopic": "divisible by three.",
+            "year": 2020,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 2,
+            "tags": [
+                "Regular Expression",
+                "divisible by three.",
+                "Theory Of Computation"
+            ],
+            "question": {
+                "text": "represents the set of all binary strings with an odd \nnumber of 1 's?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "(0* 10* 10*) * 0* 1",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "10*(0* 10* 10*)*",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "((0 + 1)* 1(0 + 1)* 1)* 10*",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "(0* 10* 10*)* 10*",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "A",
+                "A"
+            ],
+            "solution": {
+                "text": "(a) (0* 10* 10*) * 0* 1 \nIt can't generate 10 \n(b) 10*(0* 10* 10*)* \nIt can't generate 01 \n(c) ((0 + 1)* 1(0 + 1)* 1)* 10* \nIt will generate even number of 1 also. \n(d) (0* 10* 10*)* 10* \nstring.",
+                "images": [
+                    "assets/Theory Of Computation/TOC_Regular_Expression_P17_X1369.png",
+                    "assets/Theory Of Computation/TOC_Regular_Expression_P17_X2236.png",
+                    "assets/Theory Of Computation/TOC_Regular_Expression_P17_X2238.png",
+                    "assets/Theory Of Computation/TOC_Regular_Expression_P17_X2240.png",
+                    "assets/Theory Of Computation/TOC_Regular_Expression_P17_X2242.png",
+                    "assets/Theory Of Computation/TOC_Regular_Expression_P17_X2244.png"
+                ],
+                "latex": [],
+                "tables": [
+                    {
+                        "headers": [
+                            "",
+                            "0",
+                            "1"
+                        ],
+                        "rows": [
+                            [
+                                "→*q 0",
+                                "q 0",
+                                "q 1"
+                            ],
+                            [
+                                "q 1",
+                                "q 2",
+                                "q 0"
+                            ],
+                            [
+                                "q 2",
+                                "q 1",
+                                "q 2"
+                            ]
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "id": "TOC_REGULAR_EXPRESSION_2016_Q03",
+            "subject": "Theory Of Computation",
+            "topic": "Regular Expression",
+            "subtopic": "number of 1 's?",
+            "year": 2016,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 3,
+            "tags": [
+                "Regular Expression",
+                "number of 1 's?",
+                "Theory Of Computation"
+            ],
+            "question": {
+                "text": "represents the language: the set of all binary strings \nhaving two consecutive 0's and two consecutive \n1's?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "(0 + 1) * 0011(0 + 1)* + (0 + 1)* 1100(0 + 1) *",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "(0 + 1) *(00(0 + 1) * 11 + 11(0 + 1) * 00)  \n(0 + 1) *",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "(0 + 1) * 00(0 + 1) * + (0 + 1) * 11(0 + 1) *",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "00(0 + 1) * 11+11(0 + 1) * 00",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "B"
+            ],
+            "solution": {
+                "text": "Regular expression that generates all strings having \n00 and 11. \n\n= X 00 X 11 X\nX 11 X 00 X\n+\n\n\nHere, Assume X = (0 + 1)* \n\n= X [00 X 11 + 11X00] X \n\n= (0 + 1)*[00(0 + 1)*11 + 11(0 + 1)*00](0 + 1)* \n\nIt is matched with option (b).",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "TOC_REGULAR_EXPRESSION_2013_Q04",
+            "subject": "Theory Of Computation",
+            "topic": "Regular Expression",
+            "subtopic": "(0 + 1) *",
+            "year": 2013,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 4,
+            "tags": [
+                "Regular Expression",
+                "(0 + 1) *",
+                "Theory Of Computation"
+            ],
+            "question": {
+                "text": "Consider the languages L1 = ϕ and L2 = {a}. Which \none of the following represents L1L2*  L1* ?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "{}",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "ϕ",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "a*",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "{, a}",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "A"
+            ],
+            "solution": {
+                "text": "L1 =  \n\nL2 = {a} \n\n*\n*\nL L\nL\n?\n\n=\n\n\n\n     = .a*  * =   {} = {} \n\nNote: * = {}",
+                "images": [
+                    "assets/Theory Of Computation/TOC_Regular_Expression_P17_X1369.png",
+                    "assets/Theory Of Computation/TOC_Regular_Expression_P17_X2236.png",
+                    "assets/Theory Of Computation/TOC_Regular_Expression_P17_X2238.png",
+                    "assets/Theory Of Computation/TOC_Regular_Expression_P17_X2240.png",
+                    "assets/Theory Of Computation/TOC_Regular_Expression_P17_X2242.png",
+                    "assets/Theory Of Computation/TOC_Regular_Expression_P17_X2244.png"
+                ],
+                "latex": [],
+                "tables": [
+                    {
+                        "headers": [
+                            "",
+                            "0",
+                            "1"
+                        ],
+                        "rows": [
+                            [
+                                "→*q 0",
+                                "q 0",
+                                "q 1"
+                            ],
+                            [
+                                "q 1",
+                                "q 2",
+                                "q 0"
+                            ],
+                            [
+                                "q 2",
+                                "q 1",
+                                "q 2"
+                            ]
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "id": "TOC_REGULAR_EXPRESSION_2012_Q05",
+            "subject": "Theory Of Computation",
+            "topic": "Regular Expression",
+            "subtopic": "one of the following represents L1L2*  L1* ?",
+            "year": 2012,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 5,
+            "tags": [
+                "Regular Expression",
+                "one of the following represents L1L2*  L1* ?",
+                "Theory Of Computation"
+            ],
+            "question": {
+                "text": "Given the language L = {ab, aa, baa}, which of the \nfollowing strings are in L*? \n\n1.  abaabaaabaa \n\n2.  aaaabaaaa \n\n3.  baaaaabaaaab \n\n4. baaaaabaa",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "1, 2 and 3",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "2, 3 and 4",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "1, 2 and 4",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "1, 3 and 4",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "C"
+            ],
+            "solution": {
+                "text": "L = ab + aa + baa \n\nL* = (ab + aa + baa)* \n\n1. ab aa baa ab aa  L5 \n\n2. aa aa baa aa  L4 \n\n3. baa aa ab aa aa b  L* \n\n4. baa aa ab aa   L4",
+                "images": [
+                    "assets/Theory Of Computation/TOC_Regular_Expression_P17_X1369.png",
+                    "assets/Theory Of Computation/TOC_Regular_Expression_P17_X2236.png",
+                    "assets/Theory Of Computation/TOC_Regular_Expression_P17_X2238.png",
+                    "assets/Theory Of Computation/TOC_Regular_Expression_P17_X2240.png",
+                    "assets/Theory Of Computation/TOC_Regular_Expression_P17_X2242.png",
+                    "assets/Theory Of Computation/TOC_Regular_Expression_P17_X2244.png"
+                ],
+                "latex": [],
+                "tables": [
+                    {
+                        "headers": [
+                            "",
+                            "0",
+                            "1"
+                        ],
+                        "rows": [
+                            [
+                                "→*q 0",
+                                "q 0",
+                                "q 1"
+                            ],
+                            [
+                                "q 1",
+                                "q 2",
+                                "q 0"
+                            ],
+                            [
+                                "q 2",
+                                "q 1",
+                                "q 2"
+                            ]
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "id": "TOC_REGULAR_EXPRESSION_2010_Q06",
+            "subject": "Theory Of Computation",
+            "topic": "Regular Expression",
+            "subtopic": "following strings are in L*?",
+            "year": 2010,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 6,
+            "tags": [
+                "Regular Expression",
+                "following strings are in L*?",
+                "Theory Of Computation"
+            ],
+            "question": {
+                "text": "Let L = {w (0 + 1)* | w has even number of 1s}, \ni.e., L is the set of all bit strings with even number \nrepresents L ?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "(0* 10* 1)*",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "0*(10* 10*)*",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "0*(10* 1)* 0*",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "0* 1(10* 1)* 10*",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "B"
+            ],
+            "solution": {
+                "text": "Even number of 1's = 0* (0*1 0* 10*)0* \n\n    = (0* 1 0* 1)* 0* = 0*(10* 10*)* \n\nThere are many ways two represent the regular \nexpression for even number of 1's. \n\nMatched with option (b).",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "TOC_REGULAR_EXPRESSION_2009_Q07",
+            "subject": "Theory Of Computation",
+            "topic": "Regular Expression",
+            "subtopic": "represents L ?",
+            "year": 2009,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 7,
+            "tags": [
+                "Regular Expression",
+                "represents L ?",
+                "Theory Of Computation"
+            ],
+            "question": {
+                "text": "Which one of the following languages over the \nalphabet {0,1} is described by the regular \nexpression: (0 + 1)* 0(0 + 1)* 0(0 + 1)* ?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "The set of all strings containing the substring 00",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "The set of all strings containing at most two 0's",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "The set of all strings containing at least two 0's",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "The set of all strings that begin and end with \neither 0 or 1",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "C"
+            ],
+            "solution": {
+                "text": "a. X00X is containing 00. \n\nb. 1* (0 + ) 1* (0 + ) 1* is containing atmost \ntwo 0's. \n\nc. X0X0X is containing at least two 0's. \n\nd.  (0 + 1)+ is begin and end with either 0 or 1. \n\nHence, option (c) is correct.",
+                "images": [
+                    "assets/Theory Of Computation/TOC_Regular_Expression_P18_X2433.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "TOC_REGULAR_EXPRESSION_2008_Q08",
+            "subject": "Theory Of Computation",
+            "topic": "Regular Expression",
+            "subtopic": "either 0 or 1",
+            "year": 2008,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 8,
+            "tags": [
+                "Regular Expression",
+                "either 0 or 1",
+                "Theory Of Computation"
+            ],
+            "question": {
+                "text": "describes the language over {0, 1} consisting of \nstrings that contain exactly two 1's?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "(0 + 1) * 11(0+1) *",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "0 * 110*",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "0 * 10* 10*",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "(0 + 1) * 1(0 + 1) * 1 (0 + 1) * \n\n Finite Automata",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "C"
+            ],
+            "solution": {
+                "text": "R.E that contain exactly two 1's = 0*10*10* \n\nHence, option (c) is correct.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "TOC_REGULAR_EXPRESSION_2023_Q09",
+            "subject": "Theory Of Computation",
+            "topic": "Regular Expression",
+            "subtopic": "Finite Automata",
+            "year": 2023,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 9,
+            "tags": [
+                "Regular Expression",
+                "Finite Automata",
+                "Theory Of Computation"
+            ],
+            "question": {
+                "text": "Consider the Deterministic Finite-state Automaton \n(DFA) A shown below. The DFA runs on the \nalphabet {0, 1}, and has the set of states {s, p, q, r}, \nwith s being the start state and p being the only final \nstate.     \n\n\ncorrectly describes the language accepted by A?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "1(0*11)*",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "0(0 + 1)*",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "1(0 + 11)*",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "1(110*)*",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "C"
+            ],
+            "solution": {
+                "text": "In given machine, r is dead state. After deleting state \nq, the resultant transition graph is: \n\n\nAbove transition graph represents R = 1 (0 + 11) *",
+                "images": [
+                    "assets/Theory Of Computation/TOC_Regular_Expression_P18_X2437.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "TOC_REGULAR_EXPRESSION_2022_Q10",
+            "subject": "Theory Of Computation",
+            "topic": "Regular Expression",
+            "subtopic": "correctly describes the language accepted by A?",
+            "year": 2022,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 10,
+            "tags": [
+                "Regular Expression",
+                "correctly describes the language accepted by A?",
+                "Theory Of Computation"
+            ],
+            "question": {
+                "text": "correctly represents the language of the finite \nautomaton given below?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "a b* b a b* + b a* a b a*",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "(a b* b)* a b* + (b a* a)* b a*",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "(a b* b + b a* a)*(a* + b*)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "(b a*a + a b* b)*(a b* + b a*)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "D"
+            ],
+            "solution": {
+                "text": "Expression = (b a*a + a b* b)*(a b* + b a*)",
+                "images": [
+                    "assets/Theory Of Computation/TOC_Regular_Expression_P19_X2519.png",
+                    "assets/Theory Of Computation/TOC_Regular_Expression_P19_X2525.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "TOC_REGULAR_EXPRESSION_2017_Q11",
+            "subject": "Theory Of Computation",
+            "topic": "Regular Expression",
+            "subtopic": "automaton given below?",
+            "year": 2017,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 11,
+            "tags": [
+                "Regular Expression",
+                "automaton given below?",
+                "Theory Of Computation"
+            ],
+            "question": {
+                "text": "Consider the language L given by the regular \nexpression (a + b)* b(a + b) over the alphabet {a, \nb}. The smallest number of states needed in a \ndeterministic finite-state automaton (DFA) \naccepting L is________.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "4"
+            ],
+            "solution": {
+                "text": "DFA: \n\n\nk\n2 = 2 = 4 where k is the position of the symbol.",
+                "images": [
+                    "assets/Theory Of Computation/TOC_Regular_Expression_P18_X2433.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "TOC_REGULAR_EXPRESSION_2016_Q12",
+            "subject": "Theory Of Computation",
+            "topic": "Regular Expression",
+            "subtopic": "accepting L is________.",
+            "year": 2016,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 12,
+            "tags": [
+                "Regular Expression",
+                "accepting L is________.",
+                "Theory Of Computation"
+            ],
+            "question": {
+                "text": "The number of states in the minimum sized DFA that \naccepts the language defined by the regular \nexpression (0 + 1)*(0 + 1)(0 + 1) * is______.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "2"
+            ],
+            "solution": {
+                "text": "(0 + 1)* (0 + 1) (0 + 1)* = (0 + 1)+ \n\n\nHere number of states are two for L = (0 + 1)+",
+                "images": [
+                    "assets/Theory Of Computation/TOC_Regular_Expression_P19_X2521.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "TOC_REGULAR_EXPRESSION_2015_Q13",
+            "subject": "Theory Of Computation",
+            "topic": "Regular Expression",
+            "subtopic": "expression (0 + 1)*(0 + 1)(0 + 1) * is______.",
+            "year": 2015,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 13,
+            "tags": [
+                "Regular Expression",
+                "expression (0 + 1)*(0 + 1)(0 + 1) * is______.",
+                "Theory Of Computation"
+            ],
+            "question": {
+                "text": "Let L be the language represented by the regular \nexpression Σ* 0011 Σ* where Σ = {0, 1}. \n\nWhat is the minimum number of states in DFA that \nrecognizes L (complement of L)?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "4",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "5",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "6",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "8",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "B"
+            ],
+            "solution": {
+                "text": "L = * 0011* \n\nL = (0 + 1)* 0011(0 + 1)* \n\nDFA for L: \n\n\nDFA for L : \n\n\nNumber of states are always same in both L and L.",
+                "images": [
+                    "assets/Theory Of Computation/TOC_Regular_Expression_P19_X2517.png",
+                    "assets/Theory Of Computation/TOC_Regular_Expression_P19_X2523.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "TOC_REGULAR_EXPRESSION_2015_Q14",
+            "subject": "Theory Of Computation",
+            "topic": "Regular Expression",
+            "subtopic": "recognizes L (complement of L)?",
+            "year": 2015,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 14,
+            "tags": [
+                "Regular Expression",
+                "recognizes L (complement of L)?",
+                "Theory Of Computation"
+            ],
+            "question": {
+                "text": "The number of states in the minimal deterministic \nfinite automaton corresponding to the regular \nexpression (0 + 1)*(10) is ______.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "3"
+            ],
+            "solution": {
+                "text": "DFA Design for (0 + 1)*(10): \n\n\nNumber of states = 3",
+                "images": [
+                    "assets/Theory Of Computation/TOC_Regular_Expression_P19_X2527.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "TOC_REGULAR_EXPRESSION_2014_Q15",
+            "subject": "Theory Of Computation",
+            "topic": "Regular Expression",
+            "subtopic": "expression (0 + 1)*(10) is ______.",
+            "year": 2014,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 15,
+            "tags": [
+                "Regular Expression",
+                "expression (0 + 1)*(10) is ______.",
+                "Theory Of Computation"
+            ],
+            "question": {
+                "text": "The length of the shortest string NOT in the language \n(over Σ = {a, b} ) of the following regular expression \nis ________. \n\na* b* (ba)* a* \nq\ns\np\nr\n0, 1",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "3"
+            ],
+            "solution": {
+                "text": "a* b* (ba)* a* \n\nIt will produce all 0 length, 1 length and 2 length \nstring. But it will produce all 3 length string. \n\n \nPossible \n\na \nPossible \n\nb \nPossible \n\naa \nPossible \n\nab \nPossible \n\nba  \nPossible \n\nbb  \nPossible \n\nbab  \nNot Possible \n\nThe shortest string, which is NOT present in the \nlanguage = bab (3 length).",
+                "images": [
+                    "assets/Theory Of Computation/TOC_Regular_Expression_P19_X2517.png",
+                    "assets/Theory Of Computation/TOC_Regular_Expression_P19_X2523.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "TOC_REGULAR_EXPRESSION_2014_Q16",
+            "subject": "Theory Of Computation",
+            "topic": "Regular Expression",
+            "subtopic": "0, 1",
+            "year": 2014,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 16,
+            "tags": [
+                "Regular Expression",
+                "0, 1",
+                "Theory Of Computation"
+            ],
+            "question": {
+                "text": "represent the following DFA? \n\n\nI.  0* 1(1 + 00* 1)* \n\nII.  0* 1* 1 + 11* 0* 1 \n\nIII.  (0 + 1)* 1",
+                "images": [
+                    "assets/Theory Of Computation/TOC_Regular_Expression_P16_X2177.png",
+                    "assets/Theory Of Computation/TOC_Regular_Expression_P16_X2185.png"
+                ],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "I and II only",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "I and III only",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "II and III only",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "I, II and III",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "B"
+            ],
+            "solution": {
+                "text": "I.  0*1(1 + 00*1)* \n\n\n0*1 (( + 00*)1)*  \n\n\n0*1 (0*1)* \n\n\n(0*1)+ \n\nII.  0* 1* 1 + 11* 0* 1 it will not generate 0101 \nstring.  \n\nIII. (0 + 1)* 1 is same as (0*1)+ \n\nwith respective DFA.",
+                "images": [
+                    "assets/Theory Of Computation/TOC_Regular_Expression_P19_X2517.png",
+                    "assets/Theory Of Computation/TOC_Regular_Expression_P19_X2523.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "TOC_REGULAR_EXPRESSION_2008_Q17",
+            "subject": "Theory Of Computation",
+            "topic": "Regular Expression",
+            "subtopic": "III.  (0 + 1)* 1",
+            "year": 2008,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 17,
+            "tags": [
+                "Regular Expression",
+                "III.  (0 + 1)* 1",
+                "Theory Of Computation"
+            ],
+            "question": {
+                "text": "Match List - I with List - II and select the correct \nanswer using the codes given below the lists: \n\nList - I \n\nP  \n\n\n Q \n\n\nR \n\n\nS  \n\n\n\nList - II \n\n1.  ε + 0(01*1 + 00)*01* \n\n2.  ε + 0(10*1 + 00)*0 \n\n3.  ε + 0(10*1 + 10)*1 \n\n4.  ε + 0(10*1 + 10)*10* \n\n\nP \nQ \nR \nS",
+                "images": [
+                    "assets/Theory Of Computation/TOC_Regular_Expression_P16_X2181.png",
+                    "assets/Theory Of Computation/TOC_Regular_Expression_P16_X2181.png"
+                ],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "2",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "1",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "1",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "3",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "C"
+            ],
+            "solution": {
+                "text": "P  \n\n\n\nQ \n\n\n\nR \n\n\n\nS  \n\n\n\nHence, opiton (c) is correct.",
+                "images": [
+                    "assets/Theory Of Computation/TOC_Regular_Expression_P19_X2517.png",
+                    "assets/Theory Of Computation/TOC_Regular_Expression_P19_X2523.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        }
+    ]
+}

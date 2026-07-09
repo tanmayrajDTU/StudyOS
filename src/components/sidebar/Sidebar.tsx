@@ -13,7 +13,8 @@ import {
   ChevronLeft,
   ChevronRight,
   Sparkles,
-  BookOpen
+  BookOpen,
+  Target
 } from 'lucide-react'
 import Image from 'next/image'
 import { createClient } from '@/utils/supabase/client'
@@ -70,6 +71,7 @@ export default function Sidebar({ profile }: SidebarProps) {
   const menuItems = [
     { name: 'Dashboard', icon: LayoutDashboard, path: '/' },
     { name: 'Subjects', icon: BookOpen, path: '/subjects' },
+    { name: 'PYQ Practice', icon: Target, path: '/pyqs' },
     { name: 'Roadmap', icon: Calendar, path: '/roadmap' },
     { name: 'Revision', icon: RotateCw, path: '/revision' },
     { name: 'Analytics', icon: BarChart2, path: '/analytics' },

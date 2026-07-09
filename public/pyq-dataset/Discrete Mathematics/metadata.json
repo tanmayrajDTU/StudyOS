@@ -1,0 +1,23 @@
+{
+    "subject": "Discrete Mathematics",
+    "totalTopics": 4,
+    "totalQuestions": 104,
+    "topics": [
+        {
+            "name": "Proposition Logic",
+            "questionCount": 26
+        },
+        {
+            "name": "Sets, Relation and Function",
+            "questionCount": 30
+        },
+        {
+            "name": "Graph Theory",
+            "questionCount": 31
+        },
+        {
+            "name": "Combinatorics",
+            "questionCount": 17
+        }
+    ]
+}

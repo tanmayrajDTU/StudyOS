@@ -1,0 +1,1660 @@
+{
+    "subject": "Discrete Mathematics",
+    "topic": "Graph Theory",
+    "questionCount": 31,
+    "questions": [
+        {
+            "id": "DM_GRAPH_THEORY_2017_Q01",
+            "subject": "Discrete Mathematics",
+            "topic": "Graph Theory",
+            "subtopic": "Degree Sequence",
+            "year": 2017,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 1,
+            "tags": [
+                "Graph Theory",
+                "Degree Sequence",
+                "Discrete Mathematics"
+            ],
+            "question": {
+                "text": "G is an undirected graph with n vertices and 25 \nedges such that each vertex of G has degree at least",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "16"
+            ],
+            "solution": {
+                "text": "e = 25 \n\nMinimum degree = 3 \n\n (G) = 3 \n\n (G) < \n( )\nG\nn\ne\nn \n\n− \n\nn =16 \n\n( )\nG\ne\nn\n\n\n\n\nn\n\n\n\nn \n\n\n   n \\le 16.6.. \n                     \n\n(……16,16) \\le 16.66",
+                "images": [
+                    "assets/Discrete Mathematics/DM_Graph_Theory_P27_X888.png",
+                    "assets/Discrete Mathematics/DM_Graph_Theory_P27_X3288.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "DM_GRAPH_THEORY_2017_Q03",
+            "subject": "Discrete Mathematics",
+            "topic": "Graph Theory",
+            "subtopic": "edges such that each vertex of G has degree at least",
+            "year": 2017,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 3,
+            "tags": [
+                "Graph Theory",
+                "edges such that each vertex of G has degree at least",
+                "Discrete Mathematics"
+            ],
+            "question": {
+                "text": "Then the maximum possible value of n is _____. \n\n2. \n[NAT] \n      \n\nLet T be a tree with 10 vertices. The sum of the \ndegrees of all the vertices in T is ______. \n\n3. \n[MCQ] \n\n  \n\nAn ordered n-tuple (d\n1, d\n2,….., d\nn) with d\n1 d\n2….. \nd\nn, is called graphic if there exists a simple \nundirected graph with n vertices having degrees d\n1, \nd\n2,….., d\nn respectively. Which of the following 6-\ntuples is NOT graphic? \n\n(a) (1, 1, 1, 1, 1, 1) \n(b) (2, 2, 2, 2, 2, 2) \n\n(c) (3, 3, 3, 1, 0, 0) \n(d) (3, 2, 1, 1, 1, 0)",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "c"
+            ],
+            "solution": {
+                "text": "Not graphical  \n\n3 3 3 1 0 0\n  2 2 0 0 0",
+                "images": [
+                    "assets/Discrete Mathematics/DM_Graph_Theory_P27_X888.png",
+                    "assets/Discrete Mathematics/DM_Graph_Theory_P27_X3288.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "DM_GRAPH_THEORY_2010_Q04",
+            "subject": "Discrete Mathematics",
+            "topic": "Graph Theory",
+            "subtopic": "tuples is NOT graphic?",
+            "year": 2010,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 4,
+            "tags": [
+                "Graph Theory",
+                "tuples is NOT graphic?",
+                "Discrete Mathematics"
+            ],
+            "question": {
+                "text": "The degree sequence of a simple graph is the \nsequence of the degrees of the nodes in the graph in \ndecreasing order. Which of the following sequences \ncannot be the degree sequence of any graph?  \n\nI. \n7, 6, 5, 4, 4, 3, 2, 1 \n\nII. 6, 6, 6, 6, 3, 3, 2, 2 \n\nIII 7, 6, 6, 4, 4, 3, 2, 2 \n\nIV 8, 7, 7, 6, 4, 2, 1, 1",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "I and II",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "III and IV",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "IV only",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "II and IV",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "D"
+            ],
+            "solution": {
+                "text": "Graphical  \n\n7  6  5  4  4  3  2  1\n     5  4  3  3  2  1 0\n          3  2  2  1 0 0\n                1  1  0 0 0\n\n\n\n\n6  6  6  6  3  3  2  2\n     5  5  5  2  2  1 2\n          5  5  5  2 2 2\n             4 4  1  1 1 1\n                 3 0  0  0 1 \n\n\n31000 (not graphical) \n\n7  6  6  4  4  3  2  2\n     5  5  3  3  2  1   1\n            4  2  2  1 0  1\n             4 2  2  1 1 0\n                 1 1  0  0 0 \n\n\n\n\nGraphical",
+                "images": [
+                    "assets/Discrete Mathematics/DM_Graph_Theory_P27_X888.png",
+                    "assets/Discrete Mathematics/DM_Graph_Theory_P27_X3288.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "DM_GRAPH_THEORY_2010_Q05",
+            "subject": "Discrete Mathematics",
+            "topic": "Graph Theory",
+            "subtopic": "IV 8, 7, 7, 6, 4, 2, 1, 1",
+            "year": 2010,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 5,
+            "tags": [
+                "Graph Theory",
+                "IV 8, 7, 7, 6, 4, 2, 1, 1",
+                "Discrete Mathematics"
+            ],
+            "question": {
+                "text": "Let, G =(V, E) be a graph. Define (G) = did ×d, \nwhere whre id is the number of vertices of degree d \nin G. If S and T are two different tree with (S) = (T) \nthen.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "|S| = 2 |T|",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "|S| = |T|-1",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "|S| = |T|",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "|S| = |T| +1 \nTypes of Graphs",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "C"
+            ],
+            "solution": {
+                "text": "S           T\n\n\nn -1      n -1\n\n",
+                "images": [
+                    "assets/Discrete Mathematics/DM_Graph_Theory_P27_X888.png",
+                    "assets/Discrete Mathematics/DM_Graph_Theory_P27_X3288.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "DM_GRAPH_THEORY_2022_Q06",
+            "subject": "Discrete Mathematics",
+            "topic": "Graph Theory",
+            "subtopic": "Types of Graphs",
+            "year": 2022,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 6,
+            "tags": [
+                "Graph Theory",
+                "Types of Graphs",
+                "Discrete Mathematics"
+            ],
+            "question": {
+                "text": "Consider an undirected random graph of eight \nvertices. The probability that there is an edge \nbetween a pair of vertices is 1\n2 . What is the expected \nnumber of unordered cycles of length three?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "1",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "1",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "7",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "8",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "C"
+            ],
+            "solution": {
+                "text": "C \n\n\n\n\n\n=",
+                "images": [
+                    "assets/Discrete Mathematics/DM_Graph_Theory_P28_X3506.png",
+                    "assets/Discrete Mathematics/DM_Graph_Theory_P28_X3506.png",
+                    "assets/Discrete Mathematics/DM_Graph_Theory_P28_X3508.png",
+                    "assets/Discrete Mathematics/DM_Graph_Theory_P28_X3510.png",
+                    "assets/Discrete Mathematics/DM_Graph_Theory_P28_X3512.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "DM_GRAPH_THEORY_2015_Q07",
+            "subject": "Discrete Mathematics",
+            "topic": "Graph Theory",
+            "subtopic": "number of unordered cycles of length three?",
+            "year": 2015,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 7,
+            "tags": [
+                "Graph Theory",
+                "number of unordered cycles of length three?",
+                "Discrete Mathematics"
+            ],
+            "question": {
+                "text": "Let G be connected undirected graph of 100 \nvertices and 300 edges. The weight of a minimum \nspanning tree of G is 500. When the weight of each \nedge of G is increased by five, the weight of a \nminimum spanning tree becomes ________.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "995"
+            ],
+            "solution": {
+                "text": "n = 100 \n\ne = 100  \n\n\n\n\n= 500 + 5× (n -1) \n\n= 500 + 5 ×99 \n\n= 995",
+                "images": [
+                    "assets/Discrete Mathematics/DM_Graph_Theory_P28_X3506.png",
+                    "assets/Discrete Mathematics/DM_Graph_Theory_P28_X3506.png",
+                    "assets/Discrete Mathematics/DM_Graph_Theory_P28_X3508.png",
+                    "assets/Discrete Mathematics/DM_Graph_Theory_P28_X3510.png",
+                    "assets/Discrete Mathematics/DM_Graph_Theory_P28_X3512.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "DM_GRAPH_THEORY_2015_Q08",
+            "subject": "Discrete Mathematics",
+            "topic": "Graph Theory",
+            "subtopic": "minimum spanning tree becomes ________.",
+            "year": 2015,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 8,
+            "tags": [
+                "Graph Theory",
+                "minimum spanning tree becomes ________.",
+                "Discrete Mathematics"
+            ],
+            "question": {
+                "text": "Consider a binary tree T that has 200 leaf nodes. \nThen, the number of nodes in T that have exactly two \nchildren are _______.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "199"
+            ],
+            "solution": {
+                "text": "d(iv) = 22 \n\n2 + P + 3 (n - P -1) = 2e = 2(n -1) \n\n\n2 + 200 + 3(n - 200-1) = 2 (n -1) = 2n -2 \n\n2 + 200 + 3n - 600-3 = 2n -2 \n\n3n - 2n = 600 - 200  - 2+ 3 - 2 \n\nn = 400 - = 399 \n\n  = 399 - 200 \n\n   = 199",
+                "images": [
+                    "assets/Discrete Mathematics/DM_Graph_Theory_P28_X3506.png",
+                    "assets/Discrete Mathematics/DM_Graph_Theory_P28_X3506.png",
+                    "assets/Discrete Mathematics/DM_Graph_Theory_P28_X3508.png",
+                    "assets/Discrete Mathematics/DM_Graph_Theory_P28_X3510.png",
+                    "assets/Discrete Mathematics/DM_Graph_Theory_P28_X3512.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "DM_GRAPH_THEORY_2015_Q09",
+            "subject": "Discrete Mathematics",
+            "topic": "Graph Theory",
+            "subtopic": "children are _______.",
+            "year": 2015,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 9,
+            "tags": [
+                "Graph Theory",
+                "children are _______.",
+                "Discrete Mathematics"
+            ],
+            "question": {
+                "text": "A graph is self-complementary if it is isomorphic to \nits complement. For all self-complementary graphs \non n vertices, n is",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "A multiple of 4",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "Even",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "Odd",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "Congruent to 0 mod 4, or 1 mod 4",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "D"
+            ],
+            "solution": {
+                "text": "n\nn\nor\n−\n− \n\na\nb\nz\nn\n−\n \n\na  b(modn) \n\nn (mode4) or n  1(mode)",
+                "images": [
+                    "assets/Discrete Mathematics/DM_Graph_Theory_P28_X3506.png",
+                    "assets/Discrete Mathematics/DM_Graph_Theory_P28_X3506.png",
+                    "assets/Discrete Mathematics/DM_Graph_Theory_P28_X3508.png",
+                    "assets/Discrete Mathematics/DM_Graph_Theory_P28_X3510.png",
+                    "assets/Discrete Mathematics/DM_Graph_Theory_P28_X3512.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "DM_GRAPH_THEORY_2014_Q10",
+            "subject": "Discrete Mathematics",
+            "topic": "Graph Theory",
+            "subtopic": "on n vertices, n is",
+            "year": 2014,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 10,
+            "tags": [
+                "Graph Theory",
+                "on n vertices, n is",
+                "Discrete Mathematics"
+            ],
+            "question": {
+                "text": "The number of distinct minimum spanning trees for \nthe weighted graph below is     .",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "6"
+            ],
+            "solution": {
+                "text": "3 \\times 2 = 6 ways.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "DM_GRAPH_THEORY_2014_Q11",
+            "subject": "Discrete Mathematics",
+            "topic": "Graph Theory",
+            "subtopic": "the weighted graph below is     .",
+            "year": 2014,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 11,
+            "tags": [
+                "Graph Theory",
+                "the weighted graph below is     .",
+                "Discrete Mathematics"
+            ],
+            "question": {
+                "text": "A cycle on n vertices is isomorphic to its \ncomplement.  \n\nThe value of n is_______.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "5"
+            ],
+            "solution": {
+                "text": "( )\n( )\n(\n)\nn n\ne G\ne G\n−\n+\n=\n\n\n( )\n( )\n(\n)\nn n\ne G\ne G\n−\n+\n=\n\n\n(\n)\nn n\ne\n−\n=\n\n\nn\n4     e =\n=\n=\n\n\nn\n4     e =\n=\n=\n\n\n\nn\n6     e =\n X\nn\n7     e =\n X\nn\n8     e =\n = 14\n=\n=\n=",
+                "images": [
+                    "assets/Discrete Mathematics/DM_Graph_Theory_P29_X3593.png",
+                    "assets/Discrete Mathematics/DM_Graph_Theory_P29_X3595.png",
+                    "assets/Discrete Mathematics/DM_Graph_Theory_P29_X3597.png",
+                    "assets/Discrete Mathematics/DM_Graph_Theory_P29_X3599.png",
+                    "assets/Discrete Mathematics/DM_Graph_Theory_P29_X3601.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "DM_GRAPH_THEORY_2014_Q12",
+            "subject": "Discrete Mathematics",
+            "topic": "Graph Theory",
+            "subtopic": "The value of n is_______.",
+            "year": 2014,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 12,
+            "tags": [
+                "Graph Theory",
+                "The value of n is_______.",
+                "Discrete Mathematics"
+            ],
+            "question": {
+                "text": "The maximum number of edges in a bipartite graph \non 12 vertices is_____",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "36"
+            ],
+            "solution": {
+                "text": "n = 12 \n\n\nK6, 6  \ne = 6 \\times 6 = 36",
+                "images": [
+                    "assets/Discrete Mathematics/DM_Graph_Theory_P29_X3593.png",
+                    "assets/Discrete Mathematics/DM_Graph_Theory_P29_X3595.png",
+                    "assets/Discrete Mathematics/DM_Graph_Theory_P29_X3597.png",
+                    "assets/Discrete Mathematics/DM_Graph_Theory_P29_X3599.png",
+                    "assets/Discrete Mathematics/DM_Graph_Theory_P29_X3601.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "DM_GRAPH_THEORY_2013_Q13",
+            "subject": "Discrete Mathematics",
+            "topic": "Graph Theory",
+            "subtopic": "on 12 vertices is_____",
+            "year": 2013,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 13,
+            "tags": [
+                "Graph Theory",
+                "on 12 vertices is_____",
+                "Discrete Mathematics"
+            ],
+            "question": {
+                "text": "Which of the following statements is/are TRUE for \nundirected graph? \n\n\n\nP : Number of odd degree vertices is even. \n\nQ: Sum of degrees of all vertices is even.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "P only",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "Q only",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "Both P and Q",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "Neither P nor Q",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "C"
+            ],
+            "solution": {
+                "text": "",
+                "images": [
+                    "assets/Discrete Mathematics/DM_Graph_Theory_P29_X3593.png",
+                    "assets/Discrete Mathematics/DM_Graph_Theory_P29_X3595.png",
+                    "assets/Discrete Mathematics/DM_Graph_Theory_P29_X3597.png",
+                    "assets/Discrete Mathematics/DM_Graph_Theory_P29_X3599.png",
+                    "assets/Discrete Mathematics/DM_Graph_Theory_P29_X3601.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "DM_GRAPH_THEORY_2014_Q14",
+            "subject": "Discrete Mathematics",
+            "topic": "Graph Theory",
+            "subtopic": "Q: Sum of degrees of all vertices is even.",
+            "year": 2014,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 14,
+            "tags": [
+                "Graph Theory",
+                "Q: Sum of degrees of all vertices is even.",
+                "Discrete Mathematics"
+            ],
+            "question": {
+                "text": "Consider an undirected graph G where self-loops are \nnot allowed. The vertex set of G is {(i, j): 1 \\le i \\le 12, \n1 \\le j \\le 12). There is an edge between (a, b) and (c, \nd) if |a - c | \\le 1 and |b - d | \\le 1.  \n\nThe number of edges in this graph is_______",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "506"
+            ],
+            "solution": {
+                "text": "d(vi) = 2e \n\n4 \\times 3 + 40 \\times 5 + 100 \\times 8 = 2e \n\n12 + 200 + 800 = 2e \n\n6 + 100 + 400 = e \n\ne = 506",
+                "images": [
+                    "assets/Discrete Mathematics/DM_Graph_Theory_P29_X3593.png",
+                    "assets/Discrete Mathematics/DM_Graph_Theory_P29_X3595.png",
+                    "assets/Discrete Mathematics/DM_Graph_Theory_P29_X3597.png",
+                    "assets/Discrete Mathematics/DM_Graph_Theory_P29_X3599.png",
+                    "assets/Discrete Mathematics/DM_Graph_Theory_P29_X3601.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "DM_GRAPH_THEORY_2012_Q15",
+            "subject": "Discrete Mathematics",
+            "topic": "Graph Theory",
+            "subtopic": "The number of edges in this graph is_______",
+            "year": 2012,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 15,
+            "tags": [
+                "Graph Theory",
+                "The number of edges in this graph is_______",
+                "Discrete Mathematics"
+            ],
+            "question": {
+                "text": "Let G be a complete undirected graph on 6 vertices. \nIf vertices of G are labeled, then the number of \ndistinct cycles of length 4 in G is equal to",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "15",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "30",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "90",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "360 \n\nConnectivity",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [],
+            "solution": {
+                "text": "3×2 \\times 1 = 3! \n\n15ways\nC =\n\n\n(\n)\n-1 !\n15×\nn\n = \n15× 2 = 15 ×3 = 45",
+                "images": [
+                    "assets/Discrete Mathematics/DM_Graph_Theory_P30_X3697.png",
+                    "assets/Discrete Mathematics/DM_Graph_Theory_P30_X3699.png",
+                    "assets/Discrete Mathematics/DM_Graph_Theory_P30_X3701.png",
+                    "assets/Discrete Mathematics/DM_Graph_Theory_P30_X3703.png",
+                    "assets/Discrete Mathematics/DM_Graph_Theory_P30_X3705.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "DM_GRAPH_THEORY_2022_Q16",
+            "subject": "Discrete Mathematics",
+            "topic": "Graph Theory",
+            "subtopic": "Connectivity",
+            "year": 2022,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 16,
+            "tags": [
+                "Graph Theory",
+                "Connectivity",
+                "Discrete Mathematics"
+            ],
+            "question": {
+                "text": "Consider a simple undirected graph of 10 vertices. \nIf the graph is disconnected, then the maximum \nnumber of edges it can have is _____.",
+                "images": [
+                    "assets/Discrete Mathematics/DM_Graph_Theory_P24_X3079.png"
+                ],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "36"
+            ],
+            "solution": {
+                "text": "n = 10 \n\n(\n)(\n)\nn\nk\nn\nk+1\ne\n−\n−\n=\n\n\nk = 2 \n\n 9 8\n\n=\n\n\nk = 2\nk = 5\nk = 4\n\n\n",
+                "images": [
+                    "assets/Discrete Mathematics/DM_Graph_Theory_P30_X3697.png",
+                    "assets/Discrete Mathematics/DM_Graph_Theory_P30_X3699.png",
+                    "assets/Discrete Mathematics/DM_Graph_Theory_P30_X3701.png",
+                    "assets/Discrete Mathematics/DM_Graph_Theory_P30_X3703.png",
+                    "assets/Discrete Mathematics/DM_Graph_Theory_P30_X3705.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "DM_GRAPH_THEORY_2022_Q17",
+            "subject": "Discrete Mathematics",
+            "topic": "Graph Theory",
+            "subtopic": "number of edges it can have is _____.",
+            "year": 2022,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 17,
+            "tags": [
+                "Graph Theory",
+                "number of edges it can have is _____.",
+                "Discrete Mathematics"
+            ],
+            "question": {
+                "text": "Consider a simple undirected unweighted graph \nwith at least three vertices. If A is the adjacency \nmatrix of the graph, then the number of 3-cycles in \nthe graph is given by the trace of",
+                "images": [
+                    "assets/Discrete Mathematics/DM_Graph_Theory_P24_X3079.png"
+                ],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "A3",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "A3 divided by 2",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "A3 divided by 3",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "A3 divided by 6",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "D"
+            ],
+            "solution": {
+                "text": "a\nb\nc\na\nA\nb\nc\n\n\n\n\n=\n\n\n\n\n\n\nA\n\n\n\n\n= \n\n\n\n\n\nA\n\n\n\n\n= \n\n\n\n\n\n\n\n\nA-C-B-A\nA-B-C-A\n\n\n",
+                "images": [
+                    "assets/Discrete Mathematics/DM_Graph_Theory_P30_X3697.png",
+                    "assets/Discrete Mathematics/DM_Graph_Theory_P30_X3699.png",
+                    "assets/Discrete Mathematics/DM_Graph_Theory_P30_X3701.png",
+                    "assets/Discrete Mathematics/DM_Graph_Theory_P30_X3703.png",
+                    "assets/Discrete Mathematics/DM_Graph_Theory_P30_X3705.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "DM_GRAPH_THEORY_2022_Q18",
+            "subject": "Discrete Mathematics",
+            "topic": "Graph Theory",
+            "subtopic": "the graph is given by the trace of",
+            "year": 2022,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 18,
+            "tags": [
+                "Graph Theory",
+                "the graph is given by the trace of",
+                "Discrete Mathematics"
+            ],
+            "question": {
+                "text": "Which of the properties hold for the adjacency \nmatrix A of a simple undirected unwieghted graph \nhaving n vertices?",
+                "images": [
+                    "assets/Discrete Mathematics/DM_Graph_Theory_P24_X3079.png"
+                ],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "The diagonal entries of A2 are the degrees of \nthe vertices of the graph.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "If the graph is connected, then none of the \nentries of An -1 + In can be zero.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "If the sum of all the elements of A is at most \n2(n-1), then the graph must be acyclic.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "If there is at least a 1 in each of A's rows and \ncolumns, then the graph must be connected.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "A"
+            ],
+            "solution": {
+                "text": "A\n2 1\n0 A = 1\n\n\n\n\n\n\n\n\n\n\n\n\n=\n+\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nA\n\n\n\n\n\n\n=\n\n\n\n\n\n\n\n\n     (n =5) \n\n 2 (n-1)  \n\n = 2(4) = 8 \n\n\n3      4\n2 0\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n3      4   5\n\n\n\n\n\n\n\n\n\n\n\n\n",
+                "images": [
+                    "assets/Discrete Mathematics/DM_Graph_Theory_P30_X3697.png",
+                    "assets/Discrete Mathematics/DM_Graph_Theory_P30_X3699.png",
+                    "assets/Discrete Mathematics/DM_Graph_Theory_P30_X3701.png",
+                    "assets/Discrete Mathematics/DM_Graph_Theory_P30_X3703.png",
+                    "assets/Discrete Mathematics/DM_Graph_Theory_P30_X3705.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "DM_GRAPH_THEORY_2022_Q19",
+            "subject": "Discrete Mathematics",
+            "topic": "Graph Theory",
+            "subtopic": "columns, then the graph must be connected.",
+            "year": 2022,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 19,
+            "tags": [
+                "Graph Theory",
+                "columns, then the graph must be connected.",
+                "Discrete Mathematics"
+            ],
+            "question": {
+                "text": "Let \nG(V,E) \nbe \na \ndirected \ngraph, \nwhere \nV={1,2,3,4,5} is the set of vertices and E is the set \nof directed edges, as defined by the following \nadjacency matrix A. A[i][j] = {1,\n1 ≤j ≤i ≤5\n0,\notherwise  \n\nA[i][j] = 1 indicates a directed edge from node i \nto node j. A directed spanning tree of G, rooted \nat r ∈V, is defined as a subgraph T of G such \nthat the undirected version of T is a tree, and T \n\ncontains a directed path from r to every other \nvertex in V. The number of such directed \nspanning trees rooted at vertex 5 is _____.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "24"
+            ],
+            "solution": {
+                "text": "St",
+                "images": [
+                    "assets/Discrete Mathematics/DM_Graph_Theory_P31_X3796.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "DM_GRAPH_THEORY_2018_Q20",
+            "subject": "Discrete Mathematics",
+            "topic": "Graph Theory",
+            "subtopic": "spanning trees rooted at vertex 5 is _____.",
+            "year": 2018,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 20,
+            "tags": [
+                "Graph Theory",
+                "spanning trees rooted at vertex 5 is _____.",
+                "Discrete Mathematics"
+            ],
+            "question": {
+                "text": "Let G be a graph with 100! vertices, with each vertex \nlabelled by a distinct permutation of the numbers 1, \n2, … 100. There is an edge between vertices u and υ \nif and only if the label of u can be obtained by \nswapping two adjacent numbers in the label of υ. Let \ny denote the degree of a vertex in G and z denote the \nnumber of connected components in G. \n\nThen, y + 10z  = _______.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "109"
+            ],
+            "solution": {
+                "text": "99 + 10.1 = 109 \n\ny = 99 \n\nz = 1 \n\nn = 3 \n\nTotal vertices = 3! = 6 \n\n2     104\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDegree Fetch event = 99 \n\n1,2,............100",
+                "images": [
+                    "assets/Discrete Mathematics/DM_Graph_Theory_P31_X3792.png",
+                    "assets/Discrete Mathematics/DM_Graph_Theory_P31_X3794.png",
+                    "assets/Discrete Mathematics/DM_Graph_Theory_P31_X3798.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "DM_GRAPH_THEORY_2014_Q21",
+            "subject": "Discrete Mathematics",
+            "topic": "Graph Theory",
+            "subtopic": "Then, y + 10z  = _______.",
+            "year": 2014,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 21,
+            "tags": [
+                "Graph Theory",
+                "Then, y + 10z  = _______.",
+                "Discrete Mathematics"
+            ],
+            "question": {
+                "text": "If G is a forest with n-vertices and k connected \ncomponents, how many edges does G have?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "n/k\n\n\n\n",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "n/k\n\n\n\n",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "n -1",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "n- k +1",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "C"
+            ],
+            "solution": {
+                "text": "Total vertices = n  \nk = 4 \n\n\n\n E  = e1 + e2 + e3 + e4 \n\n\n= n1 - 1 + n2-1 + n3-1 + n4 -1 \n\n\n\n= (n1 + n2 + n3 + n4) - 4 \n\n\n= n - 4 \n\n\n= n - k",
+                "images": [
+                    "assets/Discrete Mathematics/DM_Graph_Theory_P31_X3800.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "DM_GRAPH_THEORY_2014_Q22",
+            "subject": "Discrete Mathematics",
+            "topic": "Graph Theory",
+            "subtopic": "",
+            "year": 2014,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 22,
+            "tags": [
+                "Graph Theory",
+                "",
+                "Discrete Mathematics"
+            ],
+            "question": {
+                "text": "Let G = (V, E) be a directed graph where V is the set \nof vertices and E the set of edges. Then which one \nof the following graphs has the same strongly \nconnected components as G?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "G\n1 = (V, E\n1) where E\n1 = {(u, v)|(u, v)  E}.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "G\n2 = (V, E\n2) where E\n2 = {(u, v)|(v, u)E}.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "G\n3 = (V, E\n3) where E\n3 = {(u, v)| there is a path \nof length \\le 2 from u to v in E}.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "G\n4= (V\n4, E) where V\n4 is the set of vertices in \nG which are not isolated. \n\nGraph Number",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "B"
+            ],
+            "solution": {
+                "text": "",
+                "images": [
+                    "assets/Discrete Mathematics/DM_Graph_Theory_P31_X3792.png",
+                    "assets/Discrete Mathematics/DM_Graph_Theory_P31_X3794.png",
+                    "assets/Discrete Mathematics/DM_Graph_Theory_P31_X3798.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "DM_GRAPH_THEORY_2022_Q23",
+            "subject": "Discrete Mathematics",
+            "topic": "Graph Theory",
+            "subtopic": "Graph Number",
+            "year": 2022,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MSQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 23,
+            "tags": [
+                "Graph Theory",
+                "Graph Number",
+                "Discrete Mathematics"
+            ],
+            "question": {
+                "text": "The following simple undirected graph is referred to \nas the Peterson graph. \n\n\nWhich of the following statements is/are TRUE?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "The chromatic number of the graph is 3.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "The graph has a Hamiltonian path.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "The following graph is isomorphic to the \nPeterson graph.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "The size of the largest independent set of the \ngiven graph is 3. (A subset of vertices of a \ngraph form an independent set if no two \nvertices of the subset are adjacent.)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "A",
+                "B",
+                "C"
+            ],
+            "solution": {
+                "text": "X(G) = 3 \n\n\n\nB(G) = 4",
+                "images": [
+                    "assets/Discrete Mathematics/DM_Graph_Theory_P31_X3792.png",
+                    "assets/Discrete Mathematics/DM_Graph_Theory_P31_X3794.png",
+                    "assets/Discrete Mathematics/DM_Graph_Theory_P31_X3798.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "DM_GRAPH_THEORY_2022_Q24",
+            "subject": "Discrete Mathematics",
+            "topic": "Graph Theory",
+            "subtopic": "vertices of the subset are adjacent.)",
+            "year": 2022,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 24,
+            "tags": [
+                "Graph Theory",
+                "vertices of the subset are adjacent.)",
+                "Discrete Mathematics"
+            ],
+            "question": {
+                "text": "What is the size of the smallest MIS Maximal \nIndependent set of a chain of nine nodes?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "5",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "4",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "3",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "2",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [],
+            "solution": {
+                "text": "Mis  {1, 3, 5, 7, 9} \n\nMis  {2, 4, 6, 8} \n\n\n\nMIS = {2, 5, 8}",
+                "images": [
+                    "assets/Discrete Mathematics/DM_Graph_Theory_P32_X3866.png",
+                    "assets/Discrete Mathematics/DM_Graph_Theory_P32_X3868.png",
+                    "assets/Discrete Mathematics/DM_Graph_Theory_P32_X3872.png",
+                    "assets/Discrete Mathematics/DM_Graph_Theory_P32_X3874.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "DM_GRAPH_THEORY_2020_Q25",
+            "subject": "Discrete Mathematics",
+            "topic": "Graph Theory",
+            "subtopic": "Independent set of a chain of nine nodes?",
+            "year": 2020,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 25,
+            "tags": [
+                "Graph Theory",
+                "Independent set of a chain of nine nodes?",
+                "Discrete Mathematics"
+            ],
+            "question": {
+                "text": "Graph G is obtained by adding vertex s to K3,4 and \nmaking s adjacent to every vertex of K3,4. The \nminimum number of colours required to edge-colour \nG is _________.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "7"
+            ],
+            "solution": {
+                "text": "",
+                "images": [
+                    "assets/Discrete Mathematics/DM_Graph_Theory_P32_X3866.png",
+                    "assets/Discrete Mathematics/DM_Graph_Theory_P32_X3868.png",
+                    "assets/Discrete Mathematics/DM_Graph_Theory_P32_X3872.png",
+                    "assets/Discrete Mathematics/DM_Graph_Theory_P32_X3874.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "DM_GRAPH_THEORY_2018_Q26",
+            "subject": "Discrete Mathematics",
+            "topic": "Graph Theory",
+            "subtopic": "G is _________.",
+            "year": 2018,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 26,
+            "tags": [
+                "Graph Theory",
+                "G is _________.",
+                "Discrete Mathematics"
+            ],
+            "question": {
+                "text": "The chromatic number of the following graph \nis_____.",
+                "images": [
+                    "assets/Discrete Mathematics/DM_Graph_Theory_P25_X3151.png"
+                ],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "3"
+            ],
+            "solution": {
+                "text": "X(G) = 3",
+                "images": [
+                    "assets/Discrete Mathematics/DM_Graph_Theory_P32_X3870.png",
+                    "assets/Discrete Mathematics/DM_Graph_Theory_P32_X3876.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "DM_GRAPH_THEORY_2009_Q27",
+            "subject": "Discrete Mathematics",
+            "topic": "Graph Theory",
+            "subtopic": "is_____.",
+            "year": 2009,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 27,
+            "tags": [
+                "Graph Theory",
+                "is_____.",
+                "Discrete Mathematics"
+            ],
+            "question": {
+                "text": "What is the chromatic numebr of an n-vertex \nsimaple connected graph which not contain any \nlength cycle? Assume n > 2.",
+                "images": [
+                    "assets/Discrete Mathematics/DM_Graph_Theory_P25_X3149.png"
+                ],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "2",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "3",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "n -1",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "n \n\n\nPlanarity",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "A"
+            ],
+            "solution": {
+                "text": "B. PG \n\nX  (BPG) = 2",
+                "images": [
+                    "assets/Discrete Mathematics/DM_Graph_Theory_P32_X3866.png",
+                    "assets/Discrete Mathematics/DM_Graph_Theory_P32_X3868.png",
+                    "assets/Discrete Mathematics/DM_Graph_Theory_P32_X3872.png",
+                    "assets/Discrete Mathematics/DM_Graph_Theory_P32_X3874.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "DM_GRAPH_THEORY_2023_Q28",
+            "subject": "Discrete Mathematics",
+            "topic": "Graph Theory",
+            "subtopic": "Planarity",
+            "year": 2023,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MSQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 28,
+            "tags": [
+                "Graph Theory",
+                "Planarity",
+                "Discrete Mathematics"
+            ],
+            "question": {
+                "text": "Let G be a simple, finite, undirected graph with \nvertex set {v\n1,...,v\nn}. Let Δ(G) denote the maximum \ndegree of G and let ℕ = {1, 2,...} denote the set of all \npossible colors. Color the vertices of G using the \nfollowing greedy strategy: \n\nfor i = 1,...,n \n\n color(v\ni) ← min{j \\in ℕ : no neighbour of v\ni is colored \nj} \n\nWhich of the following statements is/are TRUE?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "This procedure results in a proper vertex coloring \nof G.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "The number of colors used in at most Δ (G) + 1.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "The number of colors used is at most Δ (G).",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "The number of colors used is equal to the \nchromatic number of G.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "A",
+                "B"
+            ],
+            "solution": {
+                "text": "(i) \nThis procedure results in a proper vertex \ncoloring of G. \n(ii) The number of colors used in at most Δ (G) + \n1.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "DM_GRAPH_THEORY_2021_Q29",
+            "subject": "Discrete Mathematics",
+            "topic": "Graph Theory",
+            "subtopic": "chromatic number of G.",
+            "year": 2021,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 29,
+            "tags": [
+                "Graph Theory",
+                "chromatic number of G.",
+                "Discrete Mathematics"
+            ],
+            "question": {
+                "text": "In an undirected connected planar graph G, there are \neight vertices and five faces. The number of edges \nin G is ________.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "11"
+            ],
+            "solution": {
+                "text": "n = 8 \n\nn - e + f  =2 \n\nf = 5  \n\n8 - e +5 = 2 \n\n\n\n\n13 - e = 2 \n\n\n\n\n13 - 2 = e \n\n\n\n\n11 = e",
+                "images": [
+                    "assets/Discrete Mathematics/DM_Graph_Theory_P33_X3936.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "DM_GRAPH_THEORY_2015_Q30",
+            "subject": "Discrete Mathematics",
+            "topic": "Graph Theory",
+            "subtopic": "in G is ________.",
+            "year": 2015,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 30,
+            "tags": [
+                "Graph Theory",
+                "in G is ________.",
+                "Discrete Mathematics"
+            ],
+            "question": {
+                "text": "Let G be a connected planar graph with 10 vertices. \nIf the number of edges on each face is three, then the \nnumber of edges in G is _______.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "24"
+            ],
+            "solution": {
+                "text": "n  = 10 \n\ne  = 3n - 6 \n\n\n= 3.10 -6 \n\n\n= 30 -6 \n\n\n= 24",
+                "images": [
+                    "assets/Discrete Mathematics/DM_Graph_Theory_P33_X3936.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "DM_GRAPH_THEORY_2014_Q31",
+            "subject": "Discrete Mathematics",
+            "topic": "Graph Theory",
+            "subtopic": "number of edges in G is _______.",
+            "year": 2014,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 31,
+            "tags": [
+                "Graph Theory",
+                "number of edges in G is _______.",
+                "Discrete Mathematics"
+            ],
+            "question": {
+                "text": "Let  denote the minimum degree of a vertex in a \ngraph. For all palner graphs on n vertices with  > 3 \nwhich one of the following is TRUE?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "In any planner embedding, the number of faces \nis at least n\n2 +",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "In any planner embedding, the number of faces \nis less than n\n2 +",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "There is a planner embedding in which the \nnumber of faces is less than n\n2 +",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "There is a planner embedding in which the \nnumber of faces is at most \nn\nδ\n+",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "A"
+            ],
+            "solution": {
+                "text": "(\n)\n(\n)\nδ G\nG\nn -1\ne\nn\n\n\n\n\n\n(\n)\n(\n)\nδ G\n2 n\nf\nn\ne\n\n\n\n+\n−\n\n\n\n3n < 2nd + 2f - 4 \n\nn - e + f = 2 \n\nn + f - 2 = e \n\n3n - 3n + 4 < f \n\nn + 4 < 2f \n\nn\nf\n2 +\n",
+                "images": [
+                    "assets/Discrete Mathematics/DM_Graph_Theory_P33_X3936.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "DM_GRAPH_THEORY_2012_Q32",
+            "subject": "Discrete Mathematics",
+            "topic": "Graph Theory",
+            "subtopic": "+",
+            "year": 2012,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 32,
+            "tags": [
+                "Graph Theory",
+                "+",
+                "Discrete Mathematics"
+            ],
+            "question": {
+                "text": "Let G be a simple undirected planar graph on 10 \nvertices with 15 edges. If G is a connected graph, \nthen the number of bounded faces in any embedding \nof G on the plane is equal to",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "3",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "4",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "5",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "6",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "D"
+            ],
+            "solution": {
+                "text": "n = 10 e  \n= 15 \n\nn- e + f  \n= 2 \n\n10 - 15 + f  = 2 \n\n      - 5 + f \n= 2 \n\n               f  = 7 \n\nbounded = Total -1 \n\n= 7 - 1 \n\n= 6",
+                "images": [
+                    "assets/Discrete Mathematics/DM_Graph_Theory_P33_X3936.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        }
+    ]
+}

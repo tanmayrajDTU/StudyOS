@@ -26,7 +26,7 @@ export default async function DashboardLayout({
   }
 
   // 3. Get profile details
-  const { data: profile } = await supabase
+  let { data: profile } = await supabase
     .from('profiles')
     .select('*')
     .eq('id', user.id)
@@ -35,6 +35,14 @@ export default async function DashboardLayout({
   // 4. Trigger auto-seeding on first run
   try {
     await checkAndSeedUser()
+    if (!profile) {
+      const { data: refetchedProfile } = await supabase
+        .from('profiles')
+        .select('*')
+        .eq('id', user.id)
+        .single()
+      profile = refetchedProfile
+    }
   } catch (err) {
     console.error('Auto-seeding failed in layout:', err)
   }

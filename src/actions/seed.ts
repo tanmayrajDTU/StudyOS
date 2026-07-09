@@ -21,6 +21,28 @@ export async function checkAndSeedUser() {
     throw new Error('Unauthorized account')
   }
 
+  // Check if profile exists (handles table reset condition)
+  const { data: profile, error: profileErr } = await supabase
+    .from('profiles')
+    .select('id')
+    .eq('id', user.id)
+    .single()
+
+  if (profileErr || !profile) {
+    console.log('Profile missing. Creating profile record for:', user.id)
+    const { error: insertProfileErr } = await supabase
+      .from('profiles')
+      .insert({
+        id: user.id,
+        email: user.email,
+        full_name: user.user_metadata?.full_name || user.user_metadata?.name || 'Authorized User',
+        avatar_url: user.user_metadata?.avatar_url || '',
+        daily_target_hours: 8.00
+      })
+
+    if (insertProfileErr) throw insertProfileErr
+  }
+
   try {
     // 3. Check if user already has subjects
     const { data: existingSubjects, error: checkError } = await supabase
@@ -104,7 +126,11 @@ export async function checkAndSeedUser() {
     console.log('Seeding completed successfully!')
     return { seeded: true, message: 'All subjects and lectures initialized successfully.' }
   } catch (err: unknown) {
-    const errorObj = err as { message?: string; details?: string; hint?: string } | null
+    const errorObj = err as { message?: string; details?: string; hint?: string; code?: string } | null
+    if (errorObj?.code === '23505') {
+      console.log('Parallel seeding detected. Subjects already initialized.')
+      return { seeded: false, message: 'Subjects already initialized by parallel thread.' }
+    }
     const message = errorObj?.message || 'Seeding failed.'
     console.error('Seeding transaction failed:', message, errorObj?.details || '', errorObj?.hint || '')
     throw new Error(`${message}${errorObj?.details ? ': ' + errorObj.details : ''}`)

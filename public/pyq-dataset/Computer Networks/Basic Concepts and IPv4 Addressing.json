@@ -1,0 +1,1010 @@
+{
+    "subject": "Computer Networks",
+    "topic": "Basic Concepts and IPv4 Addressing",
+    "questionCount": 14,
+    "questions": [
+        {
+            "id": "CN_BASIC_CONCEPTS_AND_IPV4_ADDRESSING_2014_Q01",
+            "subject": "Computer Networks",
+            "topic": "Basic Concepts and IPv4 Addressing",
+            "subtopic": "OSI Model",
+            "year": 2014,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 1,
+            "tags": [
+                "Basic Concepts and IPv4 Addressing",
+                "OSI Model",
+                "Computer Networks"
+            ],
+            "question": {
+                "text": "In the following pairs of OSI protocol layer/sub-\nlayer and its functionality, the INCORRECT pair is",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "Network layer and Routing",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "Data Link Layer and Bit synchronization",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "Transport layer and End-to-end process \ncommunication",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "Medium Access Control sub-layer and Channel \nsharing. \nClassful Addressing",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "B"
+            ],
+            "solution": {
+                "text": "Option b is incorrect because bit synchronization is   \nthe functionality of physical layer.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "CN_BASIC_CONCEPTS_AND_IPV4_ADDRESSING_2012_Q02",
+            "subject": "Computer Networks",
+            "topic": "Basic Concepts and IPv4 Addressing",
+            "subtopic": "Classful Addressing",
+            "year": 2012,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 2,
+            "tags": [
+                "Basic Concepts and IPv4 Addressing",
+                "Classful Addressing",
+                "Computer Networks"
+            ],
+            "question": {
+                "text": "In the IPv4 addressing format, the number of \nnetworks allowed under Class C addresses is:",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "214",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "27",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "221",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "224 \nSubnetting",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "C"
+            ],
+            "solution": {
+                "text": "NID \nHID \n\n\n\n\n\n\n110 2\n| 1bit \n\n\n\n\n↓ \n\nThe number of networks in class C = 221 \n\nSo, option C is the correct answer.",
+                "images": [
+                    "assets/Computer Networks/CN_Basic_Concepts_and_IPv4_Addressing_P6_X901.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "CN_BASIC_CONCEPTS_AND_IPV4_ADDRESSING_2023_Q03",
+            "subject": "Computer Networks",
+            "topic": "Basic Concepts and IPv4 Addressing",
+            "subtopic": "Subnetting",
+            "year": 2023,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 3,
+            "tags": [
+                "Basic Concepts and IPv4 Addressing",
+                "Subnetting",
+                "Computer Networks"
+            ],
+            "question": {
+                "text": "The forwarding table of a router is shown below. \nSubnet Number Subnet Mask \nInterface \nID \n200.150.0.0 \n255.255.0.0 \n200.150.64.0 \n255.255.224.0 \n200.150.68.0 \n255.255.255.0 \n200.150.68.64 \n255.255.255. 224 \ndefault \n\n\nA packet addressed to a destination address \n200.150.68.118 arrives at the router. It will be \nforwarded to the interface with ID_____ .",
+                "images": [],
+                "latex": [],
+                "tables": [
+                    {
+                        "headers": [
+                            "Network No.",
+                            "Net Mask",
+                            "Next Hop"
+                        ],
+                        "rows": [
+                            [
+                                "128.96.170.0",
+                                "255.255.254.0",
+                                "Interface 0"
+                            ],
+                            [
+                                "128.96.168.0",
+                                "255.255.254.0",
+                                "Interface 1"
+                            ],
+                            [
+                                "128.96.166.0",
+                                "255.255.254.0",
+                                "R2"
+                            ],
+                            [
+                                "128.96.164.0",
+                                "255.255.252.0",
+                                "R3"
+                            ],
+                            [
+                                "0.0.0.0",
+                                "Default",
+                                "R4"
+                            ]
+                        ]
+                    },
+                    {
+                        "headers": [
+                            "Subnet Number",
+                            "Subnet Mask",
+                            "Interface ID"
+                        ],
+                        "rows": [
+                            [
+                                "200.150.0.0",
+                                "255.255.0.0",
+                                "1"
+                            ],
+                            [
+                                "200.150.64.0",
+                                "255.255.224.0",
+                                "2"
+                            ],
+                            [
+                                "200.150.68.0",
+                                "255.255.255.0",
+                                "3"
+                            ],
+                            [
+                                "200.150.68.64",
+                                "255.255.255. 224",
+                                "4"
+                            ],
+                            [
+                                "default",
+                                "",
+                                "0"
+                            ]
+                        ]
+                    }
+                ]
+            },
+            "options": [],
+            "correctAnswer": [
+                "3"
+            ],
+            "solution": {
+                "text": "First start with the longest subnet mask \n\nI \n\n\n200.150.68.01110110 \n\n\n\n\n\nAND \n\n\n\n\n255.255.255.11100000 \n\n\nNID = \n200.150.68.96 \n\n\nNot matched with interface (4)  \n\nII   \n\n200.150.68.118 \n\n\n\n\n       AND \n\n\n\n\n255.255.255.0 \n\n\nNID = \n200.150.68.0 \n\n\nMatched with interface (3) \n\nNo need to check further if it matches with more \nthan one interfaces then we choose longest subnet \nmask.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "CN_BASIC_CONCEPTS_AND_IPV4_ADDRESSING_2019_Q04",
+            "subject": "Computer Networks",
+            "topic": "Basic Concepts and IPv4 Addressing",
+            "subtopic": "forwarded to the interface with ID_____ .",
+            "year": 2019,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 4,
+            "tags": [
+                "Basic Concepts and IPv4 Addressing",
+                "forwarded to the interface with ID_____ .",
+                "Computer Networks"
+            ],
+            "question": {
+                "text": "Consider three machines M, N and P with IP \naddresses 100.10.5.2, 100.10.5.5, and 100.10.5.6 \nrespectively. \nThe \nsubnet \nmask \nis \nset \nto \n255.255.255.252 for all the three machines. Which \none of the following is true?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "M, N, and P all belong to the same subnet",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "Only M and N belong to the same subnet",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "Only N and P belong to the same subnet",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "Only N and P belong to the same subnet",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "C"
+            ],
+            "solution": {
+                "text": "IP address \n\n\n\nAND \n\nSubnetMask\nSubnetid \n\n\n\n M: 100.10.5.00000010 \n\n\n\nAND \n\n\n255.255.255.11111100 \n\nSID = 100.10.5.0  \n\nN : 100.10.5.00000101 \n\n\n\nAND \n\n\n255.255.255.11111100 \n\nSID = 100.10.5.00000100 \n\nSID = 100.10.5.4 \n\n\nP : 100.10.5.00000110 \n\n\n\nAND \n\n\n255.255.255.11111100 \n\nSID = 100.10.5.00000100 \n\n\n    100.10.5.4  \n\n\nN & P belong to same subnet. So, option c is the \nanswer.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "CN_BASIC_CONCEPTS_AND_IPV4_ADDRESSING_2015_Q05",
+            "subject": "Computer Networks",
+            "topic": "Basic Concepts and IPv4 Addressing",
+            "subtopic": "one of the following is true?",
+            "year": 2015,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 5,
+            "tags": [
+                "Basic Concepts and IPv4 Addressing",
+                "one of the following is true?",
+                "Computer Networks"
+            ],
+            "question": {
+                "text": "Consider the following routing table at an IP router: \nNetwork No. \nNet Mask \nNext Hop \n128.96.170.0 \n255.255.254.0 \nInterface 0 \n128.96.168.0 \n255.255.254.0 \nInterface 1 \n128.96.166.0 \n255.255.254.0 \nR2 \n128.96.164.0 \n255.255.252.0 \nR3 \n0.0.0.0 \nDefault \nR4 \n\nFor each IP address in Group-I identify the correct \nchoice of the next hop from Group-II using the \nentries from the routing table above. \n\n\n\nList-I \n\nList-II \n\nA. 128.96.171.92 \n1.  Interface 0 \n\nB. 128.96.167.151 \n2.  Interface 1 \n\nC.  128.96.163.151 \n3.  R2 \n\nD.  128.96.165.121 \n4.  R3 \n\n\n\n5.  R4 \n\nCodes: \n\na  \nb \n c \nd",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "1       3         5",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "1        4         2",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "2       3         4",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "2        3          5",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "A"
+            ],
+            "solution": {
+                "text": "Note: First start with longest mask   \n\n(a)  \n\n\n\n\n128.96.171.92 \n\n\n\nAND  \n\n\n255.255.254.0 \n\n NID = 128.96.170.0 \n\n\n\nMatched with interface (0) \n\n(b)  \n\n\n\n\n 128.96.167.151 \n\n\n\nAND  \n\n\n255.255.254.0 \n\n\nNID = 128.96.166.0 \n\n\nMatched with R2. \n\n(c)  \n\n\n\n\n 128.96.163.151 \n\n\n\nAND  \n\n\n255.255.254.0 \n\n NID = 128.96.162.0 \n\n\n\n\nNot matched \n\n\n128.96.163.151 \n\n\n\nAND  \n\n\n255.255.252.0 \n\n NID = 128.96.160.0 \n\n\n\n\nNot matched \n\nNote:- Does not match with any given interface then \n128.96.163.151 will forward to default interface R4. \n\n(d)  \n\n\n\n\n 128.96.165.121 \n\n\n\nAND  \n\n\n255.255.254.0 \n\n\n128.96.164.0 \n\n\n\n\n\n\n\n128.96.165.121 \n\n\n\nAND  \n\n\n255.255.252.0 \n\n\n128.96.164.0 \n\nMatched with R3. \n\nSo, option A is correct answer.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "CN_BASIC_CONCEPTS_AND_IPV4_ADDRESSING_2010_Q06",
+            "subject": "Computer Networks",
+            "topic": "Basic Concepts and IPv4 Addressing",
+            "subtopic": "d",
+            "year": 2010,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 6,
+            "tags": [
+                "Basic Concepts and IPv4 Addressing",
+                "d",
+                "Computer Networks"
+            ],
+            "question": {
+                "text": "Suppose computers A and B have IP addresses \n10.105.1.113 and 10.105.1.91 respectively and they \nboth use the same netmask N. Which of the values of \nN given below should not be used if A and B should \nbelong to the same network?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "255.255.255.0",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "255.255.255.128",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "255.255.255.192",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "255.255.255.224  \n\nCommon Data for Next Two Questions \n\nHost X has IP address 192.168.1.197 and is \nconnected through two routers R1 and R2 to another \nhost Y with IP address 192. 168. 1. 80. Router R1 \nhas IP addresses 192.168.1.135 and 192.168.1.110. \nR2 has IP addresses 192.168.1.67 and 192. \n168.1.155. The netmask used in the network is .",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "D"
+            ],
+            "solution": {
+                "text": "(a) 10.105.1.113  \n\n\n\nAND \n\n\n255.255.255.0  \n\n\nNID = 10.105.1.0 \n\n\n\n10.105.1.91 \n\n\n\nAND \n\n\n255.255.255.0  \n\n\nNID = 10.105.1.0 \n       So, option a is incorrect. \n(b) 10.105.1.113  \n\n\n\nAND \n\n\n255.255.255.128  \n\n\nNID = 10.105.1.0 \n\n\n\n\n\n10.105.1.91 \n\n\n\nAND \n\n\n255.255.255.128  \n\n\nNID = 10.105.1.0 \n       So, option b is incorrect \n\n(c) 10.105.1.113  \n\n\n\n\nAND \n\n\n255.255.255.192  \n\n\nNID = 10.105.1.64 \n\n\n\n10.105.1.91 \n\n\n\nAND \n\n\n255.255.255.192  \n\n\nNID = 10.105.1.64 \n\n       So, option c is incorrect \n\n (d)  \n10.105.1.113  \n\n\n\n\nAND \n\n\n\n255.255.255.224  \n\n\n NID = 10.105.1.96   \n\n\n\n\n10.105.1.91 \n\n\n\n\nAND \n\n\n\n255.255.255.224  \n\n\nNID = 10.105.1.64 \n\nSo, option d is the correct answer.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "CN_BASIC_CONCEPTS_AND_IPV4_ADDRESSING_2008_Q07",
+            "subject": "Computer Networks",
+            "topic": "Basic Concepts and IPv4 Addressing",
+            "subtopic": "R2 has IP addresses 192.168.1.67 and 192.",
+            "year": 2008,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 7,
+            "tags": [
+                "Basic Concepts and IPv4 Addressing",
+                "R2 has IP addresses 192.168.1.67 and 192.",
+                "Computer Networks"
+            ],
+            "question": {
+                "text": "Given the information above, how many distinct \nsubnets are guaranteed to already exist in the \nnetwork?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "1",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "2",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "3",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "6",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "C"
+            ],
+            "solution": {
+                "text": "Netmask: 255.255.255.224 \n\nI \n 192.168.1.97  \n\n\n\nAND \n\n      255.255.255.224  \n\n\nSID = 192.168.1.96 \n\n\n\nII  192.168.1.135  \n\n\n\n AND \n\n       255.255.255.224  \n\n\nSID = 192.168.1.128 \n\n\n\nIII  192.168.1.110  \n\n\n\nAND \n\n\n 255.255.255.224 \n\n\nSID = 192.168.1.96 \n\n\nIV  192.168.1.67  \n\n\n\nAND \n\n\n 255.255.255.224  \n\n\nSID = 192.168.1.64 \n\nV  192.168.1.155  \n\n\n\n    AND \n\n\n 255.255.255.224  \n\n\nSID = 192.168.1.128  \n\nVI  192.168.1.80  \n\n\n\nAND \n\n\n 255.255.255.224 \n\n\n\n SID = 192.168.1.64 \n\nDifferent subnet id's  \n\n192.168.1.96\n192.168.1.128\n192.168.1.64\n\n\n\n3 different subnet id's \n\nSo, option C is the correct answer.  \n\nShortcut \n\n\n255.255.255.111 00000 \n\n\n\nNID \nSID \nHID",
+                "images": [
+                    "assets/Computer Networks/CN_Basic_Concepts_and_IPv4_Addressing_P8_X1134.png",
+                    "assets/Computer Networks/CN_Basic_Concepts_and_IPv4_Addressing_P8_X1136.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "CN_BASIC_CONCEPTS_AND_IPV4_ADDRESSING_2008_Q08",
+            "subject": "Computer Networks",
+            "topic": "Basic Concepts and IPv4 Addressing",
+            "subtopic": "network?",
+            "year": 2008,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 8,
+            "tags": [
+                "Basic Concepts and IPv4 Addressing",
+                "network?",
+                "Computer Networks"
+            ],
+            "question": {
+                "text": "Which IP address should X configure its gateway as?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "192.168.1.67",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "192.168.1.110",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "92.168.1.135",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "192.168.1.155",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "B"
+            ],
+            "solution": {
+                "text": "X :  192.168.1.97 \n\n\n\nAND \n\n\n 255.255.255.224 \n\n\n192.168.1.96 \n\nNote: Gateway must also have the same subnet id \n\n(a) 192.168.1.67  \n\n\n\nAND \n\n\n255.255.255.224  \n\n\nSID = 192.168.1.64 \n\nSo, option a is incorrect.   \n\n(b) 192.168.1.110  \n\n\n       AND \n\n\n255.255.255.224  \n\n\nSID = 192.168.1.96 \n\nTherefore, option B is the correct answer.",
+                "images": [
+                    "assets/Computer Networks/CN_Basic_Concepts_and_IPv4_Addressing_P8_X1134.png",
+                    "assets/Computer Networks/CN_Basic_Concepts_and_IPv4_Addressing_P8_X1136.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "CN_BASIC_CONCEPTS_AND_IPV4_ADDRESSING_2008_Q09",
+            "subject": "Computer Networks",
+            "topic": "Basic Concepts and IPv4 Addressing",
+            "subtopic": "Which IP address should X configure its gateway as?",
+            "year": 2008,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 9,
+            "tags": [
+                "Basic Concepts and IPv4 Addressing",
+                "Which IP address should X configure its gateway as?",
+                "Computer Networks"
+            ],
+            "question": {
+                "text": "If a class B network on the Internet has a subnet mask \nof 255.255.248.0, what is the maximum number of \nhosts per subnet?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "1022",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "1023",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "2046",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "2047 \nClassless Addressing",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "C"
+            ],
+            "solution": {
+                "text": "Given,  \n\nSubnet Mask: 255.255.248.0  \n\nSM : 11111111.11111111.11111000.00000000 \nHID = 11 bit \n\nMaximum number of Hosts/Subnet  = 211 - 2 \n\n\n\n\n\n= 2048 - 2  \n\n\n\n\n\n= 2046 \n\nSo, option C is the correct answer.",
+                "images": [
+                    "assets/Computer Networks/CN_Basic_Concepts_and_IPv4_Addressing_P8_X1134.png",
+                    "assets/Computer Networks/CN_Basic_Concepts_and_IPv4_Addressing_P8_X1136.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "CN_BASIC_CONCEPTS_AND_IPV4_ADDRESSING_2020_Q10",
+            "subject": "Computer Networks",
+            "topic": "Basic Concepts and IPv4 Addressing",
+            "subtopic": "Classless Addressing",
+            "year": 2020,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 10,
+            "tags": [
+                "Basic Concepts and IPv4 Addressing",
+                "Classless Addressing",
+                "Computer Networks"
+            ],
+            "question": {
+                "text": "An organization requires a range of IP addresses to \nassign one to each of its 1500 computers. The \norganization has approached an Internet Service \nProvider (ISP) for this task. The ISP uses CIDR and \nserves the requests from the available IP address \nspace 202.61.0.0/17. The ISP wants to assign an \naddress space to the organization, which will \nminimize the number of routing entries in the ISP's \nrouter using route aggregation. Which of the \nfollowing address spaces are potential candidates \nfrom which the ISP can allot any one to the \norganization? \n\nI. \n202.61.84.0/21 \nII. 202.61.104.0/21 \n\nIII. 202.61.64.0/21 \nIV. 202.61.144.0/21",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "I and II only",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "II and III only",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "III and IV only",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "I and IV only",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "B"
+            ],
+            "solution": {
+                "text": "For 1500 computers HID must be minimum 11 \nbits  \n\n202.61.0.0/17 \n\n\nNID = 17bit, HID = 32 - 17 = 15bit \n\n202.61.0 - - - - - - - - . - - - - - - - -  \n\n 8 + 8 + 1          \nHID \n\n\nNID \n\n202.61.00000000 00000000 \\rightarrow 202.61.0.0 \n\n\n ⁞   \n⁞ \n⁞ \n\n202.61.01111111.11111111 \\rightarrow 202.61.127.255 \n\nI \n202.61.84.0/21 \n\n\nNID = 21, HID = 11 bit \n\n\nFirst IP address of the block must be divisible \nby size of the block means all host id bits \nshould be zero. \n\n\n202.61.01010100.00000000/211 \n\n\n\n   HID \n\n\nIt is incorrect \n\nII 202.61.01101000.00000000/211  \n\n\n\n     HID \n\n\nIt is correct \n\n\n\nIII 202.61.01000000.00000000/211  \n\n\n\n     HID \n\n\nIt is correct \n\n\n\n\nSo, option b is the correct answer.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "CN_BASIC_CONCEPTS_AND_IPV4_ADDRESSING_2015_Q11",
+            "subject": "Computer Networks",
+            "topic": "Basic Concepts and IPv4 Addressing",
+            "subtopic": "IV. 202.61.144.0/21",
+            "year": 2015,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 11,
+            "tags": [
+                "Basic Concepts and IPv4 Addressing",
+                "IV. 202.61.144.0/21",
+                "Computer Networks"
+            ],
+            "question": {
+                "text": "In the network 200.10.11.144/27, the fourth octet \n(in decimal) of the last IP address of the network \nwhich can be assigned to a host is _________",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "158"
+            ],
+            "solution": {
+                "text": "200.10.11.144/27 \n\nNID = 27 bit, HID = 5 bit \n\n200.10.11.10010000 \n\n8 +  8 + 8 + 3  HID \n\n\n\nNID \n\n200.10.11.100 - - - - -    \n\n\n\n\n\nHID \n\n200.10.11.10011110 \n\n\n\n↓ \n\n200.10.11.158",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "CN_BASIC_CONCEPTS_AND_IPV4_ADDRESSING_2014_Q12",
+            "subject": "Computer Networks",
+            "topic": "Basic Concepts and IPv4 Addressing",
+            "subtopic": "which can be assigned to a host is _________",
+            "year": 2014,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 12,
+            "tags": [
+                "Basic Concepts and IPv4 Addressing",
+                "which can be assigned to a host is _________",
+                "Computer Networks"
+            ],
+            "question": {
+                "text": "An IP router implementing Classless Inter-domain \nRouting (CIDR) receives a packet with address \n131.23.151.76. The router's routing table has the \nfollowing entries: \nPrefix \nOutput Interface Identifier \n131.16.0.0/12 \n131.28.0.0/14 \n131.19.0.0/16 \n131.22.0.0/15 \n\nThe identifier of the output interface on which this \npacket will be forwarded is _____",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "1"
+            ],
+            "solution": {
+                "text": "Prefix \nSubnet \nmask \nOutput \nInterface \nIdentifier \n131.16.0.0/12 \n255.240.0.0 \n131.28.0.0/14 \n255.252.0.0 \n131.19.0.0/16 \n255.255.0.0 \n131.22.0.0/15 \n255.254.0.0 \n\nFirst start with the longest subnet mask  \n\nI. DIP  \n=   131.23.151.76 \n\n\nAND \n AND \n\n\nSM           255.255.0.0 \n\n\nNID \n=    131.23.0.0 \n\n\nNot matched with interface (2) \n\nII. DIP  \n=  131.23.151.76 \n\n\nAND \nAND \n\n\nSM          255.254.0.0 \n\n\nNID \n=   131.22.0.0 \n\n\nMatched with interface (1) \n\n\n:  \n\n\nAND  \n   AND \n\n\n\n\n\n(22)",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "CN_BASIC_CONCEPTS_AND_IPV4_ADDRESSING_2012_Q13",
+            "subject": "Computer Networks",
+            "topic": "Basic Concepts and IPv4 Addressing",
+            "subtopic": "packet will be forwarded is _____",
+            "year": 2012,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 13,
+            "tags": [
+                "Basic Concepts and IPv4 Addressing",
+                "packet will be forwarded is _____",
+                "Computer Networks"
+            ],
+            "question": {
+                "text": "An Internet Service Provider (ISP) has the following \nchunk of CIDR-based IP addresses available with it: \n245.248.128.0/20. The ISP wants to give half of this \nchunk of addresses to Organization A, and a quarter \nof Organization B, while retaining the remaining \nwith itself. Which of the following is a valid \nallocation of addresses to A and B?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "245.248.136.0/21 and 245.248.128.0/22",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "245.248.128.0/21 and 245.248.128.0/22",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "245.248.132.0/22 and 245.248.132.0/21",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "245.248.136.0/24 and 245.248.132.0/21 \nSupernetting",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "A"
+            ],
+            "solution": {
+                "text": "Given,  \n\n\n  245.248.128.0/20 \n\n NID = 20 bit, HID = 32 - 20 = 12 bit \n\n\n\n\n\n 245.248.1000 . . . . . . . .  \n\n\nNID \nHID \n\nNumber of IP Addresses = 212\n\nOr  \n\n\nSo, option a is the correct answer.",
+                "images": [
+                    "assets/Computer Networks/CN_Basic_Concepts_and_IPv4_Addressing_P10_X1277.png",
+                    "assets/Computer Networks/CN_Basic_Concepts_and_IPv4_Addressing_P10_X1279.png",
+                    "assets/Computer Networks/CN_Basic_Concepts_and_IPv4_Addressing_P10_X1281.png"
+                ],
+                "latex": [],
+                "tables": [
+                    {
+                        "headers": [
+                            "Prefix",
+                            "Subnet mask",
+                            "Output Interface Identifier"
+                        ],
+                        "rows": [
+                            [
+                                "131.16.0.0/12",
+                                "255.240.0.0",
+                                "3"
+                            ],
+                            [
+                                "131.28.0.0/14",
+                                "255.252.0.0",
+                                "5"
+                            ],
+                            [
+                                "131.19.0.0/16",
+                                "255.255.0.0",
+                                "2"
+                            ],
+                            [
+                                "131.22.0.0/15",
+                                "255.254.0.0",
+                                "1"
+                            ]
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "id": "CN_BASIC_CONCEPTS_AND_IPV4_ADDRESSING_2022_Q14",
+            "subject": "Computer Networks",
+            "topic": "Basic Concepts and IPv4 Addressing",
+            "subtopic": "Supernetting",
+            "year": 2022,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MSQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 14,
+            "tags": [
+                "Basic Concepts and IPv4 Addressing",
+                "Supernetting",
+                "Computer Networks"
+            ],
+            "question": {
+                "text": "Consider routing table of an organization's router \nshown below: \n\nSubnet Number Subnet Mask \nNext Hop \n12.20.164.0 \n255.255.252.0 \nR1 \n12.20.170.0 \n255.255.254.0 \nR2 \n12.20.168.0 \n255.255.254.0 Interface 0 \n12.20.166.0 \n255.255.254.0 Interface 1 \ndefault \n\nR3 \n\nWhich of the following prefixes in CIDR notation \ncan be collectively used to correctly aggregate all of \nthe subnets in the routing table?",
+                "images": [],
+                "latex": [],
+                "tables": [
+                    {
+                        "headers": [
+                            "Subnet Number",
+                            "Subnet Mask",
+                            "Next Hop"
+                        ],
+                        "rows": [
+                            [
+                                "12.20.164.0",
+                                "255.255.252.0",
+                                "R1"
+                            ],
+                            [
+                                "12.20.170.0",
+                                "255.255.254.0",
+                                "R2"
+                            ],
+                            [
+                                "12.20.168.0",
+                                "255.255.254.0",
+                                "Interface 0"
+                            ],
+                            [
+                                "12.20.166.0",
+                                "255.255.254.0",
+                                "Interface 1"
+                            ],
+                            [
+                                "default",
+                                "",
+                                "R3"
+                            ]
+                        ]
+                    },
+                    {
+                        "headers": [
+                            "Prefix",
+                            "Output Interface Identifier"
+                        ],
+                        "rows": [
+                            [
+                                "131.16.0.0/12",
+                                "3"
+                            ],
+                            [
+                                "131.28.0.0/14",
+                                "5"
+                            ],
+                            [
+                                "131.19.0.0/16",
+                                "2"
+                            ],
+                            [
+                                "131.22.0.0/15",
+                                "1"
+                            ]
+                        ]
+                    }
+                ]
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "12.20.164.0/20",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "12.20.164.0/22",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "12.20.164.0/21",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "12.20.168.0/22",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "B",
+                "D"
+            ],
+            "solution": {
+                "text": "12.20.164.0/23 \n12.20.170.0/23 \n12.20.168.0/23 \n12.20.166.0/23 \n\nI. \n\n\n\nII. \n\n\nIII. \n\nIV.  \n\n\nNetwork IV is the part of Network I so we can just \nignore Network IV \nI. 12. 20. 164. 0/22 \nII. 12.20.170.0/23 \nIII. 12.20.168.0/23 \n\n\n\nCan't combine further so answer is option b and d.",
+                "images": [
+                    "assets/Computer Networks/CN_Basic_Concepts_and_IPv4_Addressing_P10_X1277.png",
+                    "assets/Computer Networks/CN_Basic_Concepts_and_IPv4_Addressing_P10_X1279.png",
+                    "assets/Computer Networks/CN_Basic_Concepts_and_IPv4_Addressing_P10_X1281.png"
+                ],
+                "latex": [],
+                "tables": [
+                    {
+                        "headers": [
+                            "Prefix",
+                            "Subnet mask",
+                            "Output Interface Identifier"
+                        ],
+                        "rows": [
+                            [
+                                "131.16.0.0/12",
+                                "255.240.0.0",
+                                "3"
+                            ],
+                            [
+                                "131.28.0.0/14",
+                                "255.252.0.0",
+                                "5"
+                            ],
+                            [
+                                "131.19.0.0/16",
+                                "255.255.0.0",
+                                "2"
+                            ],
+                            [
+                                "131.22.0.0/15",
+                                "255.254.0.0",
+                                "1"
+                            ]
+                        ]
+                    }
+                ]
+            }
+        }
+    ]
+}

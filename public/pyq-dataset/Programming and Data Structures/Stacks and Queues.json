@@ -1,0 +1,703 @@
+{
+    "subject": "Programming and Data Structures",
+    "topic": "Stacks and Queues",
+    "questionCount": 12,
+    "questions": [
+        {
+            "id": "PDS_STACKS_AND_QUEUES_2023_Q01",
+            "subject": "Programming and Data Structures",
+            "topic": "Stacks and Queues",
+            "subtopic": "Operation on Stack",
+            "year": 2023,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 1,
+            "tags": [
+                "Stacks and Queues",
+                "Operation on Stack",
+                "Programming and Data Structures"
+            ],
+            "question": {
+                "text": "Consider a sequence a of elements a0 = 1, a1 = 5, \na2 = 7, a3 = 8, a4 = 9, and a5 = 2. The following \noperations are performed on a stack S and a queue Q, \nboth of which are initially empty. \n\nI: \npush the elements of a from a0 to a5 in that \norder into S. \n\nII: \nenqueue the elements of a from a0 to a5 in that \norder into Q. \n\nIII: \npop an element from S. \n\nIV: \ndequeue an element from Q. \n\nV: \npop an element from S. \n\nVI: \ndequeue an element from Q. \n\nVII:  dequeue an element from Q and push the \nsame element into S. \n\nVIII:  Repeat operation VII three times. \n\nIX:  \npop an element from S. \n\nX:  \npop an element from S. \n\nThe top element of S after executing the above \noperations is _______.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "8"
+            ],
+            "solution": {
+                "text": "Step 1: \n Step 2: \n\n\n\n\n\nStep 3 to 8: \n\n\nStep 9 & 10:",
+                "images": [
+                    "assets/Programming and Data Structures/PDS_Stacks_and_Queues_P73_X931.png",
+                    "assets/Programming and Data Structures/PDS_Stacks_and_Queues_P73_X6803.png",
+                    "assets/Programming and Data Structures/PDS_Stacks_and_Queues_P73_X6805.png",
+                    "assets/Programming and Data Structures/PDS_Stacks_and_Queues_P73_X6807.png",
+                    "assets/Programming and Data Structures/PDS_Stacks_and_Queues_P73_X6809.png",
+                    "assets/Programming and Data Structures/PDS_Stacks_and_Queues_P73_X6811.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "PDS_STACKS_AND_QUEUES_2015_Q02",
+            "subject": "Programming and Data Structures",
+            "topic": "Stacks and Queues",
+            "subtopic": "operations is _______.",
+            "year": 2015,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 2,
+            "tags": [
+                "Stacks and Queues",
+                "operations is _______.",
+                "Programming and Data Structures"
+            ],
+            "question": {
+                "text": "Consider the C program below. \n\n#include <stdio.h> \n\nint * A, stkTop; \n\nint stkFunc (int opcode, int val) \n\n{ \n\n static int size = 0, stkTop = 0; \n\n switch (opcode) \n\n{ \n\n case -1: size = val; break; \n\n case 0: if (stkTop < size)  A[stkTop++] = val; break; \n\n default: if (stkTop) return A[- -stkTop]; \n\n} \n\n return - 1; \n\n} \n\n int main () \n\n{ \n\n int B[20]; A = B; stkTop = - 1; \n\n stkFunc (-1, 10); \n\n stkFunc (0, 5); \n\n stkFunc (0, 10); \n\n printf(\"%d \\ n\", stkFunc(1, 0) + stkFunc (1, 0) ); \n\n}   \n\nThe value printed by the above program is _____ \n\nInfix Postfix and Prefix Notations",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "15"
+            ],
+            "solution": {
+                "text": "stkFunc:   \n\nImplementation of stack with 3 choice/ \n\nCase 1: \n\n\nSet the size of the stack \n\nCase 0: \n\n\nPush ( ) \nWhether stack is full or not if the stack is not full,  \n Push an element  \n Increment stk top \nDefault: \nIf stack is not empty then, Pop the top element & \nreturn it and decrease the top pointer. \nStack size = 10 push 5 and 10 on to stack.  \n\n\nstkFunc (1, 10);→ POP and return top most element \n10 stkFunc (0, 5); \\rightarrow POP and return 5 \n\nFinal output = 10 + 5 = 15.",
+                "images": [
+                    "assets/Programming and Data Structures/PDS_Stacks_and_Queues_P73_X931.png",
+                    "assets/Programming and Data Structures/PDS_Stacks_and_Queues_P73_X6803.png",
+                    "assets/Programming and Data Structures/PDS_Stacks_and_Queues_P73_X6805.png",
+                    "assets/Programming and Data Structures/PDS_Stacks_and_Queues_P73_X6807.png",
+                    "assets/Programming and Data Structures/PDS_Stacks_and_Queues_P73_X6809.png",
+                    "assets/Programming and Data Structures/PDS_Stacks_and_Queues_P73_X6811.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "PDS_STACKS_AND_QUEUES_2015_Q03",
+            "subject": "Programming and Data Structures",
+            "topic": "Stacks and Queues",
+            "subtopic": "Infix Postfix and Prefix Notations",
+            "year": 2015,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 3,
+            "tags": [
+                "Stacks and Queues",
+                "Infix Postfix and Prefix Notations",
+                "Programming and Data Structures"
+            ],
+            "question": {
+                "text": "The result evaluating the postfix expression 10 5 + \n60 6 / * 8 - is",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "284",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "213",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "142",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "71 \n\nApplications of Stack",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "C"
+            ],
+            "solution": {
+                "text": "Two methods:  \n\n(i) without using stack  \n\n(ii) using stack  \n\n10, 5, + 60, 6, 1, *, 8, - \n\n(i) Without Stack:  \n\nScan from left to right & whenever an operator is \nencountered just put in between previous 2 operand \nand find result. \n• \n10, 5, +  \n\n10 + 5 = 15 \n\n15, 60, 6, 1, *, 8,  - \n(i) 15, 60, 6, /, *, 8 - put division in between 60 and \n(ii) 15, 10, *, 8, - put * between 15 and 10 \n(iii) 15 * 10, 8, -  \n\n150, 8 - \n(iv) 150, 8, - put - in between 150 and 8 \n\n150 - 8 = 142 \n\nUsing stack: \n• \nScan \\Rightarrow left to right  \n(i) Operand \\Rightarrow Push it \n(ii) Operator  \n(a) Pop top 2 elements from stack let first popped \nelement is A & second popped elements is B. \n(b) Evaluate B  A (where  is the operator found) \n(c) Push the result of previous step onto stack. \n\nKeep repeating the above, once the input is over \nat the end, stack top element is the answer. \n\n10, 5, +, 60, 6, /, *, 8,  - \n\nPush 10: \n\n\n\n\n\n\nPush 5: \n\n\n\n\n\n+ Operator is coming, pop the top two elements and \ncalculating the result.  \n\nResult = 10 + 5 = 15 \n\nAnd push the result into stack. \n\nPush 60: \n\n\n\n\n\nPush 6: \n\n\n\n\n\n/ Operator is coming, pop the top two elements and \ncalculating the result. \n\nResult = 60 / 6 = 10. And push the result into stack. \n\nPush 10 (result): \n\n\n\n\n\n* Operator is coming, pop the top two elements and \ncalculating the result. \n\nResult = 15 \\times 10 = 150 \n\nAnd push the result into stack. \n\nPush 150 (result):  \n\n\n\n\n\nPush 8:  \n\n\n\n\n\n\n- Operator is coming, pop the top two elements and \ncalculating the result. \n\nResult = 150 - 8 = 142",
+                "images": [
+                    "assets/Programming and Data Structures/PDS_Stacks_and_Queues_P74_X6909.png",
+                    "assets/Programming and Data Structures/PDS_Stacks_and_Queues_P74_X6913.png",
+                    "assets/Programming and Data Structures/PDS_Stacks_and_Queues_P74_X6915.png",
+                    "assets/Programming and Data Structures/PDS_Stacks_and_Queues_P74_X6917.png",
+                    "assets/Programming and Data Structures/PDS_Stacks_and_Queues_P74_X6919.png",
+                    "assets/Programming and Data Structures/PDS_Stacks_and_Queues_P74_X6921.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "PDS_STACKS_AND_QUEUES_2014_Q04",
+            "subject": "Programming and Data Structures",
+            "topic": "Stacks and Queues",
+            "subtopic": "Applications of Stack",
+            "year": 2014,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 4,
+            "tags": [
+                "Stacks and Queues",
+                "Applications of Stack",
+                "Programming and Data Structures"
+            ],
+            "question": {
+                "text": "Suppose, a stack implementation supports an \ninstruction REVERSE, which reverses the order of \nelements on the stack, in addition to the PUSH and \nPOP instructions. Which one of the following \nstatements is TRUE (with respect to this modified \nstack)?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "A queue cannot be implemented using this stack.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "A queue can be implemented where ENQUEUE \ntakes a single instruction and DEQUEUE takes \nsequence of two instructions.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "A queue can be implemented where ENQUEUE \ntakes a sequence of three instructions and \nDEQUEUE takes a single instruction",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "A queue can be implemented where both \nENQUEUE and DEQUEUE take a single \ninstruction each. \n\nOperations on Queues",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "C"
+            ],
+            "solution": {
+                "text": "(i) \nPush (S, 10)  \n\n\n(ii) \nPush (S, 20) \n\n\n(iii) Push (S, 30)  \n\n\nGiven: Stack with 3 operation (Push/Pop/Reverse) \nQueue: First in first out  \n\n(i) \nLet Enqueue is implemented using Push \n\nEnqueue (20) \\Rightarrow Push (20)  \n\n\nEnqueue (30) \\Rightarrow Push (30) \n\nEnqueue (40) \\Rightarrow Push (40) \n\n\nOrder: 10,20,30,40 \nSo, as per Queue Policy, 0 is to be deleted first \\Rightarrow \nbut we cannot delete any other element except top \nelement from stack. \nWe need 10 at the top of stack:- REVERSE \n\n\nOrder: 10,20,30,40 \n\n\n\nAnother implement can be just reversed way",
+                "images": [
+                    "assets/Programming and Data Structures/PDS_Stacks_and_Queues_P74_X6909.png",
+                    "assets/Programming and Data Structures/PDS_Stacks_and_Queues_P74_X6913.png",
+                    "assets/Programming and Data Structures/PDS_Stacks_and_Queues_P74_X6915.png",
+                    "assets/Programming and Data Structures/PDS_Stacks_and_Queues_P74_X6917.png",
+                    "assets/Programming and Data Structures/PDS_Stacks_and_Queues_P74_X6919.png",
+                    "assets/Programming and Data Structures/PDS_Stacks_and_Queues_P74_X6921.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "PDS_STACKS_AND_QUEUES_2022_Q05",
+            "subject": "Programming and Data Structures",
+            "topic": "Stacks and Queues",
+            "subtopic": "Operations on Queues",
+            "year": 2022,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 5,
+            "tags": [
+                "Stacks and Queues",
+                "Operations on Queues",
+                "Programming and Data Structures"
+            ],
+            "question": {
+                "text": "Consider the queues Q1 containing four elements \nand Q2 containing none (shown as the Initial State in \nthe figure). The only operations allowed on these \ntwo \nqueues \nare \nEnqueue(Q, \nelement) \nand \nDequeue(Q). The minimum number of Enqueue \noperations on Q1 required to place the elements of \nQ1 in Q2 in reverse order (shown as the Final State \nin the figure) without using any additional storage \nis___________.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "0"
+            ],
+            "solution": {
+                "text": "(i)  Assume: size of Q2 > 4 \n\n(ii) No addition storage \n\nEnqueue (Q2, Dequeue (Q1)); No additional storage \n\n\n\n\n\nEnque(Q2 Deque (Q1)) \n\nEnque(Q2 Deque (Q2))",
+                "images": [
+                    "assets/Programming and Data Structures/PDS_Stacks_and_Queues_P76_X7075.png",
+                    "assets/Programming and Data Structures/PDS_Stacks_and_Queues_P76_X7077.png",
+                    "assets/Programming and Data Structures/PDS_Stacks_and_Queues_P76_X7079.png",
+                    "assets/Programming and Data Structures/PDS_Stacks_and_Queues_P76_X7081.png",
+                    "assets/Programming and Data Structures/PDS_Stacks_and_Queues_P76_X7083.png",
+                    "assets/Programming and Data Structures/PDS_Stacks_and_Queues_P76_X7085.png",
+                    "assets/Programming and Data Structures/PDS_Stacks_and_Queues_P76_X7087.png",
+                    "assets/Programming and Data Structures/PDS_Stacks_and_Queues_P76_X7093.png",
+                    "assets/Programming and Data Structures/PDS_Stacks_and_Queues_P76_X7095.png",
+                    "assets/Programming and Data Structures/PDS_Stacks_and_Queues_P76_X7097.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "PDS_STACKS_AND_QUEUES_2021_Q06",
+            "subject": "Programming and Data Structures",
+            "topic": "Stacks and Queues",
+            "subtopic": "is___________.",
+            "year": 2021,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 6,
+            "tags": [
+                "Stacks and Queues",
+                "is___________.",
+                "Programming and Data Structures"
+            ],
+            "question": {
+                "text": "Consider the following sequence of operations on an \nempty stack. \n\npush(54); push(52); pop(); push(55); push(62); s = \npop(); \n\nConsider the following sequence of operations on an \nempty queue.  \n\nenqueue(21); enqueue(24); dequeue(); enqueue(28); \nenqueue(32);  q = dequeue();  \n\nThe value of s + q is ________",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "86"
+            ],
+            "solution": {
+                "text": "Stack operation: \n\n(1) Push (54): \n\n\n(2) Push (52): \n\n\n(3) POP ( ): \n\n\n\n(4) Push (55): \n\n\n(5) Push (62): \n\n\n(6) s = POP ( ): \n\n\ns = 62  \n\nQueue Operation: \n\n\n\nq = dequeue: \n\n\nq = 24 \n\ns + q = 62 + 24 = 86",
+                "images": [
+                    "assets/Programming and Data Structures/PDS_Stacks_and_Queues_P75_X7002.png",
+                    "assets/Programming and Data Structures/PDS_Stacks_and_Queues_P75_X7002.png",
+                    "assets/Programming and Data Structures/PDS_Stacks_and_Queues_P75_X7015.png",
+                    "assets/Programming and Data Structures/PDS_Stacks_and_Queues_P75_X7009.png",
+                    "assets/Programming and Data Structures/PDS_Stacks_and_Queues_P75_X7011.png",
+                    "assets/Programming and Data Structures/PDS_Stacks_and_Queues_P75_X7013.png",
+                    "assets/Programming and Data Structures/PDS_Stacks_and_Queues_P75_X7017.png",
+                    "assets/Programming and Data Structures/PDS_Stacks_and_Queues_P75_X7019.png",
+                    "assets/Programming and Data Structures/PDS_Stacks_and_Queues_P75_X7021.png",
+                    "assets/Programming and Data Structures/PDS_Stacks_and_Queues_P75_X7023.png",
+                    "assets/Programming and Data Structures/PDS_Stacks_and_Queues_P75_X7025.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "PDS_STACKS_AND_QUEUES_2018_Q07",
+            "subject": "Programming and Data Structures",
+            "topic": "Stacks and Queues",
+            "subtopic": "The value of s + q is ________",
+            "year": 2018,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 7,
+            "tags": [
+                "Stacks and Queues",
+                "The value of s + q is ________",
+                "Programming and Data Structures"
+            ],
+            "question": {
+                "text": "A queue is implemented using a non-circular singly \nlinked list. The queue has a head pointer and tail \npointer, as shown in the figure. Let n denote of \nnumber of nodes in the queue. Let 'enqueue' be \nimplemented by inserting a new node at the head and \n'dequeue' be implemented by deletion of a node \nfrom the tail. \n\n\nWhich one of the following is the time complexity \nof the most time-efficient implementation of \nenqueue and dequeue, respectively, for this data \nstructure?",
+                "images": [
+                    "assets/Programming and Data Structures/PDS_Stacks_and_Queues_P71_X6678.png"
+                ],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "( )1 , (1)\n\n",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "( )1 , ( )n\n\n",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "( ), (1)\nn\n\n",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "( ), ( )\nn\nn\n\n",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "B"
+            ],
+            "solution": {
+                "text": "struct node temp = malloc  (size of (struct node)) \n\n\nEnqueue: \n\n(a) struct node temp = malloc (size of (struct node)) \n(b) fill the data \n(c) temp \\rightarrow link = head \n(d)  head = temp \nfixed number of instructions \\Rightarrow (1) \n\nDequeue: \n(1) After deletion of last node second last node will \nbecome the last node & that's why we must \nassign NULL in the link field of 2nd last node. \nHow to delete last node? \nWe need to reach second last node or to delete a \nnode you need to travel from 1st node to last node. \nBecause we have singly limited list \n  Traversal till last node is depends on the number \nof nodes.  \nTime Complexity = \n( )\nn\n",
+                "images": [
+                    "assets/Programming and Data Structures/PDS_Stacks_and_Queues_P77_X7148.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "PDS_STACKS_AND_QUEUES_2017_Q08",
+            "subject": "Programming and Data Structures",
+            "topic": "Stacks and Queues",
+            "subtopic": "",
+            "year": 2017,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 8,
+            "tags": [
+                "Stacks and Queues",
+                "",
+                "Programming and Data Structures"
+            ],
+            "question": {
+                "text": "A circular queue has been implemented using a \nsingly linked list where each node consists of a value \nand a single pointer pointing to the next node. We \nmaintain exactly two external pointers FRONT and \nREAR pointing to the front node and the rear node \nof the queue, respectively. Which of the following \nstatements is/are CORRECT for such a circular \nqueue, so that insertion and deletion operations can \nbe performed in O(1) time? \n\nI.  Next pointer of front node points to the rear \nnode. \n\nII. Next pointer of rear node points to the front node",
+                "images": [
+                    "assets/Programming and Data Structures/PDS_Stacks_and_Queues_P71_X6676.png"
+                ],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "I only",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "II only",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "Both I and II",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "Neither I nor II",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "B"
+            ],
+            "solution": {
+                "text": "Enqueue \\rightarrow O (1)  \n\nDequeue \\rightarrow O (1) \n\nRear \\rightarrow next points to front \n\nEnqueue: \n\n\n\n(i)  temp \\rightarrow next = front or temp \\rightarrow next = Rear \\rightarrow \nnext; \n\n(ii) Rear \\rightarrow next = temp; \n\n(iii) Rear = temp; \n\nDequeue:  \n\n\n\nDelete node 10. \n(i) Rear \\rightarrow next (always point to front)  \n\nRear \\rightarrow next = front \\rightarrow next \n\n\n(ii) temp = front  \n(iii) front = Rear \\rightarrow next \n\n(iv) free (temp) \n\nHence, option (b) is correct.",
+                "images": [
+                    "assets/Programming and Data Structures/PDS_Stacks_and_Queues_P77_X7150.png",
+                    "assets/Programming and Data Structures/PDS_Stacks_and_Queues_P77_X7152.png",
+                    "assets/Programming and Data Structures/PDS_Stacks_and_Queues_P77_X7154.png",
+                    "assets/Programming and Data Structures/PDS_Stacks_and_Queues_P77_X7156.png",
+                    "assets/Programming and Data Structures/PDS_Stacks_and_Queues_P77_X7158.png",
+                    "assets/Programming and Data Structures/PDS_Stacks_and_Queues_P77_X7160.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "PDS_STACKS_AND_QUEUES_2016_Q09",
+            "subject": "Programming and Data Structures",
+            "topic": "Stacks and Queues",
+            "subtopic": "II. Next pointer of rear node points to the front node",
+            "year": 2016,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 9,
+            "tags": [
+                "Stacks and Queues",
+                "II. Next pointer of rear node points to the front node",
+                "Programming and Data Structures"
+            ],
+            "question": {
+                "text": "A queue is implemented using an array such that \nENQUEUE \nand \nDEQUEUE \noperations \nare \nperformed efficiently. Which one of the following \nstatements is CORRECT (n refers to the number of \nitems in the queue)?",
+                "images": [
+                    "assets/Programming and Data Structures/PDS_Stacks_and_Queues_P71_X6678.png"
+                ],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "Both operations can be performed in O(1) \ntime.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "At most one operation can be performed in \nO(1) time but the worst case time for the other \noperation will be Ω(n).",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "The worst case time complexity for both \noperations will be Ω(n).",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "Worst case time complexity for both \noperations will be Ω(log n).",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "A"
+            ],
+            "solution": {
+                "text": "Enqueue: \n• \nIf the array is full no need to do anything.  \n• \nElse Insert the new element at the end (Rear \nend) & also increment rear value. \n\nDequeue:  \n\nIf the array is empty then stop else delete element \nfrom front end & also update the value of front. \n\nBoth can be perform in O(1) time.",
+                "images": [
+                    "assets/Programming and Data Structures/PDS_Stacks_and_Queues_P77_X7150.png",
+                    "assets/Programming and Data Structures/PDS_Stacks_and_Queues_P77_X7152.png",
+                    "assets/Programming and Data Structures/PDS_Stacks_and_Queues_P77_X7154.png",
+                    "assets/Programming and Data Structures/PDS_Stacks_and_Queues_P77_X7156.png",
+                    "assets/Programming and Data Structures/PDS_Stacks_and_Queues_P77_X7158.png",
+                    "assets/Programming and Data Structures/PDS_Stacks_and_Queues_P77_X7160.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "PDS_STACKS_AND_QUEUES_2013_Q10",
+            "subject": "Programming and Data Structures",
+            "topic": "Stacks and Queues",
+            "subtopic": "operations will be Ω(log n).",
+            "year": 2013,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 10,
+            "tags": [
+                "Stacks and Queues",
+                "operations will be Ω(log n).",
+                "Programming and Data Structures"
+            ],
+            "question": {
+                "text": "Consider the following operation along with \nEnqueue and Dequeue operations on queues, where \nk is a global parameter. \n\n\nMultiDequeue(Q){ \n\n\nm = k; \n\n\nwhile (Q is not empty and m > 0) { \n\n\nDequeue (Q); \n\n\nm = m - 1; \n\n } \n\n} \n\nWhat is the worst case time complexity of a sequence \nof n MultiDequeue () operations on an initially \nempty queue?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "Θ(n)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "Θ(n + k)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "Θ(nk)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "Θ(n )",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "A"
+            ],
+            "solution": {
+                "text": "(1) Enqueue: Insert an element \n\n(2) Dequeue: Delete an element  \n\n 3 Operations: \n\n(1) Dequeue  \n\n(2) Enqueue \n\n(3) Multi Dequeue \n\nBecause the queue is initially empty \n\n  Number of dequeue  Number of Enqueue \ntotal number of operation =  (n)",
+                "images": [
+                    "assets/Programming and Data Structures/PDS_Stacks_and_Queues_P78_X7219.png",
+                    "assets/Programming and Data Structures/PDS_Stacks_and_Queues_P78_X7221.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "PDS_STACKS_AND_QUEUES_2012_Q11",
+            "subject": "Programming and Data Structures",
+            "topic": "Stacks and Queues",
+            "subtopic": "Θ(n )",
+            "year": 2012,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 11,
+            "tags": [
+                "Stacks and Queues",
+                "Θ(n )",
+                "Programming and Data Structures"
+            ],
+            "question": {
+                "text": "Suppose a circular queue of capacity (n-1) elements \nis implemented with an array of n elements. Assume \nthat the insertion and deletion operations are carried \nout using REAR and FRONT as array index \nvariables, respectively. Initially, REAR = FRONT \n= 0. The conditions to detect queue full and queue \nempty are",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "Full: (REAR + 1) mod n = = FRONT  \n\n\nEmpty: REAR = = FRONT",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "Full: (REAR + 1) mod n = = FRONT  \n\n\nEmpty: (FRONT + 1) mod n = = REAR",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "Full: REAR = = FRONT  \n\n\nEmpty:(REAR + 1) mod n = = FRONT",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "Full:(FRONT + 1) mod n = = REAR  \n\n\nEmpty: REAR = = FRONT \n\nApplications of Queues",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "A"
+            ],
+            "solution": {
+                "text": "Condition for Empty: Rear = Front = 0 \n\n(b) According to option b, Empty: (FRONT + 1) \n\nmod n = = REAR \n\n n = 5 size \n\n (Front +1) mode 5 = = 0 \n\n (0+1) mode 5 = = 0 \n\n 1 = = 0 \n\n\n False, That's why option b is wrong.  \n\nCondition for FULL: (REAR +1) mod n == Front \n\nTherefore, option (a) is the correct answer.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "PDS_STACKS_AND_QUEUES_2016_Q12",
+            "subject": "Programming and Data Structures",
+            "topic": "Stacks and Queues",
+            "subtopic": "Applications of Queues",
+            "year": 2016,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 12,
+            "tags": [
+                "Stacks and Queues",
+                "Applications of Queues",
+                "Programming and Data Structures"
+            ],
+            "question": {
+                "text": "Let Q denote a queue containing sixteen numbers \nand S be an empty stack. Head(Q) returns the \nelement at the head of the queue Q without removing \nit from Q. Similarly Top(S) returns the element at the \ntop of S without removing it from S. Consider the \nalgorithm given below. \n\nWhile Q is not Empty do \n\nIf S is Empty OR Top (S) \\le Head (Q) then \n\nX: = Dequeue (Q); \n\nPush (S, x): \n\nelse \n\nX: = Pop (S); \n\nEnqueue (Q, x); \n\nend \n\nend \n\nThe maximum possible number of iterations of the \n\nwhile loop in the algorithm is _____.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "256"
+            ],
+            "solution": {
+                "text": "Let reduce the number of element from 16 to 3 to \nsolve the questions in easy way. \n\n\n\n\n\n\n\nWe can say \n(i) \nQ: 1,2,3 \\rightarrow 3 iterations \nNow let's take \n\n\n\n\n\n\n\n\n\n\n\nWe can say for  \n\nQ: 1, 3, 2 \\rightarrow 5 iterations \n\nNow let's take \n\n\n\n\n\nIn these 2-operation 3 pushed to stack and then \npopped and go back to queue. \n\n\n\n\n\n\n\nIn these 2-iteration 2 pushed and then popped and go \nback to queue. \n\n\n\n\nAlready know it will take 5 more iteration. \n\nTotal iteration = 4 + 5 = 9 \\Rightarrow (3×3) \n\nSo, for 16 element it will take \n\n16 \\times 16 = 256 operation.",
+                "images": [
+                    "assets/Programming and Data Structures/PDS_Stacks_and_Queues_P79_X7296.png",
+                    "assets/Programming and Data Structures/PDS_Stacks_and_Queues_P79_X7304.png",
+                    "assets/Programming and Data Structures/PDS_Stacks_and_Queues_P79_X7304.png",
+                    "assets/Programming and Data Structures/PDS_Stacks_and_Queues_P79_X7296.png",
+                    "assets/Programming and Data Structures/PDS_Stacks_and_Queues_P79_X7304.png",
+                    "assets/Programming and Data Structures/PDS_Stacks_and_Queues_P79_X7304.png",
+                    "assets/Programming and Data Structures/PDS_Stacks_and_Queues_P79_X7308.png",
+                    "assets/Programming and Data Structures/PDS_Stacks_and_Queues_P79_X7308.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        }
+    ]
+}

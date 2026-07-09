@@ -1,0 +1,1623 @@
+{
+    "subject": "Programming and Data Structures",
+    "topic": "Pointers and Strings",
+    "questionCount": 29,
+    "questions": [
+        {
+            "id": "PDS_POINTERS_AND_STRINGS_2022_Q01",
+            "subject": "Programming and Data Structures",
+            "topic": "Pointers and Strings",
+            "subtopic": "Arrays and Pointers",
+            "year": 2022,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 1,
+            "tags": [
+                "Pointers and Strings",
+                "Arrays and Pointers",
+                "Programming and Data Structures"
+            ],
+            "question": {
+                "text": "What is printed by the following ANSI C program? \n\n#include<stdio.h> \n\nint main(int argc, char *argv[]) \n\n{ \n\nint x = 1, z[2] = {10, 11}; \n\nint *p = NULL; \n\np = &x; \n\n*p = 10; \n\np = &z[1]; \n\n*(&z[0] + 1) += 3; \n\nprintf(\"%d, %d, %d\\n\", x, z[0], z[1]); \n\nreturn 0; \n\n}",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "1, 10, 11",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "1, 10, 14",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "10, 14, 11",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "10, 10, 14",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "D"
+            ],
+            "solution": {
+                "text": "→ *p=&x; stores the address of x into pointer p. \n\n→ *p= 10; replaces value of x =1 by 10. \n\n→ *p = &z[1]; stores the address of z[1] into pointer \np. \n\nNow,  \n\n&z [0] +1=&z [1] \n\n(&z [0] +1) =*&z [1] \n\n*(&z [0] + 1) = z [1] \n\n*(&z [0] + 1) + 3 is same as z [1] + = 3 \n\n→ z [1] = z [1] + 3 = 11 + 3 =14 \n\nBecause of statement *(&z[0] + 1) +=3, value at \naddress 2004 is changed from 11 to 14.  \n\nHence printf () prints 10, 10 and 14. Therefore correct \noption is (d).",
+                "images": [
+                    "assets/Programming and Data Structures/PDS_Pointers_and_Strings_P42_X4121.png",
+                    "assets/Programming and Data Structures/PDS_Pointers_and_Strings_P42_X4123.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "PDS_POINTERS_AND_STRINGS_2022_Q02",
+            "subject": "Programming and Data Structures",
+            "topic": "Pointers and Strings",
+            "subtopic": "}",
+            "year": 2022,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 2,
+            "tags": [
+                "Pointers and Strings",
+                "}",
+                "Programming and Data Structures"
+            ],
+            "question": {
+                "text": "What is printed by the following ANSI C program? \n\n#include<stdio.h> \n\nint main(int argc, char *argv[]) \n\n{ \n\nint a[3][3][3] = \n\n{{1, 2, 3, 4, 5, 6, 7, 8, 9}, \n\n  {10, 11, 12, 13, 14, 15, 16, 17, 18}, \n\n  {19, 20, 21, 22, 23, 24, 25, 26, 27}}; \n\n       int i = 0, j = 0, k = 0; \n\n       for( i = 0; i < 3; i++ ){ \n\n               for(k = 0; k < 3; k++ ) \n\n        printf(\"%d \", a[i][j][k]); \n\n               printf(\"\\n\"); \n\n      } \n\n      return 0; \n }",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "1 2 3",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "1 4 7 \n\n\n10 11 12 \n\n10 13 16 \n\n\n19 20 21 \n\n19 22 25",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "1 2 3",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "1 2 3 \n\n\n4 5 6 \n\n13 14 15 \n\n\n7 8 9",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "A"
+            ],
+            "solution": {
+                "text": "Given  \n\nint a [3] [3] [3] = \n,\n, \n\n\n\n\n\ni = 0,  j = 0,  k = 0,1,2 \n\n\n\n\ni           j       k            Printing\na 0  0  0               1\na 0  0  1               2\na 0  0  2               3\n\n\n\ni = 1, j = 0, k = 0,1,2 \n\n\n\n\ni           j       k            Printing\na 0  0  0               10\na 0  0  1               11\na 0  0  2               12\n\n\ni = 2, j = 0, k = 0, 1, 2  \n\n\n\n\n\n\n\ni           j        k            Printing\na 0  0    0               19\na 0  0    1               20\na 0  0    2               21\n\n\nOn verifying properly with options, option (a) is \ncorrect.",
+                "images": [
+                    "assets/Programming and Data Structures/PDS_Pointers_and_Strings_P42_X931.png",
+                    "assets/Programming and Data Structures/PDS_Pointers_and_Strings_P42_X4117.png",
+                    "assets/Programming and Data Structures/PDS_Pointers_and_Strings_P42_X4119.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "PDS_POINTERS_AND_STRINGS_2021_Q03",
+            "subject": "Programming and Data Structures",
+            "topic": "Pointers and Strings",
+            "subtopic": "7 8 9",
+            "year": 2021,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 3,
+            "tags": [
+                "Pointers and Strings",
+                "7 8 9",
+                "Programming and Data Structures"
+            ],
+            "question": {
+                "text": "Consider the following ANSI C function: \n\nint SimpleFunction (int Y[ ], int n, int x) \n\n{ \n\nint total =Y[0], loopIndex; \n\nfor ( loopIndex =1 ; loopIndex <=n-l; loopIndex ++) \n\ntotal = x * total +Y[ loopIndex ] ; \n\nreturn total; \n\n} \n\nLet Z be an array of 10 elements with Z[i]=1, for all i \nsuch that 0 \\le i \\le 9. \n\nThe value returned by SimpleFunction (Z, 10,2) \nis____",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "1023"
+            ],
+            "solution": {
+                "text": "Given that Z is an array which has index 0 to 9 and \neach index has value 1. \n\nSimple Function (Z, 10, 2) \\rightarrow calling function \n\n\n\n   \n\n\n         name of array \n\nArray Z and array Y are same, because array is \nalways call by reference.  \n\nAs calling function is having Z, 10, 2 in parameters. \nn and x will take the values 10 and 2 respectively.  \n\nx = 2, n = 10 \n\nAs initial value of Y[0] is 1, therefore initially value \nof variable total is 1. \n\nRewriting expression total = x \\times total + Y[i] for better \nunderstanding to  \n\ntotali = x \\times toali-1 + Y[i], initially x = 2, each Y[i] = 1 \nand total0 = 1   \n\ni\n=\n total1 = x \\times total0 + Y[1] \n\ntotal1 = 2 \\times 1 = (2 + 1) \n\ni\n=\n total2 = x \\times total1 + Y[i] \n\ntotal2 = 2 \\times (2 + 1) + 1 = 22 + 21 + 1 \n\ni\n=\n total3 = 2 \\times total2 + Y[i] \n\n\n= 2 \\times (22 + 21 + 1) + 1 \n\n Total3 = 23 + 22 + 21 + 1 \n\n. \n\n. \n\n. \n\nSimilarly,  \n\ni\n=\n total9 = 29 + 28 + 27 + …..21 + 1  \n\nAbove series is in GP with 10 terms \n\nWe know that  \n\nn\na(r\n1)\nSum of first n terms of a GP\nr -1\n−\n=\n\n\nWhere,  \n\na = first term \n\nr = common ratio \n\nn = number of terms \n\nWriting 29 + 28 + 27 + 26 + …… 21 + 1 in reverse \norder we get, \n\n1 + 21 + 22 + 23 + …. 29 \nA \\rightarrow 65 \nQ \\rightarrow 81 \na \\rightarrow 97 \nB \\rightarrow 66 \nR \\rightarrow 82 \nb \\rightarrow 98 \nC \\rightarrow 67 \nS \\rightarrow 83 \nc \\rightarrow 99 \nD \\rightarrow 68 \nT \\rightarrow 84 \nd \\rightarrow 100 \nE \\rightarrow 69 \nU \\rightarrow 85 \n. \nF \\rightarrow 70 \nV \\rightarrow 86 \n. \nG \\rightarrow 71 \nW \\rightarrow 87 \n. \nH \\rightarrow 72 \nX \\rightarrow 88 \n. \nI \\rightarrow 73 \nY \\rightarrow 89 \n. \nJ \\rightarrow 74 \nZ \\rightarrow 90 \n. \nM \\rightarrow 77 \n\n. \nN \\rightarrow 78 \n\nx→ 120 \nO \\rightarrow 79 \n\ny→ 121 \nP \\rightarrow 80 \n\nz→ 122 \n\n\na = 1, n = 10, common ratio (r) = 2 \n\nSubstituting in above formula \n\n1(2\n1)\nS\n2 1\n−\n=\n−\n\n\n= 1023 is the answer, which is the value of total9.",
+                "images": [],
+                "latex": [],
+                "tables": [
+                    {
+                        "headers": [
+                            "1",
+                            "1",
+                            "1",
+                            "1",
+                            "1",
+                            "1",
+                            "1",
+                            "1",
+                            "1",
+                            "1"
+                        ],
+                        "rows": []
+                    }
+                ]
+            }
+        },
+        {
+            "id": "PDS_POINTERS_AND_STRINGS_2021_Q04",
+            "subject": "Programming and Data Structures",
+            "topic": "Pointers and Strings",
+            "subtopic": "is____",
+            "year": 2021,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 4,
+            "tags": [
+                "Pointers and Strings",
+                "is____",
+                "Programming and Data Structures"
+            ],
+            "question": {
+                "text": "Consider the following ANSI C program. \n\n#include <stdio.h > \n\nint main( ){ \n\nint arr[4][5]; \n\nint i, j; \n\nfor (i=0 ; i<4 ; i++){ \n\nfor (j=0 ; j<5 ; j++){ \n\narr [i][j]=10 * i + j; \n\n\n} \n\n} \n\nprintf(\" % d \", *(arr[1]+9)); \n\nreturn 0; \n\n} \n\nWhat is the output of the above program?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "14",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "20",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "24",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "30",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "C"
+            ],
+            "solution": {
+                "text": "Given array int arr[4][5], it is read as arr is an array \nof 4 1-Dimensional array and each 1-Dimension \narray contains 5 elements \n\n\nNote: array name represents the address of its first \nelement. \n\nExample: arr[1] = &arr[1][0] \n                         arr[1] + 9 = &arr[1][0]  + 9  \n\n(9 crepresenting to move 9 locations in forward \ndirection from address of arr[1][0](&arr[1][0])) \n\n\narr[1] + 9 = &arr[2][4] \n\n*(arr[1] + 9) = arr[2][4] \n\nTherefore arr[2][4] = 10 * 2 + 4 = 24. \n\n*(arr[1] + 9) = arr[2][4] = 24",
+                "images": [
+                    "assets/Programming and Data Structures/PDS_Pointers_and_Strings_P44_X4526.png",
+                    "assets/Programming and Data Structures/PDS_Pointers_and_Strings_P44_X4528.png",
+                    "assets/Programming and Data Structures/PDS_Pointers_and_Strings_P44_X4532.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "PDS_POINTERS_AND_STRINGS_2020_Q05",
+            "subject": "Programming and Data Structures",
+            "topic": "Pointers and Strings",
+            "subtopic": "What is the output of the above program?",
+            "year": 2020,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 5,
+            "tags": [
+                "Pointers and Strings",
+                "What is the output of the above program?",
+                "Programming and Data Structures"
+            ],
+            "question": {
+                "text": "Consider the following C program: \n\n#include < stdio.h > \n\nint main ( ) { \n\n    int a [4][5] = {{1, 2, 3, 4, 5}, \n                            {6, 7, 8, 9, 10}, \n                            {11, 12, 13, 14, 15}, \n                            {16, 17, 18, 19, 20}}; \n\n    printf(\"%d\", *(*(a+**a+2)+3)); \n\n    return (0); \n\n} \n\nThe output of the program is________.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "19"
+            ],
+            "solution": {
+                "text": ": array name (a is collection of 4 elements a[0],a[1], \na[2],a[3]) \n\nArray name represent address of its first elemetns. \n\na = &a[0] \n\n*a = *&a[0] \n\n*a = a[0]\\ \n\nWhat is a [0]? \n\na[0] is an array of 5 elements i.e a[0][0], a[0][1], a[0][ \n2] & a[0][3],a[0][4] \n\na[0] ⇒ address of its first element \n\na[0] = &a[0][0] \n\n*a = a[0]  \n\n*a = a[0] = &a[0][0] \n\n*a = &a[0][0] \n\n**a = a[0][0] \n\na[0][0]\n=\n\n\n*(a + **a + 2) = *(a + 1 + 2) = * (a + 3) = a[3] \n\n*(a + **a + 2) = a[3] \n\n*(a+ **a+2) + 3 = a[3]+3 \n\n*(*a+ **a + 2) + 3) = a[3][3] = 19",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "PDS_POINTERS_AND_STRINGS_2020_Q06",
+            "subject": "Programming and Data Structures",
+            "topic": "Pointers and Strings",
+            "subtopic": "The output of the program is________.",
+            "year": 2020,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 6,
+            "tags": [
+                "Pointers and Strings",
+                "The output of the program is________.",
+                "Programming and Data Structures"
+            ],
+            "question": {
+                "text": "Consider the following C functions: \n\nint tob(int b, int* arr){ \n\n               int i; \n\n      for (i = 0; b>0; i++) {  \n\n             if (b%2) arr [i] = 1; \n\n             else          arr [i] = 0; \n\n             b= b/2; \n\n              } \n\n   return (i); \n\n} \n\nint pp (int a, int b){ \n\n\nint arr [20]; \n\n      int i, tot = 1, ex, len; \n\n      ex = a; \n\n      len = tob (b, arr); \n\n      for (i = 0; i< len; i++){ \n\n\n  if (arr[i] ==1) \n\n\n   tot = tot * ex; \n\n                 ex = ex * ex; \n\n\n } \n\n\nreturn (tot); \n\n\n} \n\n\nThe value returned by pp(3, 4) is______.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "81"
+            ],
+            "solution": {
+                "text": "Note:- that arr[i] in tob is same as arr[i] in pp and also \narray contains garbage value initially.  \n       Understanding tob function: \n\nb\n=\n\n\n(\n)\n\nif b%2\nexeutes when b is odd\narr i\n1;\n\n= \n\n\n\nelse\nexeutes when b is even\narr i\n0;\n\n=\n\n\n\nb\nb = \nexeutes every time\n\n\n\n(1)  i = 0, b > 0 \\Rightarrow 4 > 0 \\Rightarrow true(b is even) \n\n\narr[i] = 0 \n\n\narr[0] = 0 \n\n\nb = b/2 = 4/2 = 2 \n\n(2)  i =1 b > 0 \\Rightarrow 2 > 0 \\Rightarrow true(b is even) \n\n\narr[i] = 0 \n\n\narr[1] = 0 \n\n\nb = b/2 = 2/2 = 1 \n\n(3)  i = 2, b > 0 \\Rightarrow 1 > 0 \\Rightarrow true (b is odd) \n\n\narr[i] = 1 \n\n\narr[2] = 1 \n\n\nb = b/2 = ½ = 0 \n\n(4)  i = 3, b > 0 \\Rightarrow 0 > 0 \\Rightarrow false \n\nHere loop terminates.  \n\nUnderstanding pp function: \n\nex: = 3  9   81 \n\ntot = 1  81    \n\nlen = 3 \n\nfor(i = 0;i < len;i++) \n\n{ \n\nif(arr[i]==1) \n\ntot=tot*ex; \n\nex=ex*ex; \n\n} \n\nabove code is executed from i=0 to 2(len =3) \n\n(i) \ni=0 \n\n\narr[i]= =1 \n\n\n0= =1(false) \n\n\nex=ex*ex \n\n\nex=3*3 \n\n\nex=9 \n\n(ii) i=1 \n\n\narr[i]==1 \n\n\n0==1(false) \n\n\nex=ex*ex \n\n\nex=9*9=>81 \n\n\nex=81 \n\n(iii)  i=2 \n\n\narr[i]==1 \n\n\n1==1(true)  \n\n\ntot=tot*ex \n\n\ntot=1*81 \n\n\ntot=81 \n\n\nex=ex*ex \n\n\nex=81*81 \n\n\n81 is returned.",
+                "images": [
+                    "assets/Programming and Data Structures/PDS_Pointers_and_Strings_P45_X4611.png",
+                    "assets/Programming and Data Structures/PDS_Pointers_and_Strings_P45_X4613.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "PDS_POINTERS_AND_STRINGS_2019_Q07",
+            "subject": "Programming and Data Structures",
+            "topic": "Pointers and Strings",
+            "subtopic": "The value returned by pp(3, 4) is______.",
+            "year": 2019,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 7,
+            "tags": [
+                "Pointers and Strings",
+                "The value returned by pp(3, 4) is______.",
+                "Programming and Data Structures"
+            ],
+            "question": {
+                "text": "Consider the following C program: \n\n#include <stdio.h> \n\nint main ()  \n\n{ \n\n  int arr [ ] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 1, 2, 5}, *ip = \narr + 4; \n\n  printf (\"%d \\n\", ip[1]); \n\n  return 0; \n\n } \n\nThe number that will be displayed on execution of the \nprogram is _______.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "6"
+            ],
+            "solution": {
+                "text": "arr is name of the given array, we know that array \nname represents the address of first element.  \n\narr=&arr[0] \n\narr+4=&arr[0]+4(moving 4 locations ahead from \n&arr[0]) \n\narr+4 = &arr[4] \n\n\n ip=&arr 4 \n\nip[1] = *(ip+1) = *(&arr[4]+1) \n\n\nip[1] = *(&arr[5]) \n\nip[1] = arr[5] \n\nip[1] = 6 \n\nHence 6 is the correct answer",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "PDS_POINTERS_AND_STRINGS_2019_Q08",
+            "subject": "Programming and Data Structures",
+            "topic": "Pointers and Strings",
+            "subtopic": "program is _______.",
+            "year": 2019,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 8,
+            "tags": [
+                "Pointers and Strings",
+                "program is _______.",
+                "Programming and Data Structures"
+            ],
+            "question": {
+                "text": "Consider the following C program: \n\n#include<stdio.h> \n\nint main( ) \n\n{ \n\n    int a[ ] = {2, 4, 6, 8, 10}; \n\n    int i, sum = 0, *b = a + 4; \n\n    for (i = 0; i < 5; i++) \n\n    sum = sum + (*b - i) -*(b - i); \n\n    printf(\"%d\\n\", sum); \n\n    return 0; \n\n} \n\nThe output of the above C program is____________.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "10"
+            ],
+            "solution": {
+                "text": "Constructing the array according to the given data. \n\n\nInitially, value of sum = 0 \n\nb = a + 4 \n\nb = &a[0] + 4 \n\nb = &a[4] \n\n*b = a[4] \n\nb-0 = &a[4] \n\nb-1 = &a[3] \n\nb-2 = &a[2] \n\nb-3 = &a[1] \n\nb-4 = &a[0] \n\nNote: Scope of for loop remains till the first \nsemicolon (;). \n\ni = 0 sum = sum + (*b - 0) - *(b - 0) \n\n\nsum=0 + (10 - 0) - 10 = 0 \n\ni = 1 sum=0 + (10 - 1) - 8 = 1 \n\ni = 2 sum=1 + (10 - 2) - 6 = 3 \n\ni = 3 sum=3 + (10 - 3) - 4 = 6 \n\ni = 4 sum=6 + (10 - 4) - 2 = 10 \n\nFinally, value which is stored in sum variable is \nprinted, \n\nTherefore 10 is printed.",
+                "images": [
+                    "assets/Programming and Data Structures/PDS_Pointers_and_Strings_P46_X4707.png",
+                    "assets/Programming and Data Structures/PDS_Pointers_and_Strings_P46_X4711.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "PDS_POINTERS_AND_STRINGS_2018_Q09",
+            "subject": "Programming and Data Structures",
+            "topic": "Pointers and Strings",
+            "subtopic": "The output of the above C program is____________.",
+            "year": 2018,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 9,
+            "tags": [
+                "Pointers and Strings",
+                "The output of the above C program is____________.",
+                "Programming and Data Structures"
+            ],
+            "question": {
+                "text": "Consider the following C program: \n\n# include<stdio.h> \n\nstruct Ournode { \n\n\nchar x, y, z; \n\n} ; \n\nint main () { \n\n\nstruct Ournode p = {'1' , '0' ,  'a' + 2}; \n\n\nstruct Ournode *q = &p; \n\n\n\nprintf (\"%c , %c\",*((char*)q + 1), *((char*) \nq + 2)); \n\n\nreturn 0; \n\n} \n\nThe output of this program is:",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "0, c",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "0, a+2",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "' 0 ', ' a+2 '",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "' 0 ', ' c '",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "A"
+            ],
+            "solution": {
+                "text": "'a' + 2 'c' \n\nIntitally  q is pointing to address of whole structure \nvariable p. \n\n(char*)q : Here typecasting is being done,q is holding \naddress of a character i.e q is pointing to addresses of \n'1' (First member) \n\n\n(char*) q : Address of char '1' \n\n(char*) q + 1 : Address of next character i.e. '0' \n\n*(char*) q+1: '0' \n\n(char*) q+2 : Address of 'c' \n\n*(char*)q+2: 'c' \n\nprintf(\"%c\",*((char*)q+1), *((char*)q+2)); will print \n0,c without any quotes. Hence option A is correct.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "PDS_POINTERS_AND_STRINGS_2017_Q10",
+            "subject": "Programming and Data Structures",
+            "topic": "Pointers and Strings",
+            "subtopic": "The output of this program is:",
+            "year": 2017,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 10,
+            "tags": [
+                "Pointers and Strings",
+                "The output of this program is:",
+                "Programming and Data Structures"
+            ],
+            "question": {
+                "text": "Consider the following C code: \n\n#include<stdio.h> \n\nint *assignval (int  *x , int val) \n\n  { *x = val; \n\n   return x; \n\n   } \n\n   void main ( ) \n\n{  \n\n                 int *x = malloc (sizeof(int)); \n\nif (NULL == x) return; \n\nx = assignval (x, 0); \n\nif ( x ) \n\n{    x = (int *) malloc (sizeof(int)); \n\n if (NULL = = x) return; \n\n x = assignval (x, 10); \n\n } \n\n     printf (\"%d\\n\", *x); \n\n     free(x); \n\n}  \n\nThe code suffers from which one of the  following \nproblems:",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "compiler error as the return of malloc is not \ntypecast appropriately.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "compiler error because the comparison should be \nmade as x== NULL and not as shown.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "compiles successfully but execution may result \nin dangling pointer",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "compiles successfully but execution may result \nin memory leak.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "D"
+            ],
+            "solution": {
+                "text": "A (false): Compiler error as the return of malloc is \nnot type casted appropriately. \n\nFalse because no typecasting is required. In C++, it \nis required but not in C language. \n\nB(false): Compiler error because the comparison \nshould be made as x==NULL and not as shown. \n\nFalse, as we know that NULL==x or x==NULL are \nsame, hence option B is also false. \n\nC(false): Compiles successfully but execution may \nresult in dangling pointer. \n\n\nvoid main(){ \n\nint *x = malloc(sizeof(int)); \n\nif(NULL==x)  \n\nreturn; //if no memory is available then return.    \n\n\nassignval (1024, 0) is called \n\nxlocal = 1024  \n\nval= 0 \n\nxlocal =0 \n\nvalue at memory location pointed by xlocal = 0  \n\nvalue at memory location 1024 = 0 \n\nreturn x, returns 1024 to x in main.  \n\nif(x){ \n\nx=(int*)malloc(sizeof(int)) \n\nif(NULL==x) \n\nreturn; \n\nx=assignval(x,10); \n\n} \n\nprintf(\"%d\",*x); \n\nfree(x); \n\n} \n\nNote that code written in solution are just used to \nrepresent. \n\n\nwe are again allocating memory without freeing old \nmemory, x is now pointing to memory location 2036 \nand we cannot access to memory location 1024 which \nis lost (also known as memory leak problem), and \nalso there is no pointing of memory location which is \ndeleted, hence there is no dangling pointer problem. \n\nTherefore, above code suffers from memory leak \nproblem, hence option D is correct answer.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "PDS_POINTERS_AND_STRINGS_2017_Q11",
+            "subject": "Programming and Data Structures",
+            "topic": "Pointers and Strings",
+            "subtopic": "in memory leak.",
+            "year": 2017,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 11,
+            "tags": [
+                "Pointers and Strings",
+                "in memory leak.",
+                "Programming and Data Structures"
+            ],
+            "question": {
+                "text": "Consider the following snippet of a C program. \nAssume that swap (&x, &y) exchanges the content of \nx and y. \n\nint main (  )  { \n\nint array [  ] = {3 , 5 , 1 , 4 , 6 , 2}; \n\nint done = 0; \n\nint i; \n\nwhile ( done ==0){ \n\n         done =1 \n\n         for (i=0 ; i<=4 ; i++){ \n\n                if (array [i] < array [i+1]){ \n\n                     swap(&array[i], &array[ i  + 1]); \n\n                    done =0; \n\n                   }  \n\n          } \n\n} \n\nfor (i=5 ; i>=1 ; i- -) \n\n      { \n\n          if (array [i] > array [i-1]) \n\n           { \n\n            swap (&array[i], &array[i-1]); \n\n           done =0; \n\n            } \n\n        } \n\n    } \n\nprintf (\"%d\", array [3]); \n\n} \n\nThe output of the program is_________",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "3"
+            ],
+            "solution": {
+                "text": "Firstly, understanding the first loop in the given \nprogram. \n\nInitial value of done variable and content of the array \nshown below. \n\nwhile (done = = 0) { \n\ndone =1; \n\nfor(i=0;i<=4;i++){ \n\nif(array[i]<array[i+1]{ \n\nswap(&array[i], &array[i+1]); \n\ndone= 0; \n\n\n\n(i) done = = 0 (true) \n\ncode inside while loop will execute \n\n\n\n\nExecuting for loop \n\n(1) i = 0 \n\n\nwe are comparing element of ith index and i+1th \nindex \n\n\narray[0]<array[1] →3<5 true, swapping will take \nplace. \n\n\nswap(&array[0],&array[1]) \n\n\n\n\n\nAgain, done variable value becomes 0 \n\n\n(2) i = 1 \n\n\narray [1]< array [2] →3<1 false, no swapping \nwill take place. \n\n(3) i = 2 \n\n\narray [2]< array [3] →1<4 true, swapping will \ntake place. \n\n\n\n\n\ndone = 0 (No effect because done is already 0) \n\n(4) i = 3 \n\n\narray [3]< array [4]→1<6 true,  swapping will \ntake place.  \n\n\n\ndone =0(no effect) \n\n(5) i = 4  \n\n\narray[4]<array[5] true, swapping will take place \n\n\n\nNow understanding 2nd loop of the given program. \n\ndone = 0 \n\nfor(i= 5;i> =1;i--){ \n\nif(array[i] >array [i- 1]){ \n\nswap(&array [i], &array [i -1]); \n\ndone =0; \n\n  } \n\n}  \n\n array [5] > array [4] \\Rightarrow 1 > 2 false, now swap \n\n array [4] > array [3]  \\Rightarrow 2 > 6 false, no swap \n\n array [3] > array [2] \\Rightarrow 6 > 4 (true), swap \n\n\n\ndone = 0 (No effect) \n\n array [2] > array [1] \\Rightarrow 6 > 3 (true), swap \n\n\n\ndone = 0 (No effect) \n\narray [1] > array [0] 6 > 5→ true, swap will take \nplace. \n\n\n\ndone = 0 (No effect) \n\n(5) i\n=\n\n\nBoth the loop ends  \n\n\n\nWhile(done==0) \n\n{ \n\n done = 1; \n                 1st loop \n\n\n2nd loop \n                 } \n     Another iteration of while loop takes place \n        Value of done becomes 1. \n\n1st loop will execute for i = 0, 1, 2, 3, 4 \n\n\n\n array [0] < array [1] \\Rightarrow false, no swap \n array [1] < array [2] \\Rightarrow false, no swap. \n\n array [2] < array [3] \\Rightarrow true, swap \n\n\n\ndone = 0 is made \n\nArray is sorted in decreasing order now i.e. arra \ny [1] > array [i +1], As this is true that means array \n[i] < array [i +1] is false for all i, 1st loop is terminated. \n\ndone = 0 \n\n2nd loop : because array is sorted in decreasing order. \n\n\n array [i] < array [i -1] \n\ni.e. array [i] > array [i -1] is false for all i. \n\nHence 2nd loop terminates  \n\nwhile (done = = 0) \n\n                 0 = = 0 (true) \n\nAnother iteration of while loop is executed. \n\n\n\n1st loop, no change because array is already sorted. \n\n2nd loop, no change in array because of same above                  \nreason. \n\nWhile (done = = 0)  \n\n1 = = 0(False) while loop terminates. \n\nFinally, array [3] is printed, therefore 3 is printed as \noutput",
+                "images": [
+                    "assets/Programming and Data Structures/PDS_Pointers_and_Strings_P47_X4775.png",
+                    "assets/Programming and Data Structures/PDS_Pointers_and_Strings_P47_X4777.png",
+                    "assets/Programming and Data Structures/PDS_Pointers_and_Strings_P47_X4779.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "PDS_POINTERS_AND_STRINGS_2017_Q12",
+            "subject": "Programming and Data Structures",
+            "topic": "Pointers and Strings",
+            "subtopic": "The output of the program is_________",
+            "year": 2017,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 12,
+            "tags": [
+                "Pointers and Strings",
+                "The output of the program is_________",
+                "Programming and Data Structures"
+            ],
+            "question": {
+                "text": "Consider the following C program. \n\n#include<stdio.h> \n\n#include<string.h> \n\nint main( ) \n\n{    \n\n     char* c= \"GATECSIT2017\"; \n\n     char* p=c ; \n\n     printf(\"%d \", (int)strlen(c+2[p]-6[p]-1)) ; \n\n     return 0 ; \n\n} \n\nThe output of the program is______.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "2"
+            ],
+            "solution": {
+                "text": "int  main () \n\n{ \n\nchar *c = \"GATECSIT2017\"; \n\nchar *p = c; \n\nprintf ('%d', (int) strlen(c +2 [p] - 6 [p] -1)); \n\nreturn 0; \n\n} \n\n\np + 2 = moving 2 locations in forward direction from \naddress of 'G'. \n\nc is holding base address (address of G) \n\np + 2 = Address of 'T' \n\n(\n)\n* p + 2 = 'T' \n\n(\n)\n(\n)\np[2] = 2[p] = * p\n* 2\np\n'T'\n+\n=\n+\n=\n\n\np + 6 = Address of 'I' \n\n* (p + 6) = 'I' \n\n(\n)\n(\n)\np[6] = 6[p] = * p\n* 6\np\n'I'\n+\n=\n+\n=\n\n\nExample: \n\nc + 'B' - 'A': What are value for 'B', 'A' Here ASCII \nvalues are used. \n\nc + 66 - 65 \n\n= c + 1; address of 'A' \n\n\n\nc + 10 \\Rightarrow address of char '1'. \n\nc + 10 \\Rightarrow represents string \"17\" \n\nstrlen (c + 10) = 2 \n\nNote: strlen returns unsigned integer \n\nTherefore 2 is returned.",
+                "images": [
+                    "assets/Programming and Data Structures/PDS_Pointers_and_Strings_P47_X4773.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "PDS_POINTERS_AND_STRINGS_2017_Q13",
+            "subject": "Programming and Data Structures",
+            "topic": "Pointers and Strings",
+            "subtopic": "The output of the program is______.",
+            "year": 2017,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 13,
+            "tags": [
+                "Pointers and Strings",
+                "The output of the program is______.",
+                "Programming and Data Structures"
+            ],
+            "question": {
+                "text": "Consider the following function implemented in C : \n\nvoid printxy(int  x , int  y ) \n\n{ \n\nint  *ptr; \n\nx = 0; \n\nptr = &x; \n\ny = * ptr; \n\n*ptr = 1; \n\nprintf(\"%d, %d \", x, y) ; \n\n} \n\nThe output of invoking printxy(1, 1) is:",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "0, 0",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "0, 1",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "1, 0",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "1, 1",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "C"
+            ],
+            "solution": {
+                "text": "void printxy (int x int y) \n\n{ \n\nint *ptr; \n\nx =0;→ will make x as 0 \n\nptr =&x; \\rightarrow assign 1026 to ptr \n\ny = *ptr;→ y = value at (memory location 1026) \n\n\n\ny = 0 \n\n*prt = 1;→ value at memory location 1026 = 1) \n\nprintf (\"%d%d\" x,y); \n\n} \n\nprintxy (1   1) \n\n                 \n\n              x  y \n\n\n\nlastly value of x and y is printed as 1, 0; Hence option \n(c) is correct answer.",
+                "images": [
+                    "assets/Programming and Data Structures/PDS_Pointers_and_Strings_P48_X4838.png",
+                    "assets/Programming and Data Structures/PDS_Pointers_and_Strings_P48_X4840.png",
+                    "assets/Programming and Data Structures/PDS_Pointers_and_Strings_P48_X4850.png",
+                    "assets/Programming and Data Structures/PDS_Pointers_and_Strings_P48_X4852.png"
+                ],
+                "latex": [],
+                "tables": [
+                    {
+                        "headers": [
+                            "5",
+                            "3",
+                            "4",
+                            "6",
+                            "2",
+                            "1"
+                        ],
+                        "rows": []
+                    },
+                    {
+                        "headers": [
+                            "6",
+                            "5",
+                            "4",
+                            "3",
+                            "",
+                            "2",
+                            "1"
+                        ],
+                        "rows": []
+                    },
+                    {
+                        "headers": [
+                            "6",
+                            "5",
+                            "4",
+                            "3",
+                            "2",
+                            "1"
+                        ],
+                        "rows": []
+                    }
+                ]
+            }
+        },
+        {
+            "id": "PDS_POINTERS_AND_STRINGS_2017_Q14",
+            "subject": "Programming and Data Structures",
+            "topic": "Pointers and Strings",
+            "subtopic": "The output of invoking printxy(1, 1) is:",
+            "year": 2017,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 14,
+            "tags": [
+                "Pointers and Strings",
+                "The output of invoking printxy(1, 1) is:",
+                "Programming and Data Structures"
+            ],
+            "question": {
+                "text": "Match the following: \nList-I \nList-II \nP. static char var; \ni. \nSequence \nof \nmemory \nlocations to store addresses \nQ. m=malloc(10) ; \nm= NULL; \nii. A variable located in data \nsection of memory \nR. char *ptr [10]; \niii. Request to allocate a CPU \nregister to store data \nS. register int var1; \niv. A lost memory which \ncannot be freed",
+                "images": [],
+                "latex": [],
+                "tables": [
+                    {
+                        "headers": [
+                            "List-I",
+                            "List-II"
+                        ],
+                        "rows": [
+                            [
+                                "P. static char var;",
+                                "i. Sequence of memory locations to store addresses"
+                            ],
+                            [
+                                "Q. m=malloc(10) ; m= NULL;",
+                                "ii. A variable located in data section of memory"
+                            ],
+                            [
+                                "R. char *ptr [10];",
+                                "iii. Request to allocate a CPU register to store data"
+                            ],
+                            [
+                                "S. register int var1;",
+                                "iv. A lost memory which cannot be freed"
+                            ]
+                        ]
+                    }
+                ]
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "P \\rightarrow (ii), Q \\rightarrow (iv), R \\rightarrow (i), S \\rightarrow (iii)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "P \\rightarrow (ii), Q \\rightarrow (i), R \\rightarrow (iv), S \\rightarrow (iii)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "P \\rightarrow (ii), Q \\rightarrow (iv), R \\rightarrow (iii), S \\rightarrow (i)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "P \\rightarrow (iii), Q \\rightarrow (iv), R \\rightarrow (i), S \\rightarrow (ii)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "A"
+            ],
+            "solution": {
+                "text": "(P) static char var: Stored in data segment  \n\n\nP - ii \n\n(Q) m = malloc (10); \n\n\nm = NULL; \n\n\n\n\n\nNo way to access memory location i.e. \n\n\nLost memory \n\n\nQ \\rightarrow IV \n\n(R) char *ptr [10] \n\n\nptr is an array of 10 pointers to chaaracter i.e. 10 \npointer can hold 10 address. \n\n\nR \\rightarrow (i) \n\n\n(S) register int var 1 \n\n\nRegister \nvariable \nis \nonly \na \nrequests \n/recommendation  \n\n\nS \\rightarrow (iii) \n\n\nP→ (ii), Q→ (iv), R \\rightarrow (i), S →(iii) \n\n\nHence, option A is correct.",
+                "images": [
+                    "assets/Programming and Data Structures/PDS_Pointers_and_Strings_P50_X5081.png",
+                    "assets/Programming and Data Structures/PDS_Pointers_and_Strings_P50_X5085.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "PDS_POINTERS_AND_STRINGS_2016_Q15",
+            "subject": "Programming and Data Structures",
+            "topic": "Pointers and Strings",
+            "subtopic": "cannot be freed",
+            "year": 2016,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 15,
+            "tags": [
+                "Pointers and Strings",
+                "cannot be freed",
+                "Programming and Data Structures"
+            ],
+            "question": {
+                "text": "Consider the following program: \n\nint  f(int *p, int n){ \n\n    if (n <= 1) return 0; \n\n    else return max(f(p+1, n - 1),p[0] - p[1]); \n\n} \n\nint main(){ \n\n    int a[ ] = {3 , 5 , 2 , 6 , 4}; \n\n    printf(\"%d\", f(a, 5)); \n\n} \n\nNote: max (x, y) returns the maximum of x and y: \n\nThe value printed by this program is____________.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "3"
+            ],
+            "solution": {
+                "text": "p + 1 = moving 1 location in forward direction from \naddress holding pointer variable p. \n\np + 1 = memory location 104 \n\n*(p + 1) = Then it would be value at memory \nlocation 104 \n\n*(p + 1) = 5 \n\np[1] = 5 \n\nNOTE: If p is pointing to address of integer, then  \n\np[0]: is value at the address \n\np[1]: is value at next address \n\n\n\nNOTE: array name always points to the address of \nfirst index of an array. \n\nf(a,5) \\rightarrow f(100,5) \n\n\nmax(f(p+1),n-1,p[0]-p[1]) will be executed whenever \nn>1 \n\n\nf(116,1) \\Rightarrow n<=1 is true, returns 0.  \n\nHence 3 is returned.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "PDS_POINTERS_AND_STRINGS_2016_Q16",
+            "subject": "Programming and Data Structures",
+            "topic": "Pointers and Strings",
+            "subtopic": "The value printed by this program is____________.",
+            "year": 2016,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 16,
+            "tags": [
+                "Pointers and Strings",
+                "The value printed by this program is____________.",
+                "Programming and Data Structures"
+            ],
+            "question": {
+                "text": "The value printed by the following program is____. \n\nvoid f(int  * p,  int m) { \n\n        m = m + 5; \n\n       *p = *p + m; \n\n        return; \n\n}  \n\nvoid main( ) {  \n\n      int i = 5, j = 10; \n\n      f( &i, j); \n\n      printf(\"%d\"  ,i + j); \n\n}",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "30"
+            ],
+            "solution": {
+                "text": "f(&i, j) \\rightarrow f   (1024,   10)  \n                                           \n                          (Address, value) \n\n\n\n*p = *p + m \n\n(value at memory 1024 + 15)  \n\n*p = 5 + 15 = 20 \n\nHence, 20 + 10 = 30 is printed",
+                "images": [
+                    "assets/Programming and Data Structures/PDS_Pointers_and_Strings_P51_X5151.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "PDS_POINTERS_AND_STRINGS_2016_Q17",
+            "subject": "Programming and Data Structures",
+            "topic": "Pointers and Strings",
+            "subtopic": "}",
+            "year": 2016,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 17,
+            "tags": [
+                "Pointers and Strings",
+                "}",
+                "Programming and Data Structures"
+            ],
+            "question": {
+                "text": "What will be the output of the following pseudo-code \nwhen parameters are passed by reference and dynamic \nscoping is assumed?  \n\na = 3; \n\nvoid n(x) {  \n\nx = x * a; print (x);  \n\n} \n\nvoid m(y) { \n\na = 1 ; a = y - a;  n(a);  \n\nprint",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "; } \n\nvoid main () {  \n\nm(a);  \n\n} \n\n(a) 6, 2",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "6, 6",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "4, 2",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "4, 4",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "C"
+            ],
+            "solution": {
+                "text": "a = 3 (declaring new variable) \n\na = 1(declaring new variable) \n\na=3(Global scope, because it is not inside any \nfunction) \n\na=1(local scope, because declared inside m()) \n\nAs it is mentioned in question that it is using dynamic \nscoping and pass by reference, rewriting the code for \nbetter understanding.  \n\nint a=3; \n\nvoid n(int(*x)){ \n\n*x=*x*a; \n\nprint(*x); \n\n}  \n\nvoid m(int *y){ \n\nint a=1; \n\na=*y-a; \n\nn(&a); \n\nprint(a); \n\n} \n\nvoid main(){ \n\nm(&a);//there is no local a so, a is global variable \n\n\n\n\na = y -a (update local a) \n\na = value at (1024) -1 \n\na = 3 - 1 = 2 \n\nat n(&a), n(2036) is called  \n\n*x=*x*a; \n\n= value at(2036)*a(here, previous call will be \nresolved)  \n\ni.e…..a of m() \n\n=2 * 2 = 4 i.e….value at (2036) = 4 \n\nLastly 4 is printed (value of x) \n\nAs function n gets deleted from activation record, \nupdating has no meaning, m() will also print 4 and \ngets deleted from activation record and lastly main \nalso gets deleted from activation record. \n\nTherefore, C is correct option.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "PDS_POINTERS_AND_STRINGS_2016_Q18",
+            "subject": "Programming and Data Structures",
+            "topic": "Pointers and Strings",
+            "subtopic": "}",
+            "year": 2016,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 18,
+            "tags": [
+                "Pointers and Strings",
+                "}",
+                "Programming and Data Structures"
+            ],
+            "question": {
+                "text": "Consider the following C program. \n\n#include<stdio.h> \n\nvoid mystery(int*ptra,int*ptrb) \n\n{     int*temp; \n\n       temp=ptrb; \n\n       ptrb=ptra; \n\n       ptra=temp; \n\n} \n\n\n\nint main() \n\n{   int a=2016, b=0, c=4, d=42; \n\nmystery(&a, &b); \n\nif(a<c) \n\nmystery(&c, &a); \n\nmystery(&a, &d); \n\nprintf(\"%d\\n\",a); \n\n} \n\nThe output of the program is____.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "2016"
+            ],
+            "solution": {
+                "text": "Let mystery (&a, &b) is called  \n\nmystery \nptra\nptrb\n1024,   2096\n\n\n\n\n\n\n\n\nNote:-No dereferencing is taking palce \n\n\nAs soon as execution of this function ends, there is \nnothing available in activation record, no change in \nactual argument ie…. mystery function is not making \nany changes in actual argument. Hence actual value \nof a is printed ie…2016",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "PDS_POINTERS_AND_STRINGS_2016_Q19",
+            "subject": "Programming and Data Structures",
+            "topic": "Pointers and Strings",
+            "subtopic": "The output of the program is____.",
+            "year": 2016,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 19,
+            "tags": [
+                "Pointers and Strings",
+                "The output of the program is____.",
+                "Programming and Data Structures"
+            ],
+            "question": {
+                "text": "Consider the following C program. \n\nvoid f (int, short); \n\nvoid main (){ \n\nint i=100;      \n\nshort s=12;  \n\nshort  * p=& s ;  \n\n___________ ; / /  call to f() \n\n} \n\nWhich one of the following expressions, when placed \nin the blank above, will NOT result in a type checking \nerror?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "f(s, * s)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "i=f(i, s)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "f (i,* s)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "f(i, * p)",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "D"
+            ],
+            "solution": {
+                "text": "Function is expecting 1st argument as int type and 2nd \nargument as short type. \n\n\n\nOption (A):   \n\nf(s, *s) \n\n1st agreement is short type but function is expecting \nthis argument to be type of int, but because of implicit \nconversion, short is converted into int. so 1st \nargument will not cause any error 2nd argument is \npointer but function is expecting it to be short type \nwhich will generate an error. \n\n (A) is wrong \n\nOption B \n\ni = f(i,s) \n\nReturn type is not void, hence option (b) is also \nwrong. \nOption C:   \n\nf(i, *S) \n\n1st argument is int but 2nd argument is pointer i.e. \nThere exists system error. So option c is also wrong. \n(s is not holding any address.) \nOption D:   \n\nf(i, *p) \n\nBoth types are matching  \n\nFirst argument is int and p is pointer to short type, \nHence, (f) is correct. \n\ns is not (a) pointer.",
+                "images": [
+                    "assets/Programming and Data Structures/PDS_Pointers_and_Strings_P52_X5205.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "PDS_POINTERS_AND_STRINGS_2015_Q20",
+            "subject": "Programming and Data Structures",
+            "topic": "Pointers and Strings",
+            "subtopic": "error?",
+            "year": 2015,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 20,
+            "tags": [
+                "Pointers and Strings",
+                "error?",
+                "Programming and Data Structures"
+            ],
+            "question": {
+                "text": "Consider the following C program. \n\n# include < stdio.h > \n\nint main () { \n\n\nstatic int a[ ] = {10, 20, 30, 40, 50}; \n\n\nstatic int *p[ ] = {a,a + 3, a+4, a + 1, a + 2); \n\n\nint **ptr = p; \nptr++; \n\n\nprintf (\"%d % d\", prt-p, **ptr); \n\n} \n\nThe output of the program is _______.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "140"
+            ],
+            "solution": {
+                "text": "static int * p[] is read as p is an array of pointer to \ninteger each element of p[ ] holds an address of \ninteger type variable. \n\n\n\n(array name) a = &a[0] \n\na +1 = moving one location in forward direction from \n&a[0] = &a [1] \n\nNOTE: Array name represents address of its first \nelement. \n\na + 2 = & a [2] \n\na + 3 = & a [3]  \n\na + 4 = & a [4] \n\nint ** ptr = p; \n\nHere p is array name, which represents address of its \nfirst elements. \n\nptr++=ptr will point to next address or location \nie….104 \n\n(i) &p[1] - &p[0] \n\n\n= Actual difference\n= 104 - 100\n=1 \n\n(ii) ** ptr  \n\n\n**(& p [1]) \n\n\n= ** &p[1] =*p[1] =*&a[3] = a[3] = 40 \n\n\nHence, 140 is printed.",
+                "images": [
+                    "assets/Programming and Data Structures/PDS_Pointers_and_Strings_P53_X5257.png",
+                    "assets/Programming and Data Structures/PDS_Pointers_and_Strings_P53_X5259.png",
+                    "assets/Programming and Data Structures/PDS_Pointers_and_Strings_P53_X5261.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "PDS_POINTERS_AND_STRINGS_2015_Q21",
+            "subject": "Programming and Data Structures",
+            "topic": "Pointers and Strings",
+            "subtopic": "The output of the program is _______.",
+            "year": 2015,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 21,
+            "tags": [
+                "Pointers and Strings",
+                "The output of the program is _______.",
+                "Programming and Data Structures"
+            ],
+            "question": {
+                "text": "Consider the following C program segment. \n\n# include <stdio.h > \n\nint main (){ \n\nchar s1 [7]=\" 1234 \", * p; \n\np = s1 + 2; \n\n* p=' 0 '; \n\nprintf(\"% s\" ,  s1); \n\n} \n\nWhat will be printed by the program?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "12",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "120400",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "1204",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "1034",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "C"
+            ],
+            "solution": {
+                "text": "p = s1 + 2 \n\n Address + 2 (moving 2 locations in forward \ndirection) \n\np = 102 (address of '3') \n\n* p = '0' (Assign character '0' (zero) at address 102) \n\nHence, 1204 is printed, option c is correct.",
+                "images": [
+                    "assets/Programming and Data Structures/PDS_Pointers_and_Strings_P52_X5203.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "PDS_POINTERS_AND_STRINGS_2014_Q22",
+            "subject": "Programming and Data Structures",
+            "topic": "Pointers and Strings",
+            "subtopic": "What will be printed by the program?",
+            "year": 2014,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 22,
+            "tags": [
+                "Pointers and Strings",
+                "What will be printed by the program?",
+                "Programming and Data Structures"
+            ],
+            "question": {
+                "text": "Consider the following program in C language: \n\n#include <stdio.h> \n\nmain() \n\n{ \n\n   int i; \n\n   int*\\pi = &i;  \n\n   scanf(\"%d\",\\pi); \n\n   printf(\"%d\\n\", i+5); \n\n} \n\nWhich one of the following statements is TRUE?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "Compilation fails.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "Execution results in a run-time error.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "On execution, the value printed is 5 more than the \naddress of variable i.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "On execution, the value printed is 5 more than the \ninteger value entered.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "D"
+            ],
+            "solution": {
+                "text": "scanf(\"%d\", \\pi)  \n\nscanf takes address as input, whatever the input given \nwill be stored at memory location 1024. \n\nLet the input is 3 \n\nThe printed value is 5 more than the input entered \ntherefore option (d) is correct answer.",
+                "images": [
+                    "assets/Programming and Data Structures/PDS_Pointers_and_Strings_P52_X5203.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "PDS_POINTERS_AND_STRINGS_2010_Q23",
+            "subject": "Programming and Data Structures",
+            "topic": "Pointers and Strings",
+            "subtopic": "integer value entered.",
+            "year": 2010,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 23,
+            "tags": [
+                "Pointers and Strings",
+                "integer value entered.",
+                "Programming and Data Structures"
+            ],
+            "question": {
+                "text": "What is the value printed by the following C program? \n\n#include < stdio.h> \n\nint f(int *a, int n){ \n\nif (n <= 0) return 0; \n\nelse if (*a % 2 == 0) \n\nreturn *a + f(a + 1, n-1); \n\nelse return *a - f(a + 1, n -1); \n\n} \n\nint main () \n\n{ \n\nint a[] = {12, 7,13.4.11,6); \n\nprintf(<,%d', f(a, 6)); \n\nreturn 0; \n\n}",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "-9",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "5",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "15",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "19",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "C"
+            ],
+            "solution": {
+                "text": "Hence 15 is printed and option (c) is correct answer",
+                "images": [
+                    "assets/Programming and Data Structures/PDS_Pointers_and_Strings_P54_X5328.png",
+                    "assets/Programming and Data Structures/PDS_Pointers_and_Strings_P54_X5334.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "PDS_POINTERS_AND_STRINGS_2010_Q24",
+            "subject": "Programming and Data Structures",
+            "topic": "Pointers and Strings",
+            "subtopic": "}",
+            "year": 2010,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 24,
+            "tags": [
+                "Pointers and Strings",
+                "}",
+                "Programming and Data Structures"
+            ],
+            "question": {
+                "text": "What does the following program print? \n\n# include <studio.h> \n\nvoid f( int * p, int * q){ \n\np = q ; \n\n* p = 2 ; \n\n} int i = 0, j = 1 ; \n\nint main( ) \n\n{  \n\nf(&i, &j) ; \n\nprintf(\" % d% d\\n \", i, j) ; \n\ngetchar(); return 0; }",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "22",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "21",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "01",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "02 \n\n\nCommon Data for next two questions: \n\nConsider the following C program that attempts to \nlocate an element x in an array Y[] using binary \nsearch. The program is erroneous. \n\n1. f( int Y[10], int x){ \n\n2. int i, j, k; \n\n3. i=0 ; j=9; \n\n4. do { \n\n5. k = (i + j) / 2; \n\n6. if (Y[K]<x) i = k; else j = k; \n\n7. } while ((Y[k]    !=x) &&(i<j)); \n\n8. if (Y[k]==x)  \n\n\nprintf(\"x is in the array \") ; \n\n9. else  \n\n\nprintf (\"x is not in the array\"); \n\n10. }",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "D"
+            ],
+            "solution": {
+                "text": "Both p and q are pointing to j (2096) \n\n* p = 2 that means insert value at address 2096 \n\n0, 2 is printed hence, correct option is(d).",
+                "images": [
+                    "assets/Programming and Data Structures/PDS_Pointers_and_Strings_P54_X5330.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "PDS_POINTERS_AND_STRINGS_2008_Q25",
+            "subject": "Programming and Data Structures",
+            "topic": "Pointers and Strings",
+            "subtopic": "printf (\"x is not in the array\");",
+            "year": 2008,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 25,
+            "tags": [
+                "Pointers and Strings",
+                "printf (\"x is not in the array\");",
+                "Programming and Data Structures"
+            ],
+            "question": {
+                "text": "On which of the following contents of Y and x does \nthe program fail?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "Y is [1 2 3 4 5 6 7 8 9 10] and x < 10",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "Y is [1 3 5 7 9 11 13 15 17 19] and x < 1",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "Y is [2 2 2 2 2 2 2 2 2 2] and x > 2",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "Y is [2 4 6 8 10 12 14 16 18 20] and 2 < x < 20 \nand x is even",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "C"
+            ],
+            "solution": {
+                "text": "Firstly, let us understand how binary search works. \n\n\n\nCase: 1 \n\nLet us suppose we are searching for x =90 \n\nMid = Begin + end\n= 0 + 9\n=\n\n\n\n\nA mid \n\n\n\n     No   \n     40               90\nx\n= =\n\n \n\nx is greater than elements at Mid position. \n\n(1) x cannot be present from any location between \nBegin and mid new list must be from Mid +1 to \nend index. \n\nBegin = Mid + 1 \nBegin = 5 \nAgain, Mid = (\n)\n+\n=\n\nCheck A [Mid] = = x \nA [7] = = 90 (No) \nA [Mid] < x \nUpdate \\Rightarrow Begin = Mid + 1 = 8 \nMid = 8\n+\n=\n\nCheck A [Mid] = x \n\nyes \nbreak and return. \n\nCase: 2 \n\nBegin = 0, End = 9, x = 120 \n\n(i) Mid = 0\n+\n=\n\n\n\nA [Mid] = = x No \n\n(ii) Begin = Mid + 1 = 5 \n\n\nMid = 5\n+\n=\n\n\n\nA [7] = = x No \n\n\nA [Mid] < x   \n\n(iii) Begin = Mid + 1 = 8 \n\n\nMid = 8\n+\n=\n\n\n\nA [Mid] = = x  No \n\n\nA [Mid] < x \n\n(iv) Begin = Mid + 1 = 9 \n\n\nMid = 9\n+\n=\n\n\n\nA [Mid] = =  x No \n\n\nA [Mid] < x \n\n\nBegin = Mid + 1 = 10 \n\n\nBegin becomes greater than End, unsuccessful \nsearch, element is not present. \n\n\nRepeat till Begin < End && A [Mid]! = x \n\nCase: 3   \n\nx = = 40 \n\n(i) Begin = 0, End = 9 \n\n\nMid = 0\n+\n=\n\n\n\nA [Mid] = = x No \n\n\nx < A [Mid] \n\n x cannot be present from Mid to End position. \n\nNew list must be from Begin to Mid -1  \n\nEnd = Mid -1 \n\n(i) We need to calculate mid and check every time \nif element is equal then search result is found. \n\n(ii) If element is small then Mid search should be \nperformed on left side. \n\n(iii) If x is bigger than Mid then search should be \nperformed on right side of list. \n\nNow, focusing on the actual code. \n\n(i) k = i\nj\n+ is performing mid operation \n\n(ii) If (Y[k] < x) i = k; else j = k; \n• In above code, if element to be searched is \nlarger than Mid, then there should be i = k +1 \n(Begin = Mid +1) but above it is being assigned \nwithout incrementing. \n• And if element is smaller then j = k - 1 (End = \nMid-1) must have been performed but above it \nis being assigned without decrementing in else \npart. \n\nThe above given code will not work if \n\n(i) x (Element to be searched) is greater than the \nmaximum element (last element) \n\n(ii) Or we are searching for the last element itself.  \n Case: 4 \n\n\n(i) Let us assume we are searching x = 100 \n\n\nj = 9 \n\n\nk = 0\n+\n= 4 \n\n\n\nY [4] < x (True) \n\n\ni = k \\Rightarrow i = 4 (i and k are printing same index) \n\n(ii) k = 4\n+\n=\n\n\n\n Y [6] < x (True) \n\n\ni = k \\Rightarrow i = 6 \n\n(iii) k = 6\n+\n=\n\n\n\nY [7] < x (True) \n\n\ni = k \\Rightarrow i = 7 \n\n(iv) k = 7\n+\n=\n\n\n\nY [8] < x (True) \n\n\ni = k \\Rightarrow i = 8 \n\n(v) k = 8\n+\n=\n\n\n\ny [8] < x (True) \n\n\ni = k \\Rightarrow i = 8 \n\ni remains same (no update) \n\nProgram goes in to infinite loop, i will never become \nequal to j or greater then j. \n\n As above example is illustrated in (case 4), \ntherefore correct option is option c, because program \ngoes int. infinite loop.",
+                "images": [
+                    "assets/Programming and Data Structures/PDS_Pointers_and_Strings_P54_X5332.png",
+                    "assets/Programming and Data Structures/PDS_Pointers_and_Strings_P54_X5336.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "PDS_POINTERS_AND_STRINGS_2008_Q26",
+            "subject": "Programming and Data Structures",
+            "topic": "Pointers and Strings",
+            "subtopic": "and x is even",
+            "year": 2008,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 26,
+            "tags": [
+                "Pointers and Strings",
+                "and x is even",
+                "Programming and Data Structures"
+            ],
+            "question": {
+                "text": "The correction needed in the program to make it work \nproperly is",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "change line 6 to: if (Y[k] < x) i = k + 1; else \nj = k - 1;",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "change line 6 to: if (Y[k] < x) i = k - 1; else j = k \n+ 1;",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "change line 6 to: if (Y[k] < x) i = k; else j = k;",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "change line 7 to: while ((Y[k] = = x) && \n (i < j)); \n\nStrings",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "A"
+            ],
+            "solution": {
+                "text": "• \ni = k has to be replaced by i = k + 1 if elements is \nlarger than Mid (k is Mid). \n• \nj =k has to be replaced by j = k - 1 if elements is \nsmaller than Mid. \n\nHence, option A is correct answer.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "PDS_POINTERS_AND_STRINGS_2018_Q27",
+            "subject": "Programming and Data Structures",
+            "topic": "Pointers and Strings",
+            "subtopic": "Strings",
+            "year": 2018,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 27,
+            "tags": [
+                "Pointers and Strings",
+                "Strings",
+                "Programming and Data Structures"
+            ],
+            "question": {
+                "text": "Consider the following C program: \n\n#include<stdio.h> \n\nvoid fun1 (char*  s1 , char* s2) { \n\n    char* temp; \n\n    temp = s1; \n\n    s1 = s2; \n\n    s2 = temp; \n\n} \n\nvoid fun2 (char** s1 , char** s2) { \n\n    char* temp; \n\n    temp = *s1; \n\n   *s1 = *s2 \n\n   *s2 = temp ;  \n\n} \n\nint main( ){ \n\n\nchar *str1 = \"Hi\", *str2= \"Bye\"; \n\nfun1(str1, str2);  \n\nprintf(\"%s %s\", str1, str2); \n\nfun2(&str1, &str2);  \n\nprintf(\"%s, %s\", str1 , str2); \n\nreturn 0; \n\n} \n\nThe output of the program above is",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "Hi Bye Bye Hi",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "Hi Bye Hi Bye",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "Bye Hi Hi Bye",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "Bye Hi Bye Hi",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "A"
+            ],
+            "solution": {
+                "text": "fun1 () is called, fun1 (100, 200) \n\n\n\ntemp = s1 \n\n\ns1 = s2 \n\ns2 = temp \n\nNo change in str1 and str2, so HiBye.. is printed from \nthe first printf statement. \n\nNow fun2 () is called, fun2(206, 496)  \n\n\ntemp = *s1 (value of at memory location 206)  \n\ntemp = 100 \n\n*  s1 = *s2 (value at memory location 496) \n\n*  s1 = 200 \n\n*  s2 = temp \n\n*  s2 = 100 \n• \ncontents of str1 and str2 are swapped \n• \nNow str1 is pointing to 'Bye' and str2 is pointing \nto \"Hi\" \n\n\nTherefore 2nd printf prints ByeHi. \n\nHence (a) is correct answer.",
+                "images": [
+                    "assets/Programming and Data Structures/PDS_Pointers_and_Strings_P56_X5495.png",
+                    "assets/Programming and Data Structures/PDS_Pointers_and_Strings_P56_X5497.png",
+                    "assets/Programming and Data Structures/PDS_Pointers_and_Strings_P56_X5499.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "PDS_POINTERS_AND_STRINGS_2017_Q28",
+            "subject": "Programming and Data Structures",
+            "topic": "Pointers and Strings",
+            "subtopic": "The output of the program above is",
+            "year": 2017,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 28,
+            "tags": [
+                "Pointers and Strings",
+                "The output of the program above is",
+                "Programming and Data Structures"
+            ],
+            "question": {
+                "text": "Consider the following C program. \n\n#include<stdio.h> \n\n#include<string.h> \n\nvoid printlength(char *s, char *t) { \n\n    unsigned int c=0; \n\n    int len = ((strlen(s) - strlen(t)) > c) ? strlen(s) : \n    strlen(t); \n\n    printf(\"%d\\n\", len); \n\n} \n\nvoid main() { \n\n    char *x = \"abc\"; \n\n    char *y = \"defgh\"; \n\n    printlength(x, y); \n\n} \n\nRecall that strlen is defined in string.h as returning a \nvalue of type size_t, which is an unsigned int. The \noutput of the program is_____.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "3"
+            ],
+            "solution": {
+                "text": "char*x = \"abc\";→ Read only area \n\nprintlength (x, y); \\rightarrow printlength(100,200) \n\n\n\n\n\n\nstrlen(s) - strlen(t) \n\n3 - 5 = -2 \n\nUnsigned int - unsigned int \n\nWill also be an unsigned int \n\n - 2 is treated as max integer value - 2 \n\n= large +ve value  \n\n\n\nHence 3 is printed.",
+                "images": [
+                    "assets/Programming and Data Structures/PDS_Pointers_and_Strings_P57_X5579.png",
+                    "assets/Programming and Data Structures/PDS_Pointers_and_Strings_P57_X5581.png",
+                    "assets/Programming and Data Structures/PDS_Pointers_and_Strings_P57_X5585.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "PDS_POINTERS_AND_STRINGS_2011_Q29",
+            "subject": "Programming and Data Structures",
+            "topic": "Pointers and Strings",
+            "subtopic": "output of the program is_____.",
+            "year": 2011,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 29,
+            "tags": [
+                "Pointers and Strings",
+                "output of the program is_____.",
+                "Programming and Data Structures"
+            ],
+            "question": {
+                "text": "What does the following fragment of C program \nprint? \n\nchar c[ ] = \"GATE 2011\"; \n\nchar *p = c; \n\nprintf (\"%s\", p + p[3] - p[1]);",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "GATE 2011",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "E 2011",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "2011",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "011",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "C"
+            ],
+            "solution": {
+                "text": "char c [ ] = \"GATE 2011\"; \n\nchar *p= c; \n\nprintf (\"%s\", p + p [3] - p[1]) \n\n\np+ 1 \\Rightarrow Address of 'A' \n\n* (p +1) \\Rightarrow 'A' \n\n\np 1\n'A'\n=\n\n\np + 3 \\Rightarrow Address of 'E' \n\n* (p +3) \\Rightarrow 'E' \n\n\np 3\n'E'\n=\n\n\n\n2011 is printed till \\0, therefore option c is correct.",
+                "images": [
+                    "assets/Programming and Data Structures/PDS_Pointers_and_Strings_P56_X5493.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        }
+    ]
+}

@@ -1,0 +1,667 @@
+{
+    "subject": "Compiler Design",
+    "topic": "Syntax Directed Translation",
+    "questionCount": 12,
+    "questions": [
+        {
+            "id": "CD_SYNTAX_DIRECTED_TRANSLATION_2021_Q01",
+            "subject": "Compiler Design",
+            "topic": "Syntax Directed Translation",
+            "subtopic": "C H A P T E R",
+            "year": 2021,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 1,
+            "tags": [
+                "Syntax Directed Translation",
+                "C H A P T E R",
+                "Compiler Design"
+            ],
+            "question": {
+                "text": "Consider the following grammar (that admits a series \nof declarations, followed by expressions) and the \nassociated syntax directed translation (SDT) actions, \ngiven as pseudo-code: \n\nP  \\rightarrow  D* E* \n\nD  \\rightarrow  int ID {record that ID, lexeme is of type int} \n\nD  \\rightarrow  bool ID {record that ID. lexeme is of type \nbool} \n\nE  \\rightarrow  E1 + E2{check that E1. Type = E2. Type = int; \nset E. type := int} \n\nE  \\rightarrow  ! E1{check that E1. Type = bool; set E. type: = \nbool} \n\nE  \\rightarrow  ID{set E type : = int} \n\nWith respect to the above grammar, which one of the \nfollowing choices is correct?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "The actions can be used to correctly type-check \nany syntactically correct program",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "The actions can be used to type-check \nsyntactically \ncorrect \ninteger \nvariable \ndeclarations and integer expressions",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "The actions can be used to type-check \nsyntactically \ncorrect \nboolean \nvariable \ndeclarations and boolean expressions",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "The actions will lead to an infinite loop",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "B"
+            ],
+            "solution": {
+                "text": "\"The actions can be used to correctly type-check \nany syntactically correct program\" is FALSE. Here \nwe are not discussing the whole program, because \nprogram has lots of syntax.  \n\n\"The actions can be used to type-check syntactically \ncorrect integer variable declarations and integer \nexpressions\" TRUE. With integer variable we can \ncorrectly represent the expressions. We can clearly \nsee ID gets integer type whether keyword int or bool \nis used in the declaration of variable. \n\nTherefore, option B is correct.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "CD_SYNTAX_DIRECTED_TRANSLATION_2016_Q02",
+            "subject": "Compiler Design",
+            "topic": "Syntax Directed Translation",
+            "subtopic": "declarations and boolean expressions",
+            "year": 2016,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 2,
+            "tags": [
+                "Syntax Directed Translation",
+                "declarations and boolean expressions",
+                "Compiler Design"
+            ],
+            "question": {
+                "text": "A student wrote two context-free grammars G1 and \nG2 for generating a single C-like array declaration. \nThe dimension of the array is at least one. For \nexample, \n\n  int a[10][3]; \n\nThe grammars use D as the start symbol, and use six \nterminal symbols int; id [ ] num. \n\nGrammar G1 \n Grammar G2 \n\nD \\rightarrow int L;  \n D \\rightarrow int L; \n\nL \\rightarrow id [E  \n L \\rightarrow id E \n\nE \\rightarrow num] \n E \\rightarrow E[num] \n\nE \\rightarrow num][E  \n E \\rightarrow [num] \n\nWhich of the grammars correctly generate the \ndeclaration mentioned above?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "Both G1 and G2",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "Only G1",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "Only G2",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "Neither G1 nor G2",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "A"
+            ],
+            "solution": {
+                "text": "Given two Grammars G1 and G2 can generate all \narray declarations. We can see approach to derive \nany declaration using parse tree. Example: int a[10] \n[3]; \n\nUsing G1: \n\n\nUsing G2: \n\n\nSo, both G1 and G2 can generate the array \ndeclaration. So, option A is the correct answer.",
+                "images": [
+                    "assets/Compiler Design/CD_Syntax_Directed_Translation_P22_X2268.png",
+                    "assets/Compiler Design/CD_Syntax_Directed_Translation_P22_X2272.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "CD_SYNTAX_DIRECTED_TRANSLATION_2023_Q03",
+            "subject": "Compiler Design",
+            "topic": "Syntax Directed Translation",
+            "subtopic": "declaration mentioned above?",
+            "year": 2023,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 3,
+            "tags": [
+                "Syntax Directed Translation",
+                "declaration mentioned above?",
+                "Compiler Design"
+            ],
+            "question": {
+                "text": "Consider the syntax directed translation given by the \nfollowing grammar and semantic rules. Here N, I, F \nand B are non-terminals. N is the starting non-\nterminal, and #, 0 and 1 are lexical tokens \ncorresponding to input letters \"#\", \"0\" and \"1\", \nrespectively. X.val denotes the synthesized attribute \n(a numeric value) associated with a non-terminal X. \nI1 and F1 denote occurrences of I and F on the right \nhand side of a production, respectively. For the \ntokens 0 and 1, 0.val = 0 and 1.val = 1. \n\n\nN  \\rightarrow  \nI#F \n N. val = I.val + F.val \n\n\nI \n→  \nI1 B \n I. val = (2 I1.val) + B. val \n\n\nI \n→  \nB  \n I. val = B.val \n\n\nF \n→  \nB F1  \nF. val = ½ (B. val + F1. val) \n\n\nF \n→  \nB  \nF. val = ½ B. val \n\n\nB \\rightarrow  \nB. val = 0. val \n\n\nB  \\rightarrow  \nB. val = 1. val \n\n\nThe value computed by the translation scheme for \nthe input string 10 # 011 is                .(Rounded off \nto three decimal places)",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "2.375"
+            ],
+            "solution": {
+                "text": "The parse tree for the given SDT is \n\n\n\n\nThe end of the production is 2.375.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "CD_SYNTAX_DIRECTED_TRANSLATION_2022_Q04",
+            "subject": "Compiler Design",
+            "topic": "Syntax Directed Translation",
+            "subtopic": "to three decimal places)",
+            "year": 2022,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 4,
+            "tags": [
+                "Syntax Directed Translation",
+                "to three decimal places)",
+                "Compiler Design"
+            ],
+            "question": {
+                "text": "Consider the following grammar along with \ntranslation rules. \n𝑆→𝑆1 # 𝑇 \n{𝑆.𝑣𝑎𝑙= 𝑆1.𝑣𝑎𝑙∗𝑇.𝑣𝑎𝑙} \n𝑆→ 𝑇 \n\n{𝑆.𝑣𝑎𝑙= 𝑇.𝑣𝑎𝑙} \n𝑇→𝑇1 % 𝑅 \n{𝑇.𝑣𝑎𝑙= 𝑇1.𝑣𝑎𝑙÷ 𝑅.𝑣𝑎𝑙}  \n𝑇→𝑅 \n\n{𝑇.𝑣𝑎𝑙= 𝑅.𝑣𝑎𝑙} \n𝑅→𝑖𝑑  \n{𝑅.𝑣𝑎𝑙= 𝑖𝑑.𝑣𝑎𝑙} \n\nHere # and % are operators and id is a token that \nrepresents an integer and id.val  represents the \ncorresponding integer value. The set of non-\nterminals is {S, T, R, P} and a subscripted non - \nterminal indicates an instance of the non - terminal. \n\nUsing this translation scheme, the computed value of \n𝑆. 𝑣𝑎𝑙  for root of the parse tree for the expression 20 \n#10%5#8%2%2 is   _________.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "80"
+            ],
+            "solution": {
+                "text": "Parse tree for the given expression:",
+                "images": [
+                    "assets/Compiler Design/CD_Syntax_Directed_Translation_P23_X2373.png",
+                    "assets/Compiler Design/CD_Syntax_Directed_Translation_P23_X2375.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "CD_SYNTAX_DIRECTED_TRANSLATION_2020_Q05",
+            "subject": "Compiler Design",
+            "topic": "Syntax Directed Translation",
+            "subtopic": "#10%5#8%2%2 is   _________.",
+            "year": 2020,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 5,
+            "tags": [
+                "Syntax Directed Translation",
+                "#10%5#8%2%2 is   _________.",
+                "Compiler Design"
+            ],
+            "question": {
+                "text": "Consider the productions 𝐴→PQ and A →XY . \nEach of the five non-terminals A, P, Q, X and Y has \ntwo attributes: s is a synthesized attribute, and i is an \ninherited attribute. Consider the following rules. \n\nRule 1: P .i = A .i+2, Q .i = P .i + A .i and A .s = P \n.s + Q .s \n\nRule 2: X .i = A .i + Y .s and Y .i = X .s + A .i \n\nWhich one of the following is TRUE?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "Neither Rule 1 nor Rule 2 is L-attributed.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "Only Rule 1 is L-attributed.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "Both Rule 1 and Rule 2 are L-attributed.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "Only Rule 2 is L-attributed.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "B"
+            ],
+            "solution": {
+                "text": "Given, \n\nA \\rightarrow PQ \n\nA \\rightarrow XY \n\nRule 1 is ⇒ L. attributed \n\nRule 2 is ⇒ Not L-attributed. \n\nSo, option b is correct.",
+                "images": [
+                    "assets/Compiler Design/CD_Syntax_Directed_Translation_P22_X733.png",
+                    "assets/Compiler Design/CD_Syntax_Directed_Translation_P22_X2270.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "CD_SYNTAX_DIRECTED_TRANSLATION_2019_Q06",
+            "subject": "Compiler Design",
+            "topic": "Syntax Directed Translation",
+            "subtopic": "Which one of the following is TRUE?",
+            "year": 2019,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 6,
+            "tags": [
+                "Syntax Directed Translation",
+                "Which one of the following is TRUE?",
+                "Compiler Design"
+            ],
+            "question": {
+                "text": "Consider the following grammar and the semantic \nactions to support the inherited type declaration \nattributes. Let X1, X2, X3. X4, X5, and X6 be the \nplaceholders for the non-terminals D, T, L or L1 in \nthe following table: \n\nProduction rule \nSemantic action \nD \\rightarrow TL \nX1.type = X2.type \nT \\rightarrow int \nT.type = int \nT \\rightarrow float \nT.type = float \nL \\rightarrow L1, id \nX3.type = X4.type add Type \n(id.entry, X5.type) \nL \\rightarrow id \nadd Type (id.entry, X6.type) \nWhich one of the following are the appropriate \nchoice for X1, X2, X3 and X4?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "X1 = L, X2 = T, X3 = L1, X4 = L",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "X1 = T, X2 = L, X3 = L1, X4 = T",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "X1 = L, X2 = L, X3 = L1, X4 = T",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "X1 = T, X2 = L, X3 = T, X4 = L1",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "A"
+            ],
+            "solution": {
+                "text": "If a production is of type S \\rightarrow XY, this means Y can \ninherit values from S or X, and similarly X can \ninherit value from S, and S can depend on both X \nand Y.  \n\nIn the given productions,  \n\n\nT \\rightarrow int, Here T gets integer type using child. \n\n\nD \\rightarrow TL, Here L gets type from T. \n\n\nL \\rightarrow L1, id, Here L1 can inherit the type from L. \nThis means X3 must be L1 and X4 must be L. \n\nSo, option A is the correct answer.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "CD_SYNTAX_DIRECTED_TRANSLATION_2018_Q07",
+            "subject": "Compiler Design",
+            "topic": "Syntax Directed Translation",
+            "subtopic": "choice for X1, X2, X3 and X4?",
+            "year": 2018,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 7,
+            "tags": [
+                "Syntax Directed Translation",
+                "choice for X1, X2, X3 and X4?",
+                "Compiler Design"
+            ],
+            "question": {
+                "text": "Consider the following parse tree for the expression \n𝑎 # 𝑏 $ 𝑐 $ 𝑑 # 𝑒 # 𝑓, involving two binary operators \n$ and #. \n\n\nWhich one of the following is correct for the given \nparse tree?",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "$ has higher precedence and is left associative; \n# is right associative",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "# has higher precedence and is left associative; \n$ is right associative",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "$ has higher precedence and is left associative; \n# is left associative",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "# has higher precedence and is right \nassociative; $ is left associative.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "A"
+            ],
+            "solution": {
+                "text": "$ has highest precedence. $ must be evaluated \nbefore other operators in the above tree. \n\n$ is left associative. If we see b$c$d, first left $ will \nbe evaluated. \n\n# is right associative. We can see right # will be \nevaluated first when both times # happens in the \nexpression. \n\nSo, option a is correct.",
+                "images": [
+                    "assets/Compiler Design/CD_Syntax_Directed_Translation_P23_X2377.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "CD_SYNTAX_DIRECTED_TRANSLATION_2016_Q08",
+            "subject": "Compiler Design",
+            "topic": "Syntax Directed Translation",
+            "subtopic": "associative; $ is left associative.",
+            "year": 2016,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 8,
+            "tags": [
+                "Syntax Directed Translation",
+                "associative; $ is left associative.",
+                "Compiler Design"
+            ],
+            "question": {
+                "text": "Consider the following Syntax Directed Translation \nScheme (SDTS), with non-terminals {S, A} and \nterminals {a, b}. \n\n S \\rightarrow aA  \n{print 1} \n\n S \\rightarrow  a  \n{print 2} \n\n A \\rightarrow Sb  \n{print 3} \n\nUsing the above SDTS, the output printed by a \nbottom-up parser, for the input aab is:",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "132",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "223",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "231",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "Syntex error",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "C"
+            ],
+            "solution": {
+                "text": "Input : aab  \n\nOutput: 231 \n\n\n\nFirst will print: 2 \n\nSecond will print: 3 \n\nThird will print: 1 \n\nOutput: 231 \n\nSo, option C is the correct answer.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "CD_SYNTAX_DIRECTED_TRANSLATION_2016_Q09",
+            "subject": "Compiler Design",
+            "topic": "Syntax Directed Translation",
+            "subtopic": "bottom-up parser, for the input aab is:",
+            "year": 2016,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 9,
+            "tags": [
+                "Syntax Directed Translation",
+                "bottom-up parser, for the input aab is:",
+                "Compiler Design"
+            ],
+            "question": {
+                "text": "The attribute of three arithmetic operators in some \n\nprogramming language are given below. \n\n\nThe value of the expression 2 - 5 + 1 - 7 * 3 in this \nlanguage is __________.",
+                "images": [
+                    "assets/Compiler Design/CD_Syntax_Directed_Translation_P21_X2214.png",
+                    "assets/Compiler Design/CD_Syntax_Directed_Translation_P21_X2216.png",
+                    "assets/Compiler Design/CD_Syntax_Directed_Translation_P21_X2218.png"
+                ],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "9"
+            ],
+            "solution": {
+                "text": "Given,  \n\n2 - 5 + 1 - 7 * 3 \n\n⇒ 2 - (5 + 1) - 7 * 3   // + has higher precedence \n\n⇒ (2 - (6 - 7)) * 3   // - has higher precedence and \nit is right associative.  \n\n⇒ 3 * 3 = 9",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "CD_SYNTAX_DIRECTED_TRANSLATION_2014_Q10",
+            "subject": "Compiler Design",
+            "topic": "Syntax Directed Translation",
+            "subtopic": "language is __________.",
+            "year": 2014,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 10,
+            "tags": [
+                "Syntax Directed Translation",
+                "language is __________.",
+                "Compiler Design"
+            ],
+            "question": {
+                "text": "One of the purposes of using intermediate code in \ncompilers is to",
+                "images": [
+                    "assets/Compiler Design/CD_Syntax_Directed_Translation_P21_X2220.png",
+                    "assets/Compiler Design/CD_Syntax_Directed_Translation_P21_X2222.png"
+                ],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "make parsing and semantic analysis simpler.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "improve error recovery and error reporting.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "increase the chances of reusing the machine-\nindependent code optimizer in other compilers",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "improve the register allocation.",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "C"
+            ],
+            "solution": {
+                "text": "One of the purposes of using intermediate code in \ncompilers is to increase the chances of reusing the \nmachine-independent code optimizer in other \ncompilers.",
+                "images": [
+                    "assets/Compiler Design/CD_Syntax_Directed_Translation_P24_X2436.png"
+                ],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "CD_SYNTAX_DIRECTED_TRANSLATION_2014_Q11",
+            "subject": "Compiler Design",
+            "topic": "Syntax Directed Translation",
+            "subtopic": "independent code optimizer in other compilers",
+            "year": 2014,
+            "exam": "GATE",
+            "marks": 2,
+            "questionType": "NAT",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 11,
+            "tags": [
+                "Syntax Directed Translation",
+                "independent code optimizer in other compilers",
+                "Compiler Design"
+            ],
+            "question": {
+                "text": "Consider the expression tree shown. Each leaf \nrepresents a numerical value, which can either be 0 \nor 1. Over all possible choices of the values at the \nleaves, the maximum possible value of the \nexpression represented by the tree is ________.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [],
+            "correctAnswer": [
+                "6"
+            ],
+            "solution": {
+                "text": "Putting the 0 and 1 accordingly to get maximum \npossible value.  \n\n\nHere, both left and right subtree can give value 3 and \nthe resulting value will be 3+3 = 6",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        },
+        {
+            "id": "CD_SYNTAX_DIRECTED_TRANSLATION_2021_Q12",
+            "subject": "Compiler Design",
+            "topic": "Syntax Directed Translation",
+            "subtopic": "expression represented by the tree is ________.",
+            "year": 2021,
+            "exam": "GATE",
+            "marks": 1,
+            "questionType": "MCQ",
+            "difficulty": null,
+            "estimatedTime": null,
+            "questionNumberWithinTopic": 12,
+            "tags": [
+                "Syntax Directed Translation",
+                "expression represented by the tree is ________.",
+                "Compiler Design"
+            ],
+            "question": {
+                "text": "Consider two binary operators '↑' and '↓' with the \nprecedence of operator ↓ being lower than that of \nthe operator ↑. Operator ↑ is right associative \nwhile operator ↓ is left associative. Which one of \nthe following represents the parse tree for expression \n( 7 ↓ 3 ↑ 4 ↑ 3  ↓ 2)",
+                "images": [],
+                "latex": [],
+                "tables": []
+            },
+            "options": [
+                {
+                    "id": "A",
+                    "text": "",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "B",
+                    "text": "",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "C",
+                    "text": "",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                },
+                {
+                    "id": "D",
+                    "text": "",
+                    "images": [],
+                    "latex": [],
+                    "tables": []
+                }
+            ],
+            "correctAnswer": [
+                "B"
+            ],
+            "solution": {
+                "text": "Given, \n1.  Precedence of operator ↓ being lower than \nthat of the operator ↑ \n2. Operator ↑ is right associative while operator \n↓ is left associative.  \n3.  Expression: ( 7 ↓ 3 ↑ 4 ↑ 3  ↓ 2) \n\n\nSo,  \n\n\n(( 7 ↓ (3 ↑ 4 ↑ 3))  ↓ 2) \n\nTherefore, the tree corresponding to the above \nexpression is \n\n\nTherefore, option B is the correct answer.",
+                "images": [],
+                "latex": [],
+                "tables": []
+            }
+        }
+    ]
+}
