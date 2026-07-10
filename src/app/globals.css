@@ -167,3 +167,8 @@ body {
 ::-webkit-scrollbar-thumb:hover {
   background: var(--muted-foreground);
 }
+
+/* Prevent tsParticles canvas from blocking any mouse events */
+#tsparticles {
+  pointer-events: none !important;
+}

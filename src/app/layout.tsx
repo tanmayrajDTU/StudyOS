@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/common/ThemeProvider";
 import QueryProvider from "@/components/common/QueryProvider";
+import InteractiveParticles from "@/components/background/InteractiveParticles";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -31,6 +32,7 @@ export default function RootLayout({
       >
         <ThemeProvider>
           <QueryProvider>
+            <InteractiveParticles />
             {children}
           </QueryProvider>
         </ThemeProvider>

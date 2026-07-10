@@ -32,7 +32,7 @@ export default function SidebarWrapper({ initialProfile, children }: SidebarWrap
   }, [])
 
   return (
-    <div className="flex h-screen w-screen overflow-hidden bg-background">
+    <div className="flex h-screen w-screen overflow-hidden bg-transparent relative z-1">
       {/* Collapsible desktop sidebar */}
       <Sidebar profile={initialProfile} />
 
