@@ -128,8 +128,12 @@ const SortableRoadmapItem = React.memo(function SortableRoadmapItem({
           <div className="flex items-center gap-2 mt-1.5 flex-wrap">
             {lec.modules?.subjects && (
               <span
-                className="text-4xs font-bold font-mono px-1.5 py-0.5 rounded text-card"
-                style={{ backgroundColor: lec.modules.subjects.color }}
+                className="text-4xs font-bold font-mono px-1.5 py-0.5 rounded border"
+                style={{ 
+                  backgroundColor: `${lec.modules.subjects.color}15`,
+                  borderColor: `${lec.modules.subjects.color}35`,
+                  color: lec.modules.subjects.color
+                }}
               >
                 {lec.modules.subjects.name}
               </span>

@@ -245,8 +245,12 @@ export default function RevisionPage() {
                       <div className="flex items-center gap-2 flex-wrap">
                         {sub && (
                           <span
-                            className="text-4xs font-bold font-mono px-2 py-0.5 rounded text-card"
-                            style={{ backgroundColor: sub.color }}
+                            className="text-4xs font-bold font-mono px-2 py-0.5 rounded border"
+                            style={{ 
+                              backgroundColor: `${sub.color}15`,
+                              borderColor: `${sub.color}35`,
+                              color: sub.color
+                            }}
                           >
                             {sub.name}
                           </span>
@@ -355,8 +359,12 @@ export default function RevisionPage() {
                       <div className="space-y-2">
                         {sub && (
                           <span
-                            className="text-5xs font-bold font-mono px-2 py-0.5 rounded text-card"
-                            style={{ backgroundColor: sub.color }}
+                            className="text-5xs font-bold font-mono px-2 py-0.5 rounded border"
+                            style={{ 
+                              backgroundColor: `${sub.color}15`,
+                              borderColor: `${sub.color}35`,
+                              color: sub.color
+                            }}
                           >
                             {sub.name}
                           </span>
@@ -407,8 +415,12 @@ export default function RevisionPage() {
                         <div className="flex items-center gap-2 flex-wrap">
                           {sub && (
                             <span
-                              className="text-4xs font-bold font-mono px-2 py-0.5 rounded text-card"
-                              style={{ backgroundColor: sub.color }}
+                              className="text-4xs font-bold font-mono px-2 py-0.5 rounded border"
+                              style={{ 
+                                backgroundColor: `${sub.color}15`,
+                                borderColor: `${sub.color}35`,
+                                color: sub.color
+                              }}
                             >
                               {sub.name}
                             </span>
