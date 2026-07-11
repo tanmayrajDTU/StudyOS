@@ -405,11 +405,22 @@ export default function RevisionPage() {
               <div className="grid grid-cols-1 gap-6">
                 {filteredLectures.map((lec: LecturePriority) => {
                   const sub = lec.modules?.subjects
+                  const isHighPriority = lec.importance_level === 'HIGH'
+                  const subjectColor = sub?.color || '#818CF8'
 
                   return (
                     <div
                       key={lec.id}
-                      className="rounded-2xl border border-border bg-card p-5 shadow-sm flex flex-col sm:flex-row sm:items-center justify-between gap-4 hover:border-border/80 transition-all"
+                      className={`rounded-2xl border p-5 shadow-sm flex flex-col sm:flex-row sm:items-center justify-between gap-4 hover:border-border/80 transition-all ${
+                        isHighPriority ? 'high-priority-glitter shadow-md' : 'border-border bg-card'
+                      }`}
+                      style={
+                        isHighPriority
+                          ? ({
+                              '--subject-color': subjectColor,
+                            } as React.CSSProperties)
+                          : undefined
+                      }
                     >
                       <div className="space-y-2 flex-1 min-w-0">
                         <div className="flex items-center gap-2 flex-wrap">
@@ -430,7 +441,10 @@ export default function RevisionPage() {
                           </span>
                         </div>
 
-                        <h4 className="text-xs font-bold text-foreground truncate">{lec.title}</h4>
+                        <h4 className="text-xs font-bold text-foreground truncate flex items-center gap-1.5">
+                          {isHighPriority && <Sparkles className="h-3.5 w-3.5 text-amber-400 animate-pulse flex-shrink-0" />}
+                          {lec.title}
+                        </h4>
                       </div>
 
                       {/* Importance Level Select Dropdown */}
