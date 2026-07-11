@@ -42,6 +42,7 @@ interface RoadmapItem {
     title: string
     estimated_hours: number
     completed_hours: number
+    importance_level?: string
     modules: {
       id: string
       name: string
@@ -263,12 +264,24 @@ export default function DashboardPage() {
               const sub = mod?.subjects
 
               const isCompleted = Number(lec.completed_hours) >= Number(lec.estimated_hours)
+              const isHighPriority = lec.importance_level === 'HIGH'
+              const subjectColor = sub?.color || '#818CF8'
 
               return (
                 <div 
                   key={item.id} 
-                  className="p-5 hover:bg-secondary/15 transition-colors"
-                  style={{ borderLeft: `3px solid ${sub?.color || '#818CF8'}` }}
+                  className={`p-5 transition-all duration-300 relative ${
+                    isHighPriority 
+                      ? 'high-priority-glitter rounded-xl my-2.5 mx-2.5 shadow-md border-t-0' 
+                      : 'hover:bg-secondary/15 border-t-0'
+                  }`}
+                  style={
+                    isHighPriority
+                      ? ({
+                          '--subject-color': subjectColor,
+                        } as React.CSSProperties)
+                      : { borderLeft: `3px solid ${subjectColor}` }
+                  }
                 >
                   <div className="flex items-start justify-between gap-4">
                     <div className="flex items-start gap-3.5">
@@ -284,7 +297,8 @@ export default function DashboardPage() {
                       </button>
 
                       <div className="space-y-1.5">
-                        <h5 className={`text-[14px] font-semibold text-[#F5F5F5] leading-snug ${isCompleted ? 'line-through text-muted-foreground/60 font-medium' : ''}`}>
+                        <h5 className={`text-[14px] font-semibold text-[#F5F5F5] leading-snug flex items-center gap-1.5 ${isCompleted ? 'line-through text-muted-foreground/60 font-medium' : ''}`}>
+                          {isHighPriority && <Sparkles className="h-3.5 w-3.5 text-amber-400 animate-pulse flex-shrink-0" />}
                           {lec.title}
                         </h5>
                         <div className="flex items-center gap-2 mt-1.5 flex-wrap">
