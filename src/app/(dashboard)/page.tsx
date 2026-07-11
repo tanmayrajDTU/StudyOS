@@ -1,8 +1,8 @@
 'use client'
 
 import React from 'react'
-import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query'
-import { getSubjects, getAppStats, getProfile, updateLectureCompletedHours } from '@/actions/db'
+import { useQuery } from '@tanstack/react-query'
+import { getSubjects, getAppStats, getProfile } from '@/actions/db'
 import { getTodayRoadmap, getRoadmapDetails } from '@/actions/roadmap'
 import {
   Sparkles,
@@ -66,8 +66,6 @@ export default function DashboardPage() {
     queryFn: () => getSubjects(),
   })
 
-  const queryClient = useQueryClient()
-
   const { data: stats = null, isLoading: loadingStats } = useQuery({
     queryKey: ['app-stats'],
     queryFn: () => getAppStats(),
@@ -87,17 +85,6 @@ export default function DashboardPage() {
   const todayLectures = todayLecturesData as unknown as RoadmapItem[]
 
   const { toggleLecture, syncing, syncError, retry } = useBatchToggle()
-
-  const sliderMutation = useMutation({
-    mutationFn: (variables: { lectureId: string; hours: number }) =>
-      updateLectureCompletedHours(variables.lectureId, variables.hours),
-    onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ['today-roadmap'] })
-      queryClient.invalidateQueries({ queryKey: ['roadmap'] })
-      queryClient.invalidateQueries({ queryKey: ['app-stats'] })
-      queryClient.invalidateQueries({ queryKey: ['subjects'] })
-    }
-  })
 
   const isLoading = loadingSubs || loadingStats || loadingToday
 
@@ -280,7 +267,7 @@ export default function DashboardPage() {
               return (
                 <div 
                   key={item.id} 
-                  className="p-5 space-y-4 hover:bg-secondary/15 transition-colors"
+                  className="p-5 hover:bg-secondary/15 transition-colors"
                   style={{ borderLeft: `3px solid ${sub?.color || '#818CF8'}` }}
                 >
                   <div className="flex items-start justify-between gap-4">
@@ -328,19 +315,6 @@ export default function DashboardPage() {
                     </div>
                   </div>
 
-                  <div className="pl-9 space-y-1 max-w-xs">
-                    <input
-                      type="range"
-                      min="0"
-                      max={Number(lec.estimated_hours)}
-                      step="0.1"
-                      value={Number(lec.completed_hours)}
-                      onChange={(e) => {
-                        sliderMutation.mutate({ lectureId: lec.id, hours: parseFloat(e.target.value) })
-                      }}
-                      className="w-full h-1 bg-secondary rounded-lg appearance-none cursor-pointer accent-primary border border-border/40 focus:outline-none"
-                    />
-                  </div>
                 </div>
               )
             })}
