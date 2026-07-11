@@ -13,7 +13,8 @@ import {
   CheckCircle2,
   Clock,
   ExternalLink,
-  PlusCircle
+  PlusCircle,
+  Sparkles
 } from 'lucide-react'
 import { InlineEdit } from '@/components/ui/InlineEdit'
 
@@ -75,11 +76,17 @@ export const SortableLectureItem = React.memo(function SortableLectureItem({
   // Calculate lecture completion state
   const isCompleted = Number(lecture.completed_hours) >= Number(lecture.estimated_hours) && Number(lecture.estimated_hours) > 0
 
+  const isHighPriority = lecture.importance_level === 'HIGH'
+
   const style = {
     transform: CSS.Transform.toString(transform),
     transition,
     opacity: isDragging ? 0.3 : 1,
-    borderLeft: `3px solid ${isCompleted ? '#22C55E' : subjectColor}`,
+    ...(isHighPriority
+      ? ({
+          '--subject-color': isCompleted ? '#22C55E' : subjectColor,
+        } as React.CSSProperties)
+      : { borderLeft: `3px solid ${isCompleted ? '#22C55E' : subjectColor}` })
   }
 
   const handleToggleComplete = () => {
@@ -129,7 +136,11 @@ export const SortableLectureItem = React.memo(function SortableLectureItem({
       ref={setNodeRef}
       style={style}
       className={`group rounded-button border border-border/50 p-4.5 transition-all duration-200 hover:-translate-y-[1px] hover:shadow-xs hover:border-border/80 space-y-3.5 relative ${
-        isCompleted ? 'bg-emerald-500/5 border-emerald-500/20' : 'bg-[#111216]'
+        isHighPriority 
+          ? 'high-priority-glitter shadow-md' 
+          : isCompleted 
+            ? 'bg-emerald-500/5 border-emerald-500/20' 
+            : 'bg-[#111216]'
       }`}
     >
       {/* Upper Main Row */}
@@ -159,7 +170,8 @@ export const SortableLectureItem = React.memo(function SortableLectureItem({
           </button>
 
           {/* Title Inline Edit */}
-          <div className="flex-1 min-w-0">
+          <div className="flex-1 min-w-0 flex items-center gap-1.5">
+            {isHighPriority && <Sparkles className="h-4 w-4 text-amber-400 animate-pulse flex-shrink-0" />}
             <InlineEdit
               value={lecture.title}
               onSave={(newTitle) => onUpdate({ title: newTitle })}

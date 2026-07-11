@@ -263,6 +263,7 @@ export async function getRoadmapDetails() {
         title,
         estimated_hours,
         completed_hours,
+        importance_level,
         modules (
           id,
           name,
@@ -340,6 +341,7 @@ export async function getTodayRoadmap() {
         title,
         estimated_hours,
         completed_hours,
+        importance_level,
         modules (
           id,
           name,

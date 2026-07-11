@@ -26,7 +26,8 @@ import {
   RefreshCw,
   AlertCircle,
   Check,
-  GripVertical
+  GripVertical,
+  Sparkles
 } from 'lucide-react'
 import { format, parseISO } from 'date-fns'
 
@@ -42,6 +43,7 @@ interface RoadmapItem {
     title: string
     estimated_hours: number
     completed_hours: number
+    importance_level?: string
     modules: {
       id: string
       name: string
@@ -85,18 +87,26 @@ const SortableRoadmapItem = React.memo(function SortableRoadmapItem({
   const lec = item.lectures
   if (!lec) return null
 
+  const isHighPriority = lec.importance_level === 'HIGH'
+
   const style = {
     transform: CSS.Transform.toString(transform),
     transition,
     opacity: isDragging ? 0.35 : 1,
-    borderLeft: `3.5px solid ${subColor}`,
+    ...(isHighPriority 
+      ? ({
+          '--subject-color': subColor,
+        } as React.CSSProperties)
+      : { borderLeft: `3.5px solid ${subColor}` })
   }
 
   return (
     <div
       ref={setNodeRef}
       style={style}
-      className="p-5 flex items-start justify-between gap-4 hover:bg-secondary/10 transition-all bg-card"
+      className={`p-5 flex items-start justify-between gap-4 hover:bg-secondary/10 transition-all ${
+        isHighPriority ? 'high-priority-glitter border border-transparent rounded-xl my-2.5 mx-2.5 shadow-md' : 'bg-card'
+      }`}
     >
       <div className="flex items-start gap-3">
         {/* Drag Handle */}
@@ -122,7 +132,8 @@ const SortableRoadmapItem = React.memo(function SortableRoadmapItem({
         </button>
 
         <div>
-          <h5 className={`text-xs font-bold text-foreground ${isCompleted ? 'line-through opacity-55' : ''}`}>
+          <h5 className={`text-xs font-bold text-foreground flex items-center gap-1.5 ${isCompleted ? 'line-through opacity-55' : ''}`}>
+            {isHighPriority && <Sparkles className="h-3.5 w-3.5 text-amber-400 animate-pulse flex-shrink-0" />}
             {lec.title}
           </h5>
           <div className="flex items-center gap-2 mt-1.5 flex-wrap">
