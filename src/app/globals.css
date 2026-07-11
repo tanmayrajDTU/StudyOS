@@ -172,3 +172,36 @@ body {
 #tsparticles {
   pointer-events: none !important;
 }
+
+@keyframes border-shimmer {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.high-priority-glitter {
+  position: relative;
+  border: 1.5px solid transparent !important;
+  background: 
+    linear-gradient(rgba(99, 102, 241, 0.03), rgba(99, 102, 241, 0.03)) padding-box,
+    linear-gradient(135deg, var(--subject-color, #818cf8), #fbbf24, #ec4899, #8b5cf6, var(--subject-color, #818cf8)) border-box !important;
+  background-size: 200% auto !important;
+  animation: border-shimmer 4s linear infinite !important;
+  box-shadow: 0 0 15px rgba(251, 191, 36, 0.12) !important;
+  transition: all 0.3s ease !important;
+}
+
+.high-priority-glitter:hover {
+  background: 
+    linear-gradient(rgba(99, 102, 241, 0.08), rgba(99, 102, 241, 0.08)) padding-box,
+    linear-gradient(135deg, var(--subject-color, #818cf8), #fbbf24, #ec4899, #8b5cf6, var(--subject-color, #818cf8)) border-box !important;
+  box-shadow: 0 0 22px rgba(251, 191, 36, 0.25) !important;
+  transform: translateY(-1px);
+}
+
