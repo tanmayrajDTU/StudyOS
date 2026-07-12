@@ -436,7 +436,7 @@ export default function RevisionPage() {
                               {sub.name}
                             </span>
                           )}
-                          <span className="text-4xs font-medium text-muted-foreground">
+                          <span className={`text-4xs font-medium ${isHighPriority ? 'text-[#F5F5F5]/85' : 'text-muted-foreground'}`}>
                             Module: {lec.modules?.name}
                           </span>
                         </div>
@@ -449,7 +449,7 @@ export default function RevisionPage() {
 
                       {/* Importance Level Select Dropdown */}
                       <div className="flex items-center gap-2.5">
-                        <span className="text-3xs font-mono text-muted-foreground">Priority:</span>
+                        <span className={`text-3xs font-mono ${isHighPriority ? 'text-[#F5F5F5]/75' : 'text-muted-foreground'}`}>Priority:</span>
                         <select
                           value={lec.importance_level}
                           onChange={(e) =>
