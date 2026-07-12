@@ -149,7 +149,7 @@ const SortableRoadmapItem = React.memo(function SortableRoadmapItem({
                 {lec.modules.subjects.name}
               </span>
             )}
-            <span className="text-4xs font-medium text-muted-foreground">
+            <span className={`text-4xs font-medium ${isHighPriority ? 'text-[#F5F5F5]/85' : 'text-muted-foreground'}`}>
               Module: {lec.modules?.name}
             </span>
           </div>
@@ -157,7 +157,7 @@ const SortableRoadmapItem = React.memo(function SortableRoadmapItem({
       </div>
 
       <div className="text-right text-3xs font-mono flex-shrink-0">
-        <p className="text-muted-foreground">Allocation</p>
+        <p className={isHighPriority ? 'text-[#F5F5F5]/70' : 'text-muted-foreground'}>Allocation</p>
         <p className="font-bold text-foreground mt-0.5">
           {Number(item.completed_hours).toFixed(1)} / {Number(lec.estimated_hours).toFixed(1)} hrs
         </p>
