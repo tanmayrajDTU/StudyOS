@@ -314,7 +314,7 @@ export default function DashboardPage() {
                               {sub.name}
                             </span>
                           )}
-                          <span className="text-[10px] text-muted-foreground font-semibold">
+                          <span className={`text-[10px] font-semibold ${isHighPriority ? 'text-[#F5F5F5]/85' : 'text-muted-foreground'}`}>
                             Module: {mod?.name}
                           </span>
                         </div>
@@ -322,7 +322,7 @@ export default function DashboardPage() {
                     </div>
 
                     <div className="text-right text-[10px] font-mono font-bold">
-                      <p className="text-muted-foreground uppercase tracking-wider text-4xs">Completed Time</p>
+                      <p className={`uppercase tracking-wider text-4xs ${isHighPriority ? 'text-[#F5F5F5]/75' : 'text-muted-foreground'}`}>Completed Time</p>
                       <p className="text-[#F5F5F5] mt-0.5 text-xs">
                         {Number(lec.completed_hours).toFixed(1)} / {Number(lec.estimated_hours).toFixed(1)}h
                       </p>
