@@ -185,7 +185,7 @@ export const SortableLectureItem = React.memo(function SortableLectureItem({
         {/* Right Actions: Hours, Importance, Revision, Links count, Actions */}
         <div className="flex items-center gap-4 flex-shrink-0 ml-auto">
           {/* Estimated Hours edit */}
-          <div className="flex items-center gap-1.5 text-3xs font-semibold text-muted-foreground font-mono bg-secondary/35 px-2.5 py-0.5 rounded-lg border border-border/50 h-7">
+          <div className={`flex items-center gap-1.5 text-3xs font-semibold font-mono bg-secondary/35 px-2.5 py-0.5 rounded-lg border border-border/50 h-7 ${isHighPriority ? 'text-[#F5F5F5]/90' : 'text-muted-foreground'}`}>
             <Clock className="h-3.5 w-3.5" />
             <InlineEdit
               value={lecture.estimated_hours.toString()}
@@ -220,7 +220,11 @@ export const SortableLectureItem = React.memo(function SortableLectureItem({
           <button
             onClick={() => onUpdate({ is_marked_for_revision: !lecture.is_marked_for_revision })}
             className={`p-1.5 rounded-lg hover:bg-secondary/40 cursor-pointer transition-all h-7.5 w-7.5 flex items-center justify-center ${
-              lecture.is_marked_for_revision ? 'text-primary' : 'text-muted-foreground/50 hover:text-foreground'
+              lecture.is_marked_for_revision 
+                ? 'text-primary' 
+                : isHighPriority 
+                  ? 'text-[#F5F5F5]/60 hover:text-[#F5F5F5]' 
+                  : 'text-muted-foreground/50 hover:text-foreground'
             }`}
             title={lecture.is_marked_for_revision ? 'Marked for revision' : 'Flag for revision'}
           >
@@ -234,10 +238,12 @@ export const SortableLectureItem = React.memo(function SortableLectureItem({
           {/* Links toggle */}
           <button
             onClick={() => setShowLinks(!showLinks)}
-            className={`p-1.5 rounded-lg hover:bg-secondary/40 cursor-pointer transition-all h-7.5 w-7.5 flex items-center justify-center gap-0.5 ${
+            className={`p-1.5 rounded-lg hover:bg-secondary/40 cursor-pointer transition-all h-7.5 w-7.5 flex items-center justify-center gap-0.5 relative ${
               showLinks || lecture.lecture_links?.length > 0
                 ? 'text-primary bg-primary/5 border border-primary/10'
-                : 'text-muted-foreground/50 hover:text-foreground'
+                : isHighPriority
+                  ? 'text-[#F5F5F5]/60 hover:text-[#F5F5F5]'
+                  : 'text-muted-foreground/50 hover:text-foreground'
             }`}
             title="Manage references & resources"
           >
@@ -253,7 +259,9 @@ export const SortableLectureItem = React.memo(function SortableLectureItem({
           <div className="flex items-center gap-1 border-l border-border/40 pl-2">
             <button
               onClick={onDuplicate}
-              className="p-1.5 rounded-lg hover:bg-secondary/40 text-muted-foreground hover:text-foreground cursor-pointer transition-colors"
+              className={`p-1.5 rounded-lg hover:bg-secondary/40 cursor-pointer transition-colors ${
+                isHighPriority ? 'text-[#F5F5F5]/60 hover:text-[#F5F5F5]' : 'text-muted-foreground hover:text-foreground'
+              }`}
               title="Duplicate lecture"
             >
               <Copy className="h-4 w-4" />
