@@ -100,8 +100,6 @@ Ensure you have the following installed on your machine:
 ---
 
 ## 🔐 Development Credentials (Local Testing)
-For local testing and verification, the middleware restricts access to authorized developers:
-- **Developer Email**: `tanmayraj1705@gmail.com`
-- **Password**: `Tanmay12@#`
+For local testing and verification, the middleware restricts access to authorized developers.
 
 *(Note: Sign in using the credentials above, or use the "New local setup? Sign Up instead" option to register this email with your local Supabase authentication instance).*
