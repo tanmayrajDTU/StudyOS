@@ -4,7 +4,7 @@ StudyOS is a state-of-the-art, high-performance **Study Management System & Lear
 
 Unlike traditional calendar planners that break the moment you fall behind, StudyOS features an **adaptive engine** that dynamically reschedules your syllabus, integrates **spaced repetition (Leitner System)**, tracks previous year questions (PYQs) with live accuracy stats, and provides detailed analytics on your productivity.
 
-While originally seeded with GATE CSE syllabus configurations, StudyOS is designed for **any student** preparing for **any exam** (e.g., UPSC, JEE, SAT, USMLE, CFA, university courses, or self-paced coding bootcamps).
+While originally seeded with GATE CSE syllabus configurations, StudyOS is designed for **any student** preparing for **any exam** (e.g., UPSC, JEE, SAT, CFA, university courses, or self-paced coding bootcamps).
 
 ---
 
