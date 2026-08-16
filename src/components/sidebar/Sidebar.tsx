@@ -14,7 +14,7 @@ import {
   ChevronRight,
   Sparkles,
   BookOpen,
-  Target
+  NotebookText
 } from 'lucide-react'
 import Image from 'next/image'
 import { createClient } from '@/utils/supabase/client'
@@ -71,7 +71,6 @@ export default function Sidebar({ profile }: SidebarProps) {
   const menuItems = [
     { name: 'Dashboard', icon: LayoutDashboard, path: '/' },
     { name: 'Subjects', icon: BookOpen, path: '/subjects' },
-    { name: 'PYQ Practice', icon: Target, path: '/pyqs' },
     { name: 'Roadmap', icon: Calendar, path: '/roadmap' },
     { name: 'Revision', icon: RotateCw, path: '/revision' },
     { name: 'Analytics', icon: BarChart2, path: '/analytics' },
@@ -128,6 +127,19 @@ export default function Sidebar({ profile }: SidebarProps) {
             </Link>
           );
         })}
+        {/* Notes — links out to the standalone static prep-notes site */}
+        <a
+          href="/notes/index.html"
+          target="_blank"
+          rel="noopener noreferrer"
+          className={`flex items-center gap-3.5 rounded-button px-4 py-2.5 text-[13px] font-semibold transition-all relative text-muted-foreground hover:bg-secondary/40 hover:text-foreground border border-transparent ${
+            isCollapsed ? 'justify-center' : ''
+          }`}
+          title={isCollapsed ? 'Notes' : undefined}
+        >
+          <NotebookText className="h-[18px] w-[18px] flex-shrink-0" />
+          {!isCollapsed && <span>Notes</span>}
+        </a>
       </nav>
  
       {/* Sidebar stats card (visible only when expanded) */}

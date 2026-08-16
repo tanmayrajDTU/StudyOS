@@ -3,6 +3,7 @@
 import React, { useState, useEffect, useCallback } from 'react'
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query'
 import { useBatchToggle } from '@/hooks/useBatchToggle'
+import { getNotesLinksForSubject } from '@/lib/notesMap'
 import {
   getSubjectDetail,
   updateSubject,
@@ -40,7 +41,7 @@ import {
   Loader2,
   Clock,
   FolderOpen,
-  Target
+  NotebookText
 } from 'lucide-react'
 import Link from 'next/link'
 import { getSubjectIcon } from '@/components/subjects/SortableSubjectCard'
@@ -59,12 +60,10 @@ interface SubjectDetailClientProps {
     roadmap_days: number
     is_hidden: boolean
   }
-  hasPyqs?: boolean
 }
 
 export default function SubjectDetailClient({ 
-  subjectId, 
-  hasPyqs = false 
+  subjectId 
 }: SubjectDetailClientProps) {
   const queryClient = useQueryClient()
   const [newModuleName, setNewModuleName] = useState('')
@@ -391,6 +390,7 @@ export default function SubjectDetailClient({
   const totalHours = Number(detail.estimated_hours) || 0
   const completedHours = Number(detail.completed_hours) || 0
   const progressPercent = totalHours > 0 ? Math.round((completedHours / totalHours) * 100) : 0
+  const notesLinks = getNotesLinksForSubject(detail.name)
   const totalLectures = detail.modules.reduce((acc, m) => acc + (m.lectures?.length || 0), 0)
 
   return (
@@ -441,16 +441,21 @@ export default function SubjectDetailClient({
               <p className="text-[13px] text-muted-foreground font-medium font-mono uppercase tracking-wide">
                 {totalLectures} Lectures across {detail.modules.length} Modules
               </p>
-              {hasPyqs && (
+              {notesLinks.length > 0 && (
                 <>
                   <span className="text-muted-foreground/30 text-xs font-mono">•</span>
-                  <Link
-                    href={`/pyqs/${encodeURIComponent(detail.name)}`}
-                    className="inline-flex items-center gap-1.5 px-3 py-1 rounded-button text-[10px] font-extrabold text-primary-foreground bg-primary hover:opacity-90 transition-all uppercase tracking-widest font-mono shadow-xs cursor-pointer"
-                  >
-                    <Target className="h-3.5 w-3.5" />
-                    <span>Practice GATE PYQs</span>
-                  </Link>
+                  {notesLinks.map((notesLink) => (
+                    <a
+                      key={notesLink.slug}
+                      href={notesLink.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 px-3 py-1 rounded-button text-[10px] font-extrabold text-primary-foreground bg-primary hover:opacity-90 transition-all uppercase tracking-widest font-mono shadow-xs cursor-pointer"
+                    >
+                      <NotebookText className="h-3.5 w-3.5" />
+                      <span>{notesLinks.length > 1 ? notesLink.label : 'View Notes'}</span>
+                    </a>
+                  ))}
                 </>
               )}
             </div>

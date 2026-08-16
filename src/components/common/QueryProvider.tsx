@@ -14,23 +14,6 @@ export default function QueryProvider({ children }: { children: React.ReactNode 
       },
     })
 
-    // 1. Static Question details (never changes, pure JSON dataset)
-    client.setQueryDefaults(['pyq-question-detail'], {
-      staleTime: 60 * 60 * 1000, // 1 hour stale time
-      gcTime: 24 * 60 * 60 * 1000, // 24 hours garbage collection
-    })
-
-    // 2. Static PYQ Subjects & Topics structure directory listings
-    client.setQueryDefaults(['pyq-subjects'], {
-      staleTime: 30 * 60 * 1000, // 30 minutes
-    })
-    client.setQueryDefaults(['pyq-subject'], {
-      staleTime: 15 * 60 * 1000, // 15 minutes
-    })
-    client.setQueryDefaults(['pyq-topic'], {
-      staleTime: 15 * 60 * 1000, // 15 minutes
-    })
-
     // 3. User profile and Course Subjects listings (semi-static)
     client.setQueryDefaults(['profile'], {
       staleTime: 10 * 60 * 1000, // 10 minutes

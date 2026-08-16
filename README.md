@@ -47,7 +47,7 @@ Interactive charts visualizing your weekly study hours distribution, subject com
 
 ## 🛠 Tech Stack
 
-- **Framework**: [Next.js 15](https://nextjs.org/) (App Router, Turbopack)
+- **Framework**: [Next.js 16](https://nextjs.org/) (App Router, Turbopack)
 - **Database / Auth**: [Supabase](https://supabase.com/) (PostgreSQL with Row Level Security, SSR client helper, Realtime status synchronization)
 - **Styling**: [TailwindCSS 4](https://tailwindcss.com/) with Vanilla CSS custom animations (glowing glitter cards, custom glassmorphism components)
 - **Drag-and-Drop**: [@dnd-kit/core](https://docs.dndkit.com/) & `@dnd-kit/sortable`
@@ -61,7 +61,7 @@ Interactive charts visualizing your weekly study hours distribution, subject com
 
 ### 📋 Prerequisites
 Ensure you have the following installed on your machine:
-- [Node.js](https://nodejs.org/) (v18.x or later)
+- [Node.js](https://nodejs.org/) (v20.9.0 or later)
 - [npm](https://www.npmjs.com/) or [yarn](https://yarnpkg.com/)
 
 ### 🔧 Local Installation
@@ -100,6 +100,6 @@ Ensure you have the following installed on your machine:
 ---
 
 ## 🔐 Development Credentials (Local Testing)
-For local testing and verification, the middleware restricts access to authorized developers.
+For local testing and verification, `src/proxy.ts` restricts access to authorized developers.
 
 *(Note: Sign in using the credentials above, or use the "New local setup? Sign Up instead" option to register this email with your local Supabase authentication instance).*
