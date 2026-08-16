@@ -9,7 +9,7 @@ import {
   RotateCw,
   Settings,
   BookOpen,
-  Target
+  NotebookText
 } from 'lucide-react'
 
 export default function MobileNav() {
@@ -18,7 +18,6 @@ export default function MobileNav() {
   const tabs = [
     { name: 'Dashboard', icon: LayoutDashboard, path: '/' },
     { name: 'Subjects', icon: BookOpen, path: '/subjects' },
-    { name: 'PYQs', icon: Target, path: '/pyqs' },
     { name: 'Roadmap', icon: Calendar, path: '/roadmap' },
     { name: 'Revision', icon: RotateCw, path: '/revision' },
     { name: 'Settings', icon: Settings, path: '/settings' },
@@ -46,6 +45,15 @@ export default function MobileNav() {
           </Link>
         )
       })}
+      <a
+        href="/notes/index.html"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="flex flex-col items-center justify-center gap-1 flex-1 min-w-0 h-12 transition-all text-muted-foreground hover:text-foreground"
+      >
+        <NotebookText className="h-5 w-5 flex-shrink-0" />
+        <span className="text-4xs font-semibold tracking-tight truncate w-full text-center">Notes</span>
+      </a>
     </nav>
   )
 }

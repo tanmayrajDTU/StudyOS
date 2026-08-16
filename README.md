@@ -4,7 +4,7 @@ StudyOS is a state-of-the-art, high-performance **Study Management System & Lear
 
 Unlike traditional calendar planners that break the moment you fall behind, StudyOS features an **adaptive engine** that dynamically reschedules your syllabus, integrates **spaced repetition (Leitner System)**, tracks previous year questions (PYQs) with live accuracy stats, and provides detailed analytics on your productivity.
 
-While originally seeded with GATE CSE syllabus configurations, StudyOS is designed for **any student** preparing for **any exam** (e.g., UPSC, JEE, SAT, USMLE, CFA, university courses, or self-paced coding bootcamps).
+While originally seeded with GATE CSE syllabus configurations, StudyOS is designed for **any student** preparing for **any exam** (e.g., UPSC, JEE, SAT, CFA, university courses, or self-paced coding bootcamps).
 
 ---
 
@@ -47,7 +47,7 @@ Interactive charts visualizing your weekly study hours distribution, subject com
 
 ## 🛠 Tech Stack
 
-- **Framework**: [Next.js 15](https://nextjs.org/) (App Router, Turbopack)
+- **Framework**: [Next.js 16](https://nextjs.org/) (App Router, Turbopack)
 - **Database / Auth**: [Supabase](https://supabase.com/) (PostgreSQL with Row Level Security, SSR client helper, Realtime status synchronization)
 - **Styling**: [TailwindCSS 4](https://tailwindcss.com/) with Vanilla CSS custom animations (glowing glitter cards, custom glassmorphism components)
 - **Drag-and-Drop**: [@dnd-kit/core](https://docs.dndkit.com/) & `@dnd-kit/sortable`
@@ -61,7 +61,7 @@ Interactive charts visualizing your weekly study hours distribution, subject com
 
 ### 📋 Prerequisites
 Ensure you have the following installed on your machine:
-- [Node.js](https://nodejs.org/) (v18.x or later)
+- [Node.js](https://nodejs.org/) (v20.9.0 or later)
 - [npm](https://www.npmjs.com/) or [yarn](https://yarnpkg.com/)
 
 ### 🔧 Local Installation
@@ -100,8 +100,6 @@ Ensure you have the following installed on your machine:
 ---
 
 ## 🔐 Development Credentials (Local Testing)
-For local testing and verification, the middleware restricts access to authorized developers:
-- **Developer Email**: `tanmayraj1705@gmail.com`
-- **Password**: `Tanmay12@#`
+For local testing and verification, `src/proxy.ts` restricts access to authorized developers.
 
 *(Note: Sign in using the credentials above, or use the "New local setup? Sign Up instead" option to register this email with your local Supabase authentication instance).*
