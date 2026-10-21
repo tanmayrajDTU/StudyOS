@@ -19,6 +19,7 @@ import Link from 'next/link'
 import { getSubjectIcon } from '@/components/subjects/SortableSubjectCard'
 import { format, parseISO } from 'date-fns'
 import CountdownTimer from '@/components/dashboard/CountdownTimer'
+import TodaysTestsCard from '@/components/tests/TodaysTestsCard'
 import { useBatchToggle } from '@/hooks/useBatchToggle'
 
 interface Subject {
@@ -134,6 +135,9 @@ export default function DashboardPage() {
 
       {/* GATE Countdown Timer */}
       <CountdownTimer />
+
+      {/* Today's Tests (self-contained; own error boundary) */}
+      <TodaysTestsCard />
 
       {/* 2. Overall Progress Widget */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">

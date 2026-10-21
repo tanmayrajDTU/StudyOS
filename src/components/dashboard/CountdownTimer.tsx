@@ -13,8 +13,8 @@ export default function CountdownTimer() {
   }>({ days: 0, hours: 0, minutes: 0, seconds: 0, isOver: false })
 
   useEffect(() => {
-    // GATE 2027 Exam Date: Feb 6, 2027, 09:00:00 AM IST
-    const targetDate = new Date('2027-02-06T09:00:00+05:30').getTime()
+    // GATE 2027 Exam Date: Feb 7, 2027, 09:00:00 AM IST
+    const targetDate = new Date('2027-02-07T09:00:00+05:30').getTime()
 
     const calculateTimeLeft = () => {
       const now = new Date().getTime()
@@ -62,7 +62,7 @@ export default function CountdownTimer() {
             GATE CSE 2027 COUNTDOWN
           </h3>
           <p className="text-2xs text-muted-foreground mt-0.5">
-            Target Exam Date: <span className="font-semibold text-foreground font-mono">Saturday, Feb 6, 2027</span>
+            Target Exam Date: <span className="font-semibold text-foreground font-mono">Sunday, Feb 7, 2027</span>
           </p>
         </div>
       </div>
