@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>GATE CSE 2027 — Study Hub</title>
+<style>
+:root{
+  --bg:#0b0e14; --panel:#12161f; --panel2:#181d29; --border:#242b3a;
+  --text:#e6e9f0; --muted:#93a0b8; --accent:#5ee6c8; --accent2:#7c9fff;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+*{box-sizing:border-box}
+html{height:100%}
+body{
+  margin:0;min-height:100%;background:var(--bg);color:var(--text);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  line-height:1.55;
+}
+header{
+  padding:calc(28px + env(safe-area-inset-top,0px)) 20px 10px;
+  text-align:center;border-bottom:1px solid var(--border);
+}
+header h1{margin:0 0 6px;font-size:24px}
+header h1 span{color:var(--accent)}
+header p{color:var(--muted);margin:0 0 20px;font-size:14px}
+main{max-width:900px;margin:0 auto;padding:28px 20px 60px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
+a.card{
+  display:block;background:var(--panel);border:1px solid var(--border);border-radius:14px;
+  padding:22px 20px;text-decoration:none;color:var(--text);transition:border-color .15s,transform .15s;
+}
+a.card:hover{border-color:var(--accent);transform:translateY(-2px)}
+.card .icon{font-size:30px;margin-bottom:10px;display:block}
+.card h2{margin:0 0 6px;font-size:17px;color:var(--accent2)}
+.card p{margin:0 0 12px;color:var(--muted);font-size:13px;line-height:1.5}
+.card .tags{display:flex;flex-wrap:wrap;gap:6px}
+.card .tags span{background:var(--panel2);border:1px solid var(--border);border-radius:999px;
+  padding:3px 9px;font-size:11px;color:var(--muted)}
+footer{text-align:center;color:var(--muted);font-size:12.5px;padding:20px;border-top:1px solid var(--border)}
+@media (prefers-color-scheme: light){ :root:not([data-theme="dark"]){ } }
+
+/* Second-pass curated high-yield revision layer */
+.rapid-curated{margin:18px 0 28px;padding:20px;border:1px solid var(--border,#334155);border-radius:16px;background:rgba(15,23,42,.45)}
+.rapid-curated>h2{margin:0 0 4px}.rapid-note{margin:0 0 16px;opacity:.72}
+.rapid-group{margin:14px 0;padding:14px 16px;border-radius:12px;border-left:4px solid #64748b;background:rgba(255,255,255,.025)}
+.rapid-group h3{margin:0 0 8px;font-size:1rem}.rapid-group ul{margin:0;padding-left:20px}.rapid-group li{margin:7px 0;line-height:1.55}
+.rapid-group.must{border-left-color:#22c55e}.rapid-group.trap{border-left-color:#eab308}.rapid-group.formula{border-left-color:#38bdf8}.rapid-group.gate{border-left-color:#f97316}.rapid-group.shortcut{border-left-color:#a78bfa}
+@media(max-width:700px){.rapid-curated{padding:14px}.rapid-group{padding:12px}}
+@media (max-width:640px){table{display:block;max-width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch}.card,.num,.warn,p,li{overflow-wrap:break-word}td,th{overflow-wrap:normal;word-break:normal}}
+</style>
+<style id="theme-v13">
+/* v13 premium dark + colour theme — visual layer only */
+:root{
+  --bg:#070916;--panel:#0f1330;--panel2:#161b3f;--border:#2a3166;--text:#eef1ff;--muted:#9ea8d4;
+  --accent:#4ff0d0;--accent2:#8aa4ff;--warn:#ffb454;--good:#6ef0a0;--code-bg:#0a1030;
+  --green:#7af0ae;--yellow:#ffe08a;--red:#ff9aa8;--purple:#c9a8ff;
+  --glow-a:#7c5cff;--glow-b:#19d3ff;--glow-c:#ff4fa3;
+}
+html{background:#070916}
+body{background:transparent!important;color:var(--text)}
+body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;
+  background:
+   radial-gradient(60% 40% at 8% 0%,rgba(124,92,255,.28),transparent 70%),
+   radial-gradient(50% 35% at 100% 6%,rgba(25,211,255,.18),transparent 70%),
+   radial-gradient(60% 40% at 50% 100%,rgba(255,79,163,.14),transparent 70%),
+   #070916}
+::selection{background:rgba(124,92,255,.55);color:#fff}
+
+/* header */
+header,.top{background:linear-gradient(180deg,rgba(14,18,48,.92),rgba(9,11,30,.86))!important;
+  -webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);border-bottom:1px solid transparent!important;
+  border-image:linear-gradient(90deg,#7c5cff,#19d3ff,#ff4fa3) 1;box-shadow:0 6px 24px rgba(0,0,0,.35)}
+header h1 span,.top h1 span,header .hl,.top .hl{background:linear-gradient(90deg,#4ff0d0,#8aa4ff,#d28bff);-webkit-background-clip:text;background-clip:text;color:transparent!important}
+
+/* headings */
+main h2,.wrap h2{background:linear-gradient(90deg,#9db4ff,#c9a8ff 55%,#ff9ad0);-webkit-background-clip:text;background-clip:text;color:transparent;
+  border-bottom:1px solid transparent!important;border-image:linear-gradient(90deg,rgba(138,164,255,.6),rgba(255,79,163,.25),transparent) 1}
+main h3{color:#8fe9ff}
+
+/* surfaces: glass panels */
+.card,.warn,.num,.hy-panel,.hy-toolbar,.rapid-curated,table,.q,.qcard,.sol,details,.callout,.box{
+  background:linear-gradient(150deg,rgba(32,38,88,.62),rgba(14,17,42,.9))!important;
+  border-top-color:rgba(138,150,255,.2)!important;border-right-color:rgba(138,150,255,.2)!important;border-bottom-color:rgba(138,150,255,.2)!important;box-shadow:0 10px 30px rgba(3,4,18,.45),inset 0 1px 0 rgba(255,255,255,.06)}
+.hy-toolbar{border-radius:16px}
+.hy-toolbar h3,.hy-toolbar strong{background:linear-gradient(90deg,#4ff0d0,#8aa4ff);-webkit-background-clip:text;background-clip:text;color:transparent}
+
+/* nav drawer */
+nav#side,.side{background:linear-gradient(180deg,rgba(18,22,58,.97),rgba(9,11,30,.98))!important;border-color:rgba(138,150,255,.2)!important}
+nav#side a.active,.side a.active,nav#side a:hover,.side a:hover{background:linear-gradient(90deg,rgba(124,92,255,.35),rgba(25,211,255,.14))!important;color:#fff!important;border-radius:10px}
+nav#side .grp,.side .grp,nav#side h4,.side h4{color:#c9a8ff!important}
+
+/* buttons */
+.hy-btn{background:rgba(26,31,72,.9);border-color:rgba(138,150,255,.3)}
+.hy-btn:hover{border-color:#8aa4ff;box-shadow:0 0 0 3px rgba(124,92,255,.22);color:#fff}
+.hy-btn.primary,.btn.primary,button.primary{background:linear-gradient(90deg,#19d3ff,#7c5cff 60%,#ff4fa3)!important;color:#fff!important;border:0!important;
+  box-shadow:0 6px 20px rgba(124,92,255,.45)}
+#navFab{background:linear-gradient(135deg,#7c5cff,#19d3ff)!important;color:#fff!important;border:0!important;box-shadow:0 8px 22px rgba(124,92,255,.55)!important;opacity:1!important}
+#menuBtn{background:rgba(26,31,72,.9)!important;border-color:rgba(138,150,255,.35)!important}
+
+/* code & equations */
+code,pre{background:#0a1030!important;color:#8ff5e2;border:1px solid rgba(79,240,208,.18)}
+.rg-eq,.card p>code:only-child{background:linear-gradient(135deg,#0a1436,#0d0f2e)!important;border-color:rgba(25,211,255,.35)!important;color:#9af2ff!important;
+  box-shadow:inset 0 0 0 1px rgba(25,211,255,.06)}
+
+/* last-minute groups: tinted by their colour */
+.rapid-group li{background:linear-gradient(135deg,color-mix(in srgb,var(--gc) 14%,#12163a),#0d1030 70%)!important;border-top-color:color-mix(in srgb,var(--gc) 30%,#262d62)!important;border-right-color:color-mix(in srgb,var(--gc) 30%,#262d62)!important;border-bottom-color:color-mix(in srgb,var(--gc) 30%,#262d62)!important;border-left-color:var(--gc)!important;
+  box-shadow:0 6px 18px rgba(3,4,18,.4)}
+.rapid-group h3{text-shadow:0 0 18px color-mix(in srgb,var(--gc) 55%,transparent)}
+.rapid-group h3 .rg-count{box-shadow:0 0 14px color-mix(in srgb,var(--gc) 60%,transparent)}
+.rapid-jump a{background:rgba(26,31,72,.85);border-color:rgba(138,150,255,.3)}
+.rapid-section h2{background:linear-gradient(90deg,rgba(124,92,255,.28),rgba(25,211,255,.08))!important;-webkit-text-fill-color:#fff;color:#fff;border-image:none!important;
+  border-color:rgba(138,150,255,.3)!important;border-left:4px solid #19d3ff!important}
+
+/* tags / badges: more vivid */
+.tag,.hy-badge,.badge{backdrop-filter:blur(4px);font-weight:800}
+.tag.must,.hy-badge.must{background:rgba(34,197,94,.18)!important;color:#7af0ae!important;border-color:rgba(34,197,94,.5)!important}
+.tag.formula,.hy-badge.formula{background:rgba(56,189,248,.18)!important;color:#8fe0ff!important;border-color:rgba(56,189,248,.5)!important}
+.tag.fav,.hy-badge.fav{background:rgba(255,79,100,.16)!important;color:#ff9aa8!important;border-color:rgba(255,79,100,.5)!important}
+
+/* quiz options */
+.opt,.option,button.opt,label.opt{background:rgba(22,27,68,.8)!important;border-color:rgba(138,150,255,.25)!important;transition:.15s}
+.opt:hover,.option:hover{border-color:#19d3ff!important;box-shadow:0 0 0 3px rgba(25,211,255,.18)}
+.qtopics button,.qtopics .chip{background:rgba(26,31,72,.85);border-color:rgba(138,150,255,.3)}
+.qtopics .on,.qtopics .active{background:linear-gradient(90deg,#7c5cff,#19d3ff)!important;color:#fff!important;border-color:transparent!important}
+
+/* tables */
+th{background:linear-gradient(90deg,rgba(124,92,255,.35),rgba(25,211,255,.18))!important;color:#fff!important}
+td,th{border-color:rgba(138,150,255,.2)!important}
+tbody tr:nth-child(even) td{background:rgba(124,92,255,.06)}
+
+a{color:#8fe9ff}
+::-webkit-scrollbar{width:10px;height:10px}::-webkit-scrollbar-thumb{background:linear-gradient(#7c5cff,#19d3ff);border-radius:8px}
+</style>
+<style id="tools-css">
+.tools{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px;margin:0 0 26px}
+.tool{display:flex;flex-direction:column;gap:4px;background:var(--panel);border:1px solid var(--border);border-radius:14px;padding:16px 18px;color:var(--text);text-decoration:none;position:relative}
+a.tool:hover{border-color:var(--accent);transform:translateY(-2px);transition:.15s}
+.tool .ti{font-size:26px;line-height:1}
+.tool b{font-size:16px;color:var(--accent2)}
+.tool small{color:var(--muted);font-size:12.5px;line-height:1.45}
+.tool button{align-self:flex-start;margin-top:8px;border:1px solid var(--accent);background:var(--accent);color:#062019;font-weight:800;font-size:13px;border-radius:10px;padding:8px 14px;cursor:pointer;font-family:inherit}
+.tool .ok{color:#7ee787}
+</style>
+
+<style id="index-v14">
+/* v14 index redesign */
+body{background:transparent!important}
+.hero{max-width:980px;margin:0 auto;padding:calc(34px + env(safe-area-inset-top,0px)) 20px 8px;text-align:center}
+.eyebrow{display:inline-block;padding:7px 14px;border-radius:999px;font-size:12px;font-weight:800;letter-spacing:.8px;text-transform:uppercase;color:#d9ccff;
+  background:rgba(124,92,255,.18);border:1px solid rgba(160,140,255,.4)}
+.hero h1{margin:16px 0 10px;font-size:clamp(44px,13vw,84px);line-height:1;font-weight:900;letter-spacing:-1.5px;
+  background:linear-gradient(95deg,#4ff0d0 0%,#8aa4ff 38%,#c98bff 66%,#ff7ab6 100%);-webkit-background-clip:text;background-clip:text;color:transparent;
+  filter:drop-shadow(0 8px 30px rgba(124,92,255,.35))}
+.lead{max-width:640px;margin:0 auto 24px;color:var(--muted);font-size:15.5px;line-height:1.7}
+.lead b{color:#fff}
+.stats{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;max-width:640px;margin:0 auto 22px}
+@media(min-width:640px){.stats{grid-template-columns:repeat(4,1fr)}}
+.stats div{padding:10px 6px;border-radius:16px;background:linear-gradient(150deg,rgba(40,46,104,.6),rgba(14,17,42,.85));border:1px solid rgba(138,150,255,.25);
+  box-shadow:0 10px 28px rgba(3,4,18,.45),inset 0 1px 0 rgba(255,255,255,.07)}
+.stats b{display:block;font-size:26px;font-weight:900;background:linear-gradient(90deg,#4ff0d0,#8aa4ff);-webkit-background-clip:text;background-clip:text;color:transparent}
+.stats b{line-height:1.15;margin-bottom:2px}.stats span{display:block;line-height:1.2;font-size:11.5px;color:var(--muted);font-weight:700;letter-spacing:.3px}
+.search{display:flex;align-items:center;gap:10px;max-width:560px;margin:0 auto;padding:4px 16px;border-radius:16px;background:rgba(14,17,48,.85);
+  border:1px solid rgba(138,150,255,.35);box-shadow:0 8px 26px rgba(3,4,18,.45)}
+.search:focus-within{border-color:#19d3ff;box-shadow:0 0 0 4px rgba(25,211,255,.18)}
+.search input{flex:1;min-width:0;background:none;border:0;outline:0;color:var(--text);font-size:15px;padding:14px 0;-webkit-appearance:none}
+.search input::placeholder{color:#7d87b8}
+main{max-width:1060px!important;margin:0 auto;padding:18px 18px 56px!important}
+.grp{margin:34px 0 0}
+.grp-h{display:flex;align-items:center;gap:14px;margin:0 0 16px}
+.gi{display:grid;place-items:center;width:46px;height:46px;border-radius:14px;font-size:22px;flex:none;
+  background:linear-gradient(135deg,rgba(124,92,255,.5),rgba(25,211,255,.3));border:1px solid rgba(160,150,255,.45)}
+.grp-h h2{margin:0;font-size:20px;background:linear-gradient(90deg,#fff,#c9a8ff);-webkit-background-clip:text;background-clip:text;color:transparent;border:0!important;border-image:none!important}
+.grp-h p{margin:2px 0 0;font-size:13px;color:var(--muted)}
+.subs{display:grid;grid-template-columns:1fr;gap:16px}
+@media(min-width:640px){.subs{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:960px){.subs{grid-template-columns:repeat(3,1fr)}}
+a.sub{position:relative;display:flex;flex-direction:column;padding:20px 20px 16px;border-radius:20px;text-decoration:none;color:var(--text)!important;overflow:hidden;
+  background:linear-gradient(155deg,rgba(34,40,92,.7),rgba(12,15,40,.95));border:1px solid rgba(138,150,255,.22);
+  box-shadow:0 12px 32px rgba(3,4,18,.5),inset 0 1px 0 rgba(255,255,255,.06);transition:transform .18s,border-color .18s,box-shadow .18s}
+a.sub::before{content:"";position:absolute;left:0;right:0;top:0;height:3px;background:linear-gradient(90deg,var(--c),transparent)}
+a.sub::after{content:"";position:absolute;right:-40px;top:-40px;width:150px;height:150px;border-radius:50%;background:radial-gradient(circle,color-mix(in srgb,var(--c) 38%,transparent),transparent 70%);pointer-events:none}
+a.sub:hover,a.sub:active{transform:translateY(-4px);border-color:var(--c);box-shadow:0 16px 40px rgba(3,4,18,.6),0 0 0 1px var(--c),0 0 30px color-mix(in srgb,var(--c) 30%,transparent)}
+.ico{position:relative;z-index:1;display:grid;place-items:center;width:52px;height:52px;margin:0 0 14px;border-radius:16px;font-size:27px;
+  background:color-mix(in srgb,var(--c) 18%,#10143a);border:1px solid color-mix(in srgb,var(--c) 55%,transparent);box-shadow:0 0 22px color-mix(in srgb,var(--c) 30%,transparent)}
+a.sub h3{position:relative;z-index:1;margin:0 0 6px;font-size:18px;line-height:1.3;color:#fff}
+a.sub p{position:relative;z-index:1;margin:0 0 14px;color:#aab3dc;font-size:13.5px;line-height:1.65;flex:1}
+.chips{position:relative;z-index:1;display:flex;flex-wrap:wrap;gap:7px;margin:0 0 14px}
+.chips span{padding:4px 10px;border-radius:999px;font-size:11.5px;font-weight:800;color:var(--c);background:color-mix(in srgb,var(--c) 14%,transparent);border:1px solid color-mix(in srgb,var(--c) 40%,transparent)}
+.open{position:relative;z-index:1;align-self:flex-end;font-size:13px;font-weight:800;color:var(--c)}
+.open i{display:inline-block;font-style:normal;transition:transform .18s}
+a.sub:hover .open i{transform:translateX(5px)}
+.none{text-align:center;color:var(--muted);margin:40px 0}
+footer{background:none!important;border-top:1px solid rgba(138,150,255,.18)!important;padding:22px 20px calc(22px + env(safe-area-inset-bottom,0px))!important}
+</style>
+<!-- pwa:start -->
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#070916">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="GATE 2027">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="icon" type="image/png" href="favicon-64.png">
+<!-- pwa:end -->
+</head>
+<body>
+<div class="hero">
+  <span class="eyebrow">✦ GATE CSE 2027 · Revision Companion</span>
+  <h1>Study Hub</h1>
+  <p class="lead">Quick-revision notes for GATE CSE 2027 — high-yield facts, traps, formulas, worked numericals, and subject practice. Each subject also has a <b>⚡ Last-Minute Revision</b> mode.</p>
+  <div class="stats">
+    <div><b>12</b><span>Subjects</span></div>
+    <div><b>1,194</b><span>Questions incl. 289 NAT</span></div>
+    <div><b>257</b><span>Solved problems</span></div>
+    <div><b>⚡</b><span>Last-Minute mode</span></div>
+  </div>
+  <label class="search"><span>🔍</span><input id="q" type="search" placeholder="Search — e.g. deadlock, SQL, LR" autocomplete="off"></label>
+</div>
+<main>
+<!-- tools:start -->
+<section class="tools" aria-label="Exam tools and offline install">
+  <a class="tool" href="mock-gate-2027.html"><span class="ti">🎯</span><b>Full mock exam</b><small>65 questions · 100 marks · 3 hours. MCQ negative marking, MSQ and numerical-answer (NAT) questions, full result analysis.</small></a>
+  <a class="tool" href="cheatsheet-gate-2027.html"><span class="ti">📄</span><b>Formula &amp; rule cheat sheets</b><small>One or two printable pages per subject, plus ready-made PDFs.</small></a>
+  <div class="tool" id="pwa"><span class="ti">📲</span><b id="pwaT">Install &amp; use offline</b><small id="pwaS">Checking…</small><button id="pwaB" type="button" hidden>Install app</button></div>
+</section>
+<script>
+(function(){
+  var T=document.getElementById('pwaT'),S=document.getElementById('pwaS'),B=document.getElementById('pwaB'),deferred=null;
+  var standalone=(window.matchMedia&&matchMedia('(display-mode: standalone)').matches)||navigator.standalone===true;
+  var ios=/iphone|ipad|ipod/i.test(navigator.userAgent)||(navigator.platform==='MacIntel'&&navigator.maxTouchPoints>1);
+  var secure=location.protocol==='https:'||location.hostname==='localhost'||location.hostname==='127.0.0.1';
+  function state(msg,ok){S.innerHTML=msg; if(ok) T.innerHTML=(standalone?'Installed &amp; offline':'Ready offline')+' <span class="ok">✓</span>';}
+  function hint(){
+    if(standalone) return 'Running as an installed app.';
+    if(ios) return 'On iPhone / iPad: tap <b>Share</b>, then <b>Add to Home Screen</b>.';
+    return 'Use your browser’s <b>Install app</b> / <b>Add to Home screen</b> option.';
+  }
+  if(!secure){ S.innerHTML='Offline install needs this site to be opened over <b>https</b> (for example from GitHub Pages or Netlify). It does not work when opened as a local file.'; return; }
+  if(!('serviceWorker' in navigator)){ S.textContent='This browser does not support offline install.'; return; }
+  window.addEventListener('beforeinstallprompt',function(e){e.preventDefault();deferred=e;if(!standalone){B.hidden=false;}});
+  B.onclick=function(){if(!deferred)return;deferred.prompt();deferred.userChoice.finally(function(){deferred=null;B.hidden=true;});};
+  window.addEventListener('appinstalled',function(){B.hidden=true;standalone=true;check();});
+  var tries=0;
+  function check(){
+    caches.open('gate2027-v18').then(function(c){return c.match(new URL('__ready',document.baseURI).href);}).then(function(r){
+      if(r){ state('All pages, tests and cheat sheets are saved on this device and work without internet. '+hint(),true); }
+      else if(tries++<30){ S.textContent='Saving everything for offline use…'; setTimeout(check,1000); }
+      else { S.innerHTML='Offline copy is not complete yet. Stay online and reload once. '+hint(); }
+    }).catch(function(){S.textContent='Offline storage is unavailable in this browser mode.';});
+  }
+  S.textContent='Saving everything for offline use…'; setTimeout(check,600);
+})();
+</script>
+<!-- tools:end -->
+
+<section class="grp"><div class="grp-h"><span class="gi">📊</span><div><h2>Aptitude & Mathematics</h2><p>Reasoning, calculus, algebra, logic and counting</p></div></div><div class="subs"><a class="sub" href="ga-gate-2027.html" style="--c:#ff7ab6" data-name="general aptitude verbal aptitude (incl. critical reasoning), numerical computation (number system, mixtures, clocks & calendars), data interpretation, mensuration/geometry/probability, analytical aptitude (seating, truth-tellers), spatial aptitude (counting, dice).">
+  <span class="ico">🧠</span>
+  <h3>General Aptitude</h3>
+  <p>Verbal aptitude (incl. critical reasoning), numerical computation (number system, mixtures, clocks &amp; calendars), data interpretation, mensuration/geometry/probability, analytical aptitude (seating, truth-tellers), spatial aptitude (counting, dice).</p>
+  <div class="chips"><span>6 areas</span><span>99 Qs</span><span>27 solved</span></div>
+  <span class="open">Open <i>→</i></span>
+</a><a class="sub" href="em-gate-2027.html" style="--c:#ffb454" data-name="engineering mathematics linear algebra, calculus, probability & statistics, with 🟢 core / 🟡 extension tagging. discrete mathematics is its own module (linked from the page).">
+  <span class="ico">📐</span>
+  <h3>Engineering Mathematics</h3>
+  <p>Linear algebra, calculus, probability &amp; statistics, with 🟢 core / 🟡 extension tagging. Discrete mathematics is its own module (linked from the page).</p>
+  <div class="chips"><span>3 areas</span><span>58 Qs</span><span>18 solved</span></div>
+  <span class="open">Open <i>→</i></span>
+</a><a class="sub" href="discrete-math-gate-2027.html" style="--c:#c9a8ff" data-name="discrete mathematics logic, sets & relations, functions, partial orders & lattices, algebraic structures, combinatorics, recurrence relations, generating functions and graph theory.">
+  <span class="ico">∑</span>
+  <h3>Discrete Mathematics</h3>
+  <p>Logic, sets &amp; relations, functions, partial orders &amp; lattices, algebraic structures, combinatorics, recurrence relations, generating functions and graph theory.</p>
+  <div class="chips"><span>8 topics</span><span>90 Qs</span><span>35 solved</span></div>
+  <span class="open">Open <i>→</i></span>
+</a></div></section><section class="grp"><div class="grp-h"><span class="gi">🧩</span><div><h2>Hardware & Programming</h2><p>Circuits, architecture, data structures and algorithms</p></div></div><div class="subs"><a class="sub" href="dl-gate-2027.html" style="--c:#4ff0d0" data-name="digital logic number systems & ieee 754, boolean algebra, k-maps, adders/mux/decoders, flip-flops, counters, state machines, rom/pla, bcd & hamming codes.">
+  <span class="ico">🔌</span>
+  <h3>Digital Logic</h3>
+  <p>Number systems &amp; IEEE 754, Boolean algebra, K-maps, adders/MUX/decoders, flip-flops, counters, state machines, ROM/PLA, BCD &amp; Hamming codes.</p>
+  <div class="chips"><span>9 topics</span><span>68 Qs</span><span>18 solved</span></div>
+  <span class="open">Open <i>→</i></span>
+</a><a class="sub" href="coa-gate-2027.html" style="--c:#6ea8ff" data-name="computer organization & architecture number systems, instruction sets & addressing modes, alu, control unit, memory hierarchy & cache, i/o, pipelining.">
+  <span class="ico">⚙️</span>
+  <h3>Computer Organization &amp; Architecture</h3>
+  <p>Number systems, instruction sets &amp; addressing modes, ALU, control unit, memory hierarchy &amp; cache, I/O, pipelining.</p>
+  <div class="chips"><span>7 topics</span><span>58 Qs</span><span>19 solved</span></div>
+  <span class="open">Open <i>→</i></span>
+</a><a class="sub" href="pds-gate-2027.html" style="--c:#7af0ae" data-name="programming & data structures c semantics, pointers & memory, recursion, stacks & queues, linked lists, trees/bst/avl, heaps, hashing and graph representation.">
+  <span class="ico">💻</span>
+  <h3>Programming &amp; Data Structures</h3>
+  <p>C semantics, pointers &amp; memory, recursion, stacks &amp; queues, linked lists, trees/BST/AVL, heaps, hashing and graph representation.</p>
+  <div class="chips"><span>7 topics</span><span>58 Qs</span><span>17 solved</span></div>
+  <span class="open">Open <i>→</i></span>
+</a><a class="sub" href="alg-gate-2027.html" style="--c:#ffe08a" data-name="algorithms asymptotics & recurrences, sorting & searching, divide & conquer, greedy, dynamic programming, graph algorithms, amortized analysis and np-completeness.">
+  <span class="ico">⚙️</span>
+  <h3>Algorithms</h3>
+  <p>Asymptotics &amp; recurrences, sorting &amp; searching, divide &amp; conquer, greedy, dynamic programming, graph algorithms, amortized analysis and NP-completeness.</p>
+  <div class="chips"><span>7 topics</span><span>58 Qs</span><span>18 solved</span></div>
+  <span class="open">Open <i>→</i></span>
+</a></div></section><section class="grp"><div class="grp-h"><span class="gi">🛰️</span><div><h2>Systems & Theory</h2><p>Operating systems, automata, networks, databases and compilers</p></div></div><div class="subs"><a class="sub" href="os-gate-2027.html" style="--c:#19d3ff" data-name="operating systems processes & threads, cpu scheduling (hrrn, mlfq), synchronization & ipc, deadlocks, memory & virtual memory (clock, buddy, inverted tables), file systems, disk & i/o (dma, spooling).">
+  <span class="ico">🖥️</span>
+  <h3>Operating Systems</h3>
+  <p>Processes &amp; threads, CPU scheduling (HRRN, MLFQ), synchronization &amp; IPC, deadlocks, memory &amp; virtual memory (Clock, buddy, inverted tables), file systems, disk &amp; I/O (DMA, spooling).</p>
+  <div class="chips"><span>7 topics</span><span>75 Qs</span><span>24 solved</span></div>
+  <span class="open">Open <i>→</i></span>
+</a><a class="sub" href="toc-gate-2027.html" style="--c:#ff8f6b" data-name="theory of computation finite automata, regular expressions, context-free grammars, pushdown automata, pumping lemma, turing machines.">
+  <span class="ico">🔤</span>
+  <h3>Theory of Computation</h3>
+  <p>Finite automata, regular expressions, context-free grammars, pushdown automata, pumping lemma, Turing machines.</p>
+  <div class="chips"><span>6 topics</span><span>80 Qs</span><span>19 solved</span></div>
+  <span class="open">Open <i>→</i></span>
+</a><a class="sub" href="cn-gate-2027.html" style="--c:#5ee0ff" data-name="computer networks layering, switching & performance, data link & mac, routing (rip/ospf/bgp), ipv4 & arp/dhcp/icmp, tcp, dns, http & email.">
+  <span class="ico">🌐</span>
+  <h3>Computer Networks</h3>
+  <p>Layering, switching &amp; performance, data link &amp; MAC, routing (RIP/OSPF/BGP), IPv4 &amp; ARP/DHCP/ICMP, TCP, DNS, HTTP &amp; email.</p>
+  <div class="chips"><span>7 topics</span><span>90 Qs</span><span>23 solved</span></div>
+  <span class="open">Open <i>→</i></span>
+</a><a class="sub" href="dbms-gate-2027.html" style="--c:#b58cff" data-name="dbms er model, relational algebra & tuple calculus, sql, integrity constraints & normal forms, indexing (b/b+ trees), transactions & concurrency control.">
+  <span class="ico">🗄️</span>
+  <h3>DBMS</h3>
+  <p>ER model, relational algebra &amp; tuple calculus, SQL, integrity constraints &amp; normal forms, indexing (B/B+ trees), transactions &amp; concurrency control.</p>
+  <div class="chips"><span>6 topics</span><span>82 Qs</span><span>23 solved</span></div>
+  <span class="open">Open <i>→</i></span>
+</a><a class="sub" href="cd-gate-2027.html" style="--c:#ff6f91" data-name="compiler design phases & lexical analysis, ll(1) parsing, lr/slr/lalr/clr, syntax-directed translation, runtime environments, intermediate code, optimisation & code generation.">
+  <span class="ico">🛠️</span>
+  <h3>Compiler Design</h3>
+  <p>Phases &amp; lexical analysis, LL(1) parsing, LR/SLR/LALR/CLR, syntax-directed translation, runtime environments, intermediate code, optimisation &amp; code generation.</p>
+  <div class="chips"><span>7 topics</span><span>56 Qs</span><span>16 solved</span></div>
+  <span class="open">Open <i>→</i></span>
+</a></div></section>
+<p id="none" class="none" hidden>No subject matches that search.</p>
+</main>
+<footer>Keep all twelve subject files in the same folder so these links work — open index.html to start.</footer>
+<script>
+(function(){var q=document.getElementById('q'),subs=[].slice.call(document.querySelectorAll('.sub')),grps=[].slice.call(document.querySelectorAll('.grp')),none=document.getElementById('none');
+q.addEventListener('input',function(){var v=q.value.trim().toLowerCase(),any=0;subs.forEach(function(a){var ok=!v||a.dataset.name.indexOf(v)>-1;a.style.display=ok?'':'none';if(ok)any++;});
+grps.forEach(function(g){g.style.display=g.querySelector('.sub:not([style*="none"])')?'':'none';});none.hidden=!!any;});})();
+</script>
+<!-- pwa-reg:start -->
+<script>if('serviceWorker' in navigator&&(location.protocol==='https:'||location.hostname==='localhost'||location.hostname==='127.0.0.1')){window.addEventListener('load',function(){navigator.serviceWorker.register('sw.js').catch(function(){});});}</script>
+<!-- pwa-reg:end -->
+</body>
+</html>

@@ -1,0 +1,1549 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Engineering Mathematics for GATE CSE 2027</title>
+<style>
+:root{
+  --bg:#0b0e14; --panel:#12161f; --panel2:#181d29; --border:#242b3a;
+  --text:#e6e9f0; --muted:#93a0b8; --accent:#5ee6c8; --accent2:#7c9fff;
+  --warn:#ffb454; --good:#7ee787; --code-bg:#0d1420;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){ } }
+*{box-sizing:border-box}
+html{scroll-padding-top:calc(64px + env(safe-area-inset-top,0px));height:100%}
+body{
+  margin:0;height:100%;background:var(--bg);color:var(--text);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  line-height:1.55;
+}
+a{color:var(--accent2)}
+header{
+  position:sticky;top:0;z-index:20;
+  padding:calc(14px + env(safe-area-inset-top,0px)) 16px 14px;
+  background:rgba(11,14,20,0.9);backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--border);
+  display:flex;align-items:center;gap:10px;justify-content:space-between;
+}
+header .title{font-weight:700;font-size:15px;letter-spacing:.2px}
+header .title span{color:var(--accent)}
+#menuBtn{display:none;background:var(--panel2);border:1px solid var(--border);color:var(--text);
+  padding:8px 12px;border-radius:8px;font-size:13px}
+.wrap{display:flex;max-width:1280px;margin:0 auto}
+nav#side{
+  width:250px;flex:none;padding:18px 12px;position:sticky;
+  top:calc(58px + env(safe-area-inset-top,0px));
+  height:calc(100vh - 58px - env(safe-area-inset-top,0px));
+  overflow-y:auto;border-right:1px solid var(--border);
+}
+nav#side .grp{margin-bottom:14px}
+nav#side .grp-title{font-size:11px;text-transform:uppercase;letter-spacing:1px;color:var(--muted);margin:10px 6px 6px}
+nav#side a{
+  display:block;padding:7px 10px;border-radius:8px;color:var(--muted);text-decoration:none;font-size:13.5px;
+}
+nav#side a:hover{background:var(--panel2);color:var(--text)}
+nav#side a.soon{opacity:.45;font-style:italic}
+main{flex:1;min-width:0;padding:28px 22px 80px}
+section{max-width:820px;margin:0 auto 64px;scroll-margin-top:70px}
+section h1{font-size:26px;margin:0 0 6px;color:var(--accent)}
+section h2{font-size:20px;margin:38px 0 10px;color:var(--accent2);border-bottom:1px solid var(--border);padding-bottom:8px}
+section h3{font-size:16px;margin:22px 0 8px;color:var(--text)}
+p{color:#c9d1e0}
+.sub{color:var(--muted);font-size:14px;margin-bottom:20px}
+.card{
+  background:var(--panel);border:1px solid var(--border);border-radius:12px;
+  padding:16px 18px;margin:14px 0;
+}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media (max-width:720px){.grid2{grid-template-columns:1fr}}
+.num{
+  border-left:3px solid var(--accent);background:var(--panel2);
+  padding:14px 16px;border-radius:0 10px 10px 0;margin:16px 0;
+}
+.num .tag{font-size:11px;color:var(--accent);text-transform:uppercase;letter-spacing:1px;font-weight:700}
+.warn{border-left:3px solid var(--warn);background:#1c1810;padding:12px 16px;border-radius:0 10px 10px 0;margin:14px 0}
+.warn .tag{color:var(--warn);font-size:11px;text-transform:uppercase;letter-spacing:1px;font-weight:700}
+code,.mono{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;background:var(--code-bg);
+  padding:2px 6px;border-radius:5px;font-size:13px;color:var(--good)}
+pre{background:var(--code-bg);padding:12px 14px;border-radius:8px;overflow-x:auto;border:1px solid var(--border)}
+table{border-collapse:collapse;width:100%;margin:12px 0;font-size:13.5px}
+th,td{border:1px solid var(--border);padding:8px 10px;text-align:left}
+th{background:var(--panel2);color:var(--accent2)}
+tr:nth-child(even){background:#10141d}
+.bitfield{display:flex;font-family:ui-monospace,monospace;font-size:12px;overflow-x:auto;margin:14px 0}
+.bit{border:1px solid var(--border);padding:10px 4px;text-align:center;flex:none;min-width:26px}
+.bit.hdr{background:var(--panel2);color:var(--muted);border-bottom:none}
+.bfrow{display:flex}
+.bf-label{padding:8px 10px;font-size:12px;color:#0b0e14;font-weight:700;text-align:center;flex:none}
+.pill{display:inline-block;padding:3px 10px;border-radius:999px;font-size:11.5px;font-weight:700;margin-right:6px}
+.pill.s{background:#ff6b6b33;color:#ff9b9b}
+.pill.e{background:#7c9fff33;color:#9fb6ff}
+.pill.m{background:#5ee6c833;color:#8ff0da}
+.addr-flow{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:14px 0;font-size:13px}
+.addr-flow .box{background:var(--panel2);border:1px solid var(--border);border-radius:8px;padding:8px 12px}
+.addr-flow .arrow{color:var(--accent);font-weight:700}
+footer{border-top:1px solid var(--border);text-align:center;color:var(--muted);font-size:12.5px;padding:30px 16px}
+::-webkit-scrollbar{width:9px;height:9px}
+::-webkit-scrollbar-thumb{background:var(--border);border-radius:6px}
+@media (max-width:860px){
+  nav#side{position:fixed;left:0;top:calc(58px + env(safe-area-inset-top,0px));
+    height:calc(100vh - 58px - env(safe-area-inset-top,0px));
+    background:var(--bg);z-index:15;transform:translateX(-105%);transition:transform .2s;width:230px}
+  nav#side.open{transform:translateX(0)}
+  #menuBtn{display:inline-block}
+}
+.qtopics{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0 20px;position:sticky;top:58px;background:var(--bg);padding:8px 0;z-index:5}
+.qtopics button{background:var(--panel2);border:1px solid var(--border);color:var(--muted);padding:6px 13px;
+  border-radius:999px;font-size:12.5px;cursor:pointer}
+.qtopics button.active{background:var(--accent);color:#062019;border-color:var(--accent);font-weight:700}
+#score{font-size:13px;color:var(--muted);margin-bottom:16px}
+#score b{color:var(--accent)}
+.qcard{background:var(--panel);border:1px solid var(--border);border-radius:12px;padding:16px;margin:12px 0}
+.qcard .qtag{font-size:10.5px;color:var(--accent2);text-transform:uppercase;letter-spacing:.5px;font-weight:700}
+.qcard .qtext{margin:6px 0 12px;font-size:14.5px}
+.opt{display:block;width:100%;text-align:left;background:var(--panel2);border:1px solid var(--border);
+  color:var(--text);padding:9px 12px;border-radius:8px;margin:6px 0;cursor:pointer;font-size:13.5px}
+.opt:hover{border-color:var(--accent2)}
+.opt.correct{background:#123322;border-color:var(--good);color:var(--good)}
+.opt.wrong{background:#331414;border-color:#ff6b6b;color:#ff9b9b}
+.opt[disabled]{cursor:default}
+.expl{display:none;margin-top:10px;font-size:13px;color:var(--muted);background:var(--code-bg);
+  padding:10px 12px;border-radius:8px;border:1px solid var(--border)}
+.gq{border-left:3px solid var(--accent2);background:var(--panel2);padding:16px 18px;border-radius:0 10px 10px 0;margin:20px 0}
+.gq .gtag{font-size:11px;color:var(--accent2);text-transform:uppercase;letter-spacing:1px;font-weight:700}
+.gq .gopts{margin:10px 0;padding-left:18px;color:#c9d1e0;font-size:13.5px}
+.gq .gopts li{margin:3px 0}
+.gq .gans{color:var(--good);font-weight:700}
+.expl.show{display:block}
+.grid2>*{min-width:0;overflow-x:auto}
+
+/* ===== High-yield revision system ===== */
+.hy-toolbar{
+  max-width:820px;margin:0 auto 28px;padding:14px 16px;
+  background:linear-gradient(135deg,var(--panel),var(--panel2));
+  border:1px solid var(--border);border-radius:14px;
+}
+.hy-toolbar-row{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.hy-title{font-weight:800;color:var(--text);font-size:14px}
+.hy-title span{color:var(--accent)}
+.hy-sub{color:var(--muted);font-size:12.5px;margin-top:4px}
+.hy-actions{display:flex;gap:8px;flex-wrap:wrap}
+.hy-btn{border:1px solid var(--border);background:var(--panel2);color:var(--text);padding:8px 12px;border-radius:9px;font-size:12.5px;font-weight:700;cursor:pointer}
+.hy-btn:hover{border-color:var(--accent2);color:var(--accent)}
+.hy-btn.primary{background:var(--accent);color:#062019;border-color:var(--accent)}
+.hy-legend{display:flex;flex-wrap:wrap;gap:7px;margin-top:12px}
+.hy-legend span,.hy-badge{display:inline-flex;align-items:center;gap:4px;padding:3px 8px;border-radius:999px;font-size:10.5px;font-weight:800;letter-spacing:.15px}
+.hy-must{background:#7c9fff22;color:#9fb6ff;border:1px solid #7c9fff55}
+.hy-trap{background:#ffb45422;color:#ffc978;border:1px solid #ffb45455}
+.hy-formula{background:#5ee6c822;color:#8ff0da;border:1px solid #5ee6c855}
+.hy-gate{background:#ff6b6b22;color:#ff9b9b;border:1px solid #ff6b6b55}
+.hy-shortcut{background:#c792ea22;color:#dcb7f7;border:1px solid #c792ea55}
+.hy-marked{position:relative}
+.hy-marked>.hy-badge{margin-bottom:8px}
+.hy-rapid-overlay{display:none}
+body.rapid-mode .hy-rapid-overlay{display:block}
+body.rapid-mode .wrap>main>section:not(#hyRapidPanel){display:none}
+body.rapid-mode .wrap>main{padding-top:18px}
+body.rapid-mode nav#side{opacity:.55}
+body.rapid-mode .hy-toolbar{position:sticky;top:58px;z-index:10}
+#hyRapidPanel{max-width:820px}
+#hyRapidPanel h1{margin-bottom:5px}
+#hyRapidPanel .rapid-intro{margin:0 0 24px;color:var(--muted);font-size:13px}
+.rapid-section{margin:0 0 34px}
+.rapid-section h2{font-size:18px;margin:0 0 12px;color:var(--accent2);border-bottom:1px solid var(--border);padding-bottom:8px}
+.rapid-empty{color:var(--muted);font-size:13px;background:var(--panel);border:1px dashed var(--border);padding:12px 14px;border-radius:10px}
+.rapid-source{margin:0 0 12px}
+.rapid-source .hy-badge{display:inline-flex;margin-bottom:8px}
+body.rapid-mode .hy-toolbar .hy-btn.primary{display:none}
+body:not(.rapid-mode) .hy-toolbar .hy-btn.secondary{display:none}
+@media(max-width:720px){
+  .hy-toolbar-row{align-items:flex-start}.hy-actions{width:100%}.hy-btn{flex:1}
+  body.rapid-mode .hy-toolbar{top:58px}
+}
+
+
+/* Second-pass curated high-yield revision layer */
+.rapid-curated{margin:18px 0 28px;padding:20px;border:1px solid var(--border,#334155);border-radius:16px;background:rgba(15,23,42,.45)}
+.rapid-curated>h2{margin:0 0 4px}.rapid-note{margin:0 0 16px;opacity:.72}
+.rapid-group{margin:14px 0;padding:14px 16px;border-radius:12px;border-left:4px solid #64748b;background:rgba(255,255,255,.025)}
+.rapid-group h3{margin:0 0 8px;font-size:1rem}.rapid-group ul{margin:0;padding-left:20px}.rapid-group li{margin:7px 0;line-height:1.55}
+.rapid-group.must{border-left-color:#22c55e}.rapid-group.trap{border-left-color:#eab308}.rapid-group.formula{border-left-color:#38bdf8}.rapid-group.gate{border-left-color:#f97316}.rapid-group.shortcut{border-left-color:#a78bfa}
+@media(max-width:700px){.rapid-curated{padding:14px}.rapid-group{padding:12px}}
+@media (max-width:640px){table{display:block;max-width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch}.card,.num,.warn,p,li{overflow-wrap:break-word}td,th{overflow-wrap:normal;word-break:normal}}
+
+
+
+
+/* 3-tier syllabus classification: Core -> High-Yield -> Extension */
+.tier{display:inline-block;margin-left:10px;padding:2px 9px;border-radius:999px;font-size:11px;font-weight:800;letter-spacing:.2px;vertical-align:middle;white-space:nowrap}
+.tier-core{background:#7ee78722;color:#7ee787;border:1px solid #7ee78766}
+.tier-hy{background:#7c9fff22;color:#9fb6ff;border:1px solid #7c9fff66}
+.tier-ext{background:#ffb45418;color:#ffc978;border:1px solid #ffb45455}
+.tier-why{font-size:11.5px;font-weight:500;color:var(--muted);vertical-align:middle}
+.tier-legend{max-width:820px;margin:0 auto 24px;padding:14px 16px;background:var(--panel);border:1px solid var(--border);border-radius:14px;font-size:13px;color:#c9d1e0}
+.tier-legend b{color:var(--text)}
+.tier-legend .tier{margin-left:0;margin-right:6px}
+.tier-legend .row{display:flex;gap:10px;align-items:flex-start;margin:8px 0}
+.tier-legend .row .tier{flex:none}
+.tier-seg{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+.tier-seg button{border:1px solid var(--border);background:var(--panel2);color:var(--muted);padding:7px 12px;border-radius:9px;font-size:12.5px;font-weight:700;cursor:pointer}
+.tier-seg button.active{background:var(--accent);color:#062019;border-color:var(--accent)}
+.tier-note{font-size:11.5px;color:var(--muted);margin-top:10px}
+/* visual demotion of extension material */
+section h2[data-tier="ext"]{font-size:17px;color:var(--muted);border-bottom-style:dashed}
+.tier-ext-body{opacity:.74;border-left:2px dashed var(--border);padding-left:12px;margin-left:2px}
+body[data-tier-view="core-hy"] h2[data-tier="ext"],body[data-tier-view="core-hy"] .tier-ext-body,
+body[data-tier-view="core"] h2[data-tier="ext"],body[data-tier-view="core"] .tier-ext-body,
+body[data-tier-view="core"] h2[data-tier="hy"],body[data-tier-view="core"] .tier-hy-body{display:none}
+body.rapid-mode .tier-legend{display:none}
+</style>
+<style>@media(max-width:760px){main table{display:block;overflow-x:auto;max-width:100%}main pre{overflow-x:auto;max-width:100%}}</style><style id="ux-fix-v11">
+html,body{height:auto!important;min-height:100%}
+#navScrim{cursor:pointer;-webkit-tap-highlight-color:transparent}
+
+/* v11: no sticky banners in the reading/quiz flow; tap-outside closes the topics drawer */
+.qtopics{position:static!important;top:auto!important}
+body.rapid-mode .hy-toolbar{position:static!important;top:auto!important}
+#navScrim{display:none}
+@media (max-width:860px){
+  body.nav-open #navScrim{display:block;position:fixed;left:0;right:0;bottom:0;top:calc(58px + env(safe-area-inset-top,0px));background:rgba(0,0,0,.45);z-index:14}
+}
+@media (max-width:860px){
+  header{position:static!important}
+  html{scroll-padding-top:12px!important}
+  nav#side{top:0!important;height:100%!important;padding-top:calc(18px + env(safe-area-inset-top,0px))!important}
+  body.nav-open #navScrim{top:0!important}
+  #navFab{position:fixed;left:12px;bottom:calc(14px + env(safe-area-inset-bottom,0px));z-index:16;width:42px;height:42px;border-radius:50%;
+    border:1px solid var(--border);background:rgba(23,28,40,.92);color:var(--text);font-size:19px;line-height:1;opacity:.9;
+    box-shadow:0 2px 10px rgba(0,0,0,.45);cursor:pointer;-webkit-tap-highlight-color:transparent}
+}
+@media (min-width:861px){#navFab{display:none}}
+</style>
+<style id="fmt-v12">
+/* v12 readability revamp — formatting only, content untouched */
+:root{--rg-must:#22c55e;--rg-trap:#eab308;--rg-formula:#38bdf8;--rg-gate:#f97316;--rg-shortcut:#a78bfa}
+body.rapid-mode .wrap>main{padding-left:clamp(14px,4vw,32px);padding-right:clamp(14px,4vw,32px)}
+#hyRapidPanel{max-width:760px;margin:0 auto}
+#hyRapidPanel>h1{font-size:clamp(22px,6vw,28px);line-height:1.25;margin:4px 0 8px}
+#hyRapidPanel .rapid-intro{font-size:14.5px;line-height:1.65;margin:0 0 18px}
+
+/* jump chips */
+.rapid-jump{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 22px}
+.rapid-jump a{display:inline-flex;align-items:center;gap:6px;padding:8px 12px;border-radius:999px;font-size:13px;font-weight:700;text-decoration:none;
+  color:var(--text);background:var(--panel2);border:1px solid var(--border)}
+.rapid-jump a b{font-weight:800;opacity:.7}
+
+/* curated block: flat, no box-in-box */
+.rapid-curated{margin:0 0 34px!important;padding:0!important;border:0!important;background:none!important;border-radius:0!important}
+.rapid-curated>h2{font-size:20px;margin:0 0 4px!important;color:var(--text)}
+.rapid-note{font-size:13.5px;line-height:1.6;margin:0 0 6px!important}
+.rapid-group{margin:26px 0 0!important;padding:0!important;border:0!important;background:none!important;scroll-margin-top:12px}
+.rapid-group h3{display:flex;align-items:center;gap:8px;margin:0 0 12px!important;padding-bottom:10px;font-size:14px!important;font-weight:800;
+  letter-spacing:.6px;text-transform:uppercase;border-bottom:2px solid var(--gc,#64748b);color:var(--gc,var(--text))}
+.rapid-group h3 .rg-count{margin-left:auto;font-size:12px;font-weight:800;letter-spacing:0;text-transform:none;padding:2px 9px;border-radius:999px;
+  background:var(--gc,#64748b);color:#0b0e14}
+.rapid-group.must{--gc:var(--rg-must)}.rapid-group.trap{--gc:var(--rg-trap)}.rapid-group.formula{--gc:var(--rg-formula)}
+.rapid-group.gate{--gc:var(--rg-gate)}.rapid-group.shortcut{--gc:var(--rg-shortcut)}
+.rapid-group ul{list-style:none!important;margin:0!important;padding:0!important;display:grid;gap:12px}
+.rapid-group li{margin:0!important;padding:14px 16px;background:var(--panel);border:1px solid var(--border);border-left:4px solid var(--gc,#64748b);
+  border-radius:12px;font-size:15.5px;line-height:1.7;color:var(--text);overflow-wrap:anywhere}
+.rg-label{display:block;margin:0 0 6px;font-size:15px;font-weight:800;line-height:1.35;color:var(--gc,var(--text))}
+.rg-body{display:block;color:#d3d9e6}
+.rg-line{display:block}.rg-line+.rg-line{margin-top:8px}
+.rg-eq{display:block;margin:8px 0 0;padding:10px 12px;border-radius:9px;background:#0a1220;border:1px solid #1d3350;
+  font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:14px;line-height:1.65;color:#8fd8ff;overflow-x:auto;white-space:pre-wrap;overflow-wrap:anywhere}
+.rg-txt{display:block;margin:8px 0 0;color:#d3d9e6}
+.rg-label+.rg-eq,.rg-label+.rg-txt,.rapid-group li>.rg-eq:first-child,.rapid-group li>.rg-txt:first-child{margin-top:0}
+
+/* per-topic cloned cards: roomier, clearer hierarchy */
+.rapid-section{margin:0 0 40px!important}
+.rapid-section h2{font-size:clamp(18px,5vw,22px)!important;line-height:1.3;margin:0 0 16px!important;padding:12px 14px!important;border:1px solid var(--border)!important;
+  border-left:4px solid var(--accent2)!important;border-radius:12px;background:var(--panel)}
+.rapid-source{margin:0 0 14px!important}
+.rapid-source>*{margin:0!important;padding:16px!important;border-radius:14px!important;font-size:15.5px;line-height:1.75;overflow-wrap:anywhere}
+.rapid-source .hy-badge{margin-bottom:10px!important}
+.rapid-source p{margin:0 0 10px;line-height:1.75}.rapid-source p:last-child{margin-bottom:0}
+.rapid-source ul,.rapid-source ol{padding-left:22px;margin:8px 0}.rapid-source li{margin:6px 0;line-height:1.7}
+.rapid-source b,.rapid-source strong{color:#fff}
+.rapid-source code{font-size:.92em;padding:2px 6px;border-radius:6px}
+.rapid-source pre{padding:12px;border-radius:10px;overflow-x:auto;font-size:13.5px;line-height:1.6}
+.rapid-source table{display:block;overflow-x:auto;max-width:100%}
+.rapid-source td,.rapid-source th{padding:8px 10px;line-height:1.55}
+
+/* notes mode: gentle readability lift */
+@media (max-width:700px){
+  main .card,main .warn,main .num{padding:16px!important}
+  main p,main li{line-height:1.75}
+  main section>p{margin:0 0 14px}
+}
+</style>
+<style id="theme-v13">
+/* v13 premium dark + colour theme — visual layer only */
+:root{
+  --bg:#070916;--panel:#0f1330;--panel2:#161b3f;--border:#2a3166;--text:#eef1ff;--muted:#9ea8d4;
+  --accent:#4ff0d0;--accent2:#8aa4ff;--warn:#ffb454;--good:#6ef0a0;--code-bg:#0a1030;
+  --green:#7af0ae;--yellow:#ffe08a;--red:#ff9aa8;--purple:#c9a8ff;
+  --glow-a:#7c5cff;--glow-b:#19d3ff;--glow-c:#ff4fa3;
+}
+html{background:#070916}
+body{background:transparent!important;color:var(--text)}
+body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;
+  background:
+   radial-gradient(60% 40% at 8% 0%,rgba(124,92,255,.28),transparent 70%),
+   radial-gradient(50% 35% at 100% 6%,rgba(25,211,255,.18),transparent 70%),
+   radial-gradient(60% 40% at 50% 100%,rgba(255,79,163,.14),transparent 70%),
+   #070916}
+::selection{background:rgba(124,92,255,.55);color:#fff}
+
+/* header */
+header,.top{background:linear-gradient(180deg,rgba(14,18,48,.92),rgba(9,11,30,.86))!important;
+  -webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);border-bottom:1px solid transparent!important;
+  border-image:linear-gradient(90deg,#7c5cff,#19d3ff,#ff4fa3) 1;box-shadow:0 6px 24px rgba(0,0,0,.35)}
+header h1 span,.top h1 span,header .hl,.top .hl{background:linear-gradient(90deg,#4ff0d0,#8aa4ff,#d28bff);-webkit-background-clip:text;background-clip:text;color:transparent!important}
+
+/* headings */
+main h2,.wrap h2{background:linear-gradient(90deg,#9db4ff,#c9a8ff 55%,#ff9ad0);-webkit-background-clip:text;background-clip:text;color:transparent;
+  border-bottom:1px solid transparent!important;border-image:linear-gradient(90deg,rgba(138,164,255,.6),rgba(255,79,163,.25),transparent) 1}
+main h3{color:#8fe9ff}
+
+/* surfaces: glass panels */
+.card,.warn,.num,.hy-panel,.hy-toolbar,.rapid-curated,table,.q,.qcard,.sol,details,.callout,.box{
+  background:linear-gradient(150deg,rgba(32,38,88,.62),rgba(14,17,42,.9))!important;
+  border-top-color:rgba(138,150,255,.2)!important;border-right-color:rgba(138,150,255,.2)!important;border-bottom-color:rgba(138,150,255,.2)!important;box-shadow:0 10px 30px rgba(3,4,18,.45),inset 0 1px 0 rgba(255,255,255,.06)}
+.hy-toolbar{border-radius:16px}
+.hy-toolbar h3,.hy-toolbar strong{background:linear-gradient(90deg,#4ff0d0,#8aa4ff);-webkit-background-clip:text;background-clip:text;color:transparent}
+
+/* nav drawer */
+nav#side,.side{background:linear-gradient(180deg,rgba(18,22,58,.97),rgba(9,11,30,.98))!important;border-color:rgba(138,150,255,.2)!important}
+nav#side a.active,.side a.active,nav#side a:hover,.side a:hover{background:linear-gradient(90deg,rgba(124,92,255,.35),rgba(25,211,255,.14))!important;color:#fff!important;border-radius:10px}
+nav#side .grp,.side .grp,nav#side h4,.side h4{color:#c9a8ff!important}
+
+/* buttons */
+.hy-btn{background:rgba(26,31,72,.9);border-color:rgba(138,150,255,.3)}
+.hy-btn:hover{border-color:#8aa4ff;box-shadow:0 0 0 3px rgba(124,92,255,.22);color:#fff}
+.hy-btn.primary,.btn.primary,button.primary{background:linear-gradient(90deg,#19d3ff,#7c5cff 60%,#ff4fa3)!important;color:#fff!important;border:0!important;
+  box-shadow:0 6px 20px rgba(124,92,255,.45)}
+#navFab{background:linear-gradient(135deg,#7c5cff,#19d3ff)!important;color:#fff!important;border:0!important;box-shadow:0 8px 22px rgba(124,92,255,.55)!important;opacity:1!important}
+#menuBtn{background:rgba(26,31,72,.9)!important;border-color:rgba(138,150,255,.35)!important}
+
+/* code & equations */
+code,pre{background:#0a1030!important;color:#8ff5e2;border:1px solid rgba(79,240,208,.18)}
+.rg-eq,.card p>code:only-child{background:linear-gradient(135deg,#0a1436,#0d0f2e)!important;border-color:rgba(25,211,255,.35)!important;color:#9af2ff!important;
+  box-shadow:inset 0 0 0 1px rgba(25,211,255,.06)}
+
+/* last-minute groups: tinted by their colour */
+.rapid-group li{background:linear-gradient(135deg,color-mix(in srgb,var(--gc) 14%,#12163a),#0d1030 70%)!important;border-top-color:color-mix(in srgb,var(--gc) 30%,#262d62)!important;border-right-color:color-mix(in srgb,var(--gc) 30%,#262d62)!important;border-bottom-color:color-mix(in srgb,var(--gc) 30%,#262d62)!important;border-left-color:var(--gc)!important;
+  box-shadow:0 6px 18px rgba(3,4,18,.4)}
+.rapid-group h3{text-shadow:0 0 18px color-mix(in srgb,var(--gc) 55%,transparent)}
+.rapid-group h3 .rg-count{box-shadow:0 0 14px color-mix(in srgb,var(--gc) 60%,transparent)}
+.rapid-jump a{background:rgba(26,31,72,.85);border-color:rgba(138,150,255,.3)}
+.rapid-section h2{background:linear-gradient(90deg,rgba(124,92,255,.28),rgba(25,211,255,.08))!important;-webkit-text-fill-color:#fff;color:#fff;border-image:none!important;
+  border-color:rgba(138,150,255,.3)!important;border-left:4px solid #19d3ff!important}
+
+/* tags / badges: more vivid */
+.tag,.hy-badge,.badge{backdrop-filter:blur(4px);font-weight:800}
+.tag.must,.hy-badge.must{background:rgba(34,197,94,.18)!important;color:#7af0ae!important;border-color:rgba(34,197,94,.5)!important}
+.tag.formula,.hy-badge.formula{background:rgba(56,189,248,.18)!important;color:#8fe0ff!important;border-color:rgba(56,189,248,.5)!important}
+.tag.fav,.hy-badge.fav{background:rgba(255,79,100,.16)!important;color:#ff9aa8!important;border-color:rgba(255,79,100,.5)!important}
+
+/* quiz options */
+.opt,.option,button.opt,label.opt{background:rgba(22,27,68,.8)!important;border-color:rgba(138,150,255,.25)!important;transition:.15s}
+.opt:hover,.option:hover{border-color:#19d3ff!important;box-shadow:0 0 0 3px rgba(25,211,255,.18)}
+.qtopics button,.qtopics .chip{background:rgba(26,31,72,.85);border-color:rgba(138,150,255,.3)}
+.qtopics .on,.qtopics .active{background:linear-gradient(90deg,#7c5cff,#19d3ff)!important;color:#fff!important;border-color:transparent!important}
+
+/* tables */
+th{background:linear-gradient(90deg,rgba(124,92,255,.35),rgba(25,211,255,.18))!important;color:#fff!important}
+td,th{border-color:rgba(138,150,255,.2)!important}
+tbody tr:nth-child(even) td{background:rgba(124,92,255,.06)}
+
+a{color:#8fe9ff}
+::-webkit-scrollbar{width:10px;height:10px}::-webkit-scrollbar-thumb{background:linear-gradient(#7c5cff,#19d3ff);border-radius:8px}
+</style>
+<style id="home-v14">
+.homeLink{justify-self:end;display:inline-flex;align-items:center;gap:6px;padding:8px 12px;border-radius:10px;font-size:13px;font-weight:800;text-decoration:none;white-space:nowrap;
+  color:#fff!important;background:linear-gradient(135deg,rgba(124,92,255,.55),rgba(25,211,255,.3));border:1px solid rgba(138,150,255,.4)}
+nav#side a.backhome,.side a.backhome{display:block;margin:0 0 10px;padding:10px 12px;border-radius:10px;font-weight:800;color:#fff!important;
+  background:linear-gradient(90deg,rgba(124,92,255,.45),rgba(25,211,255,.2));border:1px solid rgba(138,150,255,.4)}
+#homeFab{display:none}
+@media (max-width:860px){
+  #homeFab{display:flex;align-items:center;justify-content:center;position:fixed;left:64px;bottom:calc(14px + env(safe-area-inset-bottom,0px));z-index:16;width:42px;height:42px;border-radius:50%;
+    text-decoration:none;font-size:19px;background:rgba(22,27,68,.95);border:1px solid rgba(138,150,255,.45);box-shadow:0 8px 22px rgba(3,4,18,.6)}
+}
+</style>
+<!-- pwa:start -->
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#070916">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="GATE 2027">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="icon" type="image/png" href="favicon-64.png">
+<!-- pwa:end -->
+</head>
+<body>
+<header>
+  <button id="menuBtn" onclick="document.getElementById('side').classList.toggle('open')">☰ Topics</button>
+  <div class="title">📐 Engineering Mathematics <span>for GATE CSE 2027</span></div>
+  <a class="homeLink" href="index.html">🏠 Home</a>
+</header>
+<div class="wrap">
+<nav id="side">
+<a class="backhome" href="index.html">← Study Hub (Home)</a><a class="gt-sidelink" href="cheatsheet-gate-2027.html#em">📄 Formula cheat sheet</a><a class="gt-sidelink" href="mock-gate-2027.html">🎯 Full mock exam</a>
+  <div class="grp">
+    <div class="grp-title">Part 1 · Discrete Mathematics</div>
+    <a href="#discrete">1. Discrete Mathematics (dedicated module)</a>
+  </div>
+  <div class="grp">
+    <div class="grp-title">Part 2 · Linear Algebra & Calculus</div>
+    <a href="#la">2. Linear Algebra</a>
+    <a href="#calc">3. Calculus</a>
+  </div>
+  <div class="grp">
+    <div class="grp-title">Part 3 · Probability</div>
+    <a href="#prob">4. Probability & Statistics</a>
+  </div>
+  <div class="grp">
+    <div class="grp-title">Problem Solving</div>
+    <a href="#methods">5. 🧭 Problem → Standard Method Playbook</a>
+  </div>
+  <div class="grp">
+    <div class="grp-title">Practice</div>
+    <a href="#quiz">6. Practice Quiz — 58 Qs (basic)</a>
+    <a href="#pyq">7. GATE-Level Solved Problems</a>
+  </div>
+</nav>
+<main>
+<!-- tier-legend:start -->
+<div class="tier-legend" id="tierLegend">
+  <div><b>What to revise for GATE 2027</b> — every topic is tagged against the official syllabus (Linear Algebra: matrices, determinants, linear systems, eigenvalues and eigenvectors, LU decomposition; Calculus: limits, continuity and differentiability, maxima and minima, mean value theorem, integration; Probability &amp; Statistics: random variables; uniform, normal, exponential, Poisson and binomial distributions; mean, median, mode, standard deviation; conditional probability and Bayes. Discrete Mathematics has its own module).</div>
+  <div class="row"><span class="tier tier-core">🟢 Core</span><span>Named in the syllabus, or an indispensable prerequisite of a named item.</span></div>
+  <div class="row"><span class="tier tier-hy">🔵 High-Yield</span><span>Not named in the syllabus, but frequently useful or tested as background. Revise after Core.</span></div>
+  <div class="row"><span class="tier tier-ext">🟡 Extension</span><span>Beyond the syllabus or rarely tested. Kept for completeness and shown dimmed; read only if time remains.</span></div>
+  <div class="tier-seg" id="tierSeg"><button type="button" class="active" data-view="all">All material</button><button type="button" data-view="core-hy">Core + 🔵 High-Yield</button><button type="button" data-view="core">🟢 Core only</button></div>
+  <div class="tier-note">Tiers are a study aid based on the syllabus as I know it; the 🔵 / 🟡 split is a judgement call. Confirm borderline items against the official PDF.</div>
+</div>
+<!-- tier-legend:end -->
+<section id="discrete">
+<h1>1. Discrete Mathematics — dedicated module</h1>
+<div class="sub">In the official 2027 syllabus, Discrete Mathematics is the first subsection of Engineering Mathematics. To avoid revising it twice, all detailed discrete notes live in one place: the Discrete Mathematics module.</div>
+<div class="card"><b>Where each discrete topic lives</b>
+<table>
+<tr><th>Topic</th><th>Open in the Discrete Mathematics module</th></tr>
+<tr><td>Propositional &amp; first-order logic, free / bound variables</td><td><a href="discrete-math-gate-2027.html#logic">1. Logic</a></td></tr>
+<tr><td>Sets, relations, functions</td><td><a href="discrete-math-gate-2027.html#sets">2. Sets, Relations &amp; Functions</a></td></tr>
+<tr><td>Partial orders &amp; lattices</td><td><a href="discrete-math-gate-2027.html#orders">3. Partial Orders &amp; Lattices</a></td></tr>
+<tr><td>Monoids &amp; groups</td><td><a href="discrete-math-gate-2027.html#algebra">4. Monoids &amp; Groups</a></td></tr>
+<tr><td>Combinatorics</td><td><a href="discrete-math-gate-2027.html#comb">5. Combinatorics</a></td></tr>
+<tr><td>Recurrences &amp; generating functions</td><td><a href="discrete-math-gate-2027.html#rec">6. Recurrence Relations &amp; Generating Functions</a></td></tr>
+<tr><td>Graph theory</td><td><a href="discrete-math-gate-2027.html#graphs">7. Graph Theory</a></td></tr>
+<tr><td>Problem → method guide, quiz, solved problems</td><td><a href="discrete-math-gate-2027.html#playbook">Method guide</a> · <a href="discrete-math-gate-2027.html#quiz">Quiz</a> · <a href="discrete-math-gate-2027.html#pyq">Solved problems</a></td></tr>
+</table>
+<p class="sub">The rest of this page covers <b>Linear Algebra, Calculus and Probability &amp; Statistics</b>. The quiz and last-minute recall below still include a few discrete questions as mixed practice; the notes themselves are not repeated here.</p>
+</div>
+</section>
+
+<section id="la">
+<h1>2. Linear Algebra</h1>
+<div class="sub">Matrices, determinants, rank, systems of equations, and eigenvalues — all connected by a handful of identities.</div>
+
+<h2 data-tier="core">Determinant properties (n × n matrix) <span class="tier tier-core" title="Named in the GATE 2027 syllabus, or an indispensable prerequisite of a named item">🟢 Core</span></h2>
+<div class="grid2">
+<div class="card"><pre>det(AB) = det(A)·det(B)
+det(Aᵀ) = det(A)
+det(kA) = kⁿ·det(A)
+det(A⁻¹) = 1/det(A)
+Swapping two rows → sign changes
+Two equal rows or a zero row → det = 0
+Row op "add k·row i to row j" → unchanged
+Triangular matrix: product of diagonal</pre></div>
+<div class="card"><b>Invertibility</b> — all equivalent:<pre>A is invertible
+det(A) ≠ 0
+rank(A) = n
+Ax = 0 has only x = 0
+columns are linearly independent
+no eigenvalue is 0</pre></div>
+</div>
+<div class="num"><div class="tag">Worked numerical</div>
+If A is 3×3 with det(A) = 4, then det(2A) = 2³·4 = <b>32</b>; det(A⁻¹) = 1/4; det(A²) = 16.
+</div>
+
+<h2 data-tier="core">Rank and systems of linear equations <span class="tier tier-core" title="Named in the GATE 2027 syllabus, or an indispensable prerequisite of a named item">🟢 Core</span></h2>
+<ul style="color:#c9d1e0">
+<li><b>Rank</b> = number of non-zero rows in row-echelon form = dimension of the column space. rank(A) ≤ min(m, n).</li>
+<li><b>Rank–nullity</b>: rank(A) + nullity(A) = n (number of columns). A 5×7 matrix of rank 3 has nullity <b>4</b>.</li>
+<li>Ax = b is <b>consistent</b> iff rank(A) = rank([A | b]). Unique solution iff the common rank = n (number of unknowns); infinitely many iff rank &lt; n; none if the ranks differ.</li>
+<li><b>Homogeneous</b> Ax = 0 always has the trivial solution; a square system has a non-trivial one iff <b>det(A) = 0</b>. If m &lt; n there is always a non-trivial solution.</li>
+</ul>
+<div class="num"><div class="tag">Worked numerical — solving a 3×3 system</div>
+<pre>x +  y +  z =  6
+     2y + 5z = −4
+2x + 5y −  z = 27
+R3 ← R3 − 2R1:   3y − 3z = 15  → y − z = 5
+From 2y + 5z = −4 and y = z + 5:  2z + 10 + 5z = −4 → z = −2, y = 3, x = 6 − 3 + 2 = 5</pre>
+Solution (x, y, z) = <b>(5, 3, −2)</b>; the coefficient matrix has rank 3, so it is unique.
+</div>
+<div class="num"><div class="tag">Worked numerical — rank</div>
+<code>[[1,2,3],[4,5,6],[7,8,9]]</code>: R2 − 4R1 = (0,−3,−6), R3 − 7R1 = (0,−6,−12) = 2·(R2 − 4R1) → only 2 independent rows → <b>rank 2</b>, det = 0.
+</div>
+
+<h2 data-tier="core">Eigenvalues and eigenvectors <span class="tier tier-core" title="Named in the GATE 2027 syllabus, or an indispensable prerequisite of a named item">🟢 Core</span></h2>
+<p>λ is an eigenvalue of A if Ax = λx for some x ≠ 0, i.e. det(A − λI) = 0 (the characteristic equation).</p>
+<ul style="color:#c9d1e0">
+<li><b>Sum of eigenvalues = trace</b> (sum of diagonal); <b>product of eigenvalues = det(A)</b>.</li>
+<li>Triangular (and diagonal) matrices: eigenvalues are the diagonal entries.</li>
+<li>Eigenvalues of Aᵏ are λᵏ, of A⁻¹ are 1/λ, of A + cI are λ + c, of Aᵀ are the same as A.</li>
+<li><b>Cayley–Hamilton</b>: every matrix satisfies its own characteristic equation.</li>
+<li>Symmetric real matrices: all eigenvalues real, eigenvectors for distinct eigenvalues orthogonal. Eigenvectors for <b>distinct</b> eigenvalues are linearly independent; n distinct eigenvalues ⇒ diagonalisable.</li>
+<li>A singular matrix has 0 as an eigenvalue.</li>
+</ul>
+<div class="num"><div class="tag">Worked numerical — 2×2</div>
+A = [[4,1],[2,3]]: trace 7, det 10 → λ² − 7λ + 10 = 0 → <b>λ = 5 and 2</b>. Check: 5 + 2 = 7 ✓, 5 × 2 = 10 ✓.
+</div>
+<div class="num"><div class="tag">Worked numerical — function of a matrix</div>
+A = [[2,0,0],[1,3,0],[4,5,6]] is lower triangular, so λ = 2, 3, 6. Then A² + I has eigenvalues 4+1, 9+1, 36+1 = 5, 10, 37, so <code>det(A² + I) = 5·10·37 = <b>1850</b></code>, and <code>trace(A²) = 4 + 9 + 36 = 49</code>.
+</div>
+<h2 data-tier="core">LU decomposition <span class="tier tier-core" title="Named in the GATE 2027 syllabus, or an indispensable prerequisite of a named item">🟢 Core</span></h2>
+<p>A square matrix (with non-zero pivots) factors as A = LU, with L lower-triangular (1s on the diagonal) and U upper-triangular. Solve Ax = b by forward substitution (Ly = b) then back substitution (Ux = y). Cost: about <b>(2/3)n³</b> operations versus much more for computing the inverse.</p>
+</section>
+
+<section id="calc">
+<h1>3. Calculus</h1>
+<div class="sub">Limits, continuity, differentiability, maxima and minima, series, and the definite integrals that come up in GATE.</div>
+
+<h2 data-tier="core">Standard limits <span class="tier tier-core" title="Named in the GATE 2027 syllabus, or an indispensable prerequisite of a named item">🟢 Core</span><span class="tier-why"> · limits</span></h2>
+<div class="grid2">
+<div class="card"><pre>lim (x→0) sin x / x = 1
+lim (x→0) tan x / x = 1
+lim (x→0) (1 − cos x)/x² = 1/2
+lim (x→0) (eˣ − 1)/x = 1
+lim (x→0) ln(1+x)/x = 1</pre></div>
+<div class="card"><pre>lim (x→∞) (1 + 1/x)ˣ = e
+lim (x→∞) (1 + a/x)ˣ = eᵃ
+lim (x→0) (1 + x)^(1/x) = e
+lim (x→∞) xⁿ / eˣ = 0
+lim (x→∞) ln x / x = 0</pre></div>
+</div>
+<p><b>L'Hôpital's rule</b>: if f/g gives 0/0 or ∞/∞, then lim f/g = lim f'/g' (when the latter exists). Other indeterminate forms (0·∞, ∞−∞, 1<sup>∞</sup>, 0⁰, ∞⁰) are first rewritten into a quotient. Taylor expansion also works: <code>eˣ = 1 + x + x²/2! + …</code>, <code>sin x = x − x³/3! + …</code>, <code>cos x = 1 − x²/2! + …</code>.</p>
+<div class="num"><div class="tag">Worked numerical</div>
+<pre>lim (x→0) (eˣ − 1 − x)/x² :  0/0 → (eˣ − 1)/(2x) → 0/0 → eˣ/2 → <b>1/2</b>
+lim (x→∞) (1 + 2/x)ˣ = <b>e²</b></pre>
+</div>
+
+<h2 data-tier="core">Continuity and differentiability <span class="tier tier-core" title="Named in the GATE 2027 syllabus, or an indispensable prerequisite of a named item">🟢 Core</span></h2>
+<ul style="color:#c9d1e0">
+<li>f is continuous at a if lim<sub>x→a</sub> f(x) = f(a). <b>Differentiable ⇒ continuous</b>; the converse is false.</li>
+<li>f(x) = |x| is continuous everywhere but <b>not differentiable at 0</b> (a corner); f(x) = x<sup>1/3</sup> is continuous but has an infinite slope at 0.</li>
+<li><b>Intermediate value theorem</b>: a continuous f on [a,b] takes every value between f(a) and f(b). <b>Extreme value theorem</b>: a continuous f on a closed interval attains a maximum and a minimum.</li>
+</ul>
+
+<h2 data-tier="core">Mean value theorems <span class="tier tier-core" title="Named in the GATE 2027 syllabus, or an indispensable prerequisite of a named item">🟢 Core</span></h2>
+<ul style="color:#c9d1e0">
+<li><b>Rolle</b>: f continuous on [a,b], differentiable on (a,b), f(a) = f(b) ⇒ some c with f'(c) = 0.</li>
+<li><b>Lagrange (MVT)</b>: some c ∈ (a,b) with f'(c) = (f(b) − f(a)) / (b − a).</li>
+</ul>
+<div class="num"><div class="tag">Worked numerical</div>
+f(x) = x² on [1, 3]: slope of the chord = (9 − 1)/2 = 4, and f'(c) = 2c = 4 → <b>c = 2</b>.
+</div>
+
+<h2 data-tier="core">Maxima and minima <span class="tier tier-core" title="Named in the GATE 2027 syllabus, or an indispensable prerequisite of a named item">🟢 Core</span></h2>
+<p>Critical points: f'(x) = 0 (or undefined). Second-derivative test: f'' &gt; 0 → local min, f'' &lt; 0 → local max, f'' = 0 → inconclusive. For the <b>absolute</b> max/min on a closed interval, compare critical values <b>and the endpoint values</b>.</p>
+<div class="num"><div class="tag">Worked numerical</div>
+<b>Q:</b> f(x) = 2x³ − 9x² + 12x + 5 on [0, 3]. Find the local and absolute extrema.<br>
+<b>A:</b> f'(x) = 6x² − 18x + 12 = 6(x−1)(x−2) → x = 1, 2. f''(x) = 12x − 18: f''(1) = −6 (local max), f''(2) = 6 (local min).
+<pre>f(0) = 5     f(1) = 10 (local max)     f(2) = 9 (local min)     f(3) = 14
+Absolute maximum on [0,3] = <b>14</b> (at the endpoint x = 3)   Absolute minimum = <b>5</b> (at x = 0)</pre>
+</div>
+
+<h2 data-tier="core">Integration <span class="tier tier-core" title="Named in the GATE 2027 syllabus, or an indispensable prerequisite of a named item">🟢 Core</span></h2>
+<ul style="color:#c9d1e0">
+<li>Fundamental theorem: ∫<sub>a</sub><sup>b</sup> f = F(b) − F(a). By parts: ∫u dv = uv − ∫v du.</li>
+<li>Odd function over [−a, a]: integral = 0. Even function: 2∫<sub>0</sub><sup>a</sup>.</li>
+<li>Wallis: ∫<sub>0</sub><sup>π/2</sup> sin<sup>n</sup>x dx for odd n = (n−1)(n−3)…2 / (n(n−2)…3).</li>
+<li>Improper: ∫<sub>1</sub><sup>∞</sup> 1/x<sup>p</sup> dx converges iff p &gt; 1; ∫<sub>0</sub><sup>1</sup> 1/x<sup>p</sup> dx converges iff p &lt; 1. ∫<sub>0</sub><sup>∞</sup> e<sup>−x</sup> dx = 1.</li>
+</ul>
+<div class="num"><div class="tag">Worked numerical</div>
+<pre>∫₀¹ x eˣ dx = [x eˣ − eˣ]₀¹ = (e − e) − (0 − 1) = <b>1</b>
+∫₀^(π/2) sin³x dx = 2/3          ∫₀^π sin x dx = 2</pre>
+</div>
+
+<h2 data-tier="ext">Series <span class="tier tier-ext" title="Beyond the syllabus or rarely tested — read only if time remains">🟡 Extension</span><span class="tier-why"> · convergence tests are not an explicit 2027 item</span></h2>
+<ul style="color:#c9d1e0">
+<li><b>Geometric</b>: Σ a·rⁿ converges iff |r| &lt; 1, to a/(1−r). Σ<sub>n≥0</sub> (1/2)ⁿ = <b>2</b>.</li>
+<li><b>p-series</b>: Σ 1/nᵖ converges iff p &gt; 1 (so the harmonic series Σ 1/n diverges).</li>
+<li>Ratio test: L = lim |a<sub>n+1</sub>/a<sub>n</sub>|; converges if L &lt; 1, diverges if L &gt; 1, inconclusive at 1. A convergent series must have terms → 0 (converse false).</li>
+<li>Alternating series with decreasing terms → 0 converges (Leibniz).</li>
+</ul>
+<h2 data-tier="hy">L’Hôpital’s rule and Taylor series <span class="tier tier-hy" title="Not named in the syllabus, but frequently useful or tested as background — revise after Core">🔵 High-Yield</span><span class="tier-why"> · used to evaluate limits; not named in 2027</span></h2>
+<ul style="color:#c9d1e0">
+<li><b>L’Hôpital:</b> if f/g gives 0/0 or ∞/∞ at a point, then lim f/g = lim f′/g′ provided the latter limit exists; repeat if the form persists. Rewrite 0·∞ as a quotient and ∞ − ∞ as a single fraction first.</li>
+<li><b>Maclaurin series:</b> eˣ = 1 + x + x²/2! + x³/3! + … · sin x = x − x³/3! + x⁵/5! − … · cos x = 1 − x²/2! + x⁴/4! − … · ln(1 + x) = x − x²/2 + x³/3 − … (|x| &lt; 1) · 1/(1 − x) = 1 + x + x² + … (|x| &lt; 1).</li>
+</ul>
+<div class="num"><div class="tag">Worked numerical</div>
+<b>Q:</b> Evaluate lim<sub>x→0</sub> (sin x − x)/x³ and lim<sub>x→0</sub> (eˣ − 1 − x)/x².<br>
+<b>A:</b> Using series: sin x − x = −x³/6 + …, so the first limit is <b>−1/6</b>. Also eˣ − 1 − x = x²/2 + …, so the second is <b>1/2</b>. (L’Hôpital agrees: three differentiations give (−cos x)/6 → −1/6.) Also lim x·ln x = <b>0</b> as x → 0⁺, because a power beats a logarithm.
+</div>
+
+<h2 data-tier="ext">Improper integrals, Gamma and Beta <span class="tier tier-ext" title="Beyond the syllabus or rarely tested — read only if time remains">🟡 Extension</span><span class="tier-why"> · not an explicit 2027 item</span></h2>
+<ul style="color:#c9d1e0">
+<li><b>p-test:</b> ∫₁^∞ x<sup>−p</sup> dx converges iff <b>p &gt; 1</b>; ∫₀¹ x<sup>−p</sup> dx converges iff <b>p &lt; 1</b>. ∫₀^∞ e<sup>−x</sup> dx = 1.</li>
+<li><b>Gamma:</b> Γ(n) = ∫₀^∞ x<sup>n−1</sup> e<sup>−x</sup> dx, with Γ(n + 1) = n·Γ(n), so Γ(n + 1) = n! for integers, and Γ(½) = √π.</li>
+<li><b>Beta:</b> B(m, n) = ∫₀¹ x<sup>m−1</sup>(1 − x)<sup>n−1</sup> dx = Γ(m)Γ(n)/Γ(m + n). Example: B(2, 3) = (1!·2!)/4! = <b>1/12</b>.</li>
+</ul>
+</section>
+
+<section id="prob">
+<h1>4. Probability & Statistics</h1>
+<div class="sub">From conditional probability and Bayes' rule to the standard distributions and their means and variances.</div>
+
+<h2 data-tier="core">Foundations <span class="tier tier-core" title="Named in the GATE 2027 syllabus, or an indispensable prerequisite of a named item">🟢 Core</span><span class="tier-why"> · conditional probability, Bayes</span></h2>
+<ul style="color:#c9d1e0">
+<li>P(A ∪ B) = P(A) + P(B) − P(A ∩ B). P(Aᶜ) = 1 − P(A).</li>
+<li><b>Conditional</b>: P(A|B) = P(A ∩ B)/P(B). <b>Independent</b> iff P(A ∩ B) = P(A)P(B). <b>Mutually exclusive</b> events with non-zero probability are <b>not</b> independent.</li>
+<li><b>Total probability</b>: P(B) = Σ P(B|A<sub>i</sub>)P(A<sub>i</sub>) over a partition. <b>Bayes</b>: P(A<sub>i</sub>|B) = P(B|A<sub>i</sub>)P(A<sub>i</sub>) / P(B).</li>
+</ul>
+<div class="num"><div class="tag">Worked numerical — Bayes</div>
+<b>Q:</b> A disease affects 1% of people. A test is positive for 99% of sick people and for 5% of healthy people. If someone tests positive, what is the probability they are sick?<br>
+<b>A:</b>
+<pre>P(+) = 0.01·0.99 + 0.99·0.05 = 0.0099 + 0.0495 = 0.0594
+P(sick | +) = 0.0099 / 0.0594 = <b>1/6 ≈ 0.167</b></pre>
+Even with a very accurate test, a rare condition gives mostly false positives.
+</div>
+<div class="num"><div class="tag">Worked numerical — two dice</div>
+P(sum = 7) = 6/36 = 1/6. Given that <b>at least one die shows 6</b> (11 outcomes), P(sum ≥ 10) = favourable {(4,6),(6,4),(5,6),(6,5),(6,6)} = <b>5/11</b>. Expected maximum of two dice = <b>161/36</b>.
+</div>
+
+<h2 data-tier="core">Random variables <span class="tier tier-core" title="Named in the GATE 2027 syllabus, or an indispensable prerequisite of a named item">🟢 Core</span></h2>
+<ul style="color:#c9d1e0">
+<li><b>E[X]</b> = Σ x·p(x) (or ∫ x f(x) dx). Linearity always holds: E[X + Y] = E[X] + E[Y], even for dependent X, Y.</li>
+<li><b>Var(X)</b> = E[X²] − (E[X])². Var(aX + b) = a²Var(X). For <b>independent</b> X, Y: Var(X + Y) = Var(X) + Var(Y).</li>
+<li>Cov(X,Y) = E[XY] − E[X]E[Y]; independent ⇒ Cov = 0 (converse false). Correlation ρ ∈ [−1, 1].</li>
+<li><b>Chebyshev</b>: P(|X − μ| ≥ kσ) ≤ 1/k². <b>Markov</b>: P(X ≥ a) ≤ E[X]/a for X ≥ 0.</li>
+<li>Expected number of fixed points of a random permutation = <b>1</b> (for any n). Expected tosses of a fair coin until the first head = <b>2</b>.</li>
+</ul>
+
+<h2 data-tier="core">Standard distributions <span class="tier tier-core" title="Named in the GATE 2027 syllabus, or an indispensable prerequisite of a named item">🟢 Core</span><span class="tier-why"> · uniform, normal, exponential, Poisson, binomial</span></h2>
+<div style="overflow-x:auto">
+<table>
+<tr><th>Distribution</th><th>Model</th><th>Mean</th><th>Variance</th></tr>
+<tr><td>Bernoulli(p)</td><td>one trial</td><td>p</td><td>p(1−p)</td></tr>
+<tr><td>Binomial(n, p)</td><td>successes in n trials; P(k) = C(n,k)pᵏ(1−p)ⁿ⁻ᵏ</td><td>np</td><td>np(1−p)</td></tr>
+<tr><td>Geometric(p)</td><td>trials until first success</td><td>1/p</td><td>(1−p)/p²</td></tr>
+<tr><td>Poisson(λ)</td><td>events in a fixed interval; P(k) = e<sup>−λ</sup>λᵏ/k!</td><td>λ</td><td>λ</td></tr>
+<tr><td>Uniform(a, b)</td><td>continuous, equally likely</td><td>(a+b)/2</td><td>(b−a)²/12</td></tr>
+<tr><td>Exponential(λ)</td><td>waiting time; f = λe<sup>−λx</sup></td><td>1/λ</td><td>1/λ²</td></tr>
+<tr><td>Normal(μ, σ²)</td><td>bell curve</td><td>μ</td><td>σ²</td></tr>
+</table>
+</div>
+<ul style="color:#c9d1e0">
+<li>Exponential is <b>memoryless</b>: P(X &gt; s + t | X &gt; s) = P(X &gt; t) = e<sup>−λt</sup>. Geometric is the discrete memoryless one.</li>
+<li>Normal: about 68%, 95%, 99.7% of the mass lies within 1, 2, 3 standard deviations. The sum of independent normals is normal. <b>Central limit theorem</b>: the mean of many i.i.d. variables is approximately normal.</li>
+<li>Binomial(n, p) → Poisson(np) for large n, small p.</li>
+</ul>
+<div class="num"><div class="tag">Worked numerical</div>
+<pre>Binomial n=10, p=0.3:  mean = 3,  variance = 10·0.3·0.7 = <b>2.1</b>
+Binomial n=5,  p=0.5:  P(X = 3) = C(5,3)/32 = 10/32 = <b>0.3125</b>
+Poisson λ = 2:         P(X = 0) = e⁻² ≈ <b>0.1353</b>
+Uniform(0, 6):         mean 3, variance 36/12 = <b>3</b>
+Birthday problem:      with 23 people, P(shared birthday) ≈ <b>0.507</b></pre>
+</div>
+
+<h2 data-tier="core">Descriptive statistics <span class="tier tier-core" title="Named in the GATE 2027 syllabus, or an indispensable prerequisite of a named item">🟢 Core</span><span class="tier-why"> · mean, median, mode, standard deviation</span></h2>
+<div class="num"><div class="tag">Worked numerical — data {2, 3, 5, 7, 8}</div>
+<pre>mean = 25/5 = 5      median = 5 (middle value)
+deviations: −3, −2, 0, 2, 3  →  squares sum = 26
+population variance = 26/5 = 5.2        sample variance = 26/4 = 6.5</pre>
+</div>
+<p>For a right-skewed distribution mean &gt; median &gt; mode; for a symmetric one they coincide. Sample variance divides by n − 1 (unbiased); population variance divides by n.</p>
+<h2 data-tier="core">PMF, PDF and CDF <span class="tier tier-core" title="Named in the GATE 2027 syllabus, or an indispensable prerequisite of a named item">🟢 Core</span><span class="tier-why"> · random variables</span></h2>
+<table>
+<tr><th></th><th>Discrete (pmf p)</th><th>Continuous (pdf f)</th></tr>
+<tr><td>Valid when</td><td>p(x) ≥ 0 and Σ p(x) = 1</td><td>f(x) ≥ 0 and ∫ f(x) dx = 1</td></tr>
+<tr><td>Probability of an event</td><td>P(X ∈ A) = Σ<sub>x∈A</sub> p(x)</td><td>P(a ≤ X ≤ b) = ∫ₐᵇ f(x) dx; <b>P(X = x) = 0</b> for every single point</td></tr>
+<tr><td>CDF F(x) = P(X ≤ x)</td><td>Step function</td><td>Continuous, with f = dF/dx</td></tr>
+</table>
+<p>Every CDF is non-decreasing, runs from 0 to 1, and P(a &lt; X ≤ b) = F(b) − F(a). A density can exceed 1 (only its integral must equal 1); a probability cannot.</p>
+<div class="num"><div class="tag">Worked numerical</div>
+<b>Q:</b> X has density f(x) = kx on [0, 2] and 0 elsewhere. Find k, the CDF, P(X &gt; 1), E[X] and Var(X).<br>
+<b>A:</b> ∫₀² kx dx = 2k = 1, so <b>k = 1/2</b>. CDF: F(x) = x²/4 on [0, 2]. P(X &gt; 1) = 1 − F(1) = 1 − 1/4 = <b>3/4</b>. E[X] = ∫₀² x·(x/2) dx = 8/6 = <b>4/3</b>. E[X²] = ∫₀² x²·(x/2) dx = 2, so Var(X) = 2 − 16/9 = <b>2/9</b>.
+</div>
+
+<h2 data-tier="hy">Joint and marginal distributions <span class="tier tier-hy" title="Not named in the syllabus, but frequently useful or tested as background — revise after Core">🔵 High-Yield</span><span class="tier-why"> · supports covariance / independence questions</span></h2>
+<ul style="color:#c9d1e0">
+<li>The <b>marginal</b> distribution comes from summing (or integrating) the joint over the other variable: p<sub>X</sub>(x) = Σ<sub>y</sub> p(x, y).</li>
+<li>X and Y are <b>independent</b> iff p(x, y) = p<sub>X</sub>(x)·p<sub>Y</sub>(y) for <b>every</b> pair. One failing cell is enough to show dependence.</li>
+</ul>
+<div class="num"><div class="tag">Worked numerical</div>
+<b>Q:</b> P(X,Y): (0,0) = 0.1, (0,1) = 0.3, (1,0) = 0.2, (1,1) = 0.4. Find the marginals, test independence and compute Cov(X, Y).<br>
+<b>A:</b> P(X=0) = 0.4, P(X=1) = 0.6; P(Y=0) = 0.3, P(Y=1) = 0.7. Independence would need p(0,0) = 0.4 × 0.3 = 0.12, but p(0,0) = 0.1, so they are <b>dependent</b>. E[XY] = P(X=1, Y=1) = 0.4; E[X]E[Y] = 0.6 × 0.7 = 0.42; Cov = 0.4 − 0.42 = <b>−0.02</b>.
+</div>
+
+<h2 data-tier="core">Normal distribution and z-scores <span class="tier tier-core" title="Named in the GATE 2027 syllabus, or an indispensable prerequisite of a named item">🟢 Core</span></h2>
+<div class="card"><b>Standardise:</b> if X ~ N(μ, σ²) then <code>Z = (X − μ)/σ</code> ~ N(0, 1). Use Φ(z) = P(Z ≤ z) with the symmetry <code>Φ(−z) = 1 − Φ(z)</code>. Useful values: Φ(0) = 0.5, Φ(1) = 0.8413, Φ(1.5) = 0.9332, Φ(1.96) = 0.9750, Φ(2) = 0.9772. The central 95% lies within ±1.96σ.</div>
+<div class="num"><div class="tag">Worked numerical</div>
+<b>Q:</b> X ~ N(50, 100). Find P(X &gt; 60) and P(40 &lt; X &lt; 65).<br>
+<b>A:</b> σ = 10. P(X &gt; 60): z = 1, so 1 − Φ(1) = 1 − 0.8413 = <b>0.1587</b>. P(40 &lt; X &lt; 65): z from −1 to 1.5, so Φ(1.5) − Φ(−1) = 0.9332 − 0.1587 = <b>0.7745</b>.
+</div>
+
+<h2 data-tier="ext">Hypergeometric distribution <span class="tier tier-ext" title="Beyond the syllabus or rarely tested — read only if time remains">🟡 Extension</span><span class="tier-why"> · not among the listed distributions</span></h2>
+<p>Drawing n items <b>without replacement</b> from N items of which K are “successes”: <code>P(X = k) = C(K, k)·C(N − K, n − k) / C(N, n)</code>, with mean <code>n·K/N</code>. Compare the binomial, which assumes <b>with</b> replacement (independent trials) and has the same mean n·p but a larger variance.</p>
+<div class="num"><div class="tag">Worked numerical</div>
+<b>Q:</b> A box has 20 parts, 5 of them defective. Four are drawn without replacement. Find P(exactly 1 defective) and the expected number of defectives.<br>
+<b>A:</b> P = C(5,1)·C(15,3)/C(20,4) = 5 × 455 / 4845 ≈ <b>0.4696</b>. Mean = 4 × 5/20 = <b>1</b>.
+</div>
+</section>
+
+
+<section id="methods" class="section">
+  <h1>5. 🧭 Problem → Standard Method Playbook</h1>
+  <div class="sub">Use this as the bridge between revision and PYQs: recognize the pattern first, then apply the standard method.</div>
+
+  <div class="card"><h2>Logic, Relations, Counting, Recurrences &amp; Graphs</h2>
+    <p>The problem → method tables for all discrete topics are kept in one place: <a href="discrete-math-gate-2027.html#playbook">Discrete Mathematics → Problem → Standard Method Guide</a>.</p></div>
+
+  <div class="card"><h2>Linear Algebra Methods</h2>
+    <table><tr><th>Problem</th><th>Standard method</th><th>Shortcut / trap</th></tr>
+    <tr><td>System Ax=b</td><td>Row-reduce augmented matrix; compare ranks.</td><td>Unique iff rank(A)=rank([A|b])=number of variables.</td></tr>
+    <tr><td>Find eigenvalues</td><td>det(A−λI)=0.</td><td>For triangular matrices, eigenvalues are diagonal entries.</td></tr>
+    <tr><td>Find eigenvectors</td><td>Solve (A−λI)x=0 for each λ.</td><td>Multiplicity of eigenvalue ≠ automatically number of eigenvectors.</td></tr>
+    <tr><td>Use Cayley–Hamilton</td><td>Find characteristic polynomial p(λ), then substitute A: p(A)=0.</td><td>Useful for reducing high powers of A.</td></tr>
+    <tr><td>Determine invertibility</td><td>det(A)≠0 ⇔ A invertible ⇔ rank(A)=n.</td><td>For square A.</td></tr>
+    </table></div>
+
+  <div class="card"><h2>Calculus</h2>
+    <table><tr><th>Pattern</th><th>Method</th><th>GATE cue</th></tr>
+    <tr><td>Maximum/minimum</td><td>Find critical points, test endpoints/boundary and compare values.</td><td>Don't stop after f′=0.</td></tr>
+    <tr><td>Improper/infinite series convergence</td><td>Choose comparison, ratio, root or integral test based on term structure.</td><td>Ratio/root are especially useful for factorials/exponentials.</td></tr>
+                </table></div>
+
+  <div class="card"><h2>Probability & Statistics Methods</h2>
+    <table><tr><th>Pattern</th><th>Standard method</th><th>Formula / trap</th></tr>
+    <tr><td>Conditional probability</td><td>P(A|B)=P(A∩B)/P(B).</td><td>Condition changes the sample space.</td></tr>
+    <tr><td>Reverse conditional / diagnosis</td><td>Bayes theorem.</td><td>P(A|B)=P(B|A)P(A)/P(B).</td></tr>
+    <tr><td>Discrete expectation</td><td>E[X]=Σx·P(X=x).</td><td>E[g(X)]=Σg(x)P(X=x), not generally g(E[X]).</td></tr>
+    <tr><td>Variance</td><td>Var(X)=E[X²]−E[X]².</td><td>Var(aX+b)=a²Var(X).</td></tr>
+    <tr><td>Binomial</td><td>n independent Bernoulli trials, constant p; use C(n,k)p^k(1−p)^{n−k}.</td><td>E=np, Var=np(1−p).</td></tr>
+    <tr><td>Poisson</td><td>Count events over fixed interval with rate λ; P(X=k)=e^{−λ}λ^k/k!.</td><td>E=Var=λ.</td></tr>
+    <tr><td>Exponential</td><td>Continuous waiting time; f(x)=λe^{−λx}, x≥0.</td><td>Memoryless property.</td></tr>
+    <tr><td>Normal</td><td>Standardize Z=(X−μ)/σ.</td><td>Use symmetry around 0.</td></tr>
+    <tr><td>Joint → marginal</td><td>Sum/integrate joint distribution over the other variable.</td><td>Check support before integrating.</td></tr>
+    <tr><td>Independence</td><td>Discrete: p(x,y)=pX(x)pY(y); continuous: fXY=fXfY.</td><td>Zero covariance does not generally imply independence.</td></tr>
+    </table></div>
+
+  <div class="card"><h2>🧮 Representative GATE-style Worked Problems</h2>
+    <div class="num"><div class="tag">Problem 1 · Probability</div><p>Let X~Binomial(10,0.2). Find E[X] and Var(X).</p><p><b>Method:</b> E=np and Var=np(1−p).</p><p><b>Answer:</b> E[X]=2, Var(X)=1.6.</p></div>
+    <div class="num"><div class="tag">Problem 2 · Linear Algebra</div><p>If A is a 3×3 matrix with characteristic polynomial λ³−6λ²+11λ−6, find A³−6A²+11A.</p><p><b>Method:</b> Apply Cayley–Hamilton directly: p(A)=0.</p><p><b>Answer:</b> 6I.</p></div>
+    <div class="num"><div class="tag">Problem 3 · Recurrence</div><p>T(n)=2T(n/2)+n. Determine the asymptotic order.</p><p><b>Method:</b> Master theorem: a=2,b=2,n^{log₂2}=n and f(n)=n.</p><p><b>Answer:</b> Θ(n log n).</p></div>
+    <div class="num"><div class="tag">Problem 4 · Graph</div><p>An undirected graph has 10 vertices and 9 edges and is connected. What can you conclude?</p><p><b>Method:</b> A connected graph with n−1 edges is a tree.</p><p><b>Answer:</b> It is a tree; hence every edge is a bridge.</p></div>
+    <div class="num"><div class="tag">Problem 5 · Probability</div><p>X is exponential with rate 2. Find P(X&gt;3).</p><p><b>Method:</b> Survival function P(X&gt;t)=e^{−λt}.</p><p><b>Answer:</b> e<sup>−6</sup>.</p></div>
+  </div>
+
+  <div class="warn"><div class="tag">⚠️ Scope note</div>Keep the main revision path aligned to the GATE CSE syllabus. Any enrichment outside the syllabus should be explicitly labelled optional rather than mixed into the core revision path.</div>
+</section>
+<section id="quiz">
+<h1>6. Practice Quiz — 58 Questions</h1>
+<div class="sub">Covers 7 topic groups. The four discrete groups (Logic, Sets, Combinatorics, Graph Theory) are practice only here — their notes are in the Discrete Mathematics module. Click an option to check yourself instantly — explanations included.</div>
+<div class="qtopics" id="qtopics"></div><style>.qmode button{cursor:pointer;padding:8px 12px;border:1px solid #888;border-radius:8px;background:transparent}.qmode button.active{font-weight:700}.opt.selected{outline:2px solid currentColor;transform:translateX(2px)}</style><div class="qmode" style="margin:12px 0;display:flex;gap:8px;flex-wrap:wrap"><button id="mcqMode" class="active">MCQ</button><button id="msqMode">MSQ · Select all that apply</button></div>
+<div id="score">Answered <b id="ansCount">0</b>/58 · Correct <b id="corrCount">0</b></div>
+<div id="qlist"></div>
+</section>
+
+<section id="pyq">
+<h1>7. GATE-Level Solved Problems</h1>
+<div class="sub">The 58 quiz questions above check fundamentals. These are heavier, multi-step problems in GATE style — every step shown, and every answer machine-verified.</div>
+
+<div class="gq"><div class="gtag">Q1 · Propositional logic — counting models</div>
+<b>How many assignments of (p, q, r) satisfy (p → q) ∧ (q → r) ∧ (r → p)?</b>
+<ol class="gopts"><li>1</li><li>2</li><li>3</li><li>4</li></ol>
+<pre>The three implications form a cycle p → q → r → p.
+If any variable is true, truth propagates around the cycle, making all three true.
+If any is false, falsity propagates backwards, making all three false.
+So p = q = r: the only satisfying assignments are 000 and 111.</pre>
+<p class="gans">Correct: Option 2 — 2 assignments.</p>
+</div>
+
+<div class="gq"><div class="gtag">Q2 · Counting relations</div>
+<b>On a set with 3 elements, how many relations are antisymmetric?</b>
+<ol class="gopts"><li>64</li><li>216</li><li>512</li><li>729</li></ol>
+<pre>Diagonal pairs (a,a): no restriction → each in or out → 2³ = 8 choices.
+Each of the C(3,2) = 3 unordered pairs {a,b}: contains neither (a,b) nor (b,a), or only (a,b), or only (b,a)
+   → 3 choices each (both together is forbidden) → 3³ = 27.
+Total = 8 × 27 = 216   (formula: 2ⁿ · 3^(n(n−1)/2); verified by enumerating all 512 relations)</pre>
+<p class="gans">Correct: Option 2 — 216.</p>
+</div>
+
+<div class="gq"><div class="gtag">Q3 · Cyclic groups</div>
+<b>For the cyclic group Z₁₂ under addition mod 12, how many subgroups does it have, and how many generators?</b>
+<ol class="gopts"><li>4 subgroups, 6 generators</li><li>6 subgroups, 4 generators</li><li>12 subgroups, 4 generators</li><li>6 subgroups, 6 generators</li></ol>
+<pre>A cyclic group of order n has exactly one subgroup for every divisor of n.
+Divisors of 12: 1, 2, 3, 4, 6, 12 → 6 subgroups.
+Generators are elements coprime to 12: {1, 5, 7, 11} → φ(12) = 4.</pre>
+<p class="gans">Correct: Option 2 — 6 subgroups and 4 generators.</p>
+</div>
+
+<div class="gq"><div class="gtag">Q4 · Inclusion–exclusion</div>
+<b>How many integers from 1 to 1000 are divisible by none of 2, 3 and 5?</b>
+<ol class="gopts"><li>200</li><li>266</li><li>333</li><li>367</li></ol>
+<pre>Divisible by 2: 500   by 3: 333   by 5: 200
+by 6: 166   by 10: 100   by 15: 66      by 30: 33
+|A ∪ B ∪ C| = 500 + 333 + 200 − 166 − 100 − 66 + 33 = 734
+Neither = 1000 − 734 = 266</pre>
+<p class="gans">Correct: Option 2 — 266.</p>
+</div>
+
+<div class="gq"><div class="gtag">Q5 · Linear recurrence</div>
+<b>a₀ = 1, a₁ = 4 and aₙ = 5aₙ₋₁ − 6aₙ₋₂. What is a₅?</b>
+<ol class="gopts"><li>146</li><li>454</li><li>1394</li><li>243</li></ol>
+<pre>Characteristic equation r² − 5r + 6 = 0 → r = 2, 3.   aₙ = A·2ⁿ + B·3ⁿ
+a₀ = A + B = 1,  a₁ = 2A + 3B = 4  →  B = 2, A = −1   →  aₙ = 2·3ⁿ − 2ⁿ
+a₅ = 2·243 − 32 = 454      (direct: 1, 4, 14, 46, 146, 454 ✔)</pre>
+<p class="gans">Correct: Option 2 — 454.</p>
+</div>
+
+<div class="gq"><div class="gtag">Q6 · Chromatic polynomial</div>
+<b>In how many ways can the vertices of a 5-cycle C₅ be properly coloured using 3 colours?</b>
+<ol class="gopts"><li>18</li><li>24</li><li>30</li><li>48</li></ol>
+<pre>P(Cₙ, k) = (k − 1)ⁿ + (−1)ⁿ (k − 1)
+P(C₅, 3) = 2⁵ + (−1)⁵·2 = 32 − 2 = 30        (brute-force enumeration agrees)</pre>
+<p class="gans">Correct: Option 3 — 30.</p>
+</div>
+
+<div class="gq"><div class="gtag">Q7 · Planar graph faces</div>
+<b>A connected planar graph has 10 vertices and every face is bounded by exactly 3 edges. How many faces does it have?</b>
+<ol class="gopts"><li>14</li><li>15</li><li>16</li><li>18</li></ol>
+<pre>Each face has 3 edges and each edge borders 2 faces: 3f = 2e → e = 3f/2.
+Euler: v − e + f = 2 → 10 − 3f/2 + f = 2 → f/2 = 8 → f = 16, e = 24 (= 3v − 6 ✔).</pre>
+<p class="gans">Correct: Option 3 — 16 faces.</p>
+</div>
+
+<div class="gq"><div class="gtag">Q8 · Eigenvalues of a function of a matrix</div>
+<b>A = [[2,0,0],[1,3,0],[4,5,6]]. What is det(A² + I)?</b>
+<ol class="gopts"><li>1850</li><li>1296</li><li>180</li><li>2701</li></ol>
+<pre>A is lower triangular → eigenvalues are the diagonal entries 2, 3, 6.
+A² + I has eigenvalues λ² + 1 = 5, 10, 37.
+det = product of eigenvalues = 5 × 10 × 37 = 1850          (numerical check: 1850)</pre>
+<p class="gans">Correct: Option 1 — 1850.</p>
+</div>
+
+<div class="gq"><div class="gtag">Q9 · Absolute extremum on a closed interval</div>
+<b>What is the maximum value of f(x) = 2x³ − 9x² + 12x + 5 on the interval [0, 3]?</b>
+<ol class="gopts"><li>9</li><li>10</li><li>14</li><li>5</li></ol>
+<pre>f'(x) = 6(x − 1)(x − 2) → critical points x = 1 (local max, f = 10) and x = 2 (local min, f = 9)
+Compare with endpoints: f(0) = 5, f(3) = 54 − 81 + 36 + 5 = 14
+Absolute maximum on [0, 3] = 14 (at x = 3). The local maximum 10 is not the absolute one.</pre>
+<p class="gans">Correct: Option 3 — 14.</p>
+</div>
+
+<div class="gq"><div class="gtag">Q10 · Bayes' theorem</div>
+<b>1% of a population is infected. A test detects 99% of infected people and gives a false positive for 5% of uninfected people. A person tests positive. The probability that they are infected is:</b>
+<ol class="gopts"><li>0.99</li><li>1/6</li><li>0.5</li><li>1/21</li></ol>
+<pre>P(+) = 0.01·0.99 + 0.99·0.05 = 0.0099 + 0.0495 = 0.0594
+P(infected | +) = 0.0099 / 0.0594 = 1/6 ≈ 0.167</pre>
+<p class="gans">Correct: Option 2 — 1/6.</p>
+</div>
+
+<div class="gq"><div class="gtag">Q11 · Limits — Taylor series vs L'Hôpital</div>
+<b>The value of  lim<sub>x→0</sub> (sin x − x cos x) / x³  is:</b>
+<ol class="gopts"><li>0</li><li>1/6</li><li>1/3</li><li>1/2</li></ol>
+<pre>Form 0/0 — expand both terms:
+   sin x   = x − x³/6 + x⁵/120 − …
+   x cos x = x − x³/2 + x⁵/24  − …
+   numerator = (−1/6 + 1/2) x³ + O(x⁵) = x³/3 + O(x⁵)
+   limit = 1/3
+
+Check with L'Hôpital (3 rounds):
+   N'  = cos x − cos x + x sin x = x sin x      D' = 3x²    → (x sin x)/(3x²) = (sin x)/(3x) → 1/3 ✔</pre>
+<p class="gans">Correct: Option 3 — 1/3.</p>
+</div>
+
+<div class="gq"><div class="gtag">Q12 · LU decomposition (Doolittle)</div>
+<b>For A = [[2,1,1],[4,3,3],[8,7,9]] written as A = LU with L unit lower-triangular, what are l₃₂, u₃₃ and det(A)?</b>
+<ol class="gopts"><li>l₃₂ = 3, u₃₃ = 2, det = 4</li><li>l₃₂ = 2, u₃₃ = 2, det = 4</li><li>l₃₂ = 3, u₃₃ = 4, det = 8</li><li>l₃₂ = 3, u₃₃ = 2, det = 8</li></ol>
+<pre>Row operations (this is Gaussian elimination, remembering the multipliers):
+R2 ← R2 − 2·R1 :  [0, 1, 1]      multiplier l₂₁ = 2
+R3 ← R3 − 4·R1 :  [0, 3, 5]      multiplier l₃₁ = 4
+R3 ← R3 − 3·R2 :  [0, 0, 2]      multiplier l₃₂ = 3
+
+L = | 1 0 0 |      U = | 2 1 1 |
+    | 2 1 0 |          | 0 1 1 |
+    | 4 3 1 |          | 0 0 2 |
+
+det A = det L · det U = 1 × (2·1·2) = 4      (product of U's diagonal)
+Check: row 3 of LU = 4·[2,1,1] + 3·[0,1,1] + [0,0,2] = [8, 7, 9] ✔</pre>
+<p class="gans">Correct: Option 1 — l₃₂ = 3, u₃₃ = 2, det A = 4.</p>
+</div>
+
+<div class="gq"><div class="gtag">Q13 · Hasse diagram and lattice properties</div>
+<b>For the poset (D₃₆, |) — the divisors of 36 under divisibility — how many edges does the Hasse diagram have, and which statement is true?</b>
+<ol class="gopts"><li>12 edges; a Boolean algebra</li><li>12 edges; a distributive lattice that is not complemented</li><li>10 edges; a distributive lattice that is not complemented</li><li>12 edges; a lattice that is not distributive</li></ol>
+<pre>D₃₆ = {1, 2, 3, 4, 6, 9, 12, 18, 36}  — 9 elements.   36 = 2² · 3², so D₃₆ ≅ chain(0,1,2) × chain(0,1,2)
+(a 3 × 3 grid, with element 2^a·3^b ↔ (a, b)).
+
+Covering pairs (an edge exists only when b = a·prime):
+   1–2, 1–3, 2–4, 2–6, 3–6, 3–9, 4–12, 6–12, 6–18, 9–18, 12–36, 18–36   → 12 edges
+
+                 36
+               /    \
+             12      18
+            /  \    /  \
+           4    6       9
+            \  / \    /
+             2     3
+               \  /
+                1
+
+Lattice: every pair has gcd (meet) and lcm (join).   Distributive: product of chains.
+Boolean algebra needs 2ⁿ elements (9 is not a power of 2), and complements fail:
+   2 would need x with gcd(2,x) = 1 and lcm(2,x) = 36 → none.   So NOT complemented.
+(Compare D₃₀ = 2·3·5: 8 elements, squarefree ⇒ Boolean.)</pre>
+<p class="gans">Correct: Option 2 — 12 edges; distributive but not complemented.</p>
+</div>
+
+<div class="gq"><div class="gtag">Q14 · System of linear equations — rank and parameters</div>
+<b>Consider x + y + z = 1, x + 2y + 3z = 2, x + 3y + kz = m. For which (k, m) does the system have (a) a unique solution, (b) no solution, (c) infinitely many solutions?</b>
+<ol class="gopts"><li>(a) k ≠ 5; (b) k = 5, m ≠ 3; (c) k = 5, m = 3</li><li>(a) k ≠ 5; (b) k = 5, m = 3; (c) k = 5, m ≠ 3</li><li>(a) k = 5; (b) k ≠ 5; (c) never</li><li>(a) k ≠ 3; (b) k = 3, m ≠ 5; (c) k = 3, m = 5</li></ol>
+<pre>Coefficient matrix A = [[1,1,1],[1,2,3],[1,3,k]].
+   det A = 1(2k − 9) − 1(k − 3) + 1(3 − 2) = 2k − 9 − k + 3 + 1 = k − 5.
+
+(a) k ≠ 5 → det ≠ 0 → rank A = 3 = rank [A|b] → UNIQUE solution for every m.
+k = 5: reduce the augmented matrix  R2 − R1 → (0,1,2 | 1),  R3 − R1 → (0,2,4 | m − 1),  then R3 − 2·R2 → (0,0,0 | m − 3).
+   rank A = 2.
+(b) m ≠ 3 → the last row reads 0 = m − 3 ≠ 0 → rank [A|b] = 3 &gt; rank A → NO solution (inconsistent).
+(c) m = 3 → rank [A|b] = 2 = rank A &lt; 3 unknowns → INFINITELY many solutions (one free variable: z = t, y = 1 − 2t, x = t).
+
+Rouché–Capelli rule:  rank A = rank [A|b] = n → unique;  rank A = rank [A|b] &lt; n → infinitely many (n − rank free variables);  rank A &lt; rank [A|b] → none.
+Check: ranks were computed symbolically — (k,m) = (5,3): ranks 2,2; (5,4): ranks 2,3; (6,0): ranks 3,3 — and the row-reduced form has pivots only when k ≠ 5.
+Trap: at k = 5 the answer depends on m; many students stop after finding det = 0 and wrongly call the system inconsistent.</pre>
+<p class="gans">Correct: Option 1 — unique if k ≠ 5; none if k = 5 and m ≠ 3; infinitely many if k = 5 and m = 3.</p>
+</div>
+
+<div class="gq"><div class="gtag">Q15 · Cayley–Hamilton — inverse and higher powers of a matrix</div>
+<b>A = [[1, 2], [3, 4]]. Using the Cayley–Hamilton theorem, find A⁻¹ and write A⁴ in the form pA + qI.</b>
+<ol class="gopts"><li>A⁻¹ = (A − 5I)/2 = [[−2, 1], [1.5, −0.5]];  A⁴ = 145A + 54I</li><li>A⁻¹ = (A − 5I)/2 = [[−2, 1], [1.5, −0.5]];  A⁴ = 29A + 10I</li><li>A⁻¹ = (5I − A)/2 = [[2, −1], [−1.5, 0.5]];  A⁴ = 145A + 54I</li><li>A⁻¹ = (A + 5I)/2 = [[3, 1], [1.5, 4.5]];  A⁴ = 25A + 4I</li></ol>
+<pre>Characteristic polynomial: λ² − (trace)λ + det = λ² − 5λ − 2     (trace = 1 + 4 = 5, det = 4 − 6 = −2).
+Cayley–Hamilton: every matrix satisfies its own characteristic equation →  A² − 5A − 2I = 0,  i.e.  A² = 5A + 2I.
+
+Inverse: multiply A² − 5A − 2I = 0 by A⁻¹ →  A − 5I − 2A⁻¹ = 0  →  A⁻¹ = (A − 5I)/2 = [[−4, 2], [3, −1]] / 2 = [[−2, 1], [1.5, −0.5]].
+   Check: A·A⁻¹ = [[1(−2) + 2(1.5), 1(1) + 2(−0.5)], [3(−2) + 4(1.5), 3(1) + 4(−0.5)]] = [[1, 0], [0, 1]] ✔
+
+Higher powers: reduce with A² = 5A + 2I each time.
+   A³ = A·A² = 5A² + 2A = 5(5A + 2I) + 2A = 27A + 10I
+   A⁴ = A·A³ = 27A² + 10A = 27(5A + 2I) + 10A = 145A + 54I
+   Check: 145A + 54I = [[145 + 54, 290], [435, 580 + 54]] = [[199, 290], [435, 634]], which equals A⁴ computed by direct multiplication.
+
+Check: the characteristic polynomial, A⁻¹, A³ = 27A + 10I and A⁴ = 145A + 54I were verified symbolically.
+Trap: (5I − A)/2 is −A⁻¹ (wrong sign); and A⁴ is NOT 29A + 10I — that is 5A³ + 2A² mis-reduced; every reduction must use A² = 5A + 2I.</pre>
+<p class="gans">Correct: Option 1 — A⁻¹ = (A − 5I)/2 and A⁴ = 145A + 54I.</p>
+</div>
+
+<div class="gq"><div class="gtag">Q16 · Joint distribution — marginals, covariance and independence</div>
+<b>X ∈ {0, 1} and Y ∈ {0, 1, 2} have joint probabilities P(0,0) = 1/8, P(0,1) = 1/8, P(0,2) = 1/4, P(1,0) = 1/4, P(1,1) = 1/8, P(1,2) = 1/8. Find E[X], E[Y], Cov(X, Y) and say whether X and Y are independent.</b>
+<ol class="gopts"><li>1/2, 1, −1/8, not independent</li><li>1/2, 1, 0, independent</li><li>1/2, 1, 1/8, not independent</li><li>1/4, 1, −1/8, not independent</li></ol>
+<pre>Marginals (add along rows and columns):
+   P(X=0) = 1/8 + 1/8 + 1/4 = 1/2;   P(X=1) = 1/4 + 1/8 + 1/8 = 1/2
+   P(Y=0) = 1/8 + 1/4 = 3/8;   P(Y=1) = 1/8 + 1/8 = 1/4;   P(Y=2) = 1/4 + 1/8 = 3/8      (total 1 ✔)
+Expectations:  E[X] = 0·1/2 + 1·1/2 = 1/2;     E[Y] = 0·3/8 + 1·1/4 + 2·3/8 = 1/4 + 3/4 = 1
+E[XY] = Σ x·y·P = 1·1·(1/8) + 1·2·(1/8) = 1/8 + 2/8 = 3/8      (only x = 1 and y ≥ 1 contribute)
+Cov(X, Y) = E[XY] − E[X]E[Y] = 3/8 − (1/2)(1) = −1/8.
+
+Independence needs P(x, y) = P(x)P(y) for EVERY cell: P(0,0) = 1/8 but P(X=0)P(Y=0) = (1/2)(3/8) = 3/16 ≠ 1/8 → NOT independent (consistent with Cov ≠ 0).
+Extras: Var(Y) = E[Y²] − 1 = (1/4 + 4·3/8) − 1 = 3/4;  P(Y=2 | X=0) = (1/4)/(1/2) = 1/2;  E[Y | X=1] = (1/8 + 2/8)/(1/2) = 3/4.
+Check: all of these were recomputed with exact fractions.
+Trap: Cov = 0 does NOT prove independence in general; here the non-zero covariance already proves dependence, and a single failed cell is enough.</pre>
+<p class="gans">Correct: Option 1 — E[X] = 1/2, E[Y] = 1, Cov(X, Y) = −1/8, so X and Y are not independent.</p>
+</div>
+
+<div class="gq"><div class="gtag">Q17 · Normal distribution — z-scores and the 68–95–99.7 rule</div>
+<b>Marks are normally distributed with mean 70 and standard deviation 10. Using Φ(1) = 0.8413, Φ(1.5) = 0.9332 and Φ(2) = 0.9772, find P(X &gt; 85) and P(50 &lt; X &lt; 90).</b>
+<ol class="gopts"><li>0.0668 and 0.9544</li><li>0.0668 and 0.6826</li><li>0.1587 and 0.9544</li><li>0.9332 and 0.9544</li></ol>
+<pre>Standardise:  Z = (X − μ)/σ  with μ = 70, σ = 10.
+P(X &gt; 85):  z = (85 − 70)/10 = 1.5   →   P(Z &gt; 1.5) = 1 − Φ(1.5) = 1 − 0.9332 = 0.0668.
+P(50 &lt; X &lt; 90):  z from (50 − 70)/10 = −2 to (90 − 70)/10 = +2
+   = Φ(2) − Φ(−2) = Φ(2) − (1 − Φ(2)) = 2Φ(2) − 1 = 2(0.9772) − 1 = 0.9544   (the '95%' rule: within 2σ).
+Symmetry rule: Φ(−z) = 1 − Φ(z).  Other bands: within 1σ → 2Φ(1) − 1 = 0.6826; within 3σ → 0.9973.
+Check: the exact normal CDF gives 0.06681 and 0.95450.
+Trap: forgetting to subtract from 1 for an upper tail (which gives 0.9332), or using 1σ (0.6826) for a ±2σ band.</pre>
+<p class="gans">Correct: Option 1 — P(X &gt; 85) = 0.0668 and P(50 &lt; X &lt; 90) = 0.9544.</p>
+</div>
+
+<div class="gq"><div class="gtag">Q18 · Gamma and Beta integrals</div>
+<b>Evaluate (i) ∫₀^∞ x⁴ e^(−2x) dx and (ii) ∫₀¹ x³ (1 − x)² dx.</b>
+<ol class="gopts"><li>3/4 and 1/60</li><li>3/4 and 1/30</li><li>6 and 1/60</li><li>3/2 and 1/20</li></ol>
+<pre>Gamma function:  ∫₀^∞ x^(n−1) e^(−ax) dx = Γ(n)/a^n,   Γ(n) = (n − 1)! for integer n,   Γ(1/2) = √π,   Γ(n + 1) = nΓ(n).
+Beta function:   ∫₀¹ x^(m−1) (1 − x)^(n−1) dx = B(m, n) = Γ(m)Γ(n)/Γ(m + n).
+
+(i)  x⁴ e^(−2x): n − 1 = 4 → n = 5, a = 2:  Γ(5)/2⁵ = 4!/32 = 24/32 = 3/4.
+(ii) x³ (1 − x)²: m = 4, n = 3:  B(4, 3) = Γ(4)Γ(3)/Γ(7) = (3!·2!)/6! = 12/720 = 1/60.
+Useful values: ∫₀^∞ e^(−x²) dx = √π/2;  Γ(5/2) = (3/2)(1/2)√π = 3√π/4.
+Check: both integrals were evaluated symbolically: 3/4 and 1/60.
+Trap: with e^(−2x) the answer is Γ(n)/2^n, not Γ(n); and in the Beta integral the exponents are m − 1 and n − 1, so x³(1 − x)² is B(4, 3), not B(3, 2).</pre>
+<p class="gans">Correct: Option 1 — (i) 3/4 and (ii) 1/60.</p>
+</div>
+</section>
+
+</main>
+</div>
+<footer>Complete · 7 GATE CSE 2027 Engineering Mathematics topics · 58-question basic quiz · 18 fully solved GATE-level problems</footer>
+<script>
+const Q = [
+["LOG","The proposition p → q is logically equivalent to:",["p ∨ ¬q","¬p ∨ q","¬p ∧ q","q → p"],1,"p → q is false only when p is true and q is false, exactly as for ¬p ∨ q."],
+["LOG","The contrapositive of 'if it rains, the match is cancelled' is:",["If it does not rain, the match is not cancelled","If the match is cancelled, it rains","It rains and the match is not cancelled","If the match is not cancelled, it does not rain"],3,"The contrapositive of p → q is ¬q → ¬p, and it is equivalent to the original."],
+["LOG","Which of the following is a tautology?",["(p ∨ q) → (p ∧ q)","p → (p ∧ q)","(p → q) → (q → p)","((p → q) ∧ ¬q) → ¬p"],3,"This is modus tollens; the others fail for some assignment (e.g. p = 1, q = 0 falsifies the last three)."],
+["LOG","The negation of ∀x ∃y P(x, y) is:",["∀x ∃y ¬P(x, y)","∃x ∃y ¬P(x, y)","∃x ∀y ¬P(x, y)","∀x ∀y ¬P(x, y)"],2,"Negation flips each quantifier and negates the predicate."],
+["LOG","The number of assignments to (p, q, r) satisfying (p ∨ q) → r is:",["3","6","5","4"],2,"It is false only when p ∨ q is true and r is false: 3 assignments. So 8 − 3 = 5 satisfy it."],
+["LOG","'No student is lazy' is correctly written as:",["¬∀x (Student(x) → Lazy(x))","∀x (Student(x) → ¬Lazy(x))","∀x (Student(x) ∧ ¬Lazy(x))","∃x (Student(x) → ¬Lazy(x))"],1,"Universal statements pair with implication: every student is not lazy."],
+["LOG","Which statement is valid in general?",["∃y ∀x P(x,y) implies ∀x ∃y P(x,y)","∀x ∃y P(x,y) implies ∃y ∀x P(x,y)","Neither implies the other","They are always equivalent"],0,"If one y works for every x, then certainly each x has some y; the reverse can fail."],
+["SETS","The number of relations from a set A with 3 elements to a set B with 2 elements is:",["6","12","64","32"],2,"A relation is any subset of A × B, which has 6 elements: 2⁶ = 64."],
+["SETS","The number of reflexive relations on a set with 3 elements is:",["64","8","512","27"],0,"Diagonal pairs are forced; the 6 off-diagonal pairs are free: 2⁶ = 64."],
+["SETS","The number of symmetric relations on a set with 3 elements is:",["27","8","512","64"],3,"Choose each of the 3 diagonal pairs and each of the 3 unordered off-diagonal pairs freely: 2⁶ = 64."],
+["SETS","The number of equivalence relations on a 4-element set is:",["15","24","16","4"],0,"It equals the Bell number B₄ = 15 (the number of partitions of a 4-set)."],
+["SETS","The number of onto functions from a 4-element set to a 3-element set is:",["81","24","36","12"],2,"3⁴ − 3·2⁴ + 3·1⁴ = 81 − 48 + 3 = 36."],
+["SETS","The number of one-to-one functions from a 3-element set to a 5-element set is:",["243","125","15","60"],3,"5 × 4 × 3 = 60."],
+["SETS","A group has order 12. Which of the following CANNOT be the order of one of its subgroups?",["3","4","5","6"],2,"By Lagrange's theorem a subgroup's order divides 12; 5 does not."],
+["SETS","In the divisibility poset on {1, 2, 3, 4, 6, 12}, the least upper bound of 4 and 6 is:",["24","6","2","12"],3,"The join is the least common multiple: lcm(4, 6) = 12."],
+["COMB","The number of distinct arrangements of the letters of MISSISSIPPI is:",["34650","11550","39916800","5040"],0,"11! / (4!·4!·2!) = 34650 (M once, I four times, S four times, P twice)."],
+["COMB","The number of non-negative integer solutions of x₁ + x₂ + x₃ = 10 is:",["36","66","120","55"],1,"Stars and bars: C(10 + 3 − 1, 3 − 1) = C(12, 2) = 66."],
+["COMB","The number of derangements of 4 objects is:",["24","12","9","6"],2,"D₄ = 4!(1 − 1 + 1/2 − 1/6 + 1/24) = 9."],
+["COMB","How many integers from 1 to 100 are divisible by at least one of 2, 3 or 5?",["74","80","67","85"],0,"Inclusion–exclusion: 50 + 33 + 20 − 16 − 10 − 6 + 3 = 74."],
+["COMB","The minimum number of students that guarantees at least 3 share a birth month is:",["13","24","25","36"],2,"With 24 students, two per month is possible; 25 forces a third (2·12 + 1)."],
+["COMB","The solution of T(n) = 2T(n − 1) + 1 with T(0) = 0 is:",["2ⁿ − 1","n²","2n − 1","2ⁿ"],0,"T(n) + 1 = 2(T(n−1) + 1), so T(n) + 1 = 2ⁿ (the Tower of Hanoi count)."],
+["COMB","The number of binary strings of length 8 with no two consecutive 1s is:",["55","34","89","144"],0,"The counts follow Fibonacci: 2, 3, 5, 8, 13, 21, 34, 55 for lengths 1 to 8."],
+["GRAPH","A graph has 10 edges. The sum of the degrees of its vertices is:",["20","100","15","10"],0,"Handshake lemma: the degree sum is twice the number of edges."],
+["GRAPH","The maximum number of edges in a disconnected simple graph on 6 vertices is:",["12","10","15","14"],1,"Take K₅ (10 edges) plus an isolated vertex: C(n − 1, 2) = C(5, 2) = 10."],
+["GRAPH","The number of labelled trees on 5 vertices is:",["625","16","60","125"],3,"Cayley's formula: nⁿ⁻² = 5³ = 125."],
+["GRAPH","A connected graph has an Euler circuit if and only if:",["Every vertex has even degree","It has exactly two odd vertices","Every vertex has odd degree","It is complete"],0,"All degrees even guarantees a closed trail that uses each edge once; exactly two odd vertices gives only an Euler path."],
+["GRAPH","The maximum number of edges in a simple planar graph with 8 vertices is:",["28","12","18","16"],2,"e ≤ 3v − 6 = 18."],
+["GRAPH","The chromatic number of a bipartite graph with at least one edge is:",["2","4","3","1"],0,"Two colours suffice (one per side) and one edge forces at least two."],
+["GRAPH","The number of perfect matchings in K₃,₃ is:",["6","12","9","3"],0,"Perfect matchings correspond to bijections between the two sides: 3! = 6."],
+["LA","If A is a 3 × 3 matrix with det(A) = 4, then det(2A) equals:",["16","64","8","32"],3,"det(kA) = kⁿ·det(A) = 2³ × 4 = 32."],
+["LA","The eigenvalues of the matrix [[4, 1], [2, 3]] are:",["3 and 4","2 and 5","−2 and 5","1 and 6"],1,"λ² − 7λ + 10 = 0 gives λ = 2 and 5 (trace 7, determinant 10)."],
+["LA","The sum of the eigenvalues of a square matrix equals its:",["Determinant","Nullity","Trace","Rank"],2,"The sum of eigenvalues is the trace and the product is the determinant."],
+["LA","The rank of the matrix [[1,2,3],[4,5,6],[7,8,9]] is:",["1","3","2","0"],2,"The third row equals twice the second minus the first, so only 2 rows are independent."],
+["LA","A homogeneous system Ax = 0 with a square matrix A has a non-trivial solution if and only if:",["A has rank n","det(A) = 0","A is symmetric","A is invertible"],1,"A non-trivial solution means the columns are dependent, i.e. A is singular."],
+["LA","A 3 × 3 matrix A has eigenvalues 1, 2 and 3. The trace of A² is:",["14","6","12","36"],0,"The eigenvalues of A² are 1, 4, 9, whose sum is 14."],
+["LA","A 5 × 7 matrix has rank 3. The dimension of its null space is:",["7","2","3","4"],3,"Rank–nullity: nullity = number of columns − rank = 7 − 3 = 4."],
+["CALC","The limit of sin x / x as x → 0 is:",["Does not exist","1","∞","0"],1,"This is the standard limit."],
+["CALC","The limit of (1 + 2/x)ˣ as x → ∞ is:",["e²","e","∞","1"],0,"The limit of (1 + a/x)ˣ is eᵃ, here a = 2."],
+["CALC","The function f(x) = |x| at x = 0 is:",["Both continuous and differentiable","Neither continuous nor differentiable","Differentiable but not continuous","Continuous but not differentiable"],3,"The left and right slopes are −1 and +1, so no derivative exists at the corner."],
+["CALC","The local minimum value of f(x) = 2x³ − 9x² + 12x + 5 is:",["10","14","9","5"],2,"f'(x) = 6(x − 1)(x − 2); f''(2) = 6 > 0, and f(2) = 9. (x = 1 is the local maximum with value 10.)"],
+["CALC","The value of ∫₀¹ x eˣ dx is:",["2","e − 1","1","e"],2,"By parts: [x eˣ − eˣ] from 0 to 1 = 0 − (−1) = 1."],
+["CALC","The sum of the series 1 + 1/2 + 1/4 + 1/8 + … is:",["2","Diverges","1","3/2"],0,"Geometric: a/(1 − r) = 1/(1 − 1/2) = 2."],
+["CALC","For f(x) = x² on [1, 3], the mean value theorem gives c equal to:",["2","2.5","4","1.5"],0,"Chord slope = (9 − 1)/2 = 4 = 2c, so c = 2."],
+["PROB","Two fair dice are thrown. The probability that the sum is 7 is:",["1/6","7/36","1/9","1/12"],0,"Six of the 36 outcomes give 7."],
+["PROB","The expected number of tosses of a fair coin needed to get the first head is:",["2","1","4","3"],0,"The count is geometric with p = 1/2, so the mean is 1/p = 2."],
+["PROB","The variance of a Binomial(n = 10, p = 0.3) random variable is:",["0.21","3","2.4","2.1"],3,"np(1 − p) = 10 × 0.3 × 0.7 = 2.1."],
+["PROB","A disease affects 1% of people. A test is positive for 99% of sick and 5% of healthy people. P(sick | positive) is:",["0.99","1/6","0.50","0.05"],1,"0.0099 / (0.0099 + 0.0495) = 1/6 ≈ 0.167."],
+["PROB","For a Poisson random variable with mean 2, P(X = 0) equals:",["1 − e⁻²","2e⁻²","e⁻²","1/2"],2,"P(X = k) = e^(−λ)·λᵏ/k!, so for k = 0 it is e⁻²."],
+["PROB","The variance of a continuous uniform random variable on (0, 6) is:",["3","6","9","2"],0,"(b − a)²/12 = 36/12 = 3."],
+["PROB","The memoryless property of the exponential distribution states that:",["P(X > s + t) = P(X > s) + P(X > t)","P(X > s + t | X > s) = P(X > t)","P(X > t) = 1/t","E[X] = Var(X)"],1,"Having already waited s does not change the distribution of the remaining wait."],
+["LA", "For a square matrix A with eigenvalues 2, 3 and 5, det(A) and trace(A) are:", ["30 and 10", "10 and 30", "30 and 30", "15 and 10"], 0, "det is the product of the eigenvalues (2·3·5 = 30) and the trace is their sum (2 + 3 + 5 = 10)."],
+["LA", "If a 4 × 4 matrix has rank 2, the dimension of its null space is:", ["4", "1", "2", "0"], 2, "Rank–nullity: rank + nullity = number of columns, so nullity = 4 − 2 = 2."],
+["LA", "The determinant of a matrix is multiplied by what factor when two rows are interchanged?", ["1", "−1", "2", "0"], 1, "A row swap changes the sign of the determinant; adding a multiple of one row to another leaves it unchanged; scaling a row by c multiplies it by c."],
+["PROB", "If X is Poisson with mean 3, P(X = 0) equals:", ["3e^(−3)", "1 − e^(−3)", "e^(3)", "e^(−3)"], 3, "P(X = k) = e^(−λ)λ^k / k!, so for k = 0 the value is e^(−3) ≈ 0.0498."],
+["PROB", "X is exponentially distributed with mean 5. Given X > 3, the probability that X > 8 is:", ["e^(−1)", "e^(−8/5)", "e^(−3/5)", "e^(−5)"], 0, "The exponential is memoryless: P(X > 8 | X > 3) = P(X > 5) = e^(−5/5) = e^(−1)."],
+["PROB", "For two independent events A and B with P(A) = 0.4 and P(B) = 0.5, P(A ∪ B) is:", ["0.9", "0.7", "0.2", "0.45"], 1, "P(A ∪ B) = P(A) + P(B) − P(A)P(B) = 0.4 + 0.5 − 0.2 = 0.7."],
+["PROB", "A fair coin is tossed 10 times. The probability of exactly 3 heads is:", ["3/10", "1/8", "C(10, 3)/2^10 = 120/1024", "C(10, 3)/2^3"], 2, "Binomial with n = 10, p = 1/2: C(10,3)(1/2)^10 = 120/1024 ≈ 0.117."],
+["CALC", "The improper integral ∫₁^∞ dx/x^p converges if and only if:", ["p > 1", "p < 1", "p ≥ 1", "p > 0"], 0, "For p > 1 the value is 1/(p − 1); for p ≤ 1 the integral diverges (p = 1 gives ln x)."]
+];
+const MSQ=[["PROB", "Which probability statements are correct?", ["Independent events satisfy P(A∩B)=P(A)P(B)", "Zero covariance always implies independence", "Poisson(λ) has mean and variance λ", "Binomial(n,p) has variance np(1−p)"], [0, 2, 3], "Independence gives the product rule; zero covariance does not generally imply independence. Poisson mean=variance=λ; binomial variance=np(1−p)."], ["GRAPH", "Which graph statements are correct?", ["A connected n-vertex graph with n−1 edges is a tree", "Every tree edge is a bridge", "A bridge lies on no cycle", "A tree can contain a cycle"], [0, 1, 2], "The first three are standard. A tree is acyclic."]];
+const topics={LOG:"Logic",SETS:"Sets, Relations & Groups",COMB:"Combinatorics",GRAPH:"Graph Theory",LA:"Linear Algebra",CALC:"Calculus",PROB:"Probability"};
+let filter="ALL",answered=0,correct=0,mode="MCQ";
+function renderMCQ(){
+  const list=document.getElementById('qlist');
+  list.innerHTML="";
+  Q.forEach((item,i)=>{
+    const [t,q,opts,ans,exp]=item;
+    if(filter!=="ALL"&&filter!==t) return;
+    const card=document.createElement('div'); card.className='qcard';
+    const tag=document.createElement('div'); tag.className='qtag'; tag.textContent=topics[t]+" · Q"+(i+1);
+    const qt=document.createElement('div'); qt.className='qtext'; qt.textContent=q;
+    card.appendChild(tag); card.appendChild(qt);
+    const order = opts.map((_,i)=>i);
+    for(let k=order.length-1;k>0;k--){
+      const j=Math.floor(Math.random()*(k+1));
+      [order[k],order[j]]=[order[j],order[k]];
+    }
+    order.forEach(oi=>{
+      const o=opts[oi];
+      const b=document.createElement('button'); b.className='opt'; b.textContent=o;
+      b.onclick=()=>{
+        if(b.dataset.done) return;
+        [...card.querySelectorAll('.opt')].forEach(x=>x.dataset.done=1);
+        const buttons=[...card.querySelectorAll('.opt')];
+        const correctPos=order.indexOf(ans);
+        buttons[correctPos].classList.add('correct');
+        if(oi!==ans) b.classList.add('wrong');
+        card.querySelector('.expl').classList.add('show');
+        answered++; if(oi===ans) correct++;
+        document.getElementById('ansCount').textContent=answered;
+        document.getElementById('corrCount').textContent=correct;
+      };
+      card.appendChild(b);
+    });
+    const e=document.createElement('div'); e.className='expl'; e.textContent=exp;
+    card.appendChild(e);
+    list.appendChild(card);
+  });
+}
+
+function renderMSQ(){
+ const list=document.getElementById('qlist'); list.innerHTML='';
+ MSQ.forEach((item,i)=>{
+  const [t,q,opts,ans,exp]=item; if(filter!=="ALL"&&filter!==t)return;
+  const card=document.createElement('div'); card.className='qcard';
+  const tag=document.createElement('div'); tag.className='qtag'; tag.textContent=(topics[t]||t)+' · MSQ'+(i+1); card.appendChild(tag);
+  const qt=document.createElement('div'); qt.className='qtext'; qt.textContent=q; card.appendChild(qt);
+  const hint=document.createElement('div'); hint.className='sub'; hint.textContent='Select all correct options. Scoring is all-or-nothing.'; card.appendChild(hint);
+  const order=[...opts.keys()]; for(let k=order.length-1;k>0;k--){const j=Math.floor(Math.random()*(k+1));[order[k],order[j]]=[order[j],order[k]];}
+  const selected=new Set();
+  order.forEach(orig=>{const b=document.createElement('button');b.className='opt';b.textContent=opts[orig];b.onclick=()=>{if(card.dataset.submitted)return;if(selected.has(orig)){selected.delete(orig);b.classList.remove('selected');}else{selected.add(orig);b.classList.add('selected');}};card.appendChild(b);});
+  const submit=document.createElement('button');submit.className='hy-btn primary';submit.style.marginTop='10px';submit.textContent='Submit MSQ';submit.onclick=()=>{if(card.dataset.submitted||selected.size===0)return;card.dataset.submitted='1';const correctSet=new Set(ans);const ok=selected.size===correctSet.size&&[...selected].every(x=>correctSet.has(x));const buttons=[...card.querySelectorAll('.opt')];buttons.forEach((b,idx)=>{const orig=order[idx];if(correctSet.has(orig))b.classList.add('correct');if(selected.has(orig)&&!correctSet.has(orig))b.classList.add('wrong');b.dataset.done=1;});card.querySelector('.expl').classList.add('show');answered++;if(ok)correct++;document.getElementById('ansCount').textContent=answered;document.getElementById('corrCount').textContent=correct;};card.appendChild(submit);
+  const e=document.createElement('div');e.className='expl';e.textContent=exp;card.appendChild(e);list.appendChild(card);
+ });
+}
+function render(){mode==='MCQ'?renderMCQ():renderMSQ();}
+
+const bar=document.getElementById('qtopics');
+["ALL",...Object.keys(topics)].forEach(t=>{
+  const b=document.createElement('button'); b.textContent=t==="ALL"?"All 58":topics[t];
+  if(t==="ALL")b.classList.add('active');
+  b.onclick=()=>{filter=t; [...bar.children].forEach(x=>x.classList.remove('active')); b.classList.add('active'); render();};
+  bar.appendChild(b);
+});
+function resetQuizScore(total){answered=0;correct=0;document.getElementById('ansCount').textContent='0';document.getElementById('corrCount').textContent='0';const sc=document.getElementById('score');if(sc)sc.innerHTML='Answered <b id="ansCount">0</b>/'+total+' · Correct <b id="corrCount">0</b>';}
+document.getElementById('mcqMode').onclick=()=>{mode='MCQ';resetQuizScore(Q.length);document.getElementById('mcqMode').classList.add('active');document.getElementById('msqMode').classList.remove('active');render();};
+document.getElementById('msqMode').onclick=()=>{mode='MSQ';resetQuizScore(MSQ.length);document.getElementById('msqMode').classList.add('active');document.getElementById('mcqMode').classList.remove('active');render();};
+render();
+</script>
+
+<script>
+(function(){
+  const curatedRapid = [["must", "A proposition is either true or false; compound propositions are evaluated using logical connectives."], ["must", "Implication P→Q is false only when P is true and Q is false."], ["trap", "P→Q is logically equivalent to ¬P∨Q, not P∨Q."], ["must", "A relation can be reflexive, symmetric, antisymmetric, and transitive independently; check each property from its definition."], ["gate", "Equivalence relations are reflexive, symmetric, and transitive; they partition a set into equivalence classes."], ["formula", "For finite sets, |A∪B|=|A|+|B|-|A∩B|."], ["must", "A function is injective if distinct inputs have distinct outputs; surjective if every codomain element is hit; bijective if both."], ["formula", "For recurrence T(n)=aT(n/b)+f(n), compare f(n) with n^{log_b a} before applying Master theorem."], ["must", "A tree with n vertices has n-1 edges; a connected undirected graph with n vertices and n-1 edges is a tree."], ["must", "A graph is bipartite iff it contains no odd cycle."], ["formula", "For a square matrix, det(AB)=det(A)det(B); if det(A)≠0, A is invertible."], ["must", "For continuous random variables, probabilities are areas under the density; P(X=x)=0 for a continuous distribution."], ["trap", "Mean, median, and mode are different statistics; do not infer one from another without additional distribution assumptions."], ["gate", "Know conditional probability, Bayes theorem, expectation, variance, and standard distributions used in GATE-style numericals."] , ["must", "CNF can be built as a conjunction of clauses; DNF as a disjunction of terms. Use truth-table rows when algebra becomes error-prone."], ["gate", "For a finite set, equivalence relations correspond exactly to partitions of the set."], ["formula", "If A is n×n, det(A)≠0 ⇔ A is invertible ⇔ rank(A)=n."], ["must", "Cayley–Hamilton: every square matrix satisfies its own characteristic polynomial; use it to reduce high powers of A."], ["gate", "For binomial X~Bin(n,p): E=np and Var=np(1−p). For Poisson(λ): E=Var=λ."], ["formula", "For an exponential rate λ distribution, P(X>t)=e^(−λt). Standardize normal variables with Z=(X−μ)/σ."], ["trap", "Zero covariance does not generally imply independence. For independence, factor the joint distribution into marginals."], ["must", "For a connected undirected graph with n−1 edges, the graph is a tree; every tree edge is a bridge."], ["gate", "Use complement for 'at least one', inclusion–exclusion for overlapping cases, and pigeonhole for guaranteed repetition."], ["must", "Convergence-test choice is pattern-driven: ratio/root for factorials and powers; comparison/integral for rational-like terms."], ["must", "Generating functions: independent choices multiply; the answer is a coefficient. A variable limited to 0…m contributes 1 + x + … + xᵐ."],["trap", "Free vs bound: a quantifier covers only the formula right after it, so the same letter can be bound in one place and free in another. A formula with no free variables is a sentence."],["trap", "Equal degree sequences do not prove graph isomorphism (C6 vs two triangles). Self-complementary graphs have n(n−1)/4 edges, so n ≡ 0 or 1 (mod 4)."],["formula", "Standardise Z = (X−μ)/σ, with Φ(−z) = 1 − Φ(z); Φ(1) = 0.8413, Φ(1.96) = 0.975. Hypergeometric mean = nK/N."],["must", "For a continuous variable P(X = x) = 0 and f = dF/dx; a density can exceed 1 but its integral is 1. Independence needs p(x,y) = pX(x)·pY(y) in every cell."],["formula", "Series: sin x = x − x³/3! + …, eˣ = 1 + x + x²/2! + …. Gamma Γ(n+1) = n!, Γ(½) = √π; B(m,n) = Γ(m)Γ(n)/Γ(m+n). ∫₁^∞ x^−p converges iff p > 1."]];
+  const labelDefs = {
+    must: ['🟢 Must Remember','hy-must'],
+    trap: ['🟡 Common Trap','hy-trap'],
+    formula: ['🧮 Formula / Rule','hy-formula'],
+    gate: ['⚠️ GATE Favourite','hy-gate'],
+    shortcut: ['💡 Shortcut','hy-shortcut']
+  };
+
+  function addBadge(el, type){
+    if(!el || el.querySelector(':scope > .hy-badge')) return;
+    const [label, cls] = labelDefs[type];
+    el.classList.add('hy-marked');
+    const b=document.createElement('span');
+    b.className='hy-badge '+cls;
+    b.textContent=label;
+    el.insertBefore(b, el.firstChild);
+    el.dataset.hyType=type;
+  }
+
+  function classifyCards(){
+    document.querySelectorAll('main .card').forEach(el=>{
+      const t=el.textContent.replace(/\s+/g,' ').trim().toLowerCase();
+      if(!t || el.closest('#hyRapidPanel')) return;
+      if(/\b(shortcut|quick trick|handy trick|easy trick)\b/.test(t)) addBadge(el,'shortcut');
+      else if(/\b(formula|identity|identities|range\s*=|det\(|log\s*|o\(|theta\(|n\(|probability formula|equation)\b/.test(t)) addBadge(el,'formula');
+      else if(/\b(theorem|key fact|must remember|remember|important|property|properties|rule of thumb|definition|distinction|difference between|classic)\b/.test(t)) addBadge(el,'must');
+    });
+    document.querySelectorAll('main .warn').forEach(el=>{
+      const t=el.textContent.replace(/\s+/g,' ').trim().toLowerCase();
+      addBadge(el, /gate (angle|trap|strategy|note|convention|favourite|favorite)/.test(t) ? 'gate' : 'trap');
+    });
+    document.querySelectorAll('main .num').forEach(el=>{
+      const t=el.textContent.replace(/\s+/g,' ').trim().toLowerCase();
+      if(/\b(rule of thumb|formula|shortcut|range|identity|key|remember)\b/.test(t)) addBadge(el,'formula');
+    });
+    document.querySelectorAll('main .gq').forEach(el=>addBadge(el,'gate'));
+  }
+
+  function makeToolbar(){
+    if(document.querySelector('.hy-toolbar')) return;
+    const main=document.querySelector('.wrap>main');
+    if(!main) return;
+    const toolbar=document.createElement('div');
+    toolbar.className='hy-toolbar';
+    toolbar.innerHTML=`
+      <div class="hy-toolbar-row">
+        <div>
+          <div class="hy-title">⚡ <span>Revision Layer</span></div>
+          <div class="hy-sub">Use Last-Minute mode for a rapid recall pass before solving PYQs.</div>
+        </div>
+        <div class="hy-actions">
+          <button class="hy-btn primary" id="hyRapidOn">⚡ Last-Minute Revision</button>
+          <button class="hy-btn secondary" id="hyRapidOff">↩ Full Notes</button>
+        </div>
+      </div>
+      <div class="hy-legend">
+        <span class="hy-must">🟢 Must Remember</span>
+        <span class="hy-trap">🟡 Common Trap</span>
+        <span class="hy-formula">🧮 Formula / Rule</span>
+        <span class="hy-gate">⚠️ GATE Favourite</span>
+        <span class="hy-shortcut">💡 Shortcut</span>
+      </div>`;
+    main.insertBefore(toolbar, main.firstElementChild);
+    document.getElementById('hyRapidOn').onclick=()=>{buildRapid(); document.body.classList.add('rapid-mode'); window.scrollTo({top:0,behavior:'smooth'});};
+    document.getElementById('hyRapidOff').onclick=()=>{document.body.classList.remove('rapid-mode'); window.scrollTo({top:0,behavior:'smooth'});};
+  }
+
+  function buildRapid(){
+    let panel=document.getElementById('hyRapidPanel');
+    if(panel) return;
+    panel=document.createElement('section');
+    panel.id='hyRapidPanel';
+    panel.innerHTML='<h1>⚡ Last-Minute Revision</h1><p class="rapid-intro">A manually curated recall pass for the final 15–30 minutes before PYQs. Start here, then switch to the full notes only if a point needs clarification.</p>';
+    const curatedBox=document.createElement('div'); curatedBox.className='rapid-curated';
+    curatedBox.innerHTML='<h2>🎯 High-Yield Recall</h2><p class="rapid-note">These points are intentionally selected for quick GATE-oriented recall.</p>';
+    const groups={must:[],trap:[],formula:[],gate:[],shortcut:[]};
+    curatedRapid.forEach(([type,text])=>groups[type]?.push(text));
+    const labels={must:'🟢 Must Remember',trap:'🟡 Common Trap',formula:'🧮 Formula / Rule',gate:'⚠️ GATE Favourite',shortcut:'💡 Shortcut'};
+    Object.entries(groups).forEach(([type,items])=>{
+      if(!items.length) return;
+      const g=document.createElement('div'); g.className='rapid-group '+type;
+      g.innerHTML='<h3>'+labels[type]+'</h3>';
+      const ul=document.createElement('ul'); items.forEach(x=>{const li=document.createElement('li'); li.textContent=x; ul.appendChild(li);});
+      g.appendChild(ul); curatedBox.appendChild(g);
+    });
+    panel.appendChild(curatedBox);
+    const sourceSections=[...document.querySelectorAll('main>section')].filter(s=>s.id!=='quiz'&&s.id!=='pyq'&&s.id!=='hyRapidPanel');
+    let total=0;
+    sourceSections.forEach(sec=>{
+      const items=[...sec.querySelectorAll(':scope > .card, :scope > .warn, :scope > .num, :scope > .gq')]
+        .filter(el=>el.dataset.hyType);
+      if(!items.length) return;
+      const rs=document.createElement('div'); rs.className='rapid-section';
+      const title=sec.querySelector('h1')?.textContent.trim() || sec.id;
+      rs.innerHTML='<h2>'+escapeHtml(title)+'</h2>';
+      items.forEach(el=>{
+        // Last-minute mode keeps high-yield cards and warnings, plus only explicitly formula/rule numericals.
+        const type=el.dataset.hyType;
+        if(el.classList.contains('num') && type!=='formula') return;
+        const wrap=document.createElement('div'); wrap.className='rapid-source';
+        wrap.appendChild(el.cloneNode(true));
+        rs.appendChild(wrap); total++;
+      });
+      if(rs.children.length>1) panel.appendChild(rs);
+    });
+    if(!total){
+      const e=document.createElement('div'); e.className='rapid-empty'; e.textContent='No high-yield blocks were detected in this subject.'; panel.appendChild(e);
+    }
+    document.querySelector('.wrap>main').appendChild(panel);
+  }
+
+  function escapeHtml(s){return s.replace(/[&<>'"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[c]));}
+  function init(){classifyCards(); makeToolbar();}
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',init); else init();
+})();
+</script>
+
+<script>
+/* Randomise the position of the correct option in each solved problem on every page load,
+   and rewrite the "Correct: Option N" line to match. Problems whose options or explanation
+   refer to other options by position or say "all/none of the above" keep their order. */
+(function(){
+  var PIN=/\b(above|both of these|all of these|none of these|neither of these)\b/i;
+  var POSREF=/\b[Oo]ptions?\s*\(?[1-4A-Da-d]\)?(?![\w-])|\([a-d]\)\s|\bchoice\s*\(?[1-4A-D]\)?/;
+  document.querySelectorAll('.gq').forEach(function(g){
+    var ol=g.querySelector('.gopts'), ans=g.querySelector('.gans'); if(!ol||!ans) return;
+    var m=ans.innerHTML.match(/Option (\d)/); if(!m) return;
+    var lis=Array.prototype.slice.call(ol.children); if(lis.length<2) return;
+    var ci=parseInt(m[1],10)-1; if(ci<0||ci>=lis.length) return;
+    if(lis.some(function(li){return PIN.test(li.textContent)||POSREF.test(li.textContent);})) return;
+    var pre=g.querySelector('pre'); if(pre&&POSREF.test(pre.textContent)) return;
+    if(POSREF.test(ans.textContent.replace(/Option \d/,''))) return;
+    var correct=lis[ci], order=lis.slice();
+    for(var i=order.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=order[i];order[i]=order[j];order[j]=t;}
+    order.forEach(function(li){ol.appendChild(li);});
+    ans.innerHTML=ans.innerHTML.replace(/Option \d/,'Option '+(order.indexOf(correct)+1));
+  });
+})();
+</script>
+<script>
+(function(){
+  document.querySelectorAll('h2[data-tier]').forEach(function(h){
+    var t=h.getAttribute('data-tier'); if(t==='core') return;
+    var el=h.nextElementSibling;
+    while(el && el.tagName!=='H1' && el.tagName!=='H2' && el.tagName!=='SECTION'){
+      el.classList.add(t==='ext'?'tier-ext-body':'tier-hy-body'); el=el.nextElementSibling;
+    }
+  });
+  var seg=document.getElementById('tierSeg'); if(!seg) return;
+  seg.querySelectorAll('button').forEach(function(b){
+    b.onclick=function(){
+      document.body.setAttribute('data-tier-view',b.getAttribute('data-view'));
+      seg.querySelectorAll('button').forEach(function(x){x.classList.toggle('active',x===b);});
+    };
+  });
+})();
+</script>
+<!-- readiness:start -->
+<script>window.__READINESS_CFG__={review:{"LOG": {"href": "discrete-math-gate-2027.html#logic", "label": "Discrete Mathematics → Logic"}, "SETS": {"href": "discrete-math-gate-2027.html#sets", "label": "Discrete Mathematics → Sets, Relations & Functions"}, "COMB": {"href": "discrete-math-gate-2027.html#comb", "label": "Discrete Mathematics → Combinatorics"}, "GRAPH": {"href": "discrete-math-gate-2027.html#graphs", "label": "Discrete Mathematics → Graph Theory"}, "LA": {"sec": "la", "label": "Linear Algebra", "h2": ["Rank and systems"]}, "CALC": {"sec": "calc", "label": "Calculus", "h2": ["Maxima"]}, "PROB": {"sec": "prob", "label": "Probability & Statistics", "h2": ["Standard distributions"]}}};</script>
+<script>
+(function(){
+  /* ===== Revision Readiness: turns the quiz into a revision loop ===== */
+  var CFG = window.__READINESS_CFG__ || {};
+  var NAME = (location.pathname.split('/').pop()||'page').replace(/\.html?$/,'');
+  var KEY = 'readiness:'+NAME;
+  var STRONG=75, WEAK=55, MIN_ATT=3;
+  var results = {};             // "Q12" / "MSQ3" -> 1 (correct) | 0 (wrong); latest attempt wins
+  try{ var raw=localStorage.getItem(KEY); if(raw) results=JSON.parse(raw)||{}; }catch(e){}
+  function save(){ try{ localStorage.setItem(KEY, JSON.stringify(results)); }catch(e){} }
+
+  var score=document.getElementById('score'), qlist=document.getElementById('qlist');
+  if(!score||!qlist||typeof Q==='undefined'||typeof topics==='undefined') return;
+
+  // ---- denominators per topic (MCQ + MSQ) ----
+  var totals={}, order=[];
+  function addTotal(arr){ (arr||[]).forEach(function(it){ var k=it[0]; if(!(k in totals)){totals[k]=0;order.push(k);} totals[k]++; }); }
+  addTotal(Q); if(typeof MSQ!=='undefined') addTotal(MSQ);
+  var totalQ=Q.length+(typeof MSQ!=='undefined'?MSQ.length:0);
+  function topicOf(id){
+    var m=/^(MSQ|Q)(\d+)$/.exec(id); if(!m) return null;
+    var arr=(m[1]==='Q')?Q:MSQ; var it=arr[+m[2]-1]; return it?it[0]:null;
+  }
+  function label(k){ return topics[k]||k; }
+
+  // ---- panel ----
+  var panel=document.createElement('div'); panel.id='readiness'; panel.className='rd-panel';
+  score.parentNode.insertBefore(panel, score.nextSibling);
+  var css=document.createElement('style');
+  css.textContent=
+   '.rd-panel{margin:16px 0 22px;padding:16px 18px;border:1px solid var(--border,#242b3a);border-radius:14px;background:linear-gradient(135deg,var(--panel,#12161f),var(--panel2,#181d29));display:none}'+
+   '.rd-panel.show{display:block}'+
+   '.rd-head{display:flex;align-items:baseline;justify-content:space-between;gap:10px;flex-wrap:wrap}'+
+   '.rd-title{font-size:12px;letter-spacing:1px;text-transform:uppercase;font-weight:800;color:var(--accent,#5ee6c8)}'+
+   '.rd-big{font-size:30px;font-weight:800;line-height:1.1;margin:4px 0 0;color:var(--text,#e6e9f0)}'+
+   '.rd-big small{font-size:13px;font-weight:600;color:var(--muted,#93a0b8);margin-left:8px}'+
+   '.rd-verdict{font-size:13px;font-weight:700;padding:4px 10px;border-radius:999px;border:1px solid}'+
+   '.rd-v-good{color:#7ee787;border-color:#7ee78766;background:#7ee78722}.rd-v-mid{color:#ffc978;border-color:#ffb45466;background:#ffb45422}.rd-v-low{color:#ff9b9b;border-color:#ff6b6b66;background:#ff6b6b22}'+
+   '.rd-cov{font-size:12.5px;color:var(--muted,#93a0b8);margin:8px 0 12px}'+
+   '.rd-rows{display:grid;gap:7px;margin:10px 0}'+
+   '.rd-row{display:grid;grid-template-columns:minmax(96px,34%) 1fr 74px;gap:10px;align-items:center;font-size:12.5px}'+
+   '.rd-name{color:var(--text,#e6e9f0);overflow-wrap:anywhere}'+
+   '.rd-bar{height:9px;border-radius:99px;background:#ffffff14;overflow:hidden}'+
+   '.rd-bar i{display:block;height:100%;border-radius:99px}'+
+   '.rd-pct{text-align:right;color:var(--muted,#93a0b8);white-space:nowrap}'+
+   '.rd-sec{margin:14px 0 4px;font-size:13px;color:#c9d1e0;line-height:1.55}'+
+   '.rd-sec b.g{color:#7ee787}.rd-sec b.w{color:#ff9b9b}.rd-sec b.d{color:#ffc978}'+
+   '.rd-rec{margin:14px 0 0;padding:12px 14px;border-left:3px solid var(--accent2,#7c9fff);background:#00000022;border-radius:0 10px 10px 0;font-size:13px;color:#c9d1e0}'+
+   '.rd-rec .t{font-size:11px;letter-spacing:1px;text-transform:uppercase;font-weight:800;color:var(--accent2,#7c9fff);margin-bottom:6px}'+
+   '.rd-rec a{color:var(--accent,#5ee6c8);font-weight:700;text-decoration:none}.rd-rec a:hover{text-decoration:underline}'+
+   '.rd-rec div.l{margin:5px 0}'+
+   '.rd-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}'+
+   '.rd-btn{border:1px solid var(--border,#242b3a);background:var(--panel2,#181d29);color:var(--text,#e6e9f0);padding:8px 12px;border-radius:9px;font-size:12.5px;font-weight:700;cursor:pointer}'+
+   '.rd-btn:hover{border-color:var(--accent2,#7c9fff);color:var(--accent,#5ee6c8)}.rd-btn[disabled]{opacity:.45;cursor:default}'+
+   '.rd-note{font-size:11.5px;color:var(--muted,#93a0b8);margin-top:10px}'+
+   '.qcard.rd-hide{display:none}';
+  document.head.appendChild(css);
+
+  function pct(c,n){ return n? Math.round(100*c/n):0; }
+  function colour(p){ return p>=STRONG?'#7ee787':(p>=WEAK?'#ffc978':'#ff6b6b'); }
+
+  function sectionLink(t){
+    var c=(CFG.review||{})[t]; if(!c) return null;
+    if(c.href) return '<a href="'+c.href+'">'+c.label+'</a>';
+    var sec=document.getElementById(c.sec); if(!sec) return null;
+    var parts=['<a href="#'+c.sec+'">'+c.label+'</a>'];
+    (c.h2||[]).forEach(function(h){
+      var hs=sec.querySelectorAll('h2'); 
+      for(var i=0;i<hs.length;i++){
+        if(hs[i].textContent.replace(/\s+/g,' ').toLowerCase().indexOf(h.toLowerCase())>-1){
+          if(!hs[i].id) hs[i].id=c.sec+'-rd-'+i;
+          parts.push('<a href="#'+hs[i].id+'">'+hs[i].firstChild.textContent.replace(/\s+$/,'')+'</a>'); break;
+        }
+      }
+    });
+    return parts.join(' → ');
+  }
+
+  function build(){
+    var att=0,cor=0,per={};
+    order.forEach(function(k){per[k]={a:0,c:0};});
+    Object.keys(results).forEach(function(id){
+      var k=topicOf(id); if(!k||!per[k]) return;
+      per[k].a++; att++; if(results[id]===1){per[k].c++; cor++;}
+    });
+    if(!att){ panel.className='rd-panel'; return; }
+    var overall=pct(cor,att);
+    var cov=Math.round(100*att/totalQ);
+    var verdict, vcls;
+    if(overall>=80){verdict='Exam-ready here';vcls='rd-v-good';}
+    else if(overall>=65){verdict='Nearly there';vcls='rd-v-mid';}
+    else if(overall>=50){verdict='Needs revision';vcls='rd-v-mid';}
+    else {verdict='Revise before PYQs';vcls='rd-v-low';}
+    var strong=[],weak=[],dev=[],thin=[];
+    order.forEach(function(k){
+      var p=per[k]; if(p.a<MIN_ATT){ thin.push(k); return; }
+      var x=pct(p.c,p.a);
+      if(x>=STRONG) strong.push([k,x]); else if(x<WEAK) weak.push([k,x]); else dev.push([k,x]);
+    });
+    weak.sort(function(a,b){return a[1]-b[1];}); dev.sort(function(a,b){return a[1]-b[1];});
+    var h='<div class="rd-head"><div><div class="rd-title">Revision readiness</div>'+
+      '<div class="rd-big">Revision Score: '+overall+'%<small>'+cor+' / '+att+' answered correctly</small></div></div>'+
+      '<span class="rd-verdict '+vcls+'">'+verdict+'</span></div>';
+    h+='<div class="rd-cov">Coverage: '+att+' of '+totalQ+' questions attempted ('+cov+'%)'+(cov<50?' — provisional; attempt more questions for a reliable reading.':'.')+'</div>';
+    h+='<div class="rd-rows">';
+    order.forEach(function(k){
+      var p=per[k], x=pct(p.c,p.a);
+      h+='<div class="rd-row"><span class="rd-name">'+label(k)+'</span><span class="rd-bar"><i style="width:'+(p.a?x:0)+'%;background:'+(p.a?colour(x):'transparent')+'"></i></span><span class="rd-pct">'+(p.a?x+'% · '+p.c+'/'+p.a:'not tried')+'</span></div>';
+    });
+    h+='</div>';
+    function names(a){return a.map(function(z){return label(z[0])+' ('+z[1]+'%)';}).join(', ');}
+    if(strong.length) h+='<div class="rd-sec"><b class="g">Strong:</b> '+names(strong)+'</div>';
+    if(dev.length) h+='<div class="rd-sec"><b class="d">Developing:</b> '+names(dev)+'</div>';
+    if(weak.length) h+='<div class="rd-sec"><b class="w">Weak:</b> '+names(weak)+'</div>';
+    if(thin.length) h+='<div class="rd-sec" style="color:var(--muted,#93a0b8)">Too few attempts to judge (under '+MIN_ATT+'): '+thin.map(label).join(', ')+'</div>';
+    // recommendation
+    var focus=weak.concat(dev).slice(0,3), lines=[];
+    focus.forEach(function(z){ var l=sectionLink(z[0]); if(l) lines.push('<div class="l">Review → '+l+'</div>'); });
+    var pyq=document.getElementById('pyq');
+    h+='<div class="rd-rec"><div class="t">Recommendation</div>';
+    if(lines.length){
+      h+=lines.join('')+'<div class="l">Then retry the questions you missed, and after that'+(pyq?' attempt the <a href="#pyq">solved PYQ-style problems</a>':' attempt PYQs')+'.</div>';
+    } else if(thin.length&&!strong.length){
+      h+='<div class="l">Answer a few more questions in each topic to get a reliable reading.</div>';
+    } else {
+      h+='<div class="l">No weak topics so far. Move on to '+(pyq?'<a href="#pyq">the PYQ-style problems</a>':'PYQs')+'.'+(cov<60?' Cover the untried topics first for a trustworthy score.':'')+'</div>';
+    }
+    h+='</div>';
+    var missed=Object.keys(results).filter(function(id){return results[id]===0;});
+    h+='<div class="rd-actions"><button class="rd-btn" id="rdRetry"'+(missed.length?'':' disabled')+'>Retry missed ('+missed.length+')</button><button class="rd-btn" id="rdReset">Reset results</button></div>';
+    h+='<div class="rd-note">Scores are saved in this browser. A question\'s latest attempt counts, so re-answering a missed question updates the report. The sub-heading shown is the highest-yield part of a weak topic. Topic labels need at least '+MIN_ATT+' attempts: Strong ≥ '+STRONG+'%, Weak &lt; '+WEAK+'%.</div>';
+    panel.innerHTML=h; panel.className='rd-panel show';
+    var r=document.getElementById('rdRetry'); if(r) r.onclick=retry;
+    var z=document.getElementById('rdReset'); if(z) z.onclick=function(){ if(confirm('Clear saved quiz results for this subject?')){results={};save();build();} };
+  }
+
+  function currentMode(){ try{ return (typeof mode!=='undefined')?mode:'MCQ'; }catch(e){ return 'MCQ'; } }
+  function retry(){
+    var m=currentMode(), pre=(m==='MSQ')?'MSQ':'Q';
+    var missed=Object.keys(results).filter(function(id){return results[id]===0 && id.indexOf(pre)===0 && (pre==='MSQ'||id.indexOf('MSQ')!==0);});
+    if(!missed.length){
+      // missed questions exist only in the other mode
+      var other=(m==='MSQ')?'mcqMode':'msqMode', b=document.getElementById(other); if(b) b.click();
+      pre=(pre==='Q')?'MSQ':'Q';
+      missed=Object.keys(results).filter(function(id){return results[id]===0 && (pre==='MSQ'?id.indexOf('MSQ')===0:/^Q\d/.test(id));});
+    }
+    if(typeof filter!=='undefined'){ try{ filter='ALL'; }catch(e){} }
+    var all=document.querySelector('#qtopics button'); if(all) all.click();   // re-renders with ALL
+    var set={}; missed.forEach(function(id){set[id]=1;});
+    var shown=0;
+    qlist.querySelectorAll('.qcard').forEach(function(c){
+      var t=c.querySelector('.qtag'); var mm=t&&/·\s*(MSQ|Q)(\d+)/.exec(t.textContent);
+      var id=mm?mm[1]+mm[2]:null;
+      if(id&&set[id]){shown++;} else c.classList.add('rd-hide');
+    });
+    qlist.scrollIntoView({behavior:'smooth',block:'start'});
+  }
+
+  // ---- capture answers: after each click, read the card's final state ----
+  function outcome(card, id){
+    if(!card.querySelector('.expl.show')) return null;            // not answered/submitted yet
+    if(card.querySelector('.opt.wrong')) return 0;
+    if(id.indexOf('MSQ')===0){                                      // a missed correct option is not marked wrong
+      var cs=card.querySelectorAll('.opt.correct');
+      for(var i=0;i<cs.length;i++) if(!cs[i].classList.contains('selected')) return 0;
+    }
+    return 1;
+  }
+  qlist.addEventListener('click',function(e){
+    var card=e.target.closest&&e.target.closest('.qcard'); if(!card) return;
+    setTimeout(function(){
+      var t=card.querySelector('.qtag'); var mm=t&&/·\s*(MSQ|Q)(\d+)/.exec(t.textContent); if(!mm) return;
+      var id=mm[1]+mm[2], r=outcome(card,id);
+      if(r===null) return;
+      if(card.dataset.rdRecorded) return; card.dataset.rdRecorded='1';
+      results[id]=r; save(); build();
+    },0);
+  },true);
+
+  build();
+})();
+
+</script>
+<!-- readiness:end -->
+<script id="ux-fix-v11-js">
+(function(){
+  var nav=document.getElementById('side'); if(!nav) return;
+  var scrim=document.createElement('div'); scrim.id='navScrim'; document.body.appendChild(scrim);
+  var fab=document.createElement('button'); fab.id='navFab'; fab.type='button'; fab.setAttribute('aria-label','Topics'); fab.textContent='\u2630';
+  fab.addEventListener('click',function(){ nav.classList.toggle('open'); });
+  document.body.appendChild(fab);
+  function sync(){ document.body.classList.toggle('nav-open', nav.classList.contains('open')); }
+  new MutationObserver(sync).observe(nav,{attributes:true,attributeFilter:['class']});
+  function close(){ nav.classList.remove('open'); }
+  function outside(e){
+    if(!nav.classList.contains('open')) return;
+    var t=e.target; if(!t||!t.closest) return;
+    if(t.closest('#menuBtn')||t.closest('#navFab')) return;                  // button handles its own toggle
+    if(!t.closest('#side') || (e.type==='click' && t.closest('#side a'))) close();
+  }
+  document.addEventListener('pointerdown',outside,true);
+  document.addEventListener('touchstart',outside,{capture:true,passive:true});
+  document.addEventListener('click',outside,true);
+  scrim.addEventListener('click',close);
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape') close(); });
+})();
+</script>
+<script id="fmt-v12-js">
+(function(){
+  var EQ=/[=≤≥⇔→⇒≠≈∑Σπ⌈⌊]|\^|_\{|\bO\(|\blog\b|\bmod\b/;
+  function esc(s){return s.replace(/[&<>]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;'}[c];});}
+  function fmtItem(li,isFormula){
+    if(li.dataset.fmt) return; li.dataset.fmt='1';
+    var t=li.textContent.trim(), label='', body=t;
+    var m=t.match(/^([^:=]{2,44}?):\s+([\s\S]+)$/);
+    if(m && m[1].split(/\s+/).length<=6){label=m[1];body=m[2];}
+    var html='';
+    if(label) html+='<span class="rg-label">'+esc(label)+'</span>';
+    if(isFormula){
+      var parts=body.split(/;\s+|\.\s+(?=[A-Z])/).map(function(x){return x.trim();}).filter(Boolean);
+      parts.forEach(function(x,i){
+        var last=(i===parts.length-1);
+        var txt=x; if(!/[.!?)]$/.test(txt) && !last) txt=x; 
+        var prose=(x.match(/\b[a-z]{4,}\b/g)||[]).length; var isEq=EQ.test(x)&&(prose<=3||(/[=≤≥⇔]/.test(x)&&x.length<=70));
+        html+='<span class="'+(isEq?'rg-eq':'rg-txt')+'">'+esc(x)+'</span>';
+      });
+    } else {
+      html+='<span class="rg-body">'+esc(body)+'</span>';
+    }
+    li.innerHTML=html;
+  }
+  function enhance(panel){
+    if(panel.dataset.fmt) return; panel.dataset.fmt='1';
+    var groups=panel.querySelectorAll('.rapid-group'), chips=[];
+    groups.forEach(function(g,i){
+      var type=(g.className.match(/\b(must|trap|formula|gate|shortcut)\b/)||[])[1]; if(!type) return;
+      g.id='rg-'+type;
+      var items=g.querySelectorAll('li');
+      items.forEach(function(li){fmtItem(li,type==='formula');});
+      var h=g.querySelector('h3'); var c=document.createElement('span'); c.className='rg-count'; c.textContent=items.length; h.appendChild(c);
+      chips.push('<a href="#rg-'+type+'">'+h.firstChild.textContent.trim()+' <b>'+items.length+'</b></a>');
+    });
+    if(chips.length){
+      var j=document.createElement('nav'); j.className='rapid-jump'; j.setAttribute('aria-label','Jump to group'); j.innerHTML=chips.join('');
+      var cur=panel.querySelector('.rapid-curated'); if(cur){var note=cur.querySelector('.rapid-note'); (note||cur.firstChild).insertAdjacentElement('afterend',j);}
+      j.addEventListener('click',function(e){var a=e.target.closest('a'); if(!a) return; e.preventDefault();
+        var el=document.querySelector(a.getAttribute('href')); if(el) el.scrollIntoView({behavior:'smooth',block:'start'});});
+    }
+  }
+  function check(){var p=document.getElementById('hyRapidPanel'); if(p) enhance(p);}
+  var main=document.querySelector('.wrap>main'); if(main){ new MutationObserver(check).observe(main,{childList:true}); }
+  check();
+})();
+</script>
+<a id="homeFab" href="index.html" aria-label="Back to Study Hub">🏠</a>
+<!-- gatetest:start -->
+<script src="gate-test.js"></script>
+<script>(function(){var a=document.getElementById("qtopics");if(a&&window.GateTest)GateTest.mountLauncher("em",a);})();</script>
+<!-- gatetest:end -->
+<!-- pwa-reg:start -->
+<script>if('serviceWorker' in navigator&&(location.protocol==='https:'||location.hostname==='localhost'||location.hostname==='127.0.0.1')){window.addEventListener('load',function(){navigator.serviceWorker.register('sw.js').catch(function(){});});}</script>
+<!-- pwa-reg:end -->
+</body>
+</html>
