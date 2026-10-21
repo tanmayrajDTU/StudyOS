@@ -1,0 +1,1978 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>DBMS for GATE CSE 2027</title>
+<style>
+:root{
+  --bg:#0b0e14; --panel:#12161f; --panel2:#181d29; --border:#242b3a;
+  --text:#e6e9f0; --muted:#93a0b8; --accent:#5ee6c8; --accent2:#7c9fff;
+  --warn:#ffb454; --good:#7ee787; --code-bg:#0d1420;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){ } }
+*{box-sizing:border-box}
+html{scroll-padding-top:calc(64px + env(safe-area-inset-top,0px));height:100%}
+body{
+  margin:0;height:100%;background:var(--bg);color:var(--text);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  line-height:1.55;
+}
+a{color:var(--accent2)}
+header{
+  position:sticky;top:0;z-index:20;
+  padding:calc(14px + env(safe-area-inset-top,0px)) 16px 14px;
+  background:rgba(11,14,20,0.9);backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--border);
+  display:flex;align-items:center;gap:10px;justify-content:space-between;
+}
+header .title{font-weight:700;font-size:15px;letter-spacing:.2px}
+header .title span{color:var(--accent)}
+#menuBtn{display:none;background:var(--panel2);border:1px solid var(--border);color:var(--text);
+  padding:8px 12px;border-radius:8px;font-size:13px}
+.wrap{display:flex;max-width:1280px;margin:0 auto}
+nav#side{
+  width:250px;flex:none;padding:18px 12px;position:sticky;
+  top:calc(58px + env(safe-area-inset-top,0px));
+  height:calc(100vh - 58px - env(safe-area-inset-top,0px));
+  overflow-y:auto;border-right:1px solid var(--border);
+}
+nav#side .grp{margin-bottom:14px}
+nav#side .grp-title{font-size:11px;text-transform:uppercase;letter-spacing:1px;color:var(--muted);margin:10px 6px 6px}
+nav#side a{
+  display:block;padding:7px 10px;border-radius:8px;color:var(--muted);text-decoration:none;font-size:13.5px;
+}
+nav#side a:hover{background:var(--panel2);color:var(--text)}
+nav#side a.soon{opacity:.45;font-style:italic}
+main{flex:1;min-width:0;padding:28px 22px 80px}
+section{max-width:820px;margin:0 auto 64px;scroll-margin-top:70px}
+section h1{font-size:26px;margin:0 0 6px;color:var(--accent)}
+section h2{font-size:20px;margin:38px 0 10px;color:var(--accent2);border-bottom:1px solid var(--border);padding-bottom:8px}
+section h3{font-size:16px;margin:22px 0 8px;color:var(--text)}
+p{color:#c9d1e0}
+.sub{color:var(--muted);font-size:14px;margin-bottom:20px}
+.card{
+  background:var(--panel);border:1px solid var(--border);border-radius:12px;
+  padding:16px 18px;margin:14px 0;
+}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media (max-width:720px){.grid2{grid-template-columns:1fr}}
+.num{
+  border-left:3px solid var(--accent);background:var(--panel2);
+  padding:14px 16px;border-radius:0 10px 10px 0;margin:16px 0;
+}
+.num .tag{font-size:11px;color:var(--accent);text-transform:uppercase;letter-spacing:1px;font-weight:700}
+.warn{border-left:3px solid var(--warn);background:#1c1810;padding:12px 16px;border-radius:0 10px 10px 0;margin:14px 0}
+.warn .tag{color:var(--warn);font-size:11px;text-transform:uppercase;letter-spacing:1px;font-weight:700}
+code,.mono{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;background:var(--code-bg);
+  padding:2px 6px;border-radius:5px;font-size:13px;color:var(--good)}
+pre{background:var(--code-bg);padding:12px 14px;border-radius:8px;overflow-x:auto;border:1px solid var(--border)}
+table{border-collapse:collapse;width:100%;margin:12px 0;font-size:13.5px}
+th,td{border:1px solid var(--border);padding:8px 10px;text-align:left}
+th{background:var(--panel2);color:var(--accent2)}
+tr:nth-child(even){background:#10141d}
+.bitfield{display:flex;font-family:ui-monospace,monospace;font-size:12px;overflow-x:auto;margin:14px 0}
+.bit{border:1px solid var(--border);padding:10px 4px;text-align:center;flex:none;min-width:26px}
+.bit.hdr{background:var(--panel2);color:var(--muted);border-bottom:none}
+.bfrow{display:flex}
+.bf-label{padding:8px 10px;font-size:12px;color:#0b0e14;font-weight:700;text-align:center;flex:none}
+.pill{display:inline-block;padding:3px 10px;border-radius:999px;font-size:11.5px;font-weight:700;margin-right:6px}
+.pill.s{background:#ff6b6b33;color:#ff9b9b}
+.pill.e{background:#7c9fff33;color:#9fb6ff}
+.pill.m{background:#5ee6c833;color:#8ff0da}
+.addr-flow{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:14px 0;font-size:13px}
+.addr-flow .box{background:var(--panel2);border:1px solid var(--border);border-radius:8px;padding:8px 12px}
+.addr-flow .arrow{color:var(--accent);font-weight:700}
+footer{border-top:1px solid var(--border);text-align:center;color:var(--muted);font-size:12.5px;padding:30px 16px}
+::-webkit-scrollbar{width:9px;height:9px}
+::-webkit-scrollbar-thumb{background:var(--border);border-radius:6px}
+@media (max-width:860px){
+  nav#side{position:fixed;left:0;top:calc(58px + env(safe-area-inset-top,0px));
+    height:calc(100vh - 58px - env(safe-area-inset-top,0px));
+    background:var(--bg);z-index:15;transform:translateX(-105%);transition:transform .2s;width:230px}
+  nav#side.open{transform:translateX(0)}
+  #menuBtn{display:inline-block}
+}
+.qtopics{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0 20px;position:sticky;top:58px;background:var(--bg);padding:8px 0;z-index:5}
+.qtopics button{background:var(--panel2);border:1px solid var(--border);color:var(--muted);padding:6px 13px;
+  border-radius:999px;font-size:12.5px;cursor:pointer}
+.qtopics button.active{background:var(--accent);color:#062019;border-color:var(--accent);font-weight:700}
+#score{font-size:13px;color:var(--muted);margin-bottom:16px}
+#score b{color:var(--accent)}
+.qcard{background:var(--panel);border:1px solid var(--border);border-radius:12px;padding:16px;margin:12px 0}
+.qcard .qtag{font-size:10.5px;color:var(--accent2);text-transform:uppercase;letter-spacing:.5px;font-weight:700}
+.qcard .qtext{margin:6px 0 12px;font-size:14.5px}
+.opt{display:block;width:100%;text-align:left;background:var(--panel2);border:1px solid var(--border);
+  color:var(--text);padding:9px 12px;border-radius:8px;margin:6px 0;cursor:pointer;font-size:13.5px}
+.opt:hover{border-color:var(--accent2)}
+.opt.correct{background:#123322;border-color:var(--good);color:var(--good)}
+.opt.wrong{background:#331414;border-color:#ff6b6b;color:#ff9b9b}
+.opt[disabled]{cursor:default}
+.expl.show{display:block}
+.expl{display:none;margin-top:10px;font-size:13px;color:var(--muted);background:var(--code-bg);
+  padding:10px 12px;border-radius:8px;border:1px solid var(--border)}
+.gq{border-left:3px solid var(--accent2);background:var(--panel2);padding:16px 18px;border-radius:0 10px 10px 0;margin:20px 0}
+.gq .gtag{font-size:11px;color:var(--accent2);text-transform:uppercase;letter-spacing:1px;font-weight:700}
+.gq .gopts{margin:10px 0;padding-left:18px;color:#c9d1e0;font-size:13.5px}
+.gq .gopts li{margin:3px 0}
+.gq .gans{color:var(--good);font-weight:700}
+
+/* ===== High-yield revision system ===== */
+.hy-toolbar{
+  max-width:820px;margin:0 auto 28px;padding:14px 16px;
+  background:linear-gradient(135deg,var(--panel),var(--panel2));
+  border:1px solid var(--border);border-radius:14px;
+}
+.hy-toolbar-row{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.hy-title{font-weight:800;color:var(--text);font-size:14px}
+.hy-title span{color:var(--accent)}
+.hy-sub{color:var(--muted);font-size:12.5px;margin-top:4px}
+.hy-actions{display:flex;gap:8px;flex-wrap:wrap}
+.hy-btn{border:1px solid var(--border);background:var(--panel2);color:var(--text);padding:8px 12px;border-radius:9px;font-size:12.5px;font-weight:700;cursor:pointer}
+.hy-btn:hover{border-color:var(--accent2);color:var(--accent)}
+.hy-btn.primary{background:var(--accent);color:#062019;border-color:var(--accent)}
+.hy-legend{display:flex;flex-wrap:wrap;gap:7px;margin-top:12px}
+.hy-legend span,.hy-badge{display:inline-flex;align-items:center;gap:4px;padding:3px 8px;border-radius:999px;font-size:10.5px;font-weight:800;letter-spacing:.15px}
+.hy-must{background:#7c9fff22;color:#9fb6ff;border:1px solid #7c9fff55}
+.hy-trap{background:#ffb45422;color:#ffc978;border:1px solid #ffb45455}
+.hy-formula{background:#5ee6c822;color:#8ff0da;border:1px solid #5ee6c855}
+.hy-gate{background:#ff6b6b22;color:#ff9b9b;border:1px solid #ff6b6b55}
+.hy-shortcut{background:#c792ea22;color:#dcb7f7;border:1px solid #c792ea55}
+.hy-marked{position:relative}
+.hy-marked>.hy-badge{margin-bottom:8px}
+.hy-rapid-overlay{display:none}
+body.rapid-mode .hy-rapid-overlay{display:block}
+body.rapid-mode .wrap>main>section:not(#hyRapidPanel){display:none}
+body.rapid-mode .wrap>main{padding-top:18px}
+body.rapid-mode nav#side{opacity:.55}
+body.rapid-mode .hy-toolbar{position:sticky;top:58px;z-index:10}
+#hyRapidPanel{max-width:820px}
+#hyRapidPanel h1{margin-bottom:5px}
+#hyRapidPanel .rapid-intro{margin:0 0 24px;color:var(--muted);font-size:13px}
+.rapid-section{margin:0 0 34px}
+.rapid-section h2{font-size:18px;margin:0 0 12px;color:var(--accent2);border-bottom:1px solid var(--border);padding-bottom:8px}
+.rapid-empty{color:var(--muted);font-size:13px;background:var(--panel);border:1px dashed var(--border);padding:12px 14px;border-radius:10px}
+.rapid-source{margin:0 0 12px}
+.rapid-source .hy-badge{display:inline-flex;margin-bottom:8px}
+body.rapid-mode .hy-toolbar .hy-btn.primary{display:none}
+body:not(.rapid-mode) .hy-toolbar .hy-btn.secondary{display:none}
+@media(max-width:720px){
+  .hy-toolbar-row{align-items:flex-start}.hy-actions{width:100%}.hy-btn{flex:1}
+  body.rapid-mode .hy-toolbar{top:58px}
+}
+
+
+/* Second-pass curated high-yield revision layer */
+.rapid-curated{margin:18px 0 28px;padding:20px;border:1px solid var(--border,#334155);border-radius:16px;background:rgba(15,23,42,.45)}
+.rapid-curated>h2{margin:0 0 4px}.rapid-note{margin:0 0 16px;opacity:.72}
+.rapid-group{margin:14px 0;padding:14px 16px;border-radius:12px;border-left:4px solid #64748b;background:rgba(255,255,255,.025)}
+.rapid-group h3{margin:0 0 8px;font-size:1rem}.rapid-group ul{margin:0;padding-left:20px}.rapid-group li{margin:7px 0;line-height:1.55}
+.rapid-group.must{border-left-color:#22c55e}.rapid-group.trap{border-left-color:#eab308}.rapid-group.formula{border-left-color:#38bdf8}.rapid-group.gate{border-left-color:#f97316}.rapid-group.shortcut{border-left-color:#a78bfa}
+@media(max-width:700px){.rapid-curated{padding:14px}.rapid-group{padding:12px}}
+@media (max-width:640px){table{display:block;max-width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch}.card,.num,.warn,p,li{overflow-wrap:break-word}td,th{overflow-wrap:normal;word-break:normal}}
+</style>
+<style>@media(max-width:760px){main table{display:block;overflow-x:auto;max-width:100%}main pre{overflow-x:auto;max-width:100%}}</style><style id="ux-fix-v11">
+html,body{height:auto!important;min-height:100%}
+#navScrim{cursor:pointer;-webkit-tap-highlight-color:transparent}
+
+/* v11: no sticky banners in the reading/quiz flow; tap-outside closes the topics drawer */
+.qtopics{position:static!important;top:auto!important}
+body.rapid-mode .hy-toolbar{position:static!important;top:auto!important}
+#navScrim{display:none}
+@media (max-width:860px){
+  body.nav-open #navScrim{display:block;position:fixed;left:0;right:0;bottom:0;top:calc(58px + env(safe-area-inset-top,0px));background:rgba(0,0,0,.45);z-index:14}
+}
+@media (max-width:860px){
+  header{position:static!important}
+  html{scroll-padding-top:12px!important}
+  nav#side{top:0!important;height:100%!important;padding-top:calc(18px + env(safe-area-inset-top,0px))!important}
+  body.nav-open #navScrim{top:0!important}
+  #navFab{position:fixed;left:12px;bottom:calc(14px + env(safe-area-inset-bottom,0px));z-index:16;width:42px;height:42px;border-radius:50%;
+    border:1px solid var(--border);background:rgba(23,28,40,.92);color:var(--text);font-size:19px;line-height:1;opacity:.9;
+    box-shadow:0 2px 10px rgba(0,0,0,.45);cursor:pointer;-webkit-tap-highlight-color:transparent}
+}
+@media (min-width:861px){#navFab{display:none}}
+</style>
+<style id="fmt-v12">
+/* v12 readability revamp — formatting only, content untouched */
+:root{--rg-must:#22c55e;--rg-trap:#eab308;--rg-formula:#38bdf8;--rg-gate:#f97316;--rg-shortcut:#a78bfa}
+body.rapid-mode .wrap>main{padding-left:clamp(14px,4vw,32px);padding-right:clamp(14px,4vw,32px)}
+#hyRapidPanel{max-width:760px;margin:0 auto}
+#hyRapidPanel>h1{font-size:clamp(22px,6vw,28px);line-height:1.25;margin:4px 0 8px}
+#hyRapidPanel .rapid-intro{font-size:14.5px;line-height:1.65;margin:0 0 18px}
+
+/* jump chips */
+.rapid-jump{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 22px}
+.rapid-jump a{display:inline-flex;align-items:center;gap:6px;padding:8px 12px;border-radius:999px;font-size:13px;font-weight:700;text-decoration:none;
+  color:var(--text);background:var(--panel2);border:1px solid var(--border)}
+.rapid-jump a b{font-weight:800;opacity:.7}
+
+/* curated block: flat, no box-in-box */
+.rapid-curated{margin:0 0 34px!important;padding:0!important;border:0!important;background:none!important;border-radius:0!important}
+.rapid-curated>h2{font-size:20px;margin:0 0 4px!important;color:var(--text)}
+.rapid-note{font-size:13.5px;line-height:1.6;margin:0 0 6px!important}
+.rapid-group{margin:26px 0 0!important;padding:0!important;border:0!important;background:none!important;scroll-margin-top:12px}
+.rapid-group h3{display:flex;align-items:center;gap:8px;margin:0 0 12px!important;padding-bottom:10px;font-size:14px!important;font-weight:800;
+  letter-spacing:.6px;text-transform:uppercase;border-bottom:2px solid var(--gc,#64748b);color:var(--gc,var(--text))}
+.rapid-group h3 .rg-count{margin-left:auto;font-size:12px;font-weight:800;letter-spacing:0;text-transform:none;padding:2px 9px;border-radius:999px;
+  background:var(--gc,#64748b);color:#0b0e14}
+.rapid-group.must{--gc:var(--rg-must)}.rapid-group.trap{--gc:var(--rg-trap)}.rapid-group.formula{--gc:var(--rg-formula)}
+.rapid-group.gate{--gc:var(--rg-gate)}.rapid-group.shortcut{--gc:var(--rg-shortcut)}
+.rapid-group ul{list-style:none!important;margin:0!important;padding:0!important;display:grid;gap:12px}
+.rapid-group li{margin:0!important;padding:14px 16px;background:var(--panel);border:1px solid var(--border);border-left:4px solid var(--gc,#64748b);
+  border-radius:12px;font-size:15.5px;line-height:1.7;color:var(--text);overflow-wrap:anywhere}
+.rg-label{display:block;margin:0 0 6px;font-size:15px;font-weight:800;line-height:1.35;color:var(--gc,var(--text))}
+.rg-body{display:block;color:#d3d9e6}
+.rg-line{display:block}.rg-line+.rg-line{margin-top:8px}
+.rg-eq{display:block;margin:8px 0 0;padding:10px 12px;border-radius:9px;background:#0a1220;border:1px solid #1d3350;
+  font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:14px;line-height:1.65;color:#8fd8ff;overflow-x:auto;white-space:pre-wrap;overflow-wrap:anywhere}
+.rg-txt{display:block;margin:8px 0 0;color:#d3d9e6}
+.rg-label+.rg-eq,.rg-label+.rg-txt,.rapid-group li>.rg-eq:first-child,.rapid-group li>.rg-txt:first-child{margin-top:0}
+
+/* per-topic cloned cards: roomier, clearer hierarchy */
+.rapid-section{margin:0 0 40px!important}
+.rapid-section h2{font-size:clamp(18px,5vw,22px)!important;line-height:1.3;margin:0 0 16px!important;padding:12px 14px!important;border:1px solid var(--border)!important;
+  border-left:4px solid var(--accent2)!important;border-radius:12px;background:var(--panel)}
+.rapid-source{margin:0 0 14px!important}
+.rapid-source>*{margin:0!important;padding:16px!important;border-radius:14px!important;font-size:15.5px;line-height:1.75;overflow-wrap:anywhere}
+.rapid-source .hy-badge{margin-bottom:10px!important}
+.rapid-source p{margin:0 0 10px;line-height:1.75}.rapid-source p:last-child{margin-bottom:0}
+.rapid-source ul,.rapid-source ol{padding-left:22px;margin:8px 0}.rapid-source li{margin:6px 0;line-height:1.7}
+.rapid-source b,.rapid-source strong{color:#fff}
+.rapid-source code{font-size:.92em;padding:2px 6px;border-radius:6px}
+.rapid-source pre{padding:12px;border-radius:10px;overflow-x:auto;font-size:13.5px;line-height:1.6}
+.rapid-source table{display:block;overflow-x:auto;max-width:100%}
+.rapid-source td,.rapid-source th{padding:8px 10px;line-height:1.55}
+
+/* notes mode: gentle readability lift */
+@media (max-width:700px){
+  main .card,main .warn,main .num{padding:16px!important}
+  main p,main li{line-height:1.75}
+  main section>p{margin:0 0 14px}
+}
+</style>
+<style id="theme-v13">
+/* v13 premium dark + colour theme — visual layer only */
+:root{
+  --bg:#070916;--panel:#0f1330;--panel2:#161b3f;--border:#2a3166;--text:#eef1ff;--muted:#9ea8d4;
+  --accent:#4ff0d0;--accent2:#8aa4ff;--warn:#ffb454;--good:#6ef0a0;--code-bg:#0a1030;
+  --green:#7af0ae;--yellow:#ffe08a;--red:#ff9aa8;--purple:#c9a8ff;
+  --glow-a:#7c5cff;--glow-b:#19d3ff;--glow-c:#ff4fa3;
+}
+html{background:#070916}
+body{background:transparent!important;color:var(--text)}
+body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;
+  background:
+   radial-gradient(60% 40% at 8% 0%,rgba(124,92,255,.28),transparent 70%),
+   radial-gradient(50% 35% at 100% 6%,rgba(25,211,255,.18),transparent 70%),
+   radial-gradient(60% 40% at 50% 100%,rgba(255,79,163,.14),transparent 70%),
+   #070916}
+::selection{background:rgba(124,92,255,.55);color:#fff}
+
+/* header */
+header,.top{background:linear-gradient(180deg,rgba(14,18,48,.92),rgba(9,11,30,.86))!important;
+  -webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);border-bottom:1px solid transparent!important;
+  border-image:linear-gradient(90deg,#7c5cff,#19d3ff,#ff4fa3) 1;box-shadow:0 6px 24px rgba(0,0,0,.35)}
+header h1 span,.top h1 span,header .hl,.top .hl{background:linear-gradient(90deg,#4ff0d0,#8aa4ff,#d28bff);-webkit-background-clip:text;background-clip:text;color:transparent!important}
+
+/* headings */
+main h2,.wrap h2{background:linear-gradient(90deg,#9db4ff,#c9a8ff 55%,#ff9ad0);-webkit-background-clip:text;background-clip:text;color:transparent;
+  border-bottom:1px solid transparent!important;border-image:linear-gradient(90deg,rgba(138,164,255,.6),rgba(255,79,163,.25),transparent) 1}
+main h3{color:#8fe9ff}
+
+/* surfaces: glass panels */
+.card,.warn,.num,.hy-panel,.hy-toolbar,.rapid-curated,table,.q,.qcard,.sol,details,.callout,.box{
+  background:linear-gradient(150deg,rgba(32,38,88,.62),rgba(14,17,42,.9))!important;
+  border-top-color:rgba(138,150,255,.2)!important;border-right-color:rgba(138,150,255,.2)!important;border-bottom-color:rgba(138,150,255,.2)!important;box-shadow:0 10px 30px rgba(3,4,18,.45),inset 0 1px 0 rgba(255,255,255,.06)}
+.hy-toolbar{border-radius:16px}
+.hy-toolbar h3,.hy-toolbar strong{background:linear-gradient(90deg,#4ff0d0,#8aa4ff);-webkit-background-clip:text;background-clip:text;color:transparent}
+
+/* nav drawer */
+nav#side,.side{background:linear-gradient(180deg,rgba(18,22,58,.97),rgba(9,11,30,.98))!important;border-color:rgba(138,150,255,.2)!important}
+nav#side a.active,.side a.active,nav#side a:hover,.side a:hover{background:linear-gradient(90deg,rgba(124,92,255,.35),rgba(25,211,255,.14))!important;color:#fff!important;border-radius:10px}
+nav#side .grp,.side .grp,nav#side h4,.side h4{color:#c9a8ff!important}
+
+/* buttons */
+.hy-btn{background:rgba(26,31,72,.9);border-color:rgba(138,150,255,.3)}
+.hy-btn:hover{border-color:#8aa4ff;box-shadow:0 0 0 3px rgba(124,92,255,.22);color:#fff}
+.hy-btn.primary,.btn.primary,button.primary{background:linear-gradient(90deg,#19d3ff,#7c5cff 60%,#ff4fa3)!important;color:#fff!important;border:0!important;
+  box-shadow:0 6px 20px rgba(124,92,255,.45)}
+#navFab{background:linear-gradient(135deg,#7c5cff,#19d3ff)!important;color:#fff!important;border:0!important;box-shadow:0 8px 22px rgba(124,92,255,.55)!important;opacity:1!important}
+#menuBtn{background:rgba(26,31,72,.9)!important;border-color:rgba(138,150,255,.35)!important}
+
+/* code & equations */
+code,pre{background:#0a1030!important;color:#8ff5e2;border:1px solid rgba(79,240,208,.18)}
+.rg-eq,.card p>code:only-child{background:linear-gradient(135deg,#0a1436,#0d0f2e)!important;border-color:rgba(25,211,255,.35)!important;color:#9af2ff!important;
+  box-shadow:inset 0 0 0 1px rgba(25,211,255,.06)}
+
+/* last-minute groups: tinted by their colour */
+.rapid-group li{background:linear-gradient(135deg,color-mix(in srgb,var(--gc) 14%,#12163a),#0d1030 70%)!important;border-top-color:color-mix(in srgb,var(--gc) 30%,#262d62)!important;border-right-color:color-mix(in srgb,var(--gc) 30%,#262d62)!important;border-bottom-color:color-mix(in srgb,var(--gc) 30%,#262d62)!important;border-left-color:var(--gc)!important;
+  box-shadow:0 6px 18px rgba(3,4,18,.4)}
+.rapid-group h3{text-shadow:0 0 18px color-mix(in srgb,var(--gc) 55%,transparent)}
+.rapid-group h3 .rg-count{box-shadow:0 0 14px color-mix(in srgb,var(--gc) 60%,transparent)}
+.rapid-jump a{background:rgba(26,31,72,.85);border-color:rgba(138,150,255,.3)}
+.rapid-section h2{background:linear-gradient(90deg,rgba(124,92,255,.28),rgba(25,211,255,.08))!important;-webkit-text-fill-color:#fff;color:#fff;border-image:none!important;
+  border-color:rgba(138,150,255,.3)!important;border-left:4px solid #19d3ff!important}
+
+/* tags / badges: more vivid */
+.tag,.hy-badge,.badge{backdrop-filter:blur(4px);font-weight:800}
+.tag.must,.hy-badge.must{background:rgba(34,197,94,.18)!important;color:#7af0ae!important;border-color:rgba(34,197,94,.5)!important}
+.tag.formula,.hy-badge.formula{background:rgba(56,189,248,.18)!important;color:#8fe0ff!important;border-color:rgba(56,189,248,.5)!important}
+.tag.fav,.hy-badge.fav{background:rgba(255,79,100,.16)!important;color:#ff9aa8!important;border-color:rgba(255,79,100,.5)!important}
+
+/* quiz options */
+.opt,.option,button.opt,label.opt{background:rgba(22,27,68,.8)!important;border-color:rgba(138,150,255,.25)!important;transition:.15s}
+.opt:hover,.option:hover{border-color:#19d3ff!important;box-shadow:0 0 0 3px rgba(25,211,255,.18)}
+.qtopics button,.qtopics .chip{background:rgba(26,31,72,.85);border-color:rgba(138,150,255,.3)}
+.qtopics .on,.qtopics .active{background:linear-gradient(90deg,#7c5cff,#19d3ff)!important;color:#fff!important;border-color:transparent!important}
+
+/* tables */
+th{background:linear-gradient(90deg,rgba(124,92,255,.35),rgba(25,211,255,.18))!important;color:#fff!important}
+td,th{border-color:rgba(138,150,255,.2)!important}
+tbody tr:nth-child(even) td{background:rgba(124,92,255,.06)}
+
+a{color:#8fe9ff}
+::-webkit-scrollbar{width:10px;height:10px}::-webkit-scrollbar-thumb{background:linear-gradient(#7c5cff,#19d3ff);border-radius:8px}
+</style>
+<style id="home-v14">
+.homeLink{justify-self:end;display:inline-flex;align-items:center;gap:6px;padding:8px 12px;border-radius:10px;font-size:13px;font-weight:800;text-decoration:none;white-space:nowrap;
+  color:#fff!important;background:linear-gradient(135deg,rgba(124,92,255,.55),rgba(25,211,255,.3));border:1px solid rgba(138,150,255,.4)}
+nav#side a.backhome,.side a.backhome{display:block;margin:0 0 10px;padding:10px 12px;border-radius:10px;font-weight:800;color:#fff!important;
+  background:linear-gradient(90deg,rgba(124,92,255,.45),rgba(25,211,255,.2));border:1px solid rgba(138,150,255,.4)}
+#homeFab{display:none}
+@media (max-width:860px){
+  #homeFab{display:flex;align-items:center;justify-content:center;position:fixed;left:64px;bottom:calc(14px + env(safe-area-inset-bottom,0px));z-index:16;width:42px;height:42px;border-radius:50%;
+    text-decoration:none;font-size:19px;background:rgba(22,27,68,.95);border:1px solid rgba(138,150,255,.45);box-shadow:0 8px 22px rgba(3,4,18,.6)}
+}
+</style>
+<!-- pwa:start -->
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#070916">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="GATE 2027">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="icon" type="image/png" href="favicon-64.png">
+<!-- pwa:end -->
+</head>
+<body>
+<header>
+  <button id="menuBtn" onclick="document.getElementById('side').classList.toggle('open')">☰ Topics</button>
+  <div class="title">🗄️ DBMS <span>for GATE CSE 2027</span></div>
+  <a class="homeLink" href="index.html">🏠 Home</a>
+</header>
+<div class="wrap">
+<nav id="side">
+<a class="backhome" href="index.html">← Study Hub (Home)</a><a class="gt-sidelink" href="cheatsheet-gate-2027.html#dbms">📄 Formula cheat sheet</a><a class="gt-sidelink" href="mock-gate-2027.html">🎯 Full mock exam</a>
+  <div class="grp">
+    <div class="grp-title">Part 1 · ER & Relational Model</div>
+    <a href="#er">1. ER Model</a>
+    <a href="#relmodel">2. Relational Model, Algebra & Keys</a>
+  </div>
+  <div class="grp">
+    <div class="grp-title">Part 2 · SQL & Normalization</div>
+    <a href="#sql">3. SQL</a>
+    <a href="#constraints">4. Integrity Constraints & Normal Forms</a>
+  </div>
+  <div class="grp">
+    <div class="grp-title">Part 3 · Storage & Transactions</div>
+    <a href="#index">5. File Organization & Indexing (B/B+ Trees)</a>
+    <a href="#trans">6. Transactions & Concurrency Control</a>
+  </div>
+  <div class="grp">
+    <div class="grp-title">Practice</div>
+    <a href="#methods">7. Problem → Standard Method Playbook</a>
+    <a href="#quiz">8. Practice Quiz — 82 Qs (basic)</a>
+    <a href="#pyq">9. GATE-Level Solved Problems</a>
+  </div>
+</nav>
+<main>
+
+<section id="er">
+<h1>1. ER Model</h1>
+<div class="sub">How you design a database on paper before writing a single line of SQL — entities, their attributes, and how they relate to each other.</div>
+
+<h2>The building blocks</h2>
+<table>
+<tr><th>Concept</th><th>Meaning</th><th>Example</th></tr>
+<tr><td>Entity</td><td>A distinguishable "thing" you want to store data about</td><td>Student, Course</td></tr>
+<tr><td>Attribute</td><td>A property of an entity</td><td>Student's name, roll number</td></tr>
+<tr><td>Relationship</td><td>An association between two or more entities</td><td>Student ENROLLS_IN Course</td></tr>
+</table>
+
+<h3>Types of attributes</h3>
+<table>
+<tr><th>Type</th><th>Meaning</th></tr>
+<tr><td>Simple</td><td>Cannot be divided further (e.g. Age)</td></tr>
+<tr><td>Composite</td><td>Made of sub-parts (e.g. Address = Street+City+Pincode)</td></tr>
+<tr><td>Single-valued</td><td>One value per entity (e.g. DOB)</td></tr>
+<tr><td>Multi-valued</td><td>Can have many values (e.g. Phone Numbers) — shown with a double oval</td></tr>
+<tr><td>Derived</td><td>Computed from another attribute (e.g. Age derived from DOB) — shown with a dashed oval</td></tr>
+</table>
+
+<h2>Cardinality ratios & participation constraints</h2>
+<div class="grid2">
+<div class="card"><b>Cardinality ratio</b> — how many instances of one entity can relate to instances of another: <b>1:1</b>, <b>1:N</b>, or <b>M:N</b>.</div>
+<div class="card"><b>Participation constraint</b> — <b>total</b> (every entity instance MUST participate, drawn as a double line) vs <b>partial</b> (participation is optional, single line).</div>
+</div>
+<div class="card"><b>Weak entity</b>: an entity with no primary key of its own — it's identified only via a relationship to an "owner" (identifying) entity plus a <b>partial key</b>. Drawn with a double-bordered rectangle, connected via a double-bordered diamond (identifying relationship).</div>
+
+<h2>Mapping an ER diagram to relational tables — the GATE trick</h2>
+<table>
+<tr><th>ER construct</th><th>How many tables needed</th></tr>
+<tr><td>Strong entity</td><td>1 table (attributes become columns, key becomes primary key)</td></tr>
+<tr><td>1:1 relationship</td><td>Can often be merged into ONE of the two entity tables (foreign key on either side, or the side with total participation)</td></tr>
+<tr><td>1:N relationship</td><td>Add the "1" side's primary key as a foreign key in the "N" side's table — no separate table needed</td></tr>
+<tr><td>M:N relationship</td><td>ALWAYS needs its own separate table, holding both entities' primary keys (as a composite key) plus any relationship attributes</td></tr>
+<tr><td>Weak entity</td><td>1 table, with the owner's primary key + the weak entity's partial key together forming its primary key</td></tr>
+</table>
+<div class="num"><div class="tag">Worked numerical</div>
+<b>Q:</b> An ER diagram has: Entity A (strong), Entity B (strong), Entity C (weak, owned by B). Relationships: A–B is 1:N, B–C is the identifying relationship (1:N, total participation of C). Find the MINIMUM number of tables needed.<br>
+<b>A:</b>
+<pre>Entity A → 1 table
+Entity B → 1 table (also absorbs the 1:N relationship from A, via a foreign key A_id in B)
+Entity C (weak) → 1 table (primary key = B_id + C's partial key; no separate relationship table needed since it's identifying)
+
+Total = 3 tables</pre>
+The golden rule: <b>only M:N relationships force a genuinely new, separate table</b> — every 1:1 and 1:N relationship can be absorbed as a foreign key into an existing entity's table.
+</div>
+
+<h2>Extended ER (EER) — generalization, specialization, aggregation</h2>
+<div class="card"><b>Specialization</b> is the <b>top-down</b> process of defining sub-classes of an entity set (Person → Student, Employee); <b>generalization</b> is the reverse <b>bottom-up</b> process of merging similar entity sets into one super-class. Sub-classes <b>inherit</b> all attributes and relationships of the super-class (the "IS-A" relationship). <b>Aggregation</b> treats a whole relationship (plus its participants) as a single higher-level entity so it can itself take part in another relationship.</div>
+<table>
+<tr><th>Constraint on a specialization</th><th>Meaning</th></tr>
+<tr><td><b>Disjoint</b> (d)</td><td>An entity can belong to <b>at most one</b> sub-class</td></tr>
+<tr><td><b>Overlapping</b> (o)</td><td>An entity may belong to <b>several</b> sub-classes at once</td></tr>
+<tr><td><b>Total</b> (double line)</td><td>Every super-class entity must belong to <b>at least one</b> sub-class</td></tr>
+<tr><td><b>Partial</b> (single line)</td><td>A super-class entity may belong to no sub-class at all</td></tr>
+</table>
+<div class="card"><b>Mapping EER to tables (4 standard options)</b>
+<pre>1. One table per class:   Super(K, a…)  +  Sub_i(K, own attrs…)   — works for every constraint combination
+2. One table per sub-class only (each holds inherited + own attrs) — needs total + disjoint
+3. Single table with a type flag (all attrs, NULLs for unused) — best for disjoint
+4. Single table with one boolean flag per sub-class — handles overlapping</pre></div>
+</section>
+
+<section id="relmodel">
+<h1>2. Relational Model, Algebra & Keys</h1>
+<div class="sub">Once the design is set, everything becomes tables (relations) — and a small algebra of operators lets you query them formally, exactly the way SQL does under the hood.</div>
+
+<h2>Basic terminology</h2>
+<table>
+<tr><th>Term</th><th>Meaning</th></tr>
+<tr><td>Relation</td><td>A table</td></tr>
+<tr><td>Tuple</td><td>A row</td></tr>
+<tr><td>Attribute</td><td>A column</td></tr>
+<tr><td>Degree</td><td>Number of attributes (columns)</td></tr>
+<tr><td>Cardinality</td><td>Number of tuples (rows)</td></tr>
+</table>
+
+<h2>Keys</h2>
+<table>
+<tr><th>Key type</th><th>Meaning</th></tr>
+<tr><td>Super key</td><td>Any set of attributes that uniquely identifies a tuple (may include extra, unnecessary attributes)</td></tr>
+<tr><td>Candidate key</td><td>A MINIMAL super key — remove any attribute and it stops being unique</td></tr>
+<tr><td>Primary key</td><td>The candidate key chosen by the designer to be THE identifier</td></tr>
+<tr><td>Foreign key</td><td>An attribute in one table that references the primary key of another table</td></tr>
+</table>
+<div class="warn"><div class="tag">GATE angle: counting keys via Functional Dependencies</div>
+Given a relation R and a set of functional dependencies (FDs), a <b>candidate key</b> is a minimal attribute set whose <b>closure</b> (under those FDs) equals ALL attributes of R.<br>
+<b>Attribute closure algorithm:</b> start with the given set, repeatedly add the RHS of any FD whose LHS is already fully contained in your current set, until nothing new is added.
+</div>
+<div class="num"><div class="tag">Worked numerical</div>
+<b>Q:</b> R(A,B,C,D) with FDs: A→B, B→C, C→D. Find a candidate key.<br>
+<b>A:</b>
+<pre>Try {A}: closure({A}) → A,B (from A→B) → A,B,C (from B→C) → A,B,C,D (from C→D)
+closure({A}) = {A,B,C,D} = all attributes → {A} is a candidate key (and it's minimal, being just 1 attribute)</pre>
+</div>
+
+<h2>Relational Algebra operators</h2>
+<table>
+<tr><th>Operator</th><th>Symbol</th><th>Meaning</th></tr>
+<tr><td>Selection</td><td>σ<sub>condition</sub>(R)</td><td>Filter ROWS matching a condition</td></tr>
+<tr><td>Projection</td><td>π<sub>attributes</sub>(R)</td><td>Keep only specific COLUMNS (duplicates removed)</td></tr>
+<tr><td>Union</td><td>R ∪ S</td><td>Rows in R or S (same schema required)</td></tr>
+<tr><td>Set difference</td><td>R − S</td><td>Rows in R but not in S</td></tr>
+<tr><td>Cartesian product</td><td>R × S</td><td>Every row of R paired with every row of S</td></tr>
+<tr><td>Rename</td><td>ρ</td><td>Rename a relation or its attributes</td></tr>
+<tr><td>Natural Join</td><td>R ⋈ S</td><td>Join on all common attribute names, keep one copy of each</td></tr>
+</table>
+<div class="num"><div class="tag">Worked numerical</div>
+<b>Q:</b> R has 5 tuples over attributes (A,B); S has 3 tuples over attributes (B,C). If B has 2 common values between R and S, and matching creates exactly 6 combined tuples, how many tuples are in R ⋈ S (natural join), vs R × S (Cartesian product)?<br>
+<b>A:</b>
+<pre>R × S (Cartesian product) = 5 × 3 = 15 tuples (every R row paired with every S row, ignoring B values)
+R ⋈ S (natural join) = 6 tuples (only pairs where R.B = S.B actually match, as given)</pre>
+Natural join is always ≤ the Cartesian product size — it's effectively "Cartesian product, then filter where the shared attribute matches, then drop the duplicate column".
+</div>
+<div class="num"><div class="tag">Worked numerical — combining operators</div>
+<b>Q:</b> Given Employee(eid, name, dept, salary), write a relational algebra expression for "names of employees in the 'Sales' department earning more than 50000", and identify which operators are used.<br>
+<b>A:</b>
+<pre>π_name ( σ_(dept='Sales' AND salary>50000) (Employee) )</pre>
+Uses <b>Selection</b> (σ) to filter rows matching the department+salary condition, then <b>Projection</b> (π) to keep only the name column. This "select-then-project" pattern is the relational-algebra equivalent of a SQL <code>SELECT name FROM Employee WHERE dept='Sales' AND salary&gt;50000</code>.
+</div>
+
+<h2>Join variants</h2>
+<table>
+<tr><th>Join</th><th>Meaning</th></tr>
+<tr><td>Theta join  R ⋈<sub>θ</sub> S</td><td>σ<sub>θ</sub>(R × S) for any condition θ (&lt;, &gt;, =, ≠…)</td></tr>
+<tr><td>Equi-join</td><td>Theta join where θ uses only <code>=</code> — both copies of the join column are kept</td></tr>
+<tr><td>Natural join</td><td>Equi-join on ALL common attribute names, keeping one copy of each</td></tr>
+<tr><td>Left / Right / Full outer join</td><td>Natural (or θ) join PLUS the unmatched tuples of the left / right / both sides, padded with NULLs</td></tr>
+</table>
+
+<h2>Division (÷) — the "for ALL" operator</h2>
+<div class="card"><b>Definition.</b> For R(A, B) and S(B), <code>R ÷ S</code> returns every value <b>a</b> (over the attributes of R that are NOT in S) such that the pair <b>(a, b) appears in R for EVERY b in S</b>.
+<pre>R ÷ S  =  π_A(R)  −  π_A( (π_A(R) × S) − R )
+          ───────     ───────────────────────
+          all candidates     candidates that are MISSING at least one required b → disqualified</pre>
+Result schema = attrs(R) − attrs(S). If S is empty, R ÷ S = π_A(R). Division is the relational-algebra answer to every "…<i>all</i> / <i>every</i>…" query (students who took <i>all</i> required courses, suppliers who supply <i>all</i> parts).</div>
+<div class="num"><div class="tag">Worked numerical — division</div>
+<b>Q:</b> Enrolled(student, course) = {(Amy,DB),(Amy,OS),(Amy,CN),(Ben,DB),(Ben,OS),(Cara,DB),(Cara,CN)}; Required(course) = {DB, OS}. Compute Enrolled ÷ Required.<br>
+<b>A:</b>
+<pre>Candidates π_student(Enrolled) = {Amy, Ben, Cara}
+Candidates × Required = {Amy,Ben,Cara} × {DB,OS} = 6 pairs
+Missing pairs = (those 6) − Enrolled = {(Cara, OS)}   → Cara is disqualified
+Result = {Amy, Ben, Cara} − {Cara} = {Amy, Ben}</pre>
+Same query in SQL needs a double negation: <code>SELECT DISTINCT e.student FROM Enrolled e WHERE NOT EXISTS (SELECT * FROM Required r WHERE NOT EXISTS (SELECT * FROM Enrolled x WHERE x.student=e.student AND x.course=r.course))</code> — "there is no required course that this student has NOT taken".
+</div>
+<div class="warn"><div class="tag">GATE trap</div>Division is <b>not</b> "Cartesian product in reverse". Extra courses (Amy's CN) don't matter — only whether ALL of S is covered. Also |R ÷ S| ≤ |π_A(R)| always.</div>
+
+<h2>Tuple Relational Calculus (TRC) — a quick contrast</h2>
+<p>Where relational algebra is <b>procedural</b> (specifies HOW to compute the result, step by step), Tuple Relational Calculus is <b>declarative</b> (specifies WHAT you want, using predicate logic over tuple variables) — e.g. <code>{ t | Employee(t) ∧ t.dept='Sales' ∧ t.salary&gt;50000 }</code> describes the same query as above, using logical implication/conjunction instead of chained operators. Both are proven to be equally expressive (relationally complete).</p>
+</section>
+
+<section id="sql">
+<h1>3. SQL</h1>
+<div class="sub">The query language every relational database actually uses — GATE tests both writing queries and, just as often, predicting a query's output by hand.</div>
+
+<h2>Basic query anatomy</h2>
+<div class="card"><pre>SELECT [columns]
+FROM [table(s)]
+WHERE [row filter — applied BEFORE grouping]
+GROUP BY [columns]
+HAVING [group filter — applied AFTER grouping]
+ORDER BY [columns]</pre></div>
+<div class="warn"><div class="tag">GATE trap</div><code>WHERE</code> filters individual rows before any grouping happens; <code>HAVING</code> filters entire GROUPS after aggregation. You cannot use an aggregate function (like <code>COUNT(*)</code>) inside a <code>WHERE</code> clause — it must go in <code>HAVING</code>.</div>
+
+<h2>Joins — with example tables</h2>
+<div class="card">
+<pre>Student            Enroll
+sid | name         sid | course
+1   | Amy          1   | CS101
+2   | Ravi         1   | CS102
+3   | Zara         4   | CS101   (sid=4 doesn't exist in Student!)</pre>
+</div>
+<table>
+<tr><th>Join type</th><th>Result on the tables above</th></tr>
+<tr><td>INNER JOIN (Student ⋈ Enroll on sid)</td><td>3 rows: (Amy,CS101), (Amy,CS102), and nothing for Ravi/Zara (no match), sid=4 row dropped (no matching student)</td></tr>
+<tr><td>LEFT OUTER JOIN (Student left, Enroll right)</td><td>Amy's 2 rows + Ravi(NULL) + Zara(NULL) = 4 rows — every Student row kept even without a match</td></tr>
+<tr><td>RIGHT OUTER JOIN</td><td>Amy's 2 rows + (NULL, CS101) for sid=4 = 3 rows — every Enroll row kept even without a match</td></tr>
+<tr><td>FULL OUTER JOIN</td><td>All of the above combined = 5 rows (Amy×2, Ravi-NULL, Zara-NULL, NULL-sid4)</td></tr>
+</table>
+
+<h2>Aggregate functions</h2>
+<div class="num"><div class="tag">Worked numerical</div>
+<b>Q:</b> Employee(eid, dept, salary): (1,'CS',40000), (2,'CS',60000), (3,'EE',50000), (4,'EE', NULL). What does <code>SELECT dept, COUNT(*), COUNT(salary), AVG(salary) FROM Employee GROUP BY dept;</code> return?<br>
+<b>A:</b>
+<pre>dept | COUNT(*) | COUNT(salary) | AVG(salary)
+CS   |    2     |      2        |   50000        (avg of 40000,60000)
+EE   |    2     |      1        |   50000        (avg ignores the NULL, uses only 50000)</pre>
+<b>Key trap:</b> <code>COUNT(*)</code> counts ALL rows including NULLs; <code>COUNT(column)</code> and every other aggregate (<code>SUM</code>,<code>AVG</code>,<code>MIN</code>,<code>MAX</code>) silently <b>ignore NULL values</b> in that column.
+</div>
+
+<h2>Nested queries</h2>
+<div class="grid2">
+<div class="card"><b>IN / NOT IN</b><br><code>WHERE dept IN (SELECT dept FROM ... )</code> — checks membership in a subquery's result set.</div>
+<div class="card"><b>EXISTS / NOT EXISTS</b><br><code>WHERE EXISTS (SELECT * FROM ... WHERE ...)</code> — checks if a correlated subquery returns ANY row at all.</div>
+</div>
+<div class="warn"><div class="tag">The classic NULL + NOT IN trap</div>If the subquery's result set for a <code>NOT IN</code> contains even ONE <code>NULL</code>, the ENTIRE outer query returns <b>zero rows</b> — because comparing anything to NULL yields UNKNOWN, not TRUE/FALSE, and <code>NOT IN</code> needs every comparison to definitively be "not equal". GATE loves testing this exact gotcha.</div>
+
+<h2>Set operations</h2>
+<table>
+<tr><th>Operator</th><th>Meaning</th></tr>
+<tr><td>UNION</td><td>Rows in either query (duplicates removed)</td></tr>
+<tr><td>UNION ALL</td><td>Rows in either query (duplicates KEPT)</td></tr>
+<tr><td>INTERSECT</td><td>Rows in BOTH queries</td></tr>
+<tr><td>EXCEPT / MINUS</td><td>Rows in the first query but NOT in the second</td></tr>
+</table>
+
+<h2>DDL — defining and changing schema</h2>
+<table>
+<tr><th>Command</th><th>Effect</th></tr>
+<tr><td><code>CREATE TABLE</code></td><td>Define columns, types, <code>PRIMARY KEY</code>, <code>UNIQUE</code>, <code>NOT NULL</code>, <code>CHECK</code>, <code>FOREIGN KEY</code></td></tr>
+<tr><td><code>ALTER TABLE</code></td><td>Add / drop / modify a column or constraint</td></tr>
+<tr><td><code>DROP TABLE</code></td><td>Removes the table <b>structure and data</b> completely</td></tr>
+<tr><td><code>TRUNCATE TABLE</code></td><td>Removes <b>all rows</b>, keeps the structure; no WHERE clause</td></tr>
+<tr><td><code>DELETE FROM … WHERE</code></td><td>(DML) removes the selected rows, structure stays</td></tr>
+</table>
+<div class="card"><b>Referential actions</b> on a foreign key: <code>ON DELETE / ON UPDATE</code> + <code>NO ACTION / RESTRICT</code> (reject the change — the default), <code>CASCADE</code> (propagate the delete/update to child rows), <code>SET NULL</code>, <code>SET DEFAULT</code>.
+<pre>CREATE TABLE Emp (
+  eid INT PRIMARY KEY,
+  did INT REFERENCES Dept(did) ON DELETE CASCADE,
+  salary INT CHECK (salary &gt; 0)
+);</pre></div>
+
+<h2>Views</h2>
+<p>A <b>view</b> is a stored query — a <i>virtual table</i> whose rows are computed from the base tables each time it is used: <code>CREATE VIEW HighPaid AS SELECT eid, salary FROM Emp WHERE salary &gt; 50000;</code> Views give security (expose only some columns/rows) and simplify queries.</p>
+<div class="card"><b>Updatable views</b> (INSERT/UPDATE/DELETE pass through to the base table) generally need: a <b>single base table</b>, no <code>DISTINCT</code>, no aggregates, no <code>GROUP BY</code>/<code>HAVING</code>, and the view must include the base table's key / NOT NULL columns. <code>WITH CHECK OPTION</code> rejects any update through the view that would make the row disappear from the view. A <b>materialized view</b> (unlike a plain view) physically stores its result and must be refreshed.</div>
+<h2>Other SQL features worth recognising</h2>
+<table>
+<tr><th>Feature</th><th>What it does</th></tr>
+<tr><td><b>Trigger</b></td><td>Event–Condition–Action rule that runs automatically on INSERT / UPDATE / DELETE, e.g. <code>CREATE TRIGGER t AFTER UPDATE ON emp FOR EACH ROW …</code>; used for audit logs and derived data</td></tr>
+<tr><td><b>Cursor / embedded SQL</b></td><td>Lets a host-language program fetch a result set one row at a time (DECLARE, OPEN, FETCH, CLOSE)</td></tr>
+<tr><td><b>Stored procedure</b></td><td>Named SQL program kept and run inside the server, which cuts network round trips</td></tr>
+<tr><td><b>GRANT / REVOKE</b></td><td>Access control: <code>GRANT SELECT ON emp TO alice</code>; <code>REVOKE</code> withdraws it; <code>WITH GRANT OPTION</code> lets the user pass it on</td></tr>
+<tr><td><b>COMMIT / ROLLBACK / SAVEPOINT</b></td><td>Transaction control: make changes permanent, undo all of them, or undo back to a marked point</td></tr>
+</table>
+</section>
+
+<section id="constraints">
+<h1>4. Integrity Constraints & Normal Forms</h1>
+<div class="sub">The rules that keep data consistent, and the step-by-step method for redesigning tables to eliminate redundancy and anomalies.</div>
+
+<h2>Integrity constraints</h2>
+<table>
+<tr><th>Constraint</th><th>Meaning</th></tr>
+<tr><td>Domain constraint</td><td>A column's value must come from its declared data type/domain</td></tr>
+<tr><td>Entity integrity</td><td>Primary key columns can NEVER be NULL</td></tr>
+<tr><td>Referential integrity</td><td>A foreign key must either be NULL or match an existing primary key value in the referenced table</td></tr>
+<tr><td>NOT NULL / UNIQUE / CHECK</td><td>Column-level rules enforced on every insert/update</td></tr>
+</table>
+
+<h2>Functional Dependencies & Armstrong's Axioms</h2>
+<p>An FD <code>X → Y</code> means: whenever two tuples agree on X, they must also agree on Y. It's <b>trivial</b> if Y ⊆ X (always true, tells you nothing new); otherwise <b>non-trivial</b>.</p>
+<div class="card"><b>Armstrong's Axioms</b> (sound and complete — derive every valid FD from these):
+<pre>Reflexivity:    if Y ⊆ X, then X → Y             (trivial FDs)
+Augmentation:   if X → Y, then XZ → YZ            (add same attrs to both sides)
+Transitivity:   if X → Y and Y → Z, then X → Z</pre>
+Derived rules (provable from the three above, but useful shortcuts): <b>Union</b> (X→Y, X→Z ⟹ X→YZ), <b>Decomposition</b> (X→YZ ⟹ X→Y and X→Z), <b>Pseudotransitivity</b> (X→Y, WY→Z ⟹ WX→Z).</div>
+
+<h2>Minimal (canonical) cover of an FD set</h2>
+<p>A <b>minimal cover</b> F<sub>c</sub> of F is an equivalent FD set (same closure F⁺) in which (1) every RHS is a <b>single attribute</b>, (2) no LHS has an <b>extraneous attribute</b>, and (3) no FD is <b>redundant</b>. It is the starting point of the <b>3NF synthesis</b> algorithm (one relation per FD, then add a candidate key if none is present, then drop subsumed relations).</p>
+<div class="card"><b>Algorithm</b>
+<pre>Step 1  Split RHS:               X→YZ  becomes  X→Y, X→Z
+Step 2  Remove extraneous LHS:   in XA→B, A is extraneous if B ∈ closure(X) under F
+Step 3  Remove redundant FDs:    drop X→Y if Y ∈ closure(X) using the OTHER FDs</pre>
+Do the steps <b>in this order</b>. The minimal cover is <b>not unique</b> — different orders can give different (but equivalent) covers.</div>
+<div class="num"><div class="tag">Worked numerical</div>
+<b>Q:</b> F = { A→BC, B→C, A→B, AB→C }. Find a minimal cover.<br>
+<b>A:</b>
+<pre>Step 1: A→B, A→C, B→C, A→B (duplicate), AB→C
+Step 2: AB→C — is A extraneous? closure({B}) = {B,C} contains C → yes, A is extraneous → AB→C becomes B→C (duplicate)
+        F = { A→B, A→C, B→C }
+Step 3: A→C — drop it and compute closure({A}) with {A→B, B→C} = {A,B,C} ∋ C → redundant, remove
+Minimal cover = { A→B, B→C }</pre></div>
+
+<h2>Normal forms — the ladder</h2>
+<table>
+<tr><th>Form</th><th>Requirement</th></tr>
+<tr><td>1NF</td><td>Every attribute holds only atomic (indivisible), single values — no repeating groups or multi-valued columns</td></tr>
+<tr><td>2NF</td><td>1NF + no <b>partial dependency</b> (no non-key attribute depends on only PART of a composite candidate key)</td></tr>
+<tr><td>3NF</td><td>2NF + no <b>transitive dependency</b> (no non-key attribute depends on another non-key attribute)</td></tr>
+<tr><td>BCNF</td><td>For every non-trivial FD X→Y, X must be a <b>super key</b> (stricter than 3NF — no exceptions allowed)</td></tr>
+</table>
+<div class="num"><div class="tag">Worked numerical — finding the highest normal form</div>
+<b>Q:</b> R(A,B,C,D) with candidate key {A,B} and FDs: AB→CD, C→D. What is the highest normal form R satisfies?<br>
+<b>A:</b>
+<pre>Check 1NF: assume all atomic values → ✓ 1NF holds
+
+Check 2NF: is there a partial dependency? Candidate key is {A,B} (composite).
+  Does C or D depend on just A, or just B alone (not both)? 
+  We're only given AB→CD and C→D — no dependency on A alone or B alone → no partial dependency → ✓ 2NF holds
+
+Check 3NF: is there a transitive dependency (non-key → non-key)?
+  C→D: here C is a NON-KEY attribute, and D is also non-key → this IS a transitive
+  dependency (key → C → D, where C itself isn't part of the key) → ✗ 3NF VIOLATED
+
+Highest normal form satisfied = 2NF</pre>
+</div>
+<div class="num"><div class="tag">Worked numerical — BCNF check</div>
+<b>Q:</b> R(A,B,C) with FDs: A→B, B→C. Candidate key = {A} (since A→B→C by transitivity, A alone determines everything). Is R in BCNF? What about 3NF?<br>
+<b>A:</b>
+<pre>BCNF check — every FD's left side must be a super key:
+  A→B: A is the candidate key → OK
+  B→C: is B a super key? No — B alone doesn't determine A → this FD VIOLATES BCNF
+
+3NF check — for every FD X→Y, X must be a super key OR Y must be a prime attribute:
+  A→B: A is a super key → OK
+  B→C: B is not a super key, AND C is not part of any candidate key (not prime)
+        → this FD VIOLATES 3NF too (C transitively depends on the key A, through B)
+
+R is NOT in BCNF and NOT in 3NF. Since the key {A} is a single attribute, no partial
+dependency is possible → 2NF is satisfied automatically.
+Highest normal form satisfied = 2NF.</pre>
+</div>
+
+<h2>Decomposition — lossless join test</h2>
+<p>Splitting R into R1, R2 is <b>lossless</b> if and only if: <code>(R1 ∩ R2) → R1</code>  OR  <code>(R1 ∩ R2) → R2</code> (the common attributes must functionally determine at least one of the two pieces).</p>
+<div class="num"><div class="tag">Worked numerical</div>
+<b>Q:</b> R(A,B,C,D), FDs: A→B, A→C, C→D. Decomposed into R1(A,B,C) and R2(C,D). Is this lossless?<br>
+<b>A:</b>
+<pre>Common attribute: R1 ∩ R2 = {C}
+Check: does C → R1 (i.e. C → ABC)? We only know C→D, not C→A or C→B → NO
+Check: does C → R2 (i.e. C → CD)? C→D is given, and C→C is trivial → C→CD holds → YES
+
+Since C → R2 holds, the decomposition IS lossless.</pre>
+</div>
+<h2>Finding candidate keys quickly</h2>
+<ol style="color:#c9d1e0">
+<li>Attributes that <b>never appear on the right-hand side</b> of any FD (or in no FD at all) <b>must be in every candidate key</b>.</li>
+<li>Compute the closure of that core. If it contains every attribute, the core is the <b>only</b> candidate key.</li>
+<li>Otherwise add one attribute at a time (then pairs, …) until the closure is everything; keep only minimal sets. Every attribute in some candidate key is <b>prime</b>; the others are <b>non-prime</b>.</li>
+</ol>
+<div class="num"><div class="tag">Worked numerical</div>
+<b>Q:</b> R(A, B, C, D, E) with F = { A→B, BC→D, D→E }. Find the candidate keys and the highest normal form.<br>
+<b>A:</b> A and C never appear on a right-hand side, so both are in every key. closure(AC) = {A, C, B, D, E} = everything, so <b>AC is the only candidate key</b>; prime = {A, C}, non-prime = {B, D, E}.
+<pre>2NF: A→B has a part of the key (A) determining non-prime B → partial dependency → 2NF violated
+1NF holds, so the highest normal form is 1NF.</pre>
+<b>Multiple keys:</b> for R(A, B, C) with AB→C, C→A, C→B we get C→AB, so both <b>C</b> and <b>AB</b> are candidate keys. Every left-hand side is a superkey, so R is in BCNF.
+</div>
+
+<h2>Dependency preservation vs lossless join</h2>
+<p>A decomposition of R into R₁ … Rₙ is <b>dependency preserving</b> if the FDs that hold in the pieces (the projections of F onto each Rᵢ) together still imply every FD of F, so each FD can be checked <i>within a single table</i> without a join. It is <b>lossless</b> if joining the pieces gives back exactly R. For a binary split into R₁ and R₂: lossless iff <code>(R₁ ∩ R₂) → R₁</code> or <code>(R₁ ∩ R₂) → R₂</code> (the common attributes are a key of one side).</p>
+<table>
+<tr><th>Decomposition method</th><th>Lossless?</th><th>Dependency preserving?</th></tr>
+<tr><td>3NF synthesis from a minimal cover</td><td><b>Always</b></td><td><b>Always</b></td></tr>
+<tr><td>BCNF decomposition</td><td><b>Always</b></td><td><b>Not guaranteed</b></td></tr>
+</table>
+<div class="num"><div class="tag">Worked example</div>
+<b>Q:</b> R(C, S, Z) (city, street, zip) with F = { CS→Z, Z→C }. Candidate keys: CS and SZ. Is Z→C a BCNF violation, and what happens if we decompose on it?<br>
+<b>A:</b> Z is not a superkey, so Z→C violates BCNF (but R is in 3NF because C is prime). Decompose into R₁(Z, C) and R₂(S, Z). The common attribute Z is a key of R₁, so the split is <b>lossless</b>. But C and S now live in different tables, so <b>CS→Z cannot be enforced</b> without a join: the decomposition is <b>not dependency preserving</b>.<br>
+<b>Contrast:</b> R(A, B, C) with F = {A→B, B→C} split into (A, B) and (B, C) is both lossless (B is a key of (B, C)) and dependency preserving. Split into (A, B) and (A, C) is lossless (A is a key) but loses B→C.
+</div>
+
+<h2>Multivalued dependencies and 4NF (brief)</h2>
+<p>X ↠ Y holds when, for each X value, the set of Y values is independent of the remaining attributes: if (x, y₁, z₁) and (x, y₂, z₂) are in the relation, so are (x, y₁, z₂) and (x, y₂, z₁). Every FD is an MVD, but not conversely. <b>4NF</b> = BCNF and, for every non-trivial MVD X ↠ Y, X is a superkey. Classic case: Course ↠ Teacher and Course ↠ Book, independently; storing both lists in one table multiplies the rows, and the fix is two tables (Course, Teacher) and (Course, Book). <b>5NF</b> goes one step further and removes join dependencies not implied by keys.</p>
+</section>
+
+<section id="index">
+<h1>5. File Organization & Indexing (B/B+ Trees)</h1>
+<div class="sub">How records actually sit on disk, and the tree structures that let you find one record among millions without scanning everything.</div>
+
+<h2>File organization methods</h2>
+<table>
+<tr><th>Method</th><th>How records are stored</th></tr>
+<tr><td>Heap (unordered)</td><td>Records inserted wherever there's space; fast inserts, slow search (must scan)</td></tr>
+<tr><td>Sequential</td><td>Records sorted by a key; fast range queries, but inserts/deletes are expensive (must maintain order)</td></tr>
+<tr><td>Hashed</td><td>A hash function maps a key directly to a storage location/bucket; very fast exact-match lookup, poor for range queries</td></tr>
+</table>
+
+<h2>Index basics</h2>
+<div class="grid2">
+<div class="card"><b>Clustered index</b><br>The table's actual rows are physically stored in the SAME order as the index (only one clustered index possible per table).</div>
+<div class="card"><b>Non-clustered (secondary) index</b><br>A separate structure pointing to rows stored elsewhere in some other order (a table can have many of these).</div>
+</div>
+<div class="grid2">
+<div class="card"><b>Dense index</b><br>One index entry for EVERY search key value in the file.</div>
+<div class="card"><b>Sparse index</b><br>One index entry only for SOME search key values (e.g. one per block) — smaller, but needs the data to be sorted.</div>
+</div>
+
+<h2>B-Tree vs B+-Tree</h2>
+<table>
+<tr><th></th><th>B-Tree</th><th>B+-Tree</th></tr>
+<tr><td>Where data pointers live</td><td>BOTH internal nodes and leaves hold actual record pointers</td><td>ONLY leaf nodes hold record pointers; internal nodes hold just "signpost" copies of keys to guide the search</td></tr>
+<tr><td>Leaf linking</td><td>Leaves not linked together</td><td>Leaves are linked in a chain — enables fast sequential/range scans</td></tr>
+<tr><td>Used in practice</td><td>Less common</td><td>The standard choice for almost every real DBMS index</td></tr>
+</table>
+
+<h2>B+-Tree order formulas — memorize these</h2>
+<div class="card">
+For a B+-tree of <b>order p</b> (maximum p pointers/children per internal node):
+<pre>Max keys per internal node        = p - 1
+Max children per internal node    = p
+Min children per internal node (except root) = ⌈p/2⌉
+Min keys per internal node (except root)     = ⌈p/2⌉ - 1
+Max keys per leaf node             = p - 1
+Min keys per leaf node (except root-as-leaf) = ⌈p/2⌉ - 1</pre>
+(The root is special: it only needs a minimum of 2 children if internal, or 1 key if it's a leaf.)
+</div>
+<div class="num"><div class="tag">Worked numerical — min/max number of leaf nodes</div>
+<b>Q:</b> A B+-tree index is built on a relation with n = 100,000 records. Each node (leaf or internal) has room for at most p = 8 pointers (so max 7 keys per leaf). Find the minimum and maximum possible number of leaf nodes.<br>
+<b>A:</b>
+<pre>Max keys per leaf = p - 1 = 7          → gives the MINIMUM number of leaves (tree as full as possible)
+Min keys per leaf = ⌈p/2⌉ - 1 = 4-1 = 3 → gives the MAXIMUM number of leaves (tree as sparse as possible)
+
+Minimum leaves = ⌈100000 / 7⌉ = 14,286
+Maximum leaves = ⌈100000 / 3⌉ = 33,334</pre>
+This "min fill → max count, max fill → min count" logic is the standard GATE pattern for these questions — always double-check which extreme (fullest vs sparsest) the question is asking about.
+</div>
+<div class="num"><div class="tag">Worked numerical — tree height</div>
+<b>Q:</b> Using order p = 101 (max 100 keys per node) and N = 10,000 unique search key records, find the MINIMUM height of the B+-tree (best case: every node packed as full as possible).<br>
+<b>A:</b>
+<pre>Leaf level: minimum leaves needed = ⌈10000 / 100⌉ = 100 leaves
+
+One level above the leaves: a single internal node (the root) can point to up to
+p = 101 children — since we only have 100 leaves, ALL of them fit under ONE root node.
+
+So the tree needs just 2 levels: [Root] → [100 leaves]
+Minimum height = 2</pre>
+</div>
+
+<h2>Hash indexing</h2>
+<table>
+<tr><th>Scheme</th><th>How it works</th><th>Weakness</th></tr>
+<tr><td>Static hashing</td><td>Fixed number of buckets; bucket = h(key) mod M; overflow handled by chaining overflow blocks</td><td>Long overflow chains as the file grows; reorganising means rehashing everything</td></tr>
+<tr><td>Extendible hashing</td><td>A <b>directory</b> of 2<sup>d</sup> pointers (d = <b>global depth</b>) indexed by the first d bits of the hash; each bucket has a <b>local depth</b> d′ ≤ d</td><td>Directory can double; extra indirection</td></tr>
+<tr><td>Linear hashing</td><td>Buckets split one at a time in round-robin order (no directory), regardless of which bucket overflowed</td><td>Overflow chains exist temporarily</td></tr>
+</table>
+<div class="card"><b>Extendible hashing rules</b>
+<pre>• Directory has 2^d entries; a bucket with local depth d′ is pointed to by exactly 2^(d − d′) entries
+• Bucket overflows and d′ &lt; d  →  split just that bucket (d′ + 1), NO directory doubling
+• Bucket overflows and d′ = d  →  DOUBLE the directory (d + 1), then split the bucket
+• Great for equality lookups (about 1–2 I/Os); useless for range queries (use a B+-tree)</pre></div>
+<div class="warn"><div class="tag">GATE angle</div>Hash index → exact-match only. If a question mentions a <b>range</b> or <b>ORDER BY</b> on the key, the B+-tree is the right answer.</div>
+<h2>Block arithmetic — blocking factor and access cost</h2>
+<table>
+<tr><th>Quantity</th><th>Formula</th></tr>
+<tr><td>Blocking factor (records per block)</td><td><code>bf = ⌊B / R⌋</code> (B = block size, R = record size, unspanned)</td></tr>
+<tr><td>Data blocks for r records</td><td><code>b = ⌈r / bf⌉</code></td></tr>
+<tr><td>Heap file search</td><td>average <code>b/2</code> blocks, worst case <code>b</code></td></tr>
+<tr><td>Sorted file, search on the sort key</td><td><code>⌈log₂ b⌉</code> (binary search)</td></tr>
+<tr><td>Index entries per block</td><td><code>⌊B / (key + pointer)⌋</code></td></tr>
+<tr><td>Primary index (sparse, one entry per data block)</td><td>index blocks = <code>⌈b / entries-per-block⌉</code>; access = <code>⌈log₂ index blocks⌉ + 1</code></td></tr>
+<tr><td>Secondary index (dense, one entry per record)</td><td>index blocks = <code>⌈r / entries-per-block⌉</code>; access = <code>⌈log₂ index blocks⌉ + 1</code></td></tr>
+<tr><td>Multilevel index</td><td>Index the index until one block remains; access = <b>number of levels + 1</b></td></tr>
+</table>
+<div class="num"><div class="tag">Worked numerical</div>
+<b>Q:</b> r = 100,000 records of 128 bytes in 4096-byte blocks, sorted on a key. An index entry is 16 bytes (12-byte key + 4-byte pointer). Find the block accesses for (a) a heap file, (b) binary search on the file, (c) a primary index, (d) a secondary index on a non-ordering field, (e) a multilevel primary index.<br>
+<b>A:</b> bf = 4096/128 = 32, so b = ⌈100000/32⌉ = <b>3125</b> blocks. Entries per index block = 4096/16 = 256.
+<pre>(a) heap, average        = 3125/2 → 1563 block accesses
+(b) binary search        = ⌈log₂ 3125⌉ = 12
+(c) primary index        : ⌈3125/256⌉ = 13 index blocks → ⌈log₂ 13⌉ + 1 = 4 + 1 = 5
+(d) secondary index      : ⌈100000/256⌉ = 391 blocks → ⌈log₂ 391⌉ + 1 = 9 + 1 = 10
+(e) multilevel primary   : 13 blocks → 1 block (2 levels) → 2 + 1 = 3</pre>
+</div>
+<div class="num"><div class="tag">Worked numerical — B+ tree order from the block size</div>
+<b>Q:</b> Block = 4096 B, key = 12 B, tree pointer = 8 B, record pointer = 8 B. Find the order of an internal node and the keys per leaf.<br>
+<b>A:</b> Internal node holding p pointers and p − 1 keys: <code>p·8 + (p − 1)·12 ≤ 4096</code> → 20p ≤ 4108 → <b>p = 205</b> (check: 205·8 + 204·12 = 4088 ≤ 4096). A leaf with k (key, record-pointer) pairs plus one next-leaf pointer: <code>k·(12 + 8) + 8 ≤ 4096</code> → k ≤ 204.4, so <b>204 keys per leaf</b>.
+</div>
+</section>
+
+<section id="trans">
+<h1>6. Transactions & Concurrency Control</h1>
+<div class="sub">How a database keeps data correct when many transactions run at the same time — and how to formally check whether a given interleaving is "safe".</div>
+
+<h2>ACID properties</h2>
+<table>
+<tr><th>Property</th><th>Guarantee</th></tr>
+<tr><td>Atomicity</td><td>A transaction happens completely, or not at all — no partial updates survive a crash</td></tr>
+<tr><td>Consistency</td><td>A transaction moves the database from one valid state to another valid state</td></tr>
+<tr><td>Isolation</td><td>Concurrent transactions don't see each other's uncommitted, intermediate changes</td></tr>
+<tr><td>Durability</td><td>Once committed, changes survive any subsequent crash</td></tr>
+</table>
+
+<h2>Serializability — the gold standard for correctness</h2>
+<p>A <b>serial schedule</b> runs transactions one at a time, start to finish, with zero interleaving — always correct, but slow. An interleaved (concurrent) schedule is <b>conflict serializable</b> if it's equivalent to SOME serial schedule, checked using a <b>precedence graph</b>:</p>
+<div class="card">
+Draw an edge <b>Ti → Tj</b> whenever an operation of Ti <b>conflicts</b> with, and comes before, an operation of Tj on the same data item. Two operations conflict if they're from different transactions, touch the same data item, and <b>at least one is a WRITE</b> (R-W, W-R, or W-W all conflict; R-R never conflicts).
+<pre>If the precedence graph has a CYCLE  → NOT conflict serializable
+If the precedence graph is ACYCLIC   → conflict serializable (a topological sort gives an equivalent serial order)</pre>
+</div>
+<div class="num"><div class="tag">Worked numerical</div>
+<b>Q:</b> Schedule S: R1(A), R2(A), W1(A), R3(B), W2(B), W3(B). Build the precedence graph and determine if S is conflict serializable.<br>
+<b>A:</b>
+<pre>Conflicts on A: R2(A) occurs before W1(A) → different transactions, one is a write → edge T2 → T1
+
+Conflicts on B: R3(B) occurs before W2(B) → edge T3 → T2
+               W2(B) occurs before W3(B) → edge T2 → T3
+
+Precedence graph edges: T2→T1,  T3→T2,  T2→T3
+
+Check for a cycle: T2→T3→T2 forms a 2-node cycle (T2 and T3 point to each other)
+
+Result: the graph HAS a cycle → S is NOT conflict serializable.</pre>
+</div>
+
+<h2>View serializability</h2>
+<p>Two schedules are <b>view equivalent</b> if (1) each transaction reads the <b>initial value</b> of an item in both or in neither, (2) every <b>read-from</b> relation (Ti reads the value written by Tj) is the same in both, and (3) the <b>final write</b> on every item is by the same transaction. A schedule is <b>view serializable</b> if it is view equivalent to some serial schedule.</p>
+<div class="card"><b>Key facts</b>
+<pre>Conflict serializable  ⊂  View serializable  ⊂  All schedules
+A schedule that is view- but NOT conflict-serializable must contain BLIND WRITES
+(a write on an item by a transaction that did not read it first)
+Testing view serializability is NP-complete (no simple precedence-graph test)</pre></div>
+<div class="num"><div class="tag">Worked numerical</div>
+<b>Q:</b> S: R1(A) W2(A) W1(A) W3(A). Is it conflict serializable? View serializable?<br>
+<b>A:</b>
+<pre>Precedence edges: R1(A)→W2(A): T1→T2;  W2(A)→W1(A): T2→T1  → cycle → NOT conflict serializable
+View test against serial order T1, T2, T3:
+  initial read of A by T1 in both ✓ · no read-from relations in either ✓ · final write on A by T3 in both ✓
+→ view equivalent to T1 T2 T3 → VIEW SERIALIZABLE (W2 and W3 are blind writes)</pre></div>
+
+<h2>Recoverability of schedules</h2>
+<p>Serializability says nothing about what happens when a transaction <b>aborts</b>. Recoverability classes handle that:</p>
+<table>
+<tr><th>Class</th><th>Rule</th></tr>
+<tr><td><b>Recoverable</b></td><td>If Tj <b>reads from</b> Ti, then Ti must <b>commit before</b> Tj commits</td></tr>
+<tr><td><b>Cascadeless (ACA)</b></td><td>Tj may read an item only <b>after</b> the transaction that last wrote it has committed — no dirty reads, so no cascading aborts</td></tr>
+<tr><td><b>Strict</b></td><td>No transaction may <b>read or overwrite</b> an item written by Ti until Ti commits or aborts</td></tr>
+</table>
+<div class="card"><pre>Strict  ⊂  Cascadeless  ⊂  Recoverable  ⊂  All schedules
+Serial schedules are strict · Strict 2PL schedules are strict + conflict serializable
+Serializability and recoverability are INDEPENDENT properties (a schedule can have either, both or neither)</pre></div>
+<div class="num"><div class="tag">Worked numerical — classify</div>
+<pre>S1: W1(A) R2(A) C2 C1   T2 read from T1 but committed first        → NOT recoverable
+S2: W1(A) R2(A) C1 C2   dirty read, but commit order is right       → recoverable, NOT cascadeless
+S3: W1(A) W2(A) C1 C2   no reads; T2 overwrites uncommitted A       → cascadeless, NOT strict
+S4: W1(A) C1 R2(A) C2   reads/writes only after commit              → strict</pre></div>
+
+<h2>Two-Phase Locking (2PL)</h2>
+<div class="card">Every transaction has a <b>growing phase</b> (can only ACQUIRE locks, never release) followed by a <b>shrinking phase</b> (can only RELEASE locks, never acquire any new ones). The moment a transaction releases its first lock, it may never request another. 2PL guarantees conflict serializability.</div>
+<table>
+<tr><th>Variant</th><th>Extra rule</th><th>Benefit</th></tr>
+<tr><td>Basic 2PL</td><td>Just the growing/shrinking rule above</td><td>Serializable, but can still allow cascading rollbacks</td></tr>
+<tr><td>Strict 2PL</td><td>ALL locks (especially write locks) held until the transaction commits or aborts</td><td>Prevents cascading rollbacks — the industry-standard choice</td></tr>
+<tr><td>Rigorous 2PL</td><td>Every lock (read AND write) held until commit/abort</td><td>Simplifies recovery further; transactions serialize in commit order</td></tr>
+</table>
+
+<h2>Deadlocks — detection and prevention</h2>
+<div class="card"><b>Detection:</b> keep a <b>wait-for graph</b> (node per transaction; edge Ti → Tj when Ti waits for a lock held by Tj). A <b>cycle ⇔ deadlock</b>; abort one victim on the cycle.<br>
+<b>Prevention</b> uses transaction timestamps (smaller TS = <b>older</b>) when a lock conflict occurs:</div>
+<table>
+<tr><th>Scheme</th><th>Older requests a lock held by younger</th><th>Younger requests a lock held by older</th></tr>
+<tr><td><b>Wait-Die</b> (non-preemptive)</td><td>Older <b>waits</b></td><td>Younger <b>dies</b> (rolled back)</td></tr>
+<tr><td><b>Wound-Wait</b> (preemptive)</td><td>Older <b>wounds</b> the younger (younger rolled back)</td><td>Younger <b>waits</b></td></tr>
+</table>
+<div class="warn"><div class="tag">Memory trick</div>In <b>Wait-Die the OLD wait</b>; in <b>Wound-Wait the YOUNG wait</b>. A restarted transaction keeps its <b>original timestamp</b>, so it eventually becomes the oldest — no starvation. Both schemes are deadlock-free (all waits go in one direction of age).</div>
+
+<h2>Timestamp Ordering Protocol</h2>
+<p>Every transaction gets a unique timestamp TS(T) when it starts. Each data item tracks the timestamp of its most recent successful read (R-timestamp) and write (W-timestamp). A read or write is <b>rejected (and the transaction rolled back)</b> if it would violate the timestamp order — e.g. a transaction tries to write a value that a "younger" (later-timestamped) transaction has already read, which would make that earlier read see a "future" value it shouldn't have.</p>
+<div class="warn"><div class="tag">GATE angle</div>Unlike 2PL (which can cause transactions to WAIT for locks), timestamp ordering never makes a transaction wait — it either proceeds immediately or is rolled back and restarted with a NEW timestamp. This trades lock-waiting for a different cost: rollback/restart overhead.</div>
+
+<div class="card"><b>Basic TO rules</b> (item Q has R-TS(Q) and W-TS(Q)):
+<pre>Read(Q) by T:   if TS(T) &lt; W-TS(Q)  → reject, roll back T
+                else execute; R-TS(Q) = max(R-TS(Q), TS(T))
+Write(Q) by T:  if TS(T) &lt; R-TS(Q)  → reject, roll back T   (a younger txn already read the old value)
+                if TS(T) &lt; W-TS(Q)  → reject, roll back T   (basic TO)  /  IGNORE the write (Thomas)
+                else execute; W-TS(Q) = TS(T)</pre>
+<b>Thomas write rule:</b> in the case TS(T) &lt; W-TS(Q) the write is <i>obsolete</i> (a later write has already overwritten it), so instead of aborting T we simply <b>skip it</b>. This admits schedules that are <b>view serializable but not conflict serializable</b>. Basic TO guarantees conflict serializability and freedom from deadlock, but not recoverability/cascadelessness on its own.</div>
+
+<h2>Multiple-granularity locking &amp; intention locks</h2>
+<p>Data items form a hierarchy (database → file → page → record). Locking a coarse node implicitly locks everything below it; <b>intention locks</b> on ancestors announce that finer locks are held below.</p>
+<table>
+<tr><th>Held ↓ / Requested →</th><th>IS</th><th>IX</th><th>S</th><th>SIX</th><th>X</th></tr>
+<tr><td><b>IS</b></td><td>✔</td><td>✔</td><td>✔</td><td>✔</td><td>✘</td></tr>
+<tr><td><b>IX</b></td><td>✔</td><td>✔</td><td>✘</td><td>✘</td><td>✘</td></tr>
+<tr><td><b>S</b></td><td>✔</td><td>✘</td><td>✔</td><td>✘</td><td>✘</td></tr>
+<tr><td><b>SIX</b></td><td>✔</td><td>✘</td><td>✘</td><td>✘</td><td>✘</td></tr>
+<tr><td><b>X</b></td><td>✘</td><td>✘</td><td>✘</td><td>✘</td><td>✘</td></tr>
+</table>
+<div class="card"><pre>To lock a node in S or IS → must hold IS or IX on its parent
+To lock a node in X, IX or SIX → must hold IX or SIX on its parent
+Lock from the ROOT downward; release from the LEAF upward
+SIX = S on the whole subtree + IX (read everything, update a few records)</pre></div>
+<h2>Isolation levels and the anomalies they allow</h2>
+<table>
+<tr><th>Level (SQL standard)</th><th>Dirty read</th><th>Non-repeatable read</th><th>Phantom</th></tr>
+<tr><td>Read Uncommitted</td><td>possible</td><td>possible</td><td>possible</td></tr>
+<tr><td>Read Committed</td><td><b>prevented</b></td><td>possible</td><td>possible</td></tr>
+<tr><td>Repeatable Read</td><td>prevented</td><td><b>prevented</b></td><td>possible</td></tr>
+<tr><td>Serializable</td><td>prevented</td><td>prevented</td><td><b>prevented</b></td></tr>
+</table>
+<p><b>Dirty read:</b> reading another transaction's uncommitted write. <b>Non-repeatable read:</b> reading the same row twice and getting different values because another transaction committed an update in between. <b>Phantom:</b> re-running a range query and seeing new rows that another transaction inserted.</p>
+
+<h2>Lock modes and compatibility</h2>
+<table>
+<tr><th>Held ↓ / Requested →</th><th>Shared (S)</th><th>Exclusive (X)</th></tr>
+<tr><td><b>Shared (S)</b></td><td>granted</td><td>must wait</td></tr>
+<tr><td><b>Exclusive (X)</b></td><td>must wait</td><td>must wait</td></tr>
+</table>
+<p>Many readers can share an item, but a writer needs it alone. A transaction may <b>upgrade</b> S→X (only if it is the sole holder) and, in some schemes, downgrade X→S. The <b>lock point</b> is the moment a 2PL transaction holds all its locks, and ordering transactions by their lock points gives an equivalent serial order. Basic 2PL guarantees conflict serializability but <b>not</b> freedom from deadlock and <b>not</b> recoverability (a transaction may release a lock on dirty data); strict 2PL, which holds X locks until commit, fixes the second.</p>
+
+<h2>Recovery — write-ahead logging</h2>
+<ul style="color:#c9d1e0">
+<li><b>Log record</b> <code>&lt;T, X, old, new&gt;</code> is written to stable storage <b>before</b> the changed page reaches disk (<b>write-ahead logging</b>). A transaction counts as committed once its <code>&lt;T commit&gt;</code> record is on disk.</li>
+<li><b>Deferred modification</b> writes to the database only after commit, so recovery needs only <b>REDO</b>. <b>Immediate modification</b> may write before commit, so recovery needs <b>UNDO</b> (and REDO).</li>
+<li><b>Checkpoint:</b> flush logs and dirty pages and note the active transactions, so recovery never scans the log before it.</li>
+<li><b>Recovery after a crash:</b> REDO transactions that committed after the last checkpoint; UNDO transactions that were active (started, no commit) at the crash.</li>
+</ul>
+<div class="num"><div class="tag">Worked example</div>
+<b>Q:</b> Log: &lt;T1 start&gt;, &lt;T1, A, 10, 20&gt;, &lt;T1 commit&gt;, &lt;checkpoint&gt;, &lt;T2 start&gt;, &lt;T2, B, 5, 8&gt;, &lt;T3 start&gt;, &lt;T3, C, 1, 2&gt;, &lt;T3 commit&gt;, then a crash. What does recovery do?<br>
+<b>A:</b> T1 committed <b>before</b> the checkpoint, so its updates are already on disk: nothing to do. T3 committed after the checkpoint: <b>REDO</b> it (C = 2). T2 never committed: <b>UNDO</b> it (B back to 5, its old value).
+</div>
+<div class="card"><b>Shadow paging</b> keeps a current page table and a shadow page table; updates go to new pages (copy-on-write), commit atomically swaps the table pointer, and abort just discards the new pages, so no log is needed but data gets fragmented. <b>ARIES</b> uses write-ahead logging with log sequence numbers (LSNs) and recovers in three passes: <b>analysis</b> (find dirty pages and active transactions), <b>redo</b> (repeat history from the log, even for transactions that will be undone) and <b>undo</b> (roll back the losers).</div>
+</section>
+
+<section id="methods">
+<h1>7. Problem → Standard Method Playbook</h1>
+<div class="sub">Use these recognition rules before touching the arithmetic. The goal is to identify the canonical DBMS method quickly, then execute it cleanly.</div>
+<div class="grid">
+<div class="card"><h2>“for every / all” query</h2><p><b>Recognize:</b> an entity must be related to <i>every</i> member of another relation.</p><pre>1. Project the required entity-key pairs.
+2. Use relational division R ÷ S, or
+3. rewrite as NOT EXISTS (missing required match).
+4. Check that duplicates cannot change the logical result.</pre><p><b>Trap:</b> ordinary join + GROUP BY needs a count equal to the number of required values; forgetting this turns “all” into “at least one”.</p></div>
+<div class="card"><h2>Minimal / canonical cover</h2><pre>1. Split every RHS: X → YZ becomes X → Y, X → Z.
+2. Minimize each LHS: remove an attribute if the reduced determinant still implies the RHS.
+3. Remove redundant FDs: temporarily delete one FD and test whether it follows from the rest using attribute closure.
+4. Recombine equivalent RHSs only at the end.</pre><p><b>Trap:</b> do not delete an FD merely because its RHS appears elsewhere; test implication.</p></div>
+<div class="card"><h2>Schedule → conflict serializability</h2><pre>1. Keep only conflicting pairs: same item, different transactions, at least one WRITE.
+2. Draw Ti → Tj when Ti's operation occurs first.
+3. Acyclic precedence graph ⇒ conflict serializable.
+4. A cycle ⇒ not conflict serializable.
+5. If needed, topologically order the acyclic graph to obtain the equivalent serial order.</pre></div>
+<div class="card"><h2>View serializability / Thomas write rule</h2><pre>Track: initial reads, reads-from relationships, and final writer of each item.
+Thomas write rule: if TS(T) &lt; W-TS(X), T's write is obsolete → ignore it rather than aborting T.
+Use this when the schedule is not conflict-serializable but may still be view-serializable.</pre></div>
+<div class="card"><h2>Locking / deadlock prevention</h2><p><b>2PL:</b> growing phase acquires locks; shrinking phase releases them. Strict 2PL keeps write locks until commit/abort.</p><p><b>Wait-die:</b> older waits; younger aborts. <b>Wound-wait:</b> older preempts/aborts younger; younger waits for older.</p><p><b>Intention locks:</b> use IS/IX/SIX on ancestors before finer-grained locks below.</p></div>
+<div class="card"><h2>Index / access-path choice</h2><pre>Equality on a hashable key → hash index is attractive.
+Range / ORDER BY / predecessor-successor → B+ tree.
+B+ tree search: follow separator keys to leaf; linked leaves support ordered/range scans.
+Always distinguish logical comparison count from disk I/O/page accesses.</pre></div>
+</div>
+
+<h1>GATE-Level Worked Problems</h1>
+<div class="problem"><h2>1. Relational algebra division</h2><p>R(Student, Course) = {(A,DBMS),(A,CN),(B,DBMS),(C,DBMS),(C,CN)}. Required(Course) = {DBMS,CN}. Find the students who took <b>all</b> required courses.</p><p><b>Method:</b> R ÷ Required.</p><p>Student A has both required pairs; B lacks CN; C has both. Therefore the result is <b>{A,C}</b>.</p><p><b>SQL equivalent:</b> select students for which <code>NOT EXISTS</code> a required course missing from R.</p></div>
+<div class="problem"><h2>2. Minimal cover</h2><p>Given F = {A→BC, B→C, A→B, AB→C}. Find a minimal cover.</p><p><b>Step 1:</b> split A→BC into A→B and A→C.</p><p><b>Step 2:</b> AB→C has extraneous B because A→C is already implied by the other dependencies.</p><p><b>Step 3:</b> A→C is redundant because A→B and B→C imply A→C.</p><p>One minimal cover is <b>{A→B, B→C}</b>.</p></div>
+<div class="problem"><h2>3. Precedence graph</h2><p>Schedule: r₁(X), w₁(X), r₂(X), w₂(X), r₁(Y), w₂(Y). What does the conflict graph imply?</p><p>On X, T₁'s write precedes T₂'s read/write ⇒ T₁→T₂. On Y, T₁ reads before T₂ writes ⇒ T₁→T₂. The graph is acyclic, so the schedule is <b>conflict serializable</b>, equivalent to serial order <b>T₁ then T₂</b>.</p><p><b>Trap:</b> r-r pairs do not create edges.</p></div>
+<div class="problem"><h2>4. Wait-die vs wound-wait</h2><p>T₁ is older than T₂. T₁ requests a lock held by T₂. What happens?</p><p><b>Wait-die:</b> older T₁ may <b>wait</b> for younger T₂. <b>Wound-wait:</b> older T₁ <b>wounds</b> T₂, so T₂ is rolled back and T₁ obtains the lock.</p><p><b>Memory rule:</b> wait-die = old waits; wound-wait = old wounds.</p></div>
+<div class="problem"><h2>5. B+ tree vs hash</h2><p>A query asks for all employee IDs in the range 5000–7000. Which index is structurally suited?</p><p><b>B+ tree.</b> After reaching the first qualifying leaf, linked leaf pages can be scanned in key order. A hash index is optimized for equality lookup and does not preserve key order for efficient range scans.</p></div>
+
+<div class="rapid"><h2>⚡ DBMS Last-Minute Recall</h2><ul>
+<li><b>Division = ALL</b>; join alone normally means “at least one”.</li>
+<li>Minimal cover: <b>split RHS → minimize LHS → remove redundant FDs</b>.</li>
+<li>Precedence graph: edge for same item + different transactions + at least one write.</li>
+<li>Acyclic precedence graph ⇔ conflict serializable.</li>
+<li>Thomas write rule can ignore obsolete writes; it can admit view-serializable schedules that are not conflict-serializable.</li>
+<li><b>Wait-die:</b> older waits. <b>Wound-wait:</b> older aborts younger.</li>
+<li>B+ tree → ordered/range access; hash → equality access.</li>
+</ul></div>
+</section>
+<section id="quiz">
+<h1>8. Practice Quiz — 82 Questions</h1>
+<div class="sub">Covers all 6 topics above. Click an option to check yourself instantly — explanations included.</div>
+<div class="qtopics" id="qtopics"></div><style>.qmode button{cursor:pointer;padding:8px 12px;border:1px solid #888;border-radius:8px;background:transparent}.qmode button.active{font-weight:700}.opt.selected{outline:2px solid currentColor;transform:translateX(2px)}</style><div class="qmode" style="margin:12px 0;display:flex;gap:8px;flex-wrap:wrap"><button id="mcqMode" class="active">MCQ</button><button id="msqMode">MSQ · Select all that apply</button></div>
+<div id="score">Answered <b id="ansCount">0</b>/<span id="totalQ">82</span> · Correct <b id="corrCount">0</b></div>
+<div id="qlist"></div>
+</section>
+
+<section id="pyq">
+<h1>9. GATE-Level Solved Problems</h1>
+<div class="sub">The 82 quiz questions above are your fundamentals-check. These are heavier, multi-step problems in actual GATE exam style — every step shown.</div>
+
+<div class="gq"><div class="gtag">Q1 · Counting candidate keys via attribute closure</div>
+<b>R(A,B,C,D,E) with FDs: AB→C, C→D, D→E, E→A. Find ALL candidate keys.</b>
+<pre>Notice E→A creates a cycle back: AB→C→D→E→A. Let's test candidate attribute sets.
+
+Try {A,B}: closure = {A,B} → +C (AB→C) → +D (C→D) → +E (D→E) → nothing new (E→A already in set)
+  closure({A,B}) = {A,B,C,D,E} = ALL attributes → {A,B} is a super key.
+  Is it minimal? Check {A} alone: closure({A}) = {A} only (no FD has just A on the left) → not a superkey.
+  Check {B} alone: closure({B}) = {B} only → not a superkey.
+  So {A,B} is minimal → {A,B} IS a candidate key.
+
+Since E→A, and A appears only via AB→C on the left, try replacing A using the cycle:
+Try {B,C}: closure = {B,C} → +D (C→D) → +E (D→E) → +A (E→A) → now AB→C is satisfied trivially
+  closure({B,C}) = {A,B,C,D,E} = ALL attributes → {B,C} is also a super key, and minimal (check {B},{C} alone — neither alone reaches everything) → {B,C} IS a candidate key.
+
+Similarly, following the cycle C→D→E→A→(needs B)→C, check {B,D} and {B,E} too:
+Try {B,D}: closure = {B,D} → +E (D→E) → +A (E→A) → +C (AB→C, now have A,B) → ALL attributes → candidate key
+Try {B,E}: closure = {B,E} → +A (E→A) → +C (AB→C) → +D (C→D) → ALL attributes → candidate key
+
+Candidate keys found: {A,B}, {B,C}, {B,D}, {B,E}</pre>
+<p class="gans">Correct: There are <b>4 candidate keys</b>: {A,B}, {B,C}, {B,D}, {B,E} — B appears in every one of them (it's the one attribute never determined by any FD's right-hand side).</p>
+</div>
+
+<div class="gq"><div class="gtag">Q2 · SQL query output prediction</div>
+<b>Tables: Dept(did,dname): (10,'CS'),(20,'EE'),(30,'ME'). Employee(eid,did,salary): (1,10,50000),(2,10,70000),(3,20,60000),(4,30,NULL). What does this return?
+<code>SELECT d.dname, COUNT(e.eid), SUM(e.salary) FROM Dept d LEFT JOIN Employee e ON d.did=e.did GROUP BY d.dname;</code></b>
+<pre>LEFT JOIN keeps every Dept row even without a matching Employee (none here, all depts have ≥1 employee row):
+  CS:  employees (1,50000),(2,70000)      → COUNT=2, SUM=120000
+  EE:  employee (3,60000)                  → COUNT=1, SUM=60000
+  ME:  employee (4,NULL)                   → COUNT=1 (counts the row, eid=4 is not null),
+                                              SUM=NULL (SUM ignores the NULL salary, and
+                                              with nothing else to add, SUM of zero
+                                              non-null values is NULL, not 0)</pre>
+<p class="gans">Correct:<br>CS | 2 | 120000<br>EE | 1 | 60000<br>ME | 1 | NULL</p>
+</div>
+
+<div class="gq"><div class="gtag">Q3 · Minimum tables for a complex ER diagram</div>
+<b>ER diagram: Strong entities Doctor, Patient. Relationship Treats (M:N, with attribute "date") between them. Patient has a weak entity Prescription (identified by Patient + a partial key "presc_no"), linked via a 1:N identifying relationship. Find the minimum number of tables.</b>
+<pre>Doctor        → 1 table
+Patient       → 1 table
+Treats (M:N)  → MUST be a separate table (holds Doctor_id + Patient_id + date, composite PK)
+Prescription (weak entity) → 1 table (PK = Patient_id + presc_no, no separate relationship table needed
+                               since the identifying relationship is 1:N and absorbed directly)
+
+Total = 4 tables</pre>
+<p class="gans">Correct: <b>4 tables</b> — Doctor, Patient, Treats (forced separate due to M:N), and Prescription (weak entity, absorbs its identifying relationship).</p>
+</div>
+
+<div class="gq"><div class="gtag">Q4 · Highest normal form determination</div>
+<b>R(Roll, Name, DeptId, DeptName) with FDs: Roll→Name, Roll→DeptId, DeptId→DeptName. Candidate key = {Roll}. Find the highest normal form.</b>
+<pre>1NF: assume atomic values → ✓ holds
+
+2NF: key {Roll} is a SINGLE attribute, so partial dependency is impossible by definition → ✓ holds automatically
+
+3NF: check for transitive dependency (non-key → non-key).
+  DeptId→DeptName: DeptId is itself a NON-KEY attribute (only Roll is the key), and it determines
+  another non-key attribute DeptName → this is a transitive dependency (Roll→DeptId→DeptName)
+  → ✗ 3NF VIOLATED
+
+Highest normal form satisfied = 2NF</pre>
+<p class="gans">Correct: R satisfies only <b>2NF</b> — the DeptId→DeptName dependency is the classic "transitive dependency through a non-key attribute" that breaks 3NF.</p>
+</div>
+
+<div class="gq"><div class="gtag">Q5 · B+-tree: combining leaf count and height</div>
+<b>A relation has 1,000,000 records. The B+-tree has order p=101 (max 100 keys/node, min 50 keys/node except root). Find the MINIMUM height of the tree (best case, tree as full as possible) including the leaf level.</b>
+<pre>Level (leaves): minimum leaves = ⌈1,000,000 / 100⌉ = 10,000 leaves
+
+One level up: each internal node can point to up to 101 children (leaves).
+  Minimum nodes at this level = ⌈10,000 / 101⌉ = 100 nodes
+
+One level up again: each node points to up to 101 children (the level-2 nodes).
+  Minimum nodes at this level = ⌈100 / 101⌉ = 1 node → this is the ROOT
+
+So the levels are: Root (1 node) → Level 2 (100 nodes) → Leaves (10,000 nodes)
+Total levels = 3 → Minimum height = 3</pre>
+<p class="gans">Correct: minimum height = <b>3 levels</b> (root, one internal level, and the leaf level) — this "divide by max fanout repeatedly until you reach 1 node" technique is the standard way to compute B+-tree height for large record counts.</p>
+</div>
+
+<div class="gq"><div class="gtag">Q6 · Conflict serializability with a larger schedule</div>
+<b>Schedule S: R1(X), R2(Y), W1(Y), R3(X), W2(X), W3(Y). Build the precedence graph and determine if S is conflict serializable; if so, give a valid serial order.</b>
+<pre>Conflicts on X: R1(X) then R3(X) — both reads, NO conflict.
+               R3(X) then W2(X) — different txns, one write → edge T3 → T2
+
+Conflicts on Y: R2(Y) then W1(Y) — different txns, one write → edge T2 → T1
+               W1(Y) then W3(Y) — different txns, both writes → edge T1 → T3
+
+Precedence graph edges: T3→T2,  T2→T1,  T1→T3
+
+Check for cycle: T3→T2→T1→T3 — this IS a cycle (T1,T2,T3 all point back around)
+
+Result: S is NOT conflict serializable (cyclic precedence graph, no valid serial order exists).</pre>
+<p class="gans">Correct: <b>NOT conflict serializable</b> — the 3-way cycle T1→T3→T2→T1 means no equivalent serial ordering of T1, T2, T3 can reproduce this schedule's effect.</p>
+</div>
+
+<div class="gq"><div class="gtag">Q7 · Relational algebra — step-by-step evaluation</div>
+<b>Student(sid,name,dept): (1,Amy,CS),(2,Ravi,EE),(3,Zara,CS),(4,Leo,ME). Enroll(sid,course): (1,DB),(1,OS),(2,DB),(3,AI). Evaluate <code>π_name( σ_dept='CS' (Student) ⋈ Enroll )</code> step by step.</b>
+<pre>Step 1 — σ_dept='CS'(Student): filter rows where dept='CS'
+  Result: (1,Amy,CS), (3,Zara,CS)
+
+Step 2 — Natural join with Enroll (match on sid):
+  sid=1 (Amy) matches Enroll rows (1,DB) and (1,OS)  → (1,Amy,CS,DB), (1,Amy,CS,OS)
+  sid=3 (Zara) matches Enroll row (3,AI)              → (3,Zara,CS,AI)
+  (sid=2 and sid=4 are not in the filtered Student set, so their Enroll rows are irrelevant here)
+
+Step 3 — π_name: project only the name column, remove duplicates
+  Amy appears twice (from DB and OS) → collapses to ONE row
+  Result: {Amy, Zara}</pre>
+<p class="gans">Correct: the final result is <b>{Amy, Zara}</b> — exactly 2 tuples, even though Amy matched 2 Enroll rows, because projection removes duplicates.</p>
+</div>
+
+<div class="gq"><div class="gtag">Q8 · Two-Phase Locking — lock sequence trace</div>
+<b>Two transactions run: T1: Lock-X(A), Read(A), Write(A), Lock-S(B), Read(B), Unlock(A), Unlock(B). T2: Lock-S(A), Read(A), Unlock(A), Lock-X(B), Write(B), Unlock(B). Does T1 follow 2PL? Does T2?</b>
+<pre>T1's lock sequence: Lock-X(A) [acquire] → Lock-S(B) [acquire] → Unlock(A) [release] → Unlock(B) [release]
+  All acquires happen before any releases → growing phase, then shrinking phase, never interleaved
+  → T1 FOLLOWS 2PL ✓
+
+T2's lock sequence: Lock-S(A) [acquire] → Unlock(A) [release] → Lock-X(B) [acquire] → Unlock(B) [release]
+  T2 releases a lock (Unlock A) and THEN acquires a new one (Lock-X B) afterward
+  → a release happened before a later acquire → shrinking phase started, then growing resumed
+  → T2 VIOLATES 2PL ✗</pre>
+<p class="gans">Correct: T1 is a valid 2PL transaction; T2 is NOT — it acquires a new lock (on B) after already releasing an earlier lock (on A), breaking the strict growing-then-shrinking rule.</p>
+</div>
+
+<div class="gq"><div class="gtag">Q9 · Deadlock detection via wait-for graph</div>
+<b>Four transactions hold/request locks: T1 holds A, waits for B. T2 holds B, waits for C. T3 holds C, waits for D. T4 holds D, waits for A. Build the wait-for graph and determine if the system is deadlocked.</b>
+<pre>Wait-for graph edges (Ti → Tj means Ti is waiting for a lock held by Tj):
+  T1 waits for B, which T2 holds → T1 → T2
+  T2 waits for C, which T3 holds → T2 → T3
+  T3 waits for D, which T4 holds → T3 → T4
+  T4 waits for A, which T1 holds → T4 → T1
+
+Edges: T1→T2→T3→T4→T1 — this is a 4-node CYCLE
+
+Result: the system IS deadlocked (all four transactions are stuck waiting in a circular chain).</pre>
+<p class="gans">Correct: <b>Deadlocked</b> — a cycle anywhere in the wait-for graph (2 nodes or more) means deadlock, exactly analogous to the single-instance Resource Allocation Graph rule.</p>
+</div>
+
+<div class="gq"><div class="gtag">Q10 · Correlated subquery — row-by-row trace</div>
+<b>Employee(eid,dept,salary): (1,CS,40000),(2,CS,70000),(3,EE,60000),(4,EE,50000). Trace: <code>SELECT eid FROM Employee e1 WHERE salary > (SELECT AVG(salary) FROM Employee e2 WHERE e2.dept = e1.dept);</code></b>
+<pre>This is CORRELATED — the subquery re-runs for every outer row, using that row's own dept.
+
+For e1=(1,CS,40000): subquery computes AVG(salary) WHERE dept='CS' → AVG(40000,70000) = 55000
+  Is 40000 > 55000? NO → eid=1 excluded
+
+For e1=(2,CS,70000): subquery AVG for dept='CS' = 55000 (same CS group)
+  Is 70000 > 55000? YES → eid=2 included
+
+For e1=(3,EE,60000): subquery AVG for dept='EE' = AVG(60000,50000) = 55000
+  Is 60000 > 55000? YES → eid=3 included
+
+For e1=(4,EE,50000): subquery AVG for dept='EE' = 55000
+  Is 50000 > 55000? NO → eid=4 excluded
+
+Result: {2, 3}</pre>
+<p class="gans">Correct: the query returns <b>eid = 2 and 3</b> — employees earning above their OWN department's average salary. Note the subquery's dept filter changes for every single outer row, which is the defining feature of a correlated subquery.</p>
+</div>
+
+<div class="gq"><div class="gtag">Q11 · Dense vs sparse index — storage comparison</div>
+<b>A file has 200,000 records, stored sorted on the search key, with 50 records per disk block. Each index entry (key+pointer) takes 10 bytes, and a disk block is 2000 bytes (so 200 index entries fit per index block). Compare the number of index BLOCKS needed for a dense index vs a sparse index (one entry per data block).</b>
+<pre>Dense index: one entry per RECORD
+  Total index entries = 200,000
+  Entries per index block = 2000/10 = 200
+  Index blocks needed = 200,000 / 200 = 1,000 blocks
+
+Sparse index: one entry per DATA BLOCK (not per record)
+  Number of data blocks = 200,000 / 50 = 4,000 data blocks
+  Index entries needed = 4,000 (one per data block)
+  Index blocks needed = 4,000 / 200 = 20 blocks</pre>
+<p class="gans">Correct: dense index needs <b>1,000 index blocks</b>, sparse needs only <b>20 index blocks</b> — a 50× reduction, exactly matching the 50-records-per-block fill factor. This is precisely why sparse indexes are preferred whenever the file is already sorted on the search key.</p>
+</div>
+
+<div class="gq"><div class="gtag">Q12 · Multivalued Dependency & 4NF</div>
+<b>R(Student, Course, Hobby) where a student can take multiple courses AND have multiple hobbies, independently of each other (e.g. Student 'Amy' takes {DB,OS} and has hobbies {Chess,Music} — all 4 combinations must appear). Identify the MVD present and determine if R is in 4NF.</b>
+<pre>Since Course and Hobby vary independently for a given Student, this is a classic
+MULTIVALUED DEPENDENCY: Student →→ Course (and equivalently Student →→ Hobby)
+
+4NF requires: for every non-trivial MVD X →→ Y, X must be a super key.
+Here, Student alone is NOT a super key of R(Student,Course,Hobby) — the actual
+key is the full combination {Student,Course,Hobby} (all three needed to
+identify a row uniquely, since rows just enumerate every combination).
+
+So Student →→ Course violates 4NF (Student is not a super key).
+
+R is NOT in 4NF. Fix: decompose into R1(Student,Course) and R2(Student,Hobby)
+— this eliminates the redundant combinatorial explosion of storing every
+Course×Hobby pairing for each student.</pre>
+<p class="gans">Correct: R is NOT in 4NF — the independent multivalued attributes Course and Hobby create redundancy that only decomposition (into R1 and R2 above) can remove, even though R may already be in BCNF.</p>
+</div>
+
+<div class="gq"><div class="gtag">Q13 · Recoverable, cascadeless, strict — classify four schedules</div>
+<b>S1: W1(A) R2(A) C2 C1 &nbsp;&nbsp; S2: W1(A) R2(A) C1 C2 &nbsp;&nbsp; S3: W1(A) W2(A) C1 C2 &nbsp;&nbsp; S4: W1(A) C1 R2(A) C2. How many of these four schedules are cascadeless?</b>
+<ol class="gopts"><li>1</li><li>2</li><li>3</li><li>4</li></ol>
+<pre>S1: T2 reads A from uncommitted T1 (dirty read) → not cascadeless (and T2 commits before T1 → not even recoverable)
+S2: T2 reads A before T1 commits → dirty read → NOT cascadeless (but recoverable: T1 commits first)
+S3: no reads at all → cascadeless ✓ (T2 overwrites uncommitted A, so it is NOT strict)
+S4: T2 reads A only after C1 → cascadeless ✓ (and strict)</pre>
+<p class="gans">Correct: Option 2 — S3 and S4 are cascadeless. (Recoverable: S2, S3, S4 — 3 schedules; strict: only S4.)</p>
+</div>
+
+<div class="gq"><div class="gtag">Q14 · Relational division with a "for all" query</div>
+<b>Enrolled(student, course): Amy{DB,OS,CN}, Ben{DB,OS}, Cara{DB,CN}, Dan{OS,DB,ML}, Eve{CN}. Required(course) = {DB, OS}. How many tuples does Enrolled ÷ Required return?</b>
+<ol class="gopts"><li>2</li><li>3</li><li>4</li><li>5</li></ol>
+<pre>Candidates π_student(Enrolled) = {Amy, Ben, Cara, Dan, Eve}  (5)
+Candidates × Required = 10 pairs; pairs MISSING from Enrolled:
+  (Cara, OS), (Eve, DB), (Eve, OS)  → disqualified students = {Cara, Eve}
+Result = {Amy, Ben, Dan}  → 3 tuples
+(Extra courses like CN and ML are irrelevant — only coverage of ALL of Required matters.)</pre>
+<p class="gans">Correct: Option 2 — <b>3 tuples</b>: Amy, Ben, Dan.</p>
+</div>
+
+<div class="gq"><div class="gtag">Q15 · Minimal cover and candidate key</div>
+<b>R(A,B,C,D) with F = { A→BC, B→C, A→B, AB→C, AC→D }. How many FDs does a minimal cover of F contain, and what is the candidate key?</b>
+<ol class="gopts"><li>3 FDs; key {A}</li><li>4 FDs; key {A}</li><li>3 FDs; key {A,B}</li><li>5 FDs; key {A}</li></ol>
+<pre>Step 1 (split RHS): A→B, A→C, B→C, A→B, AB→C, AC→D
+Step 2 (extraneous LHS):
+  AB→C : closure({B}) = {B,C} ∋ C → A extraneous → B→C (duplicate)
+  AC→D : is C extraneous? closure({A}) under F = {A,B,C,D} ∋ D → yes → A→D
+  F = { A→B, A→C, B→C, A→D }
+Step 3 (redundant): A→C — closure({A}) using {A→B, B→C, A→D} = {A,B,C,D} ∋ C → remove
+Minimal cover = { A→B, B→C, A→D }   → 3 FDs
+Key: closure({A}) = {A,B,C,D} = all attributes, and A is a single attribute → {A} is the candidate key (the only one, since no FD has A on its right side).</pre>
+<p class="gans">Correct: Option 1 — <b>3 FDs</b> and candidate key <b>{A}</b>.</p>
+</div>
+
+<div class="gq"><div class="gtag">Q16 · Minimum tables for an ER diagram with 1:1, N:1, M:N and a weak entity</div>
+<b>Entities: Employee, Project, Department (strong); Dependent (weak, owned by Employee). Relationships: Works_On (Employee–Project, M:N, attribute hours), Works_For (Employee N:1 Department, total on Employee), Manages (Department 1:1 Employee, total on Department). Minimum number of relational tables?</b>
+<ol class="gopts"><li>4</li><li>5</li><li>6</li><li>7</li></ol>
+<pre>Employee → 1 table (absorbs Works_For as a foreign key dept_id, since N:1 → FK on the N side)
+Project → 1 table
+Department → 1 table (absorbs Manages as FK mgr_id; total participation on Department makes this side the best home)
+Dependent (weak) → 1 table (PK = employee key + partial key; the identifying relationship needs no extra table)
+Works_On (M:N) → 1 separate table (employee key, project key, hours)
+Total = 5 tables</pre>
+<p class="gans">Correct: Option 2 — <b>5 tables</b>. Only the M:N relationship is forced into its own table.</p>
+</div>
+
+<div class="gq"><div class="gtag">Q17 · View serializability vs conflict serializability</div>
+<b>S: R1(A) W2(A) W1(A) W3(A). Which statement is correct?</b>
+<ol class="gopts"><li>S is conflict serializable</li><li>S is view serializable but not conflict serializable</li><li>S is neither conflict nor view serializable</li><li>S is conflict serializable but not view serializable</li></ol>
+<pre>Conflict test: R1(A) before W2(A) gives T1→T2; W2(A) before W1(A) gives T2→T1 → cycle → NOT conflict serializable.
+View test vs serial order T1 → T2 → T3:
+  • initial read of A: T1 in both ✓   • read-from relations: none in either ✓   • final write on A: T3 in both ✓
+→ view serializable. (Every conflict-serializable schedule is view serializable, so option 4 is impossible.)</pre>
+<p class="gans">Correct: Option 2 — view serializable (equivalent to T1 T2 T3) but not conflict serializable; the blind writes W2(A), W3(A) make this possible.</p>
+</div>
+
+<div class="gq"><div class="gtag">Q18 · Wait-Die vs Wound-Wait</div>
+<b>Timestamps: TS(T1)=5, TS(T2)=10, TS(T3)=15. T2 holds an exclusive lock on X. Then T1 requests X, then T3 requests X. Which transaction is rolled back under Wait-Die, and under Wound-Wait?</b>
+<ol class="gopts"><li>Wait-Die: T1; Wound-Wait: T2</li><li>Wait-Die: T3; Wound-Wait: T2</li><li>Wait-Die: T2; Wound-Wait: T3</li><li>Wait-Die: T3; Wound-Wait: T1</li></ol>
+<pre>Wait-Die (older waits, younger dies):
+  T1 (older than holder T2) requests X → T1 waits.   T3 (younger than holder T2) requests X → T3 dies (rolled back).
+Wound-Wait (older wounds, younger waits):
+  T1 (older than holder T2) requests X → T1 wounds T2 → T2 rolled back, T1 gets X.
+  T3 (younger than new holder T1) requests X → T3 waits.</pre>
+<p class="gans">Correct: Option 2 — Wait-Die rolls back <b>T3</b>; Wound-Wait rolls back <b>T2</b>.</p>
+</div>
+
+<div class="gq"><div class="gtag">Q19 · Extendible hashing — directory growth and bucket splits</div>
+<b>An extendible hash index uses the FIRST d bits of a 4-bit hash value. Bucket capacity = 2 records. Start: global depth d = 1, directory {0 → B0, 1 → B1}, both buckets empty with local depth 1. Insert hash values in this order: 0010, 0111, 0101, 1000, 0001. What are the global depth and the number of buckets at the end?</b>
+<ol class="gopts"><li>d = 2, 3 buckets</li><li>d = 2, 4 buckets</li><li>d = 3, 4 buckets</li><li>d = 3, 5 buckets</li></ol>
+<pre>Insert 0010 → starts 0 → B0 = {0010}
+Insert 0111 → starts 0 → B0 = {0010, 0111}   (full)
+Insert 0101 → starts 0 → B0 is full, local depth 1 = global depth 1 → DOUBLE the directory: d = 2
+              directory {00, 01, 10, 11}; split B0 by its 2-bit prefix (local depth 2):
+              B00 = {0010}     B01 = {0111, 0101}     (10 and 11 both still point to B1, local depth 1)
+Insert 1000 → starts 10 → B1 (depth 1) = {1000}
+Insert 0001 → starts 00 → B00 = {0010, 0001}  (capacity 2, fits)
+Final: global depth d = 2; distinct buckets = B00, B01, B1 = 3
+Check: entries pointing to B1 = 2^(d − local) = 2^(2−1) = 2 (directory entries 10 and 11) ✓</pre>
+<p class="gans">Correct: Option 1 — global depth <b>2</b> with <b>3 buckets</b>. The directory doubled only once, and B1 never overflowed, so it stayed shared by two directory entries.</p>
+</div>
+
+<div class="gq"><div class="gtag">Q20 · Lossless join and dependency preservation — comparing decompositions</div>
+<b>R(A, B, C, D, E) has the FDs A → B, BC → D, D → E, E → A. Which of the decompositions D1 = {ABC, CDE}, D2 = {AB, BCD, DE}, D3 = {AB, BCD, DEA} is lossless AND dependency-preserving?</b>
+<ol class="gopts"><li>Only D3</li><li>Only D2</li><li>D2 and D3</li><li>Only D1</li></ol>
+<pre>Candidate keys: AC, BC, CD, CE (C is in every key, because C appears on no right-hand side).
+
+Dependency preservation — test each FD X → Y by growing Z = X with the closure restricted to each fragment Ri:
+   D1 = {ABC, CDE}: BC → D needs B, C, D together in one fragment — no fragment has them; the FD cannot be recovered  ✘ (E → A also lost)
+   D2 = {AB, BCD, DE}: A → B in AB ✔, BC → D in BCD ✔, D → E in DE ✔; but E → A needs E and A together: E, A never share a fragment and the closure restricted to the fragments cannot reach A  ✘
+   D3 = {AB, BCD, DEA}: A → B ✔ (AB), BC → D ✔ (BCD), D → E ✔ and E → A ✔ (both inside DEA)  → all four preserved ✔
+
+Lossless join — chase on the tableau (or the binary test: the common attributes must be a key of one side):
+   D1: ABC ∩ CDE = C, and C⁺ = C, a key of neither fragment  → LOSSY.
+   D2: the chase never produces an all-'a' row → LOSSY.
+   D3: the chase makes the BCD row/derived rows all 'a' (B, C, D ⇒ with D → E and E → A the row for BCD acquires E and then A) → LOSSLESS ✔.
+Only D3 is both.
+
+Check: the chase and the restricted-closure preservation test were run by program, and every claim was cross-checked by brute force — joining the projections of thousands of random relations that satisfy the FDs: D1 and D2 give spurious tuples, D3 never does.
+Trap: a decomposition can preserve every dependency yet still be lossy (D2 fails only the E → A part, D1 is lossy and loses FDs) — check the two properties separately.</pre>
+<p class="gans">Correct: Option 1 — only D3 satisfies both properties.</p>
+</div>
+
+<div class="gq"><div class="gtag">Q21 · Outer joins and NULLs — counting result rows</div>
+<b>R(a, b) = {(1,10), (2,20), (3,20), (4,NULL), (5,40)} and S(b, c) = {(10,100), (20,200), (20,201), (30,300), (NULL,999)}. How many rows do R ⋈ S (natural inner join on b), R LEFT OUTER JOIN S, R FULL OUTER JOIN S return, and what does SELECT a FROM R WHERE b NOT IN (SELECT b FROM S) return?</b>
+<ol class="gopts"><li>5, 7, 9 and no rows</li><li>5, 7, 9 and the rows a = 4, 5</li><li>5, 7, 10 and no rows</li><li>3, 7, 9 and no rows</li></ol>
+<pre>Equal-join on b (NULL never equals anything, not even NULL):
+   b = 10: R(1) × S(10)  = 1 pair
+   b = 20: R(2), R(3) × S(200), S(201) = 2 × 2 = 4 pairs
+   NULL rows and the values 30, 40 match nothing  →  INNER = 1 + 4 = 5.
+
+LEFT OUTER = inner + unmatched R rows kept with NULLs: R(4, NULL) and R(5, 40) → 5 + 2 = 7.
+FULL OUTER = inner + unmatched R rows + unmatched S rows: S(30, 300) and S(NULL, 999) → 5 + 2 + 2 = 9.
+(RIGHT OUTER = 5 + 2 = 7.)
+
+NOT IN trap:  b NOT IN (10, 20, 20, 30, NULL)  means  b &lt;&gt; 10 AND b &lt;&gt; 20 AND b &lt;&gt; 30 AND b &lt;&gt; NULL.
+   The last comparison is UNKNOWN for every row, so the whole condition is never TRUE → the query returns NO rows.
+   NOT EXISTS (correlated) avoids the problem and would return a = 4 and a = 5.
+Also: COUNT(*) on R = 5 but COUNT(b) = 4 (NULLs are skipped), and  WHERE b &lt;&gt; 20  drops the NULL row, returning only a = 1 and a = 5.
+
+Check: all counts were run on a real SQL engine (inner 5, left 7, full 9, NOT IN → empty, NOT EXISTS → {4, 5}).
+Trap: using NOT IN against a subquery that can contain NULL — it silently returns nothing.</pre>
+<p class="gans">Correct: Option 1 — 5 rows, 7 rows, 9 rows, and the NOT IN query returns nothing.</p>
+</div>
+
+<div class="gq"><div class="gtag">Q22 · Log-based recovery with a checkpoint — redo and undo lists</div>
+<b>The log (in order) is: &lt;T1 start&gt;, &lt;T1, A, 10, 20&gt;, &lt;T2 start&gt;, &lt;T2, B, 5, 8&gt;, &lt;T1 commit&gt;, &lt;checkpoint, active = {T2}&gt;, &lt;T3 start&gt;, &lt;T3, C, 1, 2&gt;, &lt;T2, D, 7, 9&gt;, &lt;T2 commit&gt;, &lt;T3, A, 20, 30&gt;, then a crash. The record &lt;T, X, old, new&gt; is an update. Using the standard checkpoint-based recovery, which transactions are redone and undone, and what are the final values of A, B, C and D?</b>
+<ol class="gopts"><li>REDO {T2}, UNDO {T3}; A = 20, B = 8, C = 1, D = 9</li><li>REDO {T1, T2}, UNDO {T3}; A = 20, B = 8, C = 1, D = 9</li><li>REDO {T2}, UNDO {T3}; A = 30, B = 8, C = 1, D = 9</li><li>REDO {T2, T3}, UNDO {}; A = 30, B = 8, C = 2, D = 9</li></ol>
+<pre>Recovery scans the log from the LAST CHECKPOINT back to the start of every transaction that was active at it.
+   T1 committed BEFORE the checkpoint → its updates were forced to disk at the checkpoint → nothing to do for T1.
+   T2 was active at the checkpoint and has a &lt;commit&gt; record after it  → REDO.
+   T3 started after the checkpoint and has no &lt;commit&gt;                 → UNDO.
+REDO list = {T2};  UNDO list = {T3}.
+
+Apply: redo T2's updates in log order → B = 8 (new value), D = 9.
+       undo T3's updates in REVERSE log order → write old values: A ← 20 (undoing 20 → 30), then C ← 1 (undoing 1 → 2).
+A: T1 committed 10 → 20 and T3's later change to 30 is undone → A = 20.
+Final: A = 20, B = 8, C = 1, D = 9.
+
+Why write-ahead logging works: the log record is forced to disk BEFORE the data page (undo information) and all of a transaction's log records are forced BEFORE it commits (redo information).
+Check: the redo/undo lists and the final values were produced by simulating this log.
+Trap: T1 must NOT be redone (it finished before the checkpoint), and an uncommitted transaction's updates are undone in reverse order.</pre>
+<p class="gans">Correct: Option 1 — REDO {T2}, UNDO {T3}; final A = 20, B = 8, C = 1, D = 9.</p>
+</div>
+
+<div class="gq"><div class="gtag">Q23 · Multiple-granularity locking — intention-lock compatibility</div>
+<b>A database is a tree: Database → Table T → Page P → Record r. Transaction T1 holds IX on the Database, IX on T, IX on P and X on record r1. T2 asks for S on the whole table T (after IS on the Database). T3 asks for IS on T, IS on P and S on record r2 (a different record of P). T4 asks for X on page P. Which requests are granted immediately?</b>
+<ol class="gopts"><li>T3 only</li><li>T2 and T3</li><li>T2 only</li><li>T3 and T4</li></ol>
+<pre>Compatibility matrix (Y = can be held together):
+          IS   IX   S    SIX  X
+     IS   Y    Y    Y    Y    N
+     IX   Y    Y    N    N    N
+     S    Y    N    Y    N    N
+     SIX  Y    N    N    N    N
+     X    N    N    N    N    N
+
+Locks are acquired top-down: IS/IX on every ancestor, then the real lock on the target.
+T2: S on table T versus T1's IX on T → S vs IX = N  → blocked (some record below T is being written; reading the entire table would be unsafe).
+T3: IS on T vs IX → Y;  IS on P vs IX → Y;  S on r2 vs T1's X on r1 — different records, no conflict → GRANTED.
+T4: X on page P vs T1's IX on P → X conflicts with everything → blocked.
+Only T3 is granted immediately.
+
+Why intention locks: to decide whether the whole table can be S-locked, the system checks ONE lock on the table node instead of scanning every record for locks.
+Check: the compatibility matrix above is the standard one (IS–IS, IS–IX, IS–S, IS–SIX, IX–IX, S–S compatible; everything else not), and each request was checked against it.
+Trap: IX is compatible with IX (two writers in different parts of the tree) but S is not compatible with IX.</pre>
+<p class="gans">Correct: Option 1 — only T3 is granted immediately.</p>
+</div>
+</section>
+
+</main>
+</div>
+<footer>Complete · 6 GATE CSE 2027 DBMS topics · 82-question basic quiz · 23 fully solved GATE-level problems</footer>
+<script>
+const Q = [
+["ER","A weak entity is best described as an entity that:",["Has more attributes than usual","Has no primary key of its own and is identified via an owner entity plus a partial key","Cannot participate in any relationship","Always has a multi-valued attribute"],1,"A weak entity depends on an identifying (owner) entity — its uniqueness comes from the owner's key combined with its own partial key."],
+["ER","A derived attribute, such as Age computed from Date of Birth, is typically drawn in an ER diagram using:",["A double oval","A dashed oval","A rectangle","A diamond"],1,"Derived attributes (computed from other stored attributes) use a dashed oval, distinct from the double oval used for multi-valued attributes."],
+["ER","A multi-valued attribute (e.g. a person's multiple phone numbers) is drawn using:",["A single oval","A double oval","A double rectangle","A diamond"],1,"Multi-valued attributes get a double oval, since a single entity instance can have more than one value for that attribute."],
+["ER","When mapping ER diagrams to relational tables, an M:N relationship:",["Can always be merged into one of the two entity tables","Always requires its own separate table holding both entities' keys","Is mapped exactly like a 1:1 relationship","Is ignored entirely in the relational schema"],1,"Only M:N relationships force a genuinely separate table (holding a composite key of both participating entities), unlike 1:1 and 1:N which can be absorbed via foreign keys."],
+["ER","'Total participation' of an entity in a relationship means:",["The entity's participation is optional","EVERY instance of that entity MUST participate in the relationship","The relationship has no attributes","The entity is a weak entity"],1,"Total participation (shown with a double line) means no instance of the entity can exist without participating in that relationship."],
+["ER","For a 1:N relationship between entities A (the '1' side) and B (the 'N' side), the standard mapping is to:",["Create a new separate relationship table","Add A's primary key as a foreign key in B's table","Add B's primary key as a foreign key in A's table","Merge A and B into a single table always"],1,"The foreign key goes on the 'many' side — each B row references exactly one A row via A's primary key as a foreign key column in B."],
+["ER","An ER diagram has 3 strong entities connected pairwise by 1:1 relationships. What is the MINIMUM number of tables needed?",["1","2","3","6"],0,"All three 1:1 relationships can potentially be absorbed, merging all three entities into a SINGLE table in the best case (though this depends on participation constraints) — the golden rule is 1:1 relationships never force extra tables, so the minimum can be as low as 1."],
+["RELALG","The key difference between a super key and a candidate key is that a candidate key is:",["Larger than a super key","A MINIMAL super key — removing any attribute breaks uniqueness","Always a single attribute","Never used as a primary key"],1,"Every candidate key is a super key, but a candidate key is minimal — no proper subset of it is still a super key."],
+["RELALG","The purpose of computing an attribute closure (X⁺) is to:",["Convert relational algebra into SQL","Determine which attributes are functionally determined by X, to test for keys","Draw an ER diagram","Normalize a table automatically"],1,"If closure(X) equals ALL attributes of the relation, X is a super key; checking minimality on top of that identifies candidate keys."],
+["RELALG","In relational algebra, projection (π) is used to:",["Filter rows based on a condition","Keep only specified columns, removing duplicate rows","Combine two relations via Cartesian product","Rename a relation"],1,"Projection selects COLUMNS (and removes any resulting duplicate rows), while selection (σ) filters ROWS."],
+["RELALG","A natural join (R ⋈ S) combines two relations by:",["Pairing every row of R with every row of S regardless of values","Matching rows where ALL commonly-named attributes are equal, keeping one copy of each shared attribute","Only keeping rows from R","Only keeping rows from S"],1,"Natural join automatically matches on shared attribute names and removes the duplicate copy of those shared columns in the result."],
+["RELALG","If relation R has 4 tuples and relation S has 6 tuples, how many tuples does R × S (Cartesian product) produce?",["10","24","4","6"],1,"Cartesian product pairs every tuple of R with every tuple of S: 4 × 6 = 24 tuples."],
+["RELALG","Compared to Relational Algebra, Tuple Relational Calculus is:",["Procedural (specifies exact steps)","Declarative (specifies what's wanted, using predicate logic)","Used only for updates, never queries","Not equivalent in expressive power"],1,"TRC describes the desired result using logical predicates over tuple variables, rather than a sequence of algebraic operations — but both are proven equally expressive (relationally complete)."],
+["RELALG","A foreign key is an attribute (or set of attributes) that:",["Must always be NULL","References the primary key of another (or the same) table","Can never repeat across rows","Is always the primary key of its own table"],1,"A foreign key enforces referential integrity by pointing to a primary key value in another table (or occasionally the same table, for self-references)."],
+["RELALG","Given FDs A→B and B→C on relation R(A,B,C), what is closure({A})?",["{A}","{A,B}","{A,B,C}","{B,C}"],2,"Starting from {A}: A→B adds B, then B→C adds C, giving closure({A}) = {A,B,C} — all attributes, so {A} is a candidate key."],
+["SQL","In a SQL query, the key difference between WHERE and HAVING is:",["They are interchangeable in every case","WHERE filters rows before grouping; HAVING filters groups after aggregation","HAVING must always come before GROUP BY","WHERE can use aggregate functions but HAVING cannot"],1,"WHERE operates on individual rows before any GROUP BY is applied; HAVING operates on the resulting groups, typically using aggregate conditions."],
+["SQL","Given a column with some NULL values, which of these IGNORES the NULLs in its computation?",["COUNT(*)","SUM(column), AVG(column), MIN(column), MAX(column)","Both COUNT(*) and the aggregates equally","Neither — SQL always errors on NULL"],1,"COUNT(*) counts every row including NULLs; all other aggregate functions applied to a specific column silently skip NULL values in that column."],
+["SQL","Compared to an INNER JOIN, a LEFT OUTER JOIN will:",["Return fewer or equal rows, never more","Return the same rows plus additionally include unmatched rows from the LEFT table (with NULLs for the right side)","Only return rows with no match at all","Always return zero rows"],1,"LEFT OUTER JOIN keeps every row from the left table, filling in NULLs for the right table's columns where no match exists — always ≥ the INNER JOIN's row count."],
+["SQL","A query uses 'WHERE dept NOT IN (SELECT dept FROM Employee WHERE ...)'. If that subquery's result set contains even one NULL value, the outer query will:",["Return all rows anyway","Return zero rows, due to how NOT IN handles NULL comparisons","Throw a syntax error","Ignore the NULL and work normally"],1,"NOT IN requires every comparison to definitively evaluate to true; comparing against a NULL yields UNKNOWN, which poisons the entire NOT IN check, yielding zero rows."],
+["SQL","The EXISTS operator in a subquery checks:",["Whether a specific value matches exactly one row","Whether the (often correlated) subquery returns ANY row at all","Whether the subquery returns NULL","Whether a table has any foreign keys"],1,"EXISTS is a pure existence check — it returns true the moment the subquery returns at least one row, regardless of that row's actual values."],
+["SQL","UNION and UNION ALL differ in that:",["UNION ALL removes duplicates, UNION keeps them","UNION removes duplicate rows from the combined result; UNION ALL keeps all duplicates","They produce different columns","UNION ALL is not valid SQL"],1,"UNION performs an implicit duplicate-removal step after combining results; UNION ALL skips that step, keeping every row from both queries."],
+["SQL","The INTERSECT operator returns:",["Rows that appear in either query","Rows that appear in BOTH queries","Rows that appear in only the first query","An empty result always"],1,"INTERSECT returns only rows common to both result sets — the SQL equivalent of set intersection."],
+["SQL","A query has 'SELECT dept, COUNT(*) FROM Employee GROUP BY dept HAVING COUNT(*) > 5'. This returns:",["All departments regardless of size","Only departments with MORE than 5 employees","Only employees, not departments","A syntax error, since HAVING can't use COUNT(*)"],1,"HAVING filters the grouped results, keeping only those groups (departments here) satisfying COUNT(*) > 5."],
+["SQL","Which SQL keyword removes duplicate rows from a SELECT result?",["UNIQUE","DISTINCT","GROUP","ONLY"],1,"SELECT DISTINCT explicitly removes duplicate rows from the output, unlike a plain SELECT which keeps all matching rows including exact duplicates."],
+["NORM","First Normal Form (1NF) requires that:",["Every table must have a composite primary key","Every attribute holds only atomic, single (non-repeating, non-multivalued) values","There must be no foreign keys","Tables must have at least 3 columns"],1,"1NF is about atomicity — no attribute may hold a list, set, or repeating group of values."],
+["NORM","Second Normal Form (2NF) specifically eliminates:",["Transitive dependencies","Partial dependencies (a non-key attribute depending on only PART of a composite key)","All functional dependencies","Multi-valued attributes"],1,"2NF requires that every non-key attribute depend on the WHOLE candidate key, not just part of a composite key."],
+["NORM","Third Normal Form (3NF) specifically eliminates:",["Partial dependencies","Transitive dependencies (a non-key attribute depending on another non-key attribute)","Multi-valued attributes only","Foreign key constraints"],1,"3NF removes transitive dependencies: chains like Key → NonKeyA → NonKeyB, where NonKeyB depends on NonKeyA rather than directly on the key."],
+["NORM","BCNF (Boyce-Codd Normal Form) requires that for every non-trivial FD X→Y:",["Y must be a candidate key","X must be a super key","X and Y must both be prime attributes","The relation must have only 2 attributes"],1,"BCNF is stricter than 3NF: EVERY determinant (X) of a non-trivial FD must be a super key, with no exceptions for prime attributes."],
+["NORM","Armstrong's Transitivity axiom states that:",["If X→Y then XZ→YZ","If Y⊆X then X→Y","If X→Y and Y→Z then X→Z","If X→YZ then X→Y and X→Z"],2,"Transitivity: X→Y combined with Y→Z lets you derive X→Z — the basis for detecting chains of dependency."],
+["NORM","A functional dependency X→Y is called 'trivial' when:",["Y is a subset of X","X is a candidate key","Y has more attributes than X","X→Y cannot be derived from any axiom"],0,"A trivial FD (Y⊆X) is always true by definition and adds no new information about the relation's structure."],
+["NORM","To test if a decomposition of R into R1 and R2 is lossless, you check whether:",["R1 and R2 have the same number of attributes","(R1∩R2) functionally determines R1, or (R1∩R2) functionally determines R2","R1 and R2 share no attributes at all","Both R1 and R2 are already in BCNF"],1,"The lossless-join test requires the common attributes to functionally determine at least one of the two decomposed pieces — otherwise information (or spurious tuples) can be lost/gained on rejoin."],
+["NORM","A 'dependency preserving' decomposition means:",["All original functional dependencies can still be checked without needing to join the decomposed tables back together","The decomposition is automatically lossless too","No functional dependencies exist anymore","All tables have the same primary key"],0,"Dependency preservation ensures you don't need an expensive join just to verify that the original FDs still hold across the decomposed tables."],
+["NORM","A BCNF decomposition is always guaranteed to be lossless, but is NOT always guaranteed to be:",["In 1NF","Dependency preserving","Free of candidate keys","Expressible in SQL"],1,"Achieving BCNF sometimes forces you to sacrifice dependency preservation — a classic and important trade-off GATE tests directly."],
+["INDEX","A clustered index differs from a non-clustered index in that:",["A clustered index can't be built on the primary key","The table's physical row order matches the clustered index's order (only one per table)","Non-clustered indexes are always faster","Clustered indexes don't use B+-trees"],1,"Clustered means actual data rows are stored in the index's order — since there's only one physical order possible, only one clustered index is allowed per table."],
+["INDEX","A sparse index, compared to a dense index:",["Has an entry for every single search key value","Has entries for only some search key values (e.g. one per block), requiring the data file to be sorted","Cannot be used at all in practice","Is always larger in size"],1,"Sparse indexes trade completeness for smaller size, relying on the underlying data being sorted so a block's first entry can represent the whole block."],
+["INDEX","In a B+-tree (unlike a plain B-tree):",["Internal nodes hold actual record pointers, not just keys","Only leaf nodes hold actual record pointers; internal nodes only guide the search with key copies","There are no leaf nodes","Leaves are never linked together"],1,"B+-trees push all data pointers down to the leaf level, keeping internal nodes purely as a navigation aid — this is the key structural difference from a B-tree."],
+["INDEX","B+-tree leaf nodes are typically linked together in a chain primarily to support:",["Faster insertion only","Efficient sequential/range queries (scan consecutive leaves without returning to the root)","Reducing the tree's height","Eliminating the need for a root node"],1,"The leaf-level linked list lets a range query jump from leaf to leaf directly, avoiding repeated top-down tree traversals."],
+["INDEX","For a B+-tree of order p, the maximum number of keys per internal node is:",["p","p - 1","p + 1","⌈p/2⌉"],1,"With up to p child pointers, a node holds at most p-1 separating keys."],
+["INDEX","For a B+-tree of order p, the minimum number of children for an internal node (excluding the root) is:",["p","p - 1","⌈p/2⌉","⌊p/2⌋ - 1"],2,"Every internal node except the root must be at least half full: minimum children = ⌈p/2⌉."],
+["INDEX","Heap (unordered) file organization is characterized by:",["Fast search, slow insert","Fast insert, but slow search (requires scanning)","No inserts allowed after creation","Automatic sorting on every insert"],1,"Heap files simply append new records wherever space is available — trivially fast inserts, but finding a specific record requires scanning (no inherent order to exploit)."],
+["INDEX","Given n=80,000 records and B+-tree order p=6 (max 5 keys/leaf, min 2 keys/leaf for non-root), the MAXIMUM number of leaf nodes is:",["16,000","26,667","40,000","80,000"],2,"Maximum leaf count comes from the SPARSEST tree (minimum fill per leaf): min keys/leaf = ⌈6/2⌉-1 = 2, so maximum leaves = ⌈80000/2⌉ = 40,000."],
+["TRANS","The Atomicity property of ACID guarantees that:",["A transaction always completes quickly","A transaction executes completely, or has no effect at all (all-or-nothing)","Data is always backed up","Transactions never conflict"],1,"Atomicity means partial execution is never visible after a crash — either every operation in the transaction takes effect, or none do."],
+["TRANS","The Durability property of ACID guarantees that:",["Uncommitted changes survive a crash","Committed changes survive any subsequent crash or failure","Transactions run faster over time","Isolation is automatically achieved"],1,"Once a transaction commits, durability ensures its effects are permanently recorded, surviving power loss or crashes."],
+["TRANS","A 'serial schedule' means:",["Transactions run one completely after another, with zero interleaving","Transactions are assigned serial numbers but still run concurrently","Only read operations are allowed","The schedule must involve exactly 2 transactions"],0,"A serial schedule has no interleaving at all — each transaction runs start-to-finish before the next one begins. It's always correct, but offers no concurrency."],
+["TRANS","In a precedence graph for testing conflict serializability, a CYCLE indicates:",["The schedule is definitely conflict serializable","The schedule is NOT conflict serializable","There's a syntax error in the schedule","Two transactions have identical timestamps"],1,"A cycle means there's no way to linearize the transactions into an equivalent serial order — hence not conflict serializable."],
+["TRANS","Two operations are said to 'conflict' (for precedence-graph purposes) when they:",["Belong to the same transaction","Are from different transactions, touch the same data item, and at least one is a WRITE","Are both reads on the same data item","Belong to different, unrelated data items"],1,"R-R pairs never conflict; any pairing involving a write (R-W, W-R, W-W) on the SAME item from DIFFERENT transactions counts as a conflict."],
+["TRANS","In Two-Phase Locking (2PL), once a transaction releases its FIRST lock, it:",["Can still acquire new locks freely","Can never acquire any new lock afterward (shrinking phase has begun)","Must immediately abort","Must release all locks for other transactions too"],1,"2PL strictly separates a growing phase (acquire-only) from a shrinking phase (release-only) — once any release happens, no further acquisitions are allowed."],
+["TRANS","Strict 2PL, compared to Basic 2PL, specifically helps prevent:",["Deadlocks entirely","Cascading rollbacks (by holding locks until commit/abort)","The need for any locking at all","Non-conflict-serializable schedules"],1,"By holding all locks (especially write locks) until commit/abort, Strict 2PL ensures no other transaction can read a value that might later need to be rolled back."],
+["TRANS","Compared to 2PL, the Timestamp Ordering protocol:",["Makes transactions wait for locks, just like 2PL","Never makes a transaction wait — it either proceeds or is rolled back and restarted with a new timestamp","Cannot guarantee serializability","Requires no timestamps at all"],1,"Timestamp ordering avoids lock-waiting entirely, trading it for a different cost: transactions violating timestamp order are aborted and restarted rather than blocked."],
+["TRANS","The Isolation property of ACID ensures that:",["All transactions must run one at a time","Concurrent transactions don't observe each other's uncommitted, in-progress changes","Data is never lost","Deadlocks can never occur"],1,"Isolation is about hiding intermediate, uncommitted states from other concurrently running transactions, regardless of how they're actually interleaved under the hood."]
+,
+["RELALG", "In relational algebra, R(A,B) ÷ S(B) returns:", ["Values a such that (a,b) is in R for EVERY b in S", "Values a such that (a,b) is in R for at least one b in S", "The Cartesian product R × S minus S", "Only the attribute B of R"], 0, "Division is the 'for all' operator: a qualifies only if it is paired in R with every tuple of S."],
+["RELALG", "Which expression computes R(A,B) ÷ S(B)?", ["π_A(R) − π_A(R × S)", "π_A(R) − π_A((π_A(R) × S) − R)", "(π_A(R) × S) − R", "π_B(R) ∩ S"], 1, "Build all candidate (a,b) pairs, subtract those actually in R to get the missing ones, drop the a-values that are missing something, and subtract them from π_A(R)."],
+["RELALG", "Division is the relational-algebra counterpart of which kind of query?", ["'At least one' queries", "'For all / every' queries", "Aggregate COUNT queries", "Update queries"], 1, "Queries like 'students who took ALL required courses' are expressed with division (or a double NOT EXISTS in SQL)."],
+["RELALG", "If S is the empty relation, R(A,B) ÷ S(B) equals:", ["The empty relation", "π_A(R) — every distinct A-value of R", "R itself", "Undefined (error)"], 1, "Every a vacuously satisfies 'paired with every b in S', so the result is π_A(R); the standard formula agrees."],
+["NORM", "Which set of conditions does a minimal (canonical) cover satisfy?", ["Single-attribute right sides, no extraneous left-side attributes, and no redundant FDs", "Every FD has a candidate key on its left side", "It has exactly as many FDs as the original set", "It contains all trivial FDs"], 0, "These three properties together, applied in the order split → remove extraneous LHS → remove redundant FDs, give a minimal cover."],
+["NORM", "The minimal cover of an FD set is:", ["Always unique", "Not necessarily unique — several different but equivalent covers can exist", "Unique only if the relation is in BCNF", "Always the set of all candidate-key FDs"], 1, "The result can depend on the order in which attributes/FDs are tested; all minimal covers are equivalent to F (same closure)."],
+["NORM", "For F = {A→B, B→C, A→C}, which FD is redundant?", ["A→B", "B→C", "A→C", "None of them"], 2, "A→C follows from A→B and B→C by transitivity, so it can be dropped without changing the closure."],
+["SQL", "Which statement about an ordinary (non-materialized) SQL view is correct?", ["It permanently stores a copy of the query result", "It is a stored query / virtual table computed from base tables when used", "It can never be queried with SELECT", "It is always updatable"], 1, "A plain view stores only its defining query; materialized views are the ones that store results."],
+["SQL", "Which correctly distinguishes DELETE, TRUNCATE and DROP?", ["DELETE removes chosen rows (WHERE allowed); TRUNCATE removes all rows but keeps the table; DROP removes the table itself", "All three behave identically", "DROP removes rows only; DELETE removes the table", "TRUNCATE accepts a WHERE clause"], 0, "DELETE is DML with a WHERE clause; TRUNCATE empties the table; DROP deletes the table definition and data."],
+["SQL", "A foreign key declared with ON DELETE CASCADE means that deleting a parent row will:", ["Always be rejected", "Also delete the child rows that reference it", "Set the parent's key to NULL", "Have no effect on the child table"], 1, "CASCADE propagates the deletion to referencing child rows; NO ACTION/RESTRICT would reject it instead."],
+["TRANS", "A schedule is recoverable if:", ["Whenever Tj reads from Ti, Ti commits before Tj commits", "Every transaction commits before the next one starts", "It is conflict serializable", "No transaction ever aborts"], 0, "Recoverability prevents a committed transaction from having read data later rolled back by an aborting writer."],
+["TRANS", "A cascadeless (ACA) schedule forbids:", ["Any write after a commit", "A transaction reading a value written by a still-uncommitted transaction", "Two transactions writing different items", "Reads after commit"], 1, "Dirty reads are what cause cascading rollbacks; cascadeless schedules allow reads only of committed values."],
+["TRANS", "Which containment among schedule classes is correct?", ["Strict ⊂ Cascadeless ⊂ Recoverable ⊂ All schedules", "Recoverable ⊂ Cascadeless ⊂ Strict", "Cascadeless ⊂ Strict ⊂ Recoverable", "All three classes are identical"], 0, "Each stricter rule (no dirty write+read, then no dirty read, then commit order) is contained in the weaker one."],
+["TRANS", "Schedule S: W1(A) W2(A) C1 C2. Which is true?", ["Not recoverable", "Cascadeless but not strict", "Strict", "Not cascadeless"], 1, "There are no reads, so it is cascadeless and recoverable; T2 overwrites T1's uncommitted write, which violates strictness."],
+["TRANS", "A schedule that is view serializable but not conflict serializable must contain:", ["Blind writes", "A deadlock", "Only read operations", "An aborted transaction"], 0, "Without blind writes (writes not preceded by a read of the same item), view and conflict serializability coincide."],
+["TRANS", "Testing whether a schedule is view serializable is:", ["Linear time using a precedence graph", "NP-complete", "Undecidable", "Always trivial"], 1, "No polynomial test is known; the problem is NP-complete, unlike the precedence-graph test for conflict serializability."],
+["TRANS", "In Wait-Die, when an OLDER transaction requests a lock held by a YOUNGER one:", ["The older transaction waits", "The older transaction is rolled back", "The younger one is wounded", "Both are rolled back"], 0, "Wait-Die: older waits, younger dies. It is non-preemptive."],
+["TRANS", "In Wound-Wait, when an OLDER transaction requests a lock held by a YOUNGER one:", ["It waits", "It is rolled back", "It wounds (rolls back) the younger transaction", "Both wait"], 2, "Wound-Wait is preemptive: the older transaction forces the younger holder to roll back; a younger requester waits."],
+["TRANS", "The Thomas write rule differs from basic timestamp ordering in that an obsolete write (TS(T) < W-TS(Q)) is:", ["Rejected and T rolled back", "Ignored instead of causing a rollback", "Delayed until commit", "Converted into a read"], 1, "The write would be overwritten anyway, so it is simply skipped, allowing view-serializable schedules that basic TO rejects."],
+["TRANS", "To place an S lock on a record under multiple-granularity locking, a transaction must hold on the parent page at least:", ["An IS or IX lock (or a stronger mode)", "An X lock only", "No lock", "A SIX lock only"], 0, "S/IS on a node requires IS or IX (or stronger) on its parent; X/IX/SIX require IX or SIX."],
+["TRANS", "Which lock modes is an IX lock compatible with?", ["IS and IX only", "S", "SIX", "X"], 0, "IX is compatible with IS and IX; it conflicts with S, SIX and X."],
+["INDEX", "In extendible hashing, when a bucket whose local depth equals the global depth overflows:", ["The directory is doubled and then the bucket is split", "The bucket is split without touching the directory", "The whole file is rehashed", "The record is rejected"], 0, "Only when local depth = global depth is more directory bits needed; otherwise just the bucket splits."],
+["INDEX", "Global depth is 4 in an extendible hash directory. How many directory entries point to a bucket of local depth 2?", ["4", "2", "8", "16"], 0, "2^(global − local) = 2^(4−2) = 4 entries share that bucket."],
+["ER", "In EER modelling, specialization is:", ["A top-down process of defining sub-classes of an entity set", "A bottom-up merging of similar entity sets", "Removing attributes from an entity", "Merging two relationships"], 0, "Specialization goes top-down (Person → Student, Employee); generalization is its bottom-up inverse."],
+["TRANS", "A trigger in SQL is:", ["A procedure that the DBMS executes automatically when a specified event (INSERT, UPDATE, DELETE) occurs", "A query that is run only by the DBA", "A kind of index on a primary key", "A lock held until the end of a transaction"], 0, "Triggers follow the event-condition-action model: the event fires, the condition is checked, and the action runs automatically."],
+["RELALG", "In tuple relational calculus, the expression { t | Student(t) ∧ ¬∃s (Enrolled(s) ∧ s.id = t.id) } returns:", ["Students enrolled in every course", "Students who are not enrolled in anything", "All enrolments", "Students enrolled at least once"], 1, "It selects students t for whom no enrolment record with the same id exists — the relational-algebra equivalent is Student − π(Enrolled)."],
+["TRANS", "In multiple-granularity locking, a transaction that wants to place an S lock on a record must first hold at least which lock on the table?", ["IS", "X", "SIX only", "No lock"], 0, "Intention locks are taken on all ancestors first: IS (or stronger) to read below, IX (or stronger) to write below."],
+["TRANS", "With write-ahead logging, the undo information for an update must reach stable storage:", ["After the transaction commits", "At the next checkpoint only", "Before the modified page is written to disk", "Never — only redo is logged"], 2, "If a modified page could reach disk before its log record, a crash would leave an uncommitted change that can no longer be undone."],
+["SQL", "In SQL, the aggregate COUNT(col) differs from COUNT(*) in that COUNT(col):", ["Counts only distinct values", "Also counts NULLs", "Cannot be used with GROUP BY", "Ignores rows in which col is NULL"], 3, "COUNT(*) counts rows; COUNT(col) counts non-NULL values of col; COUNT(DISTINCT col) counts distinct non-NULL values."],
+["TRANS", "Rollback of one transaction forces other transactions to roll back too (a cascading rollback) when schedules are:", ["Strict", "Recoverable but not cascadeless", "Cascadeless", "Serial"], 1, "If T2 read data written by uncommitted T1 (allowed in a merely recoverable schedule) and T1 aborts, T2 must abort as well. Cascadeless schedules forbid such reads."],
+["INDEX", "A table has 1000 records and a dense primary index; each index entry is 20 bytes and a block is 1000 bytes. The index occupies:", ["20 blocks", "10 blocks", "50 blocks", "1000 blocks"], 0, "A dense index has one entry per record: 1000 entries × 20 B = 20,000 B → 20 blocks of 1000 bytes (50 entries each)."],
+["NORM", "If a relation is in BCNF, it is certainly in:", ["Only 2NF", "4NF", "3NF", "5NF"], 2, "BCNF is stricter than 3NF. A BCNF decomposition is always lossless, but may fail to preserve all functional dependencies (3NF can always preserve them)."]
+];
+const MSQ=[["NORM", "Which normalization statements are correct?", ["A candidate key is a minimal superkey", "BCNF requires every nontrivial FD determinant to be a superkey", "3NF can allow a non-superkey determinant when the RHS attribute is prime", "Normalization can reduce update anomalies"], [0, 1, 2, 3], "All four statements are standard normalization facts."], ["TRANS", "Which statements about strict schedules are correct?", ["No read of an item written by an uncommitted transaction", "No overwrite of an item written by an uncommitted transaction", "Strictness implies recoverability", "Every recoverable schedule is strict"], [0, 1, 2], "Strict schedules prevent both reads and writes of uncommitted writes and therefore are recoverable. Recoverability alone does not imply strictness."]];
+const topics={ER:"ER Model",RELALG:"Relational Model & Algebra",SQL:"SQL",NORM:"Normal Forms",INDEX:"Indexing",TRANS:"Transactions"};
+let filter="ALL",answered=0,correct=0,mode="MCQ";
+const perms=Q.map(item=>{
+  const n=item[2].length, idx=[...Array(n).keys()];
+  const pinned=item[2].some(o=>/(of the above|\babove\b|\boption\b|^\(?[A-D]\)?(,| and | or ))/i.test(o));
+  if(!pinned){for(let i=n-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[idx[i],idx[j]]=[idx[j],idx[i]];}}
+  return idx;
+});
+function renderMCQ(){
+  const list=document.getElementById('qlist');
+  list.innerHTML="";
+  Q.forEach((item,i)=>{
+    const [t,q,opts,ans,exp]=item;
+    if(filter!=="ALL"&&filter!==t) return;
+    const order=perms[i], ansPos=order.indexOf(ans);
+    const card=document.createElement('div'); card.className='qcard';
+    card.innerHTML=`<div class="qtag">${topics[t]} · Q${i+1}</div><div class="qtext">${q}</div>`;
+    order.forEach((orig,pos)=>{
+      const b=document.createElement('button'); b.className='opt'; b.textContent=opts[orig];
+      b.onclick=()=>{
+        if(b.dataset.done) return;
+        [...card.querySelectorAll('.opt')].forEach(x=>x.dataset.done=1);
+        card.querySelectorAll('.opt')[ansPos].classList.add('correct');
+        if(pos!==ansPos) b.classList.add('wrong');
+        card.querySelector('.expl').classList.add('show');
+        answered++; if(pos===ansPos) correct++;
+        document.getElementById('ansCount').textContent=answered;
+        document.getElementById('corrCount').textContent=correct;
+      };
+      card.appendChild(b);
+    });
+    const e=document.createElement('div'); e.className='expl'; e.textContent=exp;
+    card.appendChild(e);
+    list.appendChild(card);
+  });
+}
+
+function renderMSQ(){
+ const list=document.getElementById('qlist'); list.innerHTML='';
+ MSQ.forEach((item,i)=>{
+  const [t,q,opts,ans,exp]=item; if(filter!=="ALL"&&filter!==t)return;
+  const card=document.createElement('div'); card.className='qcard';
+  const tag=document.createElement('div'); tag.className='qtag'; tag.textContent=(topics[t]||t)+' · MSQ'+(i+1); card.appendChild(tag);
+  const qt=document.createElement('div'); qt.className='qtext'; qt.textContent=q; card.appendChild(qt);
+  const hint=document.createElement('div'); hint.className='sub'; hint.textContent='Select all correct options. Scoring is all-or-nothing.'; card.appendChild(hint);
+  const order=[...opts.keys()]; for(let k=order.length-1;k>0;k--){const j=Math.floor(Math.random()*(k+1));[order[k],order[j]]=[order[j],order[k]];}
+  const selected=new Set();
+  order.forEach(orig=>{const b=document.createElement('button');b.className='opt';b.textContent=opts[orig];b.onclick=()=>{if(card.dataset.submitted)return;if(selected.has(orig)){selected.delete(orig);b.classList.remove('selected');}else{selected.add(orig);b.classList.add('selected');}};card.appendChild(b);});
+  const submit=document.createElement('button');submit.className='hy-btn primary';submit.style.marginTop='10px';submit.textContent='Submit MSQ';submit.onclick=()=>{if(card.dataset.submitted||selected.size===0)return;card.dataset.submitted='1';const correctSet=new Set(ans);const ok=selected.size===correctSet.size&&[...selected].every(x=>correctSet.has(x));const buttons=[...card.querySelectorAll('.opt')];buttons.forEach((b,idx)=>{const orig=order[idx];if(correctSet.has(orig))b.classList.add('correct');if(selected.has(orig)&&!correctSet.has(orig))b.classList.add('wrong');b.dataset.done=1;});card.querySelector('.expl').classList.add('show');answered++;if(ok)correct++;document.getElementById('ansCount').textContent=answered;document.getElementById('corrCount').textContent=correct;};card.appendChild(submit);
+  const e=document.createElement('div');e.className='expl';e.textContent=exp;card.appendChild(e);list.appendChild(card);
+ });
+}
+function render(){mode==='MCQ'?renderMCQ():renderMSQ();}
+
+const bar=document.getElementById('qtopics');
+["ALL",...Object.keys(topics)].forEach(t=>{
+  const b=document.createElement('button'); b.textContent=t==="ALL"?("All "+Q.length):topics[t];
+  if(t==="ALL")b.classList.add('active');
+  b.onclick=()=>{filter=t; [...bar.children].forEach(x=>x.classList.remove('active')); b.classList.add('active'); render();};
+  bar.appendChild(b);
+});
+function resetQuizScore(total){answered=0;correct=0;document.getElementById('ansCount').textContent='0';document.getElementById('corrCount').textContent='0';const sc=document.getElementById('score');if(sc)sc.innerHTML='Answered <b id="ansCount">0</b>/'+total+' · Correct <b id="corrCount">0</b>';}
+document.getElementById('mcqMode').onclick=()=>{mode='MCQ';resetQuizScore(Q.length);document.getElementById('mcqMode').classList.add('active');document.getElementById('msqMode').classList.remove('active');render();};
+document.getElementById('msqMode').onclick=()=>{mode='MSQ';resetQuizScore(MSQ.length);document.getElementById('msqMode').classList.add('active');document.getElementById('mcqMode').classList.remove('active');render();};
+render();
+(function(){var t=document.getElementById('totalQ'); if(t) t.textContent=Q.length;})();
+</script>
+
+<script>
+(function(){
+  const curatedRapid = [["formula", "Division: R ÷ S = π_A(R) − π_A((π_A(R) × S) − R); answers every 'for ALL' query."], ["gate", "Containment: Strict ⊂ Cascadeless ⊂ Recoverable; Conflict-serializable ⊂ View-serializable."], ["trap", "Serializability and recoverability are independent — a schedule can be one without the other."], ["must", "Wait-Die: older waits, younger dies. Wound-Wait: older wounds, younger waits."], ["shortcut", "Minimal cover order: split RHS → remove extraneous LHS attributes → remove redundant FDs."], ["must", "Thomas write rule: skip an obsolete write instead of aborting; allows view- but not conflict-serializable schedules."], ["formula", "Intention locks: IS/IX on ancestors; SIX = S + IX; X conflicts with everything; IX compatible only with IS and IX."], ["trap", "Hash index = equality only; range queries need a B+-tree. Extendible hashing: entries to a bucket = 2^(global − local)."], ["must", "A candidate key is a minimal superkey; a primary key is one selected candidate key."], ["must", "Relational algebra is procedural; relational calculus is declarative."], ["formula", "Selection filters rows; projection selects columns. Projection can remove duplicate tuples in the relational model."], ["must", "Natural join matches attributes with the same names; be precise about join attributes and duplicate-column handling."], ["trap", "SQL NULL is not equal to anything, including another NULL; comparisons involving NULL use UNKNOWN."], ["must", "WHERE filters rows before grouping; HAVING filters groups after GROUP BY."], ["must", "Functional dependency X→Y means equal X values imply equal Y values; it is a constraint on relation instances."], ["formula", "2NF: 1NF + no non-prime attribute partially dependent on a candidate key. 3NF: for every non-trivial FD X→A, X is a superkey or A is prime."], ["gate", "BCNF requires every non-trivial FD determinant to be a superkey; BCNF is stricter than 3NF."], ["must", "B+ tree data pointers/records are stored at leaves; internal nodes primarily guide search. Leaf nodes are linked for ordered/range access."], ["formula", "B+ tree height and fan-out depend on node capacity, key/pointer sizes, and root/leaf structure; use the exact convention given in a question."], ["must", "Conflict serializability can be tested using a precedence graph: acyclic iff the schedule is conflict-serializable."], ["must", "Two-phase locking has growing and shrinking phases; strict 2PL holds exclusive locks until commit/abort."], ["trap", "Recoverability, cascadelessness, strictness, and serializability are different properties—do not treat them as synonyms."], ["must", "Candidate keys: attributes never on any right-hand side are in every key; take the closure of that core. Prime attributes belong to some candidate key."],["trap", "BCNF decomposition is always lossless but may lose dependencies; 3NF synthesis from a minimal cover is always lossless and dependency preserving. Binary split lossless iff the common attributes are a key of one side."],["formula", "Blocks b = ⌈r/bf⌉ with bf = ⌊B/R⌋; sorted-file search ⌈log2 b⌉; primary index ⌈log2 index blocks⌉ + 1; multilevel index = levels + 1. B+ internal order p: p·P + (p−1)·K ≤ B."],["must", "Isolation levels: Read Committed stops dirty reads; Repeatable Read also stops non-repeatable reads; only Serializable stops phantoms."],["must", "Write-ahead logging: log before data. After a crash REDO transactions committed after the checkpoint and UNDO the ones with no commit record."],["trap", "Basic 2PL gives conflict serializability but not deadlock freedom or recoverability; strict 2PL holds X locks to commit. 4NF removes non-trivial multivalued dependencies whose left side is not a superkey."]];
+  const labelDefs = {
+    must: ['🟢 Must Remember','hy-must'],
+    trap: ['🟡 Common Trap','hy-trap'],
+    formula: ['🧮 Formula / Rule','hy-formula'],
+    gate: ['⚠️ GATE Favourite','hy-gate'],
+    shortcut: ['💡 Shortcut','hy-shortcut']
+  };
+
+  function addBadge(el, type){
+    if(!el || el.querySelector(':scope > .hy-badge')) return;
+    const [label, cls] = labelDefs[type];
+    el.classList.add('hy-marked');
+    const b=document.createElement('span');
+    b.className='hy-badge '+cls;
+    b.textContent=label;
+    el.insertBefore(b, el.firstChild);
+    el.dataset.hyType=type;
+  }
+
+  function classifyCards(){
+    document.querySelectorAll('main .card').forEach(el=>{
+      const t=el.textContent.replace(/\s+/g,' ').trim().toLowerCase();
+      if(!t || el.closest('#hyRapidPanel')) return;
+      if(/\b(shortcut|quick trick|handy trick|easy trick)\b/.test(t)) addBadge(el,'shortcut');
+      else if(/\b(formula|identity|identities|range\s*=|det\(|log\s*|o\(|theta\(|n\(|probability formula|equation)\b/.test(t)) addBadge(el,'formula');
+      else if(/\b(theorem|key fact|must remember|remember|important|property|properties|rule of thumb|definition|distinction|difference between|classic)\b/.test(t)) addBadge(el,'must');
+    });
+    document.querySelectorAll('main .warn').forEach(el=>{
+      const t=el.textContent.replace(/\s+/g,' ').trim().toLowerCase();
+      addBadge(el, /gate (angle|trap|strategy|note|convention|favourite|favorite)/.test(t) ? 'gate' : 'trap');
+    });
+    document.querySelectorAll('main .num').forEach(el=>{
+      const t=el.textContent.replace(/\s+/g,' ').trim().toLowerCase();
+      if(/\b(rule of thumb|formula|shortcut|range|identity|key|remember)\b/.test(t)) addBadge(el,'formula');
+    });
+    document.querySelectorAll('main .gq').forEach(el=>addBadge(el,'gate'));
+  }
+
+  function makeToolbar(){
+    if(document.querySelector('.hy-toolbar')) return;
+    const main=document.querySelector('.wrap>main');
+    if(!main) return;
+    const toolbar=document.createElement('div');
+    toolbar.className='hy-toolbar';
+    toolbar.innerHTML=`
+      <div class="hy-toolbar-row">
+        <div>
+          <div class="hy-title">⚡ <span>Revision Layer</span></div>
+          <div class="hy-sub">Use Last-Minute mode for a rapid recall pass before solving PYQs.</div>
+        </div>
+        <div class="hy-actions">
+          <button class="hy-btn primary" id="hyRapidOn">⚡ Last-Minute Revision</button>
+          <button class="hy-btn secondary" id="hyRapidOff">↩ Full Notes</button>
+        </div>
+      </div>
+      <div class="hy-legend">
+        <span class="hy-must">🟢 Must Remember</span>
+        <span class="hy-trap">🟡 Common Trap</span>
+        <span class="hy-formula">🧮 Formula / Rule</span>
+        <span class="hy-gate">⚠️ GATE Favourite</span>
+        <span class="hy-shortcut">💡 Shortcut</span>
+      </div>`;
+    main.insertBefore(toolbar, main.firstElementChild);
+    document.getElementById('hyRapidOn').onclick=()=>{buildRapid(); document.body.classList.add('rapid-mode'); window.scrollTo({top:0,behavior:'smooth'});};
+    document.getElementById('hyRapidOff').onclick=()=>{document.body.classList.remove('rapid-mode'); window.scrollTo({top:0,behavior:'smooth'});};
+  }
+
+  function buildRapid(){
+    let panel=document.getElementById('hyRapidPanel');
+    if(panel) return;
+    panel=document.createElement('section');
+    panel.id='hyRapidPanel';
+    panel.innerHTML='<h1>⚡ Last-Minute Revision</h1><p class="rapid-intro">A manually curated recall pass for the final 15–30 minutes before PYQs. Start here, then switch to the full notes only if a point needs clarification.</p>';
+    const curatedBox=document.createElement('div'); curatedBox.className='rapid-curated';
+    curatedBox.innerHTML='<h2>🎯 High-Yield Recall</h2><p class="rapid-note">These points are intentionally selected for quick GATE-oriented recall.</p>';
+    const groups={must:[],trap:[],formula:[],gate:[],shortcut:[]};
+    curatedRapid.forEach(([type,text])=>groups[type]?.push(text));
+    const labels={must:'🟢 Must Remember',trap:'🟡 Common Trap',formula:'🧮 Formula / Rule',gate:'⚠️ GATE Favourite',shortcut:'💡 Shortcut'};
+    Object.entries(groups).forEach(([type,items])=>{
+      if(!items.length) return;
+      const g=document.createElement('div'); g.className='rapid-group '+type;
+      g.innerHTML='<h3>'+labels[type]+'</h3>';
+      const ul=document.createElement('ul'); items.forEach(x=>{const li=document.createElement('li'); li.textContent=x; ul.appendChild(li);});
+      g.appendChild(ul); curatedBox.appendChild(g);
+    });
+    panel.appendChild(curatedBox);
+    const sourceSections=[...document.querySelectorAll('main>section')].filter(s=>s.id!=='quiz'&&s.id!=='pyq'&&s.id!=='hyRapidPanel');
+    let total=0;
+    sourceSections.forEach(sec=>{
+      const items=[...sec.querySelectorAll(':scope > .card, :scope > .warn, :scope > .num, :scope > .gq')]
+        .filter(el=>el.dataset.hyType);
+      if(!items.length) return;
+      const rs=document.createElement('div'); rs.className='rapid-section';
+      const title=sec.querySelector('h1')?.textContent.trim() || sec.id;
+      rs.innerHTML='<h2>'+escapeHtml(title)+'</h2>';
+      items.forEach(el=>{
+        // Last-minute mode keeps high-yield cards and warnings, plus only explicitly formula/rule numericals.
+        const type=el.dataset.hyType;
+        if(el.classList.contains('num') && type!=='formula') return;
+        const wrap=document.createElement('div'); wrap.className='rapid-source';
+        wrap.appendChild(el.cloneNode(true));
+        rs.appendChild(wrap); total++;
+      });
+      if(rs.children.length>1) panel.appendChild(rs);
+    });
+    if(!total){
+      const e=document.createElement('div'); e.className='rapid-empty'; e.textContent='No high-yield blocks were detected in this subject.'; panel.appendChild(e);
+    }
+    document.querySelector('.wrap>main').appendChild(panel);
+  }
+
+  function escapeHtml(s){return s.replace(/[&<>'"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[c]));}
+  function init(){classifyCards(); makeToolbar();}
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',init); else init();
+})();
+</script>
+
+<script>
+/* Randomise the position of the correct option in each solved problem on every page load,
+   and rewrite the "Correct: Option N" line to match. Problems whose options or explanation
+   refer to other options by position or say "all/none of the above" keep their order. */
+(function(){
+  var PIN=/\b(above|both of these|all of these|none of these|neither of these)\b/i;
+  var POSREF=/\b[Oo]ptions?\s*\(?[1-4A-Da-d]\)?(?![\w-])|\([a-d]\)\s|\bchoice\s*\(?[1-4A-D]\)?/;
+  document.querySelectorAll('.gq').forEach(function(g){
+    var ol=g.querySelector('.gopts'), ans=g.querySelector('.gans'); if(!ol||!ans) return;
+    var m=ans.innerHTML.match(/Option (\d)/); if(!m) return;
+    var lis=Array.prototype.slice.call(ol.children); if(lis.length<2) return;
+    var ci=parseInt(m[1],10)-1; if(ci<0||ci>=lis.length) return;
+    if(lis.some(function(li){return PIN.test(li.textContent)||POSREF.test(li.textContent);})) return;
+    var pre=g.querySelector('pre'); if(pre&&POSREF.test(pre.textContent)) return;
+    if(POSREF.test(ans.textContent.replace(/Option \d/,''))) return;
+    var correct=lis[ci], order=lis.slice();
+    for(var i=order.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=order[i];order[i]=order[j];order[j]=t;}
+    order.forEach(function(li){ol.appendChild(li);});
+    ans.innerHTML=ans.innerHTML.replace(/Option \d/,'Option '+(order.indexOf(correct)+1));
+  });
+})();
+</script>
+<!-- readiness:start -->
+<script>window.__READINESS_CFG__={review:{"ER": {"sec": "er", "label": "ER Model", "h2": ["Mapping an ER"]}, "RELALG": {"sec": "relmodel", "label": "Relational Model & Algebra", "h2": ["Relational Algebra"]}, "SQL": {"sec": "sql", "label": "SQL", "h2": ["Nested queries"]}, "NORM": {"sec": "constraints", "label": "Normal Forms", "h2": ["Normal forms"]}, "INDEX": {"sec": "index", "label": "Indexing", "h2": ["B+-Tree order"]}, "TRANS": {"sec": "trans", "label": "Transactions", "h2": ["Serializability"]}}};</script>
+<script>
+(function(){
+  /* ===== Revision Readiness: turns the quiz into a revision loop ===== */
+  var CFG = window.__READINESS_CFG__ || {};
+  var NAME = (location.pathname.split('/').pop()||'page').replace(/\.html?$/,'');
+  var KEY = 'readiness:'+NAME;
+  var STRONG=75, WEAK=55, MIN_ATT=3;
+  var results = {};             // "Q12" / "MSQ3" -> 1 (correct) | 0 (wrong); latest attempt wins
+  try{ var raw=localStorage.getItem(KEY); if(raw) results=JSON.parse(raw)||{}; }catch(e){}
+  function save(){ try{ localStorage.setItem(KEY, JSON.stringify(results)); }catch(e){} }
+
+  var score=document.getElementById('score'), qlist=document.getElementById('qlist');
+  if(!score||!qlist||typeof Q==='undefined'||typeof topics==='undefined') return;
+
+  // ---- denominators per topic (MCQ + MSQ) ----
+  var totals={}, order=[];
+  function addTotal(arr){ (arr||[]).forEach(function(it){ var k=it[0]; if(!(k in totals)){totals[k]=0;order.push(k);} totals[k]++; }); }
+  addTotal(Q); if(typeof MSQ!=='undefined') addTotal(MSQ);
+  var totalQ=Q.length+(typeof MSQ!=='undefined'?MSQ.length:0);
+  function topicOf(id){
+    var m=/^(MSQ|Q)(\d+)$/.exec(id); if(!m) return null;
+    var arr=(m[1]==='Q')?Q:MSQ; var it=arr[+m[2]-1]; return it?it[0]:null;
+  }
+  function label(k){ return topics[k]||k; }
+
+  // ---- panel ----
+  var panel=document.createElement('div'); panel.id='readiness'; panel.className='rd-panel';
+  score.parentNode.insertBefore(panel, score.nextSibling);
+  var css=document.createElement('style');
+  css.textContent=
+   '.rd-panel{margin:16px 0 22px;padding:16px 18px;border:1px solid var(--border,#242b3a);border-radius:14px;background:linear-gradient(135deg,var(--panel,#12161f),var(--panel2,#181d29));display:none}'+
+   '.rd-panel.show{display:block}'+
+   '.rd-head{display:flex;align-items:baseline;justify-content:space-between;gap:10px;flex-wrap:wrap}'+
+   '.rd-title{font-size:12px;letter-spacing:1px;text-transform:uppercase;font-weight:800;color:var(--accent,#5ee6c8)}'+
+   '.rd-big{font-size:30px;font-weight:800;line-height:1.1;margin:4px 0 0;color:var(--text,#e6e9f0)}'+
+   '.rd-big small{font-size:13px;font-weight:600;color:var(--muted,#93a0b8);margin-left:8px}'+
+   '.rd-verdict{font-size:13px;font-weight:700;padding:4px 10px;border-radius:999px;border:1px solid}'+
+   '.rd-v-good{color:#7ee787;border-color:#7ee78766;background:#7ee78722}.rd-v-mid{color:#ffc978;border-color:#ffb45466;background:#ffb45422}.rd-v-low{color:#ff9b9b;border-color:#ff6b6b66;background:#ff6b6b22}'+
+   '.rd-cov{font-size:12.5px;color:var(--muted,#93a0b8);margin:8px 0 12px}'+
+   '.rd-rows{display:grid;gap:7px;margin:10px 0}'+
+   '.rd-row{display:grid;grid-template-columns:minmax(96px,34%) 1fr 74px;gap:10px;align-items:center;font-size:12.5px}'+
+   '.rd-name{color:var(--text,#e6e9f0);overflow-wrap:anywhere}'+
+   '.rd-bar{height:9px;border-radius:99px;background:#ffffff14;overflow:hidden}'+
+   '.rd-bar i{display:block;height:100%;border-radius:99px}'+
+   '.rd-pct{text-align:right;color:var(--muted,#93a0b8);white-space:nowrap}'+
+   '.rd-sec{margin:14px 0 4px;font-size:13px;color:#c9d1e0;line-height:1.55}'+
+   '.rd-sec b.g{color:#7ee787}.rd-sec b.w{color:#ff9b9b}.rd-sec b.d{color:#ffc978}'+
+   '.rd-rec{margin:14px 0 0;padding:12px 14px;border-left:3px solid var(--accent2,#7c9fff);background:#00000022;border-radius:0 10px 10px 0;font-size:13px;color:#c9d1e0}'+
+   '.rd-rec .t{font-size:11px;letter-spacing:1px;text-transform:uppercase;font-weight:800;color:var(--accent2,#7c9fff);margin-bottom:6px}'+
+   '.rd-rec a{color:var(--accent,#5ee6c8);font-weight:700;text-decoration:none}.rd-rec a:hover{text-decoration:underline}'+
+   '.rd-rec div.l{margin:5px 0}'+
+   '.rd-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}'+
+   '.rd-btn{border:1px solid var(--border,#242b3a);background:var(--panel2,#181d29);color:var(--text,#e6e9f0);padding:8px 12px;border-radius:9px;font-size:12.5px;font-weight:700;cursor:pointer}'+
+   '.rd-btn:hover{border-color:var(--accent2,#7c9fff);color:var(--accent,#5ee6c8)}.rd-btn[disabled]{opacity:.45;cursor:default}'+
+   '.rd-note{font-size:11.5px;color:var(--muted,#93a0b8);margin-top:10px}'+
+   '.qcard.rd-hide{display:none}';
+  document.head.appendChild(css);
+
+  function pct(c,n){ return n? Math.round(100*c/n):0; }
+  function colour(p){ return p>=STRONG?'#7ee787':(p>=WEAK?'#ffc978':'#ff6b6b'); }
+
+  function sectionLink(t){
+    var c=(CFG.review||{})[t]; if(!c) return null;
+    if(c.href) return '<a href="'+c.href+'">'+c.label+'</a>';
+    var sec=document.getElementById(c.sec); if(!sec) return null;
+    var parts=['<a href="#'+c.sec+'">'+c.label+'</a>'];
+    (c.h2||[]).forEach(function(h){
+      var hs=sec.querySelectorAll('h2'); 
+      for(var i=0;i<hs.length;i++){
+        if(hs[i].textContent.replace(/\s+/g,' ').toLowerCase().indexOf(h.toLowerCase())>-1){
+          if(!hs[i].id) hs[i].id=c.sec+'-rd-'+i;
+          parts.push('<a href="#'+hs[i].id+'">'+hs[i].firstChild.textContent.replace(/\s+$/,'')+'</a>'); break;
+        }
+      }
+    });
+    return parts.join(' → ');
+  }
+
+  function build(){
+    var att=0,cor=0,per={};
+    order.forEach(function(k){per[k]={a:0,c:0};});
+    Object.keys(results).forEach(function(id){
+      var k=topicOf(id); if(!k||!per[k]) return;
+      per[k].a++; att++; if(results[id]===1){per[k].c++; cor++;}
+    });
+    if(!att){ panel.className='rd-panel'; return; }
+    var overall=pct(cor,att);
+    var cov=Math.round(100*att/totalQ);
+    var verdict, vcls;
+    if(overall>=80){verdict='Exam-ready here';vcls='rd-v-good';}
+    else if(overall>=65){verdict='Nearly there';vcls='rd-v-mid';}
+    else if(overall>=50){verdict='Needs revision';vcls='rd-v-mid';}
+    else {verdict='Revise before PYQs';vcls='rd-v-low';}
+    var strong=[],weak=[],dev=[],thin=[];
+    order.forEach(function(k){
+      var p=per[k]; if(p.a<MIN_ATT){ thin.push(k); return; }
+      var x=pct(p.c,p.a);
+      if(x>=STRONG) strong.push([k,x]); else if(x<WEAK) weak.push([k,x]); else dev.push([k,x]);
+    });
+    weak.sort(function(a,b){return a[1]-b[1];}); dev.sort(function(a,b){return a[1]-b[1];});
+    var h='<div class="rd-head"><div><div class="rd-title">Revision readiness</div>'+
+      '<div class="rd-big">Revision Score: '+overall+'%<small>'+cor+' / '+att+' answered correctly</small></div></div>'+
+      '<span class="rd-verdict '+vcls+'">'+verdict+'</span></div>';
+    h+='<div class="rd-cov">Coverage: '+att+' of '+totalQ+' questions attempted ('+cov+'%)'+(cov<50?' — provisional; attempt more questions for a reliable reading.':'.')+'</div>';
+    h+='<div class="rd-rows">';
+    order.forEach(function(k){
+      var p=per[k], x=pct(p.c,p.a);
+      h+='<div class="rd-row"><span class="rd-name">'+label(k)+'</span><span class="rd-bar"><i style="width:'+(p.a?x:0)+'%;background:'+(p.a?colour(x):'transparent')+'"></i></span><span class="rd-pct">'+(p.a?x+'% · '+p.c+'/'+p.a:'not tried')+'</span></div>';
+    });
+    h+='</div>';
+    function names(a){return a.map(function(z){return label(z[0])+' ('+z[1]+'%)';}).join(', ');}
+    if(strong.length) h+='<div class="rd-sec"><b class="g">Strong:</b> '+names(strong)+'</div>';
+    if(dev.length) h+='<div class="rd-sec"><b class="d">Developing:</b> '+names(dev)+'</div>';
+    if(weak.length) h+='<div class="rd-sec"><b class="w">Weak:</b> '+names(weak)+'</div>';
+    if(thin.length) h+='<div class="rd-sec" style="color:var(--muted,#93a0b8)">Too few attempts to judge (under '+MIN_ATT+'): '+thin.map(label).join(', ')+'</div>';
+    // recommendation
+    var focus=weak.concat(dev).slice(0,3), lines=[];
+    focus.forEach(function(z){ var l=sectionLink(z[0]); if(l) lines.push('<div class="l">Review → '+l+'</div>'); });
+    var pyq=document.getElementById('pyq');
+    h+='<div class="rd-rec"><div class="t">Recommendation</div>';
+    if(lines.length){
+      h+=lines.join('')+'<div class="l">Then retry the questions you missed, and after that'+(pyq?' attempt the <a href="#pyq">solved PYQ-style problems</a>':' attempt PYQs')+'.</div>';
+    } else if(thin.length&&!strong.length){
+      h+='<div class="l">Answer a few more questions in each topic to get a reliable reading.</div>';
+    } else {
+      h+='<div class="l">No weak topics so far. Move on to '+(pyq?'<a href="#pyq">the PYQ-style problems</a>':'PYQs')+'.'+(cov<60?' Cover the untried topics first for a trustworthy score.':'')+'</div>';
+    }
+    h+='</div>';
+    var missed=Object.keys(results).filter(function(id){return results[id]===0;});
+    h+='<div class="rd-actions"><button class="rd-btn" id="rdRetry"'+(missed.length?'':' disabled')+'>Retry missed ('+missed.length+')</button><button class="rd-btn" id="rdReset">Reset results</button></div>';
+    h+='<div class="rd-note">Scores are saved in this browser. A question\'s latest attempt counts, so re-answering a missed question updates the report. The sub-heading shown is the highest-yield part of a weak topic. Topic labels need at least '+MIN_ATT+' attempts: Strong ≥ '+STRONG+'%, Weak &lt; '+WEAK+'%.</div>';
+    panel.innerHTML=h; panel.className='rd-panel show';
+    var r=document.getElementById('rdRetry'); if(r) r.onclick=retry;
+    var z=document.getElementById('rdReset'); if(z) z.onclick=function(){ if(confirm('Clear saved quiz results for this subject?')){results={};save();build();} };
+  }
+
+  function currentMode(){ try{ return (typeof mode!=='undefined')?mode:'MCQ'; }catch(e){ return 'MCQ'; } }
+  function retry(){
+    var m=currentMode(), pre=(m==='MSQ')?'MSQ':'Q';
+    var missed=Object.keys(results).filter(function(id){return results[id]===0 && id.indexOf(pre)===0 && (pre==='MSQ'||id.indexOf('MSQ')!==0);});
+    if(!missed.length){
+      // missed questions exist only in the other mode
+      var other=(m==='MSQ')?'mcqMode':'msqMode', b=document.getElementById(other); if(b) b.click();
+      pre=(pre==='Q')?'MSQ':'Q';
+      missed=Object.keys(results).filter(function(id){return results[id]===0 && (pre==='MSQ'?id.indexOf('MSQ')===0:/^Q\d/.test(id));});
+    }
+    if(typeof filter!=='undefined'){ try{ filter='ALL'; }catch(e){} }
+    var all=document.querySelector('#qtopics button'); if(all) all.click();   // re-renders with ALL
+    var set={}; missed.forEach(function(id){set[id]=1;});
+    var shown=0;
+    qlist.querySelectorAll('.qcard').forEach(function(c){
+      var t=c.querySelector('.qtag'); var mm=t&&/·\s*(MSQ|Q)(\d+)/.exec(t.textContent);
+      var id=mm?mm[1]+mm[2]:null;
+      if(id&&set[id]){shown++;} else c.classList.add('rd-hide');
+    });
+    qlist.scrollIntoView({behavior:'smooth',block:'start'});
+  }
+
+  // ---- capture answers: after each click, read the card's final state ----
+  function outcome(card, id){
+    if(!card.querySelector('.expl.show')) return null;            // not answered/submitted yet
+    if(card.querySelector('.opt.wrong')) return 0;
+    if(id.indexOf('MSQ')===0){                                      // a missed correct option is not marked wrong
+      var cs=card.querySelectorAll('.opt.correct');
+      for(var i=0;i<cs.length;i++) if(!cs[i].classList.contains('selected')) return 0;
+    }
+    return 1;
+  }
+  qlist.addEventListener('click',function(e){
+    var card=e.target.closest&&e.target.closest('.qcard'); if(!card) return;
+    setTimeout(function(){
+      var t=card.querySelector('.qtag'); var mm=t&&/·\s*(MSQ|Q)(\d+)/.exec(t.textContent); if(!mm) return;
+      var id=mm[1]+mm[2], r=outcome(card,id);
+      if(r===null) return;
+      if(card.dataset.rdRecorded) return; card.dataset.rdRecorded='1';
+      results[id]=r; save(); build();
+    },0);
+  },true);
+
+  build();
+})();
+
+</script>
+<!-- readiness:end -->
+<script id="ux-fix-v11-js">
+(function(){
+  var nav=document.getElementById('side'); if(!nav) return;
+  var scrim=document.createElement('div'); scrim.id='navScrim'; document.body.appendChild(scrim);
+  var fab=document.createElement('button'); fab.id='navFab'; fab.type='button'; fab.setAttribute('aria-label','Topics'); fab.textContent='\u2630';
+  fab.addEventListener('click',function(){ nav.classList.toggle('open'); });
+  document.body.appendChild(fab);
+  function sync(){ document.body.classList.toggle('nav-open', nav.classList.contains('open')); }
+  new MutationObserver(sync).observe(nav,{attributes:true,attributeFilter:['class']});
+  function close(){ nav.classList.remove('open'); }
+  function outside(e){
+    if(!nav.classList.contains('open')) return;
+    var t=e.target; if(!t||!t.closest) return;
+    if(t.closest('#menuBtn')||t.closest('#navFab')) return;                  // button handles its own toggle
+    if(!t.closest('#side') || (e.type==='click' && t.closest('#side a'))) close();
+  }
+  document.addEventListener('pointerdown',outside,true);
+  document.addEventListener('touchstart',outside,{capture:true,passive:true});
+  document.addEventListener('click',outside,true);
+  scrim.addEventListener('click',close);
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape') close(); });
+})();
+</script>
+<script id="fmt-v12-js">
+(function(){
+  var EQ=/[=≤≥⇔→⇒≠≈∑Σπ⌈⌊]|\^|_\{|\bO\(|\blog\b|\bmod\b/;
+  function esc(s){return s.replace(/[&<>]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;'}[c];});}
+  function fmtItem(li,isFormula){
+    if(li.dataset.fmt) return; li.dataset.fmt='1';
+    var t=li.textContent.trim(), label='', body=t;
+    var m=t.match(/^([^:=]{2,44}?):\s+([\s\S]+)$/);
+    if(m && m[1].split(/\s+/).length<=6){label=m[1];body=m[2];}
+    var html='';
+    if(label) html+='<span class="rg-label">'+esc(label)+'</span>';
+    if(isFormula){
+      var parts=body.split(/;\s+|\.\s+(?=[A-Z])/).map(function(x){return x.trim();}).filter(Boolean);
+      parts.forEach(function(x,i){
+        var last=(i===parts.length-1);
+        var txt=x; if(!/[.!?)]$/.test(txt) && !last) txt=x; 
+        var prose=(x.match(/\b[a-z]{4,}\b/g)||[]).length; var isEq=EQ.test(x)&&(prose<=3||(/[=≤≥⇔]/.test(x)&&x.length<=70));
+        html+='<span class="'+(isEq?'rg-eq':'rg-txt')+'">'+esc(x)+'</span>';
+      });
+    } else {
+      html+='<span class="rg-body">'+esc(body)+'</span>';
+    }
+    li.innerHTML=html;
+  }
+  function enhance(panel){
+    if(panel.dataset.fmt) return; panel.dataset.fmt='1';
+    var groups=panel.querySelectorAll('.rapid-group'), chips=[];
+    groups.forEach(function(g,i){
+      var type=(g.className.match(/\b(must|trap|formula|gate|shortcut)\b/)||[])[1]; if(!type) return;
+      g.id='rg-'+type;
+      var items=g.querySelectorAll('li');
+      items.forEach(function(li){fmtItem(li,type==='formula');});
+      var h=g.querySelector('h3'); var c=document.createElement('span'); c.className='rg-count'; c.textContent=items.length; h.appendChild(c);
+      chips.push('<a href="#rg-'+type+'">'+h.firstChild.textContent.trim()+' <b>'+items.length+'</b></a>');
+    });
+    if(chips.length){
+      var j=document.createElement('nav'); j.className='rapid-jump'; j.setAttribute('aria-label','Jump to group'); j.innerHTML=chips.join('');
+      var cur=panel.querySelector('.rapid-curated'); if(cur){var note=cur.querySelector('.rapid-note'); (note||cur.firstChild).insertAdjacentElement('afterend',j);}
+      j.addEventListener('click',function(e){var a=e.target.closest('a'); if(!a) return; e.preventDefault();
+        var el=document.querySelector(a.getAttribute('href')); if(el) el.scrollIntoView({behavior:'smooth',block:'start'});});
+    }
+  }
+  function check(){var p=document.getElementById('hyRapidPanel'); if(p) enhance(p);}
+  var main=document.querySelector('.wrap>main'); if(main){ new MutationObserver(check).observe(main,{childList:true}); }
+  check();
+})();
+</script>
+<a id="homeFab" href="index.html" aria-label="Back to Study Hub">🏠</a>
+<!-- gatetest:start -->
+<script src="gate-test.js"></script>
+<script>(function(){var a=document.getElementById("qtopics");if(a&&window.GateTest)GateTest.mountLauncher("dbms",a);})();</script>
+<!-- gatetest:end -->
+<!-- pwa-reg:start -->
+<script>if('serviceWorker' in navigator&&(location.protocol==='https:'||location.hostname==='localhost'||location.hostname==='127.0.0.1')){window.addEventListener('load',function(){navigator.serviceWorker.register('sw.js').catch(function(){});});}</script>
+<!-- pwa-reg:end -->
+</body>
+</html>

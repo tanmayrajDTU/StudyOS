@@ -1,0 +1,2510 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>General Aptitude for GATE CSE 2027</title>
+<style>
+:root{
+  --bg:#0b0e14; --panel:#12161f; --panel2:#181d29; --border:#242b3a;
+  --text:#e6e9f0; --muted:#93a0b8; --accent:#5ee6c8; --accent2:#7c9fff;
+  --warn:#ffb454; --good:#7ee787; --code-bg:#0d1420;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){ } }
+*{box-sizing:border-box}
+html{scroll-padding-top:calc(64px + env(safe-area-inset-top,0px));height:100%}
+body{
+  margin:0;height:100%;background:var(--bg);color:var(--text);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  line-height:1.55;
+}
+a{color:var(--accent2)}
+header{
+  position:sticky;top:0;z-index:20;
+  padding:calc(14px + env(safe-area-inset-top,0px)) 16px 14px;
+  background:rgba(11,14,20,0.9);backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--border);
+  display:flex;align-items:center;gap:10px;justify-content:space-between;
+}
+header .title{font-weight:700;font-size:15px;letter-spacing:.2px}
+header .title span{color:var(--accent)}
+#menuBtn{display:none;background:var(--panel2);border:1px solid var(--border);color:var(--text);
+  padding:8px 12px;border-radius:8px;font-size:13px}
+.wrap{display:flex;max-width:1280px;margin:0 auto}
+nav#side{
+  width:250px;flex:none;padding:18px 12px;position:sticky;
+  top:calc(58px + env(safe-area-inset-top,0px));
+  height:calc(100vh - 58px - env(safe-area-inset-top,0px));
+  overflow-y:auto;border-right:1px solid var(--border);
+}
+nav#side .grp{margin-bottom:14px}
+nav#side .grp-title{font-size:11px;text-transform:uppercase;letter-spacing:1px;color:var(--muted);margin:10px 6px 6px}
+nav#side a{
+  display:block;padding:7px 10px;border-radius:8px;color:var(--muted);text-decoration:none;font-size:13.5px;
+}
+nav#side a:hover{background:var(--panel2);color:var(--text)}
+nav#side a.soon{opacity:.45;font-style:italic}
+main{flex:1;min-width:0;padding:28px 22px 80px}
+section{max-width:820px;margin:0 auto 64px;scroll-margin-top:70px}
+section h1{font-size:26px;margin:0 0 6px;color:var(--accent)}
+section h2{font-size:20px;margin:38px 0 10px;color:var(--accent2);border-bottom:1px solid var(--border);padding-bottom:8px}
+section h3{font-size:16px;margin:22px 0 8px;color:var(--text)}
+p{color:#c9d1e0}
+.sub{color:var(--muted);font-size:14px;margin-bottom:20px}
+.card{
+  background:var(--panel);border:1px solid var(--border);border-radius:12px;
+  padding:16px 18px;margin:14px 0;
+}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media (max-width:720px){.grid2{grid-template-columns:1fr}}
+.num{
+  border-left:3px solid var(--accent);background:var(--panel2);
+  padding:14px 16px;border-radius:0 10px 10px 0;margin:16px 0;
+}
+.num .tag{font-size:11px;color:var(--accent);text-transform:uppercase;letter-spacing:1px;font-weight:700}
+.warn{border-left:3px solid var(--warn);background:#1c1810;padding:12px 16px;border-radius:0 10px 10px 0;margin:14px 0}
+.warn .tag{color:var(--warn);font-size:11px;text-transform:uppercase;letter-spacing:1px;font-weight:700}
+code,.mono{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;background:var(--code-bg);
+  padding:2px 6px;border-radius:5px;font-size:13px;color:var(--good)}
+pre{background:var(--code-bg);padding:12px 14px;border-radius:8px;overflow-x:auto;border:1px solid var(--border)}
+table{border-collapse:collapse;width:100%;margin:12px 0;font-size:13.5px}
+th,td{border:1px solid var(--border);padding:8px 10px;text-align:left}
+th{background:var(--panel2);color:var(--accent2)}
+tr:nth-child(even){background:#10141d}
+.bitfield{display:flex;font-family:ui-monospace,monospace;font-size:12px;overflow-x:auto;margin:14px 0}
+.bit{border:1px solid var(--border);padding:10px 4px;text-align:center;flex:none;min-width:26px}
+.bit.hdr{background:var(--panel2);color:var(--muted);border-bottom:none}
+.bfrow{display:flex}
+.bf-label{padding:8px 10px;font-size:12px;color:#0b0e14;font-weight:700;text-align:center;flex:none}
+.pill{display:inline-block;padding:3px 10px;border-radius:999px;font-size:11.5px;font-weight:700;margin-right:6px}
+.pill.s{background:#ff6b6b33;color:#ff9b9b}
+.pill.e{background:#7c9fff33;color:#9fb6ff}
+.pill.m{background:#5ee6c833;color:#8ff0da}
+.addr-flow{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:14px 0;font-size:13px}
+.addr-flow .box{background:var(--panel2);border:1px solid var(--border);border-radius:8px;padding:8px 12px}
+.addr-flow .arrow{color:var(--accent);font-weight:700}
+footer{border-top:1px solid var(--border);text-align:center;color:var(--muted);font-size:12.5px;padding:30px 16px}
+::-webkit-scrollbar{width:9px;height:9px}
+::-webkit-scrollbar-thumb{background:var(--border);border-radius:6px}
+@media (max-width:860px){
+  nav#side{position:fixed;left:0;top:calc(58px + env(safe-area-inset-top,0px));
+    height:calc(100vh - 58px - env(safe-area-inset-top,0px));
+    background:var(--bg);z-index:15;transform:translateX(-105%);transition:transform .2s;width:230px}
+  nav#side.open{transform:translateX(0)}
+  #menuBtn{display:inline-block}
+}
+.qtopics{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0 20px;position:sticky;top:58px;background:var(--bg);padding:8px 0;z-index:5}
+.qtopics button{background:var(--panel2);border:1px solid var(--border);color:var(--muted);padding:6px 13px;
+  border-radius:999px;font-size:12.5px;cursor:pointer}
+.qtopics button.active{background:var(--accent);color:#062019;border-color:var(--accent);font-weight:700}
+#score{font-size:13px;color:var(--muted);margin-bottom:16px}
+#score b{color:var(--accent)}
+.qcard{background:var(--panel);border:1px solid var(--border);border-radius:12px;padding:16px;margin:12px 0}
+.qcard .qtag{font-size:10.5px;color:var(--accent2);text-transform:uppercase;letter-spacing:.5px;font-weight:700}
+.qcard .qtext{margin:6px 0 12px;font-size:14.5px}
+.opt{display:block;width:100%;text-align:left;background:var(--panel2);border:1px solid var(--border);
+  color:var(--text);padding:9px 12px;border-radius:8px;margin:6px 0;cursor:pointer;font-size:13.5px}
+.opt:hover{border-color:var(--accent2)}
+.opt.correct{background:#123322;border-color:var(--good);color:var(--good)}
+.opt.wrong{background:#331414;border-color:#ff6b6b;color:#ff9b9b}
+.opt[disabled]{cursor:default}
+.expl{display:none;margin-top:10px;font-size:13px;color:var(--muted);background:var(--code-bg);
+  padding:10px 12px;border-radius:8px;border:1px solid var(--border)}
+.gq{border-left:3px solid var(--accent2);background:var(--panel2);padding:16px 18px;border-radius:0 10px 10px 0;margin:20px 0}
+.gq .gtag{font-size:11px;color:var(--accent2);text-transform:uppercase;letter-spacing:1px;font-weight:700}
+.gq .gopts{margin:10px 0;padding-left:18px;color:#c9d1e0;font-size:13.5px}
+.gq .gopts li{margin:3px 0}
+.gq .gans{color:var(--good);font-weight:700}
+.expl.show{display:block}
+.grid2>*{min-width:0;overflow-x:auto}
+
+/* ===== High-yield revision system ===== */
+.hy-toolbar{
+  max-width:820px;margin:0 auto 28px;padding:14px 16px;
+  background:linear-gradient(135deg,var(--panel),var(--panel2));
+  border:1px solid var(--border);border-radius:14px;
+}
+.hy-toolbar-row{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.hy-title{font-weight:800;color:var(--text);font-size:14px}
+.hy-title span{color:var(--accent)}
+.hy-sub{color:var(--muted);font-size:12.5px;margin-top:4px}
+.hy-actions{display:flex;gap:8px;flex-wrap:wrap}
+.hy-btn{border:1px solid var(--border);background:var(--panel2);color:var(--text);padding:8px 12px;border-radius:9px;font-size:12.5px;font-weight:700;cursor:pointer}
+.hy-btn:hover{border-color:var(--accent2);color:var(--accent)}
+.hy-btn.primary{background:var(--accent);color:#062019;border-color:var(--accent)}
+.hy-legend{display:flex;flex-wrap:wrap;gap:7px;margin-top:12px}
+.hy-legend span,.hy-badge{display:inline-flex;align-items:center;gap:4px;padding:3px 8px;border-radius:999px;font-size:10.5px;font-weight:800;letter-spacing:.15px}
+.hy-must{background:#7c9fff22;color:#9fb6ff;border:1px solid #7c9fff55}
+.hy-trap{background:#ffb45422;color:#ffc978;border:1px solid #ffb45455}
+.hy-formula{background:#5ee6c822;color:#8ff0da;border:1px solid #5ee6c855}
+.hy-gate{background:#ff6b6b22;color:#ff9b9b;border:1px solid #ff6b6b55}
+.hy-shortcut{background:#c792ea22;color:#dcb7f7;border:1px solid #c792ea55}
+.hy-marked{position:relative}
+.hy-marked>.hy-badge{margin-bottom:8px}
+.hy-rapid-overlay{display:none}
+body.rapid-mode .hy-rapid-overlay{display:block}
+body.rapid-mode .wrap>main>section:not(#hyRapidPanel){display:none}
+body.rapid-mode .wrap>main{padding-top:18px}
+body.rapid-mode nav#side{opacity:.55}
+body.rapid-mode .hy-toolbar{position:sticky;top:58px;z-index:10}
+#hyRapidPanel{max-width:820px}
+#hyRapidPanel h1{margin-bottom:5px}
+#hyRapidPanel .rapid-intro{margin:0 0 24px;color:var(--muted);font-size:13px}
+.rapid-section{margin:0 0 34px}
+.rapid-section h2{font-size:18px;margin:0 0 12px;color:var(--accent2);border-bottom:1px solid var(--border);padding-bottom:8px}
+.rapid-empty{color:var(--muted);font-size:13px;background:var(--panel);border:1px dashed var(--border);padding:12px 14px;border-radius:10px}
+.rapid-source{margin:0 0 12px}
+.rapid-source .hy-badge{display:inline-flex;margin-bottom:8px}
+body.rapid-mode .hy-toolbar .hy-btn.primary{display:none}
+body:not(.rapid-mode) .hy-toolbar .hy-btn.secondary{display:none}
+@media(max-width:720px){
+  .hy-toolbar-row{align-items:flex-start}.hy-actions{width:100%}.hy-btn{flex:1}
+  body.rapid-mode .hy-toolbar{top:58px}
+}
+
+
+/* Second-pass curated high-yield revision layer */
+.rapid-curated{margin:18px 0 28px;padding:20px;border:1px solid var(--border,#334155);border-radius:16px;background:rgba(15,23,42,.45)}
+.rapid-curated>h2{margin:0 0 4px}.rapid-note{margin:0 0 16px;opacity:.72}
+.rapid-group{margin:14px 0;padding:14px 16px;border-radius:12px;border-left:4px solid #64748b;background:rgba(255,255,255,.025)}
+.rapid-group h3{margin:0 0 8px;font-size:1rem}.rapid-group ul{margin:0;padding-left:20px}.rapid-group li{margin:7px 0;line-height:1.55}
+.rapid-group.must{border-left-color:#22c55e}.rapid-group.trap{border-left-color:#eab308}.rapid-group.formula{border-left-color:#38bdf8}.rapid-group.gate{border-left-color:#f97316}.rapid-group.shortcut{border-left-color:#a78bfa}
+@media(max-width:700px){.rapid-curated{padding:14px}.rapid-group{padding:12px}}
+@media (max-width:640px){table{display:block;max-width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch}.card,.num,.warn,p,li{overflow-wrap:break-word}td,th{overflow-wrap:normal;word-break:normal}}
+</style>
+<style id="ux-fix-v11">
+html,body{height:auto!important;min-height:100%}
+#navScrim{cursor:pointer;-webkit-tap-highlight-color:transparent}
+
+/* v11: no sticky banners in the reading/quiz flow; tap-outside closes the topics drawer */
+.qtopics{position:static!important;top:auto!important}
+body.rapid-mode .hy-toolbar{position:static!important;top:auto!important}
+#navScrim{display:none}
+@media (max-width:860px){
+  body.nav-open #navScrim{display:block;position:fixed;left:0;right:0;bottom:0;top:calc(58px + env(safe-area-inset-top,0px));background:rgba(0,0,0,.45);z-index:14}
+}
+@media (max-width:860px){
+  header{position:static!important}
+  html{scroll-padding-top:12px!important}
+  nav#side{top:0!important;height:100%!important;padding-top:calc(18px + env(safe-area-inset-top,0px))!important}
+  body.nav-open #navScrim{top:0!important}
+  #navFab{position:fixed;left:12px;bottom:calc(14px + env(safe-area-inset-bottom,0px));z-index:16;width:42px;height:42px;border-radius:50%;
+    border:1px solid var(--border);background:rgba(23,28,40,.92);color:var(--text);font-size:19px;line-height:1;opacity:.9;
+    box-shadow:0 2px 10px rgba(0,0,0,.45);cursor:pointer;-webkit-tap-highlight-color:transparent}
+}
+@media (min-width:861px){#navFab{display:none}}
+</style>
+<style id="fmt-v12">
+/* v12 readability revamp — formatting only, content untouched */
+:root{--rg-must:#22c55e;--rg-trap:#eab308;--rg-formula:#38bdf8;--rg-gate:#f97316;--rg-shortcut:#a78bfa}
+body.rapid-mode .wrap>main{padding-left:clamp(14px,4vw,32px);padding-right:clamp(14px,4vw,32px)}
+#hyRapidPanel{max-width:760px;margin:0 auto}
+#hyRapidPanel>h1{font-size:clamp(22px,6vw,28px);line-height:1.25;margin:4px 0 8px}
+#hyRapidPanel .rapid-intro{font-size:14.5px;line-height:1.65;margin:0 0 18px}
+
+/* jump chips */
+.rapid-jump{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 22px}
+.rapid-jump a{display:inline-flex;align-items:center;gap:6px;padding:8px 12px;border-radius:999px;font-size:13px;font-weight:700;text-decoration:none;
+  color:var(--text);background:var(--panel2);border:1px solid var(--border)}
+.rapid-jump a b{font-weight:800;opacity:.7}
+
+/* curated block: flat, no box-in-box */
+.rapid-curated{margin:0 0 34px!important;padding:0!important;border:0!important;background:none!important;border-radius:0!important}
+.rapid-curated>h2{font-size:20px;margin:0 0 4px!important;color:var(--text)}
+.rapid-note{font-size:13.5px;line-height:1.6;margin:0 0 6px!important}
+.rapid-group{margin:26px 0 0!important;padding:0!important;border:0!important;background:none!important;scroll-margin-top:12px}
+.rapid-group h3{display:flex;align-items:center;gap:8px;margin:0 0 12px!important;padding-bottom:10px;font-size:14px!important;font-weight:800;
+  letter-spacing:.6px;text-transform:uppercase;border-bottom:2px solid var(--gc,#64748b);color:var(--gc,var(--text))}
+.rapid-group h3 .rg-count{margin-left:auto;font-size:12px;font-weight:800;letter-spacing:0;text-transform:none;padding:2px 9px;border-radius:999px;
+  background:var(--gc,#64748b);color:#0b0e14}
+.rapid-group.must{--gc:var(--rg-must)}.rapid-group.trap{--gc:var(--rg-trap)}.rapid-group.formula{--gc:var(--rg-formula)}
+.rapid-group.gate{--gc:var(--rg-gate)}.rapid-group.shortcut{--gc:var(--rg-shortcut)}
+.rapid-group ul{list-style:none!important;margin:0!important;padding:0!important;display:grid;gap:12px}
+.rapid-group li{margin:0!important;padding:14px 16px;background:var(--panel);border:1px solid var(--border);border-left:4px solid var(--gc,#64748b);
+  border-radius:12px;font-size:15.5px;line-height:1.7;color:var(--text);overflow-wrap:anywhere}
+.rg-label{display:block;margin:0 0 6px;font-size:15px;font-weight:800;line-height:1.35;color:var(--gc,var(--text))}
+.rg-body{display:block;color:#d3d9e6}
+.rg-line{display:block}.rg-line+.rg-line{margin-top:8px}
+.rg-eq{display:block;margin:8px 0 0;padding:10px 12px;border-radius:9px;background:#0a1220;border:1px solid #1d3350;
+  font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:14px;line-height:1.65;color:#8fd8ff;overflow-x:auto;white-space:pre-wrap;overflow-wrap:anywhere}
+.rg-txt{display:block;margin:8px 0 0;color:#d3d9e6}
+.rg-label+.rg-eq,.rg-label+.rg-txt,.rapid-group li>.rg-eq:first-child,.rapid-group li>.rg-txt:first-child{margin-top:0}
+
+/* per-topic cloned cards: roomier, clearer hierarchy */
+.rapid-section{margin:0 0 40px!important}
+.rapid-section h2{font-size:clamp(18px,5vw,22px)!important;line-height:1.3;margin:0 0 16px!important;padding:12px 14px!important;border:1px solid var(--border)!important;
+  border-left:4px solid var(--accent2)!important;border-radius:12px;background:var(--panel)}
+.rapid-source{margin:0 0 14px!important}
+.rapid-source>*{margin:0!important;padding:16px!important;border-radius:14px!important;font-size:15.5px;line-height:1.75;overflow-wrap:anywhere}
+.rapid-source .hy-badge{margin-bottom:10px!important}
+.rapid-source p{margin:0 0 10px;line-height:1.75}.rapid-source p:last-child{margin-bottom:0}
+.rapid-source ul,.rapid-source ol{padding-left:22px;margin:8px 0}.rapid-source li{margin:6px 0;line-height:1.7}
+.rapid-source b,.rapid-source strong{color:#fff}
+.rapid-source code{font-size:.92em;padding:2px 6px;border-radius:6px}
+.rapid-source pre{padding:12px;border-radius:10px;overflow-x:auto;font-size:13.5px;line-height:1.6}
+.rapid-source table{display:block;overflow-x:auto;max-width:100%}
+.rapid-source td,.rapid-source th{padding:8px 10px;line-height:1.55}
+
+/* notes mode: gentle readability lift */
+@media (max-width:700px){
+  main .card,main .warn,main .num{padding:16px!important}
+  main p,main li{line-height:1.75}
+  main section>p{margin:0 0 14px}
+}
+</style>
+<style id="theme-v13">
+/* v13 premium dark + colour theme — visual layer only */
+:root{
+  --bg:#070916;--panel:#0f1330;--panel2:#161b3f;--border:#2a3166;--text:#eef1ff;--muted:#9ea8d4;
+  --accent:#4ff0d0;--accent2:#8aa4ff;--warn:#ffb454;--good:#6ef0a0;--code-bg:#0a1030;
+  --green:#7af0ae;--yellow:#ffe08a;--red:#ff9aa8;--purple:#c9a8ff;
+  --glow-a:#7c5cff;--glow-b:#19d3ff;--glow-c:#ff4fa3;
+}
+html{background:#070916}
+body{background:transparent!important;color:var(--text)}
+body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;
+  background:
+   radial-gradient(60% 40% at 8% 0%,rgba(124,92,255,.28),transparent 70%),
+   radial-gradient(50% 35% at 100% 6%,rgba(25,211,255,.18),transparent 70%),
+   radial-gradient(60% 40% at 50% 100%,rgba(255,79,163,.14),transparent 70%),
+   #070916}
+::selection{background:rgba(124,92,255,.55);color:#fff}
+
+/* header */
+header,.top{background:linear-gradient(180deg,rgba(14,18,48,.92),rgba(9,11,30,.86))!important;
+  -webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);border-bottom:1px solid transparent!important;
+  border-image:linear-gradient(90deg,#7c5cff,#19d3ff,#ff4fa3) 1;box-shadow:0 6px 24px rgba(0,0,0,.35)}
+header h1 span,.top h1 span,header .hl,.top .hl{background:linear-gradient(90deg,#4ff0d0,#8aa4ff,#d28bff);-webkit-background-clip:text;background-clip:text;color:transparent!important}
+
+/* headings */
+main h2,.wrap h2{background:linear-gradient(90deg,#9db4ff,#c9a8ff 55%,#ff9ad0);-webkit-background-clip:text;background-clip:text;color:transparent;
+  border-bottom:1px solid transparent!important;border-image:linear-gradient(90deg,rgba(138,164,255,.6),rgba(255,79,163,.25),transparent) 1}
+main h3{color:#8fe9ff}
+
+/* surfaces: glass panels */
+.card,.warn,.num,.hy-panel,.hy-toolbar,.rapid-curated,table,.q,.qcard,.sol,details,.callout,.box{
+  background:linear-gradient(150deg,rgba(32,38,88,.62),rgba(14,17,42,.9))!important;
+  border-top-color:rgba(138,150,255,.2)!important;border-right-color:rgba(138,150,255,.2)!important;border-bottom-color:rgba(138,150,255,.2)!important;box-shadow:0 10px 30px rgba(3,4,18,.45),inset 0 1px 0 rgba(255,255,255,.06)}
+.hy-toolbar{border-radius:16px}
+.hy-toolbar h3,.hy-toolbar strong{background:linear-gradient(90deg,#4ff0d0,#8aa4ff);-webkit-background-clip:text;background-clip:text;color:transparent}
+
+/* nav drawer */
+nav#side,.side{background:linear-gradient(180deg,rgba(18,22,58,.97),rgba(9,11,30,.98))!important;border-color:rgba(138,150,255,.2)!important}
+nav#side a.active,.side a.active,nav#side a:hover,.side a:hover{background:linear-gradient(90deg,rgba(124,92,255,.35),rgba(25,211,255,.14))!important;color:#fff!important;border-radius:10px}
+nav#side .grp,.side .grp,nav#side h4,.side h4{color:#c9a8ff!important}
+
+/* buttons */
+.hy-btn{background:rgba(26,31,72,.9);border-color:rgba(138,150,255,.3)}
+.hy-btn:hover{border-color:#8aa4ff;box-shadow:0 0 0 3px rgba(124,92,255,.22);color:#fff}
+.hy-btn.primary,.btn.primary,button.primary{background:linear-gradient(90deg,#19d3ff,#7c5cff 60%,#ff4fa3)!important;color:#fff!important;border:0!important;
+  box-shadow:0 6px 20px rgba(124,92,255,.45)}
+#navFab{background:linear-gradient(135deg,#7c5cff,#19d3ff)!important;color:#fff!important;border:0!important;box-shadow:0 8px 22px rgba(124,92,255,.55)!important;opacity:1!important}
+#menuBtn{background:rgba(26,31,72,.9)!important;border-color:rgba(138,150,255,.35)!important}
+
+/* code & equations */
+code,pre{background:#0a1030!important;color:#8ff5e2;border:1px solid rgba(79,240,208,.18)}
+.rg-eq,.card p>code:only-child{background:linear-gradient(135deg,#0a1436,#0d0f2e)!important;border-color:rgba(25,211,255,.35)!important;color:#9af2ff!important;
+  box-shadow:inset 0 0 0 1px rgba(25,211,255,.06)}
+
+/* last-minute groups: tinted by their colour */
+.rapid-group li{background:linear-gradient(135deg,color-mix(in srgb,var(--gc) 14%,#12163a),#0d1030 70%)!important;border-top-color:color-mix(in srgb,var(--gc) 30%,#262d62)!important;border-right-color:color-mix(in srgb,var(--gc) 30%,#262d62)!important;border-bottom-color:color-mix(in srgb,var(--gc) 30%,#262d62)!important;border-left-color:var(--gc)!important;
+  box-shadow:0 6px 18px rgba(3,4,18,.4)}
+.rapid-group h3{text-shadow:0 0 18px color-mix(in srgb,var(--gc) 55%,transparent)}
+.rapid-group h3 .rg-count{box-shadow:0 0 14px color-mix(in srgb,var(--gc) 60%,transparent)}
+.rapid-jump a{background:rgba(26,31,72,.85);border-color:rgba(138,150,255,.3)}
+.rapid-section h2{background:linear-gradient(90deg,rgba(124,92,255,.28),rgba(25,211,255,.08))!important;-webkit-text-fill-color:#fff;color:#fff;border-image:none!important;
+  border-color:rgba(138,150,255,.3)!important;border-left:4px solid #19d3ff!important}
+
+/* tags / badges: more vivid */
+.tag,.hy-badge,.badge{backdrop-filter:blur(4px);font-weight:800}
+.tag.must,.hy-badge.must{background:rgba(34,197,94,.18)!important;color:#7af0ae!important;border-color:rgba(34,197,94,.5)!important}
+.tag.formula,.hy-badge.formula{background:rgba(56,189,248,.18)!important;color:#8fe0ff!important;border-color:rgba(56,189,248,.5)!important}
+.tag.fav,.hy-badge.fav{background:rgba(255,79,100,.16)!important;color:#ff9aa8!important;border-color:rgba(255,79,100,.5)!important}
+
+/* quiz options */
+.opt,.option,button.opt,label.opt{background:rgba(22,27,68,.8)!important;border-color:rgba(138,150,255,.25)!important;transition:.15s}
+.opt:hover,.option:hover{border-color:#19d3ff!important;box-shadow:0 0 0 3px rgba(25,211,255,.18)}
+.qtopics button,.qtopics .chip{background:rgba(26,31,72,.85);border-color:rgba(138,150,255,.3)}
+.qtopics .on,.qtopics .active{background:linear-gradient(90deg,#7c5cff,#19d3ff)!important;color:#fff!important;border-color:transparent!important}
+
+/* tables */
+th{background:linear-gradient(90deg,rgba(124,92,255,.35),rgba(25,211,255,.18))!important;color:#fff!important}
+td,th{border-color:rgba(138,150,255,.2)!important}
+tbody tr:nth-child(even) td{background:rgba(124,92,255,.06)}
+
+a{color:#8fe9ff}
+::-webkit-scrollbar{width:10px;height:10px}::-webkit-scrollbar-thumb{background:linear-gradient(#7c5cff,#19d3ff);border-radius:8px}
+</style>
+<style id="home-v14">
+.homeLink{justify-self:end;display:inline-flex;align-items:center;gap:6px;padding:8px 12px;border-radius:10px;font-size:13px;font-weight:800;text-decoration:none;white-space:nowrap;
+  color:#fff!important;background:linear-gradient(135deg,rgba(124,92,255,.55),rgba(25,211,255,.3));border:1px solid rgba(138,150,255,.4)}
+nav#side a.backhome,.side a.backhome{display:block;margin:0 0 10px;padding:10px 12px;border-radius:10px;font-weight:800;color:#fff!important;
+  background:linear-gradient(90deg,rgba(124,92,255,.45),rgba(25,211,255,.2));border:1px solid rgba(138,150,255,.4)}
+#homeFab{display:none}
+@media (max-width:860px){
+  #homeFab{display:flex;align-items:center;justify-content:center;position:fixed;left:64px;bottom:calc(14px + env(safe-area-inset-bottom,0px));z-index:16;width:42px;height:42px;border-radius:50%;
+    text-decoration:none;font-size:19px;background:rgba(22,27,68,.95);border:1px solid rgba(138,150,255,.45);box-shadow:0 8px 22px rgba(3,4,18,.6)}
+}
+</style>
+<!-- pwa:start -->
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#070916">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="GATE 2027">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="icon" type="image/png" href="favicon-64.png">
+<!-- pwa:end -->
+</head>
+<body>
+<header>
+  <button id="menuBtn" onclick="document.getElementById('side').classList.toggle('open')">☰ Topics</button>
+  <div class="title">🧠 General Aptitude <span>for GATE CSE 2027</span></div>
+  <a class="homeLink" href="index.html">🏠 Home</a>
+</header>
+<div class="wrap">
+<nav id="side">
+<a class="backhome" href="index.html">← Study Hub (Home)</a><a class="gt-sidelink" href="cheatsheet-gate-2027.html#ga">📄 Formula cheat sheet</a><a class="gt-sidelink" href="mock-gate-2027.html">🎯 Full mock exam</a>
+  <div class="grp">
+    <div class="grp-title">Part 1 · Verbal & Numerical</div>
+    <a href="#verbal">1. Verbal Aptitude</a>
+    <a href="#numerical">2. Numerical Computation</a>
+  </div>
+  <div class="grp">
+    <div class="grp-title">Part 2 · Data & Quant</div>
+    <a href="#di">3. Data Interpretation</a>
+    <a href="#mgp">4. Mensuration, Geometry & Probability</a>
+  </div>
+  <div class="grp">
+    <div class="grp-title">Part 3 · Reasoning & Visualization</div>
+    <a href="#analytical">5. Analytical Aptitude</a>
+    <a href="#spatial">6. Spatial Aptitude</a>
+  </div>
+  <div class="grp">
+    <div class="grp-title">Practice</div>
+    <a href="#quiz">7. Practice Quiz — 99 Qs (basic)</a>
+    <a href="#pyq">8. GATE-Level Solved Problems</a>
+  </div>
+</nav>
+<main>
+
+<section id="verbal">
+<h1>1. Verbal Aptitude</h1>
+<div class="sub">15 marks of GATE come from this General Aptitude section on every single paper, regardless of branch — and verbal questions are some of the fastest marks available if you know the patterns.</div>
+
+<h2>Grammar essentials GATE tests repeatedly</h2>
+<table>
+<tr><th>Area</th><th>What to watch for</th></tr>
+<tr><td>Subject-verb agreement</td><td>Singular subject → singular verb, even when other nouns sit in between ("The <i>list</i> of items <b>is</b> long", not "are")</td></tr>
+<tr><td>Tenses</td><td>Consistency across a sentence; signal words like "since", "for", "yet" hint at the correct tense</td></tr>
+<tr><td>Prepositions</td><td>Fixed idiomatic pairings: "married <b>to</b>", "different <b>from</b>", "capable <b>of</b>"</td></tr>
+<tr><td>Articles (a/an/the)</td><td>"a" before consonant SOUNDS (a university), "an" before vowel SOUNDS (an hour)</td></tr>
+</table>
+<div class="num"><div class="tag">Worked example</div>
+<b>Q:</b> Choose the correct sentence.<br>
+(a) "Neither of the students <i>have</i> submitted their assignment."<br>
+(b) "Neither of the students <i>has</i> submitted their assignment."<br>
+<b>A:</b> <b>(b) is correct.</b> "Neither" is a singular indefinite pronoun — it always takes a singular verb ("has"), regardless of the plural noun "students" that follows "of".
+</div>
+
+<h2>Vocabulary: idioms & words-in-context</h2>
+<p>GATE rarely tests rote word-lists; it tests whether you can pick the word that fits the <b>context</b> and tone of a sentence.</p>
+<div class="num"><div class="tag">Worked example</div>
+<b>Q:</b> "Despite the heavy rain, the team's spirit remained ______." Choose the best fit: (a) damp (b) undaunted (c) soaked (d) reluctant<br>
+<b>A:</b> <b>(b) undaunted</b> — it means "not discouraged", fitting the contrast set up by "Despite". (a) and (c) are literal plays on "rain" (a common distractor trick), and (d) doesn't logically follow from the sentence's structure.
+</div>
+
+<h2>Reading comprehension strategy</h2>
+<div class="card">
+1. Read the QUESTIONS first (skim), so you know what to look for.<br>
+2. Skim the passage once for overall structure/argument, don't over-read details yet.<br>
+3. For "which of the following is true/false" questions, go back and verify each option against the specific line in the passage — don't rely on memory or general impression.<br>
+4. Watch for <b>absolute words</b> in options ("always", "never", "all") — passages rarely support such strong claims, making these options likely wrong.
+</div>
+
+<h2>Narrative sequencing</h2>
+<p>You're given 4-5 jumbled sentences and must arrange them into a coherent paragraph.</p>
+<div class="num"><div class="tag">Worked example</div>
+<b>Q:</b> Arrange into a coherent paragraph:<br>
+P: As a result, crop yields in the region fell sharply.<br>
+Q: The monsoon arrived nearly a month late this year.<br>
+R: Farmers had already delayed sowing in anticipation.<br>
+S: This further compounded the losses they faced.<br>
+<b>A:</b> <b>Q-R-P-S.</b> Start with the triggering event (Q: late monsoon) → the farmers' reaction (R: delayed sowing) → the consequence (P: fell yields) → the compounding effect (S: further losses). Look for pronouns ("this", "as a result") and cause-effect chains — they're the strongest clues to correct order.
+</div>
+
+<h2>Sentence completion — a systematic method</h2>
+<p>Single- and double-blank sentence completion is one of the most repeated 1-mark verbal patterns. Do not try the options one by one — read the <b>logical signal</b> first.</p>
+<table>
+<tr><th>Signal type</th><th>Typical words</th><th>What the blank must do</th></tr>
+<tr><td>Contrast</td><td>but, although, though, despite, however, yet, while, unlike</td><td>Be the <b>opposite</b> of the clue</td></tr>
+<tr><td>Continuation</td><td>and, moreover, furthermore, hence, therefore, so, as a result</td><td>Carry the <b>same direction</b> as the clue</td></tr>
+<tr><td>Cause and effect</td><td>because, since, thus, consequently</td><td>Be the logical cause or result of the other clause</td></tr>
+<tr><td>Definition / example</td><td>colon, dash, "that is", "for instance"</td><td>Restate the clue in other words</td></tr>
+</table>
+<div class="card"><b>Method:</b> (1) predict a word BEFORE reading the options; (2) in a two-blank sentence fix the blank you are surer of and eliminate options with it; (3) check the polarity (positive or negative) of both blanks; (4) read the finished sentence back once — it must sound natural, not merely grammatical.</div>
+<div class="num"><div class="tag">Worked example — contrast signal</div>
+<b>Q:</b> "Although the plan looked ______ on paper, it proved perfectly workable in practice." (a) practicable (b) sensible (c) unrealistic (d) reliable<br>
+<b>A:</b> <b>(c) unrealistic.</b> "Although … perfectly workable" sets up a contrast, so the blank must be the opposite of "workable". The other three all mean roughly "workable", which would make "although" pointless.
+</div>
+<div class="num"><div class="tag">Worked example — two blanks</div>
+<b>Q:</b> "The witness's account was so ______ that even the lawyer who called her found it hard to ______ it." (a) bizarre … defend (b) clear … accept (c) reliable … trust (d) simple … follow<br>
+<b>A:</b> <b>(a).</b> "So … that even her own lawyer found it hard to …" needs a strongly negative first word and a verb of support: "bizarre … defend". (b) and (c) make the difficulty illogical (a clear or reliable account is easy to accept or trust), and (d) "so simple … hard to follow" contradicts itself.
+</div>
+
+<h2>Critical reasoning — arguments, assumptions, strengthen / weaken</h2>
+<p>An <b>argument</b> is premises (evidence) plus a conclusion, joined by an <b>unstated assumption</b>. Find the conclusion first (clue words: therefore, hence, thus, so, it follows that), then ask: <i>what must be true for these premises to lead there?</i></p>
+<table>
+<tr><th>Question type</th><th>What to look for</th><th>The correct option…</th></tr>
+<tr><td>Assumption</td><td>The hidden bridge from premise to conclusion</td><td>Is <b>necessary</b>: negate it and the argument collapses</td></tr>
+<tr><td>Strengthen</td><td>Support for the bridge</td><td>Rules out an alternative cause or confirms the link</td></tr>
+<tr><td>Weaken</td><td>A gap in the bridge</td><td>Offers an <b>alternative cause</b>, or shows the evidence is unrepresentative</td></tr>
+<tr><td>Inference</td><td>What the passage forces</td><td>Must be true using ONLY the passage — not merely plausible</td></tr>
+</table>
+<div class="card"><b>Assumption example:</b> "Profit rose after the firm adopted a four-day week; therefore the four-day week raised profit." The hidden assumption is that <i>nothing else that affects profit changed at the same time</i>. Negate it — "something else did change" — and the conclusion no longer follows, which is exactly the test for a necessary assumption.</div>
+<div class="num"><div class="tag">Worked example — weaken</div>
+<b>Q:</b> "After the city made bus travel free for students, attendance at its schools rose 8%. Hence free bus travel raises attendance." Which statement most weakens the argument?<br>
+(a) Free travel cost the city a large sum. (b) In the same year every school began serving free midday meals. (c) Students said they liked the free passes. (d) The attendance figures come from the schools' own registers.<br>
+<b>A:</b> <b>(b).</b> It supplies an <i>alternative cause</i> for the rise, so the bus scheme can no longer be assumed responsible. (a) is about cost, not effect; (c) mildly supports the argument; (d) is irrelevant to causation.
+</div>
+
+<h2>Verbal deduction — what MUST follow</h2>
+<p>Deduction questions give a short passage and ask which statement <b>must be true</b>. Use only the passage; ignore real-world knowledge.</p>
+<div class="warn"><div class="tag">GATE trap</div>"All A are B" does <b>not</b> give "All B are A" (the converse). Its valid twin is the <b>contrapositive</b>: "if not B then not A". Also watch quantity words — "some" never becomes "all", and "most" never becomes "all".</div>
+<div class="num"><div class="tag">Worked example</div>
+<b>Q:</b> "Everyone who completed the safety course received a badge. Ravi has no badge." Which must be true?<br>
+(a) Ravi is not an employee. (b) Ravi did not complete the safety course. (c) Everyone with a badge completed the course. (d) Ravi will never receive a badge.<br>
+<b>A:</b> <b>(b).</b> The rule is "course → badge"; its contrapositive is "no badge → no course". (a) is not forced — the passage never mentions employment. (c) is the converse. (d) predicts the future, which the passage never does.
+</div>
+
+<h2>Word groups &amp; odd-one-out</h2>
+<p>Find the property shared by three words and use the fourth as the tie-breaker. Test several lenses: <b>category</b>, <b>function</b>, <b>degree or intensity</b>, <b>part–whole</b>, <b>origin</b>.</p>
+<table>
+<tr><th>Group</th><th>Odd one out</th><th>Reason</th></tr>
+<tr><td>Brass, bronze, steel, copper</td><td>Copper</td><td>Copper is an element; the other three are alloys</td></tr>
+<tr><td>Sprint, dash, dart, stroll</td><td>Stroll</td><td>The first three are fast movement; a stroll is slow (degree)</td></tr>
+<tr><td>Lion, tiger, leopard, wolf</td><td>Wolf</td><td>Big cats versus a canine (biological family)</td></tr>
+<tr><td>Square, rectangle, rhombus, circle</td><td>Circle</td><td>The others are quadrilaterals</td></tr>
+</table>
+</section>
+
+<section id="numerical">
+<h1>2. Numerical Computation</h1>
+<div class="sub">Ratios, percentages, powers/logarithms, permutations &amp; combinations, series, number system, mixtures, equations, progressions, and clocks &amp; calendars — the bread-and-butter of GATE's quantitative section, almost always solvable with a clean formula.</div>
+
+<h2>Ratios & Percentages</h2>
+<div class="num"><div class="tag">Worked numerical</div>
+<b>Q:</b> A solution has acid and water in ratio 3:7. If 10 litres of water is added, the new ratio becomes 3:10. Find the original quantity of acid.<br>
+<b>A:</b>
+<pre>Let acid = 3x, water = 7x (original ratio 3:7)
+After adding 10 L water: acid=3x, water=7x+10, new ratio = 3:10
+
+3x / (7x+10) = 3/10
+30x = 3(7x+10) = 21x + 30
+9x = 30  →  x = 30/9 = 10/3
+
+Acid = 3x = 3×(10/3) = 10 litres</pre>
+</div>
+<div class="num"><div class="tag">Worked numerical</div>
+<b>Q:</b> A shopkeeper marks an item 40% above cost price, then offers a 25% discount on the marked price. Find the net profit/loss percentage.<br>
+<b>A:</b>
+<pre>Let cost price = 100.
+Marked price = 100 × 1.40 = 140
+Selling price (after 25% discount) = 140 × 0.75 = 105
+
+Net result = 105 - 100 = 5  → 5% PROFIT</pre>
+Shortcut formula: Net % change = 40 - 25 - (40×25/100) = 40-25-10 = <b>+5%</b> (successive percentage change formula: a + b + ab/100, taking discount as negative).
+</div>
+
+<h2>Powers, Exponents & Logarithms</h2>
+<div class="num"><div class="tag">Worked numerical</div>
+<b>Q:</b> If log₁₀2 = 0.301, find log₁₀80.<br>
+<b>A:</b>
+<pre>80 = 8 × 10 = 2³ × 10
+log(80) = log(2³) + log(10) = 3×log(2) + 1 = 3×0.301 + 1 = 0.903 + 1 = 1.903</pre>
+</div>
+
+<h2>Permutations & Combinations</h2>
+<div class="card">
+<pre>Permutation (ORDER matters):   nPr = n! / (n-r)!
+Combination (ORDER doesn't matter): nCr = n! / (r!(n-r)!)</pre>
+</div>
+<div class="num"><div class="tag">Worked numerical</div>
+<b>Q:</b> In how many ways can a committee of 3 be chosen from 5 men and 4 women, such that at least 1 woman is included?<br>
+<b>A:</b>
+<pre>Total ways to choose any 3 from 9 people = 9C3 = 84
+Ways with ZERO women (all 3 men from the 5 men) = 5C3 = 10
+
+At least 1 woman = Total - (zero women) = 84 - 10 = 74</pre>
+"At least 1" is almost always easiest via the complement trick: Total minus the one excluded case.
+</div>
+<div class="num"><div class="tag">Worked numerical</div>
+<b>Q:</b> How many distinct arrangements of the letters in "BANANA" are possible?<br>
+<b>A:</b>
+<pre>BANANA has 6 letters: B(1), A(3), N(2)
+
+Arrangements with repeated letters = 6! / (3!×2!×1!) = 720 / 12 = 60</pre>
+Whenever letters repeat, divide the total factorial arrangements by the factorial of each repeated letter's count.
+</div>
+
+<h2>Series & Number Patterns</h2>
+<div class="num"><div class="tag">Worked numerical</div>
+<b>Q:</b> Find the next term: 2, 6, 12, 20, 30, ___<br>
+<b>A:</b>
+<pre>Differences: 6-2=4, 12-6=6, 20-12=8, 30-20=10  → differences increase by 2 each time
+Next difference = 12  →  next term = 30+12 = 42
+
+(Pattern check: each term = n×(n+1): 1×2=2, 2×3=6, 3×4=12, 4×5=20, 5×6=30, 6×7=42 ✓)</pre>
+</div>
+<div class="warn"><div class="tag">GATE strategy</div>For number series, always compute first differences, then second differences if the first aren't constant. If differences form a clean arithmetic/geometric pattern, you've found the rule. Also always sanity-check with a closed-form formula (like n×(n+1) above) when the pattern is recognizable — it's faster and safer than extrapolating blindly.</div>
+
+<h2>Number system — divisibility, remainders, HCF &amp; LCM</h2>
+<table>
+<tr><th>Divisor</th><th>Test</th></tr>
+<tr><td>2, 5, 10</td><td>Last digit even / 0 or 5 / 0</td></tr>
+<tr><td>3, 9</td><td>Digit sum divisible by 3 / by 9</td></tr>
+<tr><td>4, 8</td><td>Last 2 / last 3 digits divisible by 4 / 8</td></tr>
+<tr><td>6</td><td>Divisible by both 2 and 3</td></tr>
+<tr><td>7</td><td>Drop the last digit d and subtract 2d from the rest; repeat (203 → 20 − 6 = 14 ✔)</td></tr>
+<tr><td>11</td><td>(sum of digits in odd places) − (sum in even places) is 0 or a multiple of 11</td></tr>
+</table>
+<div class="card"><pre>Remainder rules    (a + b) mod m = (a mod m + b mod m) mod m
+                   (a × b) mod m = (a mod m × b mod m) mod m
+Last-digit cycles  2, 3, 7, 8 repeat every 4 powers;  4, 9 every 2;  0, 1, 5, 6 never change
+Fermat             a^(p−1) ≡ 1 (mod p)  for prime p not dividing a
+HCF × LCM = product of the two numbers          (TWO numbers only)
+
+Greatest number dividing a, b, c and leaving remainders r1, r2, r3 :  HCF(a−r1, b−r2, c−r3)
+Least number leaving the SAME remainder r on division by a, b, c  :  LCM(a, b, c) + r
+Least number that is k SHORT of a multiple of each of a, b, c      :  LCM(a, b, c) − k</pre></div>
+<div class="num"><div class="tag">Worked numerical — divisibility</div>
+<b>Q:</b> For which digit x is the number 2x74 divisible by 9?<br>
+<b>A:</b> Digit sum = 2 + x + 7 + 4 = 13 + x must be a multiple of 9 → x = 5 (2574 = 9 × 286).
+</div>
+<div class="num"><div class="tag">Worked numerical — last digit</div>
+<b>Q:</b> Last digit of 7<sup>2026</sup>?<br>
+<b>A:</b> Powers of 7 end in 7, 9, 3, 1, then repeat (period 4). 2026 = 4 × 506 + 2, so it matches the 2nd entry → <b>9</b>.
+</div>
+<div class="num"><div class="tag">Worked numerical — remainder</div>
+<b>Q:</b> Remainder when 2<sup>100</sup> is divided by 7?<br>
+<b>A:</b> 2³ = 8 ≡ 1 (mod 7). 100 = 3 × 33 + 1, so 2¹⁰⁰ = (2³)³³ × 2 ≡ 1 × 2 = <b>2</b>.
+</div>
+<div class="num"><div class="tag">Worked numerical — HCF and LCM</div>
+<b>Q:</b> Find the HCF and LCM of 84 and 126 and verify the product rule.<br>
+<b>A:</b> 84 = 2²·3·7 and 126 = 2·3²·7. HCF = 2·3·7 = 42; LCM = 2²·3²·7 = 252. Check: 42 × 252 = 10584 = 84 × 126 ✔
+</div>
+
+<h2>Mixtures &amp; alligation</h2>
+<div class="card"><pre>Alligation (mixing a cheaper item of value c with a dearer one of value d to get a mean m):
+
+      cheaper : dearer  =  (d − m) : (m − c)
+
+Replacement: a vessel holds V litres of pure liquid; x litres are drawn off and replaced
+by water, n times in all  →  pure liquid left = V × (1 − x/V)^n</pre></div>
+<div class="num"><div class="tag">Worked numerical — alligation</div>
+<b>Q:</b> Wine at ₹60 per litre is mixed with wine at ₹80 per litre to give a mixture worth ₹68 per litre. In what ratio?<br>
+<b>A:</b> cheaper : dearer = (80 − 68) : (68 − 60) = 12 : 8 = <b>3 : 2</b>.
+</div>
+<div class="num"><div class="tag">Worked numerical — replacement</div>
+<b>Q:</b> A vessel holds 40 L of milk. 4 L is removed and replaced with water; this is repeated twice more (three times in all). How much milk remains?<br>
+<b>A:</b> 40 × (1 − 4/40)³ = 40 × 0.9³ = 40 × 0.729 = <b>29.16 L</b> (so 10.84 L is water).
+</div>
+
+<h2>Linear equations &amp; inequalities</h2>
+<div class="card"><pre>Two equations  a1·x + b1·y = c1  and  a2·x + b2·y = c2:
+   a1/a2 ≠ b1/b2             → exactly one solution
+   a1/a2 = b1/b2 ≠ c1/c2     → no solution (parallel lines)
+   a1/a2 = b1/b2 = c1/c2     → infinitely many solutions
+
+Inequalities: multiplying or dividing by a NEGATIVE number reverses the sign.
+   |x − a| &lt; b   ⟺   a − b &lt; x &lt; a + b
+   |x − a| &gt; b   ⟺   x &lt; a − b   or   x &gt; a + b</pre></div>
+<div class="num"><div class="tag">Worked numerical — simultaneous equations</div>
+<b>Q:</b> Solve 3x + 2y = 16 and x − y = 2.<br>
+<b>A:</b> From the second, x = y + 2. Then 3(y + 2) + 2y = 16 → 5y = 10 → y = 2, x = <b>4</b>. Check: 12 + 4 = 16 ✔
+</div>
+<div class="num"><div class="tag">Worked numerical — modulus inequality</div>
+<b>Q:</b> How many integers x satisfy |2x − 3| ≤ 7?<br>
+<b>A:</b> −7 ≤ 2x − 3 ≤ 7 → −4 ≤ 2x ≤ 10 → −2 ≤ x ≤ 5. The integers −2, −1, 0, …, 5 number <b>8</b>.
+</div>
+
+<h2>Progressions (AP, GP) and means</h2>
+<div class="card"><pre>AP:  a_n = a + (n−1)d        S_n = (n/2)·[2a + (n−1)d] = (n/2)·(first + last)
+GP:  a_n = a·r^(n−1)         S_n = a(r^n − 1)/(r − 1)       S_∞ = a/(1 − r)   when |r| &lt; 1
+For positive numbers: AM ≥ GM ≥ HM; for two numbers  GM² = AM × HM</pre></div>
+<div class="num"><div class="tag">Worked numerical — AP</div>
+<b>Q:</b> Find the sum of all multiples of 7 from 1 to 200.<br>
+<b>A:</b> The terms are 7, 14, …, 196 — that is 196/7 = 28 terms. S = (28/2)(7 + 196) = 14 × 203 = <b>2842</b>.
+</div>
+<div class="num"><div class="tag">Worked numerical — GP</div>
+<b>Q:</b> Three numbers are in GP with sum 14 and product 64. Find them.<br>
+<b>A:</b> Write them as a/r, a, ar. Product = a³ = 64 → a = 4. Sum: 4/r + 4 + 4r = 14 → 2r² − 5r + 2 = 0 → r = 2 or ½. The numbers are <b>2, 4, 8</b> (or 8, 4, 2).
+</div>
+
+<h2>Clocks &amp; calendars</h2>
+<div class="card"><pre>Minute hand 6° per minute, hour hand 0.5° per minute → relative speed 5.5° per minute.
+Angle between the hands at H:M  =  |30H − 5.5M|     (use 360° − angle if it exceeds 180°)
+In 12 hours the hands coincide 11 times, are opposite 11 times and are at right angles 22 times.
+
+Calendar: ordinary year = 52 weeks + 1 odd day;  leap year = 2 odd days.
+Leap year: divisible by 4, but a century year only if divisible by 400.
+Odd days in 100, 200, 300, 400 years = 5, 3, 1, 0.</pre></div>
+<div class="num"><div class="tag">Worked numerical — clock angle</div>
+<b>Q:</b> Angle between the hands at 3:40?<br>
+<b>A:</b> |30 × 3 − 5.5 × 40| = |90 − 220| = <b>130°</b>.
+</div>
+<div class="num"><div class="tag">Worked numerical — calendar</div>
+<b>Q:</b> 1 January 2027 is a Friday. Which day is 15 August 2027?<br>
+<b>A:</b> Days from 1 Jan to 1 Aug = 31+28+31+30+31+30+31 = 212; add 14 more to reach 15 Aug → 226 days. 226 = 32 × 7 + 2, so move 2 days past Friday → <b>Sunday</b>.
+</div>
+
+<h2>Time, speed &amp; distance — trains, relative speed, boats</h2>
+<div class="card"><pre>speed = distance / time        km/h → m/s : × 5/18        m/s → km/h : × 18/5
+Equal distances at speeds a and b:   average speed = 2ab/(a + b)   (NOT the simple mean)
+Same time, speeds a and b:           average speed = (a + b)/2
+For a fixed distance, time ∝ 1/speed — a 25 % speed increase cuts the time by 20 %</pre></div>
+<table>
+<tr><th>Situation</th><th>Distance covered ÷ speed</th></tr>
+<tr><td>Train (length L) passes a <b>pole / man</b></td><td>L ÷ train speed</td></tr>
+<tr><td>Train passes a <b>platform / bridge</b> (length P)</td><td>(L + P) ÷ train speed</td></tr>
+<tr><td>Two trains, <b>same direction</b></td><td>(L₁ + L₂) ÷ <b>difference</b> of speeds</td></tr>
+<tr><td>Two trains, <b>opposite directions</b></td><td>(L₁ + L₂) ÷ <b>sum</b> of speeds</td></tr>
+</table>
+<div class="card"><b>Boats and streams.</b> Boat speed in still water = b, stream = s. <b>Downstream = b + s</b>, <b>upstream = b − s</b>. From the two speeds: <b>b = (d + u)/2</b>, <b>s = (d − u)/2</b>. Average speed over a round trip is 2du/(d + u), less than b.</div>
+<div class="num"><div class="tag">Worked numerical</div>
+<b>Q:</b> A 100 m train and a 150 m train run in opposite directions at 36 km/h and 54 km/h. How long do they take to cross each other completely?<br>
+<b>A:</b> Relative speed = 36 + 54 = 90 km/h = 90 × 5/18 = 25 m/s. Distance = 100 + 150 = 250 m. Time = 250/25 = <b>10 s</b>.
+</div>
+
+<h2>Time &amp; work — rates, pipes and wages</h2>
+<div class="card"><pre>Work rate = 1/(days to finish alone);  rates ADD for people working together
+A in a days, B in b days together:     time = ab/(a + b)
+Pick total work = LCM of the days (units) → each person's units/day becomes an integer
+Pipes:  inlet = +rate, outlet/leak = −rate        Wages are shared in proportion to WORK DONE
+M₁D₁H₁/W₁ = M₂D₂H₂/W₂   (men × days × hours per day ÷ work is constant)</pre></div>
+<div class="num"><div class="tag">Worked numerical</div>
+<b>Q:</b> A fills a tank in 10 h and B empties it in 15 h. With both open, how long to fill the empty tank?<br>
+<b>A:</b> Take the tank = 30 units: A adds 3 units/h, B removes 2 units/h → net 1 unit/h → <b>30 h</b>.
+</div>
+
+<h2>Profit &amp; loss, averages and ages</h2>
+<div class="card"><pre>Profit % = (SP − CP)/CP × 100  (always on COST unless told otherwise)     SP = CP × (1 ± p/100)
+Marked price MP, discount d%:   SP = MP × (1 − d/100)         Successive changes multiply: (1 + a)(1 + b)
+Average = sum / count.   Replacing a member changes the SUM by (new − old); so  new sum = old sum − old + new
+Weighted average = Σ(nᵢ·xᵢ) / Σnᵢ        Multiplying every value by k and adding c: new average = k·avg + c
+Ages: let the younger age be x; "after t years" adds t to EVERY age — the DIFFERENCE of ages never changes</pre></div>
+<div class="num"><div class="tag">Worked numerical</div>
+<b>Q:</b> The average of 10 numbers is 15. Each is doubled and then increased by 3. New average?<br>
+<b>A:</b> 2 × 15 + 3 = <b>33</b> (no need to know the individual numbers).
+</div>
+
+<h2>Sets &amp; Venn diagrams</h2>
+<div class="card"><pre>|A ∪ B| = |A| + |B| − |A ∩ B|
+|A ∪ B ∪ C| = |A| + |B| + |C| − |A∩B| − |B∩C| − |A∩C| + |A∩B∩C|
+Fill a Venn diagram from the INSIDE out: start with the triple overlap, then "exactly two" regions
+(pairwise overlap − triple), then "only one" regions. Outside all circles = total − union.</pre></div>
+<div class="num"><div class="tag">Worked numerical</div>
+<b>Q:</b> In a group of 70, 45 like tea, 40 like coffee and everyone likes at least one. How many like both?<br>
+<b>A:</b> 70 = 45 + 40 − both → both = <b>15</b>.
+</div>
+
+<h2>Numerical estimation</h2>
+<div class="card">Round to friendly numbers, keep the <b>order of magnitude</b>, and compare the answer choices — they are usually far apart. Handy benchmarks: 1/8 = 12.5 %, 1/6 ≈ 16.7 %, 1/3 ≈ 33.3 %, 3/8 = 37.5 %, √2 ≈ 1.414, √3 ≈ 1.732, π ≈ 3.14. Check sums with the <b>last digit</b> or the <b>digit-sum (mod 9)</b> before computing in full.
+<pre>49.8 × 20.1 / 9.95  ≈  50 × 20 / 10 = 100     (exact: 100.6)
+Unit digit of 7^45: the last digits of 7ⁿ cycle 7, 9, 3, 1 (length 4); 45 mod 4 = 1 → unit digit 7</pre></div>
+</section>
+
+<section id="di">
+<h1>3. Data Interpretation</h1>
+<div class="sub">Bar graphs, pie charts, tables, and maps — the skill here is reading fast and accurately, not complex math.</div>
+
+<h2>Pie charts — the 360°/100% conversion</h2>
+<div class="card"><pre>Degrees in a pie slice = (category's % of total) × 360° / 100
+Percentage from degrees = (slice's degrees / 360°) × 100</pre></div>
+<div class="num"><div class="tag">Worked numerical</div>
+<b>Q:</b> A pie chart shows a company's expenses: Salaries 40%, Rent 25%, Marketing 15%, Utilities 10%, Other 10%. Total expenses = ₹2,00,000. (a) Find the angle for "Rent". (b) Find the actual amount spent on "Marketing".<br>
+<b>A:</b>
+<pre>(a) Angle for Rent = 25% × 360° = 0.25 × 360 = 90°
+(b) Marketing amount = 15% × 2,00,000 = 0.15 × 200000 = ₹30,000</pre>
+</div>
+
+<h2>Bar graphs & tables — classic multi-step question</h2>
+<div class="num"><div class="tag">Worked numerical</div>
+<b>Q:</b> A bar graph shows a company's profit (in ₹ lakh) over 4 years: 2021: 50, 2022: 60, 2023: 45, 2024: 75. Find: (a) the year-on-year % change from 2022 to 2023, (b) the average annual profit over all 4 years.<br>
+<b>A:</b>
+<pre>(a) % change (2022→2023) = (45-60)/60 × 100 = -15/60 × 100 = -25%  (a 25% DECREASE)
+
+(b) Average = (50+60+45+75)/4 = 230/4 = ₹57.5 lakh</pre>
+</div>
+
+<h2>Common DI traps</h2>
+<div class="warn"><div class="tag">GATE angle</div>
+• "% change" ALWAYS divides by the ORIGINAL (older) value, never the newer one.<br>
+• When comparing two pie charts with DIFFERENT totals, the same PERCENTAGE can represent very different ACTUAL amounts — always convert to absolute values before comparing across charts.<br>
+• Read axis labels and units carefully (lakh vs crore, thousands vs millions) — a classic easy-mark-losing mistake under time pressure.
+</div>
+
+<h2>Line graphs, multi-series data &amp; caselets</h2>
+<div class="card"><b>Read the scale and the units first</b> (₹ crore? thousands? percent?). Then:
+<pre>% change = (new − old)/old × 100                 (base = the EARLIER year)
+Percentage POINTS (difference of two percentages) ≠ percent change:   20 % → 25 % is +5 points but +25 %
+Profit % = (revenue − expenditure)/expenditure × 100  (on cost, unless the question says "on revenue")
+Ratio questions: compare fractions, don't subtract.   Highest absolute value ≠ highest percentage.</pre></div>
+<div class="num"><div class="tag">Worked numerical — two series</div>
+<b>Q:</b> Revenue (R) and expenditure (E) in ₹ crore:  2019: 45 / 30 · 2020: 50 / 42 · 2021: 45 / 40 · 2022: 60 / 48 · 2023: 75 / 55. In which year is the profit % (on expenditure) highest?<br>
+<b>A:</b>
+<pre>2019: 15/30 = 50 %   2020: 8/42 ≈ 19.0 %   2021: 5/40 = 12.5 %   2022: 12/48 = 25 %   2023: 20/55 ≈ 36.4 %
+Highest percentage → 2019, even though 2023 has the highest absolute profit (₹20 crore).</pre></div>
+<div class="warn"><div class="tag">Trap</div>If A is 20 % more than B, then B is only 16.67 % less than A — the base changes. Two equal successive percentage steps from 200 to 242 are 10 % each (200 × 1.1² = 242), not 21 %.</div>
+</section>
+
+<section id="mgp">
+<h1>4. Mensuration, Geometry & Probability</h1>
+<div class="sub">Quick-fire formulas for shapes and solids, plus the probability and statistics basics that show up almost every year.</div>
+
+<h2>Mensuration — area & perimeter (2D)</h2>
+<table>
+<tr><th>Shape</th><th>Area</th><th>Perimeter</th></tr>
+<tr><td>Rectangle</td><td>l × b</td><td>2(l+b)</td></tr>
+<tr><td>Triangle</td><td>½ × base × height</td><td>sum of 3 sides</td></tr>
+<tr><td>Circle</td><td>πr²</td><td>2πr (circumference)</td></tr>
+<tr><td>Trapezium</td><td>½ × (sum of parallel sides) × height</td><td>sum of 4 sides</td></tr>
+</table>
+
+<h2>Mensuration — volume & surface area (3D)</h2>
+<table>
+<tr><th>Solid</th><th>Volume</th><th>Total Surface Area</th></tr>
+<tr><td>Cube (side a)</td><td>a³</td><td>6a²</td></tr>
+<tr><td>Cuboid (l,b,h)</td><td>l×b×h</td><td>2(lb+bh+hl)</td></tr>
+<tr><td>Cylinder (r,h)</td><td>πr²h</td><td>2πr(r+h)</td></tr>
+<tr><td>Cone (r,h,slant l)</td><td>⅓πr²h</td><td>πr(r+l)</td></tr>
+<tr><td>Sphere (r)</td><td>⁴⁄₃πr³</td><td>4πr²</td></tr>
+</table>
+<div class="num"><div class="tag">Worked numerical</div>
+<b>Q:</b> A cylindrical water tank has radius 7 m and height 10 m. Find its volume (use π=22/7).<br>
+<b>A:</b>
+<pre>Volume = πr²h = (22/7) × 7² × 10 = (22/7) × 49 × 10 = 22 × 7 × 10 = 1540 m³</pre>
+</div>
+
+<h2>Geometry basics</h2>
+<div class="card"><b>Pythagoras theorem:</b> in a right triangle, <code>(hypotenuse)² = (base)² + (height)²</code>.<br>
+<b>Similar triangles:</b> corresponding angles equal, corresponding sides in the same ratio.</div>
+<div class="num"><div class="tag">Worked numerical</div>
+<b>Q:</b> A ladder 13 m long leans against a wall, its foot 5 m from the wall's base. How high up the wall does the ladder reach?<br>
+<b>A:</b>
+<pre>height² = 13² - 5² = 169 - 25 = 144  →  height = √144 = 12 m</pre>
+</div>
+
+<h2>Probability</h2>
+<div class="card"><pre>P(event) = (number of favorable outcomes) / (total possible outcomes)
+P(A or B) = P(A) + P(B) - P(A and B)      [for any two events]
+P(A and B) = P(A) × P(B)                   [ONLY if A and B are independent]</pre></div>
+<div class="num"><div class="tag">Worked numerical</div>
+<b>Q:</b> Two dice are rolled. Find the probability that the sum is either 7 or 11.<br>
+<b>A:</b>
+<pre>Total outcomes = 6×6 = 36
+Sum=7: (1,6)(2,5)(3,4)(4,3)(5,2)(6,1) → 6 outcomes
+Sum=11: (5,6)(6,5) → 2 outcomes
+These are mutually exclusive (can't both happen) → P(7 or 11) = (6+2)/36 = 8/36 = 2/9</pre>
+</div>
+
+<h2>Elementary Statistics</h2>
+<div class="card"><pre>Mean = (sum of all values) / (number of values)
+Median = the middle value when data is sorted (average of 2 middle values if even count)
+Mode = the most frequently occurring value</pre></div>
+<div class="num"><div class="tag">Worked numerical</div>
+<b>Q:</b> Find the mean, median, and mode of: 4, 8, 6, 5, 8, 9, 8.<br>
+<b>A:</b>
+<pre>Mean = (4+8+6+5+8+9+8)/7 = 48/7 ≈ 6.86
+
+Sorted: 4,5,6,8,8,8,9  (7 values, middle = 4th value)
+Median = 8
+
+Mode = 8 (appears 3 times, more than any other value)</pre>
+</div>
+</section>
+
+<section id="analytical">
+<h1>5. Analytical Aptitude</h1>
+<div class="sub">Pure logic — no outside knowledge needed, just careful, systematic reasoning from the given statements: syllogisms, analogies, seating, rankings, truth-teller puzzles and directions.</div>
+
+<h2>Deduction vs Induction</h2>
+<div class="grid2">
+<div class="card"><b>Deduction</b><br>Reasoning from general rules to a specific, GUARANTEED conclusion. "All birds have feathers. A sparrow is a bird. ∴ A sparrow has feathers." — if the premises are true, the conclusion MUST be true.</div>
+<div class="card"><b>Induction</b><br>Reasoning from specific observations to a general (probable, not guaranteed) pattern. "Every sparrow I've seen has feathers. ∴ probably all sparrows have feathers." — likely, but not logically certain.</div>
+</div>
+
+<h2>Syllogisms — the classic GATE pattern</h2>
+<div class="num"><div class="tag">Worked numerical</div>
+<b>Q:</b> Statements: "All engineers are logical. Some logical people are creative." Conclusion: "Some engineers are creative." Is this conclusion valid?<br>
+<b>A:</b> <b>NOT valid.</b> "All engineers are logical" only tells you engineers are a SUBSET of logical people. "Some logical people are creative" only guarantees overlap SOMEWHERE in the logical-people group — but that overlap might fall entirely outside the engineers subset. Draw a Venn diagram mentally: Engineers ⊂ Logical, and Creative overlaps Logical somewhere — but nothing forces that overlap to touch Engineers specifically.
+</div>
+<div class="warn"><div class="tag">GATE strategy</div>Always test syllogism conclusions by trying to draw a Venn diagram (or a counter-example scenario) where the premises hold true but the conclusion is FALSE. If you can construct even one such scenario, the conclusion is invalid — no matter how "intuitively likely" it feels.</div>
+
+<h2>Analogy</h2>
+<p>Find the relationship between the first pair, then apply the SAME relationship to find the missing term.</p>
+<div class="num"><div class="tag">Worked numerical</div>
+<b>Q:</b> Doctor : Hospital :: Teacher : ?<br>
+<b>A:</b> <b>School.</b> The relationship is "person : primary workplace". A doctor's primary workplace is a hospital; a teacher's primary workplace is a school.
+</div>
+<div class="num"><div class="tag">Worked numerical</div>
+<b>Q:</b> 3 : 9 :: 5 : ? :: 7 : 49<br>
+<b>A:</b> <b>25.</b> The relationship is "n : n²" (3²=9, 5²=25, 7²=49) — always verify your rule against BOTH given pairs before applying it to the unknown one.
+</div>
+
+<h2>Numerical relations & reasoning</h2>
+<div class="num"><div class="tag">Worked numerical — coding</div>
+<b>Q:</b> If CODE is written as DPEF (each letter shifted +1), how is WORD written?<br>
+<b>A:</b> Shift each letter forward by 1: W→X, O→P, R→S, D→E → <b>XPSE</b>.
+</div>
+<div class="num"><div class="tag">Worked numerical — blood relations</div>
+<b>Q:</b> "A is B's father. B is C's sister. D is C's mother." How is A related to D?<br>
+<b>A:</b> B and C are siblings (B is C's sister, so B is female, C's sibling). A is their father, D is their mother. So <b>A is D's husband</b> (both are parents of the same children, B and C).
+</div>
+
+<h2>Seating arrangements — method</h2>
+<div class="card"><b>Steps:</b> (1) draw the skeleton — a row or a circle, and note which way people <b>face</b>; (2) fix the most constrained person first; (3) place all definite clues before any conditional ones; (4) branch only when forced; (5) re-check every clue against the final arrangement.<br><br>
+<b>Counting:</b> n people in a row → n! arrangements; around a circle → (n − 1)! (rotations are the same).</div>
+<div class="warn"><div class="tag">GATE trap</div>In a circle, people facing the <b>centre</b> have their <i>left</i> neighbour clockwise from them; if they face <b>outward</b>, left and right swap. A row facing north has left = west and right = east. Always read which way the people face before using "left" or "right".</div>
+<div class="num"><div class="tag">Worked example — row</div>
+<b>Q:</b> P, Q, R and S sit in a row facing north. S is at the extreme right. Q sits immediately to the left of S. R is not at either end. Who is at the extreme left, and what is the full order (left to right)?<br>
+<b>A:</b> S is in seat 4 and Q in seat 3. R is not at an end, so R is in seat 2 (seat 3 is taken). P takes seat 1. Order: <b>P, R, Q, S</b>; P is at the extreme left.
+</div>
+
+<h2>Rankings &amp; ordering</h2>
+<div class="card"><pre>Total in a row or class = (rank from one end) + (rank from the other end) − 1
+People between two positions = |difference of ranks| − 1
+If two people swap places, only the ranks of those two people change.</pre></div>
+<div class="num"><div class="tag">Worked numerical — rank from both ends</div>
+<b>Q:</b> Meera is 12th from the top and 25th from the bottom of her class. How many students are there?<br>
+<b>A:</b> 12 + 25 − 1 = <b>36</b>.
+</div>
+<div class="num"><div class="tag">Worked numerical — exchange of positions</div>
+<b>Q:</b> In a row, Arun is 7th from the left and Bala is 12th from the right. After they exchange seats, Arun is 22nd from the left. How many are in the row?<br>
+<b>A:</b> Arun now sits in Bala's old seat, so Bala's old seat is 22nd from the left and 12th from the right. Total = 22 + 12 − 1 = <b>33</b>.
+</div>
+
+<h2>Truth-teller / liar puzzles</h2>
+<div class="card"><b>Method:</b> each person is a truth-teller (T) or a liar (L). Assume one person's type, follow what their statement forces on the others, and discard the case at the first contradiction. With 3 people there are only 2³ = 8 cases, so a small table is safe. Remember: a liar's statement must be <b>false as a whole</b> — the negation of "A and B are both liars" is "at least one of A, B is truthful".</div>
+<div class="num"><div class="tag">Worked example — exactly one liar</div>
+<b>Q:</b> One of P, Q, R, S stole a watch. P: "I did not steal it." Q: "R stole it." R: "S stole it." S: "I did not steal it." Exactly one of the four is lying. Who stole it?<br>
+<b>A:</b> Test each suspect and count the false statements:
+<pre>thief P → P, Q, R lie  (3 liars)     thief Q → Q, R lie  (2 liars)
+thief R → only R lies  (1 liar) ✔    thief S → Q, S lie  (2 liars)</pre>
+Only "R stole it" gives exactly one liar, so <b>R</b> is the thief.
+</div>
+
+<h2>Direction sense &amp; instruction following</h2>
+<div class="card">Track position on a grid: north = +y, east = +x. A <b>right</b> turn moves the facing clockwise (N → E → S → W), a <b>left</b> turn anticlockwise. Distance from the start = √(Δx² + Δy²); direction = the direction of the displacement vector. At sunrise your shadow points west.</div>
+<div class="num"><div class="tag">Worked numerical — walk with turns</div>
+<b>Q:</b> A walks 5 km north, turns right and walks 12 km, turns right and walks 5 km, then turns left and walks 3 km. How far, and in which direction, is A from the start?<br>
+<b>A:</b>
+<pre>start (0,0)  → 5 km N  → (0,5)
+turn right (facing E) → 12 km → (12,5)
+turn right (facing S) →  5 km → (12,0)
+turn left  (facing E) →  3 km → (15,0)</pre>
+A is <b>15 km due east</b> of the start.
+</div>
+</section>
+
+<section id="spatial">
+<h1>6. Spatial Aptitude</h1>
+<div class="sub">Visualizing how 2D and 3D shapes transform — mental rotation and reflection, paper folding, figure counting and dice — mostly careful tracking of orientation.</div>
+
+<h2>The five core transformations</h2>
+<table>
+<tr><th>Transformation</th><th>What changes</th></tr>
+<tr><td>Translation</td><td>Shape slides to a new position — size, orientation, and shape stay identical</td></tr>
+<tr><td>Rotation</td><td>Shape turns around a fixed point by some angle (90°, 180°, etc.) — size stays the same, orientation changes</td></tr>
+<tr><td>Scaling</td><td>Shape grows/shrinks uniformly — orientation stays the same, size changes</td></tr>
+<tr><td>Mirroring (reflection)</td><td>Shape is flipped across a line — becomes a mirror image (left-right or up-down reversed)</td></tr>
+<tr><td>Assembling/Grouping</td><td>Multiple pieces combine to form a larger recognizable shape (jigsaw-style)</td></tr>
+</table>
+
+<h3>Rotation example</h3>
+<svg viewBox="0 0 400 160" style="width:100%;max-width:400px;display:block;margin:10px auto" xmlns="http://www.w3.org/2000/svg">
+<defs><marker id="rot" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="#7c9fff"/></marker></defs>
+<g fill="#5ee6c8" stroke="#0b0e14" stroke-width="2">
+<path d="M40,120 L40,60 L80,60 L80,80 L60,80 L60,120 Z"/>
+</g>
+<text x="60" y="145" fill="#93a0b8" font-size="12" text-anchor="middle">Original (L-shape)</text>
+<path d="M150,90 L180,70 L190,80" stroke="#7c9fff" stroke-width="2" fill="none" marker-end="url(#rot)"/>
+<text x="170" y="60" fill="#7c9fff" font-size="11" text-anchor="middle">rotate 90° CW</text>
+<g fill="#5ee6c8" stroke="#0b0e14" stroke-width="2" transform="translate(260,30) rotate(90)">
+<path d="M40,120 L40,60 L80,60 L80,80 L60,80 L60,120 Z"/>
+</g>
+<text x="320" y="145" fill="#93a0b8" font-size="12" text-anchor="middle">After 90° clockwise</text>
+</svg>
+<p>Notice the L-shape's "foot" that pointed DOWN-RIGHT now points DOWN-LEFT after a 90° clockwise turn — track which specific corner/edge moves where, rather than trying to visualize the whole shape at once.</p>
+
+<h2>Mirror images</h2>
+<div class="warn"><div class="tag">Key rule</div>A <b>mirror image</b> (reflected left-right, like a vertical mirror) flips horizontal orientation but keeps vertical orientation unchanged. A <b>water image</b> (reflected top-bottom, like a reflection in a pond) does the reverse — flips vertical but keeps horizontal unchanged. Letters like <b>A, H, I, M, O, T, U, V, W, X, Y</b> look identical in a vertical mirror (they're symmetric left-right); letters like <b>B, C, D, E, H, I, O, X</b> look identical in a water/horizontal reflection (symmetric top-bottom).</div>
+
+<h2>Paper folding & cutting</h2>
+<div class="num"><div class="tag">Worked numerical</div>
+<b>Q:</b> A square paper is folded in half twice (first vertically, then horizontally), and a small triangle is cut from the folded corner (the corner where all folds meet). How many holes appear when fully unfolded?<br>
+<b>A:</b> Each fold doubles the number of layers at that corner. 2 folds → 2×2 = <b>4 layers</b> at the folded corner → cutting through all layers at once produces <b>4 holes</b> when unfolded, arranged symmetrically (one in each quadrant of the original square).
+</div>
+
+<h2>Cube/net folding</h2>
+<p>A flattened "net" of 6 squares folds into a cube. The key skill: identify which faces become OPPOSITE each other (opposite faces never share an edge in the net) versus ADJACENT. In a standard cross-shaped net, the four squares in the middle row all become adjacent side faces, while the top and bottom squares fold to become the cube's top and bottom — opposite each other.</p>
+
+<h2>Counting figures &amp; embedded figures</h2>
+<div class="card">Count <b>by size</b>, never by eye: label the vertices, count all figures of the smallest size, then the next size up, and add. For an embedded (hidden) figure, rotate or reflect the target mentally and check it fits within the larger figure <i>without altering any line</i>.</div>
+<table>
+<tr><th>n × n grid</th><th>Squares = n(n+1)(2n+1)/6</th><th>Rectangles (all) = [n(n+1)/2]²</th></tr>
+<tr><td>1</td><td>1</td><td>1</td></tr>
+<tr><td>2</td><td>5</td><td>9</td></tr>
+<tr><td>3</td><td>14</td><td>36</td></tr>
+<tr><td>4</td><td>30</td><td>100</td></tr>
+<tr><td>5</td><td>55</td><td>225</td></tr>
+</table>
+<div class="card"><b>Triangles:</b> if the base of a triangle is divided into n equal parts and every division point is joined to the opposite apex, the number of triangles is n(n+1)/2 (n = 5 gives 15). Non-square rectangles = all rectangles − squares.</div>
+<div class="num"><div class="tag">Worked numerical — 4 × 4 grid</div>
+<b>Q:</b> How many squares and how many rectangles (squares included) are in a 4 × 4 grid?<br>
+<b>A:</b> Squares: 16 (1×1) + 9 (2×2) + 4 (3×3) + 1 (4×4) = <b>30</b>. Rectangles: choose 2 of the 5 vertical lines and 2 of the 5 horizontal lines → C(5,2) × C(5,2) = 10 × 10 = <b>100</b>, of which 70 are non-square.
+</div>
+
+<h2>Dice &amp; cubes</h2>
+<div class="card">A cube has 6 faces, 8 corners and 12 edges, and <b>three faces meet at every corner</b>. So faces seen together in one view are always <b>adjacent — never opposite</b>. Ordinary dice have opposite faces summing to 7, but a GATE puzzle does not assume that unless it says so.<br><br>
+<b>Method:</b> (1) from each view list the neighbours of every face; (2) a face with four known neighbours has the one remaining face as its opposite; (3) remove numbers already paired and repeat; (4) use the clockwise order around a corner only if adjacency alone does not settle it.</div>
+<div class="num"><div class="tag">Worked example — two views</div>
+<b>Q:</b> One view of a cube shows faces 1, 2 and 5 at a corner; another shows 1, 6 and 3 at a corner. Which face is opposite 1?<br>
+<b>A:</b> The views make 2, 5, 6 and 3 all neighbours of face 1. That is four of the five other faces, so the remaining face, <b>4</b>, is opposite 1.
+</div>
+
+<h2>Figure series, patterns &amp; abstract reasoning</h2>
+<div class="card">For a series of figures, <b>track one feature at a time</b>: (1) <b>rotation</b> per step (angle and direction), (2) <b>count</b> change (dots, lines, sides), (3) <b>shading / colour</b> toggling, (4) <b>position</b> moving around a cycle. Different features usually have <b>different periods</b>; the whole figure repeats after the LCM of the periods.
+<pre>Rotation by θ per step repeats the direction when kθ is a multiple of 360°  → k = 360/gcd(θ, 360)
+Direction after k steps = (k × θ) mod 360 :  clockwise from the start.  Up 0° · Right 90° · Down 180° · Left 270°
+Odd-one-out figure: find the property that all but one share (symmetry, number of sides, shaded area, closed/open).</pre></div>
+<div class="num"><div class="tag">Worked numerical</div>
+<b>Q:</b> An arrow starts pointing east and rotates 90° anticlockwise each step. Which way does it point after 7 steps?<br>
+<b>A:</b> 7 × 90 = 630; 630 mod 360 = 270° anticlockwise from east → east → north (90°) → west (180°) → <b>south</b> (270°).
+</div>
+</section>
+
+
+<section id="methods-ga">
+<h1>🧭 Problem → Standard Method Playbook</h1>
+<div class="sub">Use this as the bridge from revision to actual PYQs: identify the question family first, then apply the standard method.</div>
+<div class="card"><b>1. Percentage / ratio wording</b><br>Translate the statement into a base quantity → ratio/equation. For successive percentage changes, use multiplication of factors: <code>new = old × (1±r/100)</code>. For “more than / less than”, keep the denominator explicit.</div>
+<div class="card"><b>2. Remainders / divisibility</b><br>Reduce numbers modulo the divisor. For powers, look for cycles; for divisibility, factor the divisor and apply the relevant tests. Do not assume the remainder distributes over multiplication without taking modulo.</div>
+<div class="card"><b>3. Mixture / alligation</b><br>Set quantities around the mean concentration/price. For two components, <code>quantity of cheaper : quantity of dearer = (dearer−mean) : (mean−cheaper)</code>.</div>
+<div class="card"><b>4. Critical reasoning</b><br>Identify conclusion → premises → hidden assumption. For a necessary assumption, negate the option: if the argument collapses, it is necessary. For strengthen/weaken, ask whether the option changes the causal or logical link rather than merely repeating a premise.</div>
+<div class="card"><b>5. Verbal deduction / syllogism</b><br>Translate “all/no/some” into set inclusion/exclusion. Test whether the conclusion follows in <i>every</i> model satisfying the premises. “Some A are B” does not imply “some B are all A”.</div>
+<div class="card"><b>6. Seating / ranking</b><br>Draw slots. Fix absolute positions first, then relative constraints. For circular seating, remove rotational symmetry by fixing one person. For rankings, convert “from left/right” into a common coordinate before combining.</div>
+<div class="card"><b>7. Spatial / cube / dice</b><br>Track adjacency and opposites. Faces seen together are adjacent. For cube rotations, preserve opposite pairs; for counting figures, count by size systematically rather than visually guessing.</div>
+<div class="card"><b>8. Speed / time / work</b><br>Convert to one unit system (km/h ↔ m/s: ×5/18). For trains add the lengths and use relative speed; for work questions take total work = LCM of the days and compute units per day. Equal-distance round trips use 2ab/(a+b).</div>
+<div class="card"><b>9. Sets, DI and estimation</b><br>Venn: fill from the triple intersection outward. DI: write the formula for the quantity first (profit % is on cost) and separate percent from percentage points. Estimation: round, check the order of magnitude, then eliminate options.</div>
+<div class="card"><b>10. Figure series</b><br>Treat each feature (rotation, count, shading, position) as its own sequence and find its period; the combined period is the LCM.</div>
+</section>
+
+<section id="worked-ga">
+<h1>🎯 Representative GATE-Style Worked Problems</h1>
+<div class="num"><div class="tag">Number system</div><b>Q:</b> Find the remainder when <code>7^100</code> is divided by 13.<br><b>A:</b> Powers of 7 modulo 13 cycle: <code>7, 10, 5, 9, 11, 12, 6, 3, 8, 4, 2, 1</code>, period 12. Since 100 ≡ 4 (mod 12), remainder = <b>9</b>.</div>
+<div class="num"><div class="tag">Mixture</div><b>Q:</b> Rice costing ₹40/kg and ₹60/kg is mixed to obtain a mixture costing ₹45/kg. Find the ratio of quantities.<br><b>A:</b> By alligation, cheaper : dearer = (60−45):(45−40) = 15:5 = <b>3:1</b>.</div>
+<div class="num"><div class="tag">Critical reasoning</div><b>Q:</b> “The new study method improved scores because students who used it scored higher.” Which observation most weakens the conclusion?<br><b>A:</b> If students who chose the method were already higher-performing before using it, the observed difference has an alternative explanation. That directly weakens the causal claim.</div>
+<div class="num"><div class="tag">Ranking</div><b>Q:</b> A is 12th from the top and 19th from the bottom. How many people are there?<br><b>A:</b> Total = 12 + 19 − 1 = <b>30</b>. Subtract 1 because A is counted from both ends.</div>
+<div class="num"><div class="tag">Calendar</div><b>Q:</b> If 1 January is Monday in a non-leap year, what day is 1 March?<br><b>A:</b> January + February = 31 + 28 = 59 days. 59 mod 7 = 3, so move three weekdays from Monday → <b>Thursday</b>.</div>
+<div class="num"><div class="tag">Spatial counting</div><b>Q:</b> How many squares are in a 4×4 grid?<br><b>A:</b> Sum <code>1²+2²+3²+4² = 30</code>. Equivalently <code>n(n+1)(2n+1)/6</code> for n=4 → <b>30</b>.</div>
+<div class="gq"><div class="gtag">Q17 · Trains — platform crossing and relative speed</div>
+<b>A train 180 m long crosses a 270 m platform in 30 s. Find its speed in km/h, and the time it takes to completely pass a man walking in the SAME direction at 6 km/h.</b>
+<ol class="gopts"><li>54 km/h; 12 s</li><li>54 km/h; 13.5 s</li><li>60 km/h; 13.5 s</li><li>54 km/h; 10.8 s</li></ol>
+<pre>Distance while crossing the platform = 180 + 270 = 450 m in 30 s → speed = 15 m/s = 15 × 18/5 = 54 km/h
+Man walking the same way: relative speed = 54 − 6 = 48 km/h = 48 × 5/18 = 40/3 m/s
+Time to pass him = train length / relative speed = 180 ÷ (40/3) = 13.5 s
+(12 s ignores the man's motion; 10.8 s wrongly adds the speeds, as if he were walking towards the train.)</pre>
+<p class="gans">Correct: Option 2 — <b>54 km/h; 13.5 s</b>.</p>
+</div>
+
+<div class="gq"><div class="gtag">Q18 · Boats and streams</div>
+<b>A boat covers 24 km downstream in 2 h and 24 km upstream in 3 h. Find its speed in still water and the total time for a 40 km downstream trip followed by a 40 km upstream trip.</b>
+<ol class="gopts"><li>9 km/h; 9 h</li><li>10 km/h; 7 h 30 min</li><li>12 km/h; 8 h 20 min</li><li>10 km/h; 8 h 20 min</li></ol>
+<pre>Downstream d = 24/2 = 12 km/h;  upstream u = 24/3 = 8 km/h
+Still water b = (d + u)/2 = 10 km/h;  stream s = (d − u)/2 = 2 km/h
+Time = 40/12 + 40/8 = 3 h 20 min + 5 h = 8 h 20 min</pre>
+<p class="gans">Correct: Option 4 — <b>10 km/h</b> and <b>8 h 20 min</b>.</p>
+</div>
+
+<div class="gq"><div class="gtag">Q19 · Time &amp; work — one worker leaves early; wages</div>
+<b>A alone finishes a job in 12 days and B alone in 18 days. They start together, but A leaves 3 days before the job is finished. In how many days is the job completed, and what is A's share of a total wage of ₹3,000 (wages in proportion to work done)?</b>
+<ol class="gopts"><li>9 days; ₹1,500</li><li>9 days; ₹1,800</li><li>8 days; ₹1,500</li><li>10 days; ₹1,500</li></ol>
+<pre>Let the job take T days. B works all T days; A works (T − 3) days.
+Take the job = 36 units → A does 3 units/day, B does 2 units/day.
+3(T − 3) + 2T = 36  →  5T = 45  →  T = 9 days
+A's work = 3 × 6 = 18 units, B's work = 2 × 9 = 18 units → equal shares of the wages: A gets ₹1,500.</pre>
+<p class="gans">Correct: Option 1 — <b>9 days</b>; A's share <b>₹1,500</b>.</p>
+</div>
+
+<div class="gq"><div class="gtag">Q20 · Ages — two conditions, one unknown</div>
+<b>A father is three times as old as his son. After 12 years he will be twice as old as the son. What is the father's present age?</b>
+<ol class="gopts"><li>48 years</li><li>42 years</li><li>36 years</li><li>30 years</li></ol>
+<pre>Son = x, father = 3x.  After 12 years:  3x + 12 = 2(x + 12)  →  3x + 12 = 2x + 24  →  x = 12
+Father = 3 × 12 = 36.   Check: in 12 years 48 and 24 → 48 = 2 × 24 ✓</pre>
+<p class="gans">Correct: Option 3 — <b>36 years</b>.</p>
+</div>
+
+<div class="gq"><div class="gtag">Q21 · Three-set Venn diagram — exactly one subject</div>
+<b>In a group of 110 students, 60 study Maths (M), 50 Physics (P) and 40 Chemistry (C). 25 study M and P, 20 study P and C, 15 study M and C, and 10 study all three. How many study exactly one subject, and how many study none?</b>
+<ol class="gopts"><li>70 exactly one; 10 none</li><li>50 exactly one; 20 none</li><li>60 exactly one; 0 none</li><li>60 exactly one; 10 none</li></ol>
+<pre>Only M∩P = 25 − 10 = 15;  only P∩C = 20 − 10 = 10;  only M∩C = 15 − 10 = 5;  all three = 10
+Only M = 60 − (15 + 5 + 10) = 30;  only P = 50 − (15 + 10 + 10) = 15;  only C = 40 − (5 + 10 + 10) = 15
+Exactly one = 30 + 15 + 15 = 60
+Union = 60 + 50 + 40 − 25 − 20 − 15 + 10 = 100  →  none = 110 − 100 = 10</pre>
+<p class="gans">Correct: Option 4 — <b>60</b> study exactly one subject; <b>10</b> study none.</p>
+</div>
+
+<div class="gq"><div class="gtag">Q22 · Profit &amp; loss — markup and successive discounts</div>
+<b>A shopkeeper marks goods 40 % above cost and then allows two successive discounts of 10 % and 10 %. If the cost price is ₹500, what is the profit percentage and the profit in rupees?</b>
+<ol class="gopts"><li>12 %; ₹60</li><li>13.4 %; ₹67</li><li>14 %; ₹70</li><li>20 %; ₹100</li></ol>
+<pre>Marked price = 500 × 1.40 = 700
+After the discounts: SP = 700 × 0.9 × 0.9 = 567   (one 19 % discount, not 20 %)
+Profit = 567 − 500 = ₹67  →  67/500 = 13.4 %</pre>
+<p class="gans">Correct: Option 2 — <b>13.4 %</b>, profit <b>₹67</b>.</p>
+</div>
+
+<div class="gq"><div class="gtag">Q23 · Data interpretation — profit % versus absolute profit</div>
+<b>Revenue / expenditure (₹ crore): 2019: 45 / 30 · 2020: 50 / 42 · 2021: 45 / 40 · 2022: 60 / 48 · 2023: 75 / 55. Which year has the highest profit percentage on expenditure, and what is the percentage growth in revenue from 2021 to 2023?</b>
+<ol class="gopts"><li>2019; 40 %</li><li>2023; 66.7 %</li><li>2019; 66.7 %</li><li>2023; 40 %</li></ol>
+<pre>Profit %: 2019 = 15/30 = 50 %;  2020 = 8/42 ≈ 19.0 %;  2021 = 5/40 = 12.5 %;  2022 = 12/48 = 25 %;  2023 = 20/55 ≈ 36.4 %
+Highest percentage: 2019 (although 2023 has the largest absolute profit, ₹20 crore)
+Revenue growth 2021 → 2023 = (75 − 45)/45 = 30/45 = 66.7 %   (the base is the earlier year, 2021)</pre>
+<p class="gans">Correct: Option 3 — <b>2019</b> and <b>66.7 %</b>.</p>
+</div>
+
+<div class="gq"><div class="gtag">Q24 · Figure series — rotation with a period</div>
+<b>An arrow starts pointing up and rotates 135° clockwise at every step. Which way does it point after 10 steps, and at which step does it first point up again?</b>
+<ol class="gopts"><li>Left; step 8</li><li>Right; step 8</li><li>Left; step 4</li><li>Down; step 8</li></ol>
+<pre>After 10 steps: 10 × 135 = 1350°;  1350 mod 360 = 270° clockwise from up → up 0°, right 90°, down 180°, left 270° → LEFT
+First return to up: 135k must be a multiple of 360 → k = 360/gcd(135, 360) = 360/45 = 8   (8 × 135 = 1080 = 3 × 360)</pre>
+<p class="gans">Correct: Option 1 — <b>Left</b>, and the arrow first points up again at <b>step 8</b>.</p>
+</div>
+
+</section>
+
+</main>
+</div>
+<section id="quiz">
+<h1>7. Practice Quiz — 99 Questions</h1>
+<div class="sub">Covers all 6 areas above. Click an option to check yourself instantly — explanations included.</div>
+<div class="qtopics" id="qtopics"></div><style>.qmode button{cursor:pointer;padding:8px 12px;border:1px solid #888;border-radius:8px;background:transparent}.qmode button.active{font-weight:700}.opt.selected{outline:2px solid currentColor;transform:translateX(2px)}</style><div class="qmode" style="margin:12px 0;display:flex;gap:8px;flex-wrap:wrap"><button id="mcqMode" class="active">MCQ</button><button id="msqMode">MSQ · Select all that apply</button></div>
+<div id="score">Answered <b id="ansCount">0</b>/99 · Correct <b id="corrCount">0</b></div>
+<div id="qlist"></div>
+</section>
+
+<section id="pyq">
+<h1>8. GATE-Level Solved Problems</h1>
+<div class="sub">The 99 quiz questions check fundamentals. These are heavier, multi-step problems in GATE style — every step shown, and every answer verified by a program (brute-force enumeration, exact fractions or model checking).</div>
+
+<div class="gq"><div class="gtag">Q1 · Successive discounts</div>
+<b>A shirt has a marked price of Rs 1,000. Successive discounts of 20%, 10% and 5% are given. What is the selling price, and what single discount is equivalent?</b>
+<ol class="gopts"><li>Rs 700; 30%</li><li>Rs 650; 35%</li><li>Rs 684; equivalent discount 31.6%</li><li>Rs 684; 35%</li></ol>
+<pre>Successive discounts MULTIPLY the retention factors — they never add.
+   price = 1000 × 0.80 × 0.90 × 0.95 = 1000 × 0.684 = Rs 684
+   equivalent single discount = 1 − 0.684 = 31.6%   (not 20 + 10 + 5 = 35%)
+Trap: adding the percentages gives 35% and Rs 650 — wrong, because each discount applies to the already-reduced price.</pre>
+<p class="gans">Correct: Option 3 — Rs 684, equivalent to a 31.6% discount.</p>
+</div>
+
+<div class="gq"><div class="gtag">Q2 · Permutations with a restriction</div>
+<b>In how many distinct ways can the letters of MISSISSIPPI be arranged so that no two S's are adjacent?</b>
+<ol class="gopts"><li>7350</li><li>34650</li><li>840</li><li>2520</li></ol>
+<pre>Letters: M×1, I×4, S×4, P×2  (11 letters).   All arrangements = 11!/(4!·4!·2!) = 34650.
+
+Gap method — place the non-S letters first, then slot the S's into the gaps:
+   Non-S letters: M, I×4, P×2 = 7 letters → 7!/(4!·2!) = 105 arrangements.
+   They create 8 gaps (6 between letters + 2 ends). Choose 4 distinct gaps for the 4 S's: C(8,4) = 70.
+   Total = 105 × 70 = 7350.
+
+Check: 7350 &lt; 34650 as it must be; brute-force enumeration of all 34650 arrangements finds exactly 7350 with no 'SS'.</pre>
+<p class="gans">Correct: Option 1 — 7350 arrangements.</p>
+</div>
+
+<div class="gq"><div class="gtag">Q3 · Probability without replacement</div>
+<b>A bag holds 5 red and 7 blue balls. Two balls are drawn one after the other without replacement. What is the probability that they are of different colours?</b>
+<ol class="gopts"><li>1/2</li><li>35/132</li><li>5/12</li><li>35/66</li></ol>
+<pre>Two disjoint ways to get different colours:
+   red then blue :  (5/12) × (7/11) = 35/132
+   blue then red :  (7/12) × (5/11) = 35/132
+   total = 70/132 = 35/66   (≈ 0.530)
+
+Combination method: favourable = C(5,1)·C(7,1) = 35, total = C(12,2) = 66 → 35/66 ✔
+Trap: 35/132 counts only one order; 5/12 forgets that the second ball's probability changes.</pre>
+<p class="gans">Correct: Option 4 — 35/66.</p>
+</div>
+
+<div class="gq"><div class="gtag">Q4 · Pipes and cisterns (rates)</div>
+<b>Pipe A fills a tank in 12 minutes and pipe B in 15 minutes; an outlet pipe C empties a full tank in 20 minutes. A and B are opened together; after 4 minutes C is also opened. How long from the start until the tank is full?</b>
+<ol class="gopts"><li>10 minutes</li><li>8 minutes</li><li>12 minutes</li><li>6 minutes</li></ol>
+<pre>Rates (tank per minute): A = 1/12, B = 1/15, C = −1/20.
+First 4 minutes (A + B):  rate = 1/12 + 1/15 = 9/60 = 3/20  →  filled 4 × 3/20 = 3/5.
+Remaining = 2/5.
+After C opens: rate = 3/20 − 1/20 = 1/10 per minute  →  time = (2/5) / (1/10) = 4 minutes.
+Total = 4 + 4 = 8 minutes.
+
+Sanity check: all three open from the start would need 1/(1/12 + 1/15 − 1/20) = 10 minutes — more than 8, because
+C only started draining after the tank was already 60% full.</pre>
+<p class="gans">Correct: Option 2 — 8 minutes.</p>
+</div>
+
+<div class="gq"><div class="gtag">Q5 · Data interpretation — pie chart in degrees</div>
+<b>A company's total expenditure is Rs 7,20,000. The pie chart gives the central angles: Salaries 144°, Raw material 108°, Rent 54°, Others 54°. By how much does the amount spent on Salaries exceed that spent on Rent?</b>
+<ol class="gopts"><li>Rs 1,80,000</li><li>Rs 1,08,000</li><li>Rs 2,88,000</li><li>Rs 72,000</li></ol>
+<pre>Check the angles: 144 + 108 + 54 + 54 = 360 ✔.
+Amount = (angle / 360) × total.
+   Salaries = 144/360 × 7,20,000 = 40% = Rs 2,88,000
+   Rent     =  54/360 × 7,20,000 = 15% = Rs 1,08,000
+   Difference = 2,88,000 − 1,08,000 = Rs 1,80,000
+
+Shortcut: difference of angles = 144 − 54 = 90° = 25% of the total = 0.25 × 7,20,000 = Rs 1,80,000.</pre>
+<p class="gans">Correct: Option 1 — Rs 1,80,000.</p>
+</div>
+
+<div class="gq"><div class="gtag">Q6 · Syllogism — multiple conclusions</div>
+<b>Statements: Some pens are books. All books are cups. No cup is a table.  Conclusions: I. Some pens are cups.  II. No book is a table.  III. Some pens are not tables.  IV. All pens are cups.  Which follow?</b>
+<ol class="gopts"><li>All four</li><li>I and IV only</li><li>II and III only</li><li>I, II and III only</li></ol>
+<pre>Draw it: the pens that are books lie inside BOOK ⊂ CUP, and CUP is disjoint from TABLE.
+I   Some pens are cups  — the pens that are books are cups ✔
+II  No book is a table  — books ⊂ cups, cups ∩ tables = ∅ ✔
+III Some pens are not tables — those same pens are cups, so they are not tables ✔
+IV  All pens are cups   — only SOME pens are known to be books; other pens may be outside CUP ✘
+A model check over all small Venn configurations confirms I, II, III hold in every case and IV fails in some.</pre>
+<p class="gans">Correct: Option 4 — only I, II and III follow.</p>
+</div>
+
+<div class="gq"><div class="gtag">Q7 · Painted cube — counting</div>
+<b>A 5×5×5 cube is painted on all six faces and cut into 125 unit cubes. How many unit cubes have at least two painted faces?</b>
+<ol class="gopts"><li>36</li><li>44</li><li>8</li><li>54</li></ol>
+<pre>Classify by the number of painted faces (n = 5):
+   3 faces (corners)        = 8
+   2 faces (edges)          = 12 × (n − 2) = 36
+   1 face  (face interiors) = 6 × (n − 2)² = 54
+   0 faces (inner cube)     = (n − 2)³ = 27
+   check: 8 + 36 + 54 + 27 = 125 ✔
+
+At least two painted faces = 8 + 36 = 44.</pre>
+<p class="gans">Correct: Option 2 — 44 unit cubes.</p>
+</div>
+
+<div class="gq"><div class="gtag">Q8 · Compound vs simple interest difference</div>
+<b>The difference between the compound interest (annual) and the simple interest on a sum for 2 years at 10% per annum is Rs 150. Find the sum.</b>
+<ol class="gopts"><li>Rs 10,000</li><li>Rs 12,000</li><li>Rs 15,000</li><li>Rs 20,000</li></ol>
+<pre>For 2 years:  CI − SI = P (r/100)²   (the interest earned on the first year's interest).
+   150 = P × (0.10)² = P × 0.01  ⇒  P = Rs 15,000.
+
+Verify: SI = 15,000 × 0.10 × 2 = 3,000;  CI = 15,000 × (1.1² − 1) = 3,150;  difference = 150 ✔</pre>
+<p class="gans">Correct: Option 3 — Rs 15,000.</p>
+</div>
+
+<div class="gq"><div class="gtag">Q9 · Number series — find the rule, then the 10th term</div>
+<b>What is the 10th term of the series 3, 8, 15, 24, 35, …?</b>
+<ol class="gopts"><li>99</li><li>120</li><li>121</li><li>143</li></ol>
+<pre>First differences: 5, 7, 9, 11, … (they grow by 2) → quadratic.
+Compare with squares: 4, 9, 16, 25, 36 → each term = (n + 1)² − 1.
+   n = 1: 2² − 1 = 3     n = 2: 3² − 1 = 8     n = 5: 6² − 1 = 35 ✔
+10th term: (10 + 1)² − 1 = 121 − 1 = 120.
+(The sequence runs 3, 8, 15, 24, 35, 48, 63, 80, 99, 120.)</pre>
+<p class="gans">Correct: Option 2 — 120.</p>
+</div>
+
+
+<div class="gq"><div class="gtag">Q10 · Verbal deduction — which conclusions follow</div>
+<b>Statements: Some cricketers are musicians. All musicians are graduates. No graduate is a dropout.<br>Conclusions: I. Some cricketers are graduates. II. All cricketers are graduates. III. No musician is a dropout. IV. Some dropouts are musicians. Which of the conclusions logically follow?</b>
+<ol class="gopts"><li>I only</li><li>II and III only</li><li>I and III only</li><li>I, III and IV</li></ol>
+<pre>Venn picture:  Musicians ⊂ Graduates;  Graduates and Dropouts do not overlap;
+               some Cricketers lie inside Musicians.
+
+I.   Some cricketers are graduates   — the cricketers who are musicians sit inside Graduates.            ✔ follows
+II.  All cricketers are graduates     — only SOME cricketers are known to be musicians; the rest are free. ✘
+III. No musician is a dropout         — Musicians ⊂ Graduates and Graduates ∩ Dropouts = ∅.              ✔ follows
+IV.  Some dropouts are musicians      — the opposite of III, so it can never be true.                      ✘
+
+Check: enumerating every model with up to 4 individuals in which the three statements hold, I and III are true in all of
+them, II is false in some, and IV is false in all of them.
+Trap: "some cricketers are musicians" says nothing about the cricketers who are not musicians.</pre>
+<p class="gans">Correct: Option 3 — I and III only.</p>
+</div>
+
+<div class="gq"><div class="gtag">Q11 · Circular seating — a unique arrangement</div>
+<b>Six people A, B, C, D, E and F sit around a circular table facing the centre. A sits opposite D. B sits next to A. C sits immediately to the left of E. E sits next to D. Who sits opposite B?</b>
+<ol class="gopts"><li>C</li><li>D</li><li>F</li><li>E</li></ol>
+<pre>Number the seats 1–6 clockwise. Facing the centre, a person's LEFT neighbour is the next seat clockwise.
+
+A in seat 1, so D (opposite) is in seat 4.
+E sits next to D → seat 3 or 5.
+C is immediately left of E, i.e. in the seat after E clockwise:
+   E in 3 → C in 4, but seat 4 is D   ✘
+   E in 5 → C in 6                    ✔
+B sits next to A → seat 2 or 6; seat 6 is C, so B is in seat 2.
+F takes the last seat, 3.
+
+Clockwise: A(1)  B(2)  F(3)  D(4)  E(5)  C(6).     Opposite of B (seat 2) is seat 5 = E.
+
+Check: fixing A in seat 1 and trying all 5! = 120 arrangements of the others, exactly one satisfies the four clues.</pre>
+<p class="gans">Correct: Option 4 — E sits opposite B.</p>
+</div>
+
+<div class="gq"><div class="gtag">Q12 · Truth-teller / liar — three statements</div>
+<b>Each of A, B and C always tells the truth or always lies. A says: "B is a liar." B says: "C is a liar." C says: "A and B are both liars." Who are the liars?</b>
+<ol class="gopts"><li>A and C</li><li>A and B</li><li>B and C</li><li>B only</li></ol>
+<pre>T = truthful, L = liar.  Test all 2³ = 8 cases (a liar's statement must be false):
+ A B C
+ T T T  A says "B is a liar" — false, but A is truthful          ✘
+ T T L  same contradiction for A                                 ✘
+ T L T  C says "A and B both liars" — false, but C is truthful   ✘
+ T L L  B says "C is a liar" — true, but B is a liar             ✘
+ L T T  B says "C is a liar" — false, but B is truthful          ✘
+ L T L  A: "B liar" false ✔ (A lies)   B: "C liar" true ✔   C: "A and B both liars" false ✔ (C lies)   ✔ CONSISTENT
+ L L T  A says "B is a liar" — true, but A is a liar             ✘
+ L L L  A says "B is a liar" — true, but A is a liar             ✘
+
+Exactly one case survives: A = L, B = T, C = L.
+Trap: the negation of "A and B are both liars" is "at least one of them is truthful", not "both are truthful".</pre>
+<p class="gans">Correct: Option 1 — A and C are the liars; B is truthful.</p>
+</div>
+
+<div class="gq"><div class="gtag">Q13 · Dice — three views</div>
+<b>The faces of a cube are numbered 1 to 6. In three different views the faces visible at a corner are {1, 2, 3}, {2, 3, 4} and {3, 4, 6}. Which number is on the face opposite to 6?</b>
+<ol class="gopts"><li>1</li><li>5</li><li>4</li><li>2</li></ol>
+<pre>Faces seen together are adjacent. Neighbours from the three views:
+   1 : 2, 3          2 : 1, 3, 4          3 : 1, 2, 4, 6          4 : 2, 3, 6          6 : 3, 4
+
+Face 3 has four neighbours (1, 2, 4, 6), so the remaining face 5 is opposite 3.
+Face 4: not opposite 2, 3 or 6, so its opposite is 1 or 5; 5 is taken by 3, so 4 is opposite 1.
+Face 6: not opposite 3 or 4, so its opposite is among 1, 2, 5; 1 and 5 are taken, so 6 is opposite 2.
+
+Opposite pairs: (1,4), (2,6), (3,5).   Note they do NOT sum to 7 — never assume that.
+Check: of the 15 ways to pair up the numbers 1–6 as opposite faces, only this one keeps every view free of an opposite pair.</pre>
+<p class="gans">Correct: Option 4 — the face opposite 6 carries 2.</p>
+</div>
+
+<div class="gq"><div class="gtag">Q14 · Mixtures — alligation with ratios</div>
+<b>Vessel A holds milk and water in the ratio 3 : 1 and vessel B holds them in the ratio 1 : 2. In what ratio, A : B, should the two be mixed so that the mixture has milk and water in the ratio 1 : 1?</b>
+<ol class="gopts"><li>2 : 3</li><li>3 : 2</li><li>1 : 1</li><li>4 : 3</li></ol>
+<pre>Work with the fraction of milk:   A = 3/4,   B = 1/3,   target = 1/2.
+Alligation (lower strength : higher strength = (higher − mean) : (mean − lower)):
+   B : A = (3/4 − 1/2) : (1/2 − 1/3) = 1/4 : 1/6 = 3 : 2      →   A : B = 2 : 3
+
+Check with 2 L of A and 3 L of B:  milk = 2×(3/4) + 3×(1/3) = 1.5 + 1 = 2.5 L out of 5 L = 1/2  → milk : water = 1 : 1 ✔
+Trap: reading the ratio the wrong way round gives 3 : 2, i.e. 3 L of A + 2 L of B = 35/12 L of milk in 5 L = 7/12, not 1/2.</pre>
+<p class="gans">Correct: Option 1 — A : B = 2 : 3.</p>
+</div>
+
+<div class="gq"><div class="gtag">Q15 · Clocks — hands coinciding</div>
+<b>At what time between 4 o'clock and 5 o'clock do the hour and minute hands of a clock coincide?</b>
+<ol class="gopts"><li>4:20</li><li>4:22</li><li>4:21 9/11</li><li>4:24</li></ol>
+<pre>At 4:00 the hour hand is 120° ahead of the minute hand. The minute hand gains 6 − 0.5 = 5.5° per minute.
+They coincide when the 120° gap is closed:  120 / 5.5 = 240/11 = 21 9/11 minutes   →   4:21 9/11
+
+Check: minute hand = 6 × 240/11 = 1440/11 ≈ 130.9°;  hour hand = 120 + 0.5 × 240/11 = 120 + 120/11 ≈ 130.9° ✔
+
+Same hour, right angles:  gap 120 − 5.5m = 90  → m = 60/11 = 5 5/11  (4:05 5/11)
+                          gap 5.5m − 120 = 90  → m = 420/11 = 38 2/11 (4:38 2/11)
+Trap: guessing "4:20" ignores that the hour hand keeps moving while the minute hand chases it.</pre>
+<p class="gans">Correct: Option 3 — 4:21 9/11.</p>
+</div>
+
+<div class="gq"><div class="gtag">Q16 · Number system — remainders and divisibility together</div>
+<b>What is the smallest number that leaves remainder 3 when divided by 4, by 5 or by 6, and is exactly divisible by 11?</b>
+<ol class="gopts"><li>63</li><li>363</li><li>723</li><li>183</li></ol>
+<pre>Leaving remainder 3 for 4, 5 and 6 means n = LCM(4,5,6)·k + 3 = 60k + 3.
+Need 11 | 60k + 3.   60 ≡ 5 (mod 11), so 5k ≡ −3 ≡ 8 (mod 11).
+5⁻¹ ≡ 9 (mod 11) because 5 × 9 = 45 ≡ 1, so k ≡ 8 × 9 = 72 ≡ 6 (mod 11) → smallest k = 6.
+n = 60 × 6 + 3 = 363.
+
+Check: 363 = 4×90 + 3 = 5×72 + 3 = 6×60 + 3, and 363 = 11 × 33 ✔.  k = 0…5 give 3, 63, 123, 183, 243, 303 — none divisible by 11,
+and a brute-force search over 1…2000 confirms 363 is the smallest.
+Trap: 63 and 183 satisfy the three remainders but fail the divisibility by 11.</pre>
+<p class="gans">Correct: Option 2 — 363.</p>
+</div>
+<div class="gq"><div class="gtag">Q25 · Narrative sequencing — arranging jumbled sentences</div>
+<b>Arrange the four sentences into a coherent paragraph.<br>P: The committee therefore postponed the vote to the following week.<br>Q: Several members argued that the draft had not been circulated in time.<br>R: At Monday's meeting, the committee took up the new funding proposal.<br>S: The chair agreed that they could not decide on a document they had not read.</b>
+<ol class="gopts"><li>R – Q – S – P</li><li>R – P – Q – S</li><li>Q – R – S – P</li><li>R – S – Q – P</li></ol>
+<pre>Method for jumbled paragraphs: (1) find the sentence that can stand ALONE as an opening (introduces the topic and the actors); (2) find mandatory pairs through pronouns, linking words and cause–effect; (3) put the conclusion (words like 'therefore', 'as a result') last; (4) read the final order aloud once.
+
+R opens: it introduces the committee and the funding proposal with a time anchor (Monday's meeting) and needs no earlier sentence.
+Q follows R: 'the draft' now has a reference (the proposal) and begins the objection.
+S answers Q: the chair 'agreed' with the argument, and 'a document they had not read' echoes 'not been circulated'.
+P ends: 'therefore postponed' is a consequence of S, and the vote only makes sense after the discussion.
+
+Order: R – Q – S – P.
+Why the others fail: starting with Q or S leaves 'the draft' / 'the chair agreed' with nothing to refer to; placing P before Q and S gives a conclusion before its reasons.
+Trap: a sentence that sounds like an ending (P, with 'therefore') can never be an opener, and 'agreed' always needs the claim it agrees with in an earlier sentence.</pre>
+<p class="gans">Correct: Option 1 — R – Q – S – P.</p>
+</div>
+
+<div class="gq"><div class="gtag">Q26 · Conditional probability with two dice</div>
+<b>Two fair six-sided dice are rolled. Given that the sum is greater than 8, what is the probability that at least one die shows a 6? And, given that at least one die shows 6, what is the probability that the sum is exactly 8?</b>
+<ol class="gopts"><li>7/10 and 2/11</li><li>7/36 and 2/11</li><li>7/10 and 5/36</li><li>1/2 and 2/11</li></ol>
+<pre>Conditional probability:  P(A | B) = n(A ∩ B) / n(B)   when all outcomes are equally likely (36 ordered pairs).
+
+(i) B = sum &gt; 8 : sums 9, 10, 11, 12 → 4 + 3 + 2 + 1 = 10 outcomes.
+    A ∩ B = sum &gt; 8 and at least one 6: (3,6), (6,3), (4,6), (6,4), (5,6), (6,5), (6,6) → 7 outcomes.
+    P = 7/10.
+(ii) B = at least one 6: 6 + 6 − 1 = 11 outcomes.
+     Sum = 8 with a 6: (2,6) and (6,2) → 2 outcomes.   P = 2/11.
+
+Note the sample space SHRINKS to the conditioning event: dividing by 36 instead of 10 or 11 gives the unconditional 7/36 or 2/36.
+Check: enumeration of all 36 outcomes gives 10 and 7 in part (i), and 11 and 2 in part (ii).
+Trap: (3,6) and (6,3) are different outcomes, so doubles like (6,6) count once but non-doubles count twice.</pre>
+<p class="gans">Correct: Option 1 — 7/10 and 2/11.</p>
+</div>
+
+<div class="gq"><div class="gtag">Q27 · Statistics — effect of an outlier on mean, median and spread</div>
+<b>The data set is 3, 5, 7, 9, 26. (i) Find the mean, median and population standard deviation (to 2 decimals). (ii) A value 100 is added to the set. What are the new mean and median?</b>
+<ol class="gopts"><li>Mean 10, median 7, SD 8.25; then mean 25 and median 8</li><li>Mean 10, median 7, SD 9.22; then mean 25 and median 8</li><li>Mean 10, median 9, SD 8.25; then mean 25 and median 9</li><li>Mean 7, median 7, SD 8.25; then mean 25 and median 8</li></ol>
+<pre>(i) Mean = (3 + 5 + 7 + 9 + 26)/5 = 50/5 = 10.
+     Median = middle value of the sorted list (odd count n = 5) = the 3rd = 7.
+     Deviations from the mean: −7, −5, −3, −1, +16 → squares 49, 25, 9, 1, 256 → sum 340.
+     Population variance = 340/5 = 68 → SD = √68 ≈ 8.25.     (sample SD, dividing by n − 1 = 4: √85 ≈ 9.22 — only if the question says 'sample')
+(ii) New list: 3, 5, 7, 9, 26, 100 (n = 6).
+     Mean = 150/6 = 25.   Median = average of the 3rd and 4th values = (7 + 9)/2 = 8.
+
+The outlier 26 pulled the mean (10) well above the median (7); adding 100 moves the mean by 15 but the median by only 1 — the median is robust to outliers, the mean and the standard deviation are not.
+Without the outlier (3, 5, 7, 9): mean = median = 6.
+Check: all of the figures were computed with a statistics library.
+Trap: the median of an even-sized list is the average of the two middle values, and 'standard deviation' of the complete data set uses n (population) unless 'sample' is stated.</pre>
+<p class="gans">Correct: Option 1 — mean 10, median 7, SD ≈ 8.25; after adding 100 the mean is 25 and the median 8.</p>
+</div>
+</section>
+
+<footer>Complete · 6 GATE CSE 2027 General Aptitude areas · 99-question basic quiz · 27 fully solved GATE-level problems</footer>
+<script>
+const Q = [
+[
+"VERB",
+"Which sentence is grammatically correct?",
+[
+"Neither of the two answers are correct.",
+"Neither of the two answers is correct.",
+"Neither of the two answer is correct.",
+"Neither of the two answers were correct."
+],
+1,
+"'Neither' (of two) takes a singular verb: 'Neither … is correct.'"
+],
+[
+"VERB",
+"Each of the students ___ submitted a project.",
+[
+"have",
+"are",
+"has",
+"were"
+],
+2,
+"'Each' is singular, so the verb is 'has', regardless of the plural noun that follows."
+],
+[
+"VERB",
+"The idiom 'to beat around the bush' means:",
+[
+"to hit something with a stick",
+"to avoid coming to the main point",
+"to search for something thoroughly",
+"to attack without warning"
+],
+1,
+"It means talking about everything except the real issue."
+],
+[
+"VERB",
+"'Ephemeral' most nearly means:",
+[
+"lasting a very long time",
+"short-lived",
+"harmful",
+"ancient"
+],
+1,
+"Ephemeral things last only a short time (like morning dew)."
+],
+[
+"VERB",
+"The word closest in meaning to 'candid' is:",
+[
+"secretive",
+"hostile",
+"careless",
+"frank"
+],
+3,
+"Candid = open and honest; 'frank' is the synonym."
+],
+[
+"VERB",
+"He is senior ___ me by five years.",
+[
+"than",
+"to",
+"from",
+"over"
+],
+1,
+"'Senior', 'junior', 'superior', 'inferior' and 'prefer' take 'to', not 'than'."
+],
+[
+"VERB",
+"Arrange in order — P: He opened the door.  Q: He heard a knock.  R: He found a parcel outside.  S: He walked to the door.",
+[
+"QSPR",
+"QPSR",
+"SQPR",
+"QSRP"
+],
+0,
+"The knock comes first (Q), then he walks to the door (S), opens it (P) and finds the parcel (R)."
+],
+[
+"VERB",
+"The opposite of 'verbose' is:",
+[
+"wordy",
+"loud",
+"rude",
+"concise"
+],
+3,
+"Verbose = using more words than needed; the antonym is concise."
+],
+[
+"NUM",
+"A price is increased by 20% and then decreased by 20%. The net change is:",
+[
+"No change",
+"4% decrease",
+"4% increase",
+"2% decrease"
+],
+1,
+"1.20 × 0.80 = 0.96, a 4% decrease."
+],
+[
+"NUM",
+"A : B = 2 : 3 and B : C = 4 : 5. Then A : C is:",
+[
+"8 : 15",
+"2 : 5",
+"6 : 5",
+"5 : 6"
+],
+0,
+"Make B equal: A:B = 8:12, B:C = 12:15, so A:C = 8:15."
+],
+[
+"NUM",
+"Compound interest on Rs 10,000 at 10% per annum for 2 years (annual compounding) is:",
+[
+"Rs 2,000",
+"Rs 2,100",
+"Rs 2,200",
+"Rs 1,100"
+],
+1,
+"10,000 × 1.1² = 12,100, so interest = 2,100."
+],
+[
+"NUM",
+"log₂ 32 + log₃ 81 =",
+[
+"9",
+"8",
+"7",
+"10"
+],
+0,
+"5 + 4 = 9."
+],
+[
+"NUM",
+"The number of distinct arrangements of the letters of LEVEL is:",
+[
+"120",
+"60",
+"30",
+"24"
+],
+2,
+"5!/(2!·2!) = 30 (E repeats twice, L repeats twice)."
+],
+[
+"NUM",
+"A committee of 3 is chosen from 5 men and 4 women with at least one woman. The number of ways is:",
+[
+"84",
+"74",
+"64",
+"10"
+],
+1,
+"Total C(9,3) = 84 minus all-men C(5,3) = 10 gives 74."
+],
+[
+"NUM",
+"The next term in 2, 6, 12, 20, 30, … is:",
+[
+"40",
+"42",
+"44",
+"36"
+],
+1,
+"Terms are n(n+1); the differences 4, 6, 8, 10 grow by 2, so the next difference is 12 and the term is 42."
+],
+[
+"NUM",
+"A can finish a job in 12 days and B in 18 days. Working together they finish it in:",
+[
+"6 days",
+"7.2 days",
+"15 days",
+"7.5 days"
+],
+1,
+"Combined rate 1/12 + 1/18 = 5/36 per day, so 36/5 = 7.2 days."
+],
+[
+"NUM",
+"A 120 m long train passes a pole in 6 seconds. Its speed is:",
+[
+"20 km/h",
+"54 km/h",
+"72 km/h",
+"90 km/h"
+],
+2,
+"120/6 = 20 m/s, and 20 × 3.6 = 72 km/h."
+],
+[
+"NUM",
+"The average of 5 numbers is 20. When one number is removed the average of the rest is 18. The removed number is:",
+[
+"28",
+"30",
+"22",
+"36"
+],
+0,
+"Total 100 − 72 = 28."
+],
+[
+"DI",
+"In a pie chart a sector subtends 72° at the centre. Its share of the whole is:",
+[
+"10%",
+"15%",
+"20%",
+"25%"
+],
+2,
+"72/360 = 20%."
+],
+[
+"DI",
+"The total is 480 units and a pie sector represents 25%. The sector stands for:",
+[
+"96",
+"120",
+"160",
+"240"
+],
+1,
+"25% of 480 = 120."
+],
+[
+"DI",
+"Sales are 120 (2021), 150 (2022) and 180 (2023). The percentage growth from 2021 to 2022 is:",
+[
+"20%",
+"25%",
+"30%",
+"50%"
+],
+1,
+"(150 − 120)/120 = 25%."
+],
+[
+"DI",
+"For the same sales data, the percentage growth from 2022 to 2023 is:",
+[
+"20%",
+"25%",
+"30%",
+"33.3%"
+],
+0,
+"(180 − 150)/150 = 20% — the same absolute rise of 30 gives a smaller % because the base is bigger."
+],
+[
+"DI",
+"A market share rises from 20% to 25%. The increase is:",
+[
+"5 points, 5%",
+"5 percentage points, 25%",
+"25 points, 5%",
+"5 points, 20%"
+],
+1,
+"Percentage points = 25 − 20 = 5; relative growth = 5/20 = 25%. Don't confuse the two."
+],
+[
+"DI",
+"Income is Rs 50,000 and expenses are 60% of income. The savings are:",
+[
+"Rs 20,000",
+"Rs 30,000",
+"Rs 10,000",
+"Rs 25,000"
+],
+0,
+"Savings = 40% of 50,000 = 20,000."
+],
+[
+"MGP",
+"A circle has circumference 44 cm (take π = 22/7). Its area is:",
+[
+"154 cm²",
+"308 cm²",
+"44 cm²",
+"616 cm²"
+],
+0,
+"2πr = 44 gives r = 7, so area = (22/7) × 49 = 154."
+],
+[
+"MGP",
+"A cube has volume 125 cm³. Its total surface area is:",
+[
+"100 cm²",
+"125 cm²",
+"150 cm²",
+"75 cm²"
+],
+2,
+"Side 5, so 6 × 25 = 150."
+],
+[
+"MGP",
+"A right triangle has legs 6 and 8. Its hypotenuse and area are:",
+[
+"10 and 24",
+"14 and 48",
+"10 and 48",
+"12 and 24"
+],
+0,
+"√(36 + 64) = 10; area = ½ × 6 × 8 = 24."
+],
+[
+"MGP",
+"The sum of the interior angles of a hexagon is:",
+[
+"540°",
+"720°",
+"900°",
+"1080°"
+],
+1,
+"(n − 2) × 180 = 4 × 180 = 720°."
+],
+[
+"MGP",
+"The volume of a cylinder of radius 3 and height 7 is:",
+[
+"21π",
+"42π",
+"63π",
+"147π"
+],
+2,
+"πr²h = π × 9 × 7 = 63π."
+],
+[
+"MGP",
+"Two fair dice are thrown. The probability that the sum is 7 is:",
+[
+"1/12",
+"1/6",
+"1/9",
+"5/36"
+],
+1,
+"Six of the 36 outcomes sum to 7: 6/36 = 1/6."
+],
+[
+"MGP",
+"A fair coin is tossed 3 times. The probability of at least one head is:",
+[
+"1/8",
+"3/8",
+"7/8",
+"1/2"
+],
+2,
+"1 − P(no heads) = 1 − 1/8 = 7/8."
+],
+[
+"MGP",
+"One card is drawn from a standard 52-card deck. P(king or heart) =",
+[
+"4/13",
+"17/52",
+"1/4",
+"3/13"
+],
+0,
+"4 kings + 13 hearts − 1 king of hearts = 16 cards, 16/52 = 4/13."
+],
+[
+"MGP",
+"The median of 3, 7, 1, 9, 5, 8 is:",
+[
+"5",
+"6",
+"7",
+"5.5"
+],
+1,
+"Sorted: 1, 3, 5, 7, 8, 9. The median is the mean of 5 and 7 = 6."
+],
+[
+"MGP",
+"The population standard deviation of 2, 4, 4, 4, 5, 5, 7, 9 is:",
+[
+"1",
+"2",
+"2.5",
+"4"
+],
+1,
+"Mean 5; squared deviations sum to 32; variance 32/8 = 4; SD = 2."
+],
+[
+"ANA",
+"All A are B. Some B are C. Which conclusion follows?",
+[
+"Some A are C",
+"All C are A",
+"No definite conclusion about A and C",
+"No A is C"
+],
+2,
+"The B's that are C may be entirely outside A, so nothing definite follows about A and C."
+],
+[
+"ANA",
+"All cats are animals. No animal is a plant. Which conclusion follows?",
+[
+"Some cats are plants",
+"All plants are animals",
+"No cat is a plant",
+"All animals are cats"
+],
+2,
+"Cats ⊂ animals and animals ∩ plants = ∅, so cats ∩ plants = ∅."
+],
+[
+"ANA",
+"Doctor : Hospital :: Teacher : ?",
+[
+"Student",
+"School",
+"Book",
+"Class"
+],
+1,
+"The relation is person → place of work."
+],
+[
+"ANA",
+"If a # b = a² + b and 5 # 3 = 28, then 4 # 6 =",
+[
+"22",
+"26",
+"30",
+"16"
+],
+0,
+"Check: 25 + 3 = 28 ✓. Then 4 # 6 = 16 + 6 = 22."
+],
+[
+"ANA",
+"Pointing to a man, a woman says: 'He is the son of my mother's only son.' The man is her:",
+[
+"son",
+"brother",
+"nephew",
+"cousin"
+],
+2,
+"Her mother's only son is her brother; the brother's son is her nephew."
+],
+[
+"ANA",
+"A man walks 3 km north and then 4 km east. His distance from the start is:",
+[
+"7 km",
+"5 km",
+"12 km",
+"1 km"
+],
+1,
+"Pythagoras: √(3² + 4²) = 5."
+],
+[
+"ANA",
+"If 15 March is a Sunday, then 25 March of the same year is a:",
+[
+"Tuesday",
+"Wednesday",
+"Thursday",
+"Friday"
+],
+1,
+"10 days later; 10 mod 7 = 3, and Sunday + 3 = Wednesday."
+],
+[
+"ANA",
+"Statements: All roses are flowers. Some flowers fade quickly. Which definitely follows?",
+[
+"Some roses fade quickly",
+"All flowers are roses",
+"No rose fades quickly",
+"None of these definitely follows"
+],
+3,
+"The fast-fading flowers might not be roses, so none of the three can be concluded."
+],
+[
+"ANA",
+"'Every swan observed so far is white, so all swans are white' is an example of:",
+[
+"deductive reasoning",
+"inductive reasoning",
+"a valid syllogism",
+"circular reasoning"
+],
+1,
+"It generalises from observed cases; the conclusion is probable, not certain — induction."
+],
+[
+"SPA",
+"A 3×3×3 cube is painted on all faces and cut into 27 unit cubes. How many have exactly two painted faces?",
+[
+"8",
+"12",
+"6",
+"24"
+],
+1,
+"Edge cubes without corners: 12 edges × (3 − 2) = 12."
+],
+[
+"SPA",
+"In the same 3×3×3 cube, how many unit cubes have exactly one painted face?",
+[
+"6",
+"8",
+"12",
+"1"
+],
+0,
+"One face-centre cube on each of the 6 faces."
+],
+[
+"SPA",
+"A 4×4×4 painted cube is cut into 64 unit cubes. How many have exactly two painted faces?",
+[
+"12",
+"24",
+"8",
+"32"
+],
+1,
+"12 edges × (4 − 2) = 24."
+],
+[
+"SPA",
+"The mirror image of a wall clock shows 3:15. The actual time is:",
+[
+"8:45",
+"9:45",
+"8:15",
+"9:15"
+],
+0,
+"Actual = 12:00 − 3:15 = 8:45."
+],
+[
+"SPA",
+"An arrow points north. It is rotated 90° clockwise and then flipped left-to-right in a vertical mirror. It now points:",
+[
+"North",
+"East",
+"West",
+"South"
+],
+2,
+"90° clockwise: north → east. A left-right flip swaps east and west: west."
+],
+[
+"SPA",
+"A square sheet is folded in half, then in half again (quarters). One hole is punched in the interior of the folded square, away from the folds. When unfolded the number of holes is:",
+[
+"1",
+"2",
+"4",
+"8"
+],
+2,
+"Four layers are punched at once: 4 holes."
+],
+[
+"SPA",
+"The number of distinct nets (flat unfoldings) of a cube is:",
+[
+"6",
+"8",
+"11",
+"12"
+],
+2,
+"There are exactly 11 distinct cube nets."
+],
+["VERB", "Pick the odd one out: brass, bronze, steel, copper.", ["Brass", "Bronze", "Steel", "Copper"], 3, "Copper is an element; brass, bronze and steel are all alloys."],
+["VERB", "'Sales rose after the ad campaign, so the campaign caused the rise.' Which statement most weakens this argument?", ["A rival firm shut down in the same month and its customers switched over", "The campaign cost five lakh rupees", "Sales rose by 12 per cent", "The advertisement was shown on television"], 0, "An alternative cause (the rival's closure) can explain the rise on its own. The other options say nothing about what caused the increase."],
+["VERB", "Choose the best word: 'Although the plan seemed ______ at first, it later proved quite practical.'", ["feasible", "sensible", "workable", "far-fetched"], 3, "'Although … practical' signals contrast, so the blank must mean the opposite of practical — far-fetched. The other three all mean roughly practical."],
+["NUM", "What is the remainder when 2^100 is divided by 7?", ["1", "4", "2", "6"], 2, "2^3 = 8 ≡ 1 (mod 7). 100 = 3×33 + 1, so 2^100 ≡ 1^33 × 2 = 2."],
+["NUM", "The HCF of two numbers is 12 and their LCM is 180. If one number is 36, the other is:", ["60", "48", "72", "90"], 0, "Product of the two numbers = HCF × LCM = 12 × 180 = 2160, and 2160 / 36 = 60."],
+["NUM", "Rice at Rs 40/kg is mixed with rice at Rs 55/kg to get a mixture worth Rs 48/kg. The ratio cheaper : dearer is:", ["8 : 7", "1 : 1", "3 : 2", "7 : 8"], 3, "Alligation: cheaper : dearer = (55 − 48) : (48 − 40) = 7 : 8. Check: 7 kg at 40 + 8 kg at 55 = 720 for 15 kg = Rs 48/kg."],
+["NUM", "The sum of the first 20 terms of the AP 7, 12, 17, … is:", ["1000", "1190", "1090", "1100"], 2, "S20 = (20/2)[2×7 + 19×5] = 10 × 109 = 1090."],
+["NUM", "The angle between the hands of a clock at 3:40 is:", ["130°", "120°", "140°", "150°"], 0, "|30×3 − 5.5×40| = |90 − 220| = 130°."],
+["NUM", "1 January 2027 is a Friday (2027 is not a leap year). Which day is 1 March 2027?", ["Saturday", "Sunday", "Tuesday", "Monday"], 3, "1 Jan to 1 Mar = 31 + 28 = 59 days = 8 weeks + 3 days. Friday + 3 = Monday."],
+["ANA", "Ravi is 15th from the top and 20th from the bottom of a class. How many students are in the class?", ["35", "36", "34", "33"], 2, "Total = 15 + 20 − 1 = 34."],
+["ANA", "A says: 'B and I are both liars.' Each person always tells the truth or always lies. Then:", ["A is truthful and B is a liar", "A and B are both liars", "A and B are both truthful", "A is a liar and B is truthful"], 3, "If A were truthful, the statement would make A a liar — a contradiction. So A lies; then 'both are liars' is false, meaning B is truthful."],
+["ANA", "A man walks 8 km east, turns left and walks 6 km. His distance from the starting point is:", ["10 km", "14 km", "12 km", "2 km"], 0, "A left turn from east faces north. Displacement = (8, 6), so distance = √(64 + 36) = 10 km."],
+["ANA", "In a row of 40 students Rita is 12th from the left and Meena is 15th from the right. How many students stand between them?", ["12", "13", "14", "15"], 1, "Meena is 40 − 15 + 1 = 26th from the left. Students between = 26 − 12 − 1 = 13."],
+["SPA", "The number of squares of all sizes in a 3 × 3 grid is:", ["14", "9", "13", "15"], 0, "9 (1×1) + 4 (2×2) + 1 (3×3) = 14."],
+["SPA", "The number of rectangles (squares included) in a 3 × 3 grid is:", ["27", "32", "40", "36"], 3, "Choose 2 of 4 vertical lines and 2 of 4 horizontal lines: C(4,2) × C(4,2) = 6 × 6 = 36."],
+["SPA", "In different views of a cube, faces 2, 3, 4 and 5 are each seen next to face 1. Which face is opposite 1?", ["5", "6", "4", "3"], 1, "Faces seen together are adjacent. Face 1 already has four neighbours (2, 3, 4, 5), so the remaining face, 6, is opposite it."],
+["NUM", "A car covers equal distances at 40 km/h and 60 km/h. Its average speed for the whole journey is:", ["50 km/h", "48 km/h", "46 km/h", "52 km/h"], 1, "For equal distances the average speed is the harmonic mean: 2 × 40 × 60 / (40 + 60) = 48 km/h, not the simple mean 50."],
+["NUM", "A speed of 72 km/h expressed in m/s is:", ["18", "20", "25", "15"], 1, "Multiply by 5/18: 72 × 5/18 = 20 m/s."],
+["NUM", "Two trains of length 100 m and 150 m run in opposite directions at 36 km/h and 54 km/h. How long do they take to cross each other?", ["8 s", "10 s", "12.5 s", "25 s"], 1, "Relative speed = 90 km/h = 25 m/s; distance = 250 m; time = 250/25 = 10 s."],
+["NUM", "A boat's speed in still water is 12 km/h and the stream flows at 3 km/h. How long does it take to travel 45 km upstream?", ["3 h", "4 h", "5 h", "6 h"], 2, "Upstream speed = 12 − 3 = 9 km/h, so time = 45/9 = 5 h."],
+["NUM", "Pipe A fills a tank in 10 h and pipe B empties it in 15 h. With both open, the empty tank fills in:", ["25 h", "30 h", "6 h", "5 h"], 1, "Net rate = 1/10 − 1/15 = 1/30 of the tank per hour, so 30 h."],
+["NUM", "6 men finish a job in 20 days. How many days will 8 men (same efficiency) take?", ["12", "15", "16", "18"], 1, "Men × days is constant: 6 × 20 = 120 man-days; 120/8 = 15 days."],
+["NUM", "A shirt is sold for ₹1,080 at a 20 % profit. Its cost price is:", ["₹850", "₹880", "₹900", "₹864"], 2, "SP = 1.2 × CP, so CP = 1080/1.2 = ₹900."],
+["NUM", "The average of 10 numbers is 15. If every number is doubled and then increased by 3, the new average is:", ["30", "33", "36", "18"], 1, "The average undergoes the same transformation: 2 × 15 + 3 = 33."],
+["NUM", "In a group of 70 people everyone likes tea or coffee; 45 like tea and 40 like coffee. How many like both?", ["10", "15", "25", "5"], 1, "70 = 45 + 40 − both, so both = 15."],
+["NUM", "The value of 49.8 × 20.1 / 9.95 is closest to:", ["50", "100", "200", "1000"], 1, "Round to 50 × 20 / 10 = 100; the exact value is about 100.6."],
+["NUM", "The unit digit of 7^45 is:", ["1", "3", "7", "9"], 2, "Unit digits of powers of 7 cycle 7, 9, 3, 1 (length 4); 45 mod 4 = 1 → first in the cycle, 7."],
+["DI", "A profit margin falls from 20 % to 15 %. The fall in percentage points and the percentage decrease are, respectively:", ["5; 25 %", "5; 5 %", "25; 5 %", "25; 25 %"], 0, "The difference is 5 percentage points; relative to the old 20 % that is 5/20 = 25 %."],
+["DI", "A quantity grows from 200 to 242 in two equal yearly percentage steps. The yearly growth rate is:", ["10 %", "11 %", "12 %", "21 %"], 0, "200 × 1.1 × 1.1 = 242, so each step is 10 %."],
+["DI", "In a pie chart four sectors are 90°, 60°, 120° and 50°. The fifth sector's angle and share of the whole are:", ["40°; 11.1 %", "50°; 13.9 %", "40°; 12.5 %", "30°; 8.3 %"], 0, "The angles sum to 360°, so the fifth is 360 − 320 = 40°, and 40/360 ≈ 11.1 %."],
+["DI", "Sales in 2022 were 20 % higher than in 2021, and sales in 2023 were 10 % lower than in 2022. Compared with 2021, sales in 2023 are:", ["10 % higher", "8 % higher", "the same", "12 % higher"], 1, "Multiply the factors: 1.2 × 0.9 = 1.08, i.e. 8 % higher."],
+["VERB", "Choose the correct preposition: The committee is composed ___ five members.", ["of", "from", "by", "with"], 0, "'Composed of' is the standard collocation."],
+["VERB", "Choose the correct verb: The number of applicants ___ increasing every year.", ["is", "are", "were", "have been"], 0, "'The number of' takes a singular verb (unlike 'a number of', which takes a plural verb)."],
+["VERB", "Complete the analogy — Pen : Write :: Knife : ?", ["Sharp", "Cut", "Kitchen", "Steel"], 1, "A pen is used to write; a knife is used to cut — the relationship is tool to function."],
+["VERB", "Pick the odd one out: Mercury, Venus, Moon, Mars.", ["Mercury", "Venus", "Moon", "Mars"], 2, "Mercury, Venus and Mars are planets; the Moon is a natural satellite."],
+["VERB", "'All successful startups have strong teams. X has a strong team, so X is successful.' The flaw in this argument is that it:", ["Treats a necessary condition as if it were sufficient", "Relies on an irrelevant statistic", "Contradicts its own premise", "Appeals to authority"], 0, "A strong team is necessary for success but may not be sufficient; the argument reverses the conditional."],
+["VERB", "Choose the correct form: By the time we arrived, the show ___.", ["already started", "had already started", "has already started", "is already starting"], 1, "Past perfect ('had started') is used for an action completed before another past action (our arrival)."],
+["ANA", "A person walks 5 m north, turns right and walks 3 m, then turns right again and walks 5 m. How far is she from the start, and which way is she facing?", ["3 m; south", "5 m; south", "3 m; north", "8 m; east"], 0, "North 5, east 3, south 5 leaves her 3 m east of the start, facing south."],
+["ANA", "A is B's sister, C is B's mother and D is C's father. How is A related to D?", ["Daughter", "Granddaughter", "Niece", "Sister"], 1, "A is C's daughter, and D is C's father, so A is D's granddaughter."],
+["SPA", "An arrow points east and rotates 90° anticlockwise each step. Which direction does it point after 7 steps?", ["North", "West", "South", "East"], 2, "7 × 90 = 630 ≡ 270° anticlockwise from east, which is south."],
+["SPA", "How many lines of symmetry does a regular hexagon have?", ["3", "6", "8", "12"], 1, "A regular n-gon has n lines of symmetry: 6 for a hexagon."],
+["VERB", "Choose the correct article: 'The committee reached ___ unanimous decision.'", ["a", "an", "the", "no article"], 0, "The article depends on the SOUND, not the spelling: 'unanimous' begins with the consonant sound /yu/, so 'a'. (Compare: 'an hour', 'an honest man'.)"],
+["VERB", "Choose the correct verb: 'Neither the manager nor the employees ___ aware of the change.'", ["was", "is", "has been", "were"], 3, "With 'neither … nor' the verb agrees with the NEARER subject; 'employees' is plural, so 'were'."],
+["VERB", "Choose the correct preposition: 'She is allergic ___ peanuts.'", ["of", "to", "with", "from"], 1, "'Allergic' takes 'to' (allergic to dust). Fixed pairings are tested often: afraid of, capable of, different from, married to."],
+["VERB", "Choose the single word for 'a person who speaks many languages':", ["pedant", "philanthropist", "polyglot", "polymath"], 2, "'Polyglot' (poly = many, glot = tongue) is someone who knows several languages; a polymath knows many subjects; a pedant is over-concerned with formal detail; a philanthropist gives to good causes."],
+["VERB", "The antonym of 'benevolent' is:", ["munificent", "malevolent", "magnanimous", "lenient"], 1, "'Benevolent' means kindly and well-meaning; 'malevolent' (mal = bad) means wishing harm. The other options are all positive qualities, so none can be the opposite."],
+["ANA", "Thermometer : Temperature :: Barometer : ?", ["Humidity", "Rainfall", "Wind speed", "Atmospheric pressure"], 3, "The relationship is 'instrument : quantity it measures'. A barometer measures atmospheric pressure."],
+["MGP", "A bag has 4 red and 6 blue balls. Two are drawn WITH replacement. The probability that both are red is:", ["4/25", "2/15", "1/9", "16/45"], 0, "Each draw has probability 4/10 = 2/5 of red and the draws are independent: (2/5)(2/5) = 4/25. Without replacement it would be (4/10)(3/9) = 2/15."],
+["MGP", "The mean of 5 numbers is 20. When one number is removed the mean of the remaining four is 18. The removed number is:", ["22", "28", "30", "24"], 1, "Total of five = 100; total of four = 72; removed number = 100 − 72 = 28."]
+];
+const MSQ=[["ANA", "Which statements are valid?", ["The contrapositive of P→Q is ¬Q→¬P", "The converse of P→Q is Q→P", "All A are B implies all B are A", "Mutually exclusive events have zero intersection probability"], [0, 1, 3], "The first, second (as the definition of converse), and fourth are correct. The converse is not generally equivalent to the original implication."], ["NUM", "Which arithmetic statements are correct?", ["Successive percentage changes compound multiplicatively", "For two positive integers HCF×LCM=product", "An unweighted mean of unequal-sized group means is always valid", "The minute hand moves 6° per minute"], [0, 1, 3], "Successive changes compound; HCF×LCM equals the product for two positive integers; unequal groups require weighting; minute hand speed is 6°/min."],
+["NUM", "Which of these numbers are divisible by 6?", ["126", "138", "214", "252"], [0, 1, 3], "Divisible by 6 means divisible by both 2 and 3: 126 (digit sum 9), 138 (12) and 252 (9) pass; 214 has digit sum 7, so it fails."],
+["NUM", "Which of these numbers are prime?", ["51", "53", "57", "59"], [1, 3], "51 = 3 × 17 and 57 = 3 × 19; 53 and 59 have no divisor up to their square roots."],
+["SPA", "Which statements about a cube are true?", ["It has 12 edges", "It has 8 vertices", "It has 6 space diagonals", "Opposite faces never share an edge"], [0, 1, 3], "A cube has 12 edges and 8 vertices, and opposite faces share no edge; it has 4 space diagonals, not 6."]];
+const topics={"VERB": "Verbal", "NUM": "Numerical", "DI": "Data Interpretation", "MGP": "Mensuration, Geometry & Probability", "ANA": "Analytical", "SPA": "Spatial"};
+let filter="ALL",answered=0,correct=0,mode="MCQ";
+function renderMCQ(){
+  const list=document.getElementById('qlist');
+  list.innerHTML="";
+  Q.forEach((item,i)=>{
+    const [t,q,opts,ans,exp]=item;
+    if(filter!=="ALL"&&filter!==t) return;
+    const card=document.createElement('div'); card.className='qcard';
+    const tag=document.createElement('div'); tag.className='qtag'; tag.textContent=topics[t]+" · Q"+(i+1);
+    const qt=document.createElement('div'); qt.className='qtext'; qt.textContent=q;
+    card.appendChild(tag); card.appendChild(qt);
+    const order = opts.map((_,i)=>i);
+    for(let k=order.length-1;k>0;k--){
+      const j=Math.floor(Math.random()*(k+1));
+      [order[k],order[j]]=[order[j],order[k]];
+    }
+    order.forEach(oi=>{
+      const o=opts[oi];
+      const b=document.createElement('button'); b.className='opt'; b.textContent=o;
+      b.onclick=()=>{
+        if(b.dataset.done) return;
+        [...card.querySelectorAll('.opt')].forEach(x=>x.dataset.done=1);
+        const buttons=[...card.querySelectorAll('.opt')];
+        const correctPos=order.indexOf(ans);
+        buttons[correctPos].classList.add('correct');
+        if(oi!==ans) b.classList.add('wrong');
+        card.querySelector('.expl').classList.add('show');
+        answered++; if(oi===ans) correct++;
+        document.getElementById('ansCount').textContent=answered;
+        document.getElementById('corrCount').textContent=correct;
+      };
+      card.appendChild(b);
+    });
+    const e=document.createElement('div'); e.className='expl'; e.textContent=exp;
+    card.appendChild(e);
+    list.appendChild(card);
+  });
+}
+
+function renderMSQ(){
+ const list=document.getElementById('qlist'); list.innerHTML='';
+ MSQ.forEach((item,i)=>{
+  const [t,q,opts,ans,exp]=item; if(filter!=="ALL"&&filter!==t)return;
+  const card=document.createElement('div'); card.className='qcard';
+  const tag=document.createElement('div'); tag.className='qtag'; tag.textContent=(topics[t]||t)+' · MSQ'+(i+1); card.appendChild(tag);
+  const qt=document.createElement('div'); qt.className='qtext'; qt.textContent=q; card.appendChild(qt);
+  const hint=document.createElement('div'); hint.className='sub'; hint.textContent='Select all correct options. Scoring is all-or-nothing.'; card.appendChild(hint);
+  const order=[...opts.keys()]; for(let k=order.length-1;k>0;k--){const j=Math.floor(Math.random()*(k+1));[order[k],order[j]]=[order[j],order[k]];}
+  const selected=new Set();
+  order.forEach(orig=>{const b=document.createElement('button');b.className='opt';b.textContent=opts[orig];b.onclick=()=>{if(card.dataset.submitted)return;if(selected.has(orig)){selected.delete(orig);b.classList.remove('selected');}else{selected.add(orig);b.classList.add('selected');}};card.appendChild(b);});
+  const submit=document.createElement('button');submit.className='hy-btn primary';submit.style.marginTop='10px';submit.textContent='Submit MSQ';submit.onclick=()=>{if(card.dataset.submitted||selected.size===0)return;card.dataset.submitted='1';const correctSet=new Set(ans);const ok=selected.size===correctSet.size&&[...selected].every(x=>correctSet.has(x));const buttons=[...card.querySelectorAll('.opt')];buttons.forEach((b,idx)=>{const orig=order[idx];if(correctSet.has(orig))b.classList.add('correct');if(selected.has(orig)&&!correctSet.has(orig))b.classList.add('wrong');b.dataset.done=1;});card.querySelector('.expl').classList.add('show');answered++;if(ok)correct++;document.getElementById('ansCount').textContent=answered;document.getElementById('corrCount').textContent=correct;};card.appendChild(submit);
+  const e=document.createElement('div');e.className='expl';e.textContent=exp;card.appendChild(e);list.appendChild(card);
+ });
+}
+function render(){mode==='MCQ'?renderMCQ():renderMSQ();}
+
+const bar=document.getElementById('qtopics');
+["ALL",...Object.keys(topics)].forEach(t=>{
+  const b=document.createElement('button'); b.textContent=t==="ALL"?"All "+Q.length:topics[t];
+  if(t==="ALL")b.classList.add('active');
+  b.onclick=()=>{filter=t; [...bar.children].forEach(x=>x.classList.remove('active')); b.classList.add('active'); render();};
+  bar.appendChild(b);
+});
+function resetQuizScore(total){answered=0;correct=0;document.getElementById('ansCount').textContent='0';document.getElementById('corrCount').textContent='0';const sc=document.getElementById('score');if(sc)sc.innerHTML='Answered <b id="ansCount">0</b>/'+total+' · Correct <b id="corrCount">0</b>';}
+document.getElementById('mcqMode').onclick=()=>{mode='MCQ';resetQuizScore(Q.length);document.getElementById('mcqMode').classList.add('active');document.getElementById('msqMode').classList.remove('active');render();};
+document.getElementById('msqMode').onclick=()=>{mode='MSQ';resetQuizScore(MSQ.length);document.getElementById('msqMode').classList.add('active');document.getElementById('mcqMode').classList.remove('active');render();};
+render();
+</script>
+
+<script>
+(function(){
+  const curatedRapid = [["formula", "Equal-distance round trip: average speed = 2ab/(a+b). km/h → m/s: ×5/18."], ["must", "Trains: pole = L/v; platform = (L+P)/v; two trains = (L₁+L₂)/relative speed (difference if same direction, sum if opposite)."], ["shortcut", "Time & work: total work = LCM of days; add rates; pipes: outlet = negative rate; wages ∝ work done."], ["trap", "Percentage POINTS vs percent change: 20% → 25% is +5 points but +25%. Profit % is on COST price."], ["must", "Venn (3 sets): fill from the triple overlap outward; |A∪B∪C| = Σ singles − Σ pairs + triple."], ["shortcut", "Estimation: round to friendly numbers, check the order of magnitude, eliminate options. Unit digits cycle (7: 7,9,3,1)."], ["gate", "Figure series: track rotation, count, shading and position separately; combined period = LCM of the periods."], ["gate", "Number-system questions: reduce powers modulo the divisor and look for a cycle before calculating large exponents."], ["formula", "Ranking total = rank from top + rank from bottom − 1; the same person is counted from both ends."], ["must", "For necessary assumptions, negate the option: if the argument collapses, the assumption is necessary."], ["formula", "Alligation ratio = (dearer−mean):(mean−cheaper)."], ["trap", "In seating/cube questions, preserve relative constraints; do not infer adjacency merely from visual placement."], ["formula", "Squares in an n×n grid = n(n+1)(2n+1)/6; rectangles = [n(n+1)/2]²."], ["must", "In aptitude, translate the wording into a mathematical model before calculating; avoid pattern-matching without checking constraints."], ["formula", "Percentage change = (new-old)/old × 100%; successive percentage changes are multiplicative, not simply additive."], ["trap", "Average of averages is not generally the average of the group averages unless group sizes are equal or weighted appropriately."], ["formula", "For speed, distance, and time: distance = speed × time; use consistent units before calculation."], ["must", "For ratio questions, multiply all ratio parts by the same positive factor; ratios do not by themselves give absolute quantities."], ["formula", "Simple interest = PRT/100; compound interest depends on compounding frequency and period."], ["must", "In probability, define the sample space carefully; mutually exclusive and independent are different concepts."], ["trap", "P(A∪B)=P(A)+P(B)-P(A∩B); do not omit the intersection unless events are mutually exclusive."], ["must", "For data interpretation, estimate first when options are widely separated; then calculate only as precisely as necessary."], ["must", "Geometry questions should begin by identifying the relevant invariant/standard formula rather than expanding algebra blindly."], ["shortcut", "Use approximation, ratio comparison, cancellation, and option elimination whenever the question permits it."], ["formula", "Alligation: cheaper : dearer = (dearer − mean) : (mean − cheaper); after n replacements of x litres from V, pure liquid = V(1 − x/V)^n."], ["formula", "HCF × LCM = product of the two numbers (two numbers only); least number leaving remainder r on division by a, b, c = LCM(a, b, c) + r."], ["formula", "Angle between clock hands at H:M = |30H − 5.5M|; in 12 hours the hands coincide 11 times and are at right angles 22 times."], ["trap", "'All A are B' does not imply 'All B are A'; only the contrapositive (not B → not A) is guaranteed."], ["must", "Critical reasoning: a weakener offers an alternative cause, a strengthener rules one out, and a necessary assumption collapses the argument when negated."], ["formula", "Squares in an n × n grid = n(n+1)(2n+1)/6; rectangles = [n(n+1)/2]²; total in a row = rank from one end + rank from the other − 1."], ["must", "Faces seen together on a cube are adjacent, never opposite; a face with four known neighbours has the remaining face as its opposite."], ["shortcut", "Truth-teller / liar: assume one person's type, follow the statements, and discard the case at the first contradiction."]];
+  const labelDefs = {
+    must: ['🟢 Must Remember','hy-must'],
+    trap: ['🟡 Common Trap','hy-trap'],
+    formula: ['🧮 Formula / Rule','hy-formula'],
+    gate: ['⚠️ GATE Favourite','hy-gate'],
+    shortcut: ['💡 Shortcut','hy-shortcut']
+  };
+
+  function addBadge(el, type){
+    if(!el || el.querySelector(':scope > .hy-badge')) return;
+    const [label, cls] = labelDefs[type];
+    el.classList.add('hy-marked');
+    const b=document.createElement('span');
+    b.className='hy-badge '+cls;
+    b.textContent=label;
+    el.insertBefore(b, el.firstChild);
+    el.dataset.hyType=type;
+  }
+
+  function classifyCards(){
+    document.querySelectorAll('main .card').forEach(el=>{
+      const t=el.textContent.replace(/\s+/g,' ').trim().toLowerCase();
+      if(!t || el.closest('#hyRapidPanel')) return;
+      if(/\b(shortcut|quick trick|handy trick|easy trick)\b/.test(t)) addBadge(el,'shortcut');
+      else if(/\b(formula|identity|identities|range\s*=|det\(|log\s*|o\(|theta\(|n\(|probability formula|equation)\b/.test(t)) addBadge(el,'formula');
+      else if(/\b(theorem|key fact|must remember|remember|important|property|properties|rule of thumb|definition|distinction|difference between|classic)\b/.test(t)) addBadge(el,'must');
+    });
+    document.querySelectorAll('main .warn').forEach(el=>{
+      const t=el.textContent.replace(/\s+/g,' ').trim().toLowerCase();
+      addBadge(el, /gate (angle|trap|strategy|note|convention|favourite|favorite)/.test(t) ? 'gate' : 'trap');
+    });
+    document.querySelectorAll('main .num').forEach(el=>{
+      const t=el.textContent.replace(/\s+/g,' ').trim().toLowerCase();
+      if(/\b(rule of thumb|formula|shortcut|range|identity|key|remember)\b/.test(t)) addBadge(el,'formula');
+    });
+    document.querySelectorAll('main .gq').forEach(el=>addBadge(el,'gate'));
+  }
+
+  function makeToolbar(){
+    if(document.querySelector('.hy-toolbar')) return;
+    const main=document.querySelector('.wrap>main');
+    if(!main) return;
+    const toolbar=document.createElement('div');
+    toolbar.className='hy-toolbar';
+    toolbar.innerHTML=`
+      <div class="hy-toolbar-row">
+        <div>
+          <div class="hy-title">⚡ <span>Revision Layer</span></div>
+          <div class="hy-sub">Use Last-Minute mode for a rapid recall pass before solving PYQs.</div>
+        </div>
+        <div class="hy-actions">
+          <button class="hy-btn primary" id="hyRapidOn">⚡ Last-Minute Revision</button>
+          <button class="hy-btn secondary" id="hyRapidOff">↩ Full Notes</button>
+        </div>
+      </div>
+      <div class="hy-legend">
+        <span class="hy-must">🟢 Must Remember</span>
+        <span class="hy-trap">🟡 Common Trap</span>
+        <span class="hy-formula">🧮 Formula / Rule</span>
+        <span class="hy-gate">⚠️ GATE Favourite</span>
+        <span class="hy-shortcut">💡 Shortcut</span>
+      </div>`;
+    main.insertBefore(toolbar, main.firstElementChild);
+    document.getElementById('hyRapidOn').onclick=()=>{buildRapid(); document.body.classList.add('rapid-mode'); window.scrollTo({top:0,behavior:'smooth'});};
+    document.getElementById('hyRapidOff').onclick=()=>{document.body.classList.remove('rapid-mode'); window.scrollTo({top:0,behavior:'smooth'});};
+  }
+
+  function buildRapid(){
+    let panel=document.getElementById('hyRapidPanel');
+    if(panel) return;
+    panel=document.createElement('section');
+    panel.id='hyRapidPanel';
+    panel.innerHTML='<h1>⚡ Last-Minute Revision</h1><p class="rapid-intro">A manually curated recall pass for the final 15–30 minutes before PYQs. Start here, then switch to the full notes only if a point needs clarification.</p>';
+    const curatedBox=document.createElement('div'); curatedBox.className='rapid-curated';
+    curatedBox.innerHTML='<h2>🎯 High-Yield Recall</h2><p class="rapid-note">These points are intentionally selected for quick GATE-oriented recall.</p>';
+    const groups={must:[],trap:[],formula:[],gate:[],shortcut:[]};
+    curatedRapid.forEach(([type,text])=>groups[type]?.push(text));
+    const labels={must:'🟢 Must Remember',trap:'🟡 Common Trap',formula:'🧮 Formula / Rule',gate:'⚠️ GATE Favourite',shortcut:'💡 Shortcut'};
+    Object.entries(groups).forEach(([type,items])=>{
+      if(!items.length) return;
+      const g=document.createElement('div'); g.className='rapid-group '+type;
+      g.innerHTML='<h3>'+labels[type]+'</h3>';
+      const ul=document.createElement('ul'); items.forEach(x=>{const li=document.createElement('li'); li.textContent=x; ul.appendChild(li);});
+      g.appendChild(ul); curatedBox.appendChild(g);
+    });
+    panel.appendChild(curatedBox);
+    const sourceSections=[...document.querySelectorAll('main>section')].filter(s=>s.id!=='quiz'&&s.id!=='pyq'&&s.id!=='hyRapidPanel');
+    let total=0;
+    sourceSections.forEach(sec=>{
+      const items=[...sec.querySelectorAll(':scope > .card, :scope > .warn, :scope > .num, :scope > .gq')]
+        .filter(el=>el.dataset.hyType);
+      if(!items.length) return;
+      const rs=document.createElement('div'); rs.className='rapid-section';
+      const title=sec.querySelector('h1')?.textContent.trim() || sec.id;
+      rs.innerHTML='<h2>'+escapeHtml(title)+'</h2>';
+      items.forEach(el=>{
+        // Last-minute mode keeps high-yield cards and warnings, plus only explicitly formula/rule numericals.
+        const type=el.dataset.hyType;
+        if(el.classList.contains('num') && type!=='formula') return;
+        const wrap=document.createElement('div'); wrap.className='rapid-source';
+        wrap.appendChild(el.cloneNode(true));
+        rs.appendChild(wrap); total++;
+      });
+      if(rs.children.length>1) panel.appendChild(rs);
+    });
+    if(!total){
+      const e=document.createElement('div'); e.className='rapid-empty'; e.textContent='No high-yield blocks were detected in this subject.'; panel.appendChild(e);
+    }
+    document.querySelector('.wrap>main').appendChild(panel);
+  }
+
+  function escapeHtml(s){return s.replace(/[&<>'"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[c]));}
+  function init(){classifyCards(); makeToolbar();}
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',init); else init();
+})();
+</script>
+
+<script>
+/* Randomise the position of the correct option in each solved problem on every page load,
+   and rewrite the "Correct: Option N" line to match. Problems whose options or explanation
+   refer to other options by position or say "all/none of the above" keep their order. */
+(function(){
+  var PIN=/\b(above|both of these|all of these|none of these|neither of these)\b/i;
+  var POSREF=/\b[Oo]ptions?\s*\(?[1-4A-Da-d]\)?(?![\w-])|\([a-d]\)\s|\bchoice\s*\(?[1-4A-D]\)?/;
+  document.querySelectorAll('.gq').forEach(function(g){
+    var ol=g.querySelector('.gopts'), ans=g.querySelector('.gans'); if(!ol||!ans) return;
+    var m=ans.innerHTML.match(/Option (\d)/); if(!m) return;
+    var lis=Array.prototype.slice.call(ol.children); if(lis.length<2) return;
+    var ci=parseInt(m[1],10)-1; if(ci<0||ci>=lis.length) return;
+    if(lis.some(function(li){return PIN.test(li.textContent)||POSREF.test(li.textContent);})) return;
+    var pre=g.querySelector('pre'); if(pre&&POSREF.test(pre.textContent)) return;
+    if(POSREF.test(ans.textContent.replace(/Option \d/,''))) return;
+    var correct=lis[ci], order=lis.slice();
+    for(var i=order.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=order[i];order[i]=order[j];order[j]=t;}
+    order.forEach(function(li){ol.appendChild(li);});
+    ans.innerHTML=ans.innerHTML.replace(/Option \d/,'Option '+(order.indexOf(correct)+1));
+  });
+})();
+</script>
+<!-- readiness:start -->
+<script>window.__READINESS_CFG__={review:{"VERB": {"sec": "verbal", "label": "Verbal Aptitude", "h2": []}, "NUM": {"sec": "numerical", "label": "Numerical Computation", "h2": []}, "DI": {"sec": "di", "label": "Data Interpretation", "h2": []}, "MGP": {"sec": "mgp", "label": "Mensuration, Geometry & Probability", "h2": []}, "ANA": {"sec": "analytical", "label": "Analytical Aptitude", "h2": []}, "SPA": {"sec": "spatial", "label": "Spatial Aptitude", "h2": []}}};</script>
+<script>
+(function(){
+  /* ===== Revision Readiness: turns the quiz into a revision loop ===== */
+  var CFG = window.__READINESS_CFG__ || {};
+  var NAME = (location.pathname.split('/').pop()||'page').replace(/\.html?$/,'');
+  var KEY = 'readiness:'+NAME;
+  var STRONG=75, WEAK=55, MIN_ATT=3;
+  var results = {};             // "Q12" / "MSQ3" -> 1 (correct) | 0 (wrong); latest attempt wins
+  try{ var raw=localStorage.getItem(KEY); if(raw) results=JSON.parse(raw)||{}; }catch(e){}
+  function save(){ try{ localStorage.setItem(KEY, JSON.stringify(results)); }catch(e){} }
+
+  var score=document.getElementById('score'), qlist=document.getElementById('qlist');
+  if(!score||!qlist||typeof Q==='undefined'||typeof topics==='undefined') return;
+
+  // ---- denominators per topic (MCQ + MSQ) ----
+  var totals={}, order=[];
+  function addTotal(arr){ (arr||[]).forEach(function(it){ var k=it[0]; if(!(k in totals)){totals[k]=0;order.push(k);} totals[k]++; }); }
+  addTotal(Q); if(typeof MSQ!=='undefined') addTotal(MSQ);
+  var totalQ=Q.length+(typeof MSQ!=='undefined'?MSQ.length:0);
+  function topicOf(id){
+    var m=/^(MSQ|Q)(\d+)$/.exec(id); if(!m) return null;
+    var arr=(m[1]==='Q')?Q:MSQ; var it=arr[+m[2]-1]; return it?it[0]:null;
+  }
+  function label(k){ return topics[k]||k; }
+
+  // ---- panel ----
+  var panel=document.createElement('div'); panel.id='readiness'; panel.className='rd-panel';
+  score.parentNode.insertBefore(panel, score.nextSibling);
+  var css=document.createElement('style');
+  css.textContent=
+   '.rd-panel{margin:16px 0 22px;padding:16px 18px;border:1px solid var(--border,#242b3a);border-radius:14px;background:linear-gradient(135deg,var(--panel,#12161f),var(--panel2,#181d29));display:none}'+
+   '.rd-panel.show{display:block}'+
+   '.rd-head{display:flex;align-items:baseline;justify-content:space-between;gap:10px;flex-wrap:wrap}'+
+   '.rd-title{font-size:12px;letter-spacing:1px;text-transform:uppercase;font-weight:800;color:var(--accent,#5ee6c8)}'+
+   '.rd-big{font-size:30px;font-weight:800;line-height:1.1;margin:4px 0 0;color:var(--text,#e6e9f0)}'+
+   '.rd-big small{font-size:13px;font-weight:600;color:var(--muted,#93a0b8);margin-left:8px}'+
+   '.rd-verdict{font-size:13px;font-weight:700;padding:4px 10px;border-radius:999px;border:1px solid}'+
+   '.rd-v-good{color:#7ee787;border-color:#7ee78766;background:#7ee78722}.rd-v-mid{color:#ffc978;border-color:#ffb45466;background:#ffb45422}.rd-v-low{color:#ff9b9b;border-color:#ff6b6b66;background:#ff6b6b22}'+
+   '.rd-cov{font-size:12.5px;color:var(--muted,#93a0b8);margin:8px 0 12px}'+
+   '.rd-rows{display:grid;gap:7px;margin:10px 0}'+
+   '.rd-row{display:grid;grid-template-columns:minmax(96px,34%) 1fr 74px;gap:10px;align-items:center;font-size:12.5px}'+
+   '.rd-name{color:var(--text,#e6e9f0);overflow-wrap:anywhere}'+
+   '.rd-bar{height:9px;border-radius:99px;background:#ffffff14;overflow:hidden}'+
+   '.rd-bar i{display:block;height:100%;border-radius:99px}'+
+   '.rd-pct{text-align:right;color:var(--muted,#93a0b8);white-space:nowrap}'+
+   '.rd-sec{margin:14px 0 4px;font-size:13px;color:#c9d1e0;line-height:1.55}'+
+   '.rd-sec b.g{color:#7ee787}.rd-sec b.w{color:#ff9b9b}.rd-sec b.d{color:#ffc978}'+
+   '.rd-rec{margin:14px 0 0;padding:12px 14px;border-left:3px solid var(--accent2,#7c9fff);background:#00000022;border-radius:0 10px 10px 0;font-size:13px;color:#c9d1e0}'+
+   '.rd-rec .t{font-size:11px;letter-spacing:1px;text-transform:uppercase;font-weight:800;color:var(--accent2,#7c9fff);margin-bottom:6px}'+
+   '.rd-rec a{color:var(--accent,#5ee6c8);font-weight:700;text-decoration:none}.rd-rec a:hover{text-decoration:underline}'+
+   '.rd-rec div.l{margin:5px 0}'+
+   '.rd-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}'+
+   '.rd-btn{border:1px solid var(--border,#242b3a);background:var(--panel2,#181d29);color:var(--text,#e6e9f0);padding:8px 12px;border-radius:9px;font-size:12.5px;font-weight:700;cursor:pointer}'+
+   '.rd-btn:hover{border-color:var(--accent2,#7c9fff);color:var(--accent,#5ee6c8)}.rd-btn[disabled]{opacity:.45;cursor:default}'+
+   '.rd-note{font-size:11.5px;color:var(--muted,#93a0b8);margin-top:10px}'+
+   '.qcard.rd-hide{display:none}';
+  document.head.appendChild(css);
+
+  function pct(c,n){ return n? Math.round(100*c/n):0; }
+  function colour(p){ return p>=STRONG?'#7ee787':(p>=WEAK?'#ffc978':'#ff6b6b'); }
+
+  function sectionLink(t){
+    var c=(CFG.review||{})[t]; if(!c) return null;
+    if(c.href) return '<a href="'+c.href+'">'+c.label+'</a>';
+    var sec=document.getElementById(c.sec); if(!sec) return null;
+    var parts=['<a href="#'+c.sec+'">'+c.label+'</a>'];
+    (c.h2||[]).forEach(function(h){
+      var hs=sec.querySelectorAll('h2'); 
+      for(var i=0;i<hs.length;i++){
+        if(hs[i].textContent.replace(/\s+/g,' ').toLowerCase().indexOf(h.toLowerCase())>-1){
+          if(!hs[i].id) hs[i].id=c.sec+'-rd-'+i;
+          parts.push('<a href="#'+hs[i].id+'">'+hs[i].firstChild.textContent.replace(/\s+$/,'')+'</a>'); break;
+        }
+      }
+    });
+    return parts.join(' → ');
+  }
+
+  function build(){
+    var att=0,cor=0,per={};
+    order.forEach(function(k){per[k]={a:0,c:0};});
+    Object.keys(results).forEach(function(id){
+      var k=topicOf(id); if(!k||!per[k]) return;
+      per[k].a++; att++; if(results[id]===1){per[k].c++; cor++;}
+    });
+    if(!att){ panel.className='rd-panel'; return; }
+    var overall=pct(cor,att);
+    var cov=Math.round(100*att/totalQ);
+    var verdict, vcls;
+    if(overall>=80){verdict='Exam-ready here';vcls='rd-v-good';}
+    else if(overall>=65){verdict='Nearly there';vcls='rd-v-mid';}
+    else if(overall>=50){verdict='Needs revision';vcls='rd-v-mid';}
+    else {verdict='Revise before PYQs';vcls='rd-v-low';}
+    var strong=[],weak=[],dev=[],thin=[];
+    order.forEach(function(k){
+      var p=per[k]; if(p.a<MIN_ATT){ thin.push(k); return; }
+      var x=pct(p.c,p.a);
+      if(x>=STRONG) strong.push([k,x]); else if(x<WEAK) weak.push([k,x]); else dev.push([k,x]);
+    });
+    weak.sort(function(a,b){return a[1]-b[1];}); dev.sort(function(a,b){return a[1]-b[1];});
+    var h='<div class="rd-head"><div><div class="rd-title">Revision readiness</div>'+
+      '<div class="rd-big">Revision Score: '+overall+'%<small>'+cor+' / '+att+' answered correctly</small></div></div>'+
+      '<span class="rd-verdict '+vcls+'">'+verdict+'</span></div>';
+    h+='<div class="rd-cov">Coverage: '+att+' of '+totalQ+' questions attempted ('+cov+'%)'+(cov<50?' — provisional; attempt more questions for a reliable reading.':'.')+'</div>';
+    h+='<div class="rd-rows">';
+    order.forEach(function(k){
+      var p=per[k], x=pct(p.c,p.a);
+      h+='<div class="rd-row"><span class="rd-name">'+label(k)+'</span><span class="rd-bar"><i style="width:'+(p.a?x:0)+'%;background:'+(p.a?colour(x):'transparent')+'"></i></span><span class="rd-pct">'+(p.a?x+'% · '+p.c+'/'+p.a:'not tried')+'</span></div>';
+    });
+    h+='</div>';
+    function names(a){return a.map(function(z){return label(z[0])+' ('+z[1]+'%)';}).join(', ');}
+    if(strong.length) h+='<div class="rd-sec"><b class="g">Strong:</b> '+names(strong)+'</div>';
+    if(dev.length) h+='<div class="rd-sec"><b class="d">Developing:</b> '+names(dev)+'</div>';
+    if(weak.length) h+='<div class="rd-sec"><b class="w">Weak:</b> '+names(weak)+'</div>';
+    if(thin.length) h+='<div class="rd-sec" style="color:var(--muted,#93a0b8)">Too few attempts to judge (under '+MIN_ATT+'): '+thin.map(label).join(', ')+'</div>';
+    // recommendation
+    var focus=weak.concat(dev).slice(0,3), lines=[];
+    focus.forEach(function(z){ var l=sectionLink(z[0]); if(l) lines.push('<div class="l">Review → '+l+'</div>'); });
+    var pyq=document.getElementById('pyq');
+    h+='<div class="rd-rec"><div class="t">Recommendation</div>';
+    if(lines.length){
+      h+=lines.join('')+'<div class="l">Then retry the questions you missed, and after that'+(pyq?' attempt the <a href="#pyq">solved PYQ-style problems</a>':' attempt PYQs')+'.</div>';
+    } else if(thin.length&&!strong.length){
+      h+='<div class="l">Answer a few more questions in each topic to get a reliable reading.</div>';
+    } else {
+      h+='<div class="l">No weak topics so far. Move on to '+(pyq?'<a href="#pyq">the PYQ-style problems</a>':'PYQs')+'.'+(cov<60?' Cover the untried topics first for a trustworthy score.':'')+'</div>';
+    }
+    h+='</div>';
+    var missed=Object.keys(results).filter(function(id){return results[id]===0;});
+    h+='<div class="rd-actions"><button class="rd-btn" id="rdRetry"'+(missed.length?'':' disabled')+'>Retry missed ('+missed.length+')</button><button class="rd-btn" id="rdReset">Reset results</button></div>';
+    h+='<div class="rd-note">Scores are saved in this browser. A question\'s latest attempt counts, so re-answering a missed question updates the report. The sub-heading shown is the highest-yield part of a weak topic. Topic labels need at least '+MIN_ATT+' attempts: Strong ≥ '+STRONG+'%, Weak &lt; '+WEAK+'%.</div>';
+    panel.innerHTML=h; panel.className='rd-panel show';
+    var r=document.getElementById('rdRetry'); if(r) r.onclick=retry;
+    var z=document.getElementById('rdReset'); if(z) z.onclick=function(){ if(confirm('Clear saved quiz results for this subject?')){results={};save();build();} };
+  }
+
+  function currentMode(){ try{ return (typeof mode!=='undefined')?mode:'MCQ'; }catch(e){ return 'MCQ'; } }
+  function retry(){
+    var m=currentMode(), pre=(m==='MSQ')?'MSQ':'Q';
+    var missed=Object.keys(results).filter(function(id){return results[id]===0 && id.indexOf(pre)===0 && (pre==='MSQ'||id.indexOf('MSQ')!==0);});
+    if(!missed.length){
+      // missed questions exist only in the other mode
+      var other=(m==='MSQ')?'mcqMode':'msqMode', b=document.getElementById(other); if(b) b.click();
+      pre=(pre==='Q')?'MSQ':'Q';
+      missed=Object.keys(results).filter(function(id){return results[id]===0 && (pre==='MSQ'?id.indexOf('MSQ')===0:/^Q\d/.test(id));});
+    }
+    if(typeof filter!=='undefined'){ try{ filter='ALL'; }catch(e){} }
+    var all=document.querySelector('#qtopics button'); if(all) all.click();   // re-renders with ALL
+    var set={}; missed.forEach(function(id){set[id]=1;});
+    var shown=0;
+    qlist.querySelectorAll('.qcard').forEach(function(c){
+      var t=c.querySelector('.qtag'); var mm=t&&/·\s*(MSQ|Q)(\d+)/.exec(t.textContent);
+      var id=mm?mm[1]+mm[2]:null;
+      if(id&&set[id]){shown++;} else c.classList.add('rd-hide');
+    });
+    qlist.scrollIntoView({behavior:'smooth',block:'start'});
+  }
+
+  // ---- capture answers: after each click, read the card's final state ----
+  function outcome(card, id){
+    if(!card.querySelector('.expl.show')) return null;            // not answered/submitted yet
+    if(card.querySelector('.opt.wrong')) return 0;
+    if(id.indexOf('MSQ')===0){                                      // a missed correct option is not marked wrong
+      var cs=card.querySelectorAll('.opt.correct');
+      for(var i=0;i<cs.length;i++) if(!cs[i].classList.contains('selected')) return 0;
+    }
+    return 1;
+  }
+  qlist.addEventListener('click',function(e){
+    var card=e.target.closest&&e.target.closest('.qcard'); if(!card) return;
+    setTimeout(function(){
+      var t=card.querySelector('.qtag'); var mm=t&&/·\s*(MSQ|Q)(\d+)/.exec(t.textContent); if(!mm) return;
+      var id=mm[1]+mm[2], r=outcome(card,id);
+      if(r===null) return;
+      if(card.dataset.rdRecorded) return; card.dataset.rdRecorded='1';
+      results[id]=r; save(); build();
+    },0);
+  },true);
+
+  build();
+})();
+
+</script>
+<!-- readiness:end -->
+<script id="ux-fix-v11-js">
+(function(){
+  var nav=document.getElementById('side'); if(!nav) return;
+  var scrim=document.createElement('div'); scrim.id='navScrim'; document.body.appendChild(scrim);
+  var fab=document.createElement('button'); fab.id='navFab'; fab.type='button'; fab.setAttribute('aria-label','Topics'); fab.textContent='\u2630';
+  fab.addEventListener('click',function(){ nav.classList.toggle('open'); });
+  document.body.appendChild(fab);
+  function sync(){ document.body.classList.toggle('nav-open', nav.classList.contains('open')); }
+  new MutationObserver(sync).observe(nav,{attributes:true,attributeFilter:['class']});
+  function close(){ nav.classList.remove('open'); }
+  function outside(e){
+    if(!nav.classList.contains('open')) return;
+    var t=e.target; if(!t||!t.closest) return;
+    if(t.closest('#menuBtn')||t.closest('#navFab')) return;                  // button handles its own toggle
+    if(!t.closest('#side') || (e.type==='click' && t.closest('#side a'))) close();
+  }
+  document.addEventListener('pointerdown',outside,true);
+  document.addEventListener('touchstart',outside,{capture:true,passive:true});
+  document.addEventListener('click',outside,true);
+  scrim.addEventListener('click',close);
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape') close(); });
+})();
+</script>
+<script id="fmt-v12-js">
+(function(){
+  var EQ=/[=≤≥⇔→⇒≠≈∑Σπ⌈⌊]|\^|_\{|\bO\(|\blog\b|\bmod\b/;
+  function esc(s){return s.replace(/[&<>]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;'}[c];});}
+  function fmtItem(li,isFormula){
+    if(li.dataset.fmt) return; li.dataset.fmt='1';
+    var t=li.textContent.trim(), label='', body=t;
+    var m=t.match(/^([^:=]{2,44}?):\s+([\s\S]+)$/);
+    if(m && m[1].split(/\s+/).length<=6){label=m[1];body=m[2];}
+    var html='';
+    if(label) html+='<span class="rg-label">'+esc(label)+'</span>';
+    if(isFormula){
+      var parts=body.split(/;\s+|\.\s+(?=[A-Z])/).map(function(x){return x.trim();}).filter(Boolean);
+      parts.forEach(function(x,i){
+        var last=(i===parts.length-1);
+        var txt=x; if(!/[.!?)]$/.test(txt) && !last) txt=x; 
+        var prose=(x.match(/\b[a-z]{4,}\b/g)||[]).length; var isEq=EQ.test(x)&&(prose<=3||(/[=≤≥⇔]/.test(x)&&x.length<=70));
+        html+='<span class="'+(isEq?'rg-eq':'rg-txt')+'">'+esc(x)+'</span>';
+      });
+    } else {
+      html+='<span class="rg-body">'+esc(body)+'</span>';
+    }
+    li.innerHTML=html;
+  }
+  function enhance(panel){
+    if(panel.dataset.fmt) return; panel.dataset.fmt='1';
+    var groups=panel.querySelectorAll('.rapid-group'), chips=[];
+    groups.forEach(function(g,i){
+      var type=(g.className.match(/\b(must|trap|formula|gate|shortcut)\b/)||[])[1]; if(!type) return;
+      g.id='rg-'+type;
+      var items=g.querySelectorAll('li');
+      items.forEach(function(li){fmtItem(li,type==='formula');});
+      var h=g.querySelector('h3'); var c=document.createElement('span'); c.className='rg-count'; c.textContent=items.length; h.appendChild(c);
+      chips.push('<a href="#rg-'+type+'">'+h.firstChild.textContent.trim()+' <b>'+items.length+'</b></a>');
+    });
+    if(chips.length){
+      var j=document.createElement('nav'); j.className='rapid-jump'; j.setAttribute('aria-label','Jump to group'); j.innerHTML=chips.join('');
+      var cur=panel.querySelector('.rapid-curated'); if(cur){var note=cur.querySelector('.rapid-note'); (note||cur.firstChild).insertAdjacentElement('afterend',j);}
+      j.addEventListener('click',function(e){var a=e.target.closest('a'); if(!a) return; e.preventDefault();
+        var el=document.querySelector(a.getAttribute('href')); if(el) el.scrollIntoView({behavior:'smooth',block:'start'});});
+    }
+  }
+  function check(){var p=document.getElementById('hyRapidPanel'); if(p) enhance(p);}
+  var main=document.querySelector('.wrap>main'); if(main){ new MutationObserver(check).observe(main,{childList:true}); }
+  check();
+})();
+</script>
+<a id="homeFab" href="index.html" aria-label="Back to Study Hub">🏠</a>
+<!-- gatetest:start -->
+<script src="gate-test.js"></script>
+<script>(function(){var a=document.getElementById("qtopics");if(a&&window.GateTest)GateTest.mountLauncher("ga",a);})();</script>
+<!-- gatetest:end -->
+<!-- pwa-reg:start -->
+<script>if('serviceWorker' in navigator&&(location.protocol==='https:'||location.hostname==='localhost'||location.hostname==='127.0.0.1')){window.addEventListener('load',function(){navigator.serviceWorker.register('sw.js').catch(function(){});});}</script>
+<!-- pwa-reg:end -->
+</body>
+</html>

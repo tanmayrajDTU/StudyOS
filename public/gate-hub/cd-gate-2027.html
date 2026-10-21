@@ -1,0 +1,1877 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Compiler Design for GATE CSE 2027</title>
+<style>
+:root{
+  --bg:#0b0e14; --panel:#12161f; --panel2:#181d29; --border:#242b3a;
+  --text:#e6e9f0; --muted:#93a0b8; --accent:#5ee6c8; --accent2:#7c9fff;
+  --warn:#ffb454; --good:#7ee787; --code-bg:#0d1420;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){ } }
+*{box-sizing:border-box}
+html{scroll-padding-top:calc(64px + env(safe-area-inset-top,0px));height:100%}
+body{
+  margin:0;height:100%;background:var(--bg);color:var(--text);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  line-height:1.55;
+}
+a{color:var(--accent2)}
+header{
+  position:sticky;top:0;z-index:20;
+  padding:calc(14px + env(safe-area-inset-top,0px)) 16px 14px;
+  background:rgba(11,14,20,0.9);backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--border);
+  display:flex;align-items:center;gap:10px;justify-content:space-between;
+}
+header .title{font-weight:700;font-size:15px;letter-spacing:.2px}
+header .title span{color:var(--accent)}
+#menuBtn{display:none;background:var(--panel2);border:1px solid var(--border);color:var(--text);
+  padding:8px 12px;border-radius:8px;font-size:13px}
+.wrap{display:flex;max-width:1280px;margin:0 auto}
+nav#side{
+  width:250px;flex:none;padding:18px 12px;position:sticky;
+  top:calc(58px + env(safe-area-inset-top,0px));
+  height:calc(100vh - 58px - env(safe-area-inset-top,0px));
+  overflow-y:auto;border-right:1px solid var(--border);
+}
+nav#side .grp{margin-bottom:14px}
+nav#side .grp-title{font-size:11px;text-transform:uppercase;letter-spacing:1px;color:var(--muted);margin:10px 6px 6px}
+nav#side a{
+  display:block;padding:7px 10px;border-radius:8px;color:var(--muted);text-decoration:none;font-size:13.5px;
+}
+nav#side a:hover{background:var(--panel2);color:var(--text)}
+nav#side a.soon{opacity:.45;font-style:italic}
+main{flex:1;min-width:0;padding:28px 22px 80px}
+section{max-width:820px;margin:0 auto 64px;scroll-margin-top:70px}
+section h1{font-size:26px;margin:0 0 6px;color:var(--accent)}
+section h2{font-size:20px;margin:38px 0 10px;color:var(--accent2);border-bottom:1px solid var(--border);padding-bottom:8px}
+section h3{font-size:16px;margin:22px 0 8px;color:var(--text)}
+p{color:#c9d1e0}
+.sub{color:var(--muted);font-size:14px;margin-bottom:20px}
+.card{
+  background:var(--panel);border:1px solid var(--border);border-radius:12px;
+  padding:16px 18px;margin:14px 0;
+}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media (max-width:720px){.grid2{grid-template-columns:1fr}}
+.num{
+  border-left:3px solid var(--accent);background:var(--panel2);
+  padding:14px 16px;border-radius:0 10px 10px 0;margin:16px 0;
+}
+.num .tag{font-size:11px;color:var(--accent);text-transform:uppercase;letter-spacing:1px;font-weight:700}
+.warn{border-left:3px solid var(--warn);background:#1c1810;padding:12px 16px;border-radius:0 10px 10px 0;margin:14px 0}
+.warn .tag{color:var(--warn);font-size:11px;text-transform:uppercase;letter-spacing:1px;font-weight:700}
+code,.mono{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;background:var(--code-bg);
+  padding:2px 6px;border-radius:5px;font-size:13px;color:var(--good)}
+pre{background:var(--code-bg);padding:12px 14px;border-radius:8px;overflow-x:auto;border:1px solid var(--border)}
+table{border-collapse:collapse;width:100%;margin:12px 0;font-size:13.5px}
+th,td{border:1px solid var(--border);padding:8px 10px;text-align:left}
+th{background:var(--panel2);color:var(--accent2)}
+tr:nth-child(even){background:#10141d}
+.bitfield{display:flex;font-family:ui-monospace,monospace;font-size:12px;overflow-x:auto;margin:14px 0}
+.bit{border:1px solid var(--border);padding:10px 4px;text-align:center;flex:none;min-width:26px}
+.bit.hdr{background:var(--panel2);color:var(--muted);border-bottom:none}
+.bfrow{display:flex}
+.bf-label{padding:8px 10px;font-size:12px;color:#0b0e14;font-weight:700;text-align:center;flex:none}
+.pill{display:inline-block;padding:3px 10px;border-radius:999px;font-size:11.5px;font-weight:700;margin-right:6px}
+.pill.s{background:#ff6b6b33;color:#ff9b9b}
+.pill.e{background:#7c9fff33;color:#9fb6ff}
+.pill.m{background:#5ee6c833;color:#8ff0da}
+.addr-flow{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:14px 0;font-size:13px}
+.addr-flow .box{background:var(--panel2);border:1px solid var(--border);border-radius:8px;padding:8px 12px}
+.addr-flow .arrow{color:var(--accent);font-weight:700}
+footer{border-top:1px solid var(--border);text-align:center;color:var(--muted);font-size:12.5px;padding:30px 16px}
+::-webkit-scrollbar{width:9px;height:9px}
+::-webkit-scrollbar-thumb{background:var(--border);border-radius:6px}
+@media (max-width:860px){
+  nav#side{position:fixed;left:0;top:calc(58px + env(safe-area-inset-top,0px));
+    height:calc(100vh - 58px - env(safe-area-inset-top,0px));
+    background:var(--bg);z-index:15;transform:translateX(-105%);transition:transform .2s;width:230px}
+  nav#side.open{transform:translateX(0)}
+  #menuBtn{display:inline-block}
+}
+.qtopics{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0 20px;position:sticky;top:58px;background:var(--bg);padding:8px 0;z-index:5}
+.qtopics button{background:var(--panel2);border:1px solid var(--border);color:var(--muted);padding:6px 13px;
+  border-radius:999px;font-size:12.5px;cursor:pointer}
+.qtopics button.active{background:var(--accent);color:#062019;border-color:var(--accent);font-weight:700}
+#score{font-size:13px;color:var(--muted);margin-bottom:16px}
+#score b{color:var(--accent)}
+.qcard{background:var(--panel);border:1px solid var(--border);border-radius:12px;padding:16px;margin:12px 0}
+.qcard .qtag{font-size:10.5px;color:var(--accent2);text-transform:uppercase;letter-spacing:.5px;font-weight:700}
+.qcard .qtext{margin:6px 0 12px;font-size:14.5px}
+.opt{display:block;width:100%;text-align:left;background:var(--panel2);border:1px solid var(--border);
+  color:var(--text);padding:9px 12px;border-radius:8px;margin:6px 0;cursor:pointer;font-size:13.5px}
+.opt:hover{border-color:var(--accent2)}
+.opt.correct{background:#123322;border-color:var(--good);color:var(--good)}
+.opt.wrong{background:#331414;border-color:#ff6b6b;color:#ff9b9b}
+.opt[disabled]{cursor:default}
+.expl{display:none;margin-top:10px;font-size:13px;color:var(--muted);background:var(--code-bg);
+  padding:10px 12px;border-radius:8px;border:1px solid var(--border)}
+.gq{border-left:3px solid var(--accent2);background:var(--panel2);padding:16px 18px;border-radius:0 10px 10px 0;margin:20px 0}
+.gq .gtag{font-size:11px;color:var(--accent2);text-transform:uppercase;letter-spacing:1px;font-weight:700}
+.gq .gopts{margin:10px 0;padding-left:18px;color:#c9d1e0;font-size:13.5px}
+.gq .gopts li{margin:3px 0}
+.gq .gans{color:var(--good);font-weight:700}
+.expl.show{display:block}
+.grid2>*{min-width:0;overflow-x:auto}
+
+/* ===== High-yield revision system ===== */
+.hy-toolbar{
+  max-width:820px;margin:0 auto 28px;padding:14px 16px;
+  background:linear-gradient(135deg,var(--panel),var(--panel2));
+  border:1px solid var(--border);border-radius:14px;
+}
+.hy-toolbar-row{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.hy-title{font-weight:800;color:var(--text);font-size:14px}
+.hy-title span{color:var(--accent)}
+.hy-sub{color:var(--muted);font-size:12.5px;margin-top:4px}
+.hy-actions{display:flex;gap:8px;flex-wrap:wrap}
+.hy-btn{border:1px solid var(--border);background:var(--panel2);color:var(--text);padding:8px 12px;border-radius:9px;font-size:12.5px;font-weight:700;cursor:pointer}
+.hy-btn:hover{border-color:var(--accent2);color:var(--accent)}
+.hy-btn.primary{background:var(--accent);color:#062019;border-color:var(--accent)}
+.hy-legend{display:flex;flex-wrap:wrap;gap:7px;margin-top:12px}
+.hy-legend span,.hy-badge{display:inline-flex;align-items:center;gap:4px;padding:3px 8px;border-radius:999px;font-size:10.5px;font-weight:800;letter-spacing:.15px}
+.hy-must{background:#7c9fff22;color:#9fb6ff;border:1px solid #7c9fff55}
+.hy-trap{background:#ffb45422;color:#ffc978;border:1px solid #ffb45455}
+.hy-formula{background:#5ee6c822;color:#8ff0da;border:1px solid #5ee6c855}
+.hy-gate{background:#ff6b6b22;color:#ff9b9b;border:1px solid #ff6b6b55}
+.hy-shortcut{background:#c792ea22;color:#dcb7f7;border:1px solid #c792ea55}
+.hy-marked{position:relative}
+.hy-marked>.hy-badge{margin-bottom:8px}
+.hy-rapid-overlay{display:none}
+body.rapid-mode .hy-rapid-overlay{display:block}
+body.rapid-mode .wrap>main>section:not(#hyRapidPanel){display:none}
+body.rapid-mode .wrap>main{padding-top:18px}
+body.rapid-mode nav#side{opacity:.55}
+body.rapid-mode .hy-toolbar{position:sticky;top:58px;z-index:10}
+#hyRapidPanel{max-width:820px}
+#hyRapidPanel h1{margin-bottom:5px}
+#hyRapidPanel .rapid-intro{margin:0 0 24px;color:var(--muted);font-size:13px}
+.rapid-section{margin:0 0 34px}
+.rapid-section h2{font-size:18px;margin:0 0 12px;color:var(--accent2);border-bottom:1px solid var(--border);padding-bottom:8px}
+.rapid-empty{color:var(--muted);font-size:13px;background:var(--panel);border:1px dashed var(--border);padding:12px 14px;border-radius:10px}
+.rapid-source{margin:0 0 12px}
+.rapid-source .hy-badge{display:inline-flex;margin-bottom:8px}
+body.rapid-mode .hy-toolbar .hy-btn.primary{display:none}
+body:not(.rapid-mode) .hy-toolbar .hy-btn.secondary{display:none}
+@media(max-width:720px){
+  .hy-toolbar-row{align-items:flex-start}.hy-actions{width:100%}.hy-btn{flex:1}
+  body.rapid-mode .hy-toolbar{top:58px}
+}
+
+
+/* Second-pass curated high-yield revision layer */
+.rapid-curated{margin:18px 0 28px;padding:20px;border:1px solid var(--border,#334155);border-radius:16px;background:rgba(15,23,42,.45)}
+.rapid-curated>h2{margin:0 0 4px}.rapid-note{margin:0 0 16px;opacity:.72}
+.rapid-group{margin:14px 0;padding:14px 16px;border-radius:12px;border-left:4px solid #64748b;background:rgba(255,255,255,.025)}
+.rapid-group h3{margin:0 0 8px;font-size:1rem}.rapid-group ul{margin:0;padding-left:20px}.rapid-group li{margin:7px 0;line-height:1.55}
+.rapid-group.must{border-left-color:#22c55e}.rapid-group.trap{border-left-color:#eab308}.rapid-group.formula{border-left-color:#38bdf8}.rapid-group.gate{border-left-color:#f97316}.rapid-group.shortcut{border-left-color:#a78bfa}
+@media(max-width:700px){.rapid-curated{padding:14px}.rapid-group{padding:12px}}
+@media (max-width:640px){table{display:block;max-width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch}.card,.num,.warn,p,li{overflow-wrap:break-word}td,th{overflow-wrap:normal;word-break:normal}}
+
+
+
+/* 3-tier syllabus classification: Core -> High-Yield -> Extension */
+.tier{display:inline-block;margin-left:10px;padding:2px 9px;border-radius:999px;font-size:11px;font-weight:800;letter-spacing:.2px;vertical-align:middle;white-space:nowrap}
+.tier-core{background:#7ee78722;color:#7ee787;border:1px solid #7ee78766}
+.tier-hy{background:#7c9fff22;color:#9fb6ff;border:1px solid #7c9fff66}
+.tier-ext{background:#ffb45418;color:#ffc978;border:1px solid #ffb45455}
+.tier-why{font-size:11.5px;font-weight:500;color:var(--muted);vertical-align:middle}
+.tier-legend{max-width:820px;margin:0 auto 24px;padding:14px 16px;background:var(--panel);border:1px solid var(--border);border-radius:14px;font-size:13px;color:#c9d1e0}
+.tier-legend b{color:var(--text)}
+.tier-legend .tier{margin-left:0;margin-right:6px}
+.tier-legend .row{display:flex;gap:10px;align-items:flex-start;margin:8px 0}
+.tier-legend .row .tier{flex:none}
+.tier-seg{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+.tier-seg button{border:1px solid var(--border);background:var(--panel2);color:var(--muted);padding:7px 12px;border-radius:9px;font-size:12.5px;font-weight:700;cursor:pointer}
+.tier-seg button.active{background:var(--accent);color:#062019;border-color:var(--accent)}
+.tier-note{font-size:11.5px;color:var(--muted);margin-top:10px}
+/* visual demotion of extension material */
+section h2[data-tier="ext"]{font-size:17px;color:var(--muted);border-bottom-style:dashed}
+.tier-ext-body{opacity:.74;border-left:2px dashed var(--border);padding-left:12px;margin-left:2px}
+body[data-tier-view="core-hy"] h2[data-tier="ext"],body[data-tier-view="core-hy"] .tier-ext-body,
+body[data-tier-view="core"] h2[data-tier="ext"],body[data-tier-view="core"] .tier-ext-body,
+body[data-tier-view="core"] h2[data-tier="hy"],body[data-tier-view="core"] .tier-hy-body{display:none}
+body.rapid-mode .tier-legend{display:none}
+</style>
+<style id="ux-fix-v11">
+html,body{height:auto!important;min-height:100%}
+#navScrim{cursor:pointer;-webkit-tap-highlight-color:transparent}
+
+/* v11: no sticky banners in the reading/quiz flow; tap-outside closes the topics drawer */
+.qtopics{position:static!important;top:auto!important}
+body.rapid-mode .hy-toolbar{position:static!important;top:auto!important}
+#navScrim{display:none}
+@media (max-width:860px){
+  body.nav-open #navScrim{display:block;position:fixed;left:0;right:0;bottom:0;top:calc(58px + env(safe-area-inset-top,0px));background:rgba(0,0,0,.45);z-index:14}
+}
+@media (max-width:860px){
+  header{position:static!important}
+  html{scroll-padding-top:12px!important}
+  nav#side{top:0!important;height:100%!important;padding-top:calc(18px + env(safe-area-inset-top,0px))!important}
+  body.nav-open #navScrim{top:0!important}
+  #navFab{position:fixed;left:12px;bottom:calc(14px + env(safe-area-inset-bottom,0px));z-index:16;width:42px;height:42px;border-radius:50%;
+    border:1px solid var(--border);background:rgba(23,28,40,.92);color:var(--text);font-size:19px;line-height:1;opacity:.9;
+    box-shadow:0 2px 10px rgba(0,0,0,.45);cursor:pointer;-webkit-tap-highlight-color:transparent}
+}
+@media (min-width:861px){#navFab{display:none}}
+</style>
+<style id="fmt-v12">
+/* v12 readability revamp — formatting only, content untouched */
+:root{--rg-must:#22c55e;--rg-trap:#eab308;--rg-formula:#38bdf8;--rg-gate:#f97316;--rg-shortcut:#a78bfa}
+body.rapid-mode .wrap>main{padding-left:clamp(14px,4vw,32px);padding-right:clamp(14px,4vw,32px)}
+#hyRapidPanel{max-width:760px;margin:0 auto}
+#hyRapidPanel>h1{font-size:clamp(22px,6vw,28px);line-height:1.25;margin:4px 0 8px}
+#hyRapidPanel .rapid-intro{font-size:14.5px;line-height:1.65;margin:0 0 18px}
+
+/* jump chips */
+.rapid-jump{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 22px}
+.rapid-jump a{display:inline-flex;align-items:center;gap:6px;padding:8px 12px;border-radius:999px;font-size:13px;font-weight:700;text-decoration:none;
+  color:var(--text);background:var(--panel2);border:1px solid var(--border)}
+.rapid-jump a b{font-weight:800;opacity:.7}
+
+/* curated block: flat, no box-in-box */
+.rapid-curated{margin:0 0 34px!important;padding:0!important;border:0!important;background:none!important;border-radius:0!important}
+.rapid-curated>h2{font-size:20px;margin:0 0 4px!important;color:var(--text)}
+.rapid-note{font-size:13.5px;line-height:1.6;margin:0 0 6px!important}
+.rapid-group{margin:26px 0 0!important;padding:0!important;border:0!important;background:none!important;scroll-margin-top:12px}
+.rapid-group h3{display:flex;align-items:center;gap:8px;margin:0 0 12px!important;padding-bottom:10px;font-size:14px!important;font-weight:800;
+  letter-spacing:.6px;text-transform:uppercase;border-bottom:2px solid var(--gc,#64748b);color:var(--gc,var(--text))}
+.rapid-group h3 .rg-count{margin-left:auto;font-size:12px;font-weight:800;letter-spacing:0;text-transform:none;padding:2px 9px;border-radius:999px;
+  background:var(--gc,#64748b);color:#0b0e14}
+.rapid-group.must{--gc:var(--rg-must)}.rapid-group.trap{--gc:var(--rg-trap)}.rapid-group.formula{--gc:var(--rg-formula)}
+.rapid-group.gate{--gc:var(--rg-gate)}.rapid-group.shortcut{--gc:var(--rg-shortcut)}
+.rapid-group ul{list-style:none!important;margin:0!important;padding:0!important;display:grid;gap:12px}
+.rapid-group li{margin:0!important;padding:14px 16px;background:var(--panel);border:1px solid var(--border);border-left:4px solid var(--gc,#64748b);
+  border-radius:12px;font-size:15.5px;line-height:1.7;color:var(--text);overflow-wrap:anywhere}
+.rg-label{display:block;margin:0 0 6px;font-size:15px;font-weight:800;line-height:1.35;color:var(--gc,var(--text))}
+.rg-body{display:block;color:#d3d9e6}
+.rg-line{display:block}.rg-line+.rg-line{margin-top:8px}
+.rg-eq{display:block;margin:8px 0 0;padding:10px 12px;border-radius:9px;background:#0a1220;border:1px solid #1d3350;
+  font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:14px;line-height:1.65;color:#8fd8ff;overflow-x:auto;white-space:pre-wrap;overflow-wrap:anywhere}
+.rg-txt{display:block;margin:8px 0 0;color:#d3d9e6}
+.rg-label+.rg-eq,.rg-label+.rg-txt,.rapid-group li>.rg-eq:first-child,.rapid-group li>.rg-txt:first-child{margin-top:0}
+
+/* per-topic cloned cards: roomier, clearer hierarchy */
+.rapid-section{margin:0 0 40px!important}
+.rapid-section h2{font-size:clamp(18px,5vw,22px)!important;line-height:1.3;margin:0 0 16px!important;padding:12px 14px!important;border:1px solid var(--border)!important;
+  border-left:4px solid var(--accent2)!important;border-radius:12px;background:var(--panel)}
+.rapid-source{margin:0 0 14px!important}
+.rapid-source>*{margin:0!important;padding:16px!important;border-radius:14px!important;font-size:15.5px;line-height:1.75;overflow-wrap:anywhere}
+.rapid-source .hy-badge{margin-bottom:10px!important}
+.rapid-source p{margin:0 0 10px;line-height:1.75}.rapid-source p:last-child{margin-bottom:0}
+.rapid-source ul,.rapid-source ol{padding-left:22px;margin:8px 0}.rapid-source li{margin:6px 0;line-height:1.7}
+.rapid-source b,.rapid-source strong{color:#fff}
+.rapid-source code{font-size:.92em;padding:2px 6px;border-radius:6px}
+.rapid-source pre{padding:12px;border-radius:10px;overflow-x:auto;font-size:13.5px;line-height:1.6}
+.rapid-source table{display:block;overflow-x:auto;max-width:100%}
+.rapid-source td,.rapid-source th{padding:8px 10px;line-height:1.55}
+
+/* notes mode: gentle readability lift */
+@media (max-width:700px){
+  main .card,main .warn,main .num{padding:16px!important}
+  main p,main li{line-height:1.75}
+  main section>p{margin:0 0 14px}
+}
+</style>
+<style id="theme-v13">
+/* v13 premium dark + colour theme — visual layer only */
+:root{
+  --bg:#070916;--panel:#0f1330;--panel2:#161b3f;--border:#2a3166;--text:#eef1ff;--muted:#9ea8d4;
+  --accent:#4ff0d0;--accent2:#8aa4ff;--warn:#ffb454;--good:#6ef0a0;--code-bg:#0a1030;
+  --green:#7af0ae;--yellow:#ffe08a;--red:#ff9aa8;--purple:#c9a8ff;
+  --glow-a:#7c5cff;--glow-b:#19d3ff;--glow-c:#ff4fa3;
+}
+html{background:#070916}
+body{background:transparent!important;color:var(--text)}
+body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;
+  background:
+   radial-gradient(60% 40% at 8% 0%,rgba(124,92,255,.28),transparent 70%),
+   radial-gradient(50% 35% at 100% 6%,rgba(25,211,255,.18),transparent 70%),
+   radial-gradient(60% 40% at 50% 100%,rgba(255,79,163,.14),transparent 70%),
+   #070916}
+::selection{background:rgba(124,92,255,.55);color:#fff}
+
+/* header */
+header,.top{background:linear-gradient(180deg,rgba(14,18,48,.92),rgba(9,11,30,.86))!important;
+  -webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);border-bottom:1px solid transparent!important;
+  border-image:linear-gradient(90deg,#7c5cff,#19d3ff,#ff4fa3) 1;box-shadow:0 6px 24px rgba(0,0,0,.35)}
+header h1 span,.top h1 span,header .hl,.top .hl{background:linear-gradient(90deg,#4ff0d0,#8aa4ff,#d28bff);-webkit-background-clip:text;background-clip:text;color:transparent!important}
+
+/* headings */
+main h2,.wrap h2{background:linear-gradient(90deg,#9db4ff,#c9a8ff 55%,#ff9ad0);-webkit-background-clip:text;background-clip:text;color:transparent;
+  border-bottom:1px solid transparent!important;border-image:linear-gradient(90deg,rgba(138,164,255,.6),rgba(255,79,163,.25),transparent) 1}
+main h3{color:#8fe9ff}
+
+/* surfaces: glass panels */
+.card,.warn,.num,.hy-panel,.hy-toolbar,.rapid-curated,table,.q,.qcard,.sol,details,.callout,.box{
+  background:linear-gradient(150deg,rgba(32,38,88,.62),rgba(14,17,42,.9))!important;
+  border-top-color:rgba(138,150,255,.2)!important;border-right-color:rgba(138,150,255,.2)!important;border-bottom-color:rgba(138,150,255,.2)!important;box-shadow:0 10px 30px rgba(3,4,18,.45),inset 0 1px 0 rgba(255,255,255,.06)}
+.hy-toolbar{border-radius:16px}
+.hy-toolbar h3,.hy-toolbar strong{background:linear-gradient(90deg,#4ff0d0,#8aa4ff);-webkit-background-clip:text;background-clip:text;color:transparent}
+
+/* nav drawer */
+nav#side,.side{background:linear-gradient(180deg,rgba(18,22,58,.97),rgba(9,11,30,.98))!important;border-color:rgba(138,150,255,.2)!important}
+nav#side a.active,.side a.active,nav#side a:hover,.side a:hover{background:linear-gradient(90deg,rgba(124,92,255,.35),rgba(25,211,255,.14))!important;color:#fff!important;border-radius:10px}
+nav#side .grp,.side .grp,nav#side h4,.side h4{color:#c9a8ff!important}
+
+/* buttons */
+.hy-btn{background:rgba(26,31,72,.9);border-color:rgba(138,150,255,.3)}
+.hy-btn:hover{border-color:#8aa4ff;box-shadow:0 0 0 3px rgba(124,92,255,.22);color:#fff}
+.hy-btn.primary,.btn.primary,button.primary{background:linear-gradient(90deg,#19d3ff,#7c5cff 60%,#ff4fa3)!important;color:#fff!important;border:0!important;
+  box-shadow:0 6px 20px rgba(124,92,255,.45)}
+#navFab{background:linear-gradient(135deg,#7c5cff,#19d3ff)!important;color:#fff!important;border:0!important;box-shadow:0 8px 22px rgba(124,92,255,.55)!important;opacity:1!important}
+#menuBtn{background:rgba(26,31,72,.9)!important;border-color:rgba(138,150,255,.35)!important}
+
+/* code & equations */
+code,pre{background:#0a1030!important;color:#8ff5e2;border:1px solid rgba(79,240,208,.18)}
+.rg-eq,.card p>code:only-child{background:linear-gradient(135deg,#0a1436,#0d0f2e)!important;border-color:rgba(25,211,255,.35)!important;color:#9af2ff!important;
+  box-shadow:inset 0 0 0 1px rgba(25,211,255,.06)}
+
+/* last-minute groups: tinted by their colour */
+.rapid-group li{background:linear-gradient(135deg,color-mix(in srgb,var(--gc) 14%,#12163a),#0d1030 70%)!important;border-top-color:color-mix(in srgb,var(--gc) 30%,#262d62)!important;border-right-color:color-mix(in srgb,var(--gc) 30%,#262d62)!important;border-bottom-color:color-mix(in srgb,var(--gc) 30%,#262d62)!important;border-left-color:var(--gc)!important;
+  box-shadow:0 6px 18px rgba(3,4,18,.4)}
+.rapid-group h3{text-shadow:0 0 18px color-mix(in srgb,var(--gc) 55%,transparent)}
+.rapid-group h3 .rg-count{box-shadow:0 0 14px color-mix(in srgb,var(--gc) 60%,transparent)}
+.rapid-jump a{background:rgba(26,31,72,.85);border-color:rgba(138,150,255,.3)}
+.rapid-section h2{background:linear-gradient(90deg,rgba(124,92,255,.28),rgba(25,211,255,.08))!important;-webkit-text-fill-color:#fff;color:#fff;border-image:none!important;
+  border-color:rgba(138,150,255,.3)!important;border-left:4px solid #19d3ff!important}
+
+/* tags / badges: more vivid */
+.tag,.hy-badge,.badge{backdrop-filter:blur(4px);font-weight:800}
+.tag.must,.hy-badge.must{background:rgba(34,197,94,.18)!important;color:#7af0ae!important;border-color:rgba(34,197,94,.5)!important}
+.tag.formula,.hy-badge.formula{background:rgba(56,189,248,.18)!important;color:#8fe0ff!important;border-color:rgba(56,189,248,.5)!important}
+.tag.fav,.hy-badge.fav{background:rgba(255,79,100,.16)!important;color:#ff9aa8!important;border-color:rgba(255,79,100,.5)!important}
+
+/* quiz options */
+.opt,.option,button.opt,label.opt{background:rgba(22,27,68,.8)!important;border-color:rgba(138,150,255,.25)!important;transition:.15s}
+.opt:hover,.option:hover{border-color:#19d3ff!important;box-shadow:0 0 0 3px rgba(25,211,255,.18)}
+.qtopics button,.qtopics .chip{background:rgba(26,31,72,.85);border-color:rgba(138,150,255,.3)}
+.qtopics .on,.qtopics .active{background:linear-gradient(90deg,#7c5cff,#19d3ff)!important;color:#fff!important;border-color:transparent!important}
+
+/* tables */
+th{background:linear-gradient(90deg,rgba(124,92,255,.35),rgba(25,211,255,.18))!important;color:#fff!important}
+td,th{border-color:rgba(138,150,255,.2)!important}
+tbody tr:nth-child(even) td{background:rgba(124,92,255,.06)}
+
+a{color:#8fe9ff}
+::-webkit-scrollbar{width:10px;height:10px}::-webkit-scrollbar-thumb{background:linear-gradient(#7c5cff,#19d3ff);border-radius:8px}
+</style>
+<style id="home-v14">
+.homeLink{justify-self:end;display:inline-flex;align-items:center;gap:6px;padding:8px 12px;border-radius:10px;font-size:13px;font-weight:800;text-decoration:none;white-space:nowrap;
+  color:#fff!important;background:linear-gradient(135deg,rgba(124,92,255,.55),rgba(25,211,255,.3));border:1px solid rgba(138,150,255,.4)}
+nav#side a.backhome,.side a.backhome{display:block;margin:0 0 10px;padding:10px 12px;border-radius:10px;font-weight:800;color:#fff!important;
+  background:linear-gradient(90deg,rgba(124,92,255,.45),rgba(25,211,255,.2));border:1px solid rgba(138,150,255,.4)}
+#homeFab{display:none}
+@media (max-width:860px){
+  #homeFab{display:flex;align-items:center;justify-content:center;position:fixed;left:64px;bottom:calc(14px + env(safe-area-inset-bottom,0px));z-index:16;width:42px;height:42px;border-radius:50%;
+    text-decoration:none;font-size:19px;background:rgba(22,27,68,.95);border:1px solid rgba(138,150,255,.45);box-shadow:0 8px 22px rgba(3,4,18,.6)}
+}
+</style>
+<!-- pwa:start -->
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#070916">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="GATE 2027">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="icon" type="image/png" href="favicon-64.png">
+<!-- pwa:end -->
+</head>
+<body>
+<header>
+  <button id="menuBtn" onclick="document.getElementById('side').classList.toggle('open')">☰ Topics</button>
+  <div class="title">🛠️ Compiler Design <span>for GATE CSE 2027</span></div>
+  <a class="homeLink" href="index.html">🏠 Home</a>
+</header>
+<div class="wrap">
+<nav id="side">
+<a class="backhome" href="index.html">← Study Hub (Home)</a><a class="gt-sidelink" href="cheatsheet-gate-2027.html#cd">📄 Formula cheat sheet</a><a class="gt-sidelink" href="mock-gate-2027.html">🎯 Full mock exam</a>
+  <div class="grp">
+    <div class="grp-title">Part 1 · Front End</div>
+    <a href="#lex">1. Phases & Lexical Analysis</a>
+    <a href="#topdown">2. Top-Down Parsing (LL)</a>
+    <a href="#bottomup">3. Bottom-Up Parsing (LR)</a>
+  </div>
+  <div class="grp">
+    <div class="grp-title">Part 2 · Semantics & Runtime</div>
+    <a href="#sdt">4. Syntax-Directed Translation</a>
+    <a href="#runtime">5. Runtime Environments</a>
+  </div>
+  <div class="grp">
+    <div class="grp-title">Part 3 · Back End</div>
+    <a href="#ir">6. Intermediate Code</a>
+    <a href="#opt">7. Optimisation & Code Gen</a>
+  </div>
+  <div class="grp">
+    <div class="grp-title">Practice</div>
+    <a href="#methods">8. Problem → Standard Method Playbook</a>
+    <a href="#quiz">9. Practice Quiz — 56 Qs (basic)</a>
+    <a href="#pyq">10. GATE-Level Solved Problems</a>
+  </div>
+</nav>
+<main>
+<!-- tier-legend:start -->
+<div class="tier-legend" id="tierLegend">
+  <div><b>What to revise for GATE 2027</b> — every topic is tagged against the official syllabus (lexical analysis, parsing, syntax-directed translation; runtime environments; intermediate code generation; local optimisation and data-flow analyses (constant propagation, liveness, common-subexpression elimination)).</div>
+  <div class="row"><span class="tier tier-core">🟢 Core</span><span>Named in the syllabus, or an indispensable prerequisite of a named item.</span></div>
+  <div class="row"><span class="tier tier-hy">🔵 High-Yield</span><span>Not named in the syllabus, but frequently useful or tested as background. Revise after Core.</span></div>
+  <div class="row"><span class="tier tier-ext">🟡 Extension</span><span>Beyond the syllabus or rarely tested. Kept for completeness and shown dimmed; read only if time remains.</span></div>
+  <div class="tier-seg" id="tierSeg"><button type="button" class="active" data-view="all">All material</button><button type="button" data-view="core-hy">Core + 🔵 High-Yield</button><button type="button" data-view="core">🟢 Core only</button></div>
+  <div class="tier-note">Tiers are a study aid based on the syllabus as I know it; the 🔵 / 🟡 split is a judgement call. Confirm borderline items against the official PDF.</div>
+</div>
+<!-- tier-legend:end -->
+<section id="lex">
+<h1>1. Compiler Phases & Lexical Analysis</h1>
+<div class="sub">How source code travels through a compiler, and how the very first phase chops raw characters into tokens.</div>
+
+<h2 data-tier="core">The phases of a compiler <span class="tier tier-core" title="Named in the GATE 2027 syllabus, or an indispensable prerequisite of a named item">🟢 Core</span></h2>
+<p>A compiler translates a source program into target code in a sequence of phases. The first three phases <b>analyse</b> the source (the <b>front end</b>); the rest <b>synthesise</b> the target program (the <b>back end</b>). The <b>symbol table</b> and <b>error handler</b> are used by every phase.</p>
+<div class="addr-flow">
+  <div class="box">Source code</div><span class="arrow">→</span>
+  <div class="box"><b>Lexical</b><br>analysis</div><span class="arrow">→</span>
+  <div class="box"><b>Syntax</b><br>analysis</div><span class="arrow">→</span>
+  <div class="box"><b>Semantic</b><br>analysis</div><span class="arrow">→</span>
+  <div class="box"><b>Intermediate</b><br>code gen</div><span class="arrow">→</span>
+  <div class="box"><b>Code</b><br>optimisation</div><span class="arrow">→</span>
+  <div class="box"><b>Code</b><br>generation</div><span class="arrow">→</span>
+  <div class="box">Target code</div>
+</div>
+<div style="overflow-x:auto">
+<table>
+<tr><th>Phase</th><th>Input → Output</th><th>Typical errors caught</th></tr>
+<tr><td>Lexical analysis</td><td>characters → <b>tokens</b></td><td>illegal character, unterminated string/comment</td></tr>
+<tr><td>Syntax analysis</td><td>tokens → <b>parse tree</b></td><td>missing <code>;</code> or <code>)</code>, malformed statement</td></tr>
+<tr><td>Semantic analysis</td><td>parse tree → annotated tree</td><td>type mismatch, undeclared variable, wrong argument count</td></tr>
+<tr><td>Intermediate code gen</td><td>annotated tree → three-address code</td><td>—</td></tr>
+<tr><td>Code optimisation</td><td>IR → better IR</td><td>—</td></tr>
+<tr><td>Code generation</td><td>IR → machine / assembly code</td><td>—</td></tr>
+</table>
+</div>
+<div class="warn"><div class="tag">GATE angle</div>"Which phase detects this error?" is a favourite. Remember: <b>lexer</b> = bad characters/tokens, <b>parser</b> = bad grammar structure, <b>semantic analyser</b> = bad meaning (types, declarations). Also: a <b>pass</b> is one traversal over the whole program and may bundle several phases; a <b>phase</b> is a logical step.</div>
+
+<h2 data-tier="core">Tokens, patterns, lexemes <span class="tier tier-core" title="Named in the GATE 2027 syllabus, or an indispensable prerequisite of a named item">🟢 Core</span></h2>
+<div style="overflow-x:auto">
+<table>
+<tr><th>Term</th><th>Meaning</th><th>Example</th></tr>
+<tr><td>Lexeme</td><td>actual character sequence in the source</td><td><code>count</code>, <code>3.14</code>, <code>&gt;=</code></td></tr>
+<tr><td>Token</td><td>(token-name, attribute) pair given to the parser</td><td>(id, ptr to symbol table), (num, 3.14), (relop, GE)</td></tr>
+<tr><td>Pattern</td><td>rule describing the lexemes of a token, usually a regular expression</td><td><code>letter (letter|digit)*</code> for identifiers</td></tr>
+</table>
+</div>
+<p>Token patterns are <b>regular languages</b>, so a lexical analyser is built as a finite automaton: regular expressions → NFA → DFA → minimised DFA. Tools like <b>Lex/Flex</b> automate this.</p>
+
+<h3>Two disambiguation rules</h3>
+<ol style="color:#c9d1e0">
+<li><b>Longest match (maximal munch):</b> the lexer always consumes the longest prefix that matches some pattern.</li>
+<li><b>Priority:</b> if two patterns match the same longest lexeme (e.g. <code>if</code> as keyword vs identifier), the pattern listed <b>first</b> wins — so keywords are listed before the identifier rule.</li>
+</ol>
+
+<div class="num"><div class="tag">Worked numerical — counting tokens</div>
+<b>Q:</b> How many tokens are in <code>if (a &gt;= b) x = a-1;</code> ?<br>
+<b>A:</b> Split by maximal munch:
+<pre>if  (  a  >=  b  )  x  =  a  -  1  ;
+ 1  2  3  4   5  6  7  8  9  10 11 12   → 12 tokens</pre>
+Note <code>&gt;=</code> is <b>one</b> token (longest match), not <code>&gt;</code> and <code>=</code>.
+</div>
+<div class="num"><div class="tag">Worked numerical — maximal munch trap</div>
+<b>Q:</b> Tokenise <code>a+++b</code> in C.<br>
+<b>A:</b> <code>a</code>, then the longest match from <code>+++b</code> is <code>++</code>, then <code>+</code>, then <code>b</code>:
+<pre>a   ++   +   b   → 4 tokens   (parsed as (a++) + b)</pre>
+A string literal such as <code>"i=%d"</code> is always a <b>single</b> token, however many characters it holds.
+</div>
+
+<h2 data-tier="hy">Input buffering & the symbol table <span class="tier tier-hy" title="Not named in the syllabus, but frequently useful or tested as background — revise after Core">🔵 High-Yield</span><span class="tier-why"> · lexical-analysis background</span></h2>
+<p>Reading character by character is slow, so lexers use a <b>two-buffer scheme</b> with a <b>sentinel</b> (eof) at the end of each half: one comparison per character normally, and an extra check only when the sentinel is hit. The lexer also enters each new identifier into the <b>symbol table</b>; the token's attribute is a pointer to that entry. Whitespace and comments are stripped here and never reach the parser.</p>
+<div class="warn"><div class="tag">What the lexer cannot do</div>It sees one token at a time with no notion of nesting, so it cannot check balanced brackets, a missing semicolon, or types. That is why syntax needs a grammar (context-free), not just regular expressions.</div>
+</section>
+
+<section id="topdown">
+<h1>2. Top-Down Parsing (LL)</h1>
+<div class="sub">Build the parse tree from the start symbol downward, producing a <b>leftmost derivation</b>. LL(1) = <b>L</b>eft-to-right scan, <b>L</b>eftmost derivation, <b>1</b> lookahead symbol.</div>
+
+<h2 data-tier="core">Preparing a grammar for top-down parsing <span class="tier tier-core" title="Named in the GATE 2027 syllabus, or an indispensable prerequisite of a named item">🟢 Core</span></h2>
+<div class="grid2">
+<div class="card"><b>Remove left recursion</b> (a top-down parser would loop forever)<pre>A → Aα | β
+⇓
+A  → β A'
+A' → α A' | ε</pre></div>
+<div class="card"><b>Left-factor</b> (so one lookahead can choose)<pre>A → αβ1 | αβ2
+⇓
+A  → α A'
+A' → β1 | β2</pre></div>
+</div>
+
+<h2 data-tier="core">FIRST and FOLLOW <span class="tier tier-core" title="Named in the GATE 2027 syllabus, or an indispensable prerequisite of a named item">🟢 Core</span></h2>
+<ul style="color:#c9d1e0">
+<li><b>FIRST(X)</b>: set of terminals that can begin a string derived from X (include ε if X ⇒* ε).</li>
+<li><b>FOLLOW(A)</b>: set of terminals that can appear immediately to the right of A in some sentential form. FOLLOW(start) always contains <code>$</code>. ε is never in FOLLOW.</li>
+</ul>
+<p><b>FOLLOW rules</b> for each production <code>B → α A β</code>: add FIRST(β)∖{ε} to FOLLOW(A); if β is empty or β ⇒* ε, add FOLLOW(B) to FOLLOW(A).</p>
+
+<div class="num"><div class="tag">Worked numerical — FIRST, FOLLOW and the LL(1) table</div>
+<b>Q:</b> Grammar (the left-recursion-free expression grammar):
+<pre>E  → T E'
+E' → + T E' | ε
+T  → F T'
+T' → * F T' | ε
+F  → ( E ) | id</pre>
+<b>A:</b>
+<pre>FIRST(E) = FIRST(T) = FIRST(F) = { (, id }
+FIRST(E') = { +, ε }        FIRST(T') = { *, ε }
+
+FOLLOW(E)  = { $, ) }
+FOLLOW(E') = FOLLOW(E)                = { $, ) }
+FOLLOW(T)  = FIRST(E')∖ε ∪ FOLLOW(E') = { +, $, ) }     (E' is nullable)
+FOLLOW(T') = FOLLOW(T)                = { +, $, ) }
+FOLLOW(F)  = FIRST(T')∖ε ∪ FOLLOW(T)  = { *, +, $, ) }</pre>
+Place <code>A → α</code> in cell M[A, a] for every a ∈ FIRST(α); if α ⇒* ε also for every a ∈ FOLLOW(A):
+<div style="overflow-x:auto">
+<table>
+<tr><th></th><th>id</th><th>+</th><th>*</th><th>(</th><th>)</th><th>$</th></tr>
+<tr><th>E</th><td>E→TE'</td><td></td><td></td><td>E→TE'</td><td></td><td></td></tr>
+<tr><th>E'</th><td></td><td>E'→+TE'</td><td></td><td></td><td>E'→ε</td><td>E'→ε</td></tr>
+<tr><th>T</th><td>T→FT'</td><td></td><td></td><td>T→FT'</td><td></td><td></td></tr>
+<tr><th>T'</th><td></td><td>T'→ε</td><td>T'→*FT'</td><td></td><td>T'→ε</td><td>T'→ε</td></tr>
+<tr><th>F</th><td>F→id</td><td></td><td></td><td>F→(E)</td><td></td><td></td></tr>
+</table>
+</div>
+No cell has two entries → the grammar is <b>LL(1)</b>.
+</div>
+
+<h2 data-tier="core">The LL(1) condition <span class="tier tier-core" title="Named in the GATE 2027 syllabus, or an indispensable prerequisite of a named item">🟢 Core</span></h2>
+<p>A grammar is LL(1) iff for every pair of productions <code>A → α | β</code>:</p>
+<ol style="color:#c9d1e0">
+<li>FIRST(α) ∩ FIRST(β) = ∅.</li>
+<li>At most one of α, β can derive ε.</li>
+<li>If β ⇒* ε, then FIRST(α) ∩ FOLLOW(A) = ∅.</li>
+</ol>
+<p>Equivalently: <b>every cell of the parsing table has at most one entry</b>.</p>
+<div class="warn"><div class="tag">Must-know facts</div>
+• Left-recursive, ambiguous, or non-left-factored grammars are <b>never</b> LL(1).<br>
+• Every LL(1) grammar is unambiguous and is also LR(1) — but not the other way round.<br>
+• LL(1) parsers need no backtracking; they use an explicit <b>stack</b> (start with <code>$ S</code>) and the table.</div>
+
+<div class="num"><div class="tag">Worked numerical — a grammar that is NOT LL(1)</div>
+<b>Q:</b> The dangling-else grammar <code>S → i E t S S' | a,  S' → e S | ε,  E → b</code>. Is it LL(1)?<br>
+<b>A:</b> FOLLOW(S') = FOLLOW(S) = { e, $ } (because S → iEtS<b>S'</b> and S appears before S' giving e). The production S' → ε goes under FOLLOW(S') which contains <code>e</code>, but S' → eS also sits in M[S', e]. Two entries in one cell → <b>not LL(1)</b>.
+</div>
+
+<h2 data-tier="core">Parse trace (table-driven) <span class="tier tier-core" title="Named in the GATE 2027 syllabus, or an indispensable prerequisite of a named item">🟢 Core</span></h2>
+<p>Input <code>id + id $</code> with the table above (stack top on the left):</p>
+<div style="overflow-x:auto">
+<pre>Stack        Input      Action
+E $          id+id $    E → T E'
+T E' $       id+id $    T → F T'
+F T' E' $    id+id $    F → id
+id T' E' $   id+id $    match id
+T' E' $      +id $      T' → ε
+E' $         +id $      E' → + T E'
++ T E' $     +id $      match +
+T E' $       id $       T → F T'
+F T' E' $    id $       F → id
+id T' E' $   id $       match id
+T' E' $      $          T' → ε
+E' $         $          E' → ε
+$            $          ACCEPT</pre>
+</div>
+</section>
+
+<section id="bottomup">
+<h1>3. Bottom-Up Parsing (LR family)</h1>
+<div class="sub">Start from the input tokens and <b>reduce</b> upward to the start symbol. An LR parser traces a <b>rightmost derivation in reverse</b>, and it handles far more grammars than LL.</div>
+
+<h2 data-tier="core">Shift-reduce parsing <span class="tier tier-core" title="Named in the GATE 2027 syllabus, or an indispensable prerequisite of a named item">🟢 Core</span></h2>
+<p>A stack holds grammar symbols; the parser repeatedly does one of four things: <b>shift</b> (push next input token), <b>reduce</b> (replace a <b>handle</b> on top of the stack by the LHS of its production), <b>accept</b>, or <b>error</b>.</p>
+<ul style="color:#c9d1e0">
+<li><b>Handle</b>: the substring that matches the RHS of a production and whose reduction is one step of the reverse rightmost derivation.</li>
+<li><b>Viable prefix</b>: a prefix of a right-sentential form that can appear on the stack (never extends past the handle).</li>
+<li><b>Conflicts</b>: <b>shift-reduce</b> (both legal) or <b>reduce-reduce</b> (two reductions legal). Ambiguous grammars always produce conflicts.</li>
+</ul>
+<div class="num"><div class="tag">Worked numerical — finding the handle</div>
+<b>Q:</b> Grammar <code>E → E+T | T,  T → T*F | F,  F → id</code>. Find the handle of the right-sentential form <code>E + T * id</code>.<br>
+<b>A:</b> Reverse the rightmost derivation: the rightmost symbol <code>id</code> was produced by <code>F → id</code>, so reduce it first.
+<pre>E + T * id   ⇐ (reduce F→id)  E + T * F
+E + T * F    ⇐ (reduce T→T*F) E + T
+E + T        ⇐ (reduce E→E+T) E</pre>
+Handle of <code>E + T * id</code> = <b>id</b> (reducing by F → id).
+</div>
+
+<h2 data-tier="core">Power of the LR parsers <span class="tier tier-core" title="Named in the GATE 2027 syllabus, or an indispensable prerequisite of a named item">🟢 Core</span></h2>
+<svg viewBox="0 0 520 250" style="width:100%;max-width:520px;display:block;margin:12px auto" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif">
+<rect x="10" y="10" width="500" height="230" rx="14" fill="#12161f" stroke="#7c9fff" stroke-width="1.5"/>
+<text x="26" y="34" fill="#7c9fff" font-size="13" font-weight="700">CLR(1) = LR(1)</text>
+<rect x="40" y="48" width="440" height="180" rx="12" fill="#151a26" stroke="#5ee6c8" stroke-width="1.5"/>
+<text x="56" y="72" fill="#5ee6c8" font-size="13" font-weight="700">LALR(1)</text>
+<rect x="70" y="86" width="380" height="132" rx="10" fill="#181d29" stroke="#ffb454" stroke-width="1.5"/>
+<text x="86" y="110" fill="#ffb454" font-size="13" font-weight="700">SLR(1)</text>
+<rect x="100" y="124" width="320" height="82" rx="8" fill="#1d2332" stroke="#7ee787" stroke-width="1.5"/>
+<text x="116" y="148" fill="#7ee787" font-size="13" font-weight="700">LR(0)</text>
+<text x="116" y="176" fill="#93a0b8" font-size="11.5">no lookahead needed to reduce</text>
+</svg>
+<div style="overflow-x:auto">
+<table>
+<tr><th>Parser</th><th>Items</th><th>Reduce A→α when lookahead ∈</th><th>No. of states</th></tr>
+<tr><td>LR(0)</td><td>LR(0) items</td><td>every symbol (no lookahead)</td><td>n</td></tr>
+<tr><td>SLR(1)</td><td>LR(0) items</td><td>FOLLOW(A)</td><td>n (same as LR(0))</td></tr>
+<tr><td>LALR(1)</td><td>LR(1) items, states with same core merged</td><td>merged lookahead set</td><td>n (same as LR(0))</td></tr>
+<tr><td>CLR(1)</td><td>LR(1) items</td><td>exact lookahead set of the item</td><td>≥ n (largest)</td></tr>
+</table>
+</div>
+<div class="warn"><div class="tag">GATE angle</div>
+• LR(0), SLR(1) and LALR(1) tables have the <b>same number of states</b>; CLR(1) has the same or more.<br>
+• Merging LR(1) states into LALR can create <b>reduce-reduce</b> conflicts, but never a new <b>shift-reduce</b> conflict.<br>
+• No ambiguous grammar is LR(k) for any k. LL(1) ⊂ LR(1), but an LL(1) grammar need not be SLR(1).<br>
+• YACC/Bison generate <b>LALR(1)</b> parsers; they resolve S/R by shifting and R/R by the earlier production.</div>
+
+<h2 data-tier="core">Building the LR(0) automaton <span class="tier tier-core" title="Named in the GATE 2027 syllabus, or an indispensable prerequisite of a named item">🟢 Core</span></h2>
+<p>An <b>item</b> is a production with a dot marking how much has been seen (<code>A → α·β</code>). <b>Closure</b> adds <code>B → ·γ</code> for every nonterminal B right after a dot; <b>goto(I, X)</b> moves the dot over X. Always <b>augment</b> the grammar with <code>S' → S</code> first.</p>
+<div class="num"><div class="tag">Worked numerical — canonical LR(0) states</div>
+<b>Q:</b> Build the LR(0) automaton for <code>(1) S → AA,  (2) A → aA,  (3) A → b</code>.<br>
+<b>A:</b>
+<pre>I0: S'→·S   S→·AA   A→·aA   A→·b
+I1 = goto(I0,S): S'→S·                       (accept on $)
+I2 = goto(I0,A): S→A·A   A→·aA   A→·b
+I3 = goto(I0,a): A→a·A   A→·aA   A→·b
+I4 = goto(I0,b): A→b·
+I5 = goto(I2,A): S→AA·
+I6 = goto(I3,A): A→aA·
+goto(I2,a)=I3, goto(I2,b)=I4, goto(I3,a)=I3, goto(I3,b)=I4</pre>
+<b>7 states</b> (I0–I6). The same grammar has <b>10 states</b> as a CLR(1) automaton, because states I3, I4, I6 each split into two copies with different lookaheads ({a,b} vs {$}).
+</div>
+<p><b>SLR(1) table</b> — FOLLOW(S)={$}, FOLLOW(A)={a,b,$}:</p>
+<div style="overflow-x:auto">
+<table>
+<tr><th rowspan="2">State</th><th colspan="3">ACTION</th><th colspan="2">GOTO</th></tr>
+<tr><th>a</th><th>b</th><th>$</th><th>S</th><th>A</th></tr>
+<tr><td>0</td><td>s3</td><td>s4</td><td></td><td>1</td><td>2</td></tr>
+<tr><td>1</td><td></td><td></td><td>acc</td><td></td><td></td></tr>
+<tr><td>2</td><td>s3</td><td>s4</td><td></td><td></td><td>5</td></tr>
+<tr><td>3</td><td>s3</td><td>s4</td><td></td><td></td><td>6</td></tr>
+<tr><td>4</td><td>r3</td><td>r3</td><td>r3</td><td></td><td></td></tr>
+<tr><td>5</td><td></td><td></td><td>r1</td><td></td><td></td></tr>
+<tr><td>6</td><td>r2</td><td>r2</td><td>r2</td><td></td><td></td></tr>
+</table>
+</div>
+<p>Trace on <code>abb$</code> (stack holds alternating symbol/state):</p>
+<div style="overflow-x:auto">
+<pre>Stack            Input   Action
+0                abb$    shift 3
+0 a 3            bb$     shift 4
+0 a 3 b 4        b$      reduce A→b   (pop 2, goto(3,A)=6)
+0 a 3 A 6        b$      reduce A→aA  (pop 4, goto(0,A)=2)
+0 A 2            b$      shift 4
+0 A 2 b 4        $       reduce A→b   (pop 2, goto(2,A)=5)
+0 A 2 A 5        $       reduce S→AA  (pop 4, goto(0,S)=1)
+0 S 1            $       ACCEPT</pre>
+</div>
+<p>A reduction by <code>A → α</code> pops <b>2·|α|</b> stack entries (symbol + state each), or just |α| states if only states are stored.</p>
+
+<h2 data-tier="core">When SLR(1) is not enough <span class="tier tier-core" title="Named in the GATE 2027 syllabus, or an indispensable prerequisite of a named item">🟢 Core</span></h2>
+<div class="num"><div class="tag">Classic example</div>
+<b>Grammar:</b> <code>S → L = R | R,  L → *R | id,  R → L</code><br>
+<pre>FOLLOW(S) = {$}      FOLLOW(L) = {=, $}      FOLLOW(R) = {=, $}
+
+State after seeing L at the start:   S → L· = R      R → L·
+ • shift on '='                      (from S → L·=R)
+ • reduce R→L if '=' ∈ FOLLOW(R)  ✔  → shift-reduce conflict on '='</pre>
+<b>Not SLR(1)</b> — FOLLOW is too coarse. But the true lookahead for <code>R → L·</code> in this state is only <code>$</code>, so the grammar is <b>LALR(1) and CLR(1)</b> (CLR: 14 states, LALR: 10).
+</div>
+<div class="warn"><div class="tag">Another gotcha</div><code>S → AaAb | BbBa,  A → ε,  B → ε</code> is <b>LL(1)</b> but <b>not SLR(1)</b>: after the empty prefix, both <code>A→ε</code> and <code>B→ε</code> reduce on {a,b} (FOLLOW sets), a reduce-reduce conflict. With exact LR(1) lookaheads (A on <code>a</code>, B on <code>b</code>) it is conflict-free.</div>
+
+<h2 data-tier="ext">Operator-precedence parsing (quick note) <span class="tier tier-ext" title="Beyond the syllabus or rarely tested — read only if time remains">🟡 Extension</span><span class="tier-why"> · not a standard GATE focus</span></h2>
+<p>A simpler bottom-up method for <b>operator grammars</b> (no ε-productions, no two adjacent nonterminals on any RHS). It uses precedence relations <code>⋖ ≐ ⋗</code> between terminals only, which makes it fast but less general than LR.</p>
+</section>
+
+<section id="sdt">
+<h1>4. Syntax-Directed Translation</h1>
+<div class="sub">Attach <b>attributes</b> to grammar symbols and <b>rules</b> to productions so that parsing also computes values, types, or code.</div>
+
+<h2 data-tier="core">SDD vs SDT <span class="tier tier-core" title="Named in the GATE 2027 syllabus, or an indispensable prerequisite of a named item">🟢 Core</span></h2>
+<ul style="color:#c9d1e0">
+<li><b>Syntax-Directed Definition (SDD)</b>: a CFG with semantic rules attached to productions — it says <i>what</i> to compute, not the order.</li>
+<li><b>Syntax-Directed Translation scheme (SDT)</b>: a CFG with <b>program fragments (actions) embedded</b> in the RHS — the position of an action fixes <i>when</i> it runs.</li>
+</ul>
+<h2 data-tier="core">Synthesized vs inherited attributes <span class="tier tier-core" title="Named in the GATE 2027 syllabus, or an indispensable prerequisite of a named item">🟢 Core</span></h2>
+<div class="grid2">
+<div class="card"><b>Synthesized</b><br>Value of a node is computed from its <b>children</b> (and the node's own attributes). Flows <b>bottom-up</b>.<pre>E → E1 + T   E.val = E1.val + T.val</pre></div>
+<div class="card"><b>Inherited</b><br>Value of a node comes from its <b>parent and/or siblings</b>. Flows <b>top-down / sideways</b>.<pre>D → T L   L.type = T.type</pre></div>
+</div>
+<div style="overflow-x:auto">
+<table>
+<tr><th>Class</th><th>Rule</th><th>Evaluation</th></tr>
+<tr><td><b>S-attributed</b></td><td>only synthesized attributes</td><td>bottom-up; fits LR parsing (evaluate at reduce time)</td></tr>
+<tr><td><b>L-attributed</b></td><td>inherited attribute of a RHS symbol may depend only on the parent's inherited attributes and symbols <b>to its left</b> (never to the right, never its own synthesized attributes)</td><td>single left-to-right depth-first traversal; fits LL parsing</td></tr>
+</table>
+</div>
+<div class="warn"><div class="tag">GATE angle</div>Every <b>S-attributed</b> SDD is also <b>L-attributed</b> (it has no inherited attributes at all), but not vice versa. The <b>dependency graph</b> among attributes must be <b>acyclic</b> for any valid evaluation order to exist.</div>
+
+<div class="num"><div class="tag">Worked numerical — evaluating a synthesized attribute</div>
+<b>Q:</b> SDD: <code>E → E1 + T {E.val = E1.val + T.val} | T {E.val = T.val}</code>, <code>T → T1 * F {T.val = T1.val × F.val} | F</code>, <code>F → digit {F.val = digit.lexval}</code>. Compute E.val for <code>3 + 4 * 5</code>.<br>
+<b>A:</b> The grammar gives <code>*</code> higher precedence, so the tree is E → E + T with the right T → T * F:
+<pre>F.val = 3   → T.val = 3   → E1.val = 3
+F.val = 4, F.val = 5 → T.val = 4 × 5 = 20
+E.val = E1.val + T.val = 3 + 20 = 23</pre>
+</div>
+
+<h2 data-tier="core">SDT for translation — infix to postfix <span class="tier tier-core" title="Named in the GATE 2027 syllabus, or an indispensable prerequisite of a named item">🟢 Core</span></h2>
+<p>Place the <code>print</code> action at the <b>end</b> of the RHS (a <b>postfix SDT</b>); it then runs exactly when the production is reduced, so it works with bottom-up parsers:</p>
+<pre>E → E + T   { print('+') }
+E → T
+T → T * F   { print('*') }
+T → F
+F → num     { print(num.val) }</pre>
+<div class="num"><div class="tag">Worked numerical</div>
+<b>Q:</b> What is printed for input <code>2 + 3 * 4 + 5</code>?<br>
+<b>A:</b> Parse as <code>(2 + (3*4)) + 5</code>. Actions fire in reduction order:
+<pre>2   3   4   *   +   5   +      → output:  2 3 4 * + 5 +</pre>
+</div>
+<div class="warn"><div class="tag">Rule of thumb</div>Actions at the <b>end</b> of every production behave like a <b>post-order</b> walk of the parse tree. An action placed in the middle of a RHS runs after the symbols to its left have been parsed — in an LR parser this is handled by introducing an ε-<b>marker</b> nonterminal.</div>
+
+<h2 data-tier="core">Inherited attribute example — declarations <span class="tier tier-core" title="Named in the GATE 2027 syllabus, or an indispensable prerequisite of a named item">🟢 Core</span></h2>
+<pre>D → T L        { L.type = T.type }
+T → int        { T.type = integer }
+L → L1 , id    { L1.type = L.type;  addType(id.entry, L.type) }
+L → id         { addType(id.entry, L.type) }</pre>
+<p>For <code>int a, b, c</code>: T.type = integer is passed <b>down</b> into L, then copied left-to-right along the list, so every identifier is entered in the symbol table with type integer. L.type is an <b>inherited</b> attribute — this SDD is L-attributed but <b>not</b> S-attributed.</p>
+</section>
+
+<section id="runtime">
+<h1>5. Runtime Environments</h1>
+<div class="sub">How a compiled program organises memory while running: the stack of activation records, scoping, and how arguments are passed.</div>
+
+<h2 data-tier="core">Storage organisation <span class="tier tier-core" title="Named in the GATE 2027 syllabus, or an indispensable prerequisite of a named item">🟢 Core</span></h2>
+<svg viewBox="0 0 440 270" style="width:100%;max-width:440px;display:block;margin:12px auto" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif">
+<defs><marker id="rtA" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="#5ee6c8"/></marker></defs>
+<rect x="30" y="10" width="170" height="40" fill="#181d29" stroke="#242b3a"/><text x="115" y="35" fill="#e6e9f0" font-size="13" text-anchor="middle">Code (text)</text>
+<rect x="30" y="50" width="170" height="40" fill="#181d29" stroke="#242b3a"/><text x="115" y="75" fill="#e6e9f0" font-size="13" text-anchor="middle">Static data (globals)</text>
+<rect x="30" y="90" width="170" height="60" fill="#1d2332" stroke="#7c9fff"/><text x="115" y="116" fill="#7c9fff" font-size="13" text-anchor="middle" font-weight="700">Heap</text><text x="115" y="136" fill="#93a0b8" font-size="11" text-anchor="middle">malloc / new  ↓ grows down</text>
+<rect x="30" y="150" width="170" height="40" fill="#12161f" stroke="#242b3a" stroke-dasharray="4 3"/><text x="115" y="175" fill="#93a0b8" font-size="11" text-anchor="middle">free space</text>
+<rect x="30" y="190" width="170" height="60" fill="#1d2332" stroke="#5ee6c8"/><text x="115" y="216" fill="#5ee6c8" font-size="13" text-anchor="middle" font-weight="700">Stack</text><text x="115" y="236" fill="#93a0b8" font-size="11" text-anchor="middle">activation records  ↑ grows up</text>
+<text x="225" y="30" fill="#93a0b8" font-size="12">low address</text><text x="225" y="245" fill="#93a0b8" font-size="12">high address</text>
+<text x="225" y="120" fill="#93a0b8" font-size="12">size fixed at compile time:</text><text x="225" y="136" fill="#93a0b8" font-size="12">code + static data</text>
+</svg>
+<p>Code and static data have sizes known at compile time. The <b>stack</b> (procedure calls) and <b>heap</b> (dynamic allocation) grow toward each other into the free space. The textbook figure usually draws heap growing up and stack growing down; what matters is that they grow <b>towards each other</b>.</p>
+
+<h2 data-tier="core">Activation record (stack frame) <span class="tier tier-core" title="Named in the GATE 2027 syllabus, or an indispensable prerequisite of a named item">🟢 Core</span></h2>
+<p>Each procedure call pushes one <b>activation record</b>; it is popped on return. Typical fields, top to bottom:</p>
+<div style="overflow-x:auto">
+<table>
+<tr><th>Field</th><th>Purpose</th></tr>
+<tr><td>Actual parameters</td><td>arguments passed by the caller</td></tr>
+<tr><td>Returned value</td><td>space for the function's result</td></tr>
+<tr><td><b>Control link</b> (dynamic link)</td><td>points to the <b>caller's</b> activation record</td></tr>
+<tr><td><b>Access link</b> (static link)</td><td>points to the activation record of the <b>lexically enclosing</b> procedure — used to reach non-local variables</td></tr>
+<tr><td>Saved machine status</td><td>return address, saved registers</td></tr>
+<tr><td>Local data & temporaries</td><td>local variables and compiler temporaries</td></tr>
+</table>
+</div>
+<p>Because every call gets its own record, <b>recursion</b> works: each invocation has independent locals. Stack depth equals the number of live (not yet returned) calls.</p>
+<div class="num"><div class="tag">Worked numerical — access links</div>
+<b>Q:</b> In a language with nested procedures, a procedure at nesting depth 4 refers to a variable declared in an enclosing procedure at depth 2. How many access links must be followed?<br>
+<b>A:</b> Follow <code>4 − 2 = <b>2</b></code> access links (each hop climbs one lexical level).
+</div>
+
+<h2 data-tier="core">Static vs dynamic scoping <span class="tier tier-core" title="Named in the GATE 2027 syllabus, or an indispensable prerequisite of a named item">🟢 Core</span></h2>
+<ul style="color:#c9d1e0">
+<li><b>Static (lexical) scoping</b>: a non-local name is resolved by the <b>textual nesting</b> of the source. Used by C, Java, Python, Pascal.</li>
+<li><b>Dynamic scoping</b>: a non-local name is resolved by the <b>chain of callers</b> at run time (follow control links).</li>
+</ul>
+<div class="num"><div class="tag">Worked numerical — what is printed?</div>
+<pre>int x = 10;
+void f()  { print(x); }
+void g()  { int x = 20; f(); }
+main()    { g(); }</pre>
+<b>Static scoping:</b> f's <code>x</code> is the global (f is written outside g) → prints <b>10</b>.<br>
+<b>Dynamic scoping:</b> f was called by g, so the nearest <code>x</code> in the call chain is g's → prints <b>20</b>.
+</div>
+
+<h2 data-tier="core">Parameter passing <span class="tier tier-core" title="Named in the GATE 2027 syllabus, or an indispensable prerequisite of a named item">🟢 Core</span></h2>
+<div style="overflow-x:auto">
+<table>
+<tr><th>Mechanism</th><th>What is passed</th><th>Effect</th></tr>
+<tr><td>Call by value</td><td>copy of the value</td><td>callee cannot change caller's variable</td></tr>
+<tr><td>Call by reference</td><td>address of the actual</td><td>formal is an alias; changes visible to caller immediately</td></tr>
+<tr><td>Copy-restore (value-result)</td><td>copy in, then copy back on return</td><td>changes visible only at return</td></tr>
+<tr><td>Call by name</td><td>the <b>expression</b> itself, re-evaluated at every use</td><td>like textual substitution (macro)</td></tr>
+</table>
+</div>
+<div class="num"><div class="tag">Worked numerical — four mechanisms, one program</div>
+<pre>int i = 1;
+void P(int x, int y) { x = x + 1;  y = y * 2; }
+main: P(i, i);   print(i);</pre>
+<pre>Value          : x, y are copies; i stays                       → 1
+Reference      : x, y both alias i: i=1+1=2, then i=2*2=4        → 4
+Copy-restore   : x=1,y=1 → x=2, y=2; restore x then y: i=2, i=2  → 2
+Name           : x and y both mean i, same as reference          → 4</pre>
+Copy-restore depends on the <b>order</b> of copying back (assumed left to right here).
+</div>
+<div class="warn"><div class="tag">Reference vs name</div>They differ when the actual is an expression whose variables change inside the callee — e.g. <code>A[i]</code>. Reference fixes the address <b>at call time</b>; name re-evaluates <code>A[i]</code> with the <b>current</b> i at every use (see solved problem 6).</div>
+</section>
+
+<section id="ir">
+<h1>6. Intermediate Code Generation</h1>
+<div class="sub">An <b>intermediate representation (IR)</b> sits between the front end and the back end, so one front end can feed many target machines.</div>
+
+<h2 data-tier="core">Three-address code (TAC) <span class="tier tier-core" title="Named in the GATE 2027 syllabus, or an indispensable prerequisite of a named item">🟢 Core</span></h2>
+<p>Each instruction has <b>at most one operator on the right-hand side</b> and at most three addresses: <code>x = y op z</code>. Complex expressions are broken up using compiler-generated <b>temporaries</b>.</p>
+<div class="num"><div class="tag">Worked numerical — expression to TAC</div>
+<b>Q:</b> Write TAC for <code>a = b + c * d - e</code>.<br>
+<b>A:</b>
+<pre>t1 = c * d
+t2 = b + t1
+a  = t2 - e          → 3 instructions, 2 temporaries (t1, t2)</pre>
+</div>
+<h3>Representations</h3>
+<div style="overflow-x:auto">
+<table>
+<tr><th>Form</th><th>Fields</th><th>Notes</th></tr>
+<tr><td><b>Quadruples</b></td><td>(op, arg1, arg2, result)</td><td>result is an explicit name → easy to move instructions when optimising</td></tr>
+<tr><td><b>Triples</b></td><td>(op, arg1, arg2)</td><td>no result field; a result is referred to by the <b>position</b> of its triple → saves space but reordering is hard</td></tr>
+<tr><td><b>Indirect triples</b></td><td>triples + a separate list of pointers</td><td>reorder by changing the pointer list, not the triples</td></tr>
+</table>
+</div>
+<div class="num"><div class="tag">Worked numerical — the three forms</div>
+<b>Q:</b> Represent <code>a = b * -c + b * -c</code>.<br>
+<b>A:</b>
+<pre>Quadruples
+   op      arg1  arg2  result
+0  uminus  c           t1
+1  *       b     t1    t2
+2  uminus  c           t3
+3  *       b     t3    t4
+4  +       t2    t4    t5
+5  =       t5          a          → 6 quadruples
+
+Triples (positions are the names)
+0  uminus  c
+1  *       b     (0)
+2  uminus  c
+3  *       b     (2)
+4  +       (1)   (3)
+5  =       a     (4)</pre>
+Quadruples need 4 fields × 6 rows, triples 3 fields × 6 rows. A DAG would share <code>b * -c</code> and need only 4 operations.
+</div>
+
+<h2 data-tier="core">Array address calculation <span class="tier tier-core" title="Named in the GATE 2027 syllabus, or an indispensable prerequisite of a named item">🟢 Core</span></h2>
+<p>For an array with element width <i>w</i> and base address <i>base</i> (indices from 0):</p>
+<div class="grid2">
+<div class="card"><b>1-D</b><pre>addr(A[i]) = base + i·w</pre></div>
+<div class="card"><b>2-D, row-major, A[R][C]</b><pre>addr(A[i][j]) = base + (i·C + j)·w</pre></div>
+<div class="card"><b>2-D, column-major</b><pre>addr(A[i][j]) = base + (j·R + i)·w</pre></div>
+<div class="card"><b>Lower bounds l1, l2 (1-based etc.)</b><pre>row-major: base + ((i−l1)·C + (j−l2))·w</pre></div>
+</div>
+<div class="num"><div class="tag">Worked numerical</div>
+<b>Q:</b> <code>int A[10][20]</code>, base = 1000, w = 4. Find the address of <code>A[3][5]</code> if (a) 0-indexed row-major, (b) 0-indexed column-major, (c) 1-indexed row-major.<br>
+<b>A:</b>
+<pre>(a) 1000 + (3·20 + 5)·4 = 1000 + 260 = 1260
+(b) 1000 + (5·10 + 3)·4 = 1000 + 212 = 1212
+(c) 1000 + ((3−1)·20 + (5−1))·4 = 1000 + 176 = 1176</pre>
+</div>
+
+<h2 data-tier="core">Basic blocks and the control-flow graph <span class="tier tier-core" title="Named in the GATE 2027 syllabus, or an indispensable prerequisite of a named item">🟢 Core</span></h2>
+<p>A <b>basic block</b> is a maximal straight-line sequence with a single entry (the first instruction) and a single exit (the last). Find the blocks with the <b>leader</b> rules:</p>
+<ol style="color:#c9d1e0">
+<li>The first instruction of the program is a leader.</li>
+<li>Any instruction that is the <b>target</b> of a jump is a leader.</li>
+<li>Any instruction <b>immediately after</b> a (conditional or unconditional) jump is a leader.</li>
+</ol>
+<p>Each block runs from a leader up to (not including) the next leader. The <b>flow graph</b> has an edge B→C if C can follow B: C's leader is the jump target of B's last instruction, or C directly follows B and B does not end in an unconditional jump.</p>
+<div class="num"><div class="tag">Worked numerical — leaders, blocks, edges</div>
+<pre>1: i = 0
+2: s = 0
+3: if i >= n goto 9
+4: t = i % 2
+5: if t == 0 goto 7
+6: s = s + i
+7: i = i + 1
+8: goto 3
+9: return s</pre>
+Targets: 9, 7, 3. After jumps: 4 (after 3), 6 (after 5), 9 (after 8). Leaders = {1, 3, 4, 6, 7, 9}.
+<pre>B1 = {1,2}   B2 = {3}   B3 = {4,5}   B4 = {6}   B5 = {7,8}   B6 = {9}
+Edges: B1→B2, B2→B3, B2→B6, B3→B4, B3→B5, B4→B5, B5→B2</pre>
+<b>6 basic blocks, 7 edges.</b> The loop is B2 → B3 → (B4) → B5 → B2.
+</div>
+
+<h2 data-tier="core">Backpatching <span class="tier tier-core" title="Named in the GATE 2027 syllabus, or an indispensable prerequisite of a named item">🟢 Core</span></h2>
+<p>In one pass, jump targets of <b>forward</b> jumps (boolean expressions, <code>if</code>, <code>while</code>) are not yet known. The compiler emits the jump with an empty target, records it in a <b>list</b> (<code>truelist</code> / <code>falselist</code>), and later <code>backpatch(list, label)</code> fills in the address once it is known.</p>
+</section>
+
+<section id="opt">
+<h1>7. Code Optimisation & Code Generation</h1>
+<div class="sub">Make the IR faster or smaller without changing its meaning, then map it onto real registers and instructions.</div>
+
+<h2 data-tier="core">Machine-independent optimisations <span class="tier tier-core" title="Named in the GATE 2027 syllabus, or an indispensable prerequisite of a named item">🟢 Core</span><span class="tier-why"> · local optimisation</span></h2>
+<div style="overflow-x:auto">
+<table>
+<tr><th>Technique</th><th>Before</th><th>After</th></tr>
+<tr><td>Constant folding</td><td><code>x = 3 * 4</code></td><td><code>x = 12</code></td></tr>
+<tr><td>Constant propagation</td><td><code>x = 5; y = x + 1</code></td><td><code>y = 6</code></td></tr>
+<tr><td>Common subexpression elimination</td><td><code>a = b+c; d = b+c</code></td><td><code>a = b+c; d = a</code></td></tr>
+<tr><td>Copy propagation</td><td><code>x = y; z = x + 1</code></td><td><code>z = y + 1</code></td></tr>
+<tr><td>Dead-code elimination</td><td>assignment whose value is never used</td><td>removed</td></tr>
+<tr><td>Strength reduction</td><td><code>x * 2</code>, <code>x * 8</code></td><td><code>x &lt;&lt; 1</code>, <code>x &lt;&lt; 3</code></td></tr>
+<tr><td>Loop-invariant code motion</td><td><code>while(..){ t = a*b; ...}</code></td><td><code>t = a*b; while(..){...}</code></td></tr>
+<tr><td>Induction-variable elimination</td><td><code>j = 4*i</code> recomputed every iteration</td><td><code>j = j + 4</code></td></tr>
+<tr><td>Loop unrolling / jamming</td><td>many small iterations</td><td>fewer jumps, less overhead</td></tr>
+</table>
+</div>
+<p><b>Peephole optimisation</b> slides a small window (a few instructions) over the <b>target</b> code, replacing patterns with cheaper ones: redundant load/store removal, unreachable-code removal, algebraic simplification (<code>x+0</code>, <code>x*1</code>), flow-of-control tweaks (jump to a jump).</p>
+
+<h2 data-tier="core">DAG of a basic block <span class="tier tier-core" title="Named in the GATE 2027 syllabus, or an indispensable prerequisite of a named item">🟢 Core</span><span class="tier-why"> · local optimisation</span></h2>
+<p>A DAG for a basic block has one node per distinct value; identical computations share a node, which exposes <b>common subexpressions</b> and <b>dead code</b> automatically.</p>
+<div class="num"><div class="tag">Worked numerical — DAG construction</div>
+<b>Q:</b> Build the DAG for <code>a = b + c;  b = a − d;  c = b + c;  d = a − d</code> and count its nodes.<br>
+<b>A:</b>
+<pre>Leaves (initial values): b0, c0, d0                       → 3 nodes
+a = b0 + c0              → node N1 (+)  labelled a
+b = a − d0 = N1 − d0     → node N2 (−)  labelled b
+c = b + c0 = N2 + c0     → node N3 (+)  labelled c   (b changed, so NOT the same as N1)
+d = a − d0 = N1 − d0     → same as N2 → label d is added to N2, no new node
+
+Total nodes = 3 leaves + 3 internal = 6
+Optimised code:  a = b + c;  d = a − d;  c = d + c   (b = d)  → 3 operations, not 4</pre>
+</div>
+
+<h2 data-tier="core">Data-flow analysis <span class="tier tier-core" title="Named in the GATE 2027 syllabus, or an indispensable prerequisite of a named item">🟢 Core</span><span class="tier-why"> · liveness, reaching definitions, available expressions</span></h2>
+<p>For each basic block B, compute <code>IN[B]</code> and <code>OUT[B]</code> by iterating the equations until nothing changes (a <b>fixed point</b>). Three classic problems:</p>
+<div style="overflow-x:auto">
+<table>
+<tr><th>Problem</th><th>Direction</th><th>Meet</th><th>Equations</th></tr>
+<tr><td><b>Reaching definitions</b></td><td>forward</td><td>∪ (may)</td><td>OUT[B] = gen[B] ∪ (IN[B] − kill[B]);  IN[B] = ∪ OUT[pred]</td></tr>
+<tr><td><b>Live variables</b></td><td>backward</td><td>∪ (may)</td><td>IN[B] = use[B] ∪ (OUT[B] − def[B]);  OUT[B] = ∪ IN[succ]</td></tr>
+<tr><td><b>Available expressions</b></td><td>forward</td><td>∩ (must)</td><td>OUT[B] = e_gen[B] ∪ (IN[B] − e_kill[B]);  IN[B] = ∩ OUT[pred]</td></tr>
+</table>
+</div>
+<div class="warn"><div class="tag">Memory hook</div><b>May</b> analyses (reaching defs, liveness) use <b>union</b> and start with ∅. <b>Must</b> analyses (available expressions) use <b>intersection</b> and start all non-entry blocks with the universal set. Reaching defs & available exprs go <b>forward</b>; liveness goes <b>backward</b>.</div>
+
+<div class="num"><div class="tag">Worked numerical — reaching definitions</div>
+<pre>B1:  d1: a = 1       d2: b = 2
+B2:  d3: a = a + b           (B2 loops back to itself, then falls to B3)
+B3:  d4: c = a + b
+Edges: B1→B2, B2→B2, B2→B3</pre>
+gen: B1={d1,d2}, B2={d3}, B3={d4}.  kill: B1={d3}, B2={d1}, B3=∅ (d1 and d3 both define a).
+<pre>OUT[B1] = {d1,d2}
+Iteration:  IN[B2] = OUT[B1] ∪ OUT[B2] = {d1,d2} ∪ OUT[B2]
+            OUT[B2] = {d3} ∪ (IN[B2] − {d1})
+  pass 1:   IN[B2] = {d1,d2}            OUT[B2] = {d3, d2}
+  pass 2:   IN[B2] = {d1,d2,d3}         OUT[B2] = {d3, d2}   (stable)
+IN[B3]  = OUT[B2] = {d2, d3}            OUT[B3] = {d2, d3, d4}</pre>
+So at B3, the definition <b>d1 does not reach</b> (killed by d3); only d3's value of <code>a</code> reaches. That justifies using d3 for constant/copy propagation decisions.
+</div>
+
+<div class="num"><div class="tag">Worked numerical — live variables</div>
+<pre>B1: a = ..; b = ..       →  B2 and B3
+B2: c = a + b            →  B4
+B3: c = a * b            →  B4
+B4: print(c)</pre>
+<pre>B4: use={c}  def=∅         IN[B4]={c}   OUT[B4]=∅
+B2: use={a,b} def={c}      OUT[B2]=IN[B4]={c}        IN[B2]={a,b}
+B3: use={a,b} def={c}      OUT[B3]={c}               IN[B3]={a,b}
+B1: use=∅   def={a,b}      OUT[B1]=IN[B2]∪IN[B3]={a,b}   IN[B1]=∅</pre>
+IN[B1] = ∅ means no variable is used before being defined — a good sign. A variable assigned but not in OUT is <b>dead</b> and its assignment can be eliminated.
+</div>
+
+<h2 data-tier="ext">Code generation & register allocation <span class="tier tier-ext" title="Beyond the syllabus or rarely tested — read only if time remains">🟡 Extension</span><span class="tier-why"> · not named in the syllabus</span></h2>
+<ul style="color:#c9d1e0">
+<li>Code generation chooses instructions, <b>allocates registers</b>, and orders the code. Variables in registers are much faster than memory.</li>
+<li><b>Graph colouring</b>: one node per variable (live range); an edge between two variables that are <b>live at the same time</b>; with k registers, colour the graph with k colours. If it cannot be k-coloured, some variable is <b>spilled</b> to memory.</li>
+<li>Minimum registers needed (no spills) = <b>chromatic number</b> of the interference graph ≥ maximum number of simultaneously live variables.</li>
+</ul>
+<div class="num"><div class="tag">Worked numerical — registers needed</div>
+<pre>1: a = 1
+2: b = 2
+3: c = a + b
+4: d = a * c
+5: e = b + d
+6: print(e)</pre>
+<pre>Live after each instruction:  1:{a}  2:{a,b}  3:{a,b,c}  4:{b,d}  5:{e}  6:∅
+Interference edges: a–b, a–c, b–c, b–d</pre>
+a, b, c form a triangle, so at least 3 colours are needed, and 3 suffice (d can reuse a's or c's register). <b>Minimum registers = 3</b>. Note that <code>d</code> and <code>a</code> do not interfere because <code>a</code>'s last use is in instruction 4 itself, the one that defines <code>d</code>.
+</div>
+</section>
+
+
+<section id="methods">
+<h1>8. Problem → Standard Method Playbook</h1>
+<div class="sub">Use these canonical compiler-analysis procedures to recognize the problem type, apply the standard method, and avoid common GATE traps.</div>
+
+<h2 data-tier="hy">1. Type checking & semantic analysis <span class="tier tier-hy" title="Not named in the syllabus, but frequently useful or tested as background — revise after Core">🔵 High-Yield</span><span class="tier-why"> · semantic-analysis background</span></h2>
+<div class="card"><b>Recognition:</b> the question asks whether an expression, assignment, function call, array access, or operator application is type-correct.<br>
+<b>Method:</b> (1) annotate each identifier with its declared type, (2) propagate expression types bottom-up, (3) apply operator compatibility and implicit-conversion rules, (4) check assignment/return/argument compatibility, (5) distinguish compile-time semantic errors from runtime errors.<br>
+<b>Trap:</b> syntax can be valid while semantics are invalid; parsing alone does not establish type correctness.</div>
+<div class="num"><div class="tag">Worked problem — type checking</div>
+<b>Q:</b> Suppose <code>f</code> has type <code>int (float, int)</code>, <code>x</code> is <code>int</code>, and <code>y</code> is <code>float</code>. Is <code>f(x, y)</code> type-correct if implicit widening <code>int→float</code> is allowed but <code>float→int</code> is not?</div>
+<p><b>Solution:</b> The first argument <code>x:int</code> widens to <code>float</code>. The second argument <code>y:float</code> cannot narrow to the required <code>int</code>. Therefore the call is <b>not type-correct</b>.</p></div>
+
+<h2 data-tier="ext">2. Dominators and natural loops <span class="tier tier-ext" title="Beyond the syllabus or rarely tested — read only if time remains">🟡 Extension</span><span class="tier-why"> · not named in the syllabus</span></h2><div class="card"><b>Dominance:</b> <code>d</code> dominates <code>n</code> iff every path from the entry to <code>n</code> passes through <code>d</code>. Start with <code>Dom(entry)={entry}</code>; for every other node, iterate <code>Dom(n)={n} ∪ intersection(Dom(p))</code> over predecessors until a fixed point.<br>
+<b>Natural loop:</b> an edge <code>u→v</code> is a back edge when <code>v</code> dominates <code>u</code>. Its natural loop contains <code>v</code>, <code>u</code>, and all predecessors that can reach <code>u</code> without passing through <code>v</code>.</div>
+<div class="num"><div class="tag">Worked problem — back edge</div>
+<b>Q:</b> A CFG has edges <code>E→A, A→B, B→C, C→A, C→D</code>. Which edge is a back edge and what is its natural-loop header?</div>
+<p><b>Solution:</b> <code>A</code> dominates <code>B</code> and <code>C</code>; hence <code>C→A</code> is a back edge. The natural-loop header is <b>A</b>, and the loop nodes are <b>{A,B,C}</b>.</p></div>
+
+<h2 data-tier="ext">3. Runtime storage, heap allocation and garbage collection <span class="tier tier-ext" title="Beyond the syllabus or rarely tested — read only if time remains">🟡 Extension</span><span class="tier-why"> · not named in the syllabus</span></h2>
+<div class="card"><b>Static area:</b> globals/static-duration objects. <b>Stack:</b> activation records for calls and automatic variables. <b>Heap:</b> dynamically allocated objects whose lifetime is controlled by allocation/deallocation or garbage collection.<br>
+<b>Reference counting:</b> reclaim an object when its reference count becomes zero; cycles are a limitation. <b>Mark-and-sweep:</b> mark all objects reachable from roots, then reclaim unmarked objects. <b>Mark-and-compact:</b> additionally moves live objects to reduce fragmentation.</div>
+<div class="warn"><div class="tag">Common trap</div> A leaked object is unreachable but not reclaimed; a dangling pointer refers to an object whose lifetime has already ended. They are different failures.</div>
+
+<h2 data-tier="ext">4. Linker, loader, assembler and interpreter <span class="tier tier-ext" title="Beyond the syllabus or rarely tested — read only if time remains">🟡 Extension</span><span class="tier-why"> · not named in the syllabus</span></h2>
+<div class="card"><b>Assembler:</b> assembly → object/machine code. <b>Linker:</b> combines object files/libraries and resolves external symbols/relocations. <b>Loader:</b> places the executable into memory and performs load-time setup/relocation as required. <b>Interpreter:</b> executes program constructs directly rather than first producing a complete native executable in the usual compilation model.</div>
+<div class="num"><div class="tag">Worked problem — toolchain ordering</div>
+<b>Q:</b> Source uses an external function defined in another object file. Which component resolves that cross-file symbol?</div>
+<p><b>Answer:</b> the <b>linker</b>. The assembler handles symbols within its assembly unit; cross-object external-symbol resolution is a linking task.</p></div>
+
+<h2 data-tier="hy">5. Error recovery <span class="tier tier-hy" title="Not named in the syllabus, but frequently useful or tested as background — revise after Core">🔵 High-Yield</span><span class="tier-why"> · parsing background</span></h2>
+<div class="card"><b>Panic-mode recovery:</b> discard input until a synchronizing token such as <code>;</code>, <code>}</code>, or another selected delimiter is reached. <b>Phrase-level:</b> make a local token insertion/deletion/replacement. <b>Error productions:</b> extend the grammar with common erroneous constructs. <b>Global correction:</b> seek a minimum-cost edit sequence; conceptually powerful but computationally expensive.</div>
+
+<h2 data-tier="core">6. Backpatching <span class="tier tier-core" title="Named in the GATE 2027 syllabus, or an indispensable prerequisite of a named item">🟢 Core</span><span class="tier-why"> · intermediate code generation</span></h2>
+<div class="card"><b>Recognition:</b> forward jumps whose target label is not known when the intermediate code is emitted.<br><b>Method:</b> generate incomplete jumps → keep <code>truelist</code>/<code>falselist</code>/<code>nextlist</code> → merge lists when control-flow conditions combine → backpatch once the target instruction number becomes known.</div>
+<div class="num"><div class="tag">Worked problem — backpatching</div>
+<b>Q:</b> For <code>if (a&lt;b) x=y; else x=z;</code>, why can the conditional branch initially contain an unknown target?</div>
+<p><b>Solution:</b> the compiler may emit the conditional and unconditional jumps before it knows the final instruction numbers of the <code>then</code>, <code>else</code>, and following blocks. Their target addresses are recorded and filled by <b>backpatching</b>.</p></div>
+</section>
+
+<section id="quiz">
+<h1>9. Practice Quiz — 56 Questions</h1>
+<div class="sub">Covers all 7 topics above. Click an option to check yourself instantly — explanations included.</div>
+<div class="qtopics" id="qtopics"></div><style>.qmode button{cursor:pointer;padding:8px 12px;border:1px solid #888;border-radius:8px;background:transparent}.qmode button.active{font-weight:700}.opt.selected{outline:2px solid currentColor;transform:translateX(2px)}</style><div class="qmode" style="margin:12px 0;display:flex;gap:8px;flex-wrap:wrap"><button id="mcqMode" class="active">MCQ</button><button id="msqMode">MSQ · Select all that apply</button></div>
+<div id="score">Answered <b id="ansCount">0</b>/56 · Correct <b id="corrCount">0</b></div>
+<div id="qlist"></div>
+</section>
+
+<section id="pyq">
+<h1>10. GATE-Level Solved Problems</h1>
+<div class="sub">The 56 quiz questions above are your fundamentals-check. These are heavier, multi-step problems in actual GATE exam style — every step shown, and every answer machine-verified.</div>
+
+<div class="gq"><div class="gtag">Q1 · Lexical analysis — counting tokens</div>
+<b>How many tokens does the C statement  <code>printf("i=%d, &amp;i=%x", i, &amp;i);</code>  contain?</b>
+<ol class="gopts"><li>8</li><li>9</li><li>10</li><li>11</li></ol>
+<pre>printf   (   "i=%d, &i=%x"   ,   i   ,   &   i   )   ;
+  1      2        3          4   5   6   7   8   9   10
+
+The string literal is ONE token, however many characters it has.
+'&' is a single (address-of) operator token.</pre>
+<p class="gans">Correct: Option 3 — 10 tokens.</p>
+</div>
+
+<div class="gq"><div class="gtag">Q2 · LL(1) vs SLR(1)</div>
+<b>Consider the grammar  S → AaAb | BbBa,  A → ε,  B → ε.  Which statement is correct?</b>
+<ol class="gopts"><li>LL(1) and SLR(1)</li><li>LL(1) but not SLR(1)</li><li>SLR(1) but not LL(1)</li><li>Neither LL(1) nor SLR(1)</li></ol>
+<pre>FIRST(AaAb) = {a}   FIRST(BbBa) = {b}      → disjoint, so S is decided by the lookahead
+FOLLOW(A) = {a, b}  FOLLOW(B) = {a, b}
+LL(1) table: S → AaAb under a,  S → BbBa under b.  A → ε and B → ε are only
+reached after the choice is made — no cell has two entries  ⇒ LL(1) ✔
+
+SLR(1): the start state contains both  A → ·  and  B → ·  (reduce-ε items).
+  Under SLR both reduce on FOLLOW = {a, b}  ⇒ reduce–reduce conflict on a and on b  ✘
+  (With exact LR(1) lookaheads: A→ε on a, B→ε on b — no conflict, so it is LR(1)/LALR(1).)</pre>
+<p class="gans">Correct: Option 2 — LL(1) but not SLR(1).</p>
+</div>
+
+<div class="gq"><div class="gtag">Q3 · Counting states: CLR(1) vs LALR(1)</div>
+<b>For  S → CC,  C → cC | d,  how many states are in the canonical LR(1) automaton, and how many in the LALR(1) automaton?</b>
+<ol class="gopts"><li>7 and 7</li><li>10 and 7</li><li>10 and 10</li><li>14 and 10</li></ol>
+<pre>LR(0) (= LALR) states:   I0, S'→S·, S→C·C, C→c·C, C→d·, S→CC·, C→cC·   = 7
+
+CLR(1) splits the three states that appear with different lookaheads:
+   C→c·C   {c,d} vs {$}      C→d·  {c,d} vs {$}      C→cC·  {c,d} vs {$}
+   → 7 + 3 = 10 states
+
+LALR(1) merges states with identical cores back together → 7 states.</pre>
+<p class="gans">Correct: Option 2 — 10 CLR(1) states, 7 LALR(1) states.</p>
+</div>
+
+<div class="gq"><div class="gtag">Q4 · Which parser class? (the pointer grammar)</div>
+<b>Grammar:  S → L = R | R,  L → *R | id,  R → L.  Which of the following is true?</b>
+<ol class="gopts"><li>It is SLR(1)</li><li>It is not SLR(1) but is LALR(1)</li><li>It is not LALR(1) but is CLR(1)</li><li>It is not LR(1)</li></ol>
+<pre>FOLLOW(S) = {$}     FOLLOW(R) = {=, $}     FOLLOW(L) = {=, $}
+
+After reading L from the start state the item set is
+        S → L· = R          R → L·
+ • S → L· = R  wants to SHIFT '='
+ • R → L·       reduces on FOLLOW(R) = {=, $}  ⇒ includes '='   ⇒ shift–reduce conflict
+So the grammar is NOT SLR(1).
+
+In LR(1), the item R → L· in that state carries only lookahead {$}  (an '=' after R
+could never follow here), so the conflict disappears: CLR(1) has no conflict (14 states).
+LALR(1) (10 states, merged lookaheads) also has none.</pre>
+<p class="gans">Correct: Option 2 — not SLR(1), but LALR(1) (and CLR(1)).</p>
+</div>
+
+<div class="gq"><div class="gtag">Q5 · Syntax-directed translation (binary value)</div>
+<b>SDD:  B → B1 0 {B.val = 2·B1.val},  B → B1 1 {B.val = 2·B1.val + 1},  B → 1 {B.val = 1}.  What is B.val for the string 10110?</b>
+<ol class="gopts"><li>11</li><li>22</li><li>44</li><li>26</li></ol>
+<pre>1      → B.val = 1
+10     → 2·1     = 2
+101    → 2·2 + 1 = 5
+1011   → 2·5 + 1 = 11
+10110  → 2·11    = 22</pre>
+Only synthesized attributes are used, so this is an <b>S-attributed</b> SDD, evaluated at each reduction.
+<p class="gans">Correct: Option 2 — 22 (that is simply 10110 in binary).</p>
+</div>
+
+<div class="gq"><div class="gtag">Q6 · Parameter passing — reference vs name</div>
+<b>int i = 0;  int A[3] = {10, 20, 30};  void P(int x){ i = i + 1; x = x + 100; }  The call is P(A[i]). What is A[1] after the call under (a) call by reference and (b) call by name?</b>
+<ol class="gopts"><li>(a) 20,  (b) 120</li><li>(a) 120, (b) 20</li><li>(a) 20,  (b) 20</li><li>(a) 120, (b) 120</li></ol>
+<pre>Call by reference: the ADDRESS of A[i] is fixed at call time, i = 0 → x aliases A[0].
+   i = 1;  x = x + 100  →  A[0] = 110.     A = {110, 20, 30}  →  A[1] = 20
+
+Call by name: x is re-evaluated as A[i] at every use.
+   i = i + 1  → i = 1  FIRST.   Then x = x + 100 means A[1] = A[1] + 100 = 120.
+   A = {10, 120, 30}  →  A[1] = 120</pre>
+<p class="gans">Correct: Option 1 — (a) A[1] = 20, (b) A[1] = 120.</p>
+</div>
+
+<div class="gq"><div class="gtag">Q7 · Basic blocks and flow graph</div>
+<b>For the three-address code below, how many basic blocks and how many edges does the flow graph have?</b>
+<pre>1: i = 0
+2: s = 0
+3: if i >= n goto 9
+4: t = i % 2
+5: if t == 0 goto 7
+6: s = s + i
+7: i = i + 1
+8: goto 3
+9: return s</pre>
+<ol class="gopts"><li>5 blocks, 6 edges</li><li>6 blocks, 7 edges</li><li>6 blocks, 8 edges</li><li>7 blocks, 7 edges</li></ol>
+<pre>Leaders: 1 (first),  jump targets 9, 7, 3,  instructions after jumps 4, 6, 9
+         → {1, 3, 4, 6, 7, 9}
+
+B1={1,2}  B2={3}  B3={4,5}  B4={6}  B5={7,8}  B6={9}      → 6 blocks
+
+Edges: B1→B2   B2→B3 (fall-through)   B2→B6 (goto 9)
+       B3→B4 (fall-through)   B3→B5 (goto 7)   B4→B5   B5→B2 (goto 3)   → 7 edges</pre>
+<p class="gans">Correct: Option 2 — 6 basic blocks and 7 edges.</p>
+</div>
+
+<div class="gq"><div class="gtag">Q8 · Reaching definitions</div>
+<b>B1: d1: a = 1;  d2: b = 2.   B2: d3: a = a + b (loops to itself, then goes to B3).   B3: d4: c = a + b.  Which definitions are in IN[B3]?</b>
+<ol class="gopts"><li>{d1, d2, d3}</li><li>{d2, d3}</li><li>{d1, d3}</li><li>{d2, d3, d4}</li></ol>
+<pre>gen:  B1={d1,d2}  B2={d3}  B3={d4}        kill: B1={d3}  B2={d1}  B3=∅
+OUT[B1] = {d1, d2}
+IN[B2]  = OUT[B1] ∪ OUT[B2]            OUT[B2] = {d3} ∪ (IN[B2] − {d1})
+  pass 1: IN[B2]={d1,d2}          OUT[B2]={d2,d3}
+  pass 2: IN[B2]={d1,d2,d3}       OUT[B2]={d2,d3}      (no change → done)
+IN[B3] = OUT[B2] = {d2, d3}</pre>
+d1 is killed by d3 inside B2, so only d3 (for a) and d2 (for b) reach B3.
+<p class="gans">Correct: Option 2 — {d2, d3}.</p>
+</div>
+
+<div class="gq"><div class="gtag">Q9 · Register allocation</div>
+<b>What is the minimum number of registers needed (without spilling) for the following straight-line code?</b>
+<pre>1: a = 1      2: b = 2      3: c = a + b
+4: d = a * c  5: e = b + d  6: print(e)</pre>
+<ol class="gopts"><li>2</li><li>3</li><li>4</li><li>5</li></ol>
+<pre>Variables live after each instruction:
+ 1:{a}   2:{a,b}   3:{a,b,c}   4:{b,d}   5:{e}   6:∅
+Interference edges: a–b, a–c, b–c, b–d
+a, b, c are mutually live → a triangle → at least 3 colours;
+d can reuse the register of a or c (their last use is the very instruction defining d).</pre>
+<p class="gans">Correct: Option 2 — 3 registers.</p>
+</div>
+
+<div class="gq"><div class="gtag">Q10 · FIRST and FOLLOW sets</div>
+<b>For the grammar below, what are |FIRST(S)| (counting ε if it belongs) and |FOLLOW(B)|?</b>
+<pre>S → A C B | C b b | B a
+A → d a | B C
+B → g | ε
+C → h | ε</pre>
+<ol class="gopts"><li>5 and 4</li><li>6 and 3</li><li>6 and 4</li><li>5 and 5</li></ol>
+<pre>Nullable: B, C (direct ε);  A → BC is nullable;  S → ACB is nullable.
+FIRST(B) = {g, ε}    FIRST(C) = {h, ε}    FIRST(A) = {d} ∪ (FIRST(B)−ε) ∪ (FIRST(C)−ε) ∪ {ε} = {d, g, h, ε}
+FIRST(S): from ACB → {d, g, h, ε}   from Cbb → {h, b}   from Ba → {g, a}
+          = {a, b, d, g, h, ε}   → 6 elements (ε is there because S → ACB can vanish)
+
+FOLLOW(S) = {$}
+FOLLOW(A): in S → A C B, what follows is CB, whose FIRST is {h, g, ε}; CB is nullable, so add FOLLOW(S)
+          = {g, h, $}
+FOLLOW(B): S → ACB (B at the end)   → FOLLOW(S) = {$}
+           S → Ba                   → {a}
+           A → BC                   → FIRST(C)−ε = {h};  C nullable → add FOLLOW(A) = {g, h, $}
+          = {a, g, h, $}   → 4 elements</pre>
+<p class="gans">Correct: Option 3 — |FIRST(S)| = 6, |FOLLOW(B)| = 4.</p>
+</div>
+
+<div class="gq"><div class="gtag">Q11 · Three-address code from an expression</div>
+<b>A syntax-directed translator generates three-address code for  a = b * -c + b * -c.  How many instructions does it emit as-is, and how many remain after common sub-expressions are merged (DAG-based generation)?</b>
+<ol class="gopts"><li>6 and 5</li><li>5 and 4</li><li>7 and 4</li><li>6 and 4</li></ol>
+<pre>As-is (one temporary per operator node):          After merging the repeated  b * -c:
+  t1 = uminus c                                     t1 = uminus c
+  t2 = b * t1                                       t2 = b * t1
+  t3 = uminus c                                     t3 = t2 + t2
+  t4 = b * t3                                       a  = t3
+  t5 = t2 + t4
+  a  = t5
+  6 instructions, 5 temporaries                     4 instructions, 3 temporaries
+
+Triples need no temporaries but also 6 vs 4 entries:
+  (0) uminus c   (1) * b (0)   (2) uminus c   (3) * b (2)   (4) + (1) (3)   (5) = a (4)</pre>
+<p class="gans">Correct: Option 4 — 6 instructions as-is, 4 after merging common sub-expressions.</p>
+</div>
+
+<div class="gq"><div class="gtag">Q12 · Shift–reduce conflict in a specific grammar</div>
+<b>For the (dangling-else) grammar  S → i S | i S e S | a,  how many states does the LR(0) automaton of the augmented grammar have, and how many shift–reduce conflicts occur in the SLR(1) table?</b>
+<ol class="gopts"><li>7 states, 0 conflicts</li><li>6 states, 1 conflict</li><li>7 states, 1 conflict</li><li>8 states, 2 conflicts</li></ol>
+<pre>I0 : S'→·S, S→·iS, S→·iSeS, S→·a
+I1 = goto(I0,S): S'→S·                       I3 = goto(I0,a): S→a·
+I2 = goto(I0,i): S→i·S, S→i·SeS, + closure   (goto(I2,i) = I2, goto(I2,a) = I3)
+I4 = goto(I2,S): S→iS·   S→iS·eS             ← conflict state
+I5 = goto(I4,e): S→iSe·S + closure           I6 = goto(I5,S): S→iSeS·
+→ 7 states.
+
+In I4: reduce S→iS· on FOLLOW(S) = {e, $}   and   shift on e.
+       The terminal e is in both → one shift–reduce conflict (cell [I4, e]).
+       On $ there is only the reduce, so no conflict there.
+
+Resolution: prefer SHIFT, so each else attaches to the nearest unmatched i.
+The conflict is real ambiguity, so even LR(1) would still have it.</pre>
+<p class="gans">Correct: Option 3 — 7 states, 1 shift–reduce conflict.</p>
+</div>
+
+<div class="gq"><div class="gtag">Q13 · Dominators, back edges and natural loops</div>
+<b>A flow graph with entry node 1 has edges 1→2, 2→3, 2→4, 3→5, 4→5, 5→6, 6→5, 6→7 and 7→2. How many back edges does it have, what is the immediate dominator of node 5, and how many nodes are in the natural loop of the back edge into node 2?</b>
+<ol class="gopts"><li>2 back edges; idom(5) = 2; 6 nodes</li><li>2 back edges; idom(5) = 3; 6 nodes</li><li>3 back edges; idom(5) = 2; 4 nodes</li><li>2 back edges; idom(5) = 2; 4 nodes</li></ol>
+<pre>Dominators: d dominates n if every path from the entry to n passes through d.   Dom(n) = {n} ∪ ⋂ Dom(p) over predecessors p.
+   Dom(1) = {1}          Dom(2) = {1,2}
+   Dom(3) = {1,2,3}      Dom(4) = {1,2,4}
+   Dom(5) = {n} ∪ (Dom(3) ∩ Dom(4)) = {5} ∪ {1,2} = {1,2,5}      (3 and 4 are alternatives, so neither dominates 5)
+   Dom(6) = {1,2,5,6}    Dom(7) = {1,2,5,6,7}
+Immediate dominator = the closest strict dominator:  idom(5) = 2  (also idom(3) = idom(4) = 2, idom(6) = 5, idom(7) = 6).
+
+Back edge = an edge u→v where v dominates u:
+   6→5 (5 ∈ Dom(6)) ✔     7→2 (2 ∈ Dom(7)) ✔     the other edges go 'forward' → exactly 2 back edges.
+
+Natural loop of a back edge u→v = v plus every node that can reach u without passing through v.
+   Edge 6→5:  {5, 6}                                (the inner loop)
+   Edge 7→2:  start from 7; predecessors 6 → 5 → 3, 4 → (2 is the header, stop):  {2, 3, 4, 5, 6, 7}  → 6 nodes (the outer loop contains the inner one)
+Check: dominator sets, immediate dominators and both loops were recomputed by program, and the immediate dominators agree with a graph-library routine.
+Trap: 3→5 and 4→5 are not back edges and node 3 does not dominate node 5 — a join of two branches is dominated only by the node before the split.</pre>
+<p class="gans">Correct: Option 1 — 2 back edges, idom(5) = 2, and the outer natural loop has 6 nodes.</p>
+</div>
+
+<div class="gq"><div class="gtag">Q14 · Live-variable analysis (backward data-flow)</div>
+<b>A flow graph has blocks B1 … B6 with edges B1→B2→B3, B3→B4, B3→B5, B4→B6, B5→B6. Statements: B1: a = 1; b = 2   B2: c = a + b; d = c * 2   B3: if (d &gt; 10) goto B5   B4: a = d + 1   B5: b = c + 1   B6: print(a + b). What are LiveOut(B3) and LiveIn(B5)?</b>
+<ol class="gopts"><li>{a, b, c, d} and {a, c}</li><li>{b, d} and {a, c}</li><li>{a, b, c, d} and {b, c}</li><li>{a, c, d} and {a, c}</li></ol>
+<pre>Live-variable equations (backward, may-analysis):
+   LiveIn(B)  = Use(B) ∪ ( LiveOut(B) − Def(B) )          LiveOut(B) = ∪ LiveIn(S) over successors S
+Use(B) = variables read before being written in B; Def(B) = variables written in B.
+
+   Block  Use      Def       LiveOut          LiveIn
+   B6     {a,b}    {}        {}               {a,b}
+   B5     {c}      {b}       {a,b}            {c} ∪ ({a,b} − {b}) = {a,c}
+   B4     {d}      {a}       {a,b}            {d} ∪ ({a,b} − {a}) = {b,d}
+   B3     {d}      {}        LiveIn(B4) ∪ LiveIn(B5) = {b,d} ∪ {a,c} = {a,b,c,d}      LiveIn = {d} ∪ {a,b,c,d} = {a,b,c,d}
+   B2     {a,b}    {c,d}     {a,b,c,d}        {a,b} ∪ ({a,b,c,d} − {c,d}) = {a,b}
+   B1     {}       {a,b}     {a,b}            {} ∪ ({a,b} − {a,b}) = {}          (nothing is live on entry — good: no use of uninitialised variables)
+
+Process the blocks in reverse order of the flow; with no loops one pass is enough (the program needed 2 rounds only to confirm nothing changed).
+Four variables (a, b, c, d) are live together at B3, so at least 4 registers (or spills) are needed there.
+Check: the equations were solved by program and give exactly the table above.
+Trap: a variable defined in a block is NOT live-in unless it is also used before its definition; and LiveOut takes the UNION over all successors.</pre>
+<p class="gans">Correct: Option 1 — LiveOut(B3) = {a, b, c, d} and LiveIn(B5) = {a, c}.</p>
+</div>
+
+<div class="gq"><div class="gtag">Q15 · Static versus dynamic scoping — program output</div>
+<b>Consider the following program (all variables are int).<br>  int x = 10;<br>  void f() { x = x + 1; printf("%d ", x); }<br>  void g() { int x = 20; f(); x = x + 1; printf("%d ", x); }<br>  void h() { int x = 30; g(); }<br>  main() { h(); printf("%d", x); }<br>What is printed under static (lexical) scoping and under dynamic scoping respectively?</b>
+<ol class="gopts"><li>11 21 11  and  21 22 10</li><li>11 21 11  and  31 32 10</li><li>21 22 10  and  11 21 11</li><li>11 21 10  and  21 22 11</li></ol>
+<pre>Static scoping: a free variable refers to the declaration visible in the program TEXT.  f is declared at top level, so its x is the global x.
+   h() → g() → f():  global x = 10 + 1 = 11 → prints 11
+   back in g: its local x = 20 + 1 = 21 → prints 21
+   main prints the global x = 11.                                   Output: 11 21 11
+
+Dynamic scoping: a free variable refers to the MOST RECENT active binding on the call stack.
+   call stack when f runs:  main → h (x = 30) → g (x = 20) → f
+   f finds x in g's frame (the nearest one): 20 + 1 = 21 → prints 21
+   back in g: x = 21 + 1 = 22 → prints 22
+   the global x was never touched, so main prints 10.               Output: 21 22 10
+
+Check: both scoping rules were simulated with an explicit stack of activation records: static → 11 21 11, dynamic → 21 22 10.
+Remember: static scoping is what C, Java and Pascal use; dynamic scoping needs a run-time search of the stack (or an access chain) and makes a function's behaviour depend on its caller.</pre>
+<p class="gans">Correct: Option 1 — static: 11 21 11; dynamic: 21 22 10.</p>
+</div>
+
+<div class="gq"><div class="gtag">Q16 · Recursion — activation records and stack depth</div>
+<b>A function int fib(int n) { if (n &lt; 2) return n; return fib(n−1) + fib(n−2); } is called as fib(6). What value is returned, how many calls (activation records created) are made in total, and what is the maximum number of activation records on the stack at the same time?</b>
+<ol class="gopts"><li>8, 25 calls, depth 6</li><li>8, 15 calls, depth 6</li><li>8, 25 calls, depth 11</li><li>13, 25 calls, depth 6</li></ol>
+<pre>Value: fib(0..6) = 0 1 1 2 3 5 8  →  fib(6) = 8.
+
+Total calls C(n): C(0) = C(1) = 1, and C(n) = 1 + C(n−1) + C(n−2).
+   C(2) = 3, C(3) = 5, C(4) = 9, C(5) = 15, C(6) = 25        (in general C(n) = 2·fib(n+1) − 1 = 2·13 − 1 = 25)
+
+Maximum stack depth: the program follows the leftmost path fib(6) → fib(5) → fib(4) → fib(3) → fib(2) → fib(1).
+   At that moment 6 activation records exist (n = 6, 5, 4, 3, 2, 1); as soon as fib(1) returns, its record is popped before the next call is made.
+   So the depth is n = 6 — LINEAR, although the number of calls is exponential (≈ 1.6^n).
+Each activation record holds the parameter n, the return address, the saved frame pointer and the temporaries for the pending addition;
+if one record takes 24 bytes the peak stack use is 6 × 24 = 144 bytes.
+Check: instrumenting the function gave fib(6) = 8, 25 calls and a maximum depth of 6.
+Trap: counting every call as simultaneously live (25) or adding both branches' depths (11) confuses TIME with STACK SPACE.</pre>
+<p class="gans">Correct: Option 1 — fib(6) = 8 with 25 calls and a maximum stack depth of 6.</p>
+</div>
+</section>
+
+</main>
+</div>
+<footer>Complete · 7 GATE CSE 2027 Compiler Design topics · 56-question basic quiz · 16 fully solved GATE-level problems</footer>
+<script>
+const Q = [
+["LEX","Which phase of a compiler converts a stream of characters into a stream of tokens?",["Code generation","Syntax analysis","Lexical analysis","Semantic analysis"],2,"The lexical analyser (scanner) groups characters into lexemes and emits tokens for the parser."],
+["LEX","The 'maximal munch' (longest match) rule in a lexer means:",["The lexer always picks the shortest matching prefix","The lexer consumes the longest prefix of the input that matches some token pattern","Keywords are always preferred over identifiers","Whitespace is always a token"],1,"Maximal munch makes >= one token instead of > and =. Ties between equal-length matches are broken by the order of the rules."],
+["LEX","A missing semicolon at the end of a statement is detected during:",["Linking","Syntax analysis (parsing)","Code optimisation","Lexical analysis"],1,"The tokens are all valid, but they do not fit the grammar. Structure errors are the parser's job."],
+["LEX","Using an undeclared variable, or adding an int to a function name, is caught in:",["Syntax analysis","Lexical analysis","Semantic analysis","Code generation"],2,"Declarations and types are context-sensitive, so they are checked after parsing using the symbol table."],
+["LEX","How many tokens are in the C statement  x = y+++z;  ?",["7","6","5","8"],0,"By maximal munch: x  =  y  ++  +  z  ;  = 7 tokens."],
+["LEX","Token patterns (identifiers, numbers, keywords) are specified using:",["Attribute grammars","Context-free grammars","Turing machines","Regular expressions"],3,"Tokens form regular languages, so regex → NFA → DFA is how Lex/Flex builds a scanner."],
+["TD","Why can a top-down (recursive-descent) parser not handle a left-recursive grammar such as A → Aα | β ?",["It would call A repeatedly without consuming any input, looping forever","It needs too much memory","Left recursion makes the grammar ambiguous","It cannot handle terminals"],0,"Expanding A immediately calls A again on the same input position, causing infinite recursion."],
+["TD","Eliminating immediate left recursion from  A → Aα | β  gives:",["A → βA | α","A → βA' ,  A' → αA' | ε","A → Aβ | α","A → αA' ,  A' → βA' | ε"],1,"β must come first (it is the only way to start), followed by zero or more α via the right-recursive A'."],
+["TD","Which symbol can NEVER belong to a FOLLOW set?",["$","ε","A closing bracket","A terminal"],1,"FOLLOW sets contain terminals and $ only; ε only appears in FIRST sets (to show nullability)."],
+["TD","FOLLOW(S) for the grammar S → aSb | ε is:",["{ b, $ }","{ b }","{ $ }","{ a, b, $ }"],0,"$ is in FOLLOW of the start symbol, and in S → aSb the inner S is followed by b."],
+["TD","Which of the following grammars can never be LL(1)?",["A grammar with an ε-production","A grammar with more than one nonterminal","An ambiguous grammar","A grammar with a right-recursive rule"],2,"Every LL(1) grammar is unambiguous. ε-productions are fine as long as FIRST/FOLLOW do not clash."],
+["TD","An LL(1) predictive parser never needs to backtrack because:",["It guesses and rolls back cheaply","It reads the entire input first","It uses two stacks","For each (nonterminal, lookahead) pair the table has at most one production"],3,"The LL(1) condition guarantees each table cell holds at most one entry, so the next move is forced."],
+["TD","For  S → AB,  A → a | ε,  B → b | ε , FIRST(S) is:",["{ a, b }","{ a, b, ε }","{ a }","{ ε }"],1,"A can start with a or vanish, then B can start with b or vanish; both nullable, so S is nullable too."],
+["TD","In an LL(1) parsing table, the production A → ε is entered in the columns for the terminals in:",["Every terminal","FIRST(ε)","FOLLOW(A)","FIRST(A)"],2,"A → ε is chosen when the lookahead can legally come after A, i.e. when it belongs to FOLLOW(A)."],
+["BU","An LR parser constructs:",["A leftmost derivation in reverse","A rightmost derivation in reverse","A leftmost derivation top-down","A random derivation"],1,"LR = Left-to-right scan, Rightmost derivation in reverse (bottom-up reductions)."],
+["BU","In shift-reduce parsing, a 'handle' is:",["A substring matching the RHS of a production whose reduction is a step of the reverse rightmost derivation","Any substring of the input","The top stack symbol only","The lookahead symbol"],0,"Reducing a handle moves one step back along the rightmost derivation toward the start symbol."],
+["BU","Which parser has the largest number of states for the same grammar?",["CLR(1)","SLR(1)","LR(0)","LALR(1)"],0,"LR(0), SLR(1) and LALR(1) share the same number of states; CLR(1) splits states by lookahead and can have more."],
+["BU","Which three parsers have the same number of states (and the same item sets cores)?",["All four are different","LR(0), SLR(1), LALR(1)","LR(0), CLR(1), LL(1)","SLR(1), LALR(1), CLR(1)"],1,"SLR and LALR use LR(0)-sized automata; CLR is bigger."],
+["BU","Merging states of a CLR(1) parser to obtain LALR(1) can introduce:",["Both always","Shift-reduce conflicts","No conflicts ever","Reduce-reduce conflicts"],3,"Merging states with the same core can combine lookaheads and cause reduce-reduce conflicts, but never a new shift-reduce one."],
+["BU","An ambiguous grammar is:",["Always SLR(1)","LR(1)","Not LR(k) for any k","LL(1)"],2,"Ambiguity forces a conflict in every LR table, so no ambiguous grammar is LR(k)."],
+["BU","YACC and Bison generate which type of parser?",["LALR(1)","CLR(1)","LL(1)","SLR(1)"],0,"LALR(1) gives most of CLR's power with far smaller tables."],
+["BU","In an SLR(1) table, a reduction by A → α is placed under the terminals in:",["FOLLOW(A)","FIRST(α)","The whole alphabet","FIRST(A)"],0,"SLR uses the coarse FOLLOW(A); LALR/CLR use more precise lookaheads."],
+["BU","Which statement is TRUE?",["Every SLR(1) grammar is LL(1)","LL(1) grammars may be ambiguous","Every LL(1) grammar is LR(1)","Every LR(1) grammar is LL(1)"],2,"LL(1) is a strict subset of LR(1). LR(1) grammars can have left recursion, which LL(1) cannot."],
+["SDT","A synthesized attribute of a node is computed from:",["Its parent only","Its children (and itself)","The symbol table only","Its siblings only"],1,"Synthesized attributes flow bottom-up in the parse tree."],
+["SDT","An inherited attribute of a node is computed from:",["Its parent and/or siblings","Its children only","Nothing — it is constant","Only the lexer"],0,"Inherited attributes flow top-down or sideways, e.g. passing a declared type down to a list of identifiers."],
+["SDT","An S-attributed SDD uses:",["Only inherited attributes","No attributes","Only synthesized attributes","Both with no restriction"],2,"S-attributed definitions can be evaluated bottom-up during LR parsing, at reduce time."],
+["SDT","In an L-attributed SDD, an inherited attribute of a RHS symbol may depend on:",["The parent's inherited attributes and symbols to its left","Anything in the tree","Symbols to its right","Its own synthesized attributes"],0,"This restriction allows a single left-to-right depth-first evaluation."],
+["SDT","With the postfix scheme  E → E + T {print('+')},  T → T * F {print('*')},  F → num {print(num)} , what is printed for 2 + 3 * 4 ?",["2 3 4 * +","2 3 + 4 *","2 + 3 * 4","+ 2 * 3 4"],0,"Actions fire at reduction time (post-order): 2, 3, 4, then * (3*4), then + — giving 2 3 4 * +."],
+["SDT","For attributes to be evaluable in any order consistent with dependencies, the attribute dependency graph must be:",["Bipartite","Complete","Acyclic","A single path"],2,"A cycle would mean an attribute depends on itself, so no evaluation order exists."],
+["RT","The access link (static link) in an activation record points to:",["The return address","The caller's activation record","The activation record of the lexically enclosing procedure","The heap"],2,"It is used to reach non-local variables in languages with nested procedures."],
+["RT","The control link (dynamic link) points to:",["The enclosing procedure in the source","The caller's activation record","The global data","The next free heap block"],1,"It lets the runtime pop the current frame and restore the caller's frame on return."],
+["RT","Under dynamic scoping, a non-local name is resolved using:",["The chain of calling procedures at run time","The textual nesting of procedures","Only global variables","The compiler's symbol table at compile time"],0,"Dynamic scoping follows the call chain; static scoping follows the program text."],
+["RT","Local variables of a recursive function are allocated:",["In registers only, permanently","On the heap only","On the stack, in a new activation record per call","In static data, one copy shared by all calls"],2,"Each call gets its own activation record, so each recursive invocation has independent locals."],
+["RT","int i = 1;  void P(int x, int y){ x = x + 1; y = y * 2; }  P(i, i);  With call by reference, the final value of i is:",["1","3","2","4"],3,"x and y alias i: i = 1+1 = 2, then i = 2*2 = 4."],
+["RT","Call by name differs from call by reference when:",["The actual parameter is an expression such as A[i] whose variables change inside the callee","The formal parameter is an array","The procedure has no parameters","The actual parameter is a constant"],0,"Call by name re-evaluates the actual expression on every use, with the current values of its variables."],
+["IR","Three-address code allows, on the right-hand side of an instruction:",["Only constants","Exactly three operators","At most one operator","Any number of operators"],2,"Each instruction has the form x = y op z, with at most one operator."],
+["IR","A quadruple consists of the fields:",["(result, op)","(op, arg1, arg2, result)","(label, op, arg)","(op, arg1, arg2)"],1,"Quadruples store the result name explicitly, so instructions can be reordered easily."],
+["IR","Compared to quadruples, triples:",["Cannot represent binary operators","Store the result in an explicit temporary","Use positions of other triples to refer to results, saving space but making reordering harder","Have four fields"],2,"Indirect triples fix the reordering problem with an extra pointer list."],
+["IR","Which instruction is NOT necessarily a leader when finding basic blocks?",["The instruction immediately following a jump","The target of a jump","The last instruction of the program","The first instruction of the program"],2,"Leaders are: first instruction, jump targets, instructions right after jumps. The last instruction need not be one."],
+["IR","int A[10][20], base 1000, element width 4, 0-indexed, row-major. The address of A[3][5] is:",["1212","1260","1300","1176"],1,"1000 + (3·20 + 5)·4 = 1000 + 260 = 1260."],
+["IR","Backpatching is used to:",["Fill in the targets of forward jumps once the target labels are known, in a single pass","Remove dead code","Rename variables","Allocate registers"],0,"Jumps are emitted with blank targets, kept on lists, and patched when the labels appear."],
+["IR","The minimum number of temporaries needed for the TAC of  a = b + c * d - e  is:",["3","2","4","1"],1,"t1 = c*d ; t2 = b+t1 ; a = t2 - e — two temporaries."],
+["OPT","Evaluating  x = 3 * 4  at compile time and replacing it by  x = 12  is:",["Strength reduction","Constant folding","Loop unrolling","Dead-code elimination"],1,"Constant folding computes expressions whose operands are all constants during compilation."],
+["OPT","Replacing  x * 8  by  x << 3  is an example of:",["Constant folding","Copy propagation","Inlining","Strength reduction"],3,"A costly operation is replaced by an equivalent cheaper one."],
+["OPT","Loop-invariant code motion moves a computation:",["To the end of the program","Out of the loop because its value does not change across iterations","Into the loop body","To another procedure"],1,"The invariant expression is computed once before the loop rather than every iteration."],
+["OPT","Reaching definitions is a:",["Backward, may analysis","Backward, must analysis","Forward, must (intersection) analysis","Forward, may (union) analysis"],3,"IN[B] is the union of OUT of predecessors, and information flows along execution direction."],
+["OPT","Live-variable analysis is a:",["Backward, must analysis","Forward, may analysis","Forward, must analysis","Backward, may (union) analysis"],3,"A variable is live at a point if it MAY be used on SOME path later, so it flows backward with union."],
+["OPT","Available-expressions analysis is a:",["Backward analysis with intersection","Forward analysis with union at joins","Forward analysis with intersection at joins","Backward analysis with union at joins"],2,"An expression is available only if it is computed on ALL paths reaching the point, hence ∩."],
+["OPT","In graph-colouring register allocation, an edge between two variables means:",["One is a copy of the other","They have the same type","They are live at the same time and need different registers","They are assigned in the same statement"],2,"With k registers we need a k-colouring of the interference graph; otherwise a variable is spilled."],
+["OPT","Peephole optimisation works on:",["A small window of (usually target) instructions, replacing patterns with cheaper ones","Only the symbol table","The whole program at once","Only the source code"],0,"Typical peephole gains: removing redundant loads/stores, unreachable code, and algebraic simplifications."],
+["SDT", "Using an undeclared variable, or adding an int to a string, is detected during:", ["Lexical analysis", "Semantic analysis (type checking)", "Syntax analysis (parsing)", "Code optimisation"], 1, "These errors are well-formed token sequences that obey the grammar; only the symbol table and type rules, applied in semantic analysis, catch them."],
+["RT", "Reference-counting garbage collection cannot reclaim:", ["Cyclic structures whose objects reference each other", "Objects with a count of zero", "Objects allocated on the stack", "Objects larger than one word"], 0, "Objects in a cycle keep each other's counts above zero even when nothing outside can reach them; a tracing collector (mark-and-sweep) handles cycles."],
+["LEX", "The task of a loader (and of the relocation step in a linker) is to:", ["Convert source code into tokens", "Remove common subexpressions", "Adjust relocatable addresses and place the program in memory for execution", "Check the types of expressions"], 2, "Object code is generated with addresses relative to the module start; the linker resolves external references and the loader adds the actual load address."],
+["LEX", "An interpreter differs from a compiler in that an interpreter:", ["Always produces faster code", "Cannot perform lexical analysis", "Needs no symbol table", "Executes the program (or its intermediate form) directly without producing a separate target program"], 3, "Translation and execution are interleaved, which gives easier debugging and portability at the cost of slower execution."],
+["BU", "Panic-mode error recovery in a parser:", ["Discards input tokens until a synchronising token such as a semicolon is found", "Inserts random tokens until the input parses", "Stops at the first error and reports nothing else", "Restarts parsing from the first token"], 0, "It is simple and cannot loop forever; the set of synchronising tokens (statement terminators, closing brackets) lets parsing resume and find later errors."],
+["OPT", "For the block  t1 = b + c;  t2 = b + c;  t3 = t1 * t2  the DAG has how many nodes?", ["3", "4", "5", "6"], 1, "The leaves b and c are shared, both + operations are the same node (a common subexpression), and the * node uses it twice: 2 leaves + 1 '+' + 1 '*' = 4."]
+];
+const MSQ=[["BU", "Which statements about LR parsing are correct?", ["It is bottom-up", "It represents a rightmost derivation in reverse", "Shift-reduce conflicts can occur", "It is identical to LL(1)"], [0, 1, 2], "LR is bottom-up, corresponds to rightmost derivation in reverse, and can have conflicts. It is not identical to LL(1)."], ["OPT", "Which are semantics-preserving compiler optimizations?", ["Constant folding", "Common-subexpression elimination", "Dead-code elimination", "Changing observable program behavior"], [0, 1, 2], "The first three are standard optimizations; changing observable semantics is not a valid optimization."]];
+const topics={LEX:"Lexical Analysis",TD:"Top-Down Parsing",BU:"Bottom-Up Parsing",SDT:"Syntax-Directed Translation",RT:"Runtime Environments",IR:"Intermediate Code",OPT:"Optimisation & CodeGen"};
+let filter="ALL",answered=0,correct=0,mode="MCQ";
+function renderMCQ(){
+  const list=document.getElementById('qlist');
+  list.innerHTML="";
+  Q.forEach((item,i)=>{
+    const [t,q,opts,ans,exp]=item;
+    if(filter!=="ALL"&&filter!==t) return;
+    const card=document.createElement('div'); card.className='qcard';
+    const tag=document.createElement('div'); tag.className='qtag'; tag.textContent=topics[t]+" · Q"+(i+1);
+    const qt=document.createElement('div'); qt.className='qtext'; qt.textContent=q;
+    card.appendChild(tag); card.appendChild(qt);
+    const order = opts.map((_,i)=>i);
+    for(let k=order.length-1;k>0;k--){
+      const j=Math.floor(Math.random()*(k+1));
+      [order[k],order[j]]=[order[j],order[k]];
+    }
+    order.forEach(oi=>{
+      const o=opts[oi];
+      const b=document.createElement('button'); b.className='opt'; b.textContent=o;
+      b.onclick=()=>{
+        if(b.dataset.done) return;
+        [...card.querySelectorAll('.opt')].forEach(x=>x.dataset.done=1);
+        const buttons=[...card.querySelectorAll('.opt')];
+        const correctPos=order.indexOf(ans);
+        buttons[correctPos].classList.add('correct');
+        if(oi!==ans) b.classList.add('wrong');
+        card.querySelector('.expl').classList.add('show');
+        answered++; if(oi===ans) correct++;
+        document.getElementById('ansCount').textContent=answered;
+        document.getElementById('corrCount').textContent=correct;
+      };
+      card.appendChild(b);
+    });
+    const e=document.createElement('div'); e.className='expl'; e.textContent=exp;
+    card.appendChild(e);
+    list.appendChild(card);
+  });
+}
+
+function renderMSQ(){
+ const list=document.getElementById('qlist'); list.innerHTML='';
+ MSQ.forEach((item,i)=>{
+  const [t,q,opts,ans,exp]=item; if(filter!=="ALL"&&filter!==t)return;
+  const card=document.createElement('div'); card.className='qcard';
+  const tag=document.createElement('div'); tag.className='qtag'; tag.textContent=(topics[t]||t)+' · MSQ'+(i+1); card.appendChild(tag);
+  const qt=document.createElement('div'); qt.className='qtext'; qt.textContent=q; card.appendChild(qt);
+  const hint=document.createElement('div'); hint.className='sub'; hint.textContent='Select all correct options. Scoring is all-or-nothing.'; card.appendChild(hint);
+  const order=[...opts.keys()]; for(let k=order.length-1;k>0;k--){const j=Math.floor(Math.random()*(k+1));[order[k],order[j]]=[order[j],order[k]];}
+  const selected=new Set();
+  order.forEach(orig=>{const b=document.createElement('button');b.className='opt';b.textContent=opts[orig];b.onclick=()=>{if(card.dataset.submitted)return;if(selected.has(orig)){selected.delete(orig);b.classList.remove('selected');}else{selected.add(orig);b.classList.add('selected');}};card.appendChild(b);});
+  const submit=document.createElement('button');submit.className='hy-btn primary';submit.style.marginTop='10px';submit.textContent='Submit MSQ';submit.onclick=()=>{if(card.dataset.submitted||selected.size===0)return;card.dataset.submitted='1';const correctSet=new Set(ans);const ok=selected.size===correctSet.size&&[...selected].every(x=>correctSet.has(x));const buttons=[...card.querySelectorAll('.opt')];buttons.forEach((b,idx)=>{const orig=order[idx];if(correctSet.has(orig))b.classList.add('correct');if(selected.has(orig)&&!correctSet.has(orig))b.classList.add('wrong');b.dataset.done=1;});card.querySelector('.expl').classList.add('show');answered++;if(ok)correct++;document.getElementById('ansCount').textContent=answered;document.getElementById('corrCount').textContent=correct;};card.appendChild(submit);
+  const e=document.createElement('div');e.className='expl';e.textContent=exp;card.appendChild(e);list.appendChild(card);
+ });
+}
+function render(){mode==='MCQ'?renderMCQ():renderMSQ();}
+
+const bar=document.getElementById('qtopics');
+["ALL",...Object.keys(topics)].forEach(t=>{
+  const b=document.createElement('button'); b.textContent=t==="ALL"?"All 56":topics[t];
+  if(t==="ALL")b.classList.add('active');
+  b.onclick=()=>{filter=t; [...bar.children].forEach(x=>x.classList.remove('active')); b.classList.add('active'); render();};
+  bar.appendChild(b);
+});
+function resetQuizScore(total){answered=0;correct=0;document.getElementById('ansCount').textContent='0';document.getElementById('corrCount').textContent='0';const sc=document.getElementById('score');if(sc)sc.innerHTML='Answered <b id="ansCount">0</b>/'+total+' · Correct <b id="corrCount">0</b>';}
+document.getElementById('mcqMode').onclick=()=>{mode='MCQ';resetQuizScore(Q.length);document.getElementById('mcqMode').classList.add('active');document.getElementById('msqMode').classList.remove('active');render();};
+document.getElementById('msqMode').onclick=()=>{mode='MSQ';resetQuizScore(MSQ.length);document.getElementById('msqMode').classList.add('active');document.getElementById('mcqMode').classList.remove('active');render();};
+render();
+</script>
+
+<script>
+(function(){
+  const curatedRapid = [["must", "Lexical analysis converts characters into tokens; lexical errors are detected before parsing."], ["must", "Longest-match (maximal munch) is the standard lexer rule; keyword recognition may be handled after identifier matching."], ["formula", "FIRST(α) is the set of terminals that can begin strings derived from α; include ε when α can derive ε."], ["formula", "FOLLOW(A) contains terminals that can appear immediately to the right of A in some sentential form; $ is in FOLLOW(start symbol)."], ["must", "An LL(1) grammar must avoid FIRST/FIRST conflicts and FIRST/FOLLOW conflicts for ε-productions."], ["must", "LR parsing is bottom-up and constructs a rightmost derivation in reverse."], ["trap", "SLR, canonical LR(1), and LALR differ mainly in the information used to resolve reductions and the number of states."], ["must", "Shift-reduce conflicts and reduce-reduce conflicts are the two classic LR parsing conflicts."], ["must", "Syntax-directed definitions attach semantic rules/actions to grammar productions."], ["must", "Three-address code typically represents expressions using simple instructions with at most three addresses."], ["gate", "Know activation records, static/dynamic links, parameter passing, and storage allocation for runtime-environment questions."], ["must", "Common optimisations include constant folding, common-subexpression elimination, dead-code elimination, and strength reduction."], ["trap", "Optimisation must preserve program semantics; a locally faster transformation is not valid if observable behaviour changes."], ["must", "Type checking is semantic analysis: parse trees can be syntactically valid but type-invalid."], ["must", "A back edge u→v exists when v dominates u; the natural-loop header is v."], ["formula", "Dom(entry)={entry}; for other nodes iterate Dom(n)={n}∪⋂Dom(pred) to a fixed point."], ["must", "Reference counting cannot reclaim cycles; tracing collectors use reachability from roots."], ["must", "Assembler makes object code; linker resolves cross-object symbols; loader places the executable in memory."], ["trap", "Unreachable memory is a leak; a dangling pointer points to storage whose lifetime has ended."], ["must", "Panic-mode recovery discards input to a synchronizing token; phrase-level recovery performs a local correction."]];
+  const labelDefs = {
+    must: ['🟢 Must Remember','hy-must'],
+    trap: ['🟡 Common Trap','hy-trap'],
+    formula: ['🧮 Formula / Rule','hy-formula'],
+    gate: ['⚠️ GATE Favourite','hy-gate'],
+    shortcut: ['💡 Shortcut','hy-shortcut']
+  };
+
+  function addBadge(el, type){
+    if(!el || el.querySelector(':scope > .hy-badge')) return;
+    const [label, cls] = labelDefs[type];
+    el.classList.add('hy-marked');
+    const b=document.createElement('span');
+    b.className='hy-badge '+cls;
+    b.textContent=label;
+    el.insertBefore(b, el.firstChild);
+    el.dataset.hyType=type;
+  }
+
+  function classifyCards(){
+    document.querySelectorAll('main .card').forEach(el=>{
+      const t=el.textContent.replace(/\s+/g,' ').trim().toLowerCase();
+      if(!t || el.closest('#hyRapidPanel')) return;
+      if(/\b(shortcut|quick trick|handy trick|easy trick)\b/.test(t)) addBadge(el,'shortcut');
+      else if(/\b(formula|identity|identities|range\s*=|det\(|log\s*|o\(|theta\(|n\(|probability formula|equation)\b/.test(t)) addBadge(el,'formula');
+      else if(/\b(theorem|key fact|must remember|remember|important|property|properties|rule of thumb|definition|distinction|difference between|classic)\b/.test(t)) addBadge(el,'must');
+    });
+    document.querySelectorAll('main .warn').forEach(el=>{
+      const t=el.textContent.replace(/\s+/g,' ').trim().toLowerCase();
+      addBadge(el, /gate (angle|trap|strategy|note|convention|favourite|favorite)/.test(t) ? 'gate' : 'trap');
+    });
+    document.querySelectorAll('main .num').forEach(el=>{
+      const t=el.textContent.replace(/\s+/g,' ').trim().toLowerCase();
+      if(/\b(rule of thumb|formula|shortcut|range|identity|key|remember)\b/.test(t)) addBadge(el,'formula');
+    });
+    document.querySelectorAll('main .gq').forEach(el=>addBadge(el,'gate'));
+  }
+
+  function makeToolbar(){
+    if(document.querySelector('.hy-toolbar')) return;
+    const main=document.querySelector('.wrap>main');
+    if(!main) return;
+    const toolbar=document.createElement('div');
+    toolbar.className='hy-toolbar';
+    toolbar.innerHTML=`
+      <div class="hy-toolbar-row">
+        <div>
+          <div class="hy-title">⚡ <span>Revision Layer</span></div>
+          <div class="hy-sub">Use Last-Minute mode for a rapid recall pass before solving PYQs.</div>
+        </div>
+        <div class="hy-actions">
+          <button class="hy-btn primary" id="hyRapidOn">⚡ Last-Minute Revision</button>
+          <button class="hy-btn secondary" id="hyRapidOff">↩ Full Notes</button>
+        </div>
+      </div>
+      <div class="hy-legend">
+        <span class="hy-must">🟢 Must Remember</span>
+        <span class="hy-trap">🟡 Common Trap</span>
+        <span class="hy-formula">🧮 Formula / Rule</span>
+        <span class="hy-gate">⚠️ GATE Favourite</span>
+        <span class="hy-shortcut">💡 Shortcut</span>
+      </div>`;
+    main.insertBefore(toolbar, main.firstElementChild);
+    document.getElementById('hyRapidOn').onclick=()=>{buildRapid(); document.body.classList.add('rapid-mode'); window.scrollTo({top:0,behavior:'smooth'});};
+    document.getElementById('hyRapidOff').onclick=()=>{document.body.classList.remove('rapid-mode'); window.scrollTo({top:0,behavior:'smooth'});};
+  }
+
+  function buildRapid(){
+    let panel=document.getElementById('hyRapidPanel');
+    if(panel) return;
+    panel=document.createElement('section');
+    panel.id='hyRapidPanel';
+    panel.innerHTML='<h1>⚡ Last-Minute Revision</h1><p class="rapid-intro">A manually curated recall pass for the final 15–30 minutes before PYQs. Start here, then switch to the full notes only if a point needs clarification.</p>';
+    const curatedBox=document.createElement('div'); curatedBox.className='rapid-curated';
+    curatedBox.innerHTML='<h2>🎯 High-Yield Recall</h2><p class="rapid-note">These points are intentionally selected for quick GATE-oriented recall.</p>';
+    const groups={must:[],trap:[],formula:[],gate:[],shortcut:[]};
+    curatedRapid.forEach(([type,text])=>groups[type]?.push(text));
+    const labels={must:'🟢 Must Remember',trap:'🟡 Common Trap',formula:'🧮 Formula / Rule',gate:'⚠️ GATE Favourite',shortcut:'💡 Shortcut'};
+    Object.entries(groups).forEach(([type,items])=>{
+      if(!items.length) return;
+      const g=document.createElement('div'); g.className='rapid-group '+type;
+      g.innerHTML='<h3>'+labels[type]+'</h3>';
+      const ul=document.createElement('ul'); items.forEach(x=>{const li=document.createElement('li'); li.textContent=x; ul.appendChild(li);});
+      g.appendChild(ul); curatedBox.appendChild(g);
+    });
+    panel.appendChild(curatedBox);
+    const sourceSections=[...document.querySelectorAll('main>section')].filter(s=>s.id!=='quiz'&&s.id!=='pyq'&&s.id!=='hyRapidPanel');
+    let total=0;
+    sourceSections.forEach(sec=>{
+      const items=[...sec.querySelectorAll(':scope > .card, :scope > .warn, :scope > .num, :scope > .gq')]
+        .filter(el=>el.dataset.hyType);
+      if(!items.length) return;
+      const rs=document.createElement('div'); rs.className='rapid-section';
+      const title=sec.querySelector('h1')?.textContent.trim() || sec.id;
+      rs.innerHTML='<h2>'+escapeHtml(title)+'</h2>';
+      items.forEach(el=>{
+        // Last-minute mode keeps high-yield cards and warnings, plus only explicitly formula/rule numericals.
+        const type=el.dataset.hyType;
+        if(el.classList.contains('num') && type!=='formula') return;
+        const wrap=document.createElement('div'); wrap.className='rapid-source';
+        wrap.appendChild(el.cloneNode(true));
+        rs.appendChild(wrap); total++;
+      });
+      if(rs.children.length>1) panel.appendChild(rs);
+    });
+    if(!total){
+      const e=document.createElement('div'); e.className='rapid-empty'; e.textContent='No high-yield blocks were detected in this subject.'; panel.appendChild(e);
+    }
+    document.querySelector('.wrap>main').appendChild(panel);
+  }
+
+  function escapeHtml(s){return s.replace(/[&<>'"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[c]));}
+  function init(){classifyCards(); makeToolbar();}
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',init); else init();
+})();
+</script>
+
+<script>
+/* Randomise the position of the correct option in each solved problem on every page load,
+   and rewrite the "Correct: Option N" line to match. Problems whose options or explanation
+   refer to other options by position or say "all/none of the above" keep their order. */
+(function(){
+  var PIN=/\b(above|both of these|all of these|none of these|neither of these)\b/i;
+  var POSREF=/\b[Oo]ptions?\s*\(?[1-4A-Da-d]\)?(?![\w-])|\([a-d]\)\s|\bchoice\s*\(?[1-4A-D]\)?/;
+  document.querySelectorAll('.gq').forEach(function(g){
+    var ol=g.querySelector('.gopts'), ans=g.querySelector('.gans'); if(!ol||!ans) return;
+    var m=ans.innerHTML.match(/Option (\d)/); if(!m) return;
+    var lis=Array.prototype.slice.call(ol.children); if(lis.length<2) return;
+    var ci=parseInt(m[1],10)-1; if(ci<0||ci>=lis.length) return;
+    if(lis.some(function(li){return PIN.test(li.textContent)||POSREF.test(li.textContent);})) return;
+    var pre=g.querySelector('pre'); if(pre&&POSREF.test(pre.textContent)) return;
+    if(POSREF.test(ans.textContent.replace(/Option \d/,''))) return;
+    var correct=lis[ci], order=lis.slice();
+    for(var i=order.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=order[i];order[i]=order[j];order[j]=t;}
+    order.forEach(function(li){ol.appendChild(li);});
+    ans.innerHTML=ans.innerHTML.replace(/Option \d/,'Option '+(order.indexOf(correct)+1));
+  });
+})();
+</script>
+<script>
+(function(){
+  document.querySelectorAll('h2[data-tier]').forEach(function(h){
+    var t=h.getAttribute('data-tier'); if(t==='core') return;
+    var el=h.nextElementSibling;
+    while(el && el.tagName!=='H1' && el.tagName!=='H2' && el.tagName!=='SECTION'){
+      el.classList.add(t==='ext'?'tier-ext-body':'tier-hy-body'); el=el.nextElementSibling;
+    }
+  });
+  var seg=document.getElementById('tierSeg'); if(!seg) return;
+  seg.querySelectorAll('button').forEach(function(b){
+    b.onclick=function(){
+      document.body.setAttribute('data-tier-view',b.getAttribute('data-view'));
+      seg.querySelectorAll('button').forEach(function(x){x.classList.toggle('active',x===b);});
+    };
+  });
+})();
+</script>
+<!-- readiness:start -->
+<script>window.__READINESS_CFG__={review:{"LEX": {"sec": "lex", "label": "Lexical Analysis", "h2": ["Tokens"]}, "TD": {"sec": "topdown", "label": "Top-Down Parsing", "h2": ["FIRST and FOLLOW"]}, "BU": {"sec": "bottomup", "label": "Bottom-Up Parsing", "h2": ["Shift-reduce"]}, "SDT": {"sec": "sdt", "label": "Syntax-Directed Translation", "h2": ["Synthesized"]}, "RT": {"sec": "runtime", "label": "Runtime Environments", "h2": ["Activation record"]}, "IR": {"sec": "ir", "label": "Intermediate Code", "h2": ["Three-address"]}, "OPT": {"sec": "opt", "label": "Optimisation & Code Generation", "h2": ["Data-flow"]}}};</script>
+<script>
+(function(){
+  /* ===== Revision Readiness: turns the quiz into a revision loop ===== */
+  var CFG = window.__READINESS_CFG__ || {};
+  var NAME = (location.pathname.split('/').pop()||'page').replace(/\.html?$/,'');
+  var KEY = 'readiness:'+NAME;
+  var STRONG=75, WEAK=55, MIN_ATT=3;
+  var results = {};             // "Q12" / "MSQ3" -> 1 (correct) | 0 (wrong); latest attempt wins
+  try{ var raw=localStorage.getItem(KEY); if(raw) results=JSON.parse(raw)||{}; }catch(e){}
+  function save(){ try{ localStorage.setItem(KEY, JSON.stringify(results)); }catch(e){} }
+
+  var score=document.getElementById('score'), qlist=document.getElementById('qlist');
+  if(!score||!qlist||typeof Q==='undefined'||typeof topics==='undefined') return;
+
+  // ---- denominators per topic (MCQ + MSQ) ----
+  var totals={}, order=[];
+  function addTotal(arr){ (arr||[]).forEach(function(it){ var k=it[0]; if(!(k in totals)){totals[k]=0;order.push(k);} totals[k]++; }); }
+  addTotal(Q); if(typeof MSQ!=='undefined') addTotal(MSQ);
+  var totalQ=Q.length+(typeof MSQ!=='undefined'?MSQ.length:0);
+  function topicOf(id){
+    var m=/^(MSQ|Q)(\d+)$/.exec(id); if(!m) return null;
+    var arr=(m[1]==='Q')?Q:MSQ; var it=arr[+m[2]-1]; return it?it[0]:null;
+  }
+  function label(k){ return topics[k]||k; }
+
+  // ---- panel ----
+  var panel=document.createElement('div'); panel.id='readiness'; panel.className='rd-panel';
+  score.parentNode.insertBefore(panel, score.nextSibling);
+  var css=document.createElement('style');
+  css.textContent=
+   '.rd-panel{margin:16px 0 22px;padding:16px 18px;border:1px solid var(--border,#242b3a);border-radius:14px;background:linear-gradient(135deg,var(--panel,#12161f),var(--panel2,#181d29));display:none}'+
+   '.rd-panel.show{display:block}'+
+   '.rd-head{display:flex;align-items:baseline;justify-content:space-between;gap:10px;flex-wrap:wrap}'+
+   '.rd-title{font-size:12px;letter-spacing:1px;text-transform:uppercase;font-weight:800;color:var(--accent,#5ee6c8)}'+
+   '.rd-big{font-size:30px;font-weight:800;line-height:1.1;margin:4px 0 0;color:var(--text,#e6e9f0)}'+
+   '.rd-big small{font-size:13px;font-weight:600;color:var(--muted,#93a0b8);margin-left:8px}'+
+   '.rd-verdict{font-size:13px;font-weight:700;padding:4px 10px;border-radius:999px;border:1px solid}'+
+   '.rd-v-good{color:#7ee787;border-color:#7ee78766;background:#7ee78722}.rd-v-mid{color:#ffc978;border-color:#ffb45466;background:#ffb45422}.rd-v-low{color:#ff9b9b;border-color:#ff6b6b66;background:#ff6b6b22}'+
+   '.rd-cov{font-size:12.5px;color:var(--muted,#93a0b8);margin:8px 0 12px}'+
+   '.rd-rows{display:grid;gap:7px;margin:10px 0}'+
+   '.rd-row{display:grid;grid-template-columns:minmax(96px,34%) 1fr 74px;gap:10px;align-items:center;font-size:12.5px}'+
+   '.rd-name{color:var(--text,#e6e9f0);overflow-wrap:anywhere}'+
+   '.rd-bar{height:9px;border-radius:99px;background:#ffffff14;overflow:hidden}'+
+   '.rd-bar i{display:block;height:100%;border-radius:99px}'+
+   '.rd-pct{text-align:right;color:var(--muted,#93a0b8);white-space:nowrap}'+
+   '.rd-sec{margin:14px 0 4px;font-size:13px;color:#c9d1e0;line-height:1.55}'+
+   '.rd-sec b.g{color:#7ee787}.rd-sec b.w{color:#ff9b9b}.rd-sec b.d{color:#ffc978}'+
+   '.rd-rec{margin:14px 0 0;padding:12px 14px;border-left:3px solid var(--accent2,#7c9fff);background:#00000022;border-radius:0 10px 10px 0;font-size:13px;color:#c9d1e0}'+
+   '.rd-rec .t{font-size:11px;letter-spacing:1px;text-transform:uppercase;font-weight:800;color:var(--accent2,#7c9fff);margin-bottom:6px}'+
+   '.rd-rec a{color:var(--accent,#5ee6c8);font-weight:700;text-decoration:none}.rd-rec a:hover{text-decoration:underline}'+
+   '.rd-rec div.l{margin:5px 0}'+
+   '.rd-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}'+
+   '.rd-btn{border:1px solid var(--border,#242b3a);background:var(--panel2,#181d29);color:var(--text,#e6e9f0);padding:8px 12px;border-radius:9px;font-size:12.5px;font-weight:700;cursor:pointer}'+
+   '.rd-btn:hover{border-color:var(--accent2,#7c9fff);color:var(--accent,#5ee6c8)}.rd-btn[disabled]{opacity:.45;cursor:default}'+
+   '.rd-note{font-size:11.5px;color:var(--muted,#93a0b8);margin-top:10px}'+
+   '.qcard.rd-hide{display:none}';
+  document.head.appendChild(css);
+
+  function pct(c,n){ return n? Math.round(100*c/n):0; }
+  function colour(p){ return p>=STRONG?'#7ee787':(p>=WEAK?'#ffc978':'#ff6b6b'); }
+
+  function sectionLink(t){
+    var c=(CFG.review||{})[t]; if(!c) return null;
+    if(c.href) return '<a href="'+c.href+'">'+c.label+'</a>';
+    var sec=document.getElementById(c.sec); if(!sec) return null;
+    var parts=['<a href="#'+c.sec+'">'+c.label+'</a>'];
+    (c.h2||[]).forEach(function(h){
+      var hs=sec.querySelectorAll('h2'); 
+      for(var i=0;i<hs.length;i++){
+        if(hs[i].textContent.replace(/\s+/g,' ').toLowerCase().indexOf(h.toLowerCase())>-1){
+          if(!hs[i].id) hs[i].id=c.sec+'-rd-'+i;
+          parts.push('<a href="#'+hs[i].id+'">'+hs[i].firstChild.textContent.replace(/\s+$/,'')+'</a>'); break;
+        }
+      }
+    });
+    return parts.join(' → ');
+  }
+
+  function build(){
+    var att=0,cor=0,per={};
+    order.forEach(function(k){per[k]={a:0,c:0};});
+    Object.keys(results).forEach(function(id){
+      var k=topicOf(id); if(!k||!per[k]) return;
+      per[k].a++; att++; if(results[id]===1){per[k].c++; cor++;}
+    });
+    if(!att){ panel.className='rd-panel'; return; }
+    var overall=pct(cor,att);
+    var cov=Math.round(100*att/totalQ);
+    var verdict, vcls;
+    if(overall>=80){verdict='Exam-ready here';vcls='rd-v-good';}
+    else if(overall>=65){verdict='Nearly there';vcls='rd-v-mid';}
+    else if(overall>=50){verdict='Needs revision';vcls='rd-v-mid';}
+    else {verdict='Revise before PYQs';vcls='rd-v-low';}
+    var strong=[],weak=[],dev=[],thin=[];
+    order.forEach(function(k){
+      var p=per[k]; if(p.a<MIN_ATT){ thin.push(k); return; }
+      var x=pct(p.c,p.a);
+      if(x>=STRONG) strong.push([k,x]); else if(x<WEAK) weak.push([k,x]); else dev.push([k,x]);
+    });
+    weak.sort(function(a,b){return a[1]-b[1];}); dev.sort(function(a,b){return a[1]-b[1];});
+    var h='<div class="rd-head"><div><div class="rd-title">Revision readiness</div>'+
+      '<div class="rd-big">Revision Score: '+overall+'%<small>'+cor+' / '+att+' answered correctly</small></div></div>'+
+      '<span class="rd-verdict '+vcls+'">'+verdict+'</span></div>';
+    h+='<div class="rd-cov">Coverage: '+att+' of '+totalQ+' questions attempted ('+cov+'%)'+(cov<50?' — provisional; attempt more questions for a reliable reading.':'.')+'</div>';
+    h+='<div class="rd-rows">';
+    order.forEach(function(k){
+      var p=per[k], x=pct(p.c,p.a);
+      h+='<div class="rd-row"><span class="rd-name">'+label(k)+'</span><span class="rd-bar"><i style="width:'+(p.a?x:0)+'%;background:'+(p.a?colour(x):'transparent')+'"></i></span><span class="rd-pct">'+(p.a?x+'% · '+p.c+'/'+p.a:'not tried')+'</span></div>';
+    });
+    h+='</div>';
+    function names(a){return a.map(function(z){return label(z[0])+' ('+z[1]+'%)';}).join(', ');}
+    if(strong.length) h+='<div class="rd-sec"><b class="g">Strong:</b> '+names(strong)+'</div>';
+    if(dev.length) h+='<div class="rd-sec"><b class="d">Developing:</b> '+names(dev)+'</div>';
+    if(weak.length) h+='<div class="rd-sec"><b class="w">Weak:</b> '+names(weak)+'</div>';
+    if(thin.length) h+='<div class="rd-sec" style="color:var(--muted,#93a0b8)">Too few attempts to judge (under '+MIN_ATT+'): '+thin.map(label).join(', ')+'</div>';
+    // recommendation
+    var focus=weak.concat(dev).slice(0,3), lines=[];
+    focus.forEach(function(z){ var l=sectionLink(z[0]); if(l) lines.push('<div class="l">Review → '+l+'</div>'); });
+    var pyq=document.getElementById('pyq');
+    h+='<div class="rd-rec"><div class="t">Recommendation</div>';
+    if(lines.length){
+      h+=lines.join('')+'<div class="l">Then retry the questions you missed, and after that'+(pyq?' attempt the <a href="#pyq">solved PYQ-style problems</a>':' attempt PYQs')+'.</div>';
+    } else if(thin.length&&!strong.length){
+      h+='<div class="l">Answer a few more questions in each topic to get a reliable reading.</div>';
+    } else {
+      h+='<div class="l">No weak topics so far. Move on to '+(pyq?'<a href="#pyq">the PYQ-style problems</a>':'PYQs')+'.'+(cov<60?' Cover the untried topics first for a trustworthy score.':'')+'</div>';
+    }
+    h+='</div>';
+    var missed=Object.keys(results).filter(function(id){return results[id]===0;});
+    h+='<div class="rd-actions"><button class="rd-btn" id="rdRetry"'+(missed.length?'':' disabled')+'>Retry missed ('+missed.length+')</button><button class="rd-btn" id="rdReset">Reset results</button></div>';
+    h+='<div class="rd-note">Scores are saved in this browser. A question\'s latest attempt counts, so re-answering a missed question updates the report. The sub-heading shown is the highest-yield part of a weak topic. Topic labels need at least '+MIN_ATT+' attempts: Strong ≥ '+STRONG+'%, Weak &lt; '+WEAK+'%.</div>';
+    panel.innerHTML=h; panel.className='rd-panel show';
+    var r=document.getElementById('rdRetry'); if(r) r.onclick=retry;
+    var z=document.getElementById('rdReset'); if(z) z.onclick=function(){ if(confirm('Clear saved quiz results for this subject?')){results={};save();build();} };
+  }
+
+  function currentMode(){ try{ return (typeof mode!=='undefined')?mode:'MCQ'; }catch(e){ return 'MCQ'; } }
+  function retry(){
+    var m=currentMode(), pre=(m==='MSQ')?'MSQ':'Q';
+    var missed=Object.keys(results).filter(function(id){return results[id]===0 && id.indexOf(pre)===0 && (pre==='MSQ'||id.indexOf('MSQ')!==0);});
+    if(!missed.length){
+      // missed questions exist only in the other mode
+      var other=(m==='MSQ')?'mcqMode':'msqMode', b=document.getElementById(other); if(b) b.click();
+      pre=(pre==='Q')?'MSQ':'Q';
+      missed=Object.keys(results).filter(function(id){return results[id]===0 && (pre==='MSQ'?id.indexOf('MSQ')===0:/^Q\d/.test(id));});
+    }
+    if(typeof filter!=='undefined'){ try{ filter='ALL'; }catch(e){} }
+    var all=document.querySelector('#qtopics button'); if(all) all.click();   // re-renders with ALL
+    var set={}; missed.forEach(function(id){set[id]=1;});
+    var shown=0;
+    qlist.querySelectorAll('.qcard').forEach(function(c){
+      var t=c.querySelector('.qtag'); var mm=t&&/·\s*(MSQ|Q)(\d+)/.exec(t.textContent);
+      var id=mm?mm[1]+mm[2]:null;
+      if(id&&set[id]){shown++;} else c.classList.add('rd-hide');
+    });
+    qlist.scrollIntoView({behavior:'smooth',block:'start'});
+  }
+
+  // ---- capture answers: after each click, read the card's final state ----
+  function outcome(card, id){
+    if(!card.querySelector('.expl.show')) return null;            // not answered/submitted yet
+    if(card.querySelector('.opt.wrong')) return 0;
+    if(id.indexOf('MSQ')===0){                                      // a missed correct option is not marked wrong
+      var cs=card.querySelectorAll('.opt.correct');
+      for(var i=0;i<cs.length;i++) if(!cs[i].classList.contains('selected')) return 0;
+    }
+    return 1;
+  }
+  qlist.addEventListener('click',function(e){
+    var card=e.target.closest&&e.target.closest('.qcard'); if(!card) return;
+    setTimeout(function(){
+      var t=card.querySelector('.qtag'); var mm=t&&/·\s*(MSQ|Q)(\d+)/.exec(t.textContent); if(!mm) return;
+      var id=mm[1]+mm[2], r=outcome(card,id);
+      if(r===null) return;
+      if(card.dataset.rdRecorded) return; card.dataset.rdRecorded='1';
+      results[id]=r; save(); build();
+    },0);
+  },true);
+
+  build();
+})();
+
+</script>
+<!-- readiness:end -->
+<script id="ux-fix-v11-js">
+(function(){
+  var nav=document.getElementById('side'); if(!nav) return;
+  var scrim=document.createElement('div'); scrim.id='navScrim'; document.body.appendChild(scrim);
+  var fab=document.createElement('button'); fab.id='navFab'; fab.type='button'; fab.setAttribute('aria-label','Topics'); fab.textContent='\u2630';
+  fab.addEventListener('click',function(){ nav.classList.toggle('open'); });
+  document.body.appendChild(fab);
+  function sync(){ document.body.classList.toggle('nav-open', nav.classList.contains('open')); }
+  new MutationObserver(sync).observe(nav,{attributes:true,attributeFilter:['class']});
+  function close(){ nav.classList.remove('open'); }
+  function outside(e){
+    if(!nav.classList.contains('open')) return;
+    var t=e.target; if(!t||!t.closest) return;
+    if(t.closest('#menuBtn')||t.closest('#navFab')) return;                  // button handles its own toggle
+    if(!t.closest('#side') || (e.type==='click' && t.closest('#side a'))) close();
+  }
+  document.addEventListener('pointerdown',outside,true);
+  document.addEventListener('touchstart',outside,{capture:true,passive:true});
+  document.addEventListener('click',outside,true);
+  scrim.addEventListener('click',close);
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape') close(); });
+})();
+</script>
+<script id="fmt-v12-js">
+(function(){
+  var EQ=/[=≤≥⇔→⇒≠≈∑Σπ⌈⌊]|\^|_\{|\bO\(|\blog\b|\bmod\b/;
+  function esc(s){return s.replace(/[&<>]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;'}[c];});}
+  function fmtItem(li,isFormula){
+    if(li.dataset.fmt) return; li.dataset.fmt='1';
+    var t=li.textContent.trim(), label='', body=t;
+    var m=t.match(/^([^:=]{2,44}?):\s+([\s\S]+)$/);
+    if(m && m[1].split(/\s+/).length<=6){label=m[1];body=m[2];}
+    var html='';
+    if(label) html+='<span class="rg-label">'+esc(label)+'</span>';
+    if(isFormula){
+      var parts=body.split(/;\s+|\.\s+(?=[A-Z])/).map(function(x){return x.trim();}).filter(Boolean);
+      parts.forEach(function(x,i){
+        var last=(i===parts.length-1);
+        var txt=x; if(!/[.!?)]$/.test(txt) && !last) txt=x; 
+        var prose=(x.match(/\b[a-z]{4,}\b/g)||[]).length; var isEq=EQ.test(x)&&(prose<=3||(/[=≤≥⇔]/.test(x)&&x.length<=70));
+        html+='<span class="'+(isEq?'rg-eq':'rg-txt')+'">'+esc(x)+'</span>';
+      });
+    } else {
+      html+='<span class="rg-body">'+esc(body)+'</span>';
+    }
+    li.innerHTML=html;
+  }
+  function enhance(panel){
+    if(panel.dataset.fmt) return; panel.dataset.fmt='1';
+    var groups=panel.querySelectorAll('.rapid-group'), chips=[];
+    groups.forEach(function(g,i){
+      var type=(g.className.match(/\b(must|trap|formula|gate|shortcut)\b/)||[])[1]; if(!type) return;
+      g.id='rg-'+type;
+      var items=g.querySelectorAll('li');
+      items.forEach(function(li){fmtItem(li,type==='formula');});
+      var h=g.querySelector('h3'); var c=document.createElement('span'); c.className='rg-count'; c.textContent=items.length; h.appendChild(c);
+      chips.push('<a href="#rg-'+type+'">'+h.firstChild.textContent.trim()+' <b>'+items.length+'</b></a>');
+    });
+    if(chips.length){
+      var j=document.createElement('nav'); j.className='rapid-jump'; j.setAttribute('aria-label','Jump to group'); j.innerHTML=chips.join('');
+      var cur=panel.querySelector('.rapid-curated'); if(cur){var note=cur.querySelector('.rapid-note'); (note||cur.firstChild).insertAdjacentElement('afterend',j);}
+      j.addEventListener('click',function(e){var a=e.target.closest('a'); if(!a) return; e.preventDefault();
+        var el=document.querySelector(a.getAttribute('href')); if(el) el.scrollIntoView({behavior:'smooth',block:'start'});});
+    }
+  }
+  function check(){var p=document.getElementById('hyRapidPanel'); if(p) enhance(p);}
+  var main=document.querySelector('.wrap>main'); if(main){ new MutationObserver(check).observe(main,{childList:true}); }
+  check();
+})();
+</script>
+<a id="homeFab" href="index.html" aria-label="Back to Study Hub">🏠</a>
+<!-- gatetest:start -->
+<script src="gate-test.js"></script>
+<script>(function(){var a=document.getElementById("qtopics");if(a&&window.GateTest)GateTest.mountLauncher("cd",a);})();</script>
+<!-- gatetest:end -->
+<!-- pwa-reg:start -->
+<script>if('serviceWorker' in navigator&&(location.protocol==='https:'||location.hostname==='localhost'||location.hostname==='127.0.0.1')){window.addEventListener('load',function(){navigator.serviceWorker.register('sw.js').catch(function(){});});}</script>
+<!-- pwa-reg:end -->
+</body>
+</html>

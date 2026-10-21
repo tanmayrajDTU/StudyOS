@@ -1,0 +1,1567 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Discrete Mathematics — GATE CSE 2027</title>
+<style>
+:root{--bg:#0b1020;--panel:#11182b;--panel2:#151e34;--text:#e9eefb;--muted:#a8b3cc;--accent:#7dd3fc;--border:#263451;--green:#86efac;--yellow:#fde68a;--red:#fca5a5;--purple:#c4b5fd}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.65}.top{position:sticky;top:0;z-index:20;background:rgba(11,16,32,.94);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:12px 20px;display:flex;align-items:center;gap:16px}.top a{color:var(--text);text-decoration:none;border:1px solid var(--border);padding:7px 12px;border-radius:9px}.top h1{font-size:18px;margin:0}.wrap{display:grid;grid-template-columns:270px minmax(0,1fr);max-width:1450px;margin:auto}.side{position:sticky;top:61px;height:calc(100vh - 61px);overflow:auto;border-right:1px solid var(--border);padding:20px}.side a{display:block;color:var(--muted);text-decoration:none;padding:8px 10px;border-radius:8px}.side a:hover{background:var(--panel);color:var(--text)}main{padding:34px 42px 80px;min-width:0}h2{margin-top:48px;border-bottom:1px solid var(--border);padding-bottom:10px}h3{margin-top:30px}.hero{background:linear-gradient(135deg,#11182b,#18233d);border:1px solid var(--border);padding:28px;border-radius:18px}.hero h2{margin:0 0 8px;border:0}.sub{color:var(--muted)}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:14px}.card{background:var(--panel);border:1px solid var(--border);border-radius:13px;padding:16px}.tag{display:inline-block;font-size:13px;font-weight:700;padding:4px 8px;border-radius:7px;margin-bottom:7px}.must{background:rgba(134,239,172,.12);color:var(--green)}.trap{background:rgba(253,230,138,.12);color:var(--yellow)}.formula{background:rgba(125,211,252,.12);color:var(--accent)}.fav{background:rgba(252,165,165,.12);color:var(--red)}.shortcut{background:rgba(196,181,253,.12);color:var(--purple)}.guide{background:var(--panel);border:1px solid var(--border);border-radius:14px;margin:14px 0;overflow:hidden}.guide summary{cursor:pointer;padding:16px;font-weight:750}.guide .inside{padding:0 16px 16px;border-top:1px solid var(--border)}.method{font-weight:700;color:var(--accent)}table{width:100%;border-collapse:collapse;margin:14px 0}th,td{border:1px solid var(--border);padding:10px;text-align:left;vertical-align:top}th{background:var(--panel2)}code{background:#080d18;border:1px solid var(--border);padding:2px 5px;border-radius:5px;color:#bae6fd}.controls{display:flex;gap:10px;flex-wrap:wrap;margin:18px 0}.btn{cursor:pointer;background:var(--panel2);color:var(--text);border:1px solid var(--border);padding:10px 14px;border-radius:10px;font-weight:700}.btn.primary{background:#164e63;border-color:#0e7490}.rapid{display:none}.rapid.on{display:block}.full.off{display:none}.notice{padding:13px 15px;border-left:4px solid var(--accent);background:rgba(125,211,252,.07);border-radius:8px;margin:14px 0}.small{font-size:13px;color:var(--muted)}ul{padding-left:22px}.pill{font-size:12px;color:var(--muted);border:1px solid var(--border);padding:3px 7px;border-radius:999px;margin-left:6px}@media(max-width:850px){.wrap{display:block}.side{position:static;height:auto;border-right:0;border-bottom:1px solid var(--border)}main{padding:24px 18px 60px}.top h1{font-size:15px}}
+@media (max-width:640px){table{display:block;max-width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch}.card,.num,.warn,p,li{overflow-wrap:break-word}td,th{overflow-wrap:normal;word-break:normal}}
+</style>
+<style>/*dm-notes-v1*/.ex{background:rgba(251,191,36,.14);color:#fbbf24}.card table{font-size:14px}.card th,.card td{padding:7px}footer{color:var(--muted);text-align:center;padding:26px 16px;border-top:1px solid var(--border);margin-top:40px;font-size:14px}</style><style id="ux-fix-v11">
+/* v11: mobile — header scrolls away, topics become a tap-outside-to-close drawer */
+#navScrim,#navFab{display:none}
+@media (max-width:850px){
+  .top{position:static!important}
+  html{scroll-padding-top:12px}
+  .side{position:fixed!important;left:0;top:0;height:100%!important;width:260px;z-index:15;background:var(--bg);
+    border-right:1px solid var(--border)!important;border-bottom:0!important;padding-top:calc(20px + env(safe-area-inset-top,0px));
+    transform:translateX(-105%);transition:transform .2s;overflow-y:auto}
+  .side.open{transform:translateX(0)}
+  body.nav-open #navScrim{display:block;position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:14;cursor:pointer}
+  #navFab{display:block;position:fixed;left:12px;bottom:calc(14px + env(safe-area-inset-bottom,0px));z-index:16;width:42px;height:42px;border-radius:50%;
+    border:1px solid var(--border);background:rgba(23,28,40,.92);color:var(--text);font-size:19px;line-height:1;opacity:.9;
+    box-shadow:0 2px 10px rgba(0,0,0,.45);cursor:pointer;-webkit-tap-highlight-color:transparent}
+}
+</style>
+<style id="fmt-v12">
+/* v12 readability revamp (Discrete Mathematics) — formatting only */
+.card>.tag{display:flex;width:fit-content;max-width:100%;margin:0 0 10px!important}
+.card>.tag+b{display:block;margin:0 0 8px;font-size:16.5px;line-height:1.4}
+.card p{line-height:1.75;margin:0 0 10px;overflow-wrap:anywhere}.card p:last-child{margin-bottom:0}
+.card code{display:inline-block;max-width:100%;overflow-x:auto;vertical-align:bottom;white-space:nowrap;line-height:1.5;margin:2px 0}
+.card td code,.card th code{white-space:normal}
+/* formula that stands alone on a line = block equation */
+.card p>code:only-child,.rapid .card p>code:only-child{display:block;margin:2px 0;padding:10px 12px;border-radius:9px;background:#0a1220;border:1px solid #1d3350;
+  color:#8fd8ff;font-size:14px;line-height:1.65;white-space:pre-wrap;overflow-wrap:anywhere}
+.rapid .card{padding:16px}
+.rapid .grid{display:grid;grid-template-columns:1fr;gap:14px}
+.rapid .tag{margin-bottom:12px}
+@media (max-width:700px){
+  .card{padding:16px!important}
+  section.full>p,section.full>.notice{line-height:1.75}
+  table{display:block;max-width:100%;overflow-x:auto}
+}
+</style>
+<style id="theme-v13">
+/* v13 premium dark + colour theme — visual layer only */
+:root{
+  --bg:#070916;--panel:#0f1330;--panel2:#161b3f;--border:#2a3166;--text:#eef1ff;--muted:#9ea8d4;
+  --accent:#4ff0d0;--accent2:#8aa4ff;--warn:#ffb454;--good:#6ef0a0;--code-bg:#0a1030;
+  --green:#7af0ae;--yellow:#ffe08a;--red:#ff9aa8;--purple:#c9a8ff;
+  --glow-a:#7c5cff;--glow-b:#19d3ff;--glow-c:#ff4fa3;
+}
+html{background:#070916}
+body{background:transparent!important;color:var(--text)}
+body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;
+  background:
+   radial-gradient(60% 40% at 8% 0%,rgba(124,92,255,.28),transparent 70%),
+   radial-gradient(50% 35% at 100% 6%,rgba(25,211,255,.18),transparent 70%),
+   radial-gradient(60% 40% at 50% 100%,rgba(255,79,163,.14),transparent 70%),
+   #070916}
+::selection{background:rgba(124,92,255,.55);color:#fff}
+
+/* header */
+header,.top{background:linear-gradient(180deg,rgba(14,18,48,.92),rgba(9,11,30,.86))!important;
+  -webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);border-bottom:1px solid transparent!important;
+  border-image:linear-gradient(90deg,#7c5cff,#19d3ff,#ff4fa3) 1;box-shadow:0 6px 24px rgba(0,0,0,.35)}
+header h1 span,.top h1 span,header .hl,.top .hl{background:linear-gradient(90deg,#4ff0d0,#8aa4ff,#d28bff);-webkit-background-clip:text;background-clip:text;color:transparent!important}
+
+/* headings */
+main h2,.wrap h2{background:linear-gradient(90deg,#9db4ff,#c9a8ff 55%,#ff9ad0);-webkit-background-clip:text;background-clip:text;color:transparent;
+  border-bottom:1px solid transparent!important;border-image:linear-gradient(90deg,rgba(138,164,255,.6),rgba(255,79,163,.25),transparent) 1}
+main h3{color:#8fe9ff}
+
+/* surfaces: glass panels */
+.card,.warn,.num,.hy-panel,.hy-toolbar,.rapid-curated,table,.q,.qcard,.sol,details,.callout,.box{
+  background:linear-gradient(150deg,rgba(32,38,88,.62),rgba(14,17,42,.9))!important;
+  border-top-color:rgba(138,150,255,.2)!important;border-right-color:rgba(138,150,255,.2)!important;border-bottom-color:rgba(138,150,255,.2)!important;box-shadow:0 10px 30px rgba(3,4,18,.45),inset 0 1px 0 rgba(255,255,255,.06)}
+.hy-toolbar{border-radius:16px}
+.hy-toolbar h3,.hy-toolbar strong{background:linear-gradient(90deg,#4ff0d0,#8aa4ff);-webkit-background-clip:text;background-clip:text;color:transparent}
+
+/* nav drawer */
+nav#side,.side{background:linear-gradient(180deg,rgba(18,22,58,.97),rgba(9,11,30,.98))!important;border-color:rgba(138,150,255,.2)!important}
+nav#side a.active,.side a.active,nav#side a:hover,.side a:hover{background:linear-gradient(90deg,rgba(124,92,255,.35),rgba(25,211,255,.14))!important;color:#fff!important;border-radius:10px}
+nav#side .grp,.side .grp,nav#side h4,.side h4{color:#c9a8ff!important}
+
+/* buttons */
+.hy-btn{background:rgba(26,31,72,.9);border-color:rgba(138,150,255,.3)}
+.hy-btn:hover{border-color:#8aa4ff;box-shadow:0 0 0 3px rgba(124,92,255,.22);color:#fff}
+.hy-btn.primary,.btn.primary,button.primary{background:linear-gradient(90deg,#19d3ff,#7c5cff 60%,#ff4fa3)!important;color:#fff!important;border:0!important;
+  box-shadow:0 6px 20px rgba(124,92,255,.45)}
+#navFab{background:linear-gradient(135deg,#7c5cff,#19d3ff)!important;color:#fff!important;border:0!important;box-shadow:0 8px 22px rgba(124,92,255,.55)!important;opacity:1!important}
+#menuBtn{background:rgba(26,31,72,.9)!important;border-color:rgba(138,150,255,.35)!important}
+
+/* code & equations */
+code,pre{background:#0a1030!important;color:#8ff5e2;border:1px solid rgba(79,240,208,.18)}
+.rg-eq,.card p>code:only-child{background:linear-gradient(135deg,#0a1436,#0d0f2e)!important;border-color:rgba(25,211,255,.35)!important;color:#9af2ff!important;
+  box-shadow:inset 0 0 0 1px rgba(25,211,255,.06)}
+
+/* last-minute groups: tinted by their colour */
+.rapid-group li{background:linear-gradient(135deg,color-mix(in srgb,var(--gc) 14%,#12163a),#0d1030 70%)!important;border-top-color:color-mix(in srgb,var(--gc) 30%,#262d62)!important;border-right-color:color-mix(in srgb,var(--gc) 30%,#262d62)!important;border-bottom-color:color-mix(in srgb,var(--gc) 30%,#262d62)!important;border-left-color:var(--gc)!important;
+  box-shadow:0 6px 18px rgba(3,4,18,.4)}
+.rapid-group h3{text-shadow:0 0 18px color-mix(in srgb,var(--gc) 55%,transparent)}
+.rapid-group h3 .rg-count{box-shadow:0 0 14px color-mix(in srgb,var(--gc) 60%,transparent)}
+.rapid-jump a{background:rgba(26,31,72,.85);border-color:rgba(138,150,255,.3)}
+.rapid-section h2{background:linear-gradient(90deg,rgba(124,92,255,.28),rgba(25,211,255,.08))!important;-webkit-text-fill-color:#fff;color:#fff;border-image:none!important;
+  border-color:rgba(138,150,255,.3)!important;border-left:4px solid #19d3ff!important}
+
+/* tags / badges: more vivid */
+.tag,.hy-badge,.badge{backdrop-filter:blur(4px);font-weight:800}
+.tag.must,.hy-badge.must{background:rgba(34,197,94,.18)!important;color:#7af0ae!important;border-color:rgba(34,197,94,.5)!important}
+.tag.formula,.hy-badge.formula{background:rgba(56,189,248,.18)!important;color:#8fe0ff!important;border-color:rgba(56,189,248,.5)!important}
+.tag.fav,.hy-badge.fav{background:rgba(255,79,100,.16)!important;color:#ff9aa8!important;border-color:rgba(255,79,100,.5)!important}
+
+/* quiz options */
+.opt,.option,button.opt,label.opt{background:rgba(22,27,68,.8)!important;border-color:rgba(138,150,255,.25)!important;transition:.15s}
+.opt:hover,.option:hover{border-color:#19d3ff!important;box-shadow:0 0 0 3px rgba(25,211,255,.18)}
+.qtopics button,.qtopics .chip{background:rgba(26,31,72,.85);border-color:rgba(138,150,255,.3)}
+.qtopics .on,.qtopics .active{background:linear-gradient(90deg,#7c5cff,#19d3ff)!important;color:#fff!important;border-color:transparent!important}
+
+/* tables */
+th{background:linear-gradient(90deg,rgba(124,92,255,.35),rgba(25,211,255,.18))!important;color:#fff!important}
+td,th{border-color:rgba(138,150,255,.2)!important}
+tbody tr:nth-child(even) td{background:rgba(124,92,255,.06)}
+
+a{color:#8fe9ff}
+::-webkit-scrollbar{width:10px;height:10px}::-webkit-scrollbar-thumb{background:linear-gradient(#7c5cff,#19d3ff);border-radius:8px}
+</style>
+<style id="home-v14">
+.homeLink{justify-self:end;display:inline-flex;align-items:center;gap:6px;padding:8px 12px;border-radius:10px;font-size:13px;font-weight:800;text-decoration:none;white-space:nowrap;
+  color:#fff!important;background:linear-gradient(135deg,rgba(124,92,255,.55),rgba(25,211,255,.3));border:1px solid rgba(138,150,255,.4)}
+nav#side a.backhome,.side a.backhome{display:block;margin:0 0 10px;padding:10px 12px;border-radius:10px;font-weight:800;color:#fff!important;
+  background:linear-gradient(90deg,rgba(124,92,255,.45),rgba(25,211,255,.2));border:1px solid rgba(138,150,255,.4)}
+#homeFab{display:none}
+@media (max-width:860px){
+  #homeFab{display:flex;align-items:center;justify-content:center;position:fixed;left:64px;bottom:calc(14px + env(safe-area-inset-bottom,0px));z-index:16;width:42px;height:42px;border-radius:50%;
+    text-decoration:none;font-size:19px;background:rgba(22,27,68,.95);border:1px solid rgba(138,150,255,.45);box-shadow:0 8px 22px rgba(3,4,18,.6)}
+}
+</style>
+<!-- pwa:start -->
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#070916">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="GATE 2027">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="icon" type="image/png" href="favicon-64.png">
+<!-- pwa:end -->
+</head>
+<body>
+<header class="top"><a href="index.html">← Study Hub</a><h1>Discrete Mathematics — GATE CSE 2027</h1></header>
+<div class="wrap">
+<aside class="side"><a class="backhome" href="index.html">← Back to Study Hub</a><a class="gt-sidelink" href="cheatsheet-gate-2027.html#discrete-math">📄 Formula cheat sheet</a><a class="gt-sidelink" href="mock-gate-2027.html">🎯 Full mock exam</a><a href="#scope">Syllabus & Scope</a><a href="#logic">Logic</a><a href="#sets">Sets, Relations & Functions</a><a href="#orders">Partial Orders & Lattices</a><a href="#algebra">Monoids & Groups</a><a href="#comb">Combinatorics</a><a href="#rec">Recurrences & Generating Functions</a><a href="#graphs">Graph Theory</a><a href="#advanced">High-Yield Extensions & Methods</a><a href="#quiz">Practice Quiz — 90 Qs</a><a href="#pyq">GATE-Level Solved Problems</a><a href="#playbook">Problem → Method Guide</a><a href="#rapid">Last-Minute Revision</a><a href="#resources">Standard Resources</a></aside>
+<main>
+<section class="hero"><h2>Discrete Mathematics</h2><div class="sub">Quick revision + standard problem-solving methods for GATE CSE 2027. Use this page before PYQs; it is not intended to replace PYQ practice.</div><div class="controls"><button class="btn primary" onclick="toggleRapid()">⚡ Last-Minute Revision</button><a class="btn" href="#playbook" style="text-decoration:none;color:inherit">🧭 Problem → Method Guide</a></div></section>
+<section id="scope" class="full"><h2>Syllabus & Scope</h2><div class="notice">For GATE 2027 CS, Discrete Mathematics covers <b>propositional and first-order logic; sets, relations, functions, partial orders and lattices; monoids and groups; graphs (connectivity, matching, colouring); and combinatorics (counting, recurrence relations, generating functions).</b> This page is organized around those official syllabus lines.</div><div class="notice" style="margin-top:10px">In the official syllabus, Discrete Mathematics is the first subsection of <b>Engineering Mathematics</b>. This page is the single home for all detailed discrete-math notes; the <a href="em-gate-2027.html">Engineering Mathematics page</a> covers Linear Algebra, Calculus and Probability &amp; Statistics and links back here.</div></section>
+<section id="logic" class="full"><h2>1. Logic</h2><div class="grid"><div class="card"><span class="tag must">🟢 Must Remember</span><b>Implication</b><p><code>P → Q ≡ ¬P ∨ Q</code>. It is false only when P is true and Q is false.</p></div><div class="card"><span class="tag formula">🧮 Formula / Rule</span><b>Equivalences</b><p><code>P ↔ Q ≡ (P→Q) ∧ (Q→P)</code>; De Morgan: <code>¬(P∧Q)=¬P∨¬Q</code>, <code>¬(P∨Q)=¬P∧¬Q</code>.</p></div><div class="card"><span class="tag trap">🟡 Common Trap</span><b>Converse vs contrapositive</b><p>Contrapositive of <code>P→Q</code> is <code>¬Q→¬P</code> and is equivalent. Converse <code>Q→P</code> is generally not.</p></div><div class="card"><span class="tag fav">⚠️ GATE Favourite</span><b>Quantifiers</b><p>Negation flips quantifier: <code>¬∀x P(x) ≡ ∃x ¬P(x)</code>, <code>¬∃x P(x) ≡ ∀x ¬P(x)</code>.</p></div><div class="card" style="grid-column:1/-1"><span class="tag formula">🧮 Formula / Rule</span><b>Rules of inference (valid argument forms)</b><table><tr><th>Rule</th><th>Form</th></tr>
+<tr><td>Modus ponens</td><td><code>P, P→Q ⊢ Q</code></td></tr>
+<tr><td>Modus tollens</td><td><code>¬Q, P→Q ⊢ ¬P</code></td></tr>
+<tr><td>Hypothetical syllogism</td><td><code>P→Q, Q→R ⊢ P→R</code></td></tr>
+<tr><td>Disjunctive syllogism</td><td><code>P∨Q, ¬P ⊢ Q</code></td></tr>
+<tr><td>Resolution</td><td><code>P∨Q, ¬P∨R ⊢ Q∨R</code></td></tr>
+<tr><td>Simplification / Addition</td><td><code>P∧Q ⊢ P</code> &nbsp;·&nbsp; <code>P ⊢ P∨Q</code></td></tr></table>
+<p>An argument is <b>valid</b> iff the premises true can never coexist with a false conclusion, i.e. (premises ∧ ¬conclusion) is unsatisfiable.</p></div><div class="card"><span class="tag trap">🟡 Common Trap</span><b>Two fallacies that look like valid rules</b><p><b>Affirming the conclusion:</b> <code>P→Q, Q ⊢ P</code> is <b>invalid</b>. <b>Denying the hypothesis:</b> <code>P→Q, ¬P ⊢ ¬Q</code> is <b>invalid</b>. Counter-example for both: P = F, Q = T makes the premises true and the conclusion false.</p></div><div class="card"><span class="tag must">🟢 Must Remember</span><b>Normal forms & counting</b><p><b>CNF</b> = AND of ORs of literals; <b>DNF</b> = OR of ANDs. A formula in CNF is <b>valid</b> iff every clause contains some <code>x</code> and <code>¬x</code>; a formula in DNF is <b>satisfiable</b> iff some term has no clashing literals. n variables → <code>2ⁿ</code> truth-table rows and <code>2^(2ⁿ)</code> different Boolean functions (n = 2 gives 16).</p></div><div class="card"><span class="tag fav">⚠️ GATE Favourite</span><b>Translating English into FOL; free vs bound variables</b><p><b>All S are L:</b> <code>∀x (S(x)→L(x))</code>. <b>Some S are L:</b> <code>∃x (S(x)∧L(x))</code>. Using ∧ with ∀ (or → with ∃) is the classic wrong answer. <b>Order matters:</b> <code>∀x∃y Loves(x,y)</code> = “everybody loves somebody”, while <code>∃y∀x Loves(x,y)</code> = “somebody is loved by everybody” (much stronger). A variable is <b>bound</b> if a quantifier covers it, otherwise <b>free</b>; a formula with no free variables is a <b>sentence</b> and has a truth value.</p></div><div class="card"><span class="tag ex">✏️ Worked Example</span><b>Is the argument valid?</b><p><b>Premises:</b> if it rains the match is cancelled; the match is not cancelled. <b>Conclusion:</b> it did not rain.</p><p>Let R = rain, C = cancelled: <code>R→C, ¬C ⊢ ¬R</code>. This is <b>modus tollens</b>, so the argument is valid. Had the second premise been “the match is cancelled”, the argument would commit the fallacy of affirming the conclusion and be invalid.</p></div><div class="card"><span class="tag formula">🧮 Formula / Rule</span><b>Functional completeness</b><p>A set of connectives is <b>functionally complete</b> if every Boolean function can be built from it.</p><table><thead><tr><th>Set</th><th>Status</th><th>Why</th></tr></thead><tbody><tr><td>{∧, ¬}, {∨, ¬}, {→, ¬}</td><td>Complete</td><td>De Morgan gives the missing one: p∨q = ¬(¬p∧¬q); p∨q = ¬p→q.</td></tr><tr><td>{↑} (NAND) alone, {↓} (NOR) alone</td><td>Complete</td><td>¬p = p↑p;  p∧q = ¬(p↑q).  NAND and NOR are the only single binary connectives that are complete.</td></tr><tr><td>{∧, ∨}</td><td>Not complete</td><td>Only monotone functions — no way to produce ¬p.</td></tr><tr><td>{→} alone</td><td>Not complete</td><td>Always 1 on the all-true row, so ¬p (false on that row) is unreachable.</td></tr><tr><td>{⊕, ∧}, {⊕, ¬}, {↔, ¬}</td><td>Not complete</td><td>{⊕,∧} keeps 0→0 so it never makes ¬p or the constant 1; {⊕,¬} gives only affine functions. {⊕, ∧, constant 1} <i>is</i> complete.</td></tr></tbody></table><p><b>Post's test:</b> a set is complete iff it is <i>not</i> contained in any one of the classes 0-preserving, 1-preserving, monotone, self-dual, affine. With n variables there are 2<sup>2ⁿ</sup> Boolean functions and 2<sup>2ⁿ⁻¹</sup> self-dual ones (16 for n = 3).</p></div><div class="card"><span class="tag fav">⚠️ GATE Favourite</span><b>Quantifier distribution — which direction is valid?</b><p>∀ distributes over ∧ and ∃ over ∨ <b>exactly</b>: ∀x(P∧Q) ≡ ∀xP ∧ ∀xQ, ∃x(P∨Q) ≡ ∃xP ∨ ∃xQ. For the other pairings only <b>one direction</b> holds:</p><table><thead><tr><th>Formula</th><th>Status</th><th>Reason</th></tr></thead><tbody><tr><td>∀xP ∨ ∀xQ → ∀x(P∨Q)</td><td>Valid</td><td>Converse is false</td></tr><tr><td>∃x(P∧Q) → ∃xP ∧ ∃xQ</td><td>Valid</td><td>Converse is false</td></tr><tr><td>(∀xP → ∀xQ) → ∀x(P→Q)</td><td>Not valid</td><td>Make ∀xP false, and P true / Q false at some x</td></tr><tr><td>∃y∀x R(x,y) → ∀x∃y R(x,y)</td><td>Valid</td><td>Converse is false (swap of quantifiers changes meaning)</td></tr></tbody></table><p>Counter-model for the invalid ones: domain {1, 2}, P true only at 1, Q true only at 2 — then ∀x(P∨Q) is true but ∀xP ∨ ∀xQ is false.</p></div><div class="card"><span class="tag must">🟢 Must Remember</span><b>Valid, satisfiable, unsatisfiable</b><p><b>Valid</b> (tautology) = true under every interpretation. <b>Satisfiable</b> = true under at least one. <b>Unsatisfiable</b> (contradiction) = true under none. A is valid ⇔ ¬A is unsatisfiable. A formula can be satisfiable yet not valid (e.g. P → Q). Propositional SAT is NP-complete; validity in first-order logic is undecidable (but semi-decidable).</p></div><div class="card"><span class="tag must">🟢 Must Remember</span><b>Free and bound variables</b><p>An occurrence of x is <b>bound</b> if it lies inside the scope of a quantifier ∀x or ∃x; otherwise it is <b>free</b>. A quantifier’s scope is the formula that immediately follows it. A formula with <b>no free variables</b> is a <b>sentence</b> (closed formula) and is simply true or false in a given domain; one with free variables is true or false only after the variables are given values. The same letter can be free in one place and bound in another, and a quantified variable can be renamed (<code>∃x Q(x)</code> ≡ <code>∃z Q(z)</code>) as long as the new name does not clash with a free variable.</p><p><b>Worked example.</b> In <code>∀x (P(x, y) → ∃z Q(x, z)) ∧ R(x)</code>, the ∀x covers only <code>P(x, y) → ∃z Q(x, z)</code>, so x is bound there. The final <code>R(x)</code> lies outside that scope, so that x is <b>free</b>; y is free (nothing quantifies it); z is bound by ∃z. Free variables: <b>y and the x in R(x)</b>, so the formula is not a sentence.</p></div></div></section>
+<section id="sets" class="full"><h2>2. Sets, Relations & Functions</h2><div class="grid"><div class="card"><span class="tag must">🟢 Must Remember</span><b>Relation properties</b><p>Reflexive: (a,a) for every a. Symmetric: aRb ⇒ bRa. Antisymmetric: aRb and bRa ⇒ a=b. Transitive: aRb and bRc ⇒ aRc.</p></div><div class="card"><span class="tag fav">⚠️ GATE Favourite</span><b>Equivalence relation</b><p>Exactly: reflexive + symmetric + transitive. Equivalence classes form a partition of the set.</p></div><div class="card"><span class="tag formula">🧮 Formula / Rule</span><b>Function composition</b><p>If <code>f:A→B</code> and <code>g:B→C</code>, then <code>g∘f:A→C</code>. Composition order matters.</p></div><div class="card"><span class="tag trap">🟡 Common Trap</span><b>Injective/surjective</b><p>Injective concerns distinct inputs having distinct outputs. Surjective means every codomain element is hit. Neither implies the other for finite sets of unequal size.</p></div><div class="card" style="grid-column:1/-1"><span class="tag formula">🧮 Formula / Rule</span><b>Counting relations and functions (A has n elements; A→B uses |A|=m, |B|=n)</b><table><tr><th>Object</th><th>Count</th></tr>
+<tr><td>All relations on A</td><td><code>2^(n²)</code></td></tr>
+<tr><td>Reflexive / irreflexive</td><td><code>2^(n²−n)</code> each</td></tr>
+<tr><td>Symmetric</td><td><code>2^(n(n+1)/2)</code></td></tr>
+<tr><td>Antisymmetric</td><td><code>2ⁿ · 3^(n(n−1)/2)</code></td></tr>
+<tr><td>Asymmetric</td><td><code>3^(n(n−1)/2)</code></td></tr>
+<tr><td>Equivalence relations</td><td>Bell number: 1, 2, 5, 15, 52, 203 for n = 1…6</td></tr>
+<tr><td>Functions A→B / injective / bijective</td><td><code>nᵐ</code> / <code>P(n,m)</code> / <code>m!</code> (when m = n)</td></tr>
+<tr><td>Onto functions A→B</td><td><code>Σ (−1)ᵏ C(n,k)(n−k)ᵐ</code> = <code>n!·S(m,n)</code></td></tr></table>
+<p>Check with n = 3: antisymmetric = 2³·3³ = 216; asymmetric = 27; equivalence = 5.</p></div><div class="card"><span class="tag must">🟢 Must Remember</span><b>Closures of a relation</b><p><b>Reflexive closure</b> = R ∪ Δ. <b>Symmetric closure</b> = R ∪ R⁻¹. <b>Transitive closure</b> R⁺ = smallest transitive relation containing R (Warshall’s algorithm, O(n³)). Equivalence closure = take reflexive, symmetric and transitive closure; apply the transitive step <b>last</b>. Example: R = {(1,2),(2,3),(3,4)} has transitive closure with <b>6</b> pairs: the three originals plus (1,3), (2,4), (1,4).</p></div><div class="card"><span class="tag fav">⚠️ GATE Favourite</span><b>Properties of functions and composition</b><p>For finite sets of equal size, injective ⇔ surjective ⇔ bijective. If <code>g∘f</code> is injective then <b>f</b> is injective; if <code>g∘f</code> is surjective then <b>g</b> is surjective. A function has an inverse iff it is bijective. <code>|P(A)| = 2ⁿ</code>, <code>|A×B| = |A||B|</code>.</p></div><div class="card"><span class="tag ex">✏️ Worked Example</span><b>How many equivalence relations on a 4-element set have exactly 2 classes?</b><p>Count partitions into 2 blocks: Stirling number <code>S(4,2) = 7</code> (four of type 3+1 and three of type 2+2). Adding the other block counts: <code>S(4,1)=1</code>, <code>S(4,3)=6</code>, <code>S(4,4)=1</code> totals the Bell number <b>15</b>.</p></div><div class="card"><span class="tag must">🟢 Must Remember</span><b>Cardinality and countability</b><p><b>Countably infinite</b> (same size as ℕ): ℤ, ℚ, ℕ×ℕ, the set of all finite strings over a finite alphabet, any finite union or product of countable sets, and any subset of a countable set. <b>Uncountable</b>: ℝ, the power set 𝒫(ℕ), the set of all infinite binary strings, the set of all functions ℕ→{0,1} (Cantor's diagonal argument). For any set A, |𝒫(A)| = 2<sup>|A|</sup> &gt; |A|. Programs (or Turing machines) are finite strings, hence countable, while languages are uncountable — so most languages are not recognised by any machine.</p></div><div class="card"><span class="tag formula">🧮 Formula / Rule</span><b>Composition, inverse and extra counts for relations</b><p>Composition (apply R first, then S): <code>S∘R = {(a,c) : ∃b, aRb and bSc}</code>; <code>(S∘R)⁻¹ = R⁻¹∘S⁻¹</code>. With Boolean matrices <code>M<sub>S∘R</sub> = M<sub>R</sub> · M<sub>S</sub></code> (Boolean product). R is transitive iff R∘R ⊆ R; the transitive closure is R ∪ R² ∪ … ∪ Rⁿ. On an n-element set: reflexive <b>and</b> antisymmetric = 3<sup>n(n−1)/2</sup> (27 for n = 3); symmetric <b>and</b> antisymmetric = 2ⁿ (subsets of the diagonal); partial orders on 3 labelled elements = 19; transitive relations on 3 elements = 171. Idempotent functions (f∘f = f) on n points: Σ<sub>k</sub> C(n,k)·k<sup>n−k</sup> (n = 3 gives 3 + 6 + 1 = 10).</p></div><div class="card"><span class="tag trap">🟡 Common Trap</span><b>Unions and intersections of equivalence relations</b><p>The <b>intersection</b> of equivalence relations is an equivalence relation, but the <b>union</b> need not be: {1~2} ∪ {2~3} lacks (1,3), so transitivity fails. The smallest equivalence relation containing both is the transitive closure of the union.</p></div></div></section>
+<section id="orders" class="full"><h2>3. Partial Orders & Lattices</h2><div class="grid"><div class="card"><span class="tag must">🟢 Must Remember</span><b>Partial order</b><p>A relation that is reflexive, antisymmetric and transitive. A poset is <code>(P,≤)</code>.</p></div><div class="card"><span class="tag fav">⚠️ GATE Favourite</span><b>Hasse diagram</b><p>Represent the cover relation only; omit reflexive and transitive edges. Read minimal/maximal elements from the diagram carefully.</p></div><div class="card"><span class="tag trap">🟡 Common Trap</span><b>Minimal vs least</b><p>A least element is ≤ every element and is unique if it exists. A poset may have multiple minimal elements without having a least element.</p></div><div class="card"><span class="tag shortcut">💡 Shortcut</span><b>Finite lattice check</b><p>Every pair must have both a unique least upper bound (join) and a unique greatest lower bound (meet).</p></div><div class="card"><span class="tag must">🟢 Must Remember</span><b>Bounds, chains and antichains</b><p>An <b>upper bound</b> of a subset S is an element ≥ every member of S; the <b>least upper bound</b> (join) is the smallest such bound, and the <b>greatest lower bound</b> (meet) is defined dually. A <b>chain</b> is a set of pairwise comparable elements and an <b>antichain</b> a set of pairwise incomparable ones. <b>Dilworth:</b> the minimum number of chains needed to cover a finite poset equals the size of its largest antichain.</p></div><div class="card" style="grid-column:1/-1"><span class="tag formula">🧮 Formula / Rule</span><b>Facts about the divisor lattice D<sub>n</sub> (n = p₁^a₁ · p₂^a₂ · …)</b><p>Elements: <code>∏(aᵢ+1)</code> (360 = 2³·3²·5 has 24 divisors). Meet = gcd, join = lcm. D<sub>n</sub> is always <b>distributive</b>; it is a <b>Boolean algebra iff n is square-free</b>, and then it has 2ᵏ elements for k primes. <b>Hasse-diagram edges</b> = <code>Σᵢ aᵢ · ∏ⱼ≠ᵢ (aⱼ+1)</code>: D12 gives 2·2 + 1·3 = 7, D36 gives 2·3 + 2·3 = 12, D30 gives 12 (a cube).</p></div><div class="card"><span class="tag trap">🟡 Common Trap</span><b>Lattice types</b><p><b>Bounded</b> = has top and bottom (every finite lattice is). <b>Complemented</b> = every element has a complement (x∧y = ⊥ and x∨y = ⊤). <b>Distributive</b> = x∧(y∨z) = (x∧y)∨(x∧z). A lattice is distributive iff it contains no copy of the diamond M₃ or pentagon N₅. A <b>Boolean algebra</b> is a complemented distributive lattice, so it has 2ᵏ elements. A complemented lattice need not be distributive.</p></div><div class="card"><span class="tag ex">✏️ Worked Example</span><b>Is the poset ({1,2,3,6,12,18}, divisibility) a lattice?</b><p>Check pairs that might fail: lcm(12,18) = 36, which is not in the set, so 12 and 18 have <b>no upper bound at all</b>. Hence <b>not a lattice</b>. A common mistake is to test only gcd; both meet and join must exist for every pair.</p></div><div class="card"><span class="tag formula">🧮 Formula / Rule</span><b>Chains, antichains and Dilworth in divisor and subset posets</b><p><b>Dilworth:</b> minimum number of chains covering a poset = size of the largest antichain; <b>Mirsky</b> (dual): minimum number of antichains = length of the longest chain. In D<sub>n</sub> with n = p₁^a₁·p₂^a₂·…: longest chain has Σaᵢ + 1 elements; the number of <b>maximal chains</b> = (Σaᵢ)! / ∏aᵢ! (D<sub>36</sub>: 4!/(2!2!) = 6; D<sub>360</sub>: 6!/(3!2!1!) = 60). In the subset lattice 𝒫(n): n! maximal chains and largest antichain C(n, ⌊n/2⌋) (Sperner). For divisibility on {1,…,12} the largest antichain is {7,…,12} (size 6), so 6 chains suffice and are needed.</p></div><div class="card"><span class="tag trap">🟡 Common Trap</span><b>Distributive, complemented and the forbidden sublattices</b><p>A lattice is distributive iff it has no sublattice isomorphic to the diamond <b>M₃</b> or the pentagon <b>N₅</b> (N₅: 0 &lt; a &lt; c &lt; 1 and 0 &lt; b &lt; 1; there c∧(a∨b) = c but (c∧a)∨(c∧b) = a). Both are complemented lattices that are <b>not</b> distributive; in N₅ the element b has two complements (a and c). In a distributive lattice complements are unique, so Boolean algebras have unique complements. A chain with more than two elements is distributive but not complemented.</p></div></div></section>
+<section id="algebra" class="full"><h2>4. Monoids & Groups</h2><div class="grid"><div class="card"><span class="tag must">🟢 Must Remember</span><b>Hierarchy</b><p>Semigroup = associative. Monoid = associative + identity. Group = monoid + inverse for every element.</p></div><div class="card"><span class="tag fav">⚠️ GATE Favourite</span><b>Group facts</b><p>Identity is unique; inverse of each element is unique. In a finite group, cancellation holds.</p></div><div class="card"><span class="tag trap">🟡 Common Trap</span><b>Closure is separate</b><p>Associativity alone does not make a structure a semigroup. Verify closure under the operation too.</p></div><div class="card" style="grid-column:1/-1"><span class="tag formula">🧮 Formula / Rule</span><b>Algebraic structures at a glance</b><table><tr><th>Structure</th><th>Needs</th><th>Examples</th></tr>
+<tr><td>Semigroup</td><td>closure + associativity</td><td>(N⁺, +), (Z, ×)</td></tr>
+<tr><td>Monoid</td><td>semigroup + identity</td><td>(N, +) with 0, (Z, ×)</td></tr>
+<tr><td>Group</td><td>monoid + inverses</td><td>(Z, +), (Q∖{0}, ×), Z<sub>n</sub> under + mod n</td></tr>
+<tr><td>Abelian group</td><td>group + commutative</td><td>(Z, +)</td></tr>
+<tr><td>Ring / Field</td><td>two operations, distributive / every nonzero element has a ×-inverse</td><td>Z<sub>n</sub> is a field iff n is prime</td></tr></table>
+<p>(Z, −) is <b>not</b> a semigroup because subtraction is not associative.</p></div><div class="card"><span class="tag must">🟢 Must Remember</span><b>Cyclic groups (order n, generator g)</b><p>The number of generators is <code>φ(n)</code>. There is exactly <b>one subgroup per divisor</b> of n. The number of elements of order d (for d | n) is <code>φ(d)</code>. In <code>Z₁₂</code>: 4 generators (1, 5, 7, 11); the elements of order 4 are 3 and 9 (<code>φ(4) = 2</code>). The order of a in Z<sub>n</sub> is <code>n / gcd(a, n)</code>.</p></div><div class="card"><span class="tag fav">⚠️ GATE Favourite</span><b>Lagrange and its consequences</b><p>|H| divides |G| for every subgroup H, so the order of every element divides |G|; a group of <b>prime order is cyclic</b>; the converse of Lagrange is false (A₄ has order 12 but no subgroup of order 6). If a² = e for all a then G is abelian; every group of even order has an element of order 2. Groups of order 4: Z₄ and the Klein four-group; order 6: Z₆ and S₃.</p></div><div class="card"><span class="tag shortcut">💡 Shortcut</span><b>Subgroup test</b><p>A non-empty H ⊆ G is a subgroup iff <code>a, b ∈ H ⇒ a·b⁻¹ ∈ H</code>. For a <b>finite</b> H it is enough that H is closed under the operation.</p></div><div class="card"><span class="tag must">🟢 Must Remember</span><b>Permutation groups</b><p>S<sub>n</sub> has n! elements and is non-abelian for n ≥ 3. Write permutations as disjoint cycles: the <b>order</b> is the lcm of the cycle lengths, and f<sup>k</sup> only depends on k mod order (for (1 2 3)(4 5), f<sup>100</sup> = f<sup>4</sup> = (1 2 3)). A k-cycle is even iff k is odd; parity is multiplicative; A<sub>n</sub> (even permutations) has n!/2 elements and is normal in S<sub>n</sub>. Elements with cycle type having m<sub>k</sub> cycles of length k: n! / ∏(k<sup>m<sub>k</sub></sup>·m<sub>k</sub>!). In S₅ the orders are 1,2,3,4,5,6 with max 6 (type 3+2, 20 elements); in S₄ there are 8 elements of order 3; S₇ has max order 12 (type 4+3). A₄ has order 12 but no subgroup of order 6.</p></div><div class="card"><span class="tag formula">🧮 Formula / Rule</span><b>Normal subgroups, homomorphisms and direct products</b><p>H is <b>normal</b> if gHg⁻¹ = H for all g; every subgroup of index 2 is normal and every kernel is normal. <b>First isomorphism theorem:</b> G/ker f ≅ im f, so |im f| = |G|/|ker f|. Number of homomorphisms Z<sub>m</sub> → Z<sub>n</sub> = gcd(m, n) (f(1) must have order dividing m). Z<sub>m</sub>×Z<sub>n</sub> is cyclic iff gcd(m,n) = 1; the order of (a,b) in a product is lcm(|a|,|b|). Groups of order 4: Z₄, Klein V₄; order 6: Z₆, S₃; order 8: five groups.</p></div><div class="card"><span class="tag formula">🧮 Formula / Rule</span><b>The group of units Z<sub>n</sub>*</b><p>Z<sub>n</sub>* = {a : gcd(a,n) = 1} under multiplication mod n has φ(n) elements. It is <b>cyclic iff n = 1, 2, 4, p<sup>k</sup> or 2p<sup>k</sup></b> (p an odd prime). So Z₉*, Z₁₀*, Z₁₈* are cyclic, while Z₈* and Z₁₂* are the Klein four-group and Z₁₅* ≅ Z₂×Z₄ (order 8, no element of order 8) are not.</p></div></div></section>
+<section id="comb" class="full"><h2>5. Combinatorics</h2><div class="grid"><div class="card"><span class="tag formula">🧮 Formula / Rule</span><b>Permutations & combinations</b><p><code>nPr = n!/(n-r)!</code>, <code>nCr = n!/[r!(n-r)!]</code>, and <code>nCr=nC(n-r)</code>.</p></div><div class="card"><span class="tag fav">⚠️ GATE Favourite</span><b>Inclusion–Exclusion</b><p>For two sets: <code>|A∪B|=|A|+|B|-|A∩B|</code>. For many sets, alternate signs across intersections.</p></div><div class="card"><span class="tag shortcut">💡 Shortcut</span><b>At least one</b><p>Often easier as <b>total − none</b>. For independent repeated choices, compute the complement first when the event is “at least one”.</p></div><div class="card"><span class="tag trap">🟡 Common Trap</span><b>Pigeonhole</b><p>If n objects are placed into k boxes and n&gt;k, at least one box has ≥2 objects. General form: some box has at least <code>ceil(n/k)</code> objects.</p></div><div class="card" style="grid-column:1/-1"><span class="tag formula">🧮 Formula / Rule</span><b>Stars and bars (distributing identical objects)</b><table><tr><th>Problem</th><th>Count</th></tr>
+<tr><td>x₁+…+x<sub>k</sub> = n, all xᵢ ≥ 0</td><td><code>C(n+k−1, k−1)</code></td></tr>
+<tr><td>All xᵢ ≥ 1</td><td><code>C(n−1, k−1)</code></td></tr>
+<tr><td>xᵢ ≥ aᵢ (lower bounds)</td><td>substitute yᵢ = xᵢ − aᵢ, then use the first row with n − Σaᵢ</td></tr>
+<tr><td>Upper bounds xᵢ ≤ u</td><td>inclusion–exclusion on the variables that break the bound</td></tr></table>
+<p>Example: x₁+x₂+x₃+x₄ = 20 with every xᵢ ≥ 2 → shift to sum 12 → <code>C(15,3) = 455</code>.</p></div><div class="card"><span class="tag formula">🧮 Formula / Rule</span><b>Binomial theorem and identities</b><p><code>(x+y)ⁿ = Σ C(n,k) xⁿ⁻ᵏ yᵏ</code>. Coefficient of x³ in (2+x)⁵ = <code>C(5,3)·2² = 40</code>. <code>ΣC(n,k) = 2ⁿ</code>; alternating sum = 0; Pascal: <code>C(n,k) = C(n−1,k−1)+C(n−1,k)</code>; Vandermonde: <code>Σ C(m,i)C(n,r−i) = C(m+n,r)</code> (e.g. 35 = C(7,3)); hockey stick: <code>Σᵢ₌ᵣⁿ C(i,r) = C(n+1,r+1)</code>. Multinomial: arrangements = <code>n!/(n₁!n₂!…)</code>.</p></div><div class="card" style="grid-column:1/-1"><span class="tag must">🟢 Must Remember</span><b>Special counting sequences</b><table><tr><th>Sequence</th><th>Values</th><th>Counts</th></tr>
+<tr><td>Derangements D<sub>n</sub></td><td>0, 1, 2, 9, 44, 265 (n = 1…6)</td><td>permutations with no fixed point; <code>D<sub>n</sub> = (n−1)(D<sub>n−1</sub>+D<sub>n−2</sub>)</code>, ≈ n!/e</td></tr>
+<tr><td>Catalan C<sub>n</sub> = C(2n,n)/(n+1)</td><td>1, 1, 2, 5, 14, 42, 132</td><td>binary search trees on n keys, balanced bracket strings, full binary trees with n+1 leaves</td></tr>
+<tr><td>Stirling S(n,k)</td><td>S(4,2)=7, S(5,3)=25</td><td>partitions of n objects into k non-empty blocks</td></tr>
+<tr><td>Bell B<sub>n</sub></td><td>1, 2, 5, 15, 52</td><td>all partitions of an n-set = Σ<sub>k</sub> S(n,k)</td></tr></table></div><div class="card"><span class="tag ex">✏️ Worked Example</span><b>5 men and 3 women in a row, no two women adjacent</b><p>Seat the men first: 5! = 120. They create 6 gaps; choose 3 for the women: C(6,3) = 20; arrange the women: 3! = 6. Total = 120 × 20 × 6 = <b>14400</b>.</p></div><div class="card"><span class="tag formula">🧮 Formula / Rule</span><b>Circular arrangements and restricted arrangements</b><p>n distinct objects in a circle: (n − 1)!. Two particular objects adjacent: 2·(n − 2)!; not adjacent: (n − 1)! − 2·(n − 2)!. m men and m women alternating: (m − 1)!·m!. Bracelet (flip also allowed): (n − 1)!/2. In a line, use the <b>block method</b> (glue items that must be together) or the <b>gap method</b>: arrange the unrestricted items first, then choose gaps for the restricted ones — r items that may not touch go into C(k + 1, r) of the k + 1 gaps around k other items.</p><p><b>Example:</b> MISSISSIPPI with no two S adjacent: arrange M,I,I,I,I,P,P in 7!/(4!2!) = 105 ways, then pick 4 of the 8 gaps: 105 × C(8,4) = 105 × 70 = <b>7350</b>.</p></div><div class="card"><span class="tag formula">🧮 Formula / Rule</span><b>Distribution problems at a glance</b><table><thead><tr><th>Situation</th><th>Count</th></tr></thead><tbody><tr><td>n distinct objects → k distinct boxes</td><td>kⁿ</td></tr><tr><td>n identical objects → k distinct boxes (empty allowed / none empty)</td><td>C(n+k−1, k−1) / C(n−1, k−1)</td></tr><tr><td>n distinct objects → k identical boxes, none empty</td><td>Stirling S(n, k)</td></tr><tr><td>n identical objects → identical boxes (integer partitions)</td><td>p(n): p(6) = 11, p(8) = 22</td></tr><tr><td>Lattice paths in an m × n grid</td><td>C(m+n, m); not crossing the diagonal: Catalan C<sub>n</sub></td></tr></tbody></table></div><div class="card"><span class="tag trap">🟡 Common Trap</span><b>Pigeonhole variants</b><p>To guarantee r objects in one of k boxes you need (r − 1)·k + 1 objects (37 people ⇒ 4 share a birth month). Among any n + 1 integers two leave the same remainder mod n. <b>Divisibility form:</b> from {1,…,2n} any n + 1 numbers contain two with one dividing the other — group the numbers by their odd part (there are n groups), because two numbers with the same odd part divide each other. The bound is tight: {n+1,…,2n} has no such pair.</p></div></div></section>
+<section id="rec" class="full"><h2>6. Recurrence Relations & Generating Functions</h2><div class="grid"><div class="card"><span class="tag must">🟢 Must Remember</span><b>Linear homogeneous recurrence</b><p>For constant coefficients, form the characteristic equation. Repeated roots require polynomial factors in n.</p></div><div class="card"><span class="tag formula">🧮 Formula / Rule</span><b>Repeated root</b><p>Root r of multiplicity k contributes <code>(C₀+C₁n+...+Cₖ₋₁n^(k−1))rⁿ</code>.</p></div><div class="card"><span class="tag fav">⚠️ GATE Favourite</span><b>Particular solution</b><p>For non-homogeneous recurrences, choose an appropriate particular form; if it overlaps a homogeneous root, multiply the trial by the required power of n.</p></div><div class="card"><span class="tag shortcut">💡 Shortcut</span><b>Generating functions</b><p>Translate sequence terms into a power series, manipulate algebraically, then extract the coefficient. Keep indexing consistent.</p></div><div class="card" style="grid-column:1/-1"><span class="tag ex">✏️ Worked Example</span><b>Non-homogeneous with an overlapping root</b><p><code>aₙ = 5aₙ₋₁ − 6aₙ₋₂ + 2ⁿ</code>, a₀ = 0, a₁ = 1. Homogeneous roots are 2 and 3. The forcing term 2ⁿ overlaps root 2, so the trial particular solution is <code>C·n·2ⁿ</code> (multiply by n). Substituting gives C = −2. General solution: <code>A·2ⁿ + B·3ⁿ − 2n·2ⁿ</code>; a₀ and a₁ give A = −5, B = 5, so <b>aₙ = 5·3ⁿ − 5·2ⁿ − 2n·2ⁿ</b> (check: a₂ = 45 − 20 − 16 = 9 = 5·1 − 0 + 4).</p></div><div class="card" style="grid-column:1/-1"><span class="tag formula">🧮 Formula / Rule</span><b>Standard generating functions</b><table><tr><th>Sequence</th><th>Generating function</th></tr>
+<tr><td>1, 1, 1, … </td><td><code>1/(1−x)</code></td></tr>
+<tr><td>1, a, a², …</td><td><code>1/(1−ax)</code></td></tr>
+<tr><td>C(n+k−1, k−1) (k-fold repetition)</td><td><code>1/(1−x)ᵏ</code></td></tr>
+<tr><td>C(n, r)</td><td><code>(1+x)ⁿ</code></td></tr>
+<tr><td>1/r!</td><td><code>eˣ</code></td></tr></table>
+<p><b>Rules:</b> a product of generating functions is the convolution of the sequences; multiplying by <code>1/(1−x)</code> gives partial sums; shifting by xᵐ moves the index.</p></div><div class="card"><span class="tag ex">✏️ Worked Example</span><b>Counting with a generating function</b><p>Ways to pay n using 1-coins and 2-coins: coefficient of xⁿ in <code>1/((1−x)(1−x²))</code> = ⌊n/2⌋ + 1, so n = 10 gives <b>6</b>. Another standard model: tilings of a 2×n board with dominoes follow Fibonacci (1, 2, 3, 5, 8 …), so a 2×5 board has <b>8</b> tilings.</p></div><div class="card"><span class="tag formula">🧮 Formula / Rule</span><b>Trial form for the particular solution</b><table><thead><tr><th>Forcing term</th><th>Trial solution</th></tr></thead><tbody><tr><td>constant c</td><td>A  (multiply by n if 1 is a characteristic root)</td></tr><tr><td>polynomial of degree d in n</td><td>polynomial of degree d  (× n<sup>m</sup> if 1 is a root of multiplicity m)</td></tr><tr><td>c·rⁿ</td><td>A·rⁿ  (× n<sup>m</sup> if r is a root of multiplicity m)</td></tr><tr><td>(polynomial)·rⁿ</td><td>(polynomial of the same degree)·rⁿ</td></tr></tbody></table><p>Then add the homogeneous solution and fit the initial conditions. Check by iterating the first few terms.</p></div><div class="card"><span class="tag formula">🧮 Formula / Rule</span><b>Standard results worth memorising</b><p><code>aₙ = aₙ₋₁ + n, a₀ = 0</code> ⇒ n(n+1)/2.  <code>aₙ = 2aₙ₋₁ + n, a₀ = 1</code> ⇒ 3·2ⁿ − n − 2 (a₄ = 42).  <code>T(n) = 2T(n/2) + n, T(1) = 1</code> ⇒ n·log₂n + n (T(16) = 80).  Climbing stairs with 1, 2 or 3 steps: tribonacci, 1, 2, 4, 7, 13, 24, 44, 81, 149, <b>274</b> for 10 steps.  Ternary strings with no two adjacent 0s: aₙ = 2aₙ₋₁ + 2aₙ₋₂ (1, 3, 8, 22, 60, 164, 448, 1224).  Regions made by n lines in general position: 1 + n(n+1)/2.</p></div><div class="card"><span class="tag shortcut">💡 Shortcut</span><b>Generating functions: coins, bounds and parity</b><p>Coins of 1, 2, 5: <code>1/((1−x)(1−x²)(1−x⁵))</code> — the coefficient of xⁿ is the number of ways to pay n (n = 15 gives 18). A variable with 0 ≤ x ≤ u contributes (1 − x<sup>u+1</sup>)/(1 − x); an even count contributes 1/(1 − x²) and an odd count x/(1 − x²). Partitions of n into parts of size at most k: ∏<sub>i≤k</sub> 1/(1 − xⁱ). Without a generating function, a quick hand-count: fix the number of 5-coins, then count (1,2)-ways as ⌊r/2⌋ + 1.</p></div></div></section>
+<section id="graphs" class="full"><h2>7. Graph Theory</h2><div class="grid"><div class="card"><span class="tag must">🟢 Must Remember</span><b>Handshake lemma</b><p><code>Σ deg(v)=2|E|</code> for undirected graphs. Therefore the number of odd-degree vertices is even.</p></div><div class="card"><span class="tag fav">⚠️ GATE Favourite</span><b>Connectivity</b><p>For an undirected graph, connected means every pair of vertices has a path. A tree is connected and acyclic.</p></div><div class="card"><span class="tag formula">🧮 Formula / Rule</span><b>Tree invariant</b><p>A tree with n vertices has exactly <code>n−1</code> edges. Adding one edge creates exactly one cycle; deleting any edge disconnects the tree.</p></div><div class="card"><span class="tag trap">🟡 Common Trap</span><b>Euler vs Hamilton</b><p>Euler concerns using every <b>edge</b>; Hamilton concerns visiting every <b>vertex</b>. Do not interchange their conditions.</p></div><div class="card" style="grid-column:1/-1"><span class="tag formula">🧮 Formula / Rule</span><b>Euler and Hamilton: the exact tests</b><p><b>Euler circuit:</b> connected and every degree even (directed: in-degree = out-degree). <b>Euler path:</b> connected with 0 or 2 odd-degree vertices. K<sub>n</sub> has an Euler circuit iff n is odd. <b>Hamilton:</b> no simple iff-test; <b>Dirac</b> (n ≥ 3, every degree ≥ n/2) and <b>Ore</b> (deg u + deg v ≥ n for non-adjacent pairs) are sufficient only. K<sub>n</sub> is Hamiltonian for n ≥ 3; K<sub>m,n</sub> is Hamiltonian iff m = n ≥ 2.</p></div><div class="card"><span class="tag formula">🧮 Formula / Rule</span><b>Planarity and Euler’s formula</b><p>Connected planar graph: <code>V − E + F = 2</code>. For V ≥ 3: <code>E ≤ 3V − 6</code>; if there is no triangle (e.g. bipartite): <code>E ≤ 2V − 4</code>. Sum of face degrees = 2E. <b>K₅</b> (10 edges &gt; 9) and <b>K₃,₃</b> (9 edges &gt; 8) are non-planar, and by Kuratowski a graph is planar iff it has no subdivision of either. Example: a connected planar cubic graph on 8 vertices has E = 12 and F = 2 − 8 + 12 = <b>6</b>.</p></div><div class="card"><span class="tag formula">🧮 Formula / Rule</span><b>Spanning trees</b><p><b>Cayley:</b> K<sub>n</sub> has <code>n^(n−2)</code> spanning trees (K₄ → 16). K<sub>m,n</sub> has <code>m^(n−1)·n^(m−1)</code> (K₂,₃ → 12; K₃,₃ → 81). The cycle C<sub>n</sub> has n. In general use the matrix-tree theorem (any cofactor of the Laplacian). A spanning tree has n−1 edges; if all edge weights are distinct the minimum spanning tree is unique (Kruskal/Prim); cut property and cycle property justify both algorithms.</p></div><div class="card"><span class="tag must">🟢 Must Remember</span><b>Connectivity and special graph counts</b><p>Vertex connectivity κ ≤ edge connectivity λ ≤ minimum degree δ. In a tree every edge is a bridge and every non-leaf is a cut vertex. A forest with n vertices and c components has n − c edges. K<sub>n</sub> has n(n−1)/2 edges; K<sub>m,n</sub> has mn. There are <code>2^(n(n−1)/2)</code> labelled simple graphs on n vertices (64 for n = 4) but only 11 non-isomorphic ones. A graph is bipartite iff it has no odd cycle.</p></div><div class="card"><span class="tag must">🟢 Must Remember</span><b>Directed graphs</b><p>Σ in-degree = Σ out-degree = |E|. The (i,j) entry of Aᵏ counts walks of length k from i to j. A digraph is <b>strongly connected</b> if every vertex reaches every other; a <b>DAG</b> has a topological order (a vertex with in-degree 0 always exists).</p></div><div class="card"><span class="tag must">🟢 Must Remember</span><b>Matching, vertex cover, independent set, edge cover</b><p>For a graph on n vertices: <b>α + τ = n</b> (independent set + vertex cover) and <b>ν + ρ = n</b> (matching + edge cover, no isolated vertices — Gallai). <b>König (bipartite graphs):</b> ν = τ, hence α = n − ν; Hall's condition characterises perfect matchings. Perfect matchings: K<sub>n,n</sub> has n!, K<sub>2n</sub> has (2n − 1)!! (K₆: 15, K₈: 105); a tree has at most one; every regular bipartite graph has one. The Petersen graph has a perfect matching and independence number 4.</p></div><div class="card"><span class="tag must">🟢 Must Remember</span><b>Graph colouring</b><p>χ(G) ≥ ω(G) (clique number) but not always equal: the Grötzsch graph is triangle-free with χ = 4, and C₅ has ω = 2, χ = 3. Brooks: χ ≤ Δ unless G is complete or an odd cycle; χ ≤ Δ + 1 always; planar ⇒ χ ≤ 4; bipartite ⇔ χ ≤ 2; the Petersen graph has χ = 3. <b>Chromatic polynomial</b> P(G,k) (colourings with k colours): tree k(k−1)ⁿ⁻¹; K<sub>n</sub> k(k−1)…(k−n+1); cycle C<sub>n</sub> (k−1)ⁿ + (−1)ⁿ(k−1); deletion–contraction P(G) = P(G − e) − P(G / e); disconnected graphs multiply. <b>Edge colouring:</b> Δ ≤ χ′ ≤ Δ + 1 (Vizing); bipartite χ′ = Δ; χ′(K<sub>n</sub>) = n − 1 for even n and n for odd n.</p></div><div class="card"><span class="tag formula">🧮 Formula / Rule</span><b>Degree sequences, complements and extremal counts</b><p><b>Havel–Hakimi:</b> sort descending, delete the largest d₁ and subtract 1 from the next d₁ entries; repeat. The sequence is graphic iff you reach all zeros without a negative entry. An even sum is necessary, not sufficient. Complement: |E(G)| + |E(Ḡ)| = C(n,2); a self-complementary graph has n ≡ 0 or 1 (mod 4) (P₄, C₅). Mantel: a triangle-free graph has at most ⌊n²/4⌋ edges (attained by K<sub>⌊n/2⌋,⌈n/2⌉</sub>). Unlabelled trees on n = 1…8 vertices: 1, 1, 1, 2, 3, 6, 11, 23; non-isomorphic simple graphs on n = 1…6: 1, 2, 4, 11, 34, 156; connected 3-regular graphs on 6 vertices: 2 (K<sub>3,3</sub> and the prism).</p></div><div class="card"><span class="tag formula">🧮 Formula / Rule</span><b>Rooted trees and m-ary trees</b><p>A full m-ary tree with i internal vertices has n = m·i + 1 vertices and (m − 1)·i + 1 leaves (binary: i + 1 leaves, 2i + 1 vertices). A binary tree of height h (edges) has at most 2^(h+1) − 1 vertices and at most 2<sup>h</sup> leaves; with n₂ vertices of degree 2 it has n₂ + 1 leaves. Binary search trees on n keys: Catalan number C<sub>n</sub>. A tree has one or two centre vertices.</p></div><div class="card"><span class="tag formula">🧮 Formula / Rule</span><b>Connectivity, planarity bounds, Euler and Hamilton extras</b><p>A <b>cut vertex</b> increases the number of components when removed; a <b>bridge</b> is an edge with that property; <b>blocks</b> are the maximal 2-connected pieces, and consecutive blocks meet at cut vertices. Planar with girth g: E ≤ g(V − 2)/(g − 2): triangle-free (g = 4) gives E ≤ 2V − 4 (K<sub>2,8</sub> reaches 16 for V = 10), and the Petersen graph (g = 5, E = 15 &gt; 5·8/3) is non-planar. K<sub>m,n</sub> has an Euler circuit iff m and n are both even; it has an Euler trail but no circuit when exactly two vertices have odd degree (K<sub>2,3</sub>). The Petersen graph has a Hamilton path but <b>no</b> Hamilton cycle.</p></div></div></section>
+<section id="playbook" class="full"><h2>🧭 Problem → Standard Method Guide</h2><p class="sub">Use this immediately before PYQs: identify the pattern first, then apply the standard technique.</p>
+<div class="guide"><details open><summary>Logic & Proof Patterns</summary><div class="inside"><p><b>Truth/equivalence question</b> → use truth table or standard logical equivalences. <span class="method">Check only the relevant rows/identities.</span></p><p><b>Implication validity</b> → rewrite <code>P→Q</code> as <code>¬P∨Q</code>; look for the single false case.</p><p><b>Quantifier negation</b> → push negation inward while flipping ∀↔∃. <span class="method">Do not negate the predicate incorrectly.</span></p><p><b>Argument validity</b> → translate premises/conclusion into logic; test whether premises true can coexist with conclusion false.</p></div></details></div>
+<div class="guide"><details open><summary>Relations, Functions, Posets & Lattices</summary><div class="inside"><p><b>Classify a relation</b> → systematically test reflexive, symmetric, antisymmetric, transitive using counterexamples where possible.</p><p><b>Equivalence classes</b> → verify equivalence relation, then group elements related to a chosen representative.</p><p><b>Partial-order question</b> → check R, AS, T. <span class="method">For Hasse diagrams, remove loops and transitive edges.</span></p><p><b>Least/greatest/minimal/maximal</b> → compare using the order relation, not visual position alone.</p><p><b>Lattice question</b> → for each relevant pair, find both meet (GLB) and join (LUB).</p><p><b>Function classification</b> → injective: compare inputs/outputs; surjective: check every codomain value has a preimage; bijective: both.</p></div></details></div>
+<div class="guide"><details open><summary>Combinatorics</summary><div class="inside"><p><b>“At least one”</b> → complement counting: total − none.</p><p><b>Overlapping cases</b> → Inclusion–Exclusion; watch alternating signs.</p><p><b>Repeated objects / identical items</b> → divide by factorials of repetition counts when appropriate.</p><p><b>Restricted arrangements</b> → count unrestricted arrangements and subtract invalid cases, or use block/gap methods depending on the restriction.</p><p><b>Guaranteed repetition</b> → Pigeonhole principle; formulate the boxes and objects explicitly before calculating.</p><p><b>Choose r from n</b> → combinations when order does not matter; permutations when it does.</p></div></details></div>
+<div class="guide"><details open><summary>Recurrences & Generating Functions</summary><div class="inside"><p><b>Constant-coefficient linear recurrence</b> → characteristic equation → roots → homogeneous solution → particular solution → initial conditions.</p><p><b>Repeated characteristic root</b> → multiply successive terms by powers of n.</p><p><b>Non-homogeneous recurrence</b> → solve homogeneous part first, then construct a particular solution.</p><p><b>Generating-function problem</b> → define the series, transform the recurrence/sequence algebraically, then extract coefficients.</p></div></details></div>
+
+<div class="guide"><details><summary>Extended GATE Calculation Patterns</summary><div class="inside"><table><thead><tr><th>Problem signal</th><th>Standard method</th><th>Key check / shortcut</th></tr></thead><tbody>
+<tr><td>CNF/DNF conversion</td><td>Use logical equivalences; for canonical forms enumerate assignments if needed.</td><td>CNF is AND of OR clauses; DNF is OR of AND terms.</td></tr>
+<tr><td>Relation represented as matrix</td><td>Use rows/columns to test reflexivity, symmetry, antisymmetry; Boolean matrix multiplication can test composition/transitivity.</td><td>Transitivity requires R∘R ⊆ R.</td></tr>
+<tr><td>Counting onto functions</td><td>Inclusion–Exclusion over missing codomain values.</td><td>For n→m, onto is possible only when n≥m.</td></tr>
+<tr><td>Arrangements with identical items</td><td>Multiset permutation formula.</td><td>Divide by factorials of repeated multiplicities.</td></tr>
+<tr><td>Restricted circular arrangement</td><td>Fix a reference position when rotations are considered identical.</td><td>Do not divide by n!; circular permutations usually use (n−1)! for distinct objects.</td></tr>
+<tr><td>Recurrence order / characteristic roots</td><td>Write characteristic polynomial, factor it, apply multiplicity rule.</td><td>Initial conditions determine constants, not the characteristic roots.</td></tr>
+<tr><td>Recurrence with polynomial/exponential forcing</td><td>Guess a particular form matching the forcing term.</td><td>If the guess overlaps the homogeneous solution, multiply by n until independent.</td></tr>
+<tr><td>Generating-function coefficient</td><td>Convert to known series or partial fractions, then extract coefficient.</td><td>Index shifts carefully; write first few terms to verify.</td></tr>
+<tr><td>Maximum/minimum degree bound</td><td>Handshake lemma + graph constraints.</td><td>Odd-degree vertices must occur in an even count.</td></tr>
+<tr><td>Connected graph edge bounds</td><td>Use tree as minimum-edge connected graph and complete graph as maximum simple graph.</td><td>Connected simple graph: V−1 ≤ E ≤ V(V−1)/2.</td></tr>
+<tr><td>Euler circuit/trail</td><td>Use degree parity + connectivity of non-isolated vertices.</td><td>All even → Euler circuit; exactly two odd → Euler trail but not circuit.</td></tr>
+<tr><td>Bipartite graph</td><td>2-colouring via BFS/DFS or identify an odd cycle.</td><td>No odd cycle ⇔ bipartite.</td></tr>
+<tr><td>Matching question</td><td>Look for augmenting paths; use structural constraints/bipartite matching reasoning.</td><td>A matching never shares a vertex between selected edges.</td></tr>
+<tr><td>Graph colouring lower bound</td><td>Find a clique or odd-cycle obstruction; then construct a colouring for an upper bound.</td><td>χ(G) ≥ ω(G); bipartite nonempty graph has χ=2.</td></tr>
+<tr><td>Group identity/inverse</td><td>Test closure, associativity, identity and inverses under the given operation.</td><td>Identity and inverse are unique in a group.</td></tr>
+<tr><td>Subgroup test</td><td>For a nonempty subset H, verify closure under a^{-1}b for all a,b∈H.</td><td>This single test replaces separate closure + inverse checks.</td></tr>
+<tr><td>Finite group order</td><td>Use divisibility properties of subgroup/order when applicable.</td><td>Order of an element divides the order of a finite group.</td></tr>
+<tr><td>Which connective sets are complete?</td><td>Show each of ¬, ∧ (or ∨) is expressible; otherwise use a class that is closed (monotone, 0- or 1-preserving, affine, self-dual).</td><td>{∧,∨} and {→} alone are not complete; NAND and NOR alone are.</td></tr>
+<tr><td>Is a quantified implication valid?</td><td>Try a counter-model on a 2-element domain: P true at one point, Q true at the other.</td><td>∃ with ∧ and ∀ with ∨ only give one direction.</td></tr>
+<tr><td>Closure / composition of a relation</td><td>Boolean-matrix product or Warshall; count pairs of every reachability component (a cycle of length k contributes k² pairs).</td><td>Compose in the stated order; closure on a cycle is complete.</td></tr>
+<tr><td>Minimum chains / maximum antichain</td><td>Dilworth: find the largest set of pairwise incomparable elements.</td><td>For divisibility on {1..2n}: {n+1..2n} is an antichain of size n.</td></tr>
+<tr><td>Order of a permutation / power of it</td><td>Disjoint cycles, then lcm of cycle lengths; reduce the exponent modulo the order.</td><td>Cycle type 3+2 has order 6; a k-cycle has parity k − 1.</td></tr>
+<tr><td>Is Z<sub>n</sub>* cyclic?</td><td>Cyclic iff n = 1, 2, 4, p<sup>k</sup>, 2p<sup>k</sup>.</td><td>Z₈*, Z₁₂*, Z₁₅* are not cyclic.</td></tr>
+<tr><td>Homomorphisms Z<sub>m</sub> → Z<sub>n</sub></td><td>f(1) = a with m·a ≡ 0 (mod n); count = gcd(m, n).</td><td>|image| = |G| / |kernel|.</td></tr>
+<tr><td>Circular / forbidden-adjacency counting</td><td>Fix one person; treat adjacent pairs as a block; use the gap method for non-adjacent.</td><td>Not adjacent = (n−1)! − 2(n−2)!.</td></tr>
+<tr><td>Pigeonhole with divisibility or sums</td><td>Choose boxes that force the property (odd part, remainder class).</td><td>Guarantee r in one box needs (r−1)k + 1 objects.</td></tr>
+<tr><td>Non-homogeneous recurrence with overlap</td><td>Trial = (n<sup>m</sup>)·(forcing-term form); substitute to find the constant.</td><td>Verify by iterating three or four terms.</td></tr>
+<tr><td>Coin-change / restricted-sum counting</td><td>Product of generating functions, or fix the largest coin and count the rest.</td><td>Bounded variable: (1 − x<sup>u+1</sup>)/(1 − x).</td></tr>
+<tr><td>Is a degree sequence graphic?</td><td>Havel–Hakimi reduction; an odd sum fails immediately.</td><td>Even sum is necessary, not sufficient.</td></tr>
+<tr><td>Max matching / min vertex cover / max independent set</td><td>Find a maximum matching; in bipartite graphs τ = ν (König) and α = n − ν.</td><td>A Hall violator shows no perfect matching.</td></tr>
+<tr><td>Number of proper colourings</td><td>Deletion–contraction, or use the formula for trees, cycles and complete graphs.</td><td>C<sub>n</sub>: (k−1)ⁿ + (−1)ⁿ(k−1).</td></tr>
+<tr><td>Cut vertices and bridges</td><td>Remove each vertex or edge and count components, or use low-link values.</td><td>A leaf is never a cut vertex; every tree edge is a bridge.</td></tr>
+<tr><td>Edge bound for planar graphs</td><td>Triangle-free: E ≤ 2V − 4; otherwise E ≤ 3V − 6; girth g: E ≤ g(V−2)/(g−2).</td><td>Faces from Euler: F = 2 − V + E.</td></tr>
+</tbody></table></div></details></div>
+<div class="guide"><details open><summary>Graph Theory</summary><div class="inside"><p><b>Degree-count problem</b> → handshake lemma <code>Σdeg=2E</code>.</p><p><b>Tree problem</b> → immediately use <code>E=V−1</code>, connected + acyclic, and unique simple path properties.</p><p><b>Bipartite test</b> → 2-color via BFS/DFS; equivalently, no odd cycle.</p><p><b>Euler trail/circuit</b> → reason from vertex degrees and connectivity of the non-isolated portion.</p><p><b>Matching</b> → identify maximum-cardinality constraints and augmenting-path logic where applicable.</p><p><b>Graph colouring</b> → use lower bounds (cliques/odd cycles), upper bounds, and structural properties rather than blindly trying colours.</p></div></details></div>
+</section>
+
+<section id="resources" class="full"><h2>📚 Standard Resources & Method Basis</h2>
+<div class="grid">
+<div class="card"><span class="tag fav">Official Scope</span><p><b>GATE 2027 CS syllabus — IIT Madras</b><br>Use this as the authority for what belongs in the exam scope. The official syllabus lists logic, sets/relations/functions, partial orders/lattices, monoids/groups, graph connectivity/matching/colouring, and combinatorics including recurrences and generating functions.</p></div>
+<div class="card"><span class="tag must">Primary Text</span><p><b>Kenneth H. Rosen — Discrete Mathematics and Its Applications</b><br>Use for precise definitions, theorems, standard counting techniques, relations, graphs, trees, algebraic structures, and problem-solving practice. McGraw Hill describes the text as emphasizing mathematical reasoning and problem solving.</p></div>
+<div class="card"><span class="tag shortcut">Problem-Solving Reference</span><p><b>Concrete Mathematics — Graham, Knuth & Patashnik</b><br>Useful when you want stronger technique depth for sums, recurrences, counting and discrete problem solving. It is a reference, not a signal to study beyond the GATE syllabus.</p></div>
+<div class="card"><span class="tag trap">Scope Discipline</span><p><b>Do not study the whole textbook.</b><br>The hub deliberately filters standard resources down to the GATE 2027 CS syllabus. For preparation, use the page to recall methods and then validate them through PYQs.</p></div>
+</div></section>
+
+<section id="advanced" class="full"><h2>8. High-Yield Extensions & Standard Methods</h2>
+<div class="grid">
+<div class="card"><span class="tag must">🟢 Must Remember</span><b>Graph isomorphism</b><p>An isomorphism is a bijection preserving adjacency. Before attempting a mapping, compare invariants: number of vertices/edges, degree multiset, connected components, cycle structure and counts of special vertices.</p></div>
+<div class="card"><span class="tag fav">⚠️ GATE Favourite</span><b>Cosets</b><p>For subgroup H of finite group G, every left coset has |H| elements and cosets partition G. By Lagrange, |H| divides |G| and the number of distinct cosets is |G|/|H|.</p></div>
+<div class="card"><span class="tag formula">🧮 Formula / Rule</span><b>Homomorphism</b><p>A map preserves the operation: <code>f(a*b)=f(a)*f(b)</code>. For group homomorphisms, the kernel is a subgroup and the image is a subgroup; injective iff the kernel is the identity-only set.</p></div>
+<div class="card"><span class="tag trap">🟡 Common Trap</span><b>Homomorphism vs isomorphism</b><p>A homomorphism only has to preserve the operation, so it need not be injective or onto; an isomorphism is a <b>bijective</b> homomorphism. The kernel measures failure of injectivity: for finite groups <code>|image| = |G| / |kernel|</code>.</p></div>
+<div class="card"><span class="tag must">🟢 Must Remember</span><b>Hall's condition</b><p>A bipartite graph has a matching saturating the left side iff for every subset S of left vertices, <code>|N(S)| ≥ |S|</code>.</p></div>
+<div class="card"><span class="tag formula">🧮 Formula / Rule</span><b>Colouring bounds</b><p><code>χ(G) ≥ ω(G)</code>, where ω is clique number. A nonempty bipartite graph has chromatic number 2. For a complete graph K<sub>n</sub>, χ=n.</p></div>
+<div class="card"><span class="tag must">🟢 Must Remember</span><b>Generating-function workflow</b><p>Translate the recurrence/counting condition into coefficient extraction. Use geometric-series identities for unrestricted repetition and multiply generating functions when independent choices combine.</p></div>
+<div class="card"><span class="tag shortcut">💡 Shortcut</span><b>Graph invariant filter</b><p>If two graphs have different degree multisets, component counts, or vertex/edge counts, they are immediately non-isomorphic; do not attempt a full mapping.</p></div>
+</div>
+<h3>Representative worked problems</h3>
+<div class="guide"><details open><summary>Q1 · Cosets and subgroup order</summary><div class="inside"><p><b>Given:</b> |G|=24 and H is a subgroup of order 6. <b>How many distinct left cosets of H exist?</b></p><p><span class="method">Method:</span> Use the coset partition theorem: number of cosets = |G|/|H|.</p><p><code>24/6 = 4</code>. Every coset contains exactly 6 elements and the four cosets partition G.</p></div></details></div>
+<div class="guide"><details><summary>Q2 · Graph isomorphism filter</summary><div class="inside"><p><b>Given:</b> G has degree sequence (3,2,2,1,1,1) while H has (3,3,1,1,1,1). <b>Can they be isomorphic?</b></p><p><span class="method">Method:</span> Isomorphism preserves the degree of every vertex, hence preserves the sorted degree multiset.</p><p>The sequences differ, so the graphs are <b>not isomorphic</b>. No vertex mapping needs to be attempted.</p></div></details></div>
+<div class="guide"><details><summary>Q3 · Hall's theorem</summary><div class="inside"><p><b>Given:</b> Left vertices {a,b,c} have neighborhoods N(a)={1,2}, N(b)={2,3}, N(c)={1,2,3}. <b>Does a matching saturating the left side exist?</b></p><p><span class="method">Method:</span> Check Hall's condition for every relevant subset. Singletons have at least one neighbor; {a,b} has {1,2,3}; {a,c} and {b,c} also have 3; all three have 3.</p><p>Thus <code>|N(S)|≥|S|</code> for every S, so Hall's theorem guarantees a matching saturating {a,b,c}. One such matching is a→1, b→2, c→3.</p></div></details></div>
+<div class="guide"><details><summary>Q4 · Generating function coefficient</summary><div class="inside"><p><b>Problem:</b> Find the number of solutions to x+y+z=5 with x,y,z≥0.</p><p><span class="method">Method:</span> Each variable contributes <code>1/(1-t)</code>; multiply and extract [t<sup>5</sup>].</p><p><code>(1-t)<sup>-3</sup> = Σ C(n+2,2)t<sup>n</sup></code>, so the coefficient of t<sup>5</sup> is <code>C(7,2)=21</code>.</p></div></details></div>
+</section>
+
+<section id="quiz" class="full"><h2>9. Practice Quiz — 90 Questions</h2>
+<p class="sub">Covers all 8 topic areas. Options are shuffled every time you open a question set. MSQ mode adds select-all-that-apply practice (all-or-nothing, as in GATE).</p>
+<style>
+.qtopics{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0}
+.qtopics button,.qmode button{cursor:pointer;background:var(--panel2);color:var(--text);border:1px solid var(--border);padding:8px 12px;border-radius:9px;font-weight:600;font-size:13px}
+.qtopics button.active,.qmode button.active{background:#164e63;border-color:#0e7490;font-weight:800}
+.qmode{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}
+#score{margin:12px 0;color:var(--muted)}#score b{color:var(--text)}
+.qcard{background:var(--panel);border:1px solid var(--border);border-radius:13px;padding:16px;margin:14px 0}
+.qtag{font-size:12px;font-weight:700;color:var(--accent);margin-bottom:6px;letter-spacing:.3px}
+.qtext{font-weight:650;margin-bottom:10px}
+.qhint{color:var(--muted);font-size:13px;margin-bottom:8px}
+.opt{display:block;width:100%;text-align:left;cursor:pointer;background:var(--panel2);color:var(--text);border:1px solid var(--border);padding:10px 12px;border-radius:9px;margin:6px 0;font:inherit}
+.opt:hover{border-color:var(--accent)}
+.opt.selected{outline:2px solid var(--accent)}
+.opt.correct{background:rgba(134,239,172,.14);border-color:var(--green);color:var(--green)}
+.opt.wrong{background:rgba(252,165,165,.14);border-color:var(--red);color:var(--red)}
+.expl{display:none;margin-top:10px;padding:10px 12px;border-left:4px solid var(--accent);background:rgba(125,211,252,.07);border-radius:8px}
+.expl.show{display:block}
+.submit{margin-top:8px}
+ol.opts{margin:8px 0 10px;padding-left:26px}
+.guide pre{white-space:pre-wrap;background:#080d18;border:1px solid var(--border);border-radius:10px;padding:12px;overflow:auto;line-height:1.55;color:#cfe3f7}
+.gans{font-weight:800;color:var(--green);margin:8px 0 0}
+</style>
+<div class="qtopics" id="qtopics"></div>
+<div class="qmode"><button id="mcqMode" class="active">MCQ</button><button id="msqMode">MSQ · Select all that apply</button></div>
+<div id="score">Answered <b id="ansCount">0</b>/90 · Correct <b id="corrCount">0</b></div>
+<div id="qlist"></div>
+</section>
+
+<section id="pyq" class="full"><h2>10. GATE-Level Solved Problems</h2>
+<p class="sub">35 multi-step problems in GATE style (23 MCQ, 12 NAT). Each shows the method, every step, and a cross-check where one exists. Try the problem first, then open the solution.</p>
+<div class="guide"><details open><summary>Q1 · LOGIC · MCQ — Truth assignments of a cyclic implication</summary><div class="inside"><p><b>How many assignments to (p, q, r) make (p → q) ∧ (q → r) ∧ (r → p) true?</b></p><ol class="opts"><li>1</li><li>2</li><li>4</li><li>6</li></ol><pre>p → q → r → p forms a cycle of implications.
+  If any one variable is T, the chain forces the next one T, and so on around the cycle, so all three are T.
+  If none is T, all three are F and every implication F → F is true.
+So the formula holds exactly when p = q = r:  TTT and FFF.
+Check: p = T, q = F makes p → q false, so mixed assignments always fail.</pre><p class="gans">Correct: Option 2 — 2 assignments.</p></div></details></div><div class="guide"><details><summary>Q2 · FOL · MCQ — Negating a universal implication</summary><div class="inside"><p><b>Which formula is logically equivalent to ¬∀x (P(x) → Q(x))?</b></p><ol class="opts"><li>∀x (P(x) ∧ ¬Q(x))</li><li>∃x (P(x) → ¬Q(x))</li><li>∃x (¬P(x) ∧ Q(x))</li><li>∃x (P(x) ∧ ¬Q(x))</li></ol><pre>Step 1: ¬∀x φ(x) ≡ ∃x ¬φ(x), so we get ∃x ¬(P(x) → Q(x)).
+Step 2: ¬(P → Q) ≡ ¬(¬P ∨ Q) ≡ P ∧ ¬Q.
+Result: ∃x (P(x) ∧ ¬Q(x)) — there is a counter-example element with P true and Q false.
+Trap: ∃x (P(x) → ¬Q(x)) is true whenever some x has P false, so it says something much weaker.</pre><p class="gans">Correct: Option 4 — ∃x (P(x) ∧ ¬Q(x)).</p></div></details></div><div class="guide"><details><summary>Q3 · RELATIONS · MCQ — Reflexive and symmetric relations</summary><div class="inside"><p><b>How many relations on {1, 2, 3} are both reflexive and symmetric?</b></p><ol class="opts"><li>8</li><li>4</li><li>16</li><li>64</li></ol><pre>Reflexive: all 3 diagonal pairs (1,1), (2,2), (3,3) must be present — no choice.
+Symmetric: off-diagonal pairs come in mirrored couples. The unordered pairs are {1,2}, {1,3}, {2,3}, i.e. 3 independent choices.
+Each choice is in or out, so the count is 2^3 = 8.
+(For comparison: reflexive only = 2^6 = 64, symmetric only = 2^6 = 64.)</pre><p class="gans">Correct: Option 1 — 8 relations.</p></div></details></div><div class="guide"><details><summary>Q4 · FUNCTIONS · NAT — Counting onto functions</summary><div class="inside"><p><b>How many onto functions exist from a 5-element set to a 3-element set?</b></p><p class="small">NAT — enter a number.</p><pre>Inclusion–Exclusion over the codomain elements that are missed:
+  onto = 3^5 − C(3,1)·2^5 + C(3,2)·1^5 − C(3,3)·0^5
+       = 243 − 3·32 + 3·1 − 0
+       = 243 − 96 + 3 = 150.
+Cross-check using Stirling numbers: S(5,3) = 25 partitions, each assigned to the 3 codomain values in 3! = 6 ways: 25 × 6 = 150.</pre><p class="gans">Answer: 150</p></div></details></div><div class="guide"><details><summary>Q5 · POSETS · MCQ — Hasse diagram of a divisor poset</summary><div class="inside"><p><b>How many edges does the Hasse diagram of the divisors of 36 under divisibility have?</b></p><ol class="opts"><li>9</li><li>10</li><li>12</li><li>14</li></ol><pre>Divisors of 36 = 2^a · 3^b with a, b ∈ {0,1,2}, so the poset is a 3 × 3 grid (9 elements).
+Cover relations multiply by exactly one prime:
+  multiply by 2: a goes 0→1 or 1→2 (2 steps) for each of 3 values of b → 6 edges
+  multiply by 3: b goes 0→1 or 1→2 (2 steps) for each of 3 values of a → 6 edges
+Total = 6 + 6 = 12.</pre><p class="gans">Correct: Option 3 — 12 edges.</p></div></details></div><div class="guide"><details><summary>Q6 · LATTICES · MCQ — Complemented elements in D12</summary><div class="inside"><p><b>In the lattice of divisors of 12 under divisibility, how many elements have a complement?</b></p><ol class="opts"><li>2</li><li>4</li><li>5</li><li>6</li></ol><pre>Bottom = 1, top = 12. x and y are complements iff gcd(x,y) = 1 and lcm(x,y) = 12.
+  1 ↔ 12 (gcd 1, lcm 12)
+  3 ↔ 4  (gcd 1, lcm 12)
+  2: needs gcd(2,y)=1, so y ∈ {1,3}; lcm(2,1)=2 and lcm(2,3)=6, neither is 12 → no complement
+  6: needs gcd(6,y)=1, so y = 1; lcm(6,1)=6 ≠ 12 → no complement
+Elements with a complement: 1, 3, 4, 12 → 4.
+This also shows D12 is not a Boolean algebra (12 is not square-free).</pre><p class="gans">Correct: Option 2 — 4 elements.</p></div></details></div><div class="guide"><details><summary>Q7 · GROUPS · MCQ — Subgroups of a cyclic group</summary><div class="inside"><p><b>How many subgroups does the cyclic group Z36 have?</b></p><ol class="opts"><li>6</li><li>8</li><li>12</li><li>9</li></ol><pre>A cyclic group of order n has exactly one subgroup for each divisor of n.
+Divisors of 36: 1, 2, 3, 4, 6, 9, 12, 18, 36 → 9 divisors.
+So Z36 has 9 subgroups (orders 1, 2, 3, 4, 6, 9, 12, 18, 36).</pre><p class="gans">Correct: Option 4 — 9 subgroups.</p></div></details></div><div class="guide"><details><summary>Q8 · GROUPS · MCQ — Units modulo 8</summary><div class="inside"><p><b>Let S = {1, 3, 5, 7} under multiplication modulo 8. Which statement is true?</b></p><ol class="opts"><li>It is not a group because 3 · 5 = 15 is outside S</li><li>It is a cyclic group generated by 3</li><li>It is a group in which every element is its own inverse, so it is not cyclic</li><li>It is a group isomorphic to Z4</li></ol><pre>Closure: 3·5 = 15 ≡ 7, 3·7 = 21 ≡ 5, 5·7 = 35 ≡ 3 — all in S. Identity is 1; multiplication mod 8 is associative.
+Squares: 3² = 9 ≡ 1, 5² = 25 ≡ 1, 7² = 49 ≡ 1, so every element is its own inverse.
+A cyclic group of order 4 needs an element of order 4. Here every non-identity element has order 2.
+So S is the Klein four-group, not Z4.</pre><p class="gans">Correct: Option 3 — Group, all elements self-inverse, not cyclic.</p></div></details></div><div class="guide"><details><summary>Q9 · COMBINATORICS · NAT — Arrangements with repeated letters</summary><div class="inside"><p><b>How many distinct arrangements of the letters of COMMITTEE are there?</b></p><p class="small">NAT — enter a number.</p><pre>COMMITTEE has 9 letters: C, O, M, M, I, T, T, E, E.
+Repeats: M twice, T twice, E twice; C, O, I once each.
+Arrangements = 9! / (2! · 2! · 2!) = 362880 / 8 = 45360.</pre><p class="gans">Answer: 45360</p></div></details></div><div class="guide"><details><summary>Q10 · COMBINATORICS · NAT — Inclusion–Exclusion with three divisors</summary><div class="inside"><p><b>How many integers from 1 to 1000 are divisible by none of 3, 5 and 7?</b></p><p class="small">NAT — enter a number.</p><pre>Let A, B, C be the multiples of 3, 5, 7 up to 1000.
+|A| = 333, |B| = 200, |C| = 142
+|A∩B| = ⌊1000/15⌋ = 66, |A∩C| = ⌊1000/21⌋ = 47, |B∩C| = ⌊1000/35⌋ = 28
+|A∩B∩C| = ⌊1000/105⌋ = 9
+|A∪B∪C| = (333 + 200 + 142) − (66 + 47 + 28) + 9 = 675 − 141 + 9 = 543
+None of the three: 1000 − 543 = 457.</pre><p class="gans">Answer: 457</p></div></details></div><div class="guide"><details><summary>Q11 · COMBINATORICS · MCQ — Bounded solutions of an equation</summary><div class="inside"><p><b>How many integer solutions does x + y + z = 12 have with 0 ≤ x, y, z ≤ 6?</b></p><ol class="opts"><li>28</li><li>36</li><li>45</li><li>91</li></ol><pre>Without the upper bound: C(12 + 2, 2) = C(14, 2) = 91.
+Bad solutions have some variable ≥ 7. Substitute x' = x − 7: x' + y + z = 5, giving C(7, 2) = 21 solutions. There are 3 choices of variable → 63.
+Two variables ≥ 7 would need a sum ≥ 14 &gt; 12, impossible, so there is no overlap to add back.
+Valid = 91 − 63 = 28.</pre><p class="gans">Correct: Option 1 — 28 solutions.</p></div></details></div><div class="guide"><details><summary>Q12 · RECURRENCE · MCQ — Recurrence with a repeated root</summary><div class="inside"><p><b>a_n = 6a_(n−1) − 9a_(n−2) with a_0 = 1 and a_1 = 9. What is a_4?</b></p><ol class="opts"><li>486</li><li>567</li><li>729</li><li>972</li></ol><pre>Characteristic equation: r² − 6r + 9 = 0 → (r − 3)² = 0, a repeated root r = 3.
+General solution: a_n = (C0 + C1·n)·3^n.
+a_0 = 1 → C0 = 1.  a_1 = 3(1 + C1) = 9 → C1 = 2.
+So a_n = (1 + 2n)·3^n and a_4 = 9 · 81 = 729.
+Cross-check by iterating: a_2 = 54 − 9 = 45, a_3 = 270 − 81 = 189, a_4 = 1134 − 405 = 729.</pre><p class="gans">Correct: Option 3 — a_4 = 729.</p></div></details></div><div class="guide"><details><summary>Q13 · RECURRENCE MODEL · MCQ — Binary strings with no three consecutive zeros</summary><div class="inside"><p><b>How many binary strings of length 8 contain no three consecutive 0s?</b></p><ol class="opts"><li>137</li><li>149</li><li>193</li><li>233</li></ol><pre>Classify a valid string by its ending: it ends in 1 (the prefix of length n−1 is any valid string), or in 10 (prefix of length n−2 valid), or in 100 (prefix of length n−3 valid).
+  c_n = c_(n−1) + c_(n−2) + c_(n−3),  with c_0 = 1, c_1 = 2, c_2 = 4.
+  c_3 = 7, c_4 = 13, c_5 = 24, c_6 = 44, c_7 = 81, c_8 = 149.</pre><p class="gans">Correct: Option 2 — 149 strings.</p></div></details></div><div class="guide"><details><summary>Q14 · TREES · MCQ — Counting vertices of a tree from degrees</summary><div class="inside"><p><b>A tree has 4 vertices of degree 3, 2 vertices of degree 2, and all remaining vertices are leaves. How many vertices does the tree have?</b></p><ol class="opts"><li>10</li><li>11</li><li>13</li><li>12</li></ol><pre>Let L be the number of leaves, so n = 4 + 2 + L = 6 + L.
+Handshake lemma on a tree: Σ deg = 2(n − 1).
+  4·3 + 2·2 + L·1 = 2(5 + L)
+  16 + L = 10 + 2L → L = 6, so n = 12.
+Check: 12 vertices, 11 edges, degree sum 12 + 4 + 6 = 22 = 2 × 11.</pre><p class="gans">Correct: Option 4 — 12 vertices.</p></div></details></div><div class="guide"><details><summary>Q15 · MATCHING · NAT — Perfect matchings in a complete bipartite graph</summary><div class="inside"><p><b>How many perfect matchings does K_{4,4} have?</b></p><p class="small">NAT — enter a number.</p><pre>A perfect matching in K_{n,n} pairs each left vertex with a different right vertex, so it is a bijection from the left side to the right side.
+Left vertex 1 has 4 choices, vertex 2 has 3, vertex 3 has 2, vertex 4 has 1.
+Count = 4! = 24.
+(Hall's condition holds trivially since every left subset sees all 4 right vertices.)</pre><p class="gans">Answer: 24</p></div></details></div>
+<div class="guide"><details><summary>Q16 · FOL · MCQ — Which quantified implication is valid?</summary><div class="inside"><p><b>Which of the following first-order formulas is valid (true in every interpretation)?</b></p><ol class="opts"><li>∀x (P(x) ∨ Q(x)) → (∀x P(x) ∨ ∀x Q(x))</li><li>(∃x P(x) ∧ ∃x Q(x)) → ∃x (P(x) ∧ Q(x))</li><li>∃x (P(x) ∧ Q(x)) → (∃x P(x) ∧ ∃x Q(x))</li><li>(∀x P(x) → ∀x Q(x)) → ∀x (P(x) → Q(x))</li></ol><pre>To show a formula is NOT valid, give one interpretation that makes it false. Try the smallest domain {1, 2}.
+
+(1) Let P be true only at 1 and Q true only at 2.
+    ∀x(P ∨ Q) is true (every element satisfies one of them), but ∀xP and ∀xQ are both false  → implication false.        ✘
+(2) Same interpretation: ∃xP and ∃xQ are both true, but no single element satisfies P ∧ Q  → implication false.            ✘
+(3) If some element a satisfies P ∧ Q, then a witnesses ∃xP and also ∃xQ. No interpretation can falsify it.              ✔ valid
+(4) Let P(1) = T, Q(1) = F and P(2) = F. Then ∀xP is false, so (∀xP → ∀xQ) is true; but P(1) → Q(1) is false,
+    so ∀x(P → Q) is false  → implication false.                                                                             ✘
+
+Rule: ∀ distributes exactly over ∧ and ∃ exactly over ∨; for ∀ with ∨ and ∃ with ∧ only the 'easy' direction holds (3 is that direction; 2 is its converse).
+Check: all four formulas were tested in every interpretation on domains of size 1, 2 and 3 — (3) held in all of them, while (1), (2) and (4) failed already on 2 elements.
+Trap: (1) looks like 'distributing ∀ over ∨', which is only valid in the opposite direction (∀xP ∨ ∀xQ → ∀x(P ∨ Q)).</pre><p class="gans">Correct: Option 3 — ∃x (P(x) ∧ Q(x)) → (∃x P(x) ∧ ∃x Q(x)).</p></div></details></div>
+<div class="guide"><details><summary>Q17 · LOGIC · MCQ — Counting functionally complete connective sets</summary><div class="inside"><p><b>How many of the following six sets of connectives are functionally complete? {∧, ¬}, {→, ¬}, {↓} (NOR), {∧, ∨}, {⊕, ∧}, {→}</b></p><ol class="opts"><li>2</li><li>3</li><li>4</li><li>5</li></ol><pre>A set is complete when every Boolean function can be expressed with it. Check each one:
+ {∧, ¬}   : p ∨ q = ¬(¬p ∧ ¬q)                         → complete
+ {→, ¬}   : p ∨ q = ¬p → q  (and ∧ follows)            → complete
+ {↓}      : ¬p = p ↓ p;  p ∨ q = ¬(p ↓ q)               → complete (NAND is the only other single connective that works)
+ {∧, ∨}   : both are monotone, so only monotone functions can be built; ¬p is impossible            → not complete
+ {⊕, ∧}   : both give 0 when all inputs are 0, so ¬p (which gives 1 on input 0) is impossible       → not complete
+            (adding the constant 1 would make it complete — Zhegalkin / algebraic normal form)
+ {→}      : p → q is 1 whenever all inputs are 1, so ¬p (0 on input 1) is impossible                 → not complete
+Complete sets: {∧,¬}, {→,¬}, {↓} → 3.
+Check: the functions generated by each set were computed by program: {∧,¬}, {→,¬} and {↓} generate all 16 functions of two variables; {∧,∨}, {⊕,∧} and {→} do not.
+Trap: {→} looks powerful because it implies the others in many proofs, but with → alone every generated function is true on the all-true row.</pre><p class="gans">Correct: Option 2 — 3 of the 6 sets are functionally complete.</p></div></details></div>
+<div class="guide"><details><summary>Q18 · RELATIONS · NAT — Size of a transitive closure</summary><div class="inside"><p><b>R = {(1,2), (2,3), (3,1), (4,5)} is a relation on {1, 2, 3, 4, 5}. How many ordered pairs does its transitive closure contain?</b></p><p class="small">NAT — enter a number.</p><pre>Follow reachability — a pair (a, b) is in the closure if b can be reached from a by one or more R-steps.
+Component {1, 2, 3}: 1 → 2 → 3 → 1 is a directed cycle, so every element reaches every element, including itself (1 → 2 → 3 → 1).
+   That gives all 3 × 3 = 9 pairs, among them (1,1), (2,2), (3,3).
+Component {4, 5}: 4 → 5 only; 5 reaches nothing, so just (4,5): 1 pair.
+Element pairs between the two components are not reachable.
+Total = 9 + 1 = 10.
+Check: Warshall's closure computed by program gives exactly these 10 pairs.
+Remember: a cycle of length k contributes k² pairs to the transitive closure (loops included); a chain a → b → c contributes 3 pairs.</pre><p class="gans">Answer: 10</p></div></details></div>
+<div class="guide"><details><summary>Q19 · POSETS · NAT — Minimum chain cover of a divisibility poset</summary><div class="inside"><p><b>What is the minimum number of chains needed to cover (partition) the poset ({1, 2, …, 12}, divisibility)?</b></p><p class="small">NAT — enter a number.</p><pre>By Dilworth's theorem the minimum number of chains equals the size of the largest antichain (a set of pairwise non-dividing numbers).
+
+Antichain: {7, 8, 9, 10, 11, 12} — for any two of them the larger is less than twice the smaller, so neither divides the other. Size 6.
+No antichain can be larger: group the numbers by their odd part (1,3,5,7,9,11 — six groups); two numbers in the same group are comparable (one is a power of 2 times the other), so an antichain picks at most one per group.
+
+A partition into 6 chains (so the bound is reached):
+   {1, 2, 4, 8}   {3, 6, 12}   {5, 10}   {7}   {9}   {11}
+Answer: 6.
+Check: the largest antichain of the divisibility order on {1..12} was found by exhaustive search: size 6.
+Trap: the longest chain (1,2,4,8 — 4 elements) tells you the minimum number of ANTICHAINS (Mirsky), not the number of chains.</pre><p class="gans">Answer: 6</p></div></details></div>
+<div class="guide"><details><summary>Q20 · LATTICES · MCQ — The pentagon lattice N₅</summary><div class="inside"><p><b>N₅ is the lattice with elements 0, a, b, c, 1 where 0 &lt; a &lt; c &lt; 1 and 0 &lt; b &lt; 1 (b is incomparable to a and c). Which statement is correct?</b></p><ol class="opts"><li>It is distributive and complemented</li><li>It is distributive but not complemented</li><li>It is complemented but not distributive; b has two complements</li><li>It is neither complemented nor distributive</li></ol><pre>Meets and joins: a ∨ b = 1, a ∧ b = 0, c ∨ b = 1, c ∧ b = 0, a ∨ c = c, a ∧ c = a.
+
+Distributivity: c ∧ (a ∨ b) = c ∧ 1 = c, but (c ∧ a) ∨ (c ∧ b) = a ∨ 0 = a. Since c ≠ a, the law fails → N₅ is NOT distributive (it is the forbidden pentagon).
+Complements (x ∧ y = 0 and x ∨ y = 1):  0 ↔ 1,  a ↔ b,  c ↔ b,  and b has TWO complements, a and c.
+Every element has a complement, so N₅ is complemented. Complements are unique in distributive lattices, so non-unique complements already prove non-distributivity.
+
+Check: meets, joins and the complements of every element were computed by program; b's complements are a and c, and c ∧ (a ∨ b) = c while (c ∧ a) ∨ (c ∧ b) = a.
+Trap: 'complemented' does not imply 'Boolean'; a Boolean algebra is a complemented AND distributive lattice.</pre><p class="gans">Correct: Option 3 — N₅ is complemented but not distributive, and b has two complements.</p></div></details></div>
+<div class="guide"><details><summary>Q21 · GROUPS · MCQ — Element orders in the symmetric group S₅</summary><div class="inside"><p><b>What is the maximum order of an element of S₅, and how many elements have that order?</b></p><ol class="opts"><li>6 and 20</li><li>5 and 24</li><li>6 and 10</li><li>4 and 30</li></ol><pre>The order of a permutation is the lcm of its disjoint cycle lengths. List the cycle types of 5 points:
+   5 → order 5      4 + 1 → 4      3 + 2 → lcm(3,2) = 6      3 + 1 + 1 → 3      2 + 2 + 1 → 2      2 + 1+1+1 → 2      identity → 1
+The maximum is 6, reached only by the type 3 + 2.
+
+Number of permutations of cycle type 3 + 2:  choose the 3 points for the 3-cycle: C(5,3) = 10; there are 2 distinct 3-cycles on them; the remaining 2 points form 1 transposition:
+   10 × 2 × 1 = 20       (formula n! / ∏ k^{m_k}·m_k! = 120 / (3·2) = 20).
+Check: counting all 120 elements of S₅ by program gave orders 1:1, 2:25, 3:20, 4:30, 5:24, 6:20 — so the maximum order is 6, reached by 20 elements.
+Trap: 5 is the largest cycle length but not the largest order; forgetting the factor 2 for the orientation of a 3-cycle gives 10.</pre><p class="gans">Correct: Option 1 — maximum order 6, attained by 20 elements.</p></div></details></div>
+<div class="guide"><details><summary>Q22 · GROUPS · MCQ — Which unit groups are cyclic?</summary><div class="inside"><p><b>How many of the groups (Z₈*, ×), (Z₉*, ×), (Z₁₂*, ×), (Z₁₅*, ×), (Z₁₈*, ×) are cyclic? (Z_n* is the set of residues coprime to n under multiplication mod n.)</b></p><ol class="opts"><li>1</li><li>2</li><li>3</li><li>4</li></ol><pre>Gauss's theorem: Z_n* is cyclic exactly for n = 1, 2, 4, p^k and 2p^k (p an odd prime).
+   n = 8  = 2³          → not of the form → not cyclic    (Z₈* = {1,3,5,7}: every non-identity element has order 2)
+   n = 9  = 3²          → p^k             → cyclic         (order 6; 2 is a generator)
+   n = 12 = 2²·3        → no              → not cyclic    ({1,5,7,11}, Klein four-group)
+   n = 15 = 3·5         → no              → not cyclic    (order 8 but no element of order 8; Z₁₅* ≅ Z₂ × Z₄)
+   n = 18 = 2·3²        → 2p^k            → cyclic         (order 6)
+Cyclic ones: n = 9 and n = 18 → 2.
+Check: the maximum element order in each group was computed by program and compared with the group order: 8 (2 vs 4), 9 (6 vs 6), 12 (2 vs 4), 15 (4 vs 8), 18 (6 vs 6).
+Trap: |Z_n*| = φ(n) is only the SIZE; cyclicity needs an element of that order.</pre><p class="gans">Correct: Option 2 — 2 of the five groups (n = 9 and n = 18) are cyclic.</p></div></details></div>
+<div class="guide"><details><summary>Q23 · GROUPS · NAT — Counting homomorphisms between cyclic groups</summary><div class="inside"><p><b>How many group homomorphisms are there from (Z₁₂, +) to (Z₁₈, +)?</b></p><p class="small">NAT — enter a number.</p><pre>A homomorphism from a cyclic group Z₁₂ is determined by the image a = f(1), and it exists exactly when 12·a = 0 in Z₁₈, that is 12a ≡ 0 (mod 18).
+   12a ≡ 0 (mod 18)  ⇔  2a ≡ 0 (mod 3)  ⇔  a ≡ 0 (mod 3)  ⇒  a ∈ {0, 3, 6, 9, 12, 15}.
+That is 6 homomorphisms = gcd(12, 18) = 6.
+Example: f(x) = 3x mod 18 has image {0,3,6,9,12,15} (size 6) and kernel {0, 6} (size 2): |image| = |G| / |kernel| = 12 / 2 = 6 — the first isomorphism theorem.
+Check: counting the admissible values of f(1) by program gives 6.
+General rule: the number of homomorphisms Z_m → Z_n is gcd(m, n).</pre><p class="gans">Answer: 6</p></div></details></div>
+<div class="guide"><details><summary>Q24 · COMBINATORICS · MCQ — Circular table with two people kept apart</summary><div class="inside"><p><b>Eight people sit around a circular table (rotations are the same arrangement). In how many ways can they sit if A and B must NOT sit next to each other?</b></p><ol class="opts"><li>1440</li><li>4320</li><li>5040</li><li>3600</li></ol><pre>Total circular arrangements of 8 distinct people: (8 − 1)! = 5040.
+A and B adjacent: glue them into one block → 7 objects in a circle: (7 − 1)! = 720 ways, times 2 for the order inside the block (AB or BA) = 1440.
+Not adjacent = 5040 − 1440 = 3600.   (General formula: (n−1)! − 2·(n−2)!.)
+Check: enumerating all circular arrangements of 8 people by program gives 1440 with A, B adjacent and 3600 otherwise.
+Trap: 1440 is the 'together' count; 5040 ignores the restriction; do not divide by 8! when rotations are identified — fix one person instead.</pre><p class="gans">Correct: Option 4 — 3600 ways.</p></div></details></div>
+<div class="guide"><details><summary>Q25 · COMBINATORICS · NAT — Gap method — no two letters together</summary><div class="inside"><p><b>In how many distinct arrangements of the letters of MISSISSIPPI are no two S's adjacent?</b></p><p class="small">NAT — enter a number.</p><pre>Letters: M×1, I×4, S×4, P×2 (11 letters). Place the non-S letters first, then slot the S's into the gaps so that no two S's touch.
+Non-S letters: M, I, I, I, I, P, P (7 letters) → 7! / (4!·2!) = 5040 / 48 = 105 arrangements.
+These 7 letters leave 8 gaps (before, between and after them); choose 4 different gaps for the 4 identical S's: C(8,4) = 70.
+Total = 105 × 70 = 7350.
+Check: a brute-force count over all 34650 distinct arrangements gave 7350.
+Trap: starting with all 11 letters and subtracting 'at least one SS pair' needs a careful inclusion–exclusion; the gap method is shorter and safer.</pre><p class="gans">Answer: 7350</p></div></details></div>
+<div class="guide"><details><summary>Q26 · PIGEONHOLE · MCQ — Guaranteeing a divisor pair</summary><div class="inside"><p><b>What is the smallest k such that every choice of k numbers from {1, 2, …, 30} contains two numbers one of which divides the other?</b></p><ol class="opts"><li>15</li><li>16</li><li>17</li><li>30</li></ol><pre>Write every number as 2^e × (odd part). The odd parts in 1…30 are 1, 3, 5, …, 29 → 15 possible odd parts = 15 'boxes'.
+Two numbers with the same odd part divide each other (the smaller one divides the larger).
+Pigeonhole: choosing 16 numbers puts two in the same box → a divisor pair is guaranteed.
+15 numbers are not enough: {16, 17, …, 30} has 15 numbers and none divides another (double of 16 already exceeds 30).
+So the smallest k is 16.
+Check: the largest subset of {1..30} with no divisor pair was found by exhaustive search: size 15.
+General result: from {1, …, 2n} any n + 1 numbers contain a divisor pair, and n + 1 is the smallest guarantee.</pre><p class="gans">Correct: Option 2 — k = 16.</p></div></details></div>
+<div class="guide"><details><summary>Q27 · RECURRENCE · NAT — Non-homogeneous recurrence with an overlapping root</summary><div class="inside"><p><b>a_n = 2·a_(n−1) + 3·2ⁿ with a₀ = 1. Find a₄.</b></p><p class="small">NAT — enter a number.</p><pre>Homogeneous part: a_n = 2a_(n−1) → root r = 2, so a_n^(h) = A·2ⁿ.
+Forcing term 3·2ⁿ has the SAME base as the root 2 → multiply the trial by n:  a_n^(p) = C·n·2ⁿ.
+Substitute:  C·n·2ⁿ = 2·C·(n−1)·2^(n−1) + 3·2ⁿ = C·(n−1)·2ⁿ + 3·2ⁿ  ⇒  C·n = C·n − C + 3  ⇒  C = 3.
+General solution: a_n = (A + 3n)·2ⁿ.   a₀ = 1 ⇒ A = 1  ⇒  a_n = (1 + 3n)·2ⁿ.
+a₄ = (1 + 12)·16 = 13 × 16 = 208.
+Cross-check by iteration:  a₁ = 2·1 + 6 = 8,  a₂ = 16 + 12 = 28,  a₃ = 56 + 24 = 80,  a₄ = 160 + 48 = 208 ✔.
+Check: the closed form (1 + 3n)·2ⁿ also reproduces 1, 8, 28, 80, 208.
+Trap: using C·2ⁿ without the extra factor n gives a contradiction (0 = 3) — that signals the overlap.</pre><p class="gans">Answer: 208</p></div></details></div>
+<div class="guide"><details><summary>Q28 · GENERATING FUNCTIONS · NAT — Coin-change counting</summary><div class="inside"><p><b>In how many ways can ₹15 be paid using coins of ₹1, ₹2 and ₹5 (the order of coins does not matter and any number of each is allowed)?</b></p><p class="small">NAT — enter a number.</p><pre>Generating function: coefficient of x^15 in  1 / ((1 − x)(1 − x²)(1 − x⁵)).
+Hand count — fix the number of ₹5 coins k and pay the rest r = 15 − 5k with ₹1 and ₹2 coins; there are ⌊r/2⌋ + 1 ways for each r (choose the number of ₹2 coins):
+   k = 0:  r = 15 → 7 + 1 = 8
+   k = 1:  r = 10 → 5 + 1 = 6
+   k = 2:  r =  5 → 2 + 1 = 3
+   k = 3:  r =  0 → 0 + 1 = 1
+Total = 8 + 6 + 3 + 1 = 18.
+Check: the coefficient of x^15 in the series expansion of the generating function is 18 (and 10 for ₹10).
+Remember: multiply the factors 1/(1 − x^c) for each coin value c; for a bounded count u use (1 − x^(u+1))/(1 − x).</pre><p class="gans">Answer: 18</p></div></details></div>
+<div class="guide"><details><summary>Q29 · GRAPHS · MCQ — Which degree sequence is graphic?</summary><div class="inside"><p><b>Which of the following sequences is the degree sequence of a simple undirected graph?</b></p><ol class="opts"><li>(5, 5, 3, 2, 2, 1)</li><li>(3, 3, 3, 1)</li><li>(4, 4, 3, 3, 2)</li><li>(6, 6, 5, 3, 2, 2, 2)</li></ol><pre>All four have an even sum, so the handshake test passes — it is necessary but not sufficient. Use Havel–Hakimi: delete the largest degree d and subtract 1 from the next d largest entries; the sequence is graphic iff this ends in zeros without a negative number.
+ (5,5,3,2,2,1) → remove 5: (4,2,1,1,0) → remove 4 needs 4 positive entries among (2,1,1,0): (1,0,0,−1)       negative  ✘
+ (3,3,3,1)     → remove 3: (2,2,0) → remove 2: (1,−1)                                                    negative  ✘
+ (4,4,3,3,2)   → remove 4: (3,2,2,1) → remove 3: (1,1,0) → remove 1: (0,0)                               all zero  ✔
+ (6,6,5,3,2,2,2) → remove 6: (5,4,2,1,1,1) → remove 5: (3,1,0,0,0) → remove 3 needs 3 positive entries      negative  ✘
+So only (4, 4, 3, 3, 2) is graphic.
+Check: Havel–Hakimi was run by program on all four sequences, and for the 5- and 6-vertex ones a brute-force search over all graphs confirmed the verdicts.
+Trap: an even degree sum is only a necessary condition — (3, 3, 3, 1) passes it yet fails, because three vertices of degree 3 need three neighbours each among only three other vertices, one of which has degree 1. Always run the reduction.</pre><p class="gans">Correct: Option 3 — only (4, 4, 3, 3, 2) is graphic.</p></div></details></div>
+<div class="guide"><details><summary>Q30 · CONNECTIVITY · MCQ — Cut vertices and bridges</summary><div class="inside"><p><b>A graph has edges 1–2, 2–3, 3–1, 3–4, 4–5, 5–6, 6–4 and 6–7. How many cut vertices and how many bridges does it have?</b></p><ol class="opts"><li>3 cut vertices and 2 bridges</li><li>4 cut vertices and 2 bridges</li><li>3 cut vertices and 3 bridges</li><li>2 cut vertices and 2 bridges</li></ol><pre>Structure: triangle {1,2,3}, edge 3–4, triangle {4,5,6}, pendant edge 6–7.
+Cut vertices (their removal disconnects the graph):
+   3 — separates {1,2} from {4,5,6,7};   4 — separates {1,2,3} from {5,6,7};   6 — separates {7} from the rest.
+   Vertices 1, 2, 5 lie on a triangle and 7 is a leaf: none of them is a cut vertex.  → 3 cut vertices.
+Bridges (edges whose removal disconnects the graph): 3–4 and 6–7. The triangle edges lie on cycles, so they are not bridges.   → 2 bridges.
+Blocks (maximal 2-connected pieces): {1,2,3}, {3,4}, {4,5,6}, {6,7} → 4 blocks; vertex connectivity κ = 1 and edge connectivity λ = 1.
+Check: articulation points {3, 4, 6}, bridges {3–4, 6–7} and 4 blocks were confirmed with a graph library.
+Trap: a leaf's neighbour is a cut vertex, but the leaf itself never is; and 'every bridge has cut-vertex endpoints' only when those endpoints are not leaves.</pre><p class="gans">Correct: Option 1 — 3 cut vertices (3, 4, 6) and 2 bridges (3–4, 6–7).</p></div></details></div>
+<div class="guide"><details><summary>Q31 · PLANARITY · MCQ — Edge bound for a planar bipartite graph</summary><div class="inside"><p><b>A simple connected planar bipartite graph has 10 vertices. What is the maximum possible number of edges?</b></p><ol class="opts"><li>24</li><li>20</li><li>25</li><li>16</li></ol><pre>A bipartite graph has no odd cycles, so every face has length at least 4. In a planar drawing the face degrees sum to 2E, hence 2E ≥ 4F, i.e. F ≤ E/2.
+Euler: V − E + F = 2 ⇒ F = 2 − V + E ≤ E/2 ⇒ E ≤ 2V − 4.
+For V = 10: E ≤ 16.
+The bound is attained: K₂,₈ is bipartite and planar with 2 × 8 = 16 edges, and F = 2 − 10 + 16 = 8 faces, each of degree 4 (8 × 4 = 32 = 2E).
+Distractors: 24 = 3V − 6 (the bound for general planar graphs); 25 = K₅,₅, which is not planar.
+Check: K₂,₈ was confirmed planar with 16 edges by a planarity test.
+General rule for girth g: E ≤ g(V − 2)/(g − 2) — g = 3 gives 3V − 6, g = 4 gives 2V − 4.</pre><p class="gans">Correct: Option 4 — at most 16 edges.</p></div></details></div>
+<div class="guide"><details><summary>Q32 · COLOURING · NAT — Counting proper colourings</summary><div class="inside"><p><b>How many proper vertex colourings does the cycle C₅ have when 3 colours are available (colourings that differ in which vertex gets which colour are different)?</b></p><p class="small">NAT — enter a number.</p><pre>Chromatic polynomial of a cycle:  P(C_n, k) = (k − 1)ⁿ + (−1)ⁿ (k − 1).
+For n = 5, k = 3:  P = 2⁵ + (−1)⁵ · 2 = 32 − 2 = 30.
+
+Derivation by deletion–contraction  P(G) = P(G − e) − P(G / e):
+   delete one edge of C₅ → path on 5 vertices: P = k(k − 1)⁴ = 3 · 16 = 48
+   contract that edge   → C₄:                  P = (k − 1)⁴ + (k − 1) = 16 + 2 = 18
+   P(C₅) = 48 − 18 = 30.
+Check: all 3⁵ = 243 assignments were tested by program: exactly 30 are proper colourings (and C₄ with 3 colours has 18, a tree on 5 vertices with 4 colours has 324).
+Sanity: C₅ is an odd cycle, so it has no proper 2-colouring, and the formula agrees: P(C₅, 2) = 1⁵ − 1 = 0 ✔.</pre><p class="gans">Answer: 30</p></div></details></div>
+<div class="guide"><details><summary>Q33 · MATCHING · MCQ — König's theorem in a bipartite graph</summary><div class="inside"><p><b>A bipartite graph has left vertices a, b, c, d, e and right vertices 1, 2, 3, 4, 5, with edges a–1, a–2, b–1, b–3, c–2, c–3, d–3, d–4, e–3, e–4. What are the sizes of a maximum matching, a minimum vertex cover and a maximum independent set?</b></p><ol class="opts"><li>4, 4 and 6</li><li>4, 5 and 5</li><li>5, 4 and 6</li><li>4, 4 and 5</li></ol><pre>Maximum matching: a–1, c–2, e–3, d–4 is a matching of size 4. It cannot be 5, because the five left vertices have only the four neighbours {1, 2, 3, 4} between them — Hall's condition fails for S = {a, b, c, d, e}: |N(S)| = 4 &lt; 5.
+Minimum vertex cover: by König's theorem (bipartite graphs) τ = ν = 4; {1, 2, 3, 4} is a cover of size 4 (every edge touches one of them).
+Maximum independent set: α = n − τ = 10 − 4 = 6, namely {a, b, c, d, e, 5} (vertex 5 is isolated, and the left vertices are pairwise non-adjacent).
+Check: a library computed ν = 4, a minimum vertex cover of size 4 and α = 10 − 4 = 6; the Hall violator is the whole left side.
+Trap: the left side alone is an independent set of size 5 but not a maximum one — adding the isolated vertex 5 gives 6.</pre><p class="gans">Correct: Option 1 — matching 4, vertex cover 4, independent set 6.</p></div></details></div>
+<div class="guide"><details><summary>Q34 · TREES · NAT — Vertices of a full m-ary tree</summary><div class="inside"><p><b>A full 3-ary tree (every internal vertex has exactly 3 children) has 31 leaves. How many vertices does it have in total?</b></p><p class="small">NAT — enter a number.</p><pre>Let i be the number of internal vertices. Every internal vertex has 3 children, so the number of edges is 3i; a tree on n vertices has n − 1 edges, hence n = 3i + 1.
+Leaves = n − i = (3i + 1) − i = 2i + 1.
+31 = 2i + 1 ⇒ i = 15.
+Total vertices n = 3 × 15 + 1 = 46   (edges 45).
+General formulas for a full m-ary tree: n = m·i + 1 and leaves l = (m − 1)·i + 1, so i = (l − 1)/(m − 1).
+Check: m = 3, i = 15 gives n = 46 and l = 2 × 15 + 1 = 31 ✔ (a program evaluating the formulas for other cases agrees).</pre><p class="gans">Answer: 46</p></div></details></div>
+<div class="guide"><details><summary>Q35 · EULER / HAMILTON · MCQ — Euler and Hamilton tests on complete bipartite graphs</summary><div class="inside"><p><b>Which statement is true?</b></p><ol class="opts"><li>K₂,₃ has a Hamilton cycle</li><li>K₂,₃ has an Euler trail but no Euler circuit</li><li>K₃,₃ has an Euler circuit</li><li>K₅ has no Euler circuit</li></ol><pre>Euler circuit ⇔ connected and every degree even.  Euler trail (open) ⇔ exactly two odd-degree vertices.  Hamilton cycles need a different argument.
+ K₂,₃: degrees are 3, 3 (the two vertices on the small side) and 2, 2, 2 → exactly two odd vertices → Euler TRAIL but no circuit.   ✔ (statement 2)
+       A Hamilton cycle in a bipartite graph alternates sides, so it needs equal sides; 2 ≠ 3 → no Hamilton cycle.   ✘ (statement 1)
+ K₃,₃: every degree is 3 (odd) → no Euler circuit (it does have a Hamilton cycle).                                    ✘ (statement 3)
+ K₅  : 4-regular, all degrees even → it DOES have an Euler circuit.                                                    ✘ (statement 4)
+Check: Euler and semi-Euler properties of K₂,₃, K₃,₃ and K₅ were tested with a graph library; Hamiltonicity was tested by exhaustive search (K₃,₃ yes, K₂,₃ no).
+Trap: K_{m,n} has an Euler circuit only when m and n are both even.</pre><p class="gans">Correct: Option 2 — K₂,₃ has an Euler trail but no Euler circuit.</p></div></details></div>
+</section>
+
+<section id="rapid" class="rapid"><h2>⚡ Last-Minute Revision</h2><p class="sub">The 15–25 minute recall layer before you start Discrete Mathematics PYQs.</p><div class="grid">
+<div class="card"><span class="tag must">🟢 Must Remember</span><p><b>Logic:</b> implication false only for T→F; contrapositive is equivalent; quantifier negation flips ∀/∃.</p><p><b>Relations:</b> equivalence = R+S+T; partial order = R+AS+T.</p><p><b>Graphs:</b> Σdeg=2E; tree with V vertices has V−1 edges; odd-degree count is even.</p></div>
+<div class="card"><span class="tag formula">🧮 Formula / Rule</span><p><code>nPr=n!/(n-r)!</code></p><p><code>nCr=n!/[r!(n-r)!]</code></p><p><code>|A∪B|=|A|+|B|-|A∩B|</code></p><p>Repeated root r, multiplicity k → <code>(C₀+C₁n+...+Cₖ₋₁n^(k−1))rⁿ</code>.</p></div>
+<div class="card"><span class="tag fav">⚠️ GATE Favourite</span><p>Equivalence classes ↔ partitions.</p><p>Hasse diagram ↔ cover relation only.</p><p>Minimal ≠ least; maximal ≠ greatest.</p><p>Euler uses edges; Hamilton uses vertices.</p><p>Recurrence characteristic roots and graph degree invariants are high-value calculation patterns.</p></div>
+<div class="card"><span class="tag trap">🟡 Common Trap</span><p>Antisymmetric does <b>not</b> mean “not symmetric.”</p><p>Surjective depends on the codomain.</p><p>Do not confuse permutations with combinations.</p><p>For pigeonhole, define boxes and objects before applying the ceiling bound.</p></div>
+<div class="card"><span class="tag shortcut">💡 Shortcut</span><p>Graph isomorphism → compare invariants before constructing a mapping.</p><p>“At least one” → try complement first.</p><p>Tree → immediately write E=V−1.</p><p>Undirected degree data → sum degrees before doing anything else.</p><p>Hasse diagram → remove transitive edges and loops.</p></div>
+<div class="card"><span class="tag formula">🧮 Formula / Rule</span><p>Stars and bars: <code>C(n+k−1,k−1)</code> (≥ 0), <code>C(n−1,k−1)</code> (≥ 1).</p><p>Euler (planar): <code>V−E+F=2</code>, <code>E ≤ 3V−6</code>.</p><p>Cayley: <code>n^(n−2)</code> spanning trees of K<sub>n</sub>.</p><p>Derangements 0,1,2,9,44,265 · Catalan 1,1,2,5,14,42.</p><p>Cyclic group order n: <code>φ(n)</code> generators, one subgroup per divisor.</p></div><div class="card"><span class="tag trap">🟡 Common Trap</span><p>Valid rules: modus ponens/tollens. Invalid: affirming the conclusion, denying the hypothesis.</p><p>“Some” goes with ∧, “all” with →.</p><p>D<sub>n</sub> is Boolean only when n is square-free.</p></div><div class="card"><span class="tag formula">🧮 Formula / Rule</span><p>Complete connective sets: {∧,¬}, {∨,¬}, {→,¬}, NAND alone, NOR alone. Not complete: {∧,∨}, {→}, {⊕,∧}, {⊕,¬}.</p><p>Valid: ∃x(P∧Q) → ∃xP∧∃xQ; ∃y∀x R → ∀x∃y R. Invalid converses.</p><p>Countable: ℤ, ℚ, finite strings. Uncountable: ℝ, 𝒫(ℕ).</p></div><div class="card"><span class="tag formula">🧮 Formula / Rule</span><p>Dilworth: min chains = max antichain. Maximal chains in D<sub>n</sub> = (Σaᵢ)!/∏aᵢ!.</p><p>N₅/M₃: non-distributive. Permutation order = lcm of cycle lengths; S₅ max order 6.</p><p>Z<sub>n</sub>* cyclic iff n = 1, 2, 4, p<sup>k</sup>, 2p<sup>k</sup>. Homs Z<sub>m</sub>→Z<sub>n</sub> = gcd(m,n).</p></div><div class="card"><span class="tag shortcut">💡 Shortcut</span><p>Circular: (n−1)!; adjacent pair 2(n−2)!. Gap method: C(k+1, r).</p><p>Pigeonhole: (r−1)k + 1; divisibility → group by odd part.</p><p>Overlapping forcing term → multiply the trial by n. Coin GF 1/((1−x)(1−x²)(1−x⁵)).</p></div><div class="card"><span class="tag formula">🧮 Formula / Rule</span><p>α + τ = n; ν + ρ = n; bipartite ν = τ. K<sub>n,n</sub> perfect matchings n!; K<sub>2n</sub>: (2n−1)!!.</p><p>P(C<sub>n</sub>,k) = (k−1)ⁿ + (−1)ⁿ(k−1); tree k(k−1)ⁿ⁻¹. χ′(K<sub>n</sub>) = n−1 (even) / n (odd).</p><p>Havel–Hakimi for graphic sequences; Mantel ⌊n²/4⌋; full m-ary tree n = mi + 1.</p></div></div></section>
+</main></div>
+<footer>Complete · 8 Discrete Mathematics topic areas · 90-question quiz + 8 MSQ · 35 fully solved GATE-level problems</footer>
+<script>function toggleRapid(){document.querySelectorAll('.full').forEach(e=>e.classList.toggle('off'));document.getElementById('rapid').classList.toggle('on');window.scrollTo({top:0,behavior:'smooth'})}</script>
+<script>
+const Q=[
+[
+"LOGIC",
+"How many rows does the truth table of a formula with 5 distinct propositional variables have?",
+[
+"10",
+"25",
+"32",
+"64"
+],
+2,
+"Each variable is T or F independently, so there are 2^5 = 32 rows."
+],
+[
+"LOGIC",
+"Which formula is logically equivalent to ¬(P → Q)?",
+[
+"¬P ∧ Q",
+"P ∧ ¬Q",
+"¬P ∨ Q",
+"P ∨ ¬Q"
+],
+1,
+"P→Q ≡ ¬P ∨ Q. Negating gives ¬(¬P ∨ Q) ≡ P ∧ ¬Q by De Morgan. It is true only when P is true and Q is false."
+],
+[
+"LOGIC",
+"What is the contrapositive of “If a number is divisible by 6, then it is divisible by 3”?",
+[
+"If a number is divisible by 3, then it is divisible by 6",
+"If a number is not divisible by 6, then it is not divisible by 3",
+"If a number is not divisible by 3, then it is not divisible by 6",
+"A number is divisible by 6 and not divisible by 3"
+],
+2,
+"The contrapositive of P→Q is ¬Q→¬P. The first option is the converse and the second is the inverse; neither is equivalent to the original statement."
+],
+[
+"LOGIC",
+"The negation of ∀x ∃y (x + y = 0) over the integers is:",
+[
+"∃x ∀y (x + y ≠ 0)",
+"∀x ∃y (x + y ≠ 0)",
+"∃x ∃y (x + y ≠ 0)",
+"∀x ∀y (x + y ≠ 0)"
+],
+0,
+"Negation flips each quantifier and negates the predicate: ¬∀x∃y P ≡ ∃x∀y ¬P. (The original statement is true over the integers, so its negation is false.)"
+],
+[
+"LOGIC",
+"How many assignments to (P, Q, R) satisfy (P ∨ Q) ∧ (¬P ∨ R)?",
+[
+"3",
+"4",
+"5",
+"6"
+],
+1,
+"If P = T then R must be T and Q is free: 2 assignments. If P = F then Q must be T and R is free: 2 assignments. Total 4."
+],
+[
+"LOGIC",
+"Which of the following is a tautology?",
+[
+"(P → Q) → (Q → P)",
+"(P ∧ (P → Q)) → Q",
+"(P ∨ Q) → P",
+"(P → Q) ∧ P"
+],
+1,
+"(P ∧ (P→Q)) → Q is modus ponens: whenever the antecedent holds, Q holds, so it is never false. The others fail for some assignment, e.g. P = F, Q = T."
+],
+[
+"LOGIC",
+"Let S(x): x is a student and L(x): x is lazy. Which formula says “Some students are lazy”?",
+[
+"∃x (S(x) → L(x))",
+"∃x (S(x) ∧ L(x))",
+"∀x (S(x) ∧ L(x))",
+"∀x (S(x) → L(x))"
+],
+1,
+"“Some” pairs with ∧ under ∃. ∃x(S(x)→L(x)) is trivially true as soon as one x is not a student, so it does not capture the meaning. ∀x(S(x)→L(x)) means “all students are lazy”."
+],
+[
+"SETS",
+"|A| = 3 and |B| = 4. How many distinct relations from A to B exist?",
+[
+"12",
+"81",
+"144",
+"4096"
+],
+3,
+"A relation is any subset of A × B, which has 12 pairs, so there are 2^12 = 4096."
+],
+[
+"SETS",
+"How many reflexive relations exist on a set with 4 elements?",
+[
+"16",
+"256",
+"4096",
+"65536"
+],
+2,
+"The 4 diagonal pairs are forced. Each of the remaining 16 − 4 = 12 pairs is free, so 2^12 = 4096."
+],
+[
+"SETS",
+"How many symmetric relations exist on a set with 3 elements?",
+[
+"8",
+"16",
+"64",
+"512"
+],
+2,
+"A symmetric relation is fixed by 3 diagonal pairs plus 3 unordered off-diagonal pairs: 6 independent choices, so 2^6 = 64."
+],
+[
+"SETS",
+"How many equivalence relations can be defined on a set with 4 elements?",
+[
+"4",
+"15",
+"16",
+"24"
+],
+1,
+"Equivalence relations correspond one-to-one to partitions. The number of partitions of a 4-element set is the Bell number B4 = 15."
+],
+[
+"SETS",
+"How many onto (surjective) functions exist from a 4-element set to a 3-element set?",
+[
+"24",
+"36",
+"48",
+"81"
+],
+1,
+"By inclusion–exclusion: 3^4 − C(3,1)·2^4 + C(3,2)·1^4 = 81 − 48 + 3 = 36."
+],
+[
+"SETS",
+"R = {(1,2), (2,3), (1,3)} on {1,2,3}. Which statement is true?",
+[
+"R is reflexive and transitive",
+"R is symmetric and transitive",
+"R is antisymmetric and transitive but not reflexive",
+"R is an equivalence relation"
+],
+2,
+"There are no (a,a) pairs, so R is not reflexive. (1,2) is present without (2,1), so it is not symmetric. It is antisymmetric (no pair appears in both directions) and transitive: (1,2) and (2,3) force (1,3), which is present."
+],
+[
+"SETS",
+"f(x) = 2x + 1 and g(x) = x² on the reals. What is (g∘f)(2)?",
+[
+"9",
+"10",
+"25",
+"17"
+],
+2,
+"(g∘f)(2) = g(f(2)) = g(5) = 25. The value 9 is (f∘g)(2), which shows composition is not commutative."
+],
+[
+"ORDERS",
+"How many edges does the Hasse diagram of the divisibility poset on the divisors of 12 have?",
+[
+"5",
+"6",
+"7",
+"8"
+],
+2,
+"Cover relations: 1–2, 1–3, 2–4, 2–6, 3–6, 4–12, 6–12, which is 7 edges. Pairs such as 1–4 or 2–12 follow by transitivity and are not drawn."
+],
+[
+"ORDERS",
+"In the poset ({2, 3, 4, 6, 12}, divisibility), which statement is true?",
+[
+"It has a least element 2",
+"It has exactly two minimal elements and a greatest element",
+"It has exactly one minimal element",
+"It has two maximal elements"
+],
+1,
+"Minimal elements are 2 and 3, since nothing in the set divides them. 12 is the greatest element. There is no least element because 2 and 3 are incomparable."
+],
+[
+"ORDERS",
+"For which n is the divisor lattice D_n a Boolean algebra?",
+[
+"n = 12",
+"n = 36",
+"n = 30",
+"n = 16"
+],
+2,
+"D_n is Boolean exactly when n is square-free. 30 = 2·3·5 gives 2^3 = 8 elements. 12, 36 and 16 have repeated prime factors."
+],
+[
+"ORDERS",
+"In the lattice D30 (divisors of 30 under divisibility), the complement of 6 is:",
+[
+"2",
+"3",
+"5",
+"15"
+],
+2,
+"A complement x of 6 needs gcd(6, x) = 1 (meet is the bottom 1) and lcm(6, x) = 30 (join is the top). x = 5 satisfies both."
+],
+[
+"ORDERS",
+"A poset has elements a, b (both minimal) and c, d (both maximal). Each of a and b lies below both c and d, and no other pairs are comparable. Which statement is true?",
+[
+"It is a lattice",
+"It is not a lattice because {a, b} has no least upper bound",
+"It is a lattice only if a = b",
+"It has a greatest element"
+],
+1,
+"c and d are both upper bounds of {a, b} but are incomparable, so there is no least upper bound. A lattice needs a unique join and a unique meet for every pair."
+],
+[
+"ALGEBRA",
+"Which of the following is NOT a semigroup?",
+[
+"(N, +)",
+"(Z, ×)",
+"(Z, −)",
+"(Z, +)"
+],
+2,
+"Subtraction is not associative: (5−3)−1 = 1 but 5−(3−1) = 3. The other three are closed and associative."
+],
+[
+"ALGEBRA",
+"What is the order of the element 4 in the group (Z12, +12)?",
+[
+"2",
+"3",
+"4",
+"12"
+],
+1,
+"The order of a in Z_n is n / gcd(a, n) = 12 / 4 = 3, since 4 + 4 + 4 = 12 ≡ 0."
+],
+[
+"ALGEBRA",
+"How many generators does a cyclic group of order 12 have?",
+[
+"2",
+"3",
+"4",
+"6"
+],
+2,
+"Generators are a^k with gcd(k, 12) = 1, counted by Euler's totient: φ(12) = 4 (k = 1, 5, 7, 11)."
+],
+[
+"ALGEBRA",
+"A group G has order 24. Which of these cannot be the order of a subgroup of G?",
+[
+"6",
+"8",
+"10",
+"12"
+],
+2,
+"By Lagrange's theorem a subgroup's order divides |G|. 10 does not divide 24."
+],
+[
+"ALGEBRA",
+"(N, +) with N = {0, 1, 2, …} is best described as:",
+[
+"a group",
+"a monoid but not a group",
+"a semigroup without an identity",
+"not closed under +"
+],
+1,
+"0 is the identity, so it is a monoid. No positive element has an additive inverse inside N, so it is not a group."
+],
+[
+"ALGEBRA",
+"In a group G, a·a = e for every element a. Which must be true?",
+[
+"G is cyclic",
+"G is abelian",
+"G has odd order",
+"G is trivial"
+],
+1,
+"For all a, b: ab = (ab)^−1 = b^−1 a^−1 = ba, so G is abelian. The Klein four-group is an example and is not cyclic."
+],
+[
+"COMB",
+"In how many distinct ways can the letters of MISSISSIPPI be arranged?",
+[
+"39916800",
+"34650",
+"2520",
+"11!/(4!·4!)"
+],
+1,
+"11! / (4!·4!·2!) = 34650, since I appears 4 times, S 4 times, P twice and M once. Forgetting the 2! for P gives the wrong value in the last option."
+],
+[
+"COMB",
+"In how many ways can 6 distinct people sit around a circular table if rotations are treated as identical?",
+[
+"720",
+"120",
+"60",
+"24"
+],
+1,
+"Fix one person to break the rotational symmetry and arrange the other 5: 5! = 120."
+],
+[
+"COMB",
+"How many non-negative integer solutions does x + y + z = 10 have?",
+[
+"36",
+"55",
+"66",
+"120"
+],
+2,
+"Stars and bars: C(10 + 3 − 1, 3 − 1) = C(12, 2) = 66. (36 is the count when every variable must be at least 1.)"
+],
+[
+"COMB",
+"How many integers from 1 to 100 are divisible by 2 or by 3?",
+[
+"66",
+"67",
+"83",
+"84"
+],
+1,
+"|A ∪ B| = 50 + 33 − 16 = 67, because multiples of 6 are counted twice."
+],
+[
+"COMB",
+"What is the number of derangements of 4 objects?",
+[
+"6",
+"9",
+"11",
+"12"
+],
+1,
+"D4 = 4!(1 − 1 + 1/2 − 1/6 + 1/24) = 24 − 24 + 12 − 4 + 1 = 9."
+],
+[
+"COMB",
+"25 objects are placed into 6 boxes. What is the largest k such that some box must contain at least k objects?",
+[
+"4",
+"5",
+"6",
+"7"
+],
+1,
+"By the generalised pigeonhole principle the answer is ⌈25/6⌉ = 5."
+],
+[
+"COMB",
+"A committee of 3 is chosen from 5 men and 4 women. How many committees contain at least one woman?",
+[
+"10",
+"74",
+"84",
+"64"
+],
+1,
+"Use the complement: C(9,3) − C(5,3) = 84 − 10 = 74."
+],
+[
+"REC",
+"a_n = 5a_(n−1) − 6a_(n−2) with a_0 = 2 and a_1 = 5. What is a_5?",
+[
+"211",
+"275",
+"243",
+"301"
+],
+1,
+"The characteristic equation r² − 5r + 6 = 0 has roots 2 and 3. a_n = A·2^n + B·3^n with a_0 = 2, a_1 = 5 gives A = B = 1, so a_n = 2^n + 3^n and a_5 = 32 + 243 = 275."
+],
+[
+"REC",
+"a_n = 4a_(n−1) − 4a_(n−2) with a_0 = 1 and a_1 = 4. What is a_5?",
+[
+"160",
+"192",
+"256",
+"128"
+],
+1,
+"The repeated root is r = 2, so a_n = (C0 + C1·n)·2^n. a_0 = 1 gives C0 = 1; a_1 = 2(1 + C1) = 4 gives C1 = 1. Then a_5 = 6·32 = 192."
+],
+[
+"REC",
+"How many binary strings of length 6 contain no two consecutive 1s?",
+[
+"13",
+"21",
+"34",
+"32"
+],
+1,
+"Let s_n be the count. Then s_n = s_(n−1) + s_(n−2) with s_1 = 2 and s_2 = 3, giving 2, 3, 5, 8, 13, 21. So s_6 = 21."
+],
+[
+"REC",
+"The Tower of Hanoi recurrence T(n) = 2T(n−1) + 1 with T(1) = 1 gives T(6) =",
+[
+"31",
+"63",
+"64",
+"127"
+],
+1,
+"The solution is T(n) = 2^n − 1, so T(6) = 63."
+],
+[
+"REC",
+"What is the coefficient of x^5 in 1 / ((1 − x)(1 − x²))?",
+[
+"2",
+"3",
+"4",
+"6"
+],
+1,
+"It counts solutions of a + 2b = 5 with a, b ≥ 0. b can be 0, 1 or 2, so there are 3 solutions."
+],
+[
+"REC",
+"The generating function of 1, 1, 1, 1, … is 1/(1 − x). Which sequence has generating function 1/(1 − x)²?",
+[
+"1, 2, 4, 8, …",
+"1, 2, 3, 4, …",
+"1, 1, 2, 3, …",
+"1, 3, 5, 7, …"
+],
+1,
+"Squaring 1 + x + x² + … gives coefficients n + 1, i.e. 1, 2, 3, 4, …"
+],
+[
+"GRAPH",
+"An undirected graph has 12 edges and every vertex has degree 3. How many vertices does it have?",
+[
+"6",
+"8",
+"12",
+"24"
+],
+1,
+"Handshake lemma: Σ deg = 2E = 24. With every degree 3, 3n = 24, so n = 8."
+],
+[
+"GRAPH",
+"Which degree sequence can NOT occur in a simple undirected graph?",
+[
+"(3, 3, 2, 2)",
+"(2, 2, 2, 2)",
+"(3, 3, 3, 2)",
+"(3, 2, 2, 1)"
+],
+2,
+"The degree sum equals 2E, so it must be even. 3 + 3 + 3 + 2 = 11 is odd, so that sequence is impossible."
+],
+[
+"GRAPH",
+"What is the maximum number of edges in a simple disconnected undirected graph on 8 vertices?",
+[
+"21",
+"22",
+"27",
+"28"
+],
+0,
+"Take K7 plus an isolated vertex: C(7,2) = 21 edges. Any disconnected simple graph on n vertices has at most C(n−1, 2) edges."
+],
+[
+"GRAPH",
+"How many spanning trees does K4 have?",
+[
+"4",
+"8",
+"12",
+"16"
+],
+3,
+"Cayley's formula gives n^(n−2) = 4² = 16 labelled spanning trees."
+],
+[
+"GRAPH",
+"A connected planar graph has 6 vertices and 9 edges. How many faces (including the outer face) does any planar drawing have?",
+[
+"3",
+"4",
+"5",
+"6"
+],
+2,
+"Euler's formula: V − E + F = 2, so F = 2 − 6 + 9 = 5."
+],
+[
+"GRAPH",
+"A forest has 12 vertices and 9 edges. How many connected components does it have?",
+[
+"1",
+"2",
+"3",
+"4"
+],
+2,
+"For a forest, components = V − E = 12 − 9 = 3."
+],
+[
+"GRAPH",
+"For which n does the complete graph K_n have an Euler circuit?",
+[
+"n = 4",
+"n = 6",
+"n = 5",
+"n = 8"
+],
+2,
+"K_n is connected and (n−1)-regular. An Euler circuit needs every degree even, so n − 1 must be even, i.e. n odd. K5 qualifies with degree 4."
+],
+[
+"GADV",
+"What is the chromatic number of the cycle C5?",
+[
+"2",
+"3",
+"4",
+"5"
+],
+1,
+"An odd cycle is not bipartite, so χ ≥ 3, and 3 colours are enough."
+],
+[
+"GADV",
+"What is the chromatic number of the wheel W5 (a 5-cycle plus a hub adjacent to all five rim vertices)?",
+[
+"3",
+"4",
+"5",
+"6"
+],
+1,
+"The rim C5 needs 3 colours and the hub is adjacent to every rim vertex, so it needs a fourth colour: χ = 4."
+],
+[
+"GADV",
+"How many perfect matchings does K_{3,3} have?",
+[
+"3",
+"6",
+"9",
+"12"
+],
+1,
+"A perfect matching is a bijection between the two sides, so there are 3! = 6."
+],
+[
+"GADV",
+"The Petersen graph has 10 vertices and is 3-regular. How many edges does it have?",
+[
+"10",
+"15",
+"20",
+"30"
+],
+1,
+"E = (3 × 10) / 2 = 15 by the handshake lemma."
+],
+[
+"GADV",
+"Two graphs have the same number of vertices, edges and the same degree sequence. Which statement is correct?",
+[
+"They must be isomorphic",
+"They cannot be isomorphic",
+"They may or may not be isomorphic; matching invariants are necessary but not sufficient",
+"They are isomorphic exactly when they have the same number of cycles"
+],
+2,
+"Equal degree sequences are necessary, not sufficient. C6 and two disjoint triangles are both 2-regular with 6 vertices and 6 edges, but only one is connected."
+],
+["LOGIC", "Which set of connectives is NOT functionally complete?", ["{∧, ∨}", "{∧, ¬}", "{→, ¬}", "{↓} (NOR alone)"], 0, "{∧, ∨} can only build monotone functions, so ¬p is out of reach. {∧,¬} and {→,¬} express ∨ and the rest by De Morgan, and NOR alone is complete."],
+["LOGIC", "For how many of the 16 assignments to (p, q, r, s) is p ⊕ q ⊕ r ⊕ s true?", ["4", "6", "8", "16"], 2, "The XOR of n variables is true exactly when an odd number of them are true: half of all assignments, 2^(n−1) = 8."],
+["LOGIC", "On a domain with 2 elements, how many of the 16 binary relations R satisfy ∀x ∃y R(x, y)?", ["16", "9", "7", "12"], 1, "Each of the two rows of the relation matrix must contain at least one 1: (2² − 1)² = 3 × 3 = 9 relations."],
+["LOGIC", "Which statement is correct?", ["∀x ∃y R(x, y) implies ∃y ∀x R(x, y)", "The two statements are equivalent", "Neither statement implies the other", "∃y ∀x R(x, y) implies ∀x ∃y R(x, y), but not conversely"], 3, "If one y works for every x, then each x has a suitable y. The converse fails: R(x, y) = (x = y) on a 2-element domain."],
+["SETS", "How many partial orders (reflexive, antisymmetric, transitive relations) exist on a labelled 3-element set?", ["19", "27", "29", "6"], 0, "By shape: antichain 1, exactly one comparable pair 6, 'V' (one element below the other two) 3, 'Λ' (one above the other two) 3, chain of three 6 — total 19. Reflexive and antisymmetric alone give 27 (transitivity removes 8 of them)."],
+["SETS", "How many relations on a 3-element set are both reflexive and antisymmetric?", ["8", "27", "64", "216"], 1, "The 3 diagonal pairs are forced; for each of the 3 unordered off-diagonal pairs there are 3 choices (neither, a→b, b→a): 3³ = 27."],
+["SETS", "How many relations on a 4-element set are both symmetric and antisymmetric?", ["4", "64", "16", "1024"], 2, "Such a relation can contain only diagonal pairs (an off-diagonal pair would need its mirror image, violating antisymmetry), so it is a subset of the 4 diagonal pairs: 2⁴ = 16."],
+["SETS", "How many functions f from {1, 2, 3} to itself satisfy f(f(x)) = f(x) for every x?", ["6", "27", "9", "10"], 3, "Choose the k fixed points (the image), then map each other element to one of them: Σ C(3,k)·k^(3−k) = 3·1 + 3·2 + 1 = 10."],
+["SETS", "Which of the following sets is uncountable?", ["The set of all infinite binary sequences", "The set of all finite binary strings", "The set of rational numbers", "The set of all Turing machines"], 0, "Cantor's diagonal argument shows the infinite binary sequences cannot be listed. Finite strings, ℚ and Turing machine descriptions are all countable."],
+["ORDERS", "How many maximal chains does the divisor lattice D36 have?", ["4", "6", "9", "12"], 1, "A maximal chain adds one prime factor at a time: arrange 2,2,3,3 in a sequence: 4!/(2!·2!) = 6."],
+["ORDERS", "The size of the largest antichain in the divisor lattice D60 (60 = 2²·3·5) is:", ["3", "5", "4", "6"], 2, "By symmetry the middle rank has the most elements: divisors with exactly 2 prime factors counted with multiplicity are 4, 6, 10, 15, a set of size 4."],
+["ORDERS", "How many maximal chains does the subset lattice of {1, 2, 3, 4} have?", ["16", "6", "12", "24"], 3, "A maximal chain adds the 4 elements one at a time, in some order: 4! = 24."],
+["ORDERS", "A lattice is distributive if and only if it has no sublattice isomorphic to:", ["M₃ (diamond) or N₅ (pentagon)", "A chain of three elements", "A Boolean algebra on 4 elements", "A single complemented element"], 0, "The Birkhoff criterion: M₃ and N₅ are the two minimal non-distributive lattices."],
+["ALGEBRA", "How many elements of order 3 does the symmetric group S₄ have?", ["4", "8", "6", "12"], 1, "They are the 3-cycles: C(4,3) choices of three points × 2 cyclic orders = 8."],
+["ALGEBRA", "How many even permutations are there in S₅?", ["120", "30", "60", "24"], 2, "Even and odd permutations are equally numerous, so |A₅| = 5!/2 = 60."],
+["ALGEBRA", "How many elements of order 2 does Z₂ × Z₄ have?", ["3", "1", "2", "4"], 0, "The elements of order 2 are (1,0), (0,2) and (1,2)."],
+["ALGEBRA", "Which of the following groups of units is cyclic?", ["(Z₈*, ×)", "(Z₁₂*, ×)", "(Z₁₅*, ×)", "(Z₁₀*, ×)"], 3, "Z₁₀* has 4 elements and 3 generates it (3, 9, 7, 1). Z₈* and Z₁₂* are Klein four-groups and Z₁₅* has no element of order 8."],
+["ALGEBRA", "How many subgroups does the symmetric group S₃ have (including the trivial group and S₃ itself)?", ["4", "6", "5", "8"], 1, "The trivial subgroup, three subgroups of order 2, one subgroup of order 3 (A₃) and S₃ itself."],
+["COMB", "In how many ways can 5 men and 5 women sit around a circular table so that men and women alternate (rotations identical)?", ["14400", "28800", "2880", "120"], 2, "Seat the men first in a circle: 4! = 24; the 5 women then take the 5 gaps in 5! = 120 ways: 24 × 120 = 2880."],
+["COMB", "How many lattice paths go from (0,0) to (5,4) using only unit steps right and up?", ["126", "20", "72", "362880"], 0, "Choose which 4 of the 9 steps are 'up': C(9,4) = 126."],
+["COMB", "In how many ways can the integer 6 be written as an unordered sum of positive integers (partitions of 6)?", ["6", "11", "10", "13"], 1, "p(6) = 11: 6, 5+1, 4+2, 4+1+1, 3+3, 3+2+1, 3+1+1+1, 2+2+2, 2+2+1+1, 2+1+1+1+1, 1+1+1+1+1+1."],
+["COMB", "Five identical balls are distributed into 3 distinct boxes with no box empty. The number of ways is:", ["10", "21", "25", "6"], 3, "Give one ball to each box first, then distribute the remaining 2 freely: C(2 + 3 − 1, 2) = C(4,2) = 6 (equivalently C(n−1, k−1) = C(4,2))."],
+["COMB", "What is the minimum number of people needed to guarantee that at least 4 of them were born in the same month?", ["37", "25", "36", "48"], 0, "With 12 months, 36 people can have exactly 3 per month; the 37th forces a fourth: (4 − 1)·12 + 1 = 37."],
+["COMB", "The number of derangements of 5 objects is:", ["24", "53", "44", "60"], 2, "D₅ = 4·(D₄ + D₃) = 4·(9 + 2) = 44 (and D₆ = 5·(44 + 9) = 265)."],
+["REC", "a_n = 2a_(n−1) + n with a₀ = 1. What is a₄?", ["31", "42", "24", "46"], 1, "Iterate: a₁ = 3, a₂ = 8, a₃ = 19, a₄ = 42 (closed form 3·2ⁿ − n − 2)."],
+["REC", "T(n) = 2T(n/2) + n with T(1) = 1, for n a power of 2. What is T(16)?", ["80", "64", "48", "96"], 0, "T(2) = 4, T(4) = 12, T(8) = 32, T(16) = 80 = n·log₂n + n."],
+["REC", "A staircase has 10 steps and you climb 1, 2 or 3 steps at a time. In how many ways can you reach the top?", ["89", "144", "274", "149"], 2, "w_n = w_(n−1) + w_(n−2) + w_(n−3) with w₀ = w₁ = 1, w₂ = 2: 1, 1, 2, 4, 7, 13, 24, 44, 81, 149, 274."],
+["REC", "How many ternary strings (digits 0, 1, 2) of length 7 have no two adjacent 0s?", ["1094", "2187", "1536", "1224"], 3, "a_n = 2a_(n−1) + 2a_(n−2) with a₀ = 1, a₁ = 3: 1, 3, 8, 22, 60, 164, 448, 1224."],
+["REC", "Into how many regions do 6 lines in general position (no two parallel, no three concurrent) divide the plane?", ["22", "21", "28", "36"], 0, "R(n) = 1 + n(n + 1)/2: R(6) = 1 + 21 = 22 (each new line adds as many regions as lines it crosses plus one)."],
+["GRAPH", "How many non-isomorphic (unlabelled) trees exist on 6 vertices?", ["5", "6", "7", "11"], 1, "The counts for n = 1…8 are 1, 1, 1, 2, 3, 6, 11, 23."],
+["GRAPH", "The maximum number of edges in a triangle-free simple graph on 9 vertices is:", ["36", "18", "20", "24"], 2, "Mantel's theorem: ⌊n²/4⌋ = ⌊81/4⌋ = 20, attained by K₄,₅."],
+["GRAPH", "A simple graph on 7 vertices has 9 edges. How many edges does its complement have?", ["12", "9", "15", "21"], 0, "The graph and its complement together have C(7,2) = 21 edges, so the complement has 21 − 9 = 12."],
+["GRAPH", "A full binary tree has 10 internal vertices. How many vertices does it have in total?", ["20", "19", "31", "21"], 3, "A full binary tree has i + 1 leaves, so n = i + (i + 1) = 2i + 1 = 21."],
+["GRAPH", "How many non-isomorphic 3-regular (cubic) simple graphs exist on 6 vertices?", ["1", "2", "3", "4"], 1, "K₃,₃ and the triangular prism (two triangles joined by a perfect matching)."],
+["GRAPH", "How many faces does the cube graph Q₃ (8 vertices, 12 edges) have in a planar drawing?", ["4", "8", "6", "10"], 2, "Euler: F = 2 − V + E = 2 − 8 + 12 = 6."],
+["GADV", "The chromatic number of the Petersen graph is:", ["3", "2", "4", "5"], 0, "It contains 5-cycles, so it is not bipartite (χ ≥ 3), and an explicit 3-colouring exists."],
+["GADV", "The independence number of the Petersen graph is:", ["3", "4", "5", "6"], 1, "The Petersen graph has 10 vertices, is 3-regular with girth 5, and its largest independent set has 4 vertices."],
+["GADV", "How many perfect matchings does K₆ have?", ["6", "30", "15", "120"], 2, "(2n − 1)!! with n = 3: 5 × 3 × 1 = 15."],
+["GADV", "The edge chromatic number χ′(K₆) equals:", ["3", "6", "15", "5"], 3, "For even n, χ′(Kₙ) = n − 1 (a round-robin schedule): 5 rounds for 6 teams. For odd n it is n."],
+["GADV", "The Grötzsch graph (11 vertices, 20 edges) is triangle-free and has chromatic number 4. This shows that:", ["χ(G) can be larger than the clique number ω(G)", "χ(G) always equals ω(G)", "Triangle-free graphs are bipartite", "Every 4-chromatic graph contains K₄"], 0, "Here ω = 2 but χ = 4, so ω is only a lower bound for χ."]
+];
+const MSQ=[
+[
+"LOGIC",
+"Which statements are correct?",
+[
+"P → Q ≡ ¬P ∨ Q",
+"The converse of P → Q is equivalent to P → Q",
+"¬∃x P(x) ≡ ∀x ¬P(x)",
+"The contrapositive of P → Q is ¬Q → ¬P"
+],
+[
+0,
+2,
+3
+],
+"The converse Q→P is not equivalent to P→Q. The other three are standard equivalences."
+],
+[
+"ORDERS",
+"Which statements about posets and lattices are true?",
+[
+"A least element, if it exists, is unique",
+"A minimal element is always a least element",
+"Every finite chain is a lattice",
+"A Hasse diagram omits edges implied by transitivity"
+],
+[
+0,
+2,
+3
+],
+"Minimal does not imply least: a poset can have several minimal elements. In a chain any two elements are comparable, so join and meet are just max and min."
+],
+[
+"GRAPH",
+"Which statements about a tree with n vertices are correct?",
+[
+"It has n − 1 edges",
+"Adding any new edge between existing vertices creates exactly one cycle",
+"Removing any edge keeps it connected",
+"It is bipartite"
+],
+[
+0,
+1,
+3
+],
+"Removing a tree edge disconnects it. A tree has no cycles, hence no odd cycle, so it is bipartite."
+],
+[
+"ALGEBRA",
+"Which statements hold in a finite group G?",
+[
+"The order of every element divides |G|",
+"The order of every subgroup divides |G|",
+"Every group of order 6 is cyclic",
+"The identity element is unique"
+],
+[
+0,
+1,
+3
+],
+"S3 has order 6 and is not cyclic, so the third statement is false. The others follow from Lagrange's theorem and uniqueness of the identity."
+],
+["SETS", "Which statements are correct?", ["The intersection of two equivalence relations on a set is an equivalence relation", "The union of two equivalence relations on a set is always an equivalence relation", "A relation can be both symmetric and antisymmetric", "The equivalence classes of an equivalence relation partition the set"], [0, 2, 3], "The union need not be transitive: {1~2} ∪ {2~3} lacks (1,3). The identity relation is both symmetric and antisymmetric."],
+["COMB", "Which statements are correct?", ["C(n, k) = C(n, n − k)", "The number of derangements of 3 objects is 2", "The equation x + y = 5 has exactly 5 solutions in non-negative integers", "The letters of LEVEL can be arranged in 30 distinct ways"], [0, 1, 3], "x + y = 5 has 6 solutions (x = 0…5). LEVEL has L×2, E×2, V×1: 5!/(2!·2!) = 30. D₃ = 2."],
+["REC", "Which statements are correct?", ["a_n = 6a_(n−1) − 9a_(n−2) has general solution (A + Bn)·3ⁿ", "The generating function of 1, 2, 3, 4, … is 1/(1 − x)²", "For a_n = 2a_(n−1) + 2ⁿ the particular-solution trial is C·n·2ⁿ", "The characteristic roots of a linear recurrence depend on the initial conditions"], [0, 1, 2], "Roots come only from the coefficients; initial conditions fix the constants A and B. A forcing term matching a root requires the extra factor n."],
+["GADV", "Which statements are correct?", ["The chromatic number of an odd cycle is 3", "A graph is bipartite if and only if it has no odd cycle", "The Petersen graph is planar", "K₃,₃ has exactly 6 perfect matchings"], [0, 1, 3], "The Petersen graph is non-planar (it contains a subdivision of K₃,₃). K₃,₃ has 3! = 6 perfect matchings."]
+];
+const topics={"LOGIC": "Logic", "SETS": "Sets, Relations & Functions", "ORDERS": "Posets & Lattices", "ALGEBRA": "Monoids & Groups", "COMB": "Combinatorics", "REC": "Recurrences & GFs", "GRAPH": "Graph Theory", "GADV": "Matching, Colouring & Isomorphism"};
+let filter="ALL",answered=0,correct=0,mode="MCQ";
+const $=id=>document.getElementById(id);
+function shuffled(n){const o=[...Array(n).keys()];for(let k=n-1;k>0;k--){const j=Math.floor(Math.random()*(k+1));[o[k],o[j]]=[o[j],o[k]];}return o;}
+function bump(ok){answered++;if(ok)correct++;$('ansCount').textContent=answered;$('corrCount').textContent=correct;}
+function renderMCQ(){
+  const list=$('qlist');list.innerHTML="";
+  Q.forEach((item,i)=>{
+    const [t,q,opts,ans,exp]=item;
+    if(filter!=="ALL"&&filter!==t)return;
+    const card=document.createElement('div');card.className='qcard';
+    const tag=document.createElement('div');tag.className='qtag';tag.textContent=topics[t]+" · Q"+(i+1);
+    const qt=document.createElement('div');qt.className='qtext';qt.textContent=q;
+    card.appendChild(tag);card.appendChild(qt);
+    const order=shuffled(opts.length);
+    order.forEach(oi=>{
+      const b=document.createElement('button');b.className='opt';b.textContent=opts[oi];
+      b.onclick=()=>{
+        if(card.dataset.done)return;card.dataset.done=1;
+        const buttons=[...card.querySelectorAll('.opt')];
+        buttons[order.indexOf(ans)].classList.add('correct');
+        if(oi!==ans)b.classList.add('wrong');
+        card.querySelector('.expl').classList.add('show');
+        bump(oi===ans);
+      };
+      card.appendChild(b);
+    });
+    const e=document.createElement('div');e.className='expl';e.textContent=exp;card.appendChild(e);
+    list.appendChild(card);
+  });
+}
+function renderMSQ(){
+  const list=$('qlist');list.innerHTML="";
+  let shown=0;
+  MSQ.forEach((item,i)=>{
+    const [t,q,opts,ans,exp]=item;
+    if(filter!=="ALL"&&filter!==t)return;shown++;
+    const card=document.createElement('div');card.className='qcard';
+    const tag=document.createElement('div');tag.className='qtag';tag.textContent=(topics[t]||t)+" · MSQ"+(i+1);card.appendChild(tag);
+    const qt=document.createElement('div');qt.className='qtext';qt.textContent=q;card.appendChild(qt);
+    const hint=document.createElement('div');hint.className='qhint';hint.textContent='Select all correct options. Scoring is all-or-nothing.';card.appendChild(hint);
+    const order=shuffled(opts.length),selected=new Set();
+    order.forEach(orig=>{
+      const b=document.createElement('button');b.className='opt';b.textContent=opts[orig];
+      b.onclick=()=>{
+        if(card.dataset.done)return;
+        if(selected.has(orig)){selected.delete(orig);b.classList.remove('selected');}
+        else{selected.add(orig);b.classList.add('selected');}
+      };
+      card.appendChild(b);
+    });
+    const submit=document.createElement('button');submit.className='btn primary submit';submit.textContent='Submit MSQ';
+    submit.onclick=()=>{
+      if(card.dataset.done||selected.size===0)return;card.dataset.done=1;
+      const cs=new Set(ans);
+      const ok=selected.size===cs.size&&[...selected].every(x=>cs.has(x));
+      [...card.querySelectorAll('.opt')].forEach((b,idx)=>{
+        const orig=order[idx];
+        b.classList.remove('selected');
+        if(cs.has(orig))b.classList.add('correct');
+        if(selected.has(orig)&&!cs.has(orig))b.classList.add('wrong');
+      });
+      card.querySelector('.expl').classList.add('show');
+      bump(ok);
+    };
+    card.appendChild(submit);
+    const e=document.createElement('div');e.className='expl';e.textContent=exp;card.appendChild(e);
+    list.appendChild(card);
+  });
+  if(!shown){const m=document.createElement('p');m.className='sub';m.textContent='No MSQ questions for this topic yet — switch to MCQ or choose All.';list.appendChild(m);}
+}
+function render(){mode==='MCQ'?renderMCQ():renderMSQ();}
+function resetScore(total){answered=0;correct=0;$('score').innerHTML='Answered <b id="ansCount">0</b>/'+total+' · Correct <b id="corrCount">0</b>';}
+const bar=$('qtopics');
+["ALL",...Object.keys(topics)].forEach(t=>{
+  const b=document.createElement('button');b.textContent=t==="ALL"?"All":topics[t];
+  if(t==="ALL")b.classList.add('active');
+  b.onclick=()=>{filter=t;[...bar.children].forEach(x=>x.classList.remove('active'));b.classList.add('active');resetScore(mode==='MCQ'?Q.length:MSQ.length);render();};
+  bar.appendChild(b);
+});
+$('mcqMode').onclick=()=>{mode='MCQ';resetScore(Q.length);$('mcqMode').classList.add('active');$('msqMode').classList.remove('active');render();};
+$('msqMode').onclick=()=>{mode='MSQ';resetScore(MSQ.length);$('msqMode').classList.add('active');$('mcqMode').classList.remove('active');render();};
+render();
+</script>
+<script>
+/* Randomise the position of the correct option in each solved problem on every page load and
+   rewrite the "Correct: Option N" line to match. Problems whose options or explanation refer to
+   other options by position, or say "all/none of the above", keep their order. */
+(function(){
+  var PIN=/\b(above|both of these|all of these|none of these|neither of these)\b/i;
+  var POSREF=/\b[Oo]ptions?\s*\(?[1-4A-Da-d]\)?(?![\w-])|\([a-d]\)\s|\bchoice\s*\(?[1-4A-D]\)?/;
+  document.querySelectorAll('#pyq .inside').forEach(function(g){
+    var ol=g.querySelector('.opts'), ans=g.querySelector('.gans'); if(!ol||!ans) return;
+    var m=ans.innerHTML.match(/Option (\d)/); if(!m) return;
+    var lis=Array.prototype.slice.call(ol.children); if(lis.length<2) return;
+    var ci=parseInt(m[1],10)-1; if(ci<0||ci>=lis.length) return;
+    if(lis.some(function(li){return PIN.test(li.textContent)||POSREF.test(li.textContent);})) return;
+    var pre=g.querySelector('pre'); if(pre&&POSREF.test(pre.textContent)) return;
+    if(POSREF.test(ans.textContent.replace(/Option \d/,''))) return;
+    var correct=lis[ci], order=lis.slice();
+    for(var i=order.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=order[i];order[i]=order[j];order[j]=t;}
+    order.forEach(function(li){ol.appendChild(li);});
+    ans.innerHTML=ans.innerHTML.replace(/Option \d/,'Option '+(order.indexOf(correct)+1));
+  });
+})();
+</script>
+<!-- readiness:start -->
+<script>window.__READINESS_CFG__={review:{"LOGIC": {"sec": "logic", "label": "Logic", "h2": []}, "SETS": {"sec": "sets", "label": "Sets, Relations & Functions", "h2": []}, "ORDERS": {"sec": "orders", "label": "Posets & Lattices", "h2": []}, "ALGEBRA": {"sec": "algebra", "label": "Monoids & Groups", "h2": []}, "COMB": {"sec": "comb", "label": "Combinatorics", "h2": []}, "REC": {"sec": "rec", "label": "Recurrences & GFs", "h2": []}, "GRAPH": {"sec": "graphs", "label": "Graph Theory", "h2": []}, "GADV": {"sec": "advanced", "label": "High-Yield Extensions", "h2": []}}};</script>
+<script>
+(function(){
+  /* ===== Revision Readiness: turns the quiz into a revision loop ===== */
+  var CFG = window.__READINESS_CFG__ || {};
+  var NAME = (location.pathname.split('/').pop()||'page').replace(/\.html?$/,'');
+  var KEY = 'readiness:'+NAME;
+  var STRONG=75, WEAK=55, MIN_ATT=3;
+  var results = {};             // "Q12" / "MSQ3" -> 1 (correct) | 0 (wrong); latest attempt wins
+  try{ var raw=localStorage.getItem(KEY); if(raw) results=JSON.parse(raw)||{}; }catch(e){}
+  function save(){ try{ localStorage.setItem(KEY, JSON.stringify(results)); }catch(e){} }
+
+  var score=document.getElementById('score'), qlist=document.getElementById('qlist');
+  if(!score||!qlist||typeof Q==='undefined'||typeof topics==='undefined') return;
+
+  // ---- denominators per topic (MCQ + MSQ) ----
+  var totals={}, order=[];
+  function addTotal(arr){ (arr||[]).forEach(function(it){ var k=it[0]; if(!(k in totals)){totals[k]=0;order.push(k);} totals[k]++; }); }
+  addTotal(Q); if(typeof MSQ!=='undefined') addTotal(MSQ);
+  var totalQ=Q.length+(typeof MSQ!=='undefined'?MSQ.length:0);
+  function topicOf(id){
+    var m=/^(MSQ|Q)(\d+)$/.exec(id); if(!m) return null;
+    var arr=(m[1]==='Q')?Q:MSQ; var it=arr[+m[2]-1]; return it?it[0]:null;
+  }
+  function label(k){ return topics[k]||k; }
+
+  // ---- panel ----
+  var panel=document.createElement('div'); panel.id='readiness'; panel.className='rd-panel';
+  score.parentNode.insertBefore(panel, score.nextSibling);
+  var css=document.createElement('style');
+  css.textContent=
+   '.rd-panel{margin:16px 0 22px;padding:16px 18px;border:1px solid var(--border,#242b3a);border-radius:14px;background:linear-gradient(135deg,var(--panel,#12161f),var(--panel2,#181d29));display:none}'+
+   '.rd-panel.show{display:block}'+
+   '.rd-head{display:flex;align-items:baseline;justify-content:space-between;gap:10px;flex-wrap:wrap}'+
+   '.rd-title{font-size:12px;letter-spacing:1px;text-transform:uppercase;font-weight:800;color:var(--accent,#5ee6c8)}'+
+   '.rd-big{font-size:30px;font-weight:800;line-height:1.1;margin:4px 0 0;color:var(--text,#e6e9f0)}'+
+   '.rd-big small{font-size:13px;font-weight:600;color:var(--muted,#93a0b8);margin-left:8px}'+
+   '.rd-verdict{font-size:13px;font-weight:700;padding:4px 10px;border-radius:999px;border:1px solid}'+
+   '.rd-v-good{color:#7ee787;border-color:#7ee78766;background:#7ee78722}.rd-v-mid{color:#ffc978;border-color:#ffb45466;background:#ffb45422}.rd-v-low{color:#ff9b9b;border-color:#ff6b6b66;background:#ff6b6b22}'+
+   '.rd-cov{font-size:12.5px;color:var(--muted,#93a0b8);margin:8px 0 12px}'+
+   '.rd-rows{display:grid;gap:7px;margin:10px 0}'+
+   '.rd-row{display:grid;grid-template-columns:minmax(96px,34%) 1fr 74px;gap:10px;align-items:center;font-size:12.5px}'+
+   '.rd-name{color:var(--text,#e6e9f0);overflow-wrap:anywhere}'+
+   '.rd-bar{height:9px;border-radius:99px;background:#ffffff14;overflow:hidden}'+
+   '.rd-bar i{display:block;height:100%;border-radius:99px}'+
+   '.rd-pct{text-align:right;color:var(--muted,#93a0b8);white-space:nowrap}'+
+   '.rd-sec{margin:14px 0 4px;font-size:13px;color:#c9d1e0;line-height:1.55}'+
+   '.rd-sec b.g{color:#7ee787}.rd-sec b.w{color:#ff9b9b}.rd-sec b.d{color:#ffc978}'+
+   '.rd-rec{margin:14px 0 0;padding:12px 14px;border-left:3px solid var(--accent2,#7c9fff);background:#00000022;border-radius:0 10px 10px 0;font-size:13px;color:#c9d1e0}'+
+   '.rd-rec .t{font-size:11px;letter-spacing:1px;text-transform:uppercase;font-weight:800;color:var(--accent2,#7c9fff);margin-bottom:6px}'+
+   '.rd-rec a{color:var(--accent,#5ee6c8);font-weight:700;text-decoration:none}.rd-rec a:hover{text-decoration:underline}'+
+   '.rd-rec div.l{margin:5px 0}'+
+   '.rd-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}'+
+   '.rd-btn{border:1px solid var(--border,#242b3a);background:var(--panel2,#181d29);color:var(--text,#e6e9f0);padding:8px 12px;border-radius:9px;font-size:12.5px;font-weight:700;cursor:pointer}'+
+   '.rd-btn:hover{border-color:var(--accent2,#7c9fff);color:var(--accent,#5ee6c8)}.rd-btn[disabled]{opacity:.45;cursor:default}'+
+   '.rd-note{font-size:11.5px;color:var(--muted,#93a0b8);margin-top:10px}'+
+   '.qcard.rd-hide{display:none}';
+  document.head.appendChild(css);
+
+  function pct(c,n){ return n? Math.round(100*c/n):0; }
+  function colour(p){ return p>=STRONG?'#7ee787':(p>=WEAK?'#ffc978':'#ff6b6b'); }
+
+  function sectionLink(t){
+    var c=(CFG.review||{})[t]; if(!c) return null;
+    if(c.href) return '<a href="'+c.href+'">'+c.label+'</a>';
+    var sec=document.getElementById(c.sec); if(!sec) return null;
+    var parts=['<a href="#'+c.sec+'">'+c.label+'</a>'];
+    (c.h2||[]).forEach(function(h){
+      var hs=sec.querySelectorAll('h2'); 
+      for(var i=0;i<hs.length;i++){
+        if(hs[i].textContent.replace(/\s+/g,' ').toLowerCase().indexOf(h.toLowerCase())>-1){
+          if(!hs[i].id) hs[i].id=c.sec+'-rd-'+i;
+          parts.push('<a href="#'+hs[i].id+'">'+hs[i].firstChild.textContent.replace(/\s+$/,'')+'</a>'); break;
+        }
+      }
+    });
+    return parts.join(' → ');
+  }
+
+  function build(){
+    var att=0,cor=0,per={};
+    order.forEach(function(k){per[k]={a:0,c:0};});
+    Object.keys(results).forEach(function(id){
+      var k=topicOf(id); if(!k||!per[k]) return;
+      per[k].a++; att++; if(results[id]===1){per[k].c++; cor++;}
+    });
+    if(!att){ panel.className='rd-panel'; return; }
+    var overall=pct(cor,att);
+    var cov=Math.round(100*att/totalQ);
+    var verdict, vcls;
+    if(overall>=80){verdict='Exam-ready here';vcls='rd-v-good';}
+    else if(overall>=65){verdict='Nearly there';vcls='rd-v-mid';}
+    else if(overall>=50){verdict='Needs revision';vcls='rd-v-mid';}
+    else {verdict='Revise before PYQs';vcls='rd-v-low';}
+    var strong=[],weak=[],dev=[],thin=[];
+    order.forEach(function(k){
+      var p=per[k]; if(p.a<MIN_ATT){ thin.push(k); return; }
+      var x=pct(p.c,p.a);
+      if(x>=STRONG) strong.push([k,x]); else if(x<WEAK) weak.push([k,x]); else dev.push([k,x]);
+    });
+    weak.sort(function(a,b){return a[1]-b[1];}); dev.sort(function(a,b){return a[1]-b[1];});
+    var h='<div class="rd-head"><div><div class="rd-title">Revision readiness</div>'+
+      '<div class="rd-big">Revision Score: '+overall+'%<small>'+cor+' / '+att+' answered correctly</small></div></div>'+
+      '<span class="rd-verdict '+vcls+'">'+verdict+'</span></div>';
+    h+='<div class="rd-cov">Coverage: '+att+' of '+totalQ+' questions attempted ('+cov+'%)'+(cov<50?' — provisional; attempt more questions for a reliable reading.':'.')+'</div>';
+    h+='<div class="rd-rows">';
+    order.forEach(function(k){
+      var p=per[k], x=pct(p.c,p.a);
+      h+='<div class="rd-row"><span class="rd-name">'+label(k)+'</span><span class="rd-bar"><i style="width:'+(p.a?x:0)+'%;background:'+(p.a?colour(x):'transparent')+'"></i></span><span class="rd-pct">'+(p.a?x+'% · '+p.c+'/'+p.a:'not tried')+'</span></div>';
+    });
+    h+='</div>';
+    function names(a){return a.map(function(z){return label(z[0])+' ('+z[1]+'%)';}).join(', ');}
+    if(strong.length) h+='<div class="rd-sec"><b class="g">Strong:</b> '+names(strong)+'</div>';
+    if(dev.length) h+='<div class="rd-sec"><b class="d">Developing:</b> '+names(dev)+'</div>';
+    if(weak.length) h+='<div class="rd-sec"><b class="w">Weak:</b> '+names(weak)+'</div>';
+    if(thin.length) h+='<div class="rd-sec" style="color:var(--muted,#93a0b8)">Too few attempts to judge (under '+MIN_ATT+'): '+thin.map(label).join(', ')+'</div>';
+    // recommendation
+    var focus=weak.concat(dev).slice(0,3), lines=[];
+    focus.forEach(function(z){ var l=sectionLink(z[0]); if(l) lines.push('<div class="l">Review → '+l+'</div>'); });
+    var pyq=document.getElementById('pyq');
+    h+='<div class="rd-rec"><div class="t">Recommendation</div>';
+    if(lines.length){
+      h+=lines.join('')+'<div class="l">Then retry the questions you missed, and after that'+(pyq?' attempt the <a href="#pyq">solved PYQ-style problems</a>':' attempt PYQs')+'.</div>';
+    } else if(thin.length&&!strong.length){
+      h+='<div class="l">Answer a few more questions in each topic to get a reliable reading.</div>';
+    } else {
+      h+='<div class="l">No weak topics so far. Move on to '+(pyq?'<a href="#pyq">the PYQ-style problems</a>':'PYQs')+'.'+(cov<60?' Cover the untried topics first for a trustworthy score.':'')+'</div>';
+    }
+    h+='</div>';
+    var missed=Object.keys(results).filter(function(id){return results[id]===0;});
+    h+='<div class="rd-actions"><button class="rd-btn" id="rdRetry"'+(missed.length?'':' disabled')+'>Retry missed ('+missed.length+')</button><button class="rd-btn" id="rdReset">Reset results</button></div>';
+    h+='<div class="rd-note">Scores are saved in this browser. A question\'s latest attempt counts, so re-answering a missed question updates the report. The sub-heading shown is the highest-yield part of a weak topic. Topic labels need at least '+MIN_ATT+' attempts: Strong ≥ '+STRONG+'%, Weak &lt; '+WEAK+'%.</div>';
+    panel.innerHTML=h; panel.className='rd-panel show';
+    var r=document.getElementById('rdRetry'); if(r) r.onclick=retry;
+    var z=document.getElementById('rdReset'); if(z) z.onclick=function(){ if(confirm('Clear saved quiz results for this subject?')){results={};save();build();} };
+  }
+
+  function currentMode(){ try{ return (typeof mode!=='undefined')?mode:'MCQ'; }catch(e){ return 'MCQ'; } }
+  function retry(){
+    var m=currentMode(), pre=(m==='MSQ')?'MSQ':'Q';
+    var missed=Object.keys(results).filter(function(id){return results[id]===0 && id.indexOf(pre)===0 && (pre==='MSQ'||id.indexOf('MSQ')!==0);});
+    if(!missed.length){
+      // missed questions exist only in the other mode
+      var other=(m==='MSQ')?'mcqMode':'msqMode', b=document.getElementById(other); if(b) b.click();
+      pre=(pre==='Q')?'MSQ':'Q';
+      missed=Object.keys(results).filter(function(id){return results[id]===0 && (pre==='MSQ'?id.indexOf('MSQ')===0:/^Q\d/.test(id));});
+    }
+    if(typeof filter!=='undefined'){ try{ filter='ALL'; }catch(e){} }
+    var all=document.querySelector('#qtopics button'); if(all) all.click();   // re-renders with ALL
+    var set={}; missed.forEach(function(id){set[id]=1;});
+    var shown=0;
+    qlist.querySelectorAll('.qcard').forEach(function(c){
+      var t=c.querySelector('.qtag'); var mm=t&&/·\s*(MSQ|Q)(\d+)/.exec(t.textContent);
+      var id=mm?mm[1]+mm[2]:null;
+      if(id&&set[id]){shown++;} else c.classList.add('rd-hide');
+    });
+    qlist.scrollIntoView({behavior:'smooth',block:'start'});
+  }
+
+  // ---- capture answers: after each click, read the card's final state ----
+  function outcome(card, id){
+    if(!card.querySelector('.expl.show')) return null;            // not answered/submitted yet
+    if(card.querySelector('.opt.wrong')) return 0;
+    if(id.indexOf('MSQ')===0){                                      // a missed correct option is not marked wrong
+      var cs=card.querySelectorAll('.opt.correct');
+      for(var i=0;i<cs.length;i++) if(!cs[i].classList.contains('selected')) return 0;
+    }
+    return 1;
+  }
+  qlist.addEventListener('click',function(e){
+    var card=e.target.closest&&e.target.closest('.qcard'); if(!card) return;
+    setTimeout(function(){
+      var t=card.querySelector('.qtag'); var mm=t&&/·\s*(MSQ|Q)(\d+)/.exec(t.textContent); if(!mm) return;
+      var id=mm[1]+mm[2], r=outcome(card,id);
+      if(r===null) return;
+      if(card.dataset.rdRecorded) return; card.dataset.rdRecorded='1';
+      results[id]=r; save(); build();
+    },0);
+  },true);
+
+  build();
+})();
+
+</script>
+<!-- readiness:end -->
+<script id="ux-fix-v11-js">
+(function(){
+  var nav=document.querySelector('aside.side'); if(!nav) return;
+  var scrim=document.createElement('div'); scrim.id='navScrim'; document.body.appendChild(scrim);
+  var fab=document.createElement('button'); fab.id='navFab'; fab.type='button'; fab.setAttribute('aria-label','Topics'); fab.textContent='\u2630';
+  fab.addEventListener('click',function(){ nav.classList.toggle('open'); });
+  document.body.appendChild(fab);
+  function sync(){ document.body.classList.toggle('nav-open', nav.classList.contains('open')); }
+  new MutationObserver(sync).observe(nav,{attributes:true,attributeFilter:['class']});
+  function close(){ nav.classList.remove('open'); }
+  function outside(e){
+    if(!nav.classList.contains('open')) return;
+    var t=e.target; if(!t||!t.closest) return;
+    if(t.closest('#navFab')) return;
+    if(!t.closest('.side') || (e.type==='click' && t.closest('.side a'))) close();
+  }
+  document.addEventListener('pointerdown',outside,true);
+  document.addEventListener('touchstart',outside,{capture:true,passive:true});
+  document.addEventListener('click',outside,true);
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape') close(); });
+})();
+</script>
+<script id="fmt-v12-js">
+document.querySelectorAll('.card p').forEach(function(p){
+  var c=p.querySelector(':scope>code'); if(!c||p.children.length!==1) return;
+  var n=c.nextSibling; if(n&&n.nodeType===3&&/^\s*[.;,]\s*$/.test(n.textContent)) n.remove();
+});
+</script>
+<a id="homeFab" href="index.html" aria-label="Back to Study Hub">🏠</a>
+<!-- gatetest:start -->
+<script src="gate-test.js"></script>
+<script>(function(){var a=document.getElementById("qtopics");if(a&&window.GateTest)GateTest.mountLauncher("discrete-math",a);})();</script>
+<!-- gatetest:end -->
+<!-- pwa-reg:start -->
+<script>if('serviceWorker' in navigator&&(location.protocol==='https:'||location.hostname==='localhost'||location.hostname==='127.0.0.1')){window.addEventListener('load',function(){navigator.serviceWorker.register('sw.js').catch(function(){});});}</script>
+<!-- pwa-reg:end -->
+</body></html>

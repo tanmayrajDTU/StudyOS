@@ -12,7 +12,8 @@ import {
   NotebookText,
   FlaskConical,
   CalendarCheck,
-  Ellipsis
+  Ellipsis,
+  ArchiveRestore
 } from 'lucide-react'
 
 export default function MobileNav() {
@@ -82,7 +83,7 @@ export default function MobileNav() {
               )
             })}
             <a
-              href="/notes/index.html"
+              href="/gate-hub/index.html"
               target="_blank"
               rel="noopener noreferrer"
               role="menuitem"
@@ -90,6 +91,16 @@ export default function MobileNav() {
             >
               <NotebookText className="h-5 w-5" />
               Notes
+            </a>
+            <a
+              href="/notes/index.html"
+              target="_blank"
+              rel="noopener noreferrer"
+              role="menuitem"
+              className="flex items-center gap-3 rounded-xl px-3.5 py-3 text-sm font-semibold text-muted-foreground hover:bg-secondary/60"
+            >
+              <ArchiveRestore className="h-5 w-5" />
+              Old Notes
             </a>
           </div>
         </div>

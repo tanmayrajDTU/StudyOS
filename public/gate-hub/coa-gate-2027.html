@@ -1,0 +1,1886 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>COA for GATE CSE 2027</title>
+<style>
+:root{
+  --bg:#0b0e14; --panel:#12161f; --panel2:#181d29; --border:#242b3a;
+  --text:#e6e9f0; --muted:#93a0b8; --accent:#5ee6c8; --accent2:#7c9fff;
+  --warn:#ffb454; --good:#7ee787; --code-bg:#0d1420;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){ } }
+*{box-sizing:border-box}
+html{scroll-padding-top:calc(64px + env(safe-area-inset-top,0px));height:100%}
+body{
+  margin:0;height:100%;background:var(--bg);color:var(--text);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  line-height:1.55;
+}
+a{color:var(--accent2)}
+header{
+  position:sticky;top:0;z-index:20;
+  padding:calc(14px + env(safe-area-inset-top,0px)) 16px 14px;
+  background:rgba(11,14,20,0.9);backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--border);
+  display:flex;align-items:center;gap:10px;justify-content:space-between;
+}
+header .title{font-weight:700;font-size:15px;letter-spacing:.2px}
+header .title span{color:var(--accent)}
+#menuBtn{display:none;background:var(--panel2);border:1px solid var(--border);color:var(--text);
+  padding:8px 12px;border-radius:8px;font-size:13px}
+.wrap{display:flex;max-width:1280px;margin:0 auto}
+nav#side{
+  width:250px;flex:none;padding:18px 12px;position:sticky;
+  top:calc(58px + env(safe-area-inset-top,0px));
+  height:calc(100vh - 58px - env(safe-area-inset-top,0px));
+  overflow-y:auto;border-right:1px solid var(--border);
+}
+nav#side .grp{margin-bottom:14px}
+nav#side .grp-title{font-size:11px;text-transform:uppercase;letter-spacing:1px;color:var(--muted);margin:10px 6px 6px}
+nav#side a{
+  display:block;padding:7px 10px;border-radius:8px;color:var(--muted);text-decoration:none;font-size:13.5px;
+}
+nav#side a:hover{background:var(--panel2);color:var(--text)}
+nav#side a.soon{opacity:.45;font-style:italic}
+main{flex:1;min-width:0;padding:28px 22px 80px}
+section{max-width:820px;margin:0 auto 64px;scroll-margin-top:70px}
+section h1{font-size:26px;margin:0 0 6px;color:var(--accent)}
+section h2{font-size:20px;margin:38px 0 10px;color:var(--accent2);border-bottom:1px solid var(--border);padding-bottom:8px}
+section h3{font-size:16px;margin:22px 0 8px;color:var(--text)}
+p{color:#c9d1e0}
+.sub{color:var(--muted);font-size:14px;margin-bottom:20px}
+.card{
+  background:var(--panel);border:1px solid var(--border);border-radius:12px;
+  padding:16px 18px;margin:14px 0;
+}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media (max-width:720px){.grid2{grid-template-columns:1fr}}
+.num{
+  border-left:3px solid var(--accent);background:var(--panel2);
+  padding:14px 16px;border-radius:0 10px 10px 0;margin:16px 0;
+}
+.num .tag{font-size:11px;color:var(--accent);text-transform:uppercase;letter-spacing:1px;font-weight:700}
+.warn{border-left:3px solid var(--warn);background:#1c1810;padding:12px 16px;border-radius:0 10px 10px 0;margin:14px 0}
+.warn .tag{color:var(--warn);font-size:11px;text-transform:uppercase;letter-spacing:1px;font-weight:700}
+code,.mono{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;background:var(--code-bg);
+  padding:2px 6px;border-radius:5px;font-size:13px;color:var(--good)}
+pre{background:var(--code-bg);padding:12px 14px;border-radius:8px;overflow-x:auto;border:1px solid var(--border)}
+table{border-collapse:collapse;width:100%;margin:12px 0;font-size:13.5px}
+th,td{border:1px solid var(--border);padding:8px 10px;text-align:left}
+th{background:var(--panel2);color:var(--accent2)}
+tr:nth-child(even){background:#10141d}
+.bitfield{display:flex;font-family:ui-monospace,monospace;font-size:12px;overflow-x:auto;margin:14px 0}
+.bit{border:1px solid var(--border);padding:10px 4px;text-align:center;flex:none;min-width:26px}
+.bit.hdr{background:var(--panel2);color:var(--muted);border-bottom:none}
+.bfrow{display:flex}
+.bf-label{padding:8px 10px;font-size:12px;color:#0b0e14;font-weight:700;text-align:center;flex:none}
+.pill{display:inline-block;padding:3px 10px;border-radius:999px;font-size:11.5px;font-weight:700;margin-right:6px}
+.pill.s{background:#ff6b6b33;color:#ff9b9b}
+.pill.e{background:#7c9fff33;color:#9fb6ff}
+.pill.m{background:#5ee6c833;color:#8ff0da}
+.addr-flow{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:14px 0;font-size:13px}
+.addr-flow .box{background:var(--panel2);border:1px solid var(--border);border-radius:8px;padding:8px 12px}
+.addr-flow .arrow{color:var(--accent);font-weight:700}
+footer{border-top:1px solid var(--border);text-align:center;color:var(--muted);font-size:12.5px;padding:30px 16px}
+::-webkit-scrollbar{width:9px;height:9px}
+::-webkit-scrollbar-thumb{background:var(--border);border-radius:6px}
+@media (max-width:860px){
+  nav#side{position:fixed;left:0;top:calc(58px + env(safe-area-inset-top,0px));
+    height:calc(100vh - 58px - env(safe-area-inset-top,0px));
+    background:var(--bg);z-index:15;transform:translateX(-105%);transition:transform .2s;width:230px}
+  nav#side.open{transform:translateX(0)}
+  #menuBtn{display:inline-block}
+}
+.qtopics{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0 20px;position:sticky;top:58px;background:var(--bg);padding:8px 0;z-index:5}
+.qtopics button{background:var(--panel2);border:1px solid var(--border);color:var(--muted);padding:6px 13px;
+  border-radius:999px;font-size:12.5px;cursor:pointer}
+.qtopics button.active{background:var(--accent);color:#062019;border-color:var(--accent);font-weight:700}
+#score{font-size:13px;color:var(--muted);margin-bottom:16px}
+#score b{color:var(--accent)}
+.qcard{background:var(--panel);border:1px solid var(--border);border-radius:12px;padding:16px;margin:12px 0}
+.qcard .qtag{font-size:10.5px;color:var(--accent2);text-transform:uppercase;letter-spacing:.5px;font-weight:700}
+.qcard .qtext{margin:6px 0 12px;font-size:14.5px}
+.opt{display:block;width:100%;text-align:left;background:var(--panel2);border:1px solid var(--border);
+  color:var(--text);padding:9px 12px;border-radius:8px;margin:6px 0;cursor:pointer;font-size:13.5px}
+.opt:hover{border-color:var(--accent2)}
+.opt.correct{background:#123322;border-color:var(--good);color:var(--good)}
+.opt.wrong{background:#331414;border-color:#ff6b6b;color:#ff9b9b}
+.opt[disabled]{cursor:default}
+.expl.show{display:block}
+.expl{display:none;margin-top:10px;font-size:13px;color:var(--muted);background:var(--code-bg);
+  padding:10px 12px;border-radius:8px;border:1px solid var(--border)}
+.gq{border-left:3px solid var(--accent2);background:var(--panel2);padding:16px 18px;border-radius:0 10px 10px 0;margin:20px 0}
+.gq .gtag{font-size:11px;color:var(--accent2);text-transform:uppercase;letter-spacing:1px;font-weight:700}
+.gq .gopts{margin:10px 0;padding-left:18px;color:#c9d1e0;font-size:13.5px}
+.gq .gopts li{margin:3px 0}
+.gq .gans{color:var(--good);font-weight:700}
+
+/* ===== High-yield revision system ===== */
+.hy-toolbar{
+  max-width:820px;margin:0 auto 28px;padding:14px 16px;
+  background:linear-gradient(135deg,var(--panel),var(--panel2));
+  border:1px solid var(--border);border-radius:14px;
+}
+.hy-toolbar-row{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.hy-title{font-weight:800;color:var(--text);font-size:14px}
+.hy-title span{color:var(--accent)}
+.hy-sub{color:var(--muted);font-size:12.5px;margin-top:4px}
+.hy-actions{display:flex;gap:8px;flex-wrap:wrap}
+.hy-btn{border:1px solid var(--border);background:var(--panel2);color:var(--text);padding:8px 12px;border-radius:9px;font-size:12.5px;font-weight:700;cursor:pointer}
+.hy-btn:hover{border-color:var(--accent2);color:var(--accent)}
+.hy-btn.primary{background:var(--accent);color:#062019;border-color:var(--accent)}
+.hy-legend{display:flex;flex-wrap:wrap;gap:7px;margin-top:12px}
+.hy-legend span,.hy-badge{display:inline-flex;align-items:center;gap:4px;padding:3px 8px;border-radius:999px;font-size:10.5px;font-weight:800;letter-spacing:.15px}
+.hy-must{background:#7c9fff22;color:#9fb6ff;border:1px solid #7c9fff55}
+.hy-trap{background:#ffb45422;color:#ffc978;border:1px solid #ffb45455}
+.hy-formula{background:#5ee6c822;color:#8ff0da;border:1px solid #5ee6c855}
+.hy-gate{background:#ff6b6b22;color:#ff9b9b;border:1px solid #ff6b6b55}
+.hy-shortcut{background:#c792ea22;color:#dcb7f7;border:1px solid #c792ea55}
+.hy-marked{position:relative}
+.hy-marked>.hy-badge{margin-bottom:8px}
+.hy-rapid-overlay{display:none}
+body.rapid-mode .hy-rapid-overlay{display:block}
+body.rapid-mode .wrap>main>section:not(#hyRapidPanel){display:none}
+body.rapid-mode .wrap>main{padding-top:18px}
+body.rapid-mode nav#side{opacity:.55}
+body.rapid-mode .hy-toolbar{position:sticky;top:58px;z-index:10}
+#hyRapidPanel{max-width:820px}
+#hyRapidPanel h1{margin-bottom:5px}
+#hyRapidPanel .rapid-intro{margin:0 0 24px;color:var(--muted);font-size:13px}
+.rapid-section{margin:0 0 34px}
+.rapid-section h2{font-size:18px;margin:0 0 12px;color:var(--accent2);border-bottom:1px solid var(--border);padding-bottom:8px}
+.rapid-empty{color:var(--muted);font-size:13px;background:var(--panel);border:1px dashed var(--border);padding:12px 14px;border-radius:10px}
+.rapid-source{margin:0 0 12px}
+.rapid-source .hy-badge{display:inline-flex;margin-bottom:8px}
+body.rapid-mode .hy-toolbar .hy-btn.primary{display:none}
+body:not(.rapid-mode) .hy-toolbar .hy-btn.secondary{display:none}
+@media(max-width:720px){
+  .hy-toolbar-row{align-items:flex-start}.hy-actions{width:100%}.hy-btn{flex:1}
+  body.rapid-mode .hy-toolbar{top:58px}
+}
+
+
+/* Second-pass curated high-yield revision layer */
+.rapid-curated{margin:18px 0 28px;padding:20px;border:1px solid var(--border,#334155);border-radius:16px;background:rgba(15,23,42,.45)}
+.rapid-curated>h2{margin:0 0 4px}.rapid-note{margin:0 0 16px;opacity:.72}
+.rapid-group{margin:14px 0;padding:14px 16px;border-radius:12px;border-left:4px solid #64748b;background:rgba(255,255,255,.025)}
+.rapid-group h3{margin:0 0 8px;font-size:1rem}.rapid-group ul{margin:0;padding-left:20px}.rapid-group li{margin:7px 0;line-height:1.55}
+.rapid-group.must{border-left-color:#22c55e}.rapid-group.trap{border-left-color:#eab308}.rapid-group.formula{border-left-color:#38bdf8}.rapid-group.gate{border-left-color:#f97316}.rapid-group.shortcut{border-left-color:#a78bfa}
+@media(max-width:700px){.rapid-curated{padding:14px}.rapid-group{padding:12px}}
+@media (max-width:640px){table{display:block;max-width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch}.card,.num,.warn,p,li{overflow-wrap:break-word}td,th{overflow-wrap:normal;word-break:normal}}
+
+
+
+/* 3-tier syllabus classification: Core -> High-Yield -> Extension */
+.tier{display:inline-block;margin-left:10px;padding:2px 9px;border-radius:999px;font-size:11px;font-weight:800;letter-spacing:.2px;vertical-align:middle;white-space:nowrap}
+.tier-core{background:#7ee78722;color:#7ee787;border:1px solid #7ee78766}
+.tier-hy{background:#7c9fff22;color:#9fb6ff;border:1px solid #7c9fff66}
+.tier-ext{background:#ffb45418;color:#ffc978;border:1px solid #ffb45455}
+.tier-why{font-size:11.5px;font-weight:500;color:var(--muted);vertical-align:middle}
+.tier-legend{max-width:820px;margin:0 auto 24px;padding:14px 16px;background:var(--panel);border:1px solid var(--border);border-radius:14px;font-size:13px;color:#c9d1e0}
+.tier-legend b{color:var(--text)}
+.tier-legend .tier{margin-left:0;margin-right:6px}
+.tier-legend .row{display:flex;gap:10px;align-items:flex-start;margin:8px 0}
+.tier-legend .row .tier{flex:none}
+.tier-seg{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+.tier-seg button{border:1px solid var(--border);background:var(--panel2);color:var(--muted);padding:7px 12px;border-radius:9px;font-size:12.5px;font-weight:700;cursor:pointer}
+.tier-seg button.active{background:var(--accent);color:#062019;border-color:var(--accent)}
+.tier-note{font-size:11.5px;color:var(--muted);margin-top:10px}
+/* visual demotion of extension material */
+section h2[data-tier="ext"]{font-size:17px;color:var(--muted);border-bottom-style:dashed}
+.tier-ext-body{opacity:.74;border-left:2px dashed var(--border);padding-left:12px;margin-left:2px}
+body[data-tier-view="core-hy"] h2[data-tier="ext"],body[data-tier-view="core-hy"] .tier-ext-body,
+body[data-tier-view="core"] h2[data-tier="ext"],body[data-tier-view="core"] .tier-ext-body,
+body[data-tier-view="core"] h2[data-tier="hy"],body[data-tier-view="core"] .tier-hy-body{display:none}
+body.rapid-mode .tier-legend{display:none}
+</style>
+<style>@media(max-width:760px){main table{display:block;overflow-x:auto;max-width:100%}main pre{overflow-x:auto;max-width:100%}}</style><style id="ux-fix-v11">
+html,body{height:auto!important;min-height:100%}
+#navScrim{cursor:pointer;-webkit-tap-highlight-color:transparent}
+
+/* v11: no sticky banners in the reading/quiz flow; tap-outside closes the topics drawer */
+.qtopics{position:static!important;top:auto!important}
+body.rapid-mode .hy-toolbar{position:static!important;top:auto!important}
+#navScrim{display:none}
+@media (max-width:860px){
+  body.nav-open #navScrim{display:block;position:fixed;left:0;right:0;bottom:0;top:calc(58px + env(safe-area-inset-top,0px));background:rgba(0,0,0,.45);z-index:14}
+}
+@media (max-width:860px){
+  header{position:static!important}
+  html{scroll-padding-top:12px!important}
+  nav#side{top:0!important;height:100%!important;padding-top:calc(18px + env(safe-area-inset-top,0px))!important}
+  body.nav-open #navScrim{top:0!important}
+  #navFab{position:fixed;left:12px;bottom:calc(14px + env(safe-area-inset-bottom,0px));z-index:16;width:42px;height:42px;border-radius:50%;
+    border:1px solid var(--border);background:rgba(23,28,40,.92);color:var(--text);font-size:19px;line-height:1;opacity:.9;
+    box-shadow:0 2px 10px rgba(0,0,0,.45);cursor:pointer;-webkit-tap-highlight-color:transparent}
+}
+@media (min-width:861px){#navFab{display:none}}
+</style>
+<style id="fmt-v12">
+/* v12 readability revamp — formatting only, content untouched */
+:root{--rg-must:#22c55e;--rg-trap:#eab308;--rg-formula:#38bdf8;--rg-gate:#f97316;--rg-shortcut:#a78bfa}
+body.rapid-mode .wrap>main{padding-left:clamp(14px,4vw,32px);padding-right:clamp(14px,4vw,32px)}
+#hyRapidPanel{max-width:760px;margin:0 auto}
+#hyRapidPanel>h1{font-size:clamp(22px,6vw,28px);line-height:1.25;margin:4px 0 8px}
+#hyRapidPanel .rapid-intro{font-size:14.5px;line-height:1.65;margin:0 0 18px}
+
+/* jump chips */
+.rapid-jump{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 22px}
+.rapid-jump a{display:inline-flex;align-items:center;gap:6px;padding:8px 12px;border-radius:999px;font-size:13px;font-weight:700;text-decoration:none;
+  color:var(--text);background:var(--panel2);border:1px solid var(--border)}
+.rapid-jump a b{font-weight:800;opacity:.7}
+
+/* curated block: flat, no box-in-box */
+.rapid-curated{margin:0 0 34px!important;padding:0!important;border:0!important;background:none!important;border-radius:0!important}
+.rapid-curated>h2{font-size:20px;margin:0 0 4px!important;color:var(--text)}
+.rapid-note{font-size:13.5px;line-height:1.6;margin:0 0 6px!important}
+.rapid-group{margin:26px 0 0!important;padding:0!important;border:0!important;background:none!important;scroll-margin-top:12px}
+.rapid-group h3{display:flex;align-items:center;gap:8px;margin:0 0 12px!important;padding-bottom:10px;font-size:14px!important;font-weight:800;
+  letter-spacing:.6px;text-transform:uppercase;border-bottom:2px solid var(--gc,#64748b);color:var(--gc,var(--text))}
+.rapid-group h3 .rg-count{margin-left:auto;font-size:12px;font-weight:800;letter-spacing:0;text-transform:none;padding:2px 9px;border-radius:999px;
+  background:var(--gc,#64748b);color:#0b0e14}
+.rapid-group.must{--gc:var(--rg-must)}.rapid-group.trap{--gc:var(--rg-trap)}.rapid-group.formula{--gc:var(--rg-formula)}
+.rapid-group.gate{--gc:var(--rg-gate)}.rapid-group.shortcut{--gc:var(--rg-shortcut)}
+.rapid-group ul{list-style:none!important;margin:0!important;padding:0!important;display:grid;gap:12px}
+.rapid-group li{margin:0!important;padding:14px 16px;background:var(--panel);border:1px solid var(--border);border-left:4px solid var(--gc,#64748b);
+  border-radius:12px;font-size:15.5px;line-height:1.7;color:var(--text);overflow-wrap:anywhere}
+.rg-label{display:block;margin:0 0 6px;font-size:15px;font-weight:800;line-height:1.35;color:var(--gc,var(--text))}
+.rg-body{display:block;color:#d3d9e6}
+.rg-line{display:block}.rg-line+.rg-line{margin-top:8px}
+.rg-eq{display:block;margin:8px 0 0;padding:10px 12px;border-radius:9px;background:#0a1220;border:1px solid #1d3350;
+  font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:14px;line-height:1.65;color:#8fd8ff;overflow-x:auto;white-space:pre-wrap;overflow-wrap:anywhere}
+.rg-txt{display:block;margin:8px 0 0;color:#d3d9e6}
+.rg-label+.rg-eq,.rg-label+.rg-txt,.rapid-group li>.rg-eq:first-child,.rapid-group li>.rg-txt:first-child{margin-top:0}
+
+/* per-topic cloned cards: roomier, clearer hierarchy */
+.rapid-section{margin:0 0 40px!important}
+.rapid-section h2{font-size:clamp(18px,5vw,22px)!important;line-height:1.3;margin:0 0 16px!important;padding:12px 14px!important;border:1px solid var(--border)!important;
+  border-left:4px solid var(--accent2)!important;border-radius:12px;background:var(--panel)}
+.rapid-source{margin:0 0 14px!important}
+.rapid-source>*{margin:0!important;padding:16px!important;border-radius:14px!important;font-size:15.5px;line-height:1.75;overflow-wrap:anywhere}
+.rapid-source .hy-badge{margin-bottom:10px!important}
+.rapid-source p{margin:0 0 10px;line-height:1.75}.rapid-source p:last-child{margin-bottom:0}
+.rapid-source ul,.rapid-source ol{padding-left:22px;margin:8px 0}.rapid-source li{margin:6px 0;line-height:1.7}
+.rapid-source b,.rapid-source strong{color:#fff}
+.rapid-source code{font-size:.92em;padding:2px 6px;border-radius:6px}
+.rapid-source pre{padding:12px;border-radius:10px;overflow-x:auto;font-size:13.5px;line-height:1.6}
+.rapid-source table{display:block;overflow-x:auto;max-width:100%}
+.rapid-source td,.rapid-source th{padding:8px 10px;line-height:1.55}
+
+/* notes mode: gentle readability lift */
+@media (max-width:700px){
+  main .card,main .warn,main .num{padding:16px!important}
+  main p,main li{line-height:1.75}
+  main section>p{margin:0 0 14px}
+}
+</style>
+<style id="theme-v13">
+/* v13 premium dark + colour theme — visual layer only */
+:root{
+  --bg:#070916;--panel:#0f1330;--panel2:#161b3f;--border:#2a3166;--text:#eef1ff;--muted:#9ea8d4;
+  --accent:#4ff0d0;--accent2:#8aa4ff;--warn:#ffb454;--good:#6ef0a0;--code-bg:#0a1030;
+  --green:#7af0ae;--yellow:#ffe08a;--red:#ff9aa8;--purple:#c9a8ff;
+  --glow-a:#7c5cff;--glow-b:#19d3ff;--glow-c:#ff4fa3;
+}
+html{background:#070916}
+body{background:transparent!important;color:var(--text)}
+body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;
+  background:
+   radial-gradient(60% 40% at 8% 0%,rgba(124,92,255,.28),transparent 70%),
+   radial-gradient(50% 35% at 100% 6%,rgba(25,211,255,.18),transparent 70%),
+   radial-gradient(60% 40% at 50% 100%,rgba(255,79,163,.14),transparent 70%),
+   #070916}
+::selection{background:rgba(124,92,255,.55);color:#fff}
+
+/* header */
+header,.top{background:linear-gradient(180deg,rgba(14,18,48,.92),rgba(9,11,30,.86))!important;
+  -webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);border-bottom:1px solid transparent!important;
+  border-image:linear-gradient(90deg,#7c5cff,#19d3ff,#ff4fa3) 1;box-shadow:0 6px 24px rgba(0,0,0,.35)}
+header h1 span,.top h1 span,header .hl,.top .hl{background:linear-gradient(90deg,#4ff0d0,#8aa4ff,#d28bff);-webkit-background-clip:text;background-clip:text;color:transparent!important}
+
+/* headings */
+main h2,.wrap h2{background:linear-gradient(90deg,#9db4ff,#c9a8ff 55%,#ff9ad0);-webkit-background-clip:text;background-clip:text;color:transparent;
+  border-bottom:1px solid transparent!important;border-image:linear-gradient(90deg,rgba(138,164,255,.6),rgba(255,79,163,.25),transparent) 1}
+main h3{color:#8fe9ff}
+
+/* surfaces: glass panels */
+.card,.warn,.num,.hy-panel,.hy-toolbar,.rapid-curated,table,.q,.qcard,.sol,details,.callout,.box{
+  background:linear-gradient(150deg,rgba(32,38,88,.62),rgba(14,17,42,.9))!important;
+  border-top-color:rgba(138,150,255,.2)!important;border-right-color:rgba(138,150,255,.2)!important;border-bottom-color:rgba(138,150,255,.2)!important;box-shadow:0 10px 30px rgba(3,4,18,.45),inset 0 1px 0 rgba(255,255,255,.06)}
+.hy-toolbar{border-radius:16px}
+.hy-toolbar h3,.hy-toolbar strong{background:linear-gradient(90deg,#4ff0d0,#8aa4ff);-webkit-background-clip:text;background-clip:text;color:transparent}
+
+/* nav drawer */
+nav#side,.side{background:linear-gradient(180deg,rgba(18,22,58,.97),rgba(9,11,30,.98))!important;border-color:rgba(138,150,255,.2)!important}
+nav#side a.active,.side a.active,nav#side a:hover,.side a:hover{background:linear-gradient(90deg,rgba(124,92,255,.35),rgba(25,211,255,.14))!important;color:#fff!important;border-radius:10px}
+nav#side .grp,.side .grp,nav#side h4,.side h4{color:#c9a8ff!important}
+
+/* buttons */
+.hy-btn{background:rgba(26,31,72,.9);border-color:rgba(138,150,255,.3)}
+.hy-btn:hover{border-color:#8aa4ff;box-shadow:0 0 0 3px rgba(124,92,255,.22);color:#fff}
+.hy-btn.primary,.btn.primary,button.primary{background:linear-gradient(90deg,#19d3ff,#7c5cff 60%,#ff4fa3)!important;color:#fff!important;border:0!important;
+  box-shadow:0 6px 20px rgba(124,92,255,.45)}
+#navFab{background:linear-gradient(135deg,#7c5cff,#19d3ff)!important;color:#fff!important;border:0!important;box-shadow:0 8px 22px rgba(124,92,255,.55)!important;opacity:1!important}
+#menuBtn{background:rgba(26,31,72,.9)!important;border-color:rgba(138,150,255,.35)!important}
+
+/* code & equations */
+code,pre{background:#0a1030!important;color:#8ff5e2;border:1px solid rgba(79,240,208,.18)}
+.rg-eq,.card p>code:only-child{background:linear-gradient(135deg,#0a1436,#0d0f2e)!important;border-color:rgba(25,211,255,.35)!important;color:#9af2ff!important;
+  box-shadow:inset 0 0 0 1px rgba(25,211,255,.06)}
+
+/* last-minute groups: tinted by their colour */
+.rapid-group li{background:linear-gradient(135deg,color-mix(in srgb,var(--gc) 14%,#12163a),#0d1030 70%)!important;border-top-color:color-mix(in srgb,var(--gc) 30%,#262d62)!important;border-right-color:color-mix(in srgb,var(--gc) 30%,#262d62)!important;border-bottom-color:color-mix(in srgb,var(--gc) 30%,#262d62)!important;border-left-color:var(--gc)!important;
+  box-shadow:0 6px 18px rgba(3,4,18,.4)}
+.rapid-group h3{text-shadow:0 0 18px color-mix(in srgb,var(--gc) 55%,transparent)}
+.rapid-group h3 .rg-count{box-shadow:0 0 14px color-mix(in srgb,var(--gc) 60%,transparent)}
+.rapid-jump a{background:rgba(26,31,72,.85);border-color:rgba(138,150,255,.3)}
+.rapid-section h2{background:linear-gradient(90deg,rgba(124,92,255,.28),rgba(25,211,255,.08))!important;-webkit-text-fill-color:#fff;color:#fff;border-image:none!important;
+  border-color:rgba(138,150,255,.3)!important;border-left:4px solid #19d3ff!important}
+
+/* tags / badges: more vivid */
+.tag,.hy-badge,.badge{backdrop-filter:blur(4px);font-weight:800}
+.tag.must,.hy-badge.must{background:rgba(34,197,94,.18)!important;color:#7af0ae!important;border-color:rgba(34,197,94,.5)!important}
+.tag.formula,.hy-badge.formula{background:rgba(56,189,248,.18)!important;color:#8fe0ff!important;border-color:rgba(56,189,248,.5)!important}
+.tag.fav,.hy-badge.fav{background:rgba(255,79,100,.16)!important;color:#ff9aa8!important;border-color:rgba(255,79,100,.5)!important}
+
+/* quiz options */
+.opt,.option,button.opt,label.opt{background:rgba(22,27,68,.8)!important;border-color:rgba(138,150,255,.25)!important;transition:.15s}
+.opt:hover,.option:hover{border-color:#19d3ff!important;box-shadow:0 0 0 3px rgba(25,211,255,.18)}
+.qtopics button,.qtopics .chip{background:rgba(26,31,72,.85);border-color:rgba(138,150,255,.3)}
+.qtopics .on,.qtopics .active{background:linear-gradient(90deg,#7c5cff,#19d3ff)!important;color:#fff!important;border-color:transparent!important}
+
+/* tables */
+th{background:linear-gradient(90deg,rgba(124,92,255,.35),rgba(25,211,255,.18))!important;color:#fff!important}
+td,th{border-color:rgba(138,150,255,.2)!important}
+tbody tr:nth-child(even) td{background:rgba(124,92,255,.06)}
+
+a{color:#8fe9ff}
+::-webkit-scrollbar{width:10px;height:10px}::-webkit-scrollbar-thumb{background:linear-gradient(#7c5cff,#19d3ff);border-radius:8px}
+</style>
+<style id="home-v14">
+.homeLink{justify-self:end;display:inline-flex;align-items:center;gap:6px;padding:8px 12px;border-radius:10px;font-size:13px;font-weight:800;text-decoration:none;white-space:nowrap;
+  color:#fff!important;background:linear-gradient(135deg,rgba(124,92,255,.55),rgba(25,211,255,.3));border:1px solid rgba(138,150,255,.4)}
+nav#side a.backhome,.side a.backhome{display:block;margin:0 0 10px;padding:10px 12px;border-radius:10px;font-weight:800;color:#fff!important;
+  background:linear-gradient(90deg,rgba(124,92,255,.45),rgba(25,211,255,.2));border:1px solid rgba(138,150,255,.4)}
+#homeFab{display:none}
+@media (max-width:860px){
+  #homeFab{display:flex;align-items:center;justify-content:center;position:fixed;left:64px;bottom:calc(14px + env(safe-area-inset-bottom,0px));z-index:16;width:42px;height:42px;border-radius:50%;
+    text-decoration:none;font-size:19px;background:rgba(22,27,68,.95);border:1px solid rgba(138,150,255,.45);box-shadow:0 8px 22px rgba(3,4,18,.6)}
+}
+</style>
+<!-- pwa:start -->
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#070916">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="GATE 2027">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="icon" type="image/png" href="favicon-64.png">
+<!-- pwa:end -->
+</head>
+<body>
+<header>
+  <button id="menuBtn" onclick="document.getElementById('side').classList.toggle('open')">☰ Topics</button>
+  <div class="title">⚙️ COA <span>for GATE CSE 2027</span></div>
+  <a class="homeLink" href="index.html">🏠 Home</a>
+</header>
+<div class="wrap">
+<nav id="side">
+<a class="backhome" href="index.html">← Study Hub (Home)</a><a class="gt-sidelink" href="cheatsheet-gate-2027.html#coa">📄 Formula cheat sheet</a><a class="gt-sidelink" href="mock-gate-2027.html">🎯 Full mock exam</a>
+  <div class="grp">
+    <div class="grp-title">Part 1 · Foundations</div>
+    <a href="#numsys">1. Number Systems & Arithmetic</a>
+    <a href="#isa">2. Instruction Set & Addressing Modes</a>
+  </div>
+  <div class="grp">
+    <div class="grp-title">Part 2 · ALU & Control Unit</div>
+    <a href="#alu">3. ALU Design</a>
+    <a href="#cu">4. Control Unit Design</a>
+  </div>
+  <div class="grp">
+    <div class="grp-title">Part 3 · Memory, I/O & Pipelining</div>
+    <a href="#mem">5. Memory Hierarchy & Cache</a>
+    <a href="#memint">&nbsp;&nbsp;↳ 5b. Memory Interfacing</a>
+    <a href="#io">6. I/O: Interrupts & DMA</a>
+    <a href="#pipe">7. Pipelining & Hazards</a>
+  </div>  <div class="grp">
+    <div class="grp-title">Problem Solving</div>
+    <a href="#methods">8. 🧭 Problem → Standard Method Playbook</a>
+  </div>
+  <div class="grp">
+    <div class="grp-title">Practice</div>
+    <a href="#quiz">9. Practice Quiz — 58 Qs (basic)</a>
+    <a href="#pyq">10. GATE-Level Solved Problems</a>
+  </div>
+</nav>
+<main>
+<!-- tier-legend:start -->
+<div class="tier-legend" id="tierLegend">
+  <div><b>What to revise for GATE 2027</b> — every topic is tagged against the official syllabus (machine instructions and addressing modes; ALU, data path and control unit; instruction pipelining and hazards; memory interfacing and hierarchy — performance and cache memory mapping; I/O interface — interrupts and DMA).</div>
+  <div class="row"><span class="tier tier-core">🟢 Core</span><span>Named in the syllabus, or an indispensable prerequisite of a named item.</span></div>
+  <div class="row"><span class="tier tier-hy">🔵 High-Yield</span><span>Not named in the syllabus, but frequently useful or tested as background. Revise after Core.</span></div>
+  <div class="row"><span class="tier tier-ext">🟡 Extension</span><span>Beyond the syllabus or rarely tested. Kept for completeness and shown dimmed; read only if time remains.</span></div>
+  <div class="tier-seg" id="tierSeg"><button type="button" class="active" data-view="all">All material</button><button type="button" data-view="core-hy">Core + 🔵 High-Yield</button><button type="button" data-view="core">🟢 Core only</button></div>
+  <div class="tier-note">Tiers are a study aid based on the syllabus as I know it; the 🔵 / 🟡 split is a judgement call. Confirm borderline items against the official PDF.</div>
+</div>
+<!-- tier-legend:end -->
+
+<section id="numsys">
+<h1>1. Number Systems & Computer Arithmetic</h1>
+<div class="sub">How a computer stores numbers, and how it adds/subtracts/represents fractions — the base layer under everything else in COA.</div>
+
+<h2 data-tier="core">Signed number representation <span class="tier tier-core" title="Named in the GATE 2027 syllabus, or an indispensable prerequisite of a named item">🟢 Core</span></h2>
+<p>A computer only has 0s and 1s. To represent negative numbers, we use one of three schemes on an <b>n-bit</b> word. GATE almost only cares about the third one.</p>
+<table>
+<tr><th>Scheme</th><th>How -5 (4-bit) looks</th><th>Problem</th></tr>
+<tr><td>Sign-magnitude</td><td><code>1101</code> (sign bit + magnitude 101)</td><td>two zeros (+0, -0), messy arithmetic</td></tr>
+<tr><td>1's complement</td><td><code>1010</code> (flip all bits of 5=0101)</td><td>still two zeros, needs "end-around carry"</td></tr>
+<tr><td><b>2's complement</b></td><td><code>1011</code> (flip bits, +1)</td><td>none — this is what real CPUs use</td></tr>
+</table>
+<div class="num"><div class="tag">Rule of thumb</div>
+To get -x in 2's complement: flip every bit of x, then add 1. To go back from a negative 2's complement number to decimal: flip every bit, add 1, put a minus sign in front.
+</div>
+
+<h3>Range you must memorize</h3>
+<div class="card">
+For an <b>n-bit</b> signed 2's complement number:
+<pre>Range = -2^(n-1)  to  +2^(n-1) - 1</pre>
+So for n = 8: <b>-128 to +127</b>. Notice it's asymmetric — one extra negative number, because there's only one zero.
+</div>
+
+<div class="num"><div class="tag">Worked numerical (GATE style)</div>
+<b>Q:</b> What is the range of integers representable in 12-bit 2's complement form?<br>
+<b>A:</b> n=12 → from −2¹¹ to +2¹¹−1 = <b>−2048 to +2047</b>.
+</div>
+
+<h3>Addition, subtraction & overflow</h3>
+<p>2's complement lets you <b>subtract by adding the negative</b>. Just add the bit patterns normally and discard any carry-out of the leftmost bit.</p>
+<div class="num"><div class="tag">Worked numerical</div>
+<b>Q:</b> Using 5-bit 2's complement, compute 7 − 3.<br>
+<b>A:</b> 7 = <code>00111</code>, −3 = <code>11101</code> (flip 3=00011 → 11100, +1 → 11101).<br>
+Add: <code>00111 + 11101 = 100100</code> → discard the leading carry → <code>00100</code> = <b>4</b>. Correct!
+</div>
+<div class="warn"><div class="tag">Overflow detection rule</div>
+Overflow happens only when adding two numbers of the <b>same sign</b> and the result has the <b>opposite sign</b>. Formally: overflow = carry into MSB XOR carry out of MSB. GATE loves asking "does this addition overflow?" — check the sign bits first, don't compute the whole thing if you don't have to.
+</div>
+<div class="num"><div class="tag">Worked numerical</div>
+<b>Q:</b> In 4-bit 2's complement, does 5 + 4 overflow?<br>
+<b>A:</b> 5=<code>0101</code>, 4=<code>0100</code>. Sum = <code>1001</code> = −7 in 4-bit. Both operands positive, result negative → <b>overflow</b> (the true sum 9 is above the 4-bit signed maximum of +7, so it cannot be represented).
+</div>
+
+<h2 data-tier="core">Floating point: IEEE 754 <span class="tier tier-core" title="Named in the GATE 2027 syllabus, or an indispensable prerequisite of a named item">🟢 Core</span></h2>
+<p>Fixed-point (2's complement) can't represent very large numbers or fractions efficiently. IEEE 754 splits a number into <b>sign, exponent, mantissa</b> — like scientific notation in binary.</p>
+
+<h3>Single precision (32-bit) layout</h3>
+<div class="bfrow">
+  <div class="bit-label" style="width:0"></div>
+</div>
+<div class="bitfield">
+  <div class="bit hdr">31</div><div class="bit" style="background:#ff6b6b33">S</div>
+  <div class="bit hdr">30</div><div class="bit" style="background:#7c9fff33">E</div>
+  <div class="bit hdr">…</div><div class="bit" style="background:#7c9fff33">E</div>
+  <div class="bit hdr">23</div><div class="bit" style="background:#5ee6c833">M</div>
+  <div class="bit hdr">…</div><div class="bit" style="background:#5ee6c833">M</div>
+  <div class="bit hdr">0</div><div class="bit" style="background:#5ee6c833">M</div>
+</div>
+<p><span class="pill s">Sign — 1 bit</span><span class="pill e">Exponent — 8 bits</span><span class="pill m">Mantissa — 23 bits</span></p>
+<div class="card">
+Value = <code>(-1)^S × 1.M × 2^(E - 127)</code><br>
+127 is the <b>bias</b> — it's added to the true exponent so the stored exponent is always non-negative. For double precision: 1 sign + 11 exponent (bias 1023) + 52 mantissa = 64 bits.
+</div>
+
+<div class="num"><div class="tag">Worked numerical</div>
+<b>Q:</b> Represent 10.25 in IEEE-754 single precision.<br>
+<b>A:</b><br>
+1. Binary: 10.25 = <code>1010.01</code><br>
+2. Normalize: <code>1.01001 × 2³</code><br>
+3. Sign = 0 (positive)<br>
+4. Exponent = 3 + 127 = 130 = <code>10000010</code><br>
+5. Mantissa (drop leading 1, pad to 23 bits) = <code>01001000000000000000000</code><br>
+Final: <code>0 10000010 01001000000000000000000</code>
+</div>
+
+<div class="warn"><div class="tag">Special values to remember</div>
+E=0, M=0 → zero &nbsp;|&nbsp; E=0, M≠0 → denormal (subnormal) number &nbsp;|&nbsp; E=255 (all 1s), M=0 → ±infinity &nbsp;|&nbsp; E=255, M≠0 → NaN. GATE frequently asks "what does this bit pattern represent" — check E first.
+</div>
+<h2 data-tier="hy">Carry vs overflow, sign extension, and other codes <span class="tier tier-hy" title="Not named in the syllabus, but frequently useful or tested as background — revise after Core">🔵 High-Yield</span><span class="tier-why"> · frequent PYQ background</span></h2>
+<table>
+<tr><th>Flag</th><th>Meaning</th><th>Test</th></tr>
+<tr><td><b>Carry</b> (C)</td><td>Unsigned result does not fit</td><td>Carry <b>out</b> of the MSB</td></tr>
+<tr><td><b>Overflow</b> (V)</td><td>Signed result does not fit</td><td>Carry <b>into</b> the MSB XOR carry <b>out of</b> the MSB</td></tr>
+</table>
+<div class="num"><div class="tag">Worked example</div>
+<b>Q:</b> In 4 bits, add 1111 and 0001. Report carry and overflow.<br>
+<b>A:</b> 1111 + 0001 = 1 0000, so the result is 0000 with <b>carry = 1</b>. Unsigned, that is 15 + 1 = 16, which does not fit. Signed, it is (−1) + 1 = 0, which is correct: carry into the MSB = 1 and carry out = 1, so XOR = 0 and <b>overflow = 0</b>. The same bit pattern can set one flag and not the other.
+</div>
+<div class="card"><b>Sign extension</b> (widening a 2's-complement number) copies the sign bit into the new high bits: 1101 (−3) in 8 bits is <code>11111101</code>, still −3. Unsigned numbers are <b>zero-extended</b> instead.<br><br>
+<b>Other codes.</b> <b>BCD</b>: each decimal digit in 4 bits (59 → 0101 1001). <b>Excess-3</b>: BCD digit + 3. <b>Gray code</b>: consecutive values differ in exactly one bit; for 3 bits it runs 000, 001, 011, 010, 110, 111, 101, 100, and Gray = binary XOR (binary &gt;&gt; 1).</div>
+</section>
+
+<section id="isa">
+<h1>2. Instruction Set & Addressing Modes</h1>
+<div class="sub">How a CPU instruction says <i>what</i> to do and <i>where</i> to find its data — the #1 highest-yield COA topic in GATE.</div>
+
+<h2 data-tier="core">Instruction formats: how many "addresses"? <span class="tier tier-core" title="Named in the GATE 2027 syllabus, or an indispensable prerequisite of a named item">🟢 Core</span></h2>
+<p>An instruction = opcode (what to do) + operands (who to do it to). Older CPUs are classified by how many memory addresses an instruction can reference:</p>
+<table>
+<tr><th>Type</th><th>Example (for C = A + B)</th><th>Used in</th></tr>
+<tr><td>3-address</td><td><code>ADD C, A, B</code></td><td>RISC-like / register machines</td></tr>
+<tr><td>2-address</td><td><code>MOV C, A</code> then <code>ADD C, B</code></td><td>x86-style CISC</td></tr>
+<tr><td>1-address (accumulator)</td><td><code>LOAD A; ADD B; STORE C</code></td><td>simple/old machines</td></tr>
+<tr><td>0-address (stack)</td><td><code>PUSH A; PUSH B; ADD; POP C</code></td><td>stack machines, JVM</td></tr>
+</table>
+<div class="warn"><div class="tag">GATE trap</div>
+Fewer addresses per instruction ⇒ more instructions needed to do the same job, but each instruction is shorter. GATE often asks you to count total instructions or total bits for a given expression across these formats.
+</div>
+
+<h2 data-tier="core">Addressing modes — where is the actual operand? <span class="tier tier-core" title="Named in the GATE 2027 syllabus, or an indispensable prerequisite of a named item">🟢 Core</span></h2>
+<p>The instruction doesn't always contain the value directly. The <b>addressing mode</b> tells the CPU how to compute the <b>Effective Address (EA)</b> — where in memory/registers the real data sits.</p>
+
+<table>
+<tr><th>Mode</th><th>Instruction says</th><th>Effective Address / operand</th></tr>
+<tr><td>Immediate</td><td><code>ADD R1, #5</code></td><td>operand IS 5 (no memory access)</td></tr>
+<tr><td>Direct</td><td><code>ADD R1, [200]</code></td><td>EA = 200</td></tr>
+<tr><td>Indirect</td><td><code>ADD R1, [[200]]</code></td><td>EA = contents of address 200 (memory holds a pointer)</td></tr>
+<tr><td>Register</td><td><code>ADD R1, R2</code></td><td>operand is inside R2, no memory trip</td></tr>
+<tr><td>Register indirect</td><td><code>ADD R1, [R2]</code></td><td>EA = value inside R2</td></tr>
+<tr><td>Indexed</td><td><code>ADD R1, [R2+X]</code></td><td>EA = R2 + index register X (array access)</td></tr>
+<tr><td>Base register</td><td><code>ADD R1, [Base+disp]</code></td><td>EA = base reg + displacement (relocatable code)</td></tr>
+<tr><td>Relative</td><td><code>BR [PC+disp]</code></td><td>EA = PC + displacement (branches)</td></tr>
+<tr><td>Auto-increment/decrement</td><td><code>ADD R1, [R2]+</code></td><td>EA = R2, then R2 = R2+size (array traversal)</td></tr>
+</table>
+
+<div class="addr-flow">
+  <div class="box">Indirect: Instruction</div><div class="arrow">→</div>
+  <div class="box">points to Address 200</div><div class="arrow">→</div>
+  <div class="box">Mem[200] = Address 350</div><div class="arrow">→</div>
+  <div class="box">Mem[350] = the real operand</div>
+</div>
+
+<div class="num"><div class="tag">Worked numerical</div>
+<b>Q:</b> An instruction uses indirect addressing with the address field = 300. Mem[300] = 500, Mem[500] = 42. What is the effective operand?<br>
+<b>A:</b> Indirect ⇒ EA = Mem[300] = 500. Operand = Mem[500] = <b>42</b>. (Indirect addressing costs one extra memory reference compared to direct — this is exactly why GATE loves timing questions: "if memory access = 100ns and indirect mode used, extra time = 100ns per instruction".)
+</div>
+
+<div class="num"><div class="tag">Worked numerical</div>
+<b>Q:</b> Register R1 = 2000. Instruction: <code>LOAD R2, 20[R1]</code> using indexed addressing, and Mem[2020] = 77. Find R2 after execution.<br>
+<b>A:</b> EA = R1 + 20 = 2000 + 20 = 2020. R2 ← Mem[2020] = <b>77</b>.
+</div>
+
+<h3>RISC vs CISC (quick contrast, often 1 mark)</h3>
+<div class="grid2">
+<div class="card"><b>RISC</b><br>Few, simple, fixed-length instructions. Mostly register-to-register. Simple addressing modes. More instructions needed, but each is fast (1 cycle typical) — pipelines well.</div>
+<div class="card"><b>CISC</b><br>Many complex, variable-length instructions. Instructions can directly operate on memory. Fewer instructions per program, but each may take several cycles.</div>
+</div>
+
+<h2 data-tier="core">Expanding opcodes <span class="tier tier-core" title="Named in the GATE 2027 syllabus, or an indispensable prerequisite of a named item">🟢 Core</span><span class="tier-why"> · instruction formats</span></h2>
+<p>A fixed-length instruction can hold more instruction types by <b>reusing unused opcode patterns as a prefix</b> for a longer opcode. Each time the opcode grows, the address fields shrink to make room.</p>
+<div class="num"><div class="tag">Worked numerical</div>
+<b>Q:</b> A 16-bit instruction has 4-bit address fields. The machine needs 14 three-address instructions, 30 two-address instructions, and as many one-address instructions as possible. How many one-address instructions fit?<br>
+<b>A:</b>
+<pre>Level 1 (3 addresses): 4-bit opcode, 3 × 4-bit addresses   → 16 patterns, use 14, 2 left
+Level 2 (2 addresses): 8-bit opcode, 2 × 4-bit addresses   → 2 × 16 = 32 patterns, use 30, 2 left
+Level 3 (1 address)  : 12-bit opcode, 1 × 4-bit address    → 2 × 16 = 32 patterns</pre>
+So up to <b>32</b> one-address instructions. If only 31 were used, 1 pattern would remain: 1 × 16 = <b>16 zero-address</b> instructions with a 16-bit opcode.
+</div>
+
+<h2 data-tier="hy">Byte ordering (endianness) <span class="tier tier-hy" title="Not named in the syllabus, but frequently useful or tested as background — revise after Core">🔵 High-Yield</span><span class="tier-why"> · common PYQ background</span></h2>
+<p>For the 32-bit value <code>0x12345678</code> stored at address 100: <b>big-endian</b> keeps the most significant byte first (100: 12, 101: 34, 102: 56, 103: 78); <b>little-endian</b> keeps the least significant byte first (100: 78, 101: 56, 102: 34, 103: 12). It matters when data is shared between machines or read byte by byte.</p>
+</section>
+
+<section id="alu">
+<h1>3. Design of the Arithmetic Logic Unit (ALU)</h1>
+<div class="sub">The circuit that actually computes — adders, multipliers, and the tricks that make them fast.</div>
+
+<h2 data-tier="core">Adders: the building block <span class="tier tier-core" title="Named in the GATE 2027 syllabus, or an indispensable prerequisite of a named item">🟢 Core</span></h2>
+<div class="grid2">
+<div class="card"><b>Ripple Carry Adder (RCA)</b><br>
+n 1-bit full adders chained; carry "ripples" from LSB to MSB. Simple, but slow — the MSB must wait for every earlier carry.<br>
+Delay = <code>n × Δ</code> (Δ = delay of 1 full adder).</div>
+<div class="card"><b>Carry Look-Ahead Adder (CLA)</b><br>
+Computes all carries in parallel using extra gates (generate/propagate logic), so it doesn't wait for ripples. Faster but more hardware.</div>
+</div>
+
+<div class="num"><div class="tag">Worked numerical (classic GATE pattern)</div>
+<b>Q:</b> A 16-bit adder is built from 4-bit carry-look-ahead adder (CLA) blocks connected by ripple carry between blocks. Each 4-bit CLA block has delay 10 ns to produce its sum and its carry-out. Find the total worst-case delay.<br>
+<b>A:</b> There are 16/4 = 4 blocks. Block 1 finishes in 10 ns and passes its carry-out to block 2, which then takes another 10 ns, and so on.
+Total delay = 4 × 10 = <b>40 ns</b>. (Contrast: if all 4 blocks used full look-ahead across blocks too, delay would be much closer to a single block's 10 ns.)
+</div>
+
+<h2 data-tier="core">Multiplication: Booth's Algorithm <span class="tier tier-core" title="Named in the GATE 2027 syllabus, or an indispensable prerequisite of a named item">🟢 Core</span></h2>
+<p>Booth's algorithm multiplies signed 2's-complement numbers by scanning pairs of bits of the multiplier and deciding to <b>add</b>, <b>subtract</b>, or <b>do nothing</b> to a running partial product, then arithmetic-shift right.</p>
+<div class="card">
+Rule, looking at multiplier bit Q₀ and the bit just shifted out Q₋₁:
+<table>
+<tr><th>Q₀ Q₋₁</th><th>Action</th></tr>
+<tr><td>0 0</td><td>no operation, just shift</td></tr>
+<tr><td>0 1</td><td>Add multiplicand, then shift</td></tr>
+<tr><td>1 0</td><td>Subtract multiplicand, then shift</td></tr>
+<tr><td>1 1</td><td>no operation, just shift</td></tr>
+</table>
+</div>
+<div class="num"><div class="tag">Worked numerical</div>
+<b>Q:</b> Multiply 3 × (−4) using Booth's algorithm (4-bit).<br>
+<b>A:</b> Multiplicand M = 3 = <code>0011</code>, Multiplier Q = −4 = <code>1100</code>, Q₋₁ = 0, AC = <code>0000</code>. Each step: check Q₀Q₋₁, do the add/sub, then arithmetic-shift AC:Q:Q₋₁ right by 1.
+<pre>Step  Q0Q-1  Action     AC after action   AC:Q:Q-1 after shift
+1      0 0   none       0000              AC=0000 Q=0110 Q-1=0
+2      0 0   none       0000              AC=0000 Q=0011 Q-1=0
+3      1 0   AC=AC-M    1101              AC=1110 Q=1001 Q-1=1
+4      1 1   none       1110              AC=1111 Q=0100 Q-1=1</pre>
+Final product = AC:Q = <code>1111 0100</code> (8-bit 2's complement) = <b>−12</b> — matching 3 × (−4). ✔
+</div>
+<div class="warn"><div class="tag">Why Booth's matters</div>
+It handles negative multipliers automatically and can skip strings of 0s or 1s, making multiplication faster than naive shift-and-add. GATE frequently gives you a partial trace and asks you to fill in the next AC or Q value — memorize the 4-row table above cold.
+</div>
+
+<h2 data-tier="hy">Division <span class="tier tier-hy" title="Not named in the syllabus, but frequently useful or tested as background — revise after Core">🔵 High-Yield</span><span class="tier-why"> · ALU background</span></h2>
+<p>Two standard hardware algorithms, both repeat "shift, subtract divisor, check sign, restore if needed":</p>
+<div class="grid2">
+<div class="card"><b>Restoring division</b><br>Subtract divisor; if remainder goes negative, add divisor back (restore) and quotient bit = 0. Else quotient bit = 1. Simple but the extra "restore" step costs time.</div>
+<div class="card"><b>Non-restoring division</b><br>Never restores — instead alternates add/subtract based on the sign of the previous remainder. Same number of steps, no wasted restore cycle, so it's faster.</div>
+</div>
+<h2 data-tier="core">Carry look-ahead equations <span class="tier tier-core" title="Named in the GATE 2027 syllabus, or an indispensable prerequisite of a named item">🟢 Core</span></h2>
+<p>For each bit position define <b>generate</b> <code>Gᵢ = Aᵢ·Bᵢ</code> (this bit makes a carry by itself) and <b>propagate</b> <code>Pᵢ = Aᵢ ⊕ Bᵢ</code> (this bit passes an incoming carry on). Then <code>Cᵢ₊₁ = Gᵢ + Pᵢ·Cᵢ</code> and <code>Sumᵢ = Pᵢ ⊕ Cᵢ</code>. Expanding the recurrence removes the wait for ripples: <code>C₁ = G₀ + P₀C₀</code>, <code>C₂ = G₁ + P₁G₀ + P₁P₀C₀</code>, and so on. Each carry is a two-level AND-OR of G, P and C₀, so its delay does not grow with the bit position (but the gate fan-in does, which is why large adders use 4-bit blocks).</p>
+</section>
+
+<section id="cu">
+<h1>4. Design of the Control Unit</h1>
+<div class="sub">The part of the CPU that generates the timing/control signals telling every other block what to do, and when.</div>
+
+<h2 data-tier="core">The instruction cycle in micro-operations <span class="tier tier-core" title="Named in the GATE 2027 syllabus, or an indispensable prerequisite of a named item">🟢 Core</span></h2>
+<p>Every instruction is really a short sequence of <b>register transfers</b>. GATE loves writing these out; you should be able to read/write them fluently.</p>
+<div class="card">
+Example — the Fetch cycle (same for every instruction):
+<pre>MAR ← PC
+MBR ← Memory[MAR] , PC ← PC + 1
+IR  ← MBR</pre>
+Then Decode reads the opcode in IR, and Execute runs instruction-specific micro-ops, e.g. for <code>ADD R1, [500]</code>:
+<pre>MAR ← 500
+MBR ← Memory[MAR]
+R1  ← R1 + MBR</pre>
+</div>
+
+<h2 data-tier="core">Two ways to build the control unit <span class="tier tier-core" title="Named in the GATE 2027 syllabus, or an indispensable prerequisite of a named item">🟢 Core</span></h2>
+<table>
+<tr><th></th><th>Hardwired</th><th>Microprogrammed</th></tr>
+<tr><td>How signals are generated</td><td>Fixed combinational logic / FSM built from gates</td><td>A tiny stored "control program" (microprogram) in a Control Store (ROM)</td></tr>
+<tr><td>Speed</td><td>Fast — pure logic delay</td><td>Slower — an extra memory read per micro-instruction</td></tr>
+<tr><td>Flexibility</td><td>Hard to change — needs a re-design/re-wiring</td><td>Easy to change — just rewrite the control store contents</td></tr>
+<tr><td>Best for</td><td>RISC, simple instruction sets, speed-critical CPUs</td><td>CISC, complex/large instruction sets</td></tr>
+<tr><td>Cost / complexity</td><td>Complex to design, cheap to run</td><td>Simple, systematic design; needs control-store memory</td></tr>
+</table>
+
+<h3>Microinstruction format</h3>
+<p>Each word in the control store is a <b>microinstruction</b>: a row of control-signal bits plus the address of the next microinstruction.</p>
+<div class="bitfield">
+  <div class="bit hdr">Control field</div><div class="bit" style="background:#7c9fff33;min-width:110px">which signals to assert (e.g. MAR-load, ALU-add, Mem-read)</div>
+  <div class="bit hdr">Address field</div><div class="bit" style="background:#5ee6c833;min-width:90px">address of next micro-instruction</div>
+</div>
+<div class="grid2">
+<div class="card"><b>Horizontal microprogramming</b><br>One bit per control signal — wide word, no decoding needed, but uses lots of control-store space. Faster (parallel signals).</div>
+<div class="card"><b>Vertical microprogramming</b><br>Signals are encoded (like a mini opcode) — narrow word, needs a decoder, saves space but slightly slower.</div>
+</div>
+
+<div class="num"><div class="tag">Worked numerical</div>
+<b>Q:</b> A control store must hold 256 microinstructions, each needing to specify one of 8 possible micro-operations per field, using vertical microprogramming with 3 independent fields. How many bits per microinstruction (ignoring the next-address field)?<br>
+<b>A:</b> Each field encodes 8 choices → needs log₂8 = 3 bits. With 3 independent fields → 3 × 3 = <b>9 bits</b> for control, plus log₂256 = 8 bits for the next-address field → total 17 bits/microinstruction.
+</div>
+
+<div class="warn"><div class="tag">GATE angle to remember</div>
+Questions often give you total control store size and ask for the number of address bits (log₂ of total microinstructions), or give you the number of control signals and ask you to compare horizontal (1 bit/signal) vs vertical (encoded, fewer bits) word width.
+</div>
+<h2 data-tier="core">Data path: single-bus vs three-bus <span class="tier tier-core" title="Named in the GATE 2027 syllabus, or an indispensable prerequisite of a named item">🟢 Core</span></h2>
+<p>In a <b>single-bus</b> data path only one register can drive the bus at a time, so the ALU needs a holding register <b>Y</b> for one operand and an output register <b>Z</b> for the result. In a <b>three-bus</b> data path two buses feed the ALU and the third carries the result back, so an ALU operation takes one step.</p>
+<div class="num"><div class="tag">Worked example — R3 ← R1 + R2</div>
+<pre>Single bus (3 control steps):
+  1. R1out, Yin
+  2. R2out, Add (ALU uses Y and the bus), Zin
+  3. Zout, R3in
+Three bus (1 step): R1 → bus A, R2 → bus B, ALU result → bus C → R3</pre>
+The instruction fetch on a single bus also takes 3 steps: (1) PCout, MARin, Read, Select4, Add, Zin; (2) Zout, PCin, Yin, wait for memory; (3) MDRout, IRin. More buses mean fewer steps per instruction but more hardware.
+</div>
+</section>
+
+<section id="mem">
+<h1>5. Memory Hierarchy & Cache Mapping</h1>
+<div class="sub">Why caches exist, how an address is split to find data in one, and the arithmetic GATE always asks.</div>
+
+<h2 data-tier="core">The hierarchy <span class="tier tier-core" title="Named in the GATE 2027 syllabus, or an indispensable prerequisite of a named item">🟢 Core</span></h2>
+<div class="addr-flow">
+  <div class="box">Registers (fastest, smallest)</div><div class="arrow">→</div>
+  <div class="box">Cache (L1/L2/L3)</div><div class="arrow">→</div>
+  <div class="box">Main Memory (RAM)</div><div class="arrow">→</div>
+  <div class="box">Secondary storage (slowest, biggest)</div>
+</div>
+<p>The idea: keep frequently-used data in the fast, small, expensive memory close to the CPU (locality of reference), and fall back to slower memory only on a miss.</p>
+
+<h2 data-tier="core">Average Memory Access Time (AMAT) <span class="tier tier-core" title="Named in the GATE 2027 syllabus, or an indispensable prerequisite of a named item">🟢 Core</span><span class="tier-why"> · memory hierarchy performance</span></h2>
+<div class="card">
+<pre>AMAT = Hit time + Miss rate × Miss penalty</pre>
+Or in terms of hit ratio h: <code>Effective Access Time = h × Tc + (1 − h) × (Tc + Tm)</code>, where Tc = cache access time, Tm = main memory access time.
+</div>
+<div class="num"><div class="tag">Worked numerical</div>
+<b>Q:</b> Cache access time = 10 ns, main memory access time = 100 ns, hit ratio = 0.9. Find effective access time.<br>
+<b>A:</b> EAT = 0.9×10 + 0.1×(10+100) = 9 + 11 = <b>20 ns</b>.
+</div>
+
+<h2 data-tier="core">How an address maps into cache — 3 schemes <span class="tier tier-core" title="Named in the GATE 2027 syllabus, or an indispensable prerequisite of a named item">🟢 Core</span><span class="tier-why"> · cache memory mapping</span></h2>
+<p>Every physical address is split into three fields: <b>Tag | Set/Line index | Block offset</b>. The scheme decides how many places one memory block can go.</p>
+<div class="bitfield">
+  <div class="bit" style="background:#ff6b6b33;min-width:90px">Tag</div>
+  <div class="bit" style="background:#7c9fff33;min-width:90px">Set / Line index</div>
+  <div class="bit" style="background:#5ee6c833;min-width:90px">Block offset</div>
+</div>
+<table>
+<tr><th>Mapping</th><th>Rule</th><th>Index field</th></tr>
+<tr><td>Direct mapped</td><td>Each memory block → exactly ONE cache line</td><td>present — determines the single line</td></tr>
+<tr><td>Fully associative</td><td>A block can go in ANY cache line</td><td>none — compare tag against all lines</td></tr>
+<tr><td>Set-associative (n-way)</td><td>A block maps to ONE set, but can sit in any of the n lines in that set</td><td>present — picks the set, then search n lines</td></tr>
+</table>
+
+<div class="num"><div class="tag">Worked numerical (very common GATE pattern)</div>
+<b>Q:</b> Main memory = 4 GB (32-bit address), cache = 64 KB, block size = 32 bytes, direct-mapped. Find tag, index, and offset bit widths.<br>
+<b>A:</b><br>
+Offset bits = log₂(block size) = log₂32 = <b>5 bits</b><br>
+Number of cache lines = cache size / block size = 65536/32 = 2048 lines → index bits = log₂2048 = <b>11 bits</b><br>
+Tag bits = total address bits − index − offset = 32 − 11 − 5 = <b>16 bits</b>
+</div>
+<div class="num"><div class="tag">Worked numerical — 4-way set associative</div>
+<b>Q:</b> Same cache (64 KB, 32-byte blocks) but organized as 4-way set-associative. Find the index bits.<br>
+<b>A:</b> Number of sets = lines / ways = 2048 / 4 = 512 sets → index bits = log₂512 = <b>9 bits</b>. Tag bits become 32 − 9 − 5 = <b>18 bits</b> (bigger tag because fewer sets to search).
+</div>
+<div class="warn"><div class="tag">Replacement & write policy — quick recall</div>
+When a set is full, a block must be evicted: <b>LRU</b> (least recently used) is the GATE favorite, also FIFO / random. Write policy: <b>write-through</b> (update memory immediately, simple, slower) vs <b>write-back</b> (update memory only on eviction, needs a "dirty bit", faster).
+</div>
+<h2 data-tier="core">Write misses and cache miss types <span class="tier tier-core" title="Named in the GATE 2027 syllabus, or an indispensable prerequisite of a named item">🟢 Core</span></h2>
+<table>
+<tr><th>Policy pair</th><th>On a write hit</th><th>On a write miss</th></tr>
+<tr><td><b>Write-through</b> + <b>no-write-allocate</b></td><td>Update cache and memory</td><td>Write memory only; the block is not brought into the cache</td></tr>
+<tr><td><b>Write-back</b> + <b>write-allocate</b></td><td>Update the cache and set the dirty bit</td><td>Fetch the block into the cache, then write it there</td></tr>
+</table>
+<p>A write-back cache writes memory only when a <b>dirty</b> block is evicted, which saves bus traffic, but a replacement may then cost an extra memory write. <b>Miss types (the 3 Cs):</b> <b>compulsory</b> (first access to a block), <b>capacity</b> (the working set exceeds the cache) and <b>conflict</b> (too many blocks map to the same set; a fully associative cache has none).</p>
+
+<h2 data-tier="core">Multi-level cache access time <span class="tier tier-core" title="Named in the GATE 2027 syllabus, or an indispensable prerequisite of a named item">🟢 Core</span><span class="tier-why"> · memory hierarchy performance</span></h2>
+<p><code>AMAT = t₁ + m₁·(t₂ + m₂·t_mem)</code> where mᵢ is the miss rate of level i (local miss rate) and tᵢ its access time.</p>
+<div class="num"><div class="tag">Worked numerical</div>
+<b>Q:</b> L1: 1 ns, miss rate 10%. L2: 10 ns, local miss rate 20%. Memory: 100 ns. Find the average access time.<br>
+<b>A:</b> AMAT = 1 + 0.1 × (10 + 0.2 × 100) = 1 + 0.1 × 30 = <b>4 ns</b>.
+</div>
+
+<h2 data-tier="hy">Memory interleaving and memory types <span class="tier tier-hy" title="Not named in the syllabus, but frequently useful or tested as background — revise after Core">🔵 High-Yield</span><span class="tier-why"> · supports memory interfacing</span></h2>
+<p>With <b>m-way low-order interleaving</b>, consecutive addresses fall in different banks (bank = address mod m), so m accesses can overlap. <b>Example:</b> 4 banks, 100 ns per bank access: fetching 8 consecutive words takes 2 × 100 = <b>200 ns</b> (two rounds of 4 parallel accesses), against 800 ns from a single bank, assuming no bank conflicts.</p>
+<table>
+<tr><th></th><th>SRAM</th><th>DRAM</th></tr>
+<tr><td>Cell</td><td>Flip-flop (about 6 transistors)</td><td>1 transistor + 1 capacitor</td></tr>
+<tr><td>Refresh</td><td>Not needed</td><td><b>Needed</b> (charge leaks)</td></tr>
+<tr><td>Speed / cost / density</td><td>Faster, costlier, less dense</td><td>Slower, cheaper, denser</td></tr>
+<tr><td>Typical use</td><td>Cache</td><td>Main memory</td></tr>
+</table>
+
+<h2 id="memint" data-tier="core">Memory interfacing — chips, decoding &amp; expansion <span class="tier tier-core" title="Named in the GATE 2027 syllabus, or an indispensable prerequisite of a named item">🟢 Core</span><span class="tier-why"> · named in the 2027 syllabus</span></h2>
+<div class="sub">Revision block for the 2027 syllabus line “memory interfacing and hierarchy”. Everything here is one idea: a big memory is an array of small chips, and the address bits decide which chip answers.</div>
+
+<h3>1. A memory chip, as the CPU sees it</h3>
+<p>A chip of <code>N × w</code> (N words, w bits per word) has <b>log₂N address lines</b>, <b>w data lines</b>, a <b>chip select (CS)</b> and read/write controls (RD/WR or OE/WE). CS is usually <b>active-low</b>: with CS inactive the chip ignores the address and its data lines float (tri-state), so many chips can share one data bus.</p>
+<table>
+<tr><th>Chip</th><th>Address lines</th><th>Data lines</th><th>Capacity</th></tr>
+<tr><td>1K × 8</td><td>10</td><td>8</td><td>1 KB</td></tr>
+<tr><td>16K × 1</td><td>14</td><td>1</td><td>2 KB</td></tr>
+<tr><td>4M × 8</td><td>22</td><td>8</td><td>4 MB</td></tr>
+</table>
+<p class="sub">DRAM chips usually <b>multiplex</b> the address: the row and column halves arrive on the same pins one after the other (RAS then CAS), so address pins are about half of log₂N. Check whether a question asks for “address lines needed” (log₂N) or “address pins on a DRAM package”.</p>
+
+<h3>2. Address decoding &amp; chip select</h3>
+<div class="addr-flow">
+  <div class="box">CPU address A(k−1) … A(m)  (high bits)</div><div class="arrow">→</div>
+  <div class="box">Decoder</div><div class="arrow">→</div>
+  <div class="box">CS of one chip / chip group</div>
+</div>
+<div class="addr-flow">
+  <div class="box">CPU address A(m−1) … A0  (low bits)</div><div class="arrow">→</div>
+  <div class="box">Address pins of <b>every</b> chip in parallel</div>
+</div>
+<div class="card"><b>Rule.</b> Low bits (as many as the chip has address lines) go to <b>all</b> chips and pick the word <i>inside</i> a chip. High bits go to a <b>decoder</b> (or logic) that raises exactly one CS and picks <i>which</i> chip. The decoder is enabled only for the address bits that must have a fixed value.</div>
+<div class="warn"><div class="tag">Trap — partial decoding</div>If some high address bits are <b>not</b> used in the decoder, they become don’t-cares and the same chip answers at several address ranges (aliasing / “mirroring”). Full decoding uses every high bit and gives a unique address for every location.</div>
+
+<h3>3. Expansion — two independent directions</h3>
+<table>
+<tr><th>Expansion</th><th>What grows</th><th>How the chips connect</th></tr>
+<tr><td><b>Word-size</b> (width)</td><td>Bits per word</td><td>Chips side by side: <b>same address, same CS</b>; data lines are concatenated (e.g. two 8-bit chips → 16-bit word)</td></tr>
+<tr><td><b>Capacity</b> (depth)</td><td>Number of words</td><td>Chips stacked: low bits to all, <b>high bits → decoder → separate CS</b>; data lines are shared on the bus</td></tr>
+</table>
+<div class="card"><pre>Chips needed = (N × W) / (n × w)          memory N × W built from chips n × w
+Columns (word-size) = W / w               Rows (capacity) = N / n
+Decoder inputs = log₂(Rows)               Rows = number of CS lines</pre></div>
+
+<h3>4. Representative problems</h3>
+<div class="num"><div class="tag">Problem 1 — expansion in both directions</div>
+<b>Q:</b> Build a <b>4K × 16</b> memory from <b>1K × 4</b> chips. How many chips, how are they arranged, and how are the address bits used?<br>
+<b>A:</b> Chips = (4096 × 16)/(1024 × 4) = <b>16</b>. Columns = 16/4 = 4 chips side by side give the 16-bit word; rows = 4096/1024 = 4 groups give the depth. The 12-bit address splits as: <b>A9–A0</b> (10 bits) to every chip; <b>A11–A10</b> (2 bits) to a <b>2-to-4 decoder</b> whose four outputs are the CS of the four rows.
+</div>
+<div class="num"><div class="tag">Problem 2 — address ranges from a decoder</div>
+<b>Q:</b> A CPU has a 16-bit address bus. Four <b>2K × 8</b> chips are placed contiguously from 0000H, with A15–A13 required to be 000. Give each chip’s range.<br>
+<b>A:</b> Each chip has 11 address lines (A10–A0) and covers 800H bytes. A15–A13 = 000 enables a 2-to-4 decoder on <b>A12, A11</b>:
+<pre>Chip 0 (A12A11 = 00): 0000H – 07FFH
+Chip 1 (A12A11 = 01): 0800H – 0FFFH
+Chip 2 (A12A11 = 10): 1000H – 17FFH
+Chip 3 (A12A11 = 11): 1800H – 1FFFH       total 8 KB</pre>
+Because A15–A13 are decoded, the chips do not alias elsewhere in the 64 KB space. If A15–A13 were ignored, the same 8 KB would repeat 8 times (partial decoding).
+</div>
+<div class="num"><div class="tag">Problem 3 — decoder sizing</div>
+<b>Q:</b> A 16-bit address bus drives <b>64 KB</b> of memory made of <b>8K × 8</b> chips. How many chips and which decoder?<br>
+<b>A:</b> Chips = 64K/8K = <b>8</b> (all in one column, as the word is already 8 bits). Each chip needs 13 address lines (A12–A0); the remaining 3 bits <b>A15–A13</b> feed a <b>3-to-8 decoder</b> whose 8 outputs are the CS lines. Chip i occupies i × 2000H to i × 2000H + 1FFFH.
+</div>
+<div class="warn"><div class="tag">Byte-addressable memory on a wider bus</div>On a byte-addressable machine with a 32-bit data bus, the memory is built as 4 byte-wide banks. The 2 lowest address bits (A1–A0) choose the byte within the word and are <b>not</b> sent to the chips; the chips see A(k−1)–A2. Read the question to see whether the “word” is the byte or the bus width.</div>
+
+<h2 data-tier="hy">Virtual memory and the TLB <span class="tier tier-hy" title="Not named in the syllabus, but frequently useful or tested as background — revise after Core">🔵 High-Yield</span><span class="tier-why"> · also covered in OS</span></h2>
+<p>A virtual address splits into <b>page number | offset</b>. The page table maps page → frame. Page-table size = (number of virtual pages) × (entry size): a 32-bit virtual address with 4 KB pages has 2²⁰ pages, so with 4-byte entries the table is 2²⁰ × 4 B = <b>4 MB</b>. A <b>TLB</b> caches recent translations so most accesses skip the page-table lookup in memory. With a single-level page table:</p>
+<div class="num"><div class="tag">Worked numerical</div>
+<b>Q:</b> TLB access 10 ns, memory access 100 ns, TLB hit ratio 90%. Find the effective access time.<br>
+<b>A:</b> A hit costs 10 + 100 = 110 ns. A miss costs 10 + 100 (page-table read) + 100 (data) = 210 ns. EMAT = 0.9 × 110 + 0.1 × 210 = 99 + 21 = <b>120 ns</b>.
+</div>
+
+<h2 data-tier="ext">Secondary storage — disk access time <span class="tier tier-ext" title="Beyond the syllabus or rarely tested — read only if time remains">🟡 Extension</span><span class="tier-why"> · not named in 2027</span></h2>
+<p><b>Access time = seek time + rotational latency + transfer time.</b> Average rotational latency is <b>half a rotation</b>; transfer time = (bytes wanted / bytes per track) × rotation time.</p>
+<div class="num"><div class="tag">Worked numerical</div>
+<b>Q:</b> Seek time 4 ms, 7200 rpm, 400 sectors per track. Find the time to read one sector.<br>
+<b>A:</b> One rotation = 60/7200 s = 8.33 ms, so the average latency is 4.17 ms and one sector passes under the head in 8.33/400 = 0.021 ms. Total = 4 + 4.17 + 0.02 ≈ <b>8.19 ms</b>.
+</div>
+</section>
+
+<section id="io">
+<h1>6. I/O Interface: Interrupts & DMA</h1>
+<div class="sub">Three ways the CPU can move data in/out — and why DMA exists.</div>
+
+<div class="grid2">
+<div class="card"><b>Programmed I/O</b><br>CPU repeatedly polls the device's status flag in a busy-wait loop. Simple, but wastes CPU cycles.</div>
+<div class="card"><b>Interrupt-driven I/O</b><br>CPU carries on with other work; the device raises an interrupt signal only when it's ready. CPU saves state, runs the ISR (interrupt service routine), then resumes. Saves CPU time vs polling, but each transfer still passes through the CPU register-by-register.</div>
+</div>
+<div class="card"><b>DMA (Direct Memory Access)</b><br>A separate DMA controller moves an entire block directly between device and memory, without the CPU touching each word. CPU just sets up (starting address, count, direction) then is interrupted once at the very end. Best for bulk transfers (disk, network).</div>
+
+<h3>Cycle stealing</h3>
+<p>While a DMA transfer is in progress, the DMA controller "steals" memory bus cycles from the CPU one at a time, so both can (almost) work concurrently — this is why DMA is much more efficient than interrupt-driven I/O for large transfers.</p>
+
+<div class="num"><div class="tag">Worked numerical</div>
+<b>Q:</b> A device transfers data at 1 MB/s. Each interrupt-driven transfer moves 4 bytes and costs the CPU 100 cycles of overhead (context switch + ISR) at 1 GHz. Compare CPU overhead per second against a DMA scheme that interrupts only once per 4 KB block.<br>
+<b>A:</b><br>
+Interrupt-driven: transfers/sec = 1,000,000/4 = 250,000 interrupts/sec → overhead = 250,000 × 100 cycles = 25,000,000 cycles/sec = <b>2.5% of a 1 GHz CPU</b> just on overhead.<br>
+DMA: interrupts/sec = 1,000,000/4096 ≈ 244 → overhead ≈ 24,400 cycles/sec — <b>roughly 1000× less CPU overhead.</b>
+</div>
+<div class="warn"><div class="tag">GATE angle</div>
+Typical questions: given interrupt latency & instruction execution time, compute total time lost to interrupts; or compare polling vs interrupt vs DMA overhead like above. Also know: <b>vectored</b> interrupts (device ID tells CPU where its ISR is) vs <b>non-vectored</b> (fixed single ISR address, must poll to find the source).
+</div>
+<h2 data-tier="core">Interrupt priority: daisy chain and nesting <span class="tier tier-core" title="Named in the GATE 2027 syllabus, or an indispensable prerequisite of a named item">🟢 Core</span></h2>
+<p>When several devices share one interrupt line, the CPU needs a priority scheme. <b>Daisy chain:</b> the interrupt-acknowledge signal passes serially from device to device, so the device <b>nearest the CPU has the highest priority</b>. <b>Parallel priority</b> uses a separate request line per device, a mask register and a priority encoder; it is faster but needs more hardware. With <b>nested interrupts</b> a higher-priority request can interrupt a running ISR while lower-priority ones stay masked. The CPU finishes the current instruction before it responds to an interrupt.</p>
+
+<h2 data-tier="core">Memory-mapped vs isolated I/O <span class="tier tier-core" title="Named in the GATE 2027 syllabus, or an indispensable prerequisite of a named item">🟢 Core</span></h2>
+<table>
+<tr><th></th><th>Memory-mapped I/O</th><th>Isolated (port-mapped) I/O</th></tr>
+<tr><td>Address space</td><td>Device registers share the memory address space</td><td>Separate I/O address space</td></tr>
+<tr><td>Instructions</td><td>Ordinary load/store</td><td>Special IN / OUT</td></tr>
+<tr><td>Cost</td><td>Uses up part of the memory address range</td><td>Full memory range kept; needs an extra control signal</td></tr>
+</table>
+
+<h2 data-tier="core">DMA transfer modes <span class="tier tier-core" title="Named in the GATE 2027 syllabus, or an indispensable prerequisite of a named item">🟢 Core</span></h2>
+<table>
+<tr><th>Mode</th><th>How it uses the bus</th><th>CPU effect</th></tr>
+<tr><td><b>Burst (block)</b></td><td>Controller keeps the bus for the whole block</td><td>CPU is blocked from memory for the entire burst</td></tr>
+<tr><td><b>Cycle stealing</b></td><td>Takes the bus for one word at a time</td><td>CPU slowed slightly</td></tr>
+<tr><td><b>Transparent</b></td><td>Uses the bus only when the CPU is not using it</td><td>No slowdown, but the transfer may be slower</td></tr>
+</table>
+<div class="num"><div class="tag">Worked numerical</div>
+<b>Q:</b> A device transfers 4 MB/s in 4-byte words using cycle stealing. Each stolen memory cycle lasts 100 ns. What fraction of the memory bus time does DMA use?<br>
+<b>A:</b> 4 MB/s ÷ 4 B = 1 million words per second. Each steals 100 ns: 10⁶ × 100 ns = 0.1 s per second = <b>10%</b> of the bus time, so the CPU keeps the other 90%.
+</div>
+</section>
+
+<section id="pipe">
+<h1>7. Instruction Pipelining & Hazards</h1>
+<div class="sub">Overlap the execution of multiple instructions like an assembly line — the highest-yield COA topic after addressing modes.</div>
+
+<h2 data-tier="core">The classic 5-stage pipeline <span class="tier tier-core" title="Named in the GATE 2027 syllabus, or an indispensable prerequisite of a named item">🟢 Core</span></h2>
+<div class="card">
+<code>IF</code> Instruction Fetch → <code>ID</code> Instruction Decode → <code>EX</code> Execute → <code>MEM</code> Memory access → <code>WB</code> Write back
+</div>
+<table>
+<tr><th>Cycle →</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th></tr>
+<tr><td>Instr 1</td><td>IF</td><td>ID</td><td>EX</td><td>MEM</td><td>WB</td><td></td></tr>
+<tr><td>Instr 2</td><td></td><td>IF</td><td>ID</td><td>EX</td><td>MEM</td><td>WB</td></tr>
+</table>
+<p>Without pipelining each instruction takes 5 cycles start-to-finish; with pipelining, once the pipe is full, one instruction <b>completes every cycle</b>.</p>
+
+<h3>Speedup formula</h3>
+<div class="card">
+<pre>Time (non-pipelined) = n × k
+Time (pipelined)      = k + (n − 1)
+Speedup = (n × k) / (k + n − 1)</pre>
+n = number of instructions, k = number of pipeline stages. As n→∞, speedup → k.
+</div>
+<div class="num"><div class="tag">Worked numerical</div>
+<b>Q:</b> A 5-stage pipeline, clock cycle = 2 ns, runs 100 instructions with no stalls. Find total time and speedup vs non-pipelined execution.<br>
+<b>A:</b> Pipelined cycles = k + n − 1 = 5 + 99 = 104 → time = 104 × 2 = <b>208 ns</b>.<br>
+Non-pipelined time = n × k × cycle = 100 × 5 × 2 = 1000 ns.<br>
+Speedup = 1000 / 208 ≈ <b>4.8×</b> (close to the ideal max of 5).
+</div>
+
+<h2 data-tier="core">Hazards — the reason pipelines stall <span class="tier tier-core" title="Named in the GATE 2027 syllabus, or an indispensable prerequisite of a named item">🟢 Core</span></h2>
+<table>
+<tr><th>Hazard</th><th>Cause</th><th>Fix</th></tr>
+<tr><td>Structural</td><td>Two instructions need the same hardware resource (e.g. one memory port for both instruction fetch and data access) at once</td><td>Duplicate hardware (separate I-cache/D-cache), or stall</td></tr>
+<tr><td>Data</td><td>An instruction needs a result that a previous, still-unfinished instruction hasn't produced yet</td><td>Forwarding/bypassing (feed result directly from EX/MEM stage), or stall</td></tr>
+<tr><td>Control (branch)</td><td>The next instruction to fetch isn't known until a branch is resolved (usually in EX/MEM stage)</td><td>Branch prediction, delayed branch, or stall until resolved</td></tr>
+</table>
+
+<div class="num"><div class="tag">Worked numerical — data hazard with stalls</div>
+<b>Q:</b> <code>ADD R1, R2, R3</code> is immediately followed by <code>SUB R4, R1, R5</code> in a 5-stage pipeline with no forwarding. R1 is written in WB (cycle 5 of instr 1) but needed by SUB's EX stage. How many stall (bubble) cycles are needed?<br>
+<b>A:</b> Without forwarding, SUB's ID stage (where operands are read) must happen no earlier than the cycle right after instr 1's WB. Instr 1: IF ID EX MEM WB (cycles 1-5). Instr 2 naturally would be ID at cycle 3 — but it needs the value only ready after cycle 5. So ID must be delayed to cycle 6 → <b>3 stall cycles</b> inserted. (With full forwarding from EX/MEM to the next instruction's EX, this typically drops to 0–1 stalls.)
+</div>
+
+<div class="warn"><div class="tag">GATE angle</div>
+Questions typically give a sequence of dependent instructions and a pipeline diagram, then ask: total cycles with stalls, or how many bubbles a specific forwarding path removes, or the effect of a branch misprediction (stall cycles = number of stages before branch resolves).
+</div>
+<h2 data-tier="core">Data hazard types: RAW, WAR, WAW <span class="tier tier-core" title="Named in the GATE 2027 syllabus, or an indispensable prerequisite of a named item">🟢 Core</span></h2>
+<table>
+<tr><th>Hazard</th><th>Meaning</th><th>Occurs in a simple in-order 5-stage pipeline?</th></tr>
+<tr><td><b>RAW</b> (true dependency)</td><td>A later instruction reads a register before an earlier one has written it</td><td><b>Yes</b> — the main cause of stalls</td></tr>
+<tr><td><b>WAR</b> (anti-dependency)</td><td>A later instruction writes a register before an earlier one has read it</td><td>No — reads happen early, writes late</td></tr>
+<tr><td><b>WAW</b> (output dependency)</td><td>Two instructions write the same register; the writes could complete out of order</td><td>No — writes stay in order</td></tr>
+</table>
+<p>WAR and WAW appear with out-of-order execution or instructions of different latency, and are removed by <b>register renaming</b>. With <b>forwarding</b>, an ALU result flows from EX/MEM straight into the next instruction's EX stage, removing the stall for back-to-back ALU instructions. A <b>load followed by a use of the loaded value</b> still costs <b>1 stall cycle</b> even with forwarding, because the data is only available after MEM.</p>
+
+<h2 data-tier="core">Branch penalty and prediction <span class="tier tier-core" title="Named in the GATE 2027 syllabus, or an indispensable prerequisite of a named item">🟢 Core</span></h2>
+<p><b>CPI = 1 + (branch frequency) × (fraction mispredicted or stalled) × (penalty in cycles)</b>. With 20% branches and a 3-cycle penalty, always stalling gives CPI = 1 + 0.2 × 3 = <b>1.6</b>; with a predictor that is wrong 40% of the time, CPI = 1 + 0.2 × 0.4 × 3 = <b>1.24</b>. Techniques: <b>static</b> prediction (always not-taken, or backward-taken/forward-not-taken), <b>delayed branch</b> (the instruction in the delay slot always executes), and <b>dynamic</b> prediction with a branch history table. A <b>2-bit saturating counter</b> needs two wrong predictions in a row to change its mind, so a loop branch mispredicts only once per loop exit.</p>
+
+<h2 data-tier="core">Pipeline with unequal stages <span class="tier tier-core" title="Named in the GATE 2027 syllabus, or an indispensable prerequisite of a named item">🟢 Core</span></h2>
+<p>The clock must fit the <b>slowest stage plus the latch delay</b>. A non-pipelined machine takes the <b>sum</b> of the stage delays per instruction.</p>
+<div class="num"><div class="tag">Worked numerical</div>
+<b>Q:</b> Four stages take 5, 10, 8 and 7 ns, and each pipeline latch adds 1 ns. Find the speedup for 100 instructions.<br>
+<b>A:</b> Clock = 10 + 1 = 11 ns. Pipelined time = (4 + 99) × 11 = 1133 ns. Non-pipelined time = (5 + 10 + 8 + 7) × 100 = 3000 ns. Speedup = 3000 / 1133 ≈ <b>2.65</b>, far below 4 because the slow stage sets the clock for everyone.
+</div>
+
+<h2 data-tier="hy">CPU performance: CPI, MIPS and Amdahl's law <span class="tier tier-hy" title="Not named in the syllabus, but frequently useful or tested as background — revise after Core">🔵 High-Yield</span><span class="tier-why"> · performance questions</span></h2>
+<p><b>CPU time = instruction count × CPI × clock cycle time</b>; <b>MIPS = clock rate / (CPI × 10⁶)</b>. For a mix, CPI is the frequency-weighted average of the per-class cycle counts. <b>Amdahl's law:</b> if a fraction f of the time is sped up by a factor s, <code>Speedup = 1 / ((1 − f) + f/s)</code>, and the limit as s → ∞ is 1/(1 − f).</p>
+<div class="num"><div class="tag">Worked numerical</div>
+<b>Q:</b> A 1 GHz CPU runs a mix of 50% ALU (1 cycle), 20% loads (2), 10% stores (2) and 20% branches (3). Find CPI, MIPS and the time for 10⁹ instructions. Separately, if 80% of a program is sped up 4×, what is the overall speedup?<br>
+<b>A:</b> CPI = 0.5·1 + 0.2·2 + 0.1·2 + 0.2·3 = 0.5 + 0.4 + 0.2 + 0.6 = <b>1.7</b>. MIPS = 1000 / 1.7 ≈ <b>588</b>. Time = 10⁹ × 1.7 × 1 ns = <b>1.7 s</b>. Amdahl: 1 / (0.2 + 0.8/4) = 1 / 0.4 = <b>2.5</b>, and even an infinite speedup of that part could give at most 1/0.2 = 5.
+</div>
+
+<h2 data-tier="ext">Flynn's taxonomy and instruction-level parallelism <span class="tier tier-ext" title="Beyond the syllabus or rarely tested — read only if time remains">🟡 Extension</span><span class="tier-why"> · not named in 2027</span></h2>
+<table>
+<tr><th>Class</th><th>Instruction streams</th><th>Data streams</th><th>Example</th></tr>
+<tr><td>SISD</td><td>1</td><td>1</td><td>Classic uniprocessor</td></tr>
+<tr><td>SIMD</td><td>1</td><td>many</td><td>Vector/GPU-style units</td></tr>
+<tr><td>MISD</td><td>many</td><td>1</td><td>Rare (fault-tolerant designs)</td></tr>
+<tr><td>MIMD</td><td>many</td><td>many</td><td>Multicore, clusters</td></tr>
+</table>
+<p>A <b>superscalar</b> CPU issues several instructions per cycle (CPI can fall below 1); a <b>VLIW</b> machine has the compiler pack independent operations into one long instruction word.</p>
+</section>
+
+
+<section id="methods" class="section">
+  <h1>8. 🧭 Problem → Standard Method Playbook</h1>
+  <div class="sub">Recognize the architecture problem first; then apply the standard calculation or design method.</div>
+
+  <div class="card"><h2>Instruction Encoding & Datapath</h2>
+    <table><tr><th>Problem pattern</th><th>Standard method</th><th>Key check</th></tr>
+    <tr><td>Instruction length / opcode fields</td><td>Count total encoding bits and required operand/register/address bits; remainder is opcode/function space.</td><td>Check whether the question uses fixed or variable/expanding opcode.</td></tr>
+    <tr><td>Expanding opcode</td><td>Allocate short opcodes first; each longer opcode consumes a prefix branch of the code space.</td><td>Never count all bit patterns independently when prefixes are constrained.</td></tr>
+    <tr><td>Single-bus datapath</td><td>Trace one transfer per bus cycle; identify source register → bus → destination and ALU control.</td><td>Two registers cannot normally drive the same single bus simultaneously.</td></tr>
+    <tr><td>Multi-bus datapath</td><td>Trace simultaneous source reads and destination write-back using separate buses.</td><td>More buses can reduce cycles but add hardware.</td></tr>
+    <tr><td>Endianness</td><td>Split a multi-byte value into bytes and place the least/most significant byte at the lowest address according to little/big endian.</td><td>Endianness changes byte order, not bit order within a byte.</td></tr>
+    </table></div>
+
+  <div class="card"><h2>Cache & Memory</h2>
+    <table><tr><th>Pattern</th><th>Standard method</th><th>Formula / trap</th></tr>
+    <tr><td>Cache address split</td><td>Offset bits=log₂(block size); number of lines/sets determines index bits; remaining bits are tag.</td><td>For S-way set associative cache, sets=lines/S.</td></tr>
+    <tr><td>AMAT</td><td>AMAT=hit time + miss rate×miss penalty.</td><td>For multi-level cache, expand recursively with conditional probabilities.</td></tr>
+    <tr><td>Write policy</td><td>Distinguish write-through/write-back and write-allocate/no-write-allocate.</td><td>Write-back updates memory on eviction; write-through updates memory on write.</td></tr>
+    <tr><td>Memory interleaving</td><td>Distribute consecutive words across banks; determine bank number from address modulo number of banks.</td><td>Check whether the question assumes low-order or high-order interleaving.</td></tr>
+    <tr><td>Secondary storage</td><td>Use block/sector geometry and seek/rotational/transfer components as specified.</td><td>Don't invent a seek component if the problem gives only transfer time.</td></tr>
+    </table></div>
+
+  <div class="card"><h2>Pipeline & Performance</h2>
+    <table><tr><th>Pattern</th><th>Method</th><th>Trap</th></tr>
+    <tr><td>Pipeline speedup</td><td>Compare non-pipelined time with pipeline fill + steady-state cycles.</td><td>For n instructions and k stages, ideal cycles=n+k−1.</td></tr>
+    <tr><td>Hazard counting</td><td>Identify RAW/WAR/WAW and structural/control hazards; then apply forwarding/stalls/branch penalty stated in the question.</td><td>Forwarding does not remove every RAW hazard.</td></tr>
+    <tr><td>CPI/performance</td><td>CPU time = Instruction Count × CPI × Clock Cycle Time.</td><td>Weighted CPI if instruction classes have different CPIs.</td></tr>
+    <tr><td>Amdahl's law</td><td>Speedup=1/[(1−f)+f/s], where f is fraction improved and s is speedup of that fraction.</td><td>Speedup applies to execution-time fraction, not necessarily instruction fraction.</td></tr>
+    </table></div>
+
+  <div class="card"><h2>I/O & Interrupts</h2>
+    <table><tr><th>Pattern</th><th>Standard method</th><th>Key distinction</th></tr>
+    <tr><td>Programmed I/O</td><td>CPU polls device status and transfers data.</td><td>CPU remains involved in waiting.</td></tr>
+    <tr><td>Interrupt-driven I/O</td><td>Device interrupts CPU when service is needed; CPU runs ISR.</td><td>Know interrupt latency and priority assumptions.</td></tr>
+    <tr><td>DMA</td><td>DMA controller transfers blocks between device and memory with limited CPU intervention.</td><td>Distinguish DMA setup time from CPU transfer time.</td></tr>
+    <tr><td>Priority / daisy chain</td><td>Apply the stated priority ordering to simultaneous requests; daisy chaining gives priority according to physical chain position.</td><td>Priority is an ordering, not a bandwidth calculation.</td></tr>
+    <tr><td>Memory-mapped vs isolated I/O</td><td>Check whether I/O registers share the memory address space or use a separate I/O address space.</td><td>This affects instruction/address-space assumptions.</td></tr>
+    </table></div>
+
+  <div class="card"><h2>🧮 Representative GATE-style Worked Problems</h2>
+    <div class="num"><div class="tag">Problem 1 · Expanding opcode</div><p>An ISA has 8-bit instructions. A 4-bit opcode identifies 8 instructions using a prefix scheme. How do you reason about additional opcode space?</p><p><b>Method:</b> Draw the prefix tree: each unused prefix branch can be expanded only if it does not collide with an existing complete opcode.</p><p><b>Takeaway:</b> Count available prefix leaves, not raw 2<sup>n</sup> patterns.</p></div>
+    <div class="num"><div class="tag">Problem 2 · Datapath</div><p>A single-bus datapath must execute R3←R1+R2. What transfers are required?</p><p><b>Method:</b> Place R1 on the bus → latch into ALU input A; place R2 on bus → ALU adds; place result on bus → load R3.</p><p><b>Takeaway:</b> A single bus generally serializes source transfers.</p></div>
+    <div class="num"><div class="tag">Problem 3 · Amdahl</div><p>40% of execution time is improved by a factor of 4. Find overall speedup.</p><p><b>Method:</b> S=1/[(1−0.4)+0.4/4].</p><p><b>Answer:</b> 1/0.7 = 10/7 ≈ 1.43×.</p></div>
+    <div class="num"><div class="tag">Problem 4 · Cache</div><p>A cache has 64 lines and is 4-way set associative. How many sets?</p><p><b>Method:</b> Sets=64/4.</p><p><b>Answer:</b> 16 sets; therefore index bits=log₂16=4.</p></div>
+    <div class="num"><div class="tag">Problem 5 · Interleaving</div><p>Memory has 4 banks with low-order interleaving. Which bank receives word address A?</p><p><b>Method:</b> bank=A mod 4.</p><p><b>Trap:</b> If high-order interleaving is specified, the mapping is different.</p></div>
+  </div>
+</section>
+<section id="quiz">
+<h1>9. Practice Quiz — 58 Questions</h1>
+<div class="sub">Covers all 7 topics above. Click an option to check yourself instantly — explanations included.</div>
+<div class="qtopics" id="qtopics"></div><style>.qmode button{cursor:pointer;padding:8px 12px;border:1px solid #888;border-radius:8px;background:transparent}.qmode button.active{font-weight:700}.opt.selected{outline:2px solid currentColor;transform:translateX(2px)}</style><div class="qmode" style="margin:12px 0;display:flex;gap:8px;flex-wrap:wrap"><button id="mcqMode" class="active">MCQ</button><button id="msqMode">MSQ · Select all that apply</button></div>
+<div id="score">Answered <b id="ansCount">0</b>/58 · Correct <b id="corrCount">0</b></div>
+<div id="qlist"></div>
+</section>
+
+<section id="pyq">
+<h1>10. GATE-Level Solved Problems</h1>
+<div class="sub">The 58 quiz questions above are your fundamentals-check. These are heavier, multi-step problems in actual GATE exam style — every step shown.</div>
+
+<div class="gq"><div class="gtag">Q1 · Number Systems</div>
+<b>In 8-bit 2's complement, A = 01111111 and B = 00000001. Compute A + B and state whether overflow occurs.</b>
+<ol class="gopts"><li>10000000, no overflow</li><li>10000000, overflow occurs</li><li>01111111, overflow occurs</li><li>11111111, no overflow</li></ol>
+<pre>A = 01111111 = +127
+B = 00000001 = +1
+Sum:  01111111
+    + 00000001
+    ----------
+      10000000</pre>
+10000000 in 8-bit 2's complement = −128. Both operands were positive (127 and 1), but the result is negative → sign flipped incorrectly ⇒ <b>overflow</b>. This makes sense: 127+1=128, which is outside the representable range (−128 to 127).
+<p class="gans">Correct: Option 2 — 10000000, overflow occurs.</p>
+</div>
+
+<div class="gq"><div class="gtag">Q2 · Number Systems (IEEE-754 addition)</div>
+<b>Add 9.5 and 3.5 using IEEE-754 single precision, showing the full alignment/normalization procedure.</b>
+<pre>9.5 = 1001.1  = 1.0011 × 2^3   → sign=0, exp=3+127=130=10000010, mant=00110000000000000000000
+3.5 = 11.1    = 1.1100 × 2^1   → sign=0, exp=1+127=128=10000000
+
+Step 1 — Align exponents (shift smaller-exponent number right by the difference, 3-1=2):
+  1.1100 × 2^1  →  0.0111 × 2^3   (shifted right by 2)
+
+Step 2 — Add aligned mantissas (same exponent 2^3 now):
+    1.0011
+  + 0.0111
+  ---------
+    1.1010   × 2^3
+
+Step 3 — Already normalized (leading 1, no carry-out) → done.
+Result: 1.1010 × 2^3 = 1101.0 = 13.0  ✓ (matches 9.5+3.5=13.0)</pre>
+Final encoding: sign=0, exponent=130=<code>10000010</code>, mantissa=<code>10100000000000000000000</code>.
+<p class="gans">Result: 0 10000010 10100000000000000000000 = 13.0</p>
+</div>
+
+<div class="gq"><div class="gtag">Q3 · Addressing Modes</div>
+<b>Base register R1 = 3000, Index register R2 holds element index 4, each array element is 8 bytes wide, and the instruction specifies a displacement of 100. Using base+index+displacement addressing, find the effective address.</b>
+<ol class="gopts"><li>3104</li><li>3132</li><li>3032</li><li>3412</li></ol>
+<pre>EA = Base + Displacement + (Index × element size)
+   = 3000 + 100 + (4 × 8)
+   = 3000 + 100 + 32
+   = 3132</pre>
+<p class="gans">Correct: Option 2 — EA = 3132 (this pattern — base+index×scale+disp — is exactly how array element access compiles down in real ISAs like x86).</p>
+</div>
+
+<div class="gq"><div class="gtag">Q4 · Addressing Modes (instruction count trade-off)</div>
+<b>A 3-address machine needs 1 instruction to compute D = A+B−C. A 1-address (accumulator) machine needs 3 instructions (LOAD, ADD, SUB — plus a final STORE) for the same job, i.e. 4 instructions. If each 3-address instruction is 12 bytes and each 1-address instruction is 4 bytes, which machine uses less code space for this computation, and by how much?</b>
+<pre>3-address total  = 1 instruction × 12 bytes = 12 bytes
+1-address total  = 4 instructions × 4 bytes = 16 bytes</pre>
+<p class="gans">The 3-address machine uses less code space here (12 bytes vs 16 bytes, a saving of 4 bytes) — illustrating the classic CISC trade-off: fewer, richer instructions vs more, simpler ones.</p>
+</div>
+
+<div class="gq"><div class="gtag">Q5 · Booth's Algorithm (full trace)</div>
+<b>Multiply (−5) × 3 using Booth's algorithm on 4-bit operands. Show every step.</b>
+<pre>M = -5 = 1011,  Q = 3 = 0011,  Q-1 = 0,  AC = 0000
+
+Step 1: Q0Q-1 = 1,0 → AC = AC - M = AC + 5 = 0000+0101 = 0101
+  shift AC:Q:Q-1 (0101 0011 0) arithmetically → AC=0010 Q=1001 Q-1=1
+
+Step 2: Q0Q-1 = 1,1 → no operation
+  shift (0010 1001 1) → AC=0001 Q=0100 Q-1=1
+
+Step 3: Q0Q-1 = 0,1 → AC = AC + M = 0001+1011 = 1100
+  shift (1100 0100 1), sign=1 → AC=1110 Q=0010 Q-1=0
+
+Step 4: Q0Q-1 = 0,0 → no operation
+  shift (1110 0010 0), sign=1 → AC=1111 Q=0001 Q-1=0
+
+Final product AC:Q = 11110001 (8-bit 2's complement)</pre>
+Decode: sign=1 → invert 11110001 = 00001110, +1 = 00001111 = 15 → value = <b>−15</b>, matching (−5)×3 = −15. ✔
+<p class="gans">Correct product: −15 (binary 11110001)</p>
+</div>
+
+<div class="gq"><div class="gtag">Q6 · Microprogrammed Control Unit</div>
+<b>A control store has 1024 microinstructions. Each microinstruction uses horizontal encoding for 40 independent control signals, plus a 4-way branch-condition select field, plus a next-address field. Find the total width of one microinstruction.</b>
+<pre>Control signals (horizontal, 1 bit each)  = 40 bits
+Condition select (4 options → log2 4)     = 2 bits
+Next-address field (1024 words → log2 1024) = 10 bits
+-----------------------------------------------------
+Total microinstruction width              = 40 + 2 + 10 = 52 bits</pre>
+<p class="gans">Correct: 52 bits per microinstruction.</p>
+</div>
+
+<div class="gq"><div class="gtag">Q7 · Cache Design (full breakdown)</div>
+<b>A system has a 32-bit address bus, a 128 KB cache, 8-way set-associative, block size 64 bytes. Find: (a) number of sets, (b) index/tag/offset bit widths, (c) total tag-storage overhead in bytes.</b>
+<pre>Total cache lines = cache size / block size = (128×1024) / 64 = 2048 lines
+Number of sets    = lines / ways = 2048 / 8 = 256 sets
+
+Offset bits = log2(block size) = log2(64) = 6 bits
+Index bits  = log2(number of sets) = log2(256) = 8 bits
+Tag bits    = 32 - 8 - 6 = 18 bits
+
+Tag storage overhead = lines × tag bits = 2048 × 18 = 36,864 bits = 4,608 bytes (≈ 4.5 KB)</pre>
+<p class="gans">Correct: 256 sets · 18-bit tag / 8-bit index / 6-bit offset · ≈4.5 KB tag overhead.</p>
+</div>
+
+<div class="gq"><div class="gtag">Q8 · Multi-level Cache AMAT</div>
+<b>L1 cache: hit time 1 ns, hit ratio 0.95. On an L1 miss, L2 is checked: hit time 10 ns (from the point of L1 miss), hit ratio 0.9. On an L2 miss, main memory takes 100 ns. Find the AMAT.</b>
+<pre>AMAT = L1_hit_time + (1 - h1) × [ L2_hit_time + (1 - h2) × Mem_time ]
+     = 1 + 0.05 × [ 10 + 0.1 × 100 ]
+     = 1 + 0.05 × [ 10 + 10 ]
+     = 1 + 0.05 × 20
+     = 1 + 1
+     = 2 ns</pre>
+<p class="gans">Correct: AMAT = 2 ns.</p>
+</div>
+
+<div class="gq"><div class="gtag">Q9 · DMA Cycle Stealing</div>
+<b>A CPU cycle takes 100 ns. A DMA controller transfers 10,000 words, stealing exactly 1 CPU cycle per word transferred. A program that would normally take 1,000,000 cycles is run concurrently with this DMA transfer. Find the percentage increase in the program's execution time due to cycle stealing.</b>
+<pre>Cycles stolen by DMA = 10,000 (1 per word)
+New total cycles = 1,000,000 + 10,000 = 1,010,000
+
+Extra time = 10,000 × 100 ns = 1,000,000 ns = 1 ms
+Percentage increase = 10,000 / 1,000,000 × 100 = 1%</pre>
+<p class="gans">Correct: execution time increases by 1%.</p>
+</div>
+
+<div class="gq"><div class="gtag">Q10 · Pipelining with Branch Misprediction</div>
+<b>A 5-stage pipeline runs 100 instructions, where every 5th instruction is an unpredicted branch resolved in stage 3, costing 2 bubble cycles on every branch (predict-not-taken, and assume every branch is actually taken so every prediction is wrong). Find the total execution time in cycles.</b>
+<pre>Ideal (no-hazard) pipelined cycles = k + (n-1) = 5 + 99 = 104
+Number of branches = 100 / 5 = 20
+Extra bubble cycles = 20 × 2 = 40
+
+Total cycles = 104 + 40 = 144 cycles</pre>
+<p class="gans">Correct: 144 cycles.</p>
+</div>
+
+<div class="gq"><div class="gtag">Q11 · Pipelining with Data-Hazard Stalls</div>
+<b>A 5-stage pipeline executes 50 instructions. 20% of instructions incur exactly 1 stall cycle due to a data hazard. Find the total cycles taken and the speedup over non-pipelined execution.</b>
+<pre>Ideal pipelined cycles = k + (n-1) = 5 + 49 = 54
+Instructions causing a stall = 20% of 50 = 10
+Extra stall cycles = 10 × 1 = 10
+Total cycles = 54 + 10 = 64
+
+Non-pipelined time = n × k = 50 × 5 = 250 cycles
+Speedup = 250 / 64 ≈ 3.9×</pre>
+<p class="gans">Correct: 64 cycles total, speedup ≈ 3.9×.</p>
+</div>
+
+<div class="gq"><div class="gtag">Q12 · IEEE-754 subtraction (cancellation and left normalisation)</div>
+<b>Compute 8.5 − 7.75 in IEEE-754 single precision. What is the result's biased exponent and fraction?</b>
+<ol class="gopts"><li>Exponent 10000010, fraction 000…0</li><li>Exponent 01111110, fraction 100…0</li><li>Exponent 01111111, fraction 100…0</li><li>Exponent 01111110, fraction 110…0</li></ol>
+<pre>8.5  = 1000.1 = 1.0001 × 2³     exponent field 3 + 127 = 130 = 10000010
+7.75 = 111.11 = 1.1111 × 2²     exponent field 2 + 127 = 129 = 10000001
+
+Step 1 — Align: shift the smaller exponent's mantissa right by 3 − 2 = 1:
+         1.1111 × 2²  →  0.11111 × 2³
+Step 2 — Subtract the mantissas (same exponent 2³):
+           1.00010
+         − 0.11111
+         ---------
+           0.00011 × 2³
+Step 3 — Normalise: shift LEFT until the leading bit is 1 (4 shifts) → 1.1 × 2^(3−4) = 1.1 × 2⁻¹
+Step 4 — Encode: sign 0, exponent −1 + 127 = 126 = 01111110, fraction 1000…0
+
+Check: 1.1₂ × 2⁻¹ = 1.5 × 0.5 = 0.75 = 8.5 − 7.75 ✔
+Contrast with addition: addition may need a 1-bit RIGHT shift (carry out); subtraction of near-equal numbers
+may need a LONG LEFT shift, and the exponent is decreased by the shift count. Guard/round/sticky bits matter here.</pre>
+<p class="gans">Correct: Option 2 — 0 01111110 10000000000000000000000 (= 0.75).</p>
+</div>
+
+<div class="gq"><div class="gtag">Q13 · IEEE-754 multiplication</div>
+<b>The product 6.5 × (−2.5) is computed in IEEE-754 single precision. The result in hexadecimal is:</b>
+<ol class="gopts"><li>0xC1820000</li><li>0x41820000</li><li>0xC1800000</li><li>0xC0820000</li></ol>
+<pre>6.5  = 110.1 = 1.101 × 2²    sign 0, exponent 2 + 127 = 129 = 10000001
+2.5  = 10.1  = 1.01  × 2¹    sign 1 (for −2.5), exponent 1 + 127 = 128 = 10000000
+
+Sign     = 0 ⊕ 1 = 1
+Exponent = 129 + 128 − 127 = 130     (add biased exponents, subtract ONE bias)
+Mantissa = 1.101 × 1.01 = 1.101 + 0.01101 = 10.00001   (1.625 × 1.25 = 2.03125)
+Normalise: 10.00001 → 1.000001 × 2¹  ⇒ exponent 130 + 1 = 131 = 10000011
+
+Fraction = 000001 followed by 17 zeros   (23 bits: 00000100000000000000000)
+Bit pattern: 1 | 10000011 | 00000100000000000000000
+Regroup in fours: 1100 0001 1000 0010 0000 0000 0000 0000 = 0xC1820000
+Check: −1.000001₂ × 2⁴ = −16.25 = 6.5 × (−2.5) ✔</pre>
+<p class="gans">Correct: Option 1 — 0xC1820000 (−16.25).</p>
+</div>
+
+<div class="gq"><div class="gtag">Q14 · RISC vs CISC — instruction count, CPI and code size</div>
+<b>The same program is compiled for two machines, both clocked at 2 GHz. The CISC version executes 2 × 10⁶ instructions with average CPI 4 and average instruction length 5 bytes. The RISC version executes 5 × 10⁶ instructions with average CPI 1.2 and fixed 4-byte instructions. Which is faster, by what factor, and how do the code sizes compare?</b>
+<ol class="gopts"><li>CISC is 1.33× faster; RISC code is 2× larger</li><li>RISC is 1.33× faster; RISC code is 2× larger</li><li>RISC is 1.33× faster; CISC code is 2× larger</li><li>RISC is 2.5× faster; RISC code is 2× larger</li></ol>
+<pre>CPU time = (instruction count × CPI) / clock rate
+
+CISC : 2×10⁶ × 4   / 2×10⁹ = 8×10⁶ / 2×10⁹   = 4 ms
+RISC : 5×10⁶ × 1.2 / 2×10⁹ = 6×10⁶ / 2×10⁹   = 3 ms
+Speed-up of RISC = 4 / 3 = 1.33
+
+Code size:  CISC = 2×10⁶ × 5 B = 10 MB (10⁷ bytes)
+            RISC = 5×10⁶ × 4 B = 20 MB (2×10⁷ bytes)  → RISC code is 2× larger
+
+Lesson: RISC executes 2.5× MORE instructions, yet wins because CPI is 3.33× lower (4 / 1.2);
+the trade-off is larger code (more instruction-memory/I-cache traffic).</pre>
+<p class="gans">Correct: Option 2 — RISC is 1.33× faster; its code is 2× larger.</p>
+</div>
+
+<div class="gq"><div class="gtag">Q15 · Direct-mapped vs set-associative vs fully associative on one access sequence</div>
+<b>A cache holds 4 blocks. The block-address sequence 0, 4, 0, 4, 8, 0, 4, 8, 12, 0 is applied to (i) a direct-mapped cache, (ii) a 2-way set-associative cache with LRU, and (iii) a fully associative cache with LRU, all initially empty. How many misses occur in each?</b>
+<ol class="gopts"><li>10, 8, 4</li><li>10, 10, 4</li><li>8, 6, 4</li><li>10, 8, 5</li></ol>
+<pre>(i) Direct-mapped: 4 lines, index = addr mod 4. Blocks 0, 4, 8, 12 ALL map to line 0 and keep evicting each other
+    → every access is a miss: 10 misses.
+
+(ii) 2-way: 2 sets, index = addr mod 2. All of 0, 4, 8, 12 are even → all in set 0, which holds only 2 blocks (LRU).
+     0 M [0]   4 M [0,4]   0 H [4,0]   4 H [0,4]   8 M [4,8] (evict 0)   0 M [8,0] (evict 4)
+     4 M [0,4] (evict 8)   8 M [4,8]   12 M [8,12]   0 M [12,0]
+     → hits only on accesses 3 and 4: 8 misses.  (Half the cache — set 1 — is never used.)
+
+(iii) Fully associative, 4 lines: the 4 distinct blocks 0, 4, 8, 12 all fit.
+     0 M  4 M  0 H  4 H  8 M  0 H  4 H  8 H  12 M  0 H   → 4 misses (the compulsory misses only).
+
+Lesson: higher associativity removes CONFLICT misses; the remaining 4 are compulsory misses.</pre>
+<p class="gans">Correct: Option 1 — 10, 8 and 4 misses.</p>
+</div>
+
+<div class="gq"><div class="gtag">Q16 · Expanding opcode — how many zero-address instructions?</div>
+<b>A 16-bit instruction has operand fields of 4 bits each. The design must provide 15 three-address instructions, 14 two-address instructions and 31 one-address instructions, and all remaining opcode space is used for zero-address instructions. What is the maximum number of zero-address instructions?</b>
+<ol class="gopts"><li>15</li><li>32</li><li>16</li><li>31</li></ol>
+<pre>Idea: use some bit patterns of a short opcode as 'escape codes' that extend the opcode into the bits of an unused operand field.
+
+Level 1 — three-address (4-bit opcode + 3 operands of 4 bits = 16 bits):
+    16 opcode patterns, 15 used  →  1 pattern left as an escape.
+Level 2 — two-address (the escape + the 4 bits of the third operand field become opcode = 8 bits, 2 operands):
+    1 × 16 = 16 patterns, 14 used  →  2 left.
+Level 3 — one-address (12-bit opcode, 1 operand):
+    2 × 16 = 32 patterns, 31 used  →  1 left.
+Level 4 — zero-address (the full 16 bits are opcode):
+    1 × 16 = 16 instructions.
+
+Formula for the number of patterns available at the next level:  (patterns left) × 2^(operand field width).
+Check: the level-by-level counts (1 → 2 → 1 → 16) were reproduced by program.
+Trap: do not stop after level 3 — each unused pattern multiplies by 16 once more when the last operand field is absorbed.</pre>
+<p class="gans">Correct: Option 3 — at most 16 zero-address instructions.</p>
+</div>
+
+<div class="gq"><div class="gtag">Q17 · TLB organisation — tag bits and storage</div>
+<b>A system has 32-bit virtual addresses, 36-bit physical addresses and 4 KB pages. Its TLB has 64 entries and is 4-way set associative; each entry stores the tag, the physical frame number and one valid bit. How many tag bits does the TLB use and how many bits of storage does it need?</b>
+<ol class="gopts"><li>16 bits and 2624 bits</li><li>20 bits and 2880 bits</li><li>16 bits and 2688 bits</li><li>12 bits and 2368 bits</li></ol>
+<pre>Page size 4 KB  →  offset = 12 bits.
+Virtual page number (VPN) = 32 − 12 = 20 bits.     Physical frame number (PFN) = 36 − 12 = 24 bits.
+
+TLB: 64 entries, 4-way  →  64 / 4 = 16 sets  →  index = log2 16 = 4 bits.
+Tag = VPN − index = 20 − 4 = 16 bits.
+
+Bits per entry = tag 16 + PFN 24 + valid 1 = 41.
+Total storage = 64 × 41 = 2624 bits (= 328 bytes).
+
+Comparison: fully associative → tag = 20 bits, entry = 45 bits, total = 2880 bits (no index bits, but 64 comparators);
+direct mapped → 6 index bits, tag = 14 bits.
+Check: all of these were recomputed by program. A single-level page table for the same address space would need 2^20 × 4 B = 4 MB per process,
+which is why a small TLB in front of it pays off.
+Trap: the TLB index uses bits of the VPN (the page number), never the offset bits.</pre>
+<p class="gans">Correct: Option 1 — 16 tag bits and 2624 bits of storage.</p>
+</div>
+
+<div class="gq"><div class="gtag">Q18 · Amdahl's law — speedup, limit and required parallel fraction</div>
+<b>80% of a program's execution time can be perfectly parallelised and the other 20% is strictly sequential. What are (i) the speedup on 8 processors, (ii) the maximum possible speedup on any number of processors, and (iii) the parallel fraction needed to get a speedup of 4 on 8 processors?</b>
+<ol class="gopts"><li>3.33, 5 and 85.7%</li><li>4.0, 5 and 75%</li><li>3.33, 8 and 85.7%</li><li>3.33, 5 and 95%</li></ol>
+<pre>Amdahl's law:  Speedup = 1 / [ (1 − p) + p / n ]      (p = parallelisable fraction, n = processors)
+
+(i)   p = 0.8, n = 8:   1 / (0.2 + 0.8/8) = 1 / (0.2 + 0.1) = 1 / 0.3 = 3.33
+(ii)  n → ∞:            1 / (1 − p) = 1 / 0.2 = 5     — the sequential 20% caps the speedup however many processors are added
+(iii) 4 = 1 / [ (1 − p) + p/8 ]   →   (1 − p) + p/8 = 0.25   →   1 − (7/8)p = 0.25   →   p = 0.75 / (7/8) = 6/7 ≈ 85.7%
+
+Check: exact fractions give 10/3, 5 and 6/7. Even with 16 processors the speedup is only 1 / (0.2 + 0.05) = 4.
+Trap: speedup is NOT 0.8 × 8 + 0.2; the sequential part does not shrink, so the denominator is the new TIME, not a throughput sum.</pre>
+<p class="gans">Correct: Option 1 — 3.33, 5 and about 85.7%.</p>
+</div>
+
+<div class="gq"><div class="gtag">Q19 · Disk access time — random block versus long contiguous read</div>
+<b>A disk spins at 7200 rpm, has an average seek time of 8 ms and 400 sectors of 512 bytes per track. How long does it take to read (i) a 4 KB block stored in 8 consecutive sectors at a random place and (ii) a 1 MB file stored in consecutive sectors (assume no extra seek or track-switch time)?</b>
+<ol class="gopts"><li>12.33 ms and 54.83 ms</li><li>16.5 ms and 58.9 ms</li><li>12.33 ms and 4.17 ms</li><li>8.17 ms and 50.7 ms</li></ol>
+<pre>One revolution = 60 / 7200 s = 8.333 ms.        Average rotational latency = half a revolution = 4.167 ms.
+Transfer time per sector = 8.333 ms / 400 = 0.020833 ms  (a full track is read in one revolution).
+
+(i)  4 KB = 8 sectors:   seek 8 + rotation 4.167 + transfer 8 × 0.020833 (= 0.167)  =  12.33 ms
+(ii) 1 MB = 2048 sectors: seek 8 + rotation 4.167 + transfer 2048 × 0.020833 (= 42.67)  =  54.83 ms
+
+Disk access time = seek + rotational latency + transfer time.
+Sustained transfer rate on a track = 400 × 512 B per 8.333 ms = 204,800 B / 8.333 ms ≈ 24.6 MB/s (10^6 bytes).
+Check: all quantities were recomputed with exact fractions.
+Lesson: for a small block seek + rotation (12.17 ms) dominates, while for a large contiguous file transfer (42.67 ms) dominates — which is why layout matters.</pre>
+<p class="gans">Correct: Option 1 — 12.33 ms for the random 4 KB read and 54.83 ms for the 1 MB contiguous read.</p>
+</div>
+</section>
+
+</main>
+</div>
+<footer>Complete · 7 GATE CSE 2027 COA topics · 58-question basic quiz · 19 fully solved GATE-level problems</footer>
+<script>
+const Q = [
+["NS","What is the range of an 8-bit 2's complement signed number?",["-127 to 127","-128 to 127","-128 to 128","0 to 255"],1,"n-bit range = -2^(n-1) to 2^(n-1)-1 → -128 to 127."],
+["NS","Find the 6-bit 2's complement representation of -9.",["110110","110111","001001","111001"],1,"9=001001 → invert=110110 → +1=110111."],
+["NS","In IEEE-754 single precision, the exponent bias is:",["63","127","1023","255"],1,"Single precision uses 8 exponent bits, bias = 2^7-1 = 127."],
+["NS","A single-precision float with exponent field all 1s and mantissa 0 represents:",["Zero","A denormal number","±Infinity","NaN"],2,"E=255 (all 1s), M=0 → ±infinity. M≠0 with E=255 would be NaN."],
+["NS","Overflow occurs when adding two 2's complement numbers only if:",["Both operands are positive","Operands have different signs","Both operands have the same sign and the result's sign differs","The carry-out is 1"],2,"Same-sign operands producing an opposite-sign result signals overflow."],
+["NS","The main drawback of 1's complement representation is:",["Cannot represent negative numbers","Two representations of zero","No overflow detection possible","Needs more bits than sign-magnitude"],1,"1's complement (like sign-magnitude) has both +0 and -0, complicating arithmetic and zero checks."],
+["NS","Convert 0.625 (decimal) to binary.",["0.101","0.110","0.011","0.100"],0,"0.625 = 1/2 + 1/8 = 0.101 in binary."],
+["NS","For n-bit sign-magnitude representation, the range of representable values is:",["-2^(n-1) to 2^(n-1)-1","-(2^(n-1)-1) to +(2^(n-1)-1)","0 to 2^n -1","-2^n to 2^n"],1,"One bit is the sign; the remaining (n-1) bits give magnitude 0..2^(n-1)-1, symmetric about zero."],
+["ISA","A 0-address instruction set architecture is typically implemented using a:",["Register file","Accumulator","Stack","Index register"],2,"0-address machines assume operands are implicitly on top of a stack (push/pop/operate)."],
+["ISA","In indirect addressing, the effective address is obtained by:",["Adding a displacement to PC","Reading the memory location pointed to by the address field","Using the address field directly as data","Reading a register directly"],1,"The address field points to a memory word which itself contains the effective address."],
+["ISA","Which is a defining characteristic of RISC architecture?",["Variable-length, complex instructions","Fixed-length, simple instructions executing mostly in 1 cycle","Direct memory-to-memory arithmetic","Heavy use of microprogrammed control"],1,"RISC favors a small, uniform, fast instruction set — simple to pipeline."],
+["ISA","Auto-increment addressing mode is most useful for:",["Accessing a fixed global variable","Traversing arrays/strings sequentially","Branch target computation","Immediate constants"],1,"Each access automatically advances the pointer register — ideal for array/string loops."],
+["ISA","Compared to direct addressing, register-indirect addressing:",["Needs one extra memory reference to get the operand","Needs one fewer memory reference since the address is in a register","Cannot be used for load instructions","Always accesses page 0 of memory"],1,"The address is already in a register (no extra fetch for it), then one memory reference gets the operand — same order as direct addressing, cheaper than double-indirect."],
+["ISA","PC-relative (relative) addressing is most commonly used for:",["Loading constants","Branch/jump target computation","Stack operations","I/O port access"],1,"EA = PC + displacement — perfect for position-independent branch targets."],
+["ISA","The main trade-off of CISC vs RISC instruction sets is:",["CISC needs more instructions per program but RISC needs fewer","CISC needs fewer instructions per program (more powerful ones) but each may take longer","Both always execute in exactly 1 cycle","RISC cannot use pipelining"],1,"CISC packs more work per instruction (fewer instructions, more cycles each); RISC does the reverse."],
+["ISA","An instruction set has 80 distinct opcodes. Minimum bits needed for the opcode field?",["6","7","8","9"],1,"log2(80) = 6.32 → round up to 7 bits (2^7=128 ≥ 80)."],
+["ALU","In Booth's algorithm, when the examined bit pair Q0Q-1 is 00 or 11, the action is:",["Add multiplicand","Subtract multiplicand","No arithmetic operation, just shift","Halt the algorithm"],2,"00 and 11 mean no change in the run of bits, so only an arithmetic shift is performed."],
+["ALU","A Carry Look-Ahead Adder is faster than a Ripple Carry Adder because it:",["Uses fewer transistors","Computes all carry signals in parallel from generate/propagate terms","Avoids using full adders entirely","Only works for subtraction"],1,"CLA precomputes carries via extra logic instead of waiting for each bit's carry to ripple."],
+["ALU","The worst-case delay of an n-bit ripple carry adder is proportional to:",["log2(n)","n","1 (constant)","n^2"],1,"Each bit's carry must wait for the previous bit's full-adder delay, so total delay grows linearly with n."],
+["ALU","The main advantage of non-restoring division over restoring division is:",["It needs fewer bits","It avoids the extra 'restore' step, saving time","It works only for floating point","It never produces a remainder"],1,"Non-restoring division adjusts the next operation based on sign instead of restoring the remainder, saving a step each cycle."],
+["ALU","A half adder differs from a full adder in that it:",["Adds 3 bits instead of 2","Has no carry-in input","Produces no sum output","Cannot produce a carry-out"],1,"A half adder only adds two bits (A, B); a full adder also accepts a carry-in."],
+["ALU","The inputs to a standard full adder are:",["A and B only","A, B, and Carry-in","Sum and Carry only","A, B, Carry-in, and Carry-out"],1,"A full adder takes A, B, and Cin, producing Sum and Cout."],
+["ALU","Using Booth's algorithm, the product of 5 × (−3) will be represented in 2's complement as:",["+15","−15","−8","+8"],1,"5 × (−3) = −15, correctly represented by Booth's algorithm in 2's complement."],
+["CU","A hardwired control unit, compared to a microprogrammed one, is generally:",["Slower but easier to modify","Faster but harder to modify","Identical in speed and flexibility","Only usable in CISC machines"],1,"Hardwired logic has no extra memory-read step, so it's faster, but changing behavior needs re-design."],
+["CU","The control store in a microprogrammed control unit holds:",["Compiled machine code","Microinstructions that generate control signals","Only the ALU's truth table","Cache tag bits"],1,"Each control-store word (microinstruction) specifies which control signals to assert for one micro-step."],
+["CU","In horizontal microprogramming, each control signal typically gets:",["Its own dedicated bit in the microinstruction","An encoded multi-bit field shared with other signals","No representation at all","A separate control store"],0,"Horizontal = 1 bit per signal, wide word, no decoding needed, but more control-store space used."],
+["CU","Vertical microprogramming requires extra hardware in the form of a:",["Second ALU","Decoder to expand encoded fields into actual signals","Separate register file","Larger PC"],1,"Fields are encoded to save space, so a decoder is needed to turn them back into individual control signals."],
+["CU","The first micro-operation of the fetch cycle for a simple CPU is typically:",["IR ← MBR","MAR ← PC","PC ← PC+1","AC ← AC+MBR"],1,"The address to fetch (currently in PC) is first copied into MAR before the memory read begins."],
+["CU","If a control store holds 512 microinstructions, the address field needs at least:",["8 bits","9 bits","10 bits","512 bits"],1,"log2(512) = 9 bits are needed to address 512 distinct microinstructions."],
+["CU","Which register holds the address of the next instruction to be fetched?",["MBR","IR","Program Counter (PC)","MAR"],2,"The PC always points to the next instruction to fetch; it's copied into MAR to start the fetch."],
+["MEM","In a direct-mapped cache, a given main memory block can be placed:",["In any cache line","In exactly one specific cache line","In any line within its set","Nowhere — direct mapping bypasses cache"],1,"Direct mapping uses the index bits to fix exactly one possible line per block, which is why it's simple but prone to conflict misses."],
+["MEM","A fully associative cache requires, compared to direct-mapped:",["No tag comparison at all","A comparator for every single cache line (parallel tag search)","Fixed placement per block","No hit/miss logic"],1,"Since a block can go anywhere, the tag must be compared against every line simultaneously — more hardware, but no conflict misses."],
+["MEM","The formula for Average Memory Access Time (AMAT) is:",["Hit time × Miss rate","Hit time + Miss rate × Miss penalty","Miss penalty − Hit time","Hit time / Miss rate"],1,"AMAT combines the guaranteed hit-time cost with the probability-weighted extra cost of a miss."],
+["MEM","Cache block size = 16 bytes. How many offset bits are needed to address a byte within a block?",["3","4","5","16"],1,"Offset bits = log2(block size) = log2(16) = 4."],
+["MEM","Write-back cache policy requires an extra bit per line called the:",["Valid bit","Dirty bit","Tag bit","Parity bit"],1,"The dirty bit marks a line as modified so it's written to memory only when evicted, not on every write."],
+["MEM","LRU replacement policy evicts the cache line that was:",["Most recently used","Least recently used","Randomly chosen","First loaded (FIFO)"],1,"LRU = Least Recently Used — it assumes recently-used data is likely to be used again soon (temporal locality)."],
+["MEM","A cache has 1024 lines and is 4-way set associative. How many sets does it have?",["4","256","1024","4096"],1,"Number of sets = total lines / ways = 1024/4 = 256."],
+["MEM","'Temporal locality' refers to the tendency of a program to:",["Access nearby memory addresses soon after one access","Re-access the same memory location again soon","Never reuse any address","Access memory in strictly increasing order"],1,"Temporal locality = reuse of the SAME location soon; spatial locality = access of NEARBY locations soon."],
+["IO","In DMA, once set up by the CPU, data transfer between device and memory happens:",["Through the CPU's registers, word by word","Directly between device and memory, without CPU involvement for each word","Only when the CPU explicitly requests each byte","Through interrupt service routines for every word"],1,"That's the entire point of DMA — the CPU is only interrupted once, at the end of the block transfer."],
+["IO","'Cycle stealing' in the context of DMA refers to:",["The DMA controller permanently taking over the CPU","The DMA controller borrowing individual memory-bus cycles from the CPU during a transfer","A security vulnerability in DMA","The CPU stealing cycles from the DMA controller"],1,"The DMA controller and CPU share the memory bus; DMA 'steals' a cycle here and there rather than blocking the CPU completely."],
+["IO","In a vectored interrupt scheme, the interrupting device:",["Has no way to identify itself","Supplies the address of its own ISR directly to the CPU","Must be polled to find out which device interrupted","Cannot interrupt during another ISR"],1,"Vectored interrupts let the device supply (or point to) its ISR address, avoiding a software poll to find the source."],
+["IO","The main drawback of programmed (polled) I/O is:",["It cannot detect device errors","The CPU wastes cycles busy-waiting on the device's status flag","It requires a DMA controller","It only works with disk devices"],1,"The CPU must continuously check the status register instead of doing useful work."],
+["IO","Compared to DMA, interrupt-driven I/O:",["Involves the CPU for every single word transferred","Never involves the CPU at all","Is always faster for bulk transfers","Requires no ISR"],0,"In interrupt-driven I/O the CPU handles each unit of data (often word-by-word) via an ISR, unlike DMA which moves whole blocks."],
+["IO","For a very large bulk data transfer (e.g. disk read), the most CPU-efficient method is:",["Programmed I/O","Interrupt-driven I/O","DMA","None — CPU must always be involved"],2,"DMA minimizes CPU overhead by handling the whole block transfer with only one interrupt at completion."],
+["PIPE","The standard 5-stage instruction pipeline order is:",["IF, EX, ID, MEM, WB","IF, ID, EX, MEM, WB","ID, IF, EX, WB, MEM","IF, ID, MEM, EX, WB"],1,"Fetch → Decode → Execute → Memory access → Write back is the classic RISC pipeline order."],
+["PIPE","As the number of instructions n→∞, the theoretical maximum pipeline speedup approaches:",["n","k (number of pipeline stages)","1","n×k"],1,"Speedup = nk/(k+n-1) → k as n grows large — the pipeline depth caps the speedup."],
+["PIPE","A structural hazard commonly occurs when:",["Two instructions need the same hardware resource at the same time","An instruction depends on data not yet computed","A branch outcome isn't known yet","The clock frequency changes"],0,"E.g., a single shared memory port needed by IF and MEM stages of different instructions simultaneously."],
+["PIPE","Forwarding (bypassing) is used to resolve:",["Structural hazards","Data hazards","Control hazards","Cache misses"],1,"Forwarding routes a result directly from EX/MEM stage to a later instruction's EX stage input, without waiting for WB."],
+["PIPE","Branch prediction is a technique to reduce the impact of:",["Structural hazards","Data hazards","Control hazards","Arithmetic overflow"],2,"By guessing the branch outcome early, the pipeline avoids stalling until the branch is actually resolved."],
+["PIPE","If a branch is resolved in the 4th pipeline stage and prediction is not used, how many bubble cycles are typically inserted on a misprediction (5-stage pipeline)?",["1","2","3","4"],2,"If resolution happens in stage 4 (of 5), the 3 instructions fetched in stages 1-3 behind it must be flushed → 3 bubbles."],
+["ISA", "A 32-bit word 0x12345678 is stored at address 100. In a little-endian machine the byte at address 100 is:", ["0x12", "0x78", "0x56", "0x34"], 1, "Little-endian stores the least significant byte at the lowest address (78 at 100, 56 at 101, 34 at 102, 12 at 103). Big-endian would put 0x12 at 100."],
+["MEM", "In a 4-way low-order interleaved memory, the word at address 13 is in bank number:", ["1", "0", "2", "3"], 0, "Low-order interleaving selects the bank with the low address bits: 13 mod 4 = 1. Consecutive addresses fall in consecutive banks, allowing overlapped accesses."],
+["MEM", "In a write-back cache with write-allocate, a store that misses in the cache:", ["Writes only to main memory and leaves the cache unchanged", "Writes to both and sets the valid bit to 0", "Brings the block into the cache and then updates it there", "Is discarded"], 2, "Write-allocate fetches the block on a write miss and then writes into the cache (marking it dirty); no-write-allocate would update memory directly instead."],
+["IO", "In daisy-chain interrupt priority, the device with the highest priority is the one:", ["Farthest from the CPU", "With the largest device number", "That raised its interrupt last", "Closest to the CPU in the chain"], 3, "The acknowledge signal passes through the devices in order; the first requesting device it reaches captures it and blocks the signal for the rest."],
+["IO", "With memory-mapped I/O, a processor accesses device registers using:", ["Ordinary load and store instructions, since the devices share the address space", "Special IN and OUT instructions only", "DMA only", "A separate address bus"], 0, "Device registers occupy part of the memory address space, so no special I/O instructions are needed, at the cost of using up some addresses."],
+["PIPE", "In Flynn's taxonomy, a GPU applying the same instruction to many data elements in lock-step is classified as:", ["SISD", "SIMD", "MISD", "MIMD"], 1, "One instruction stream operating on multiple data streams is SIMD (vector processors and GPU warps follow this model)."],
+["ISA", "On a zero-address (stack) machine, which sequence evaluates (A + B) × C?", ["PUSH A, ADD B, MUL C", "LOAD A, ADD B, MUL C", "PUSH A, PUSH B, ADD, PUSH C, MUL", "PUSH A, PUSH B, PUSH C, ADD, MUL"], 2, "ADD and MUL pop their operands from the top of the stack and push the result, so the postfix form A B + C × is used. The last option would compute A × (B + C)."],
+["MEM", "A TLB miss means that:", ["The translation is not cached; the page table must be consulted, and a page fault happens only if the page is not in memory", "A page fault has certainly occurred", "The page is not in main memory", "The cache block must be written back"], 0, "A TLB miss is a failure to find the translation in a small cache; the page table may still show the page is resident, so no page fault need follow."]
+];
+const MSQ=[["MEM", "Which cache statements are correct?", ["Direct mapping gives one candidate line for a block", "Set associativity gives multiple candidates within a set", "Offset bits depend on block size", "Higher associativity always increases miss rate"], [0, 1, 2], "The first three are correct. Higher associativity does not inherently increase miss rate."], ["PIPE", "Which are standard pipeline hazards?", ["Structural", "Data", "Control", "Syntax"], [0, 1, 2], "Structural, data, and control hazards are the standard categories."]];
+const topics={NS:"Number Systems",ISA:"ISA & Addressing",ALU:"ALU Design",CU:"Control Unit",MEM:"Memory & Cache",IO:"I/O",PIPE:"Pipelining"};
+let filter="ALL",answered=0,correct=0,mode="MCQ";
+function renderMCQ(){
+  const list=document.getElementById('qlist');
+  list.innerHTML="";
+  Q.forEach((item,i)=>{
+    const [t,q,opts,ans,exp]=item;
+    if(filter!=="ALL"&&filter!==t) return;
+    const card=document.createElement('div'); card.className='qcard';
+    card.innerHTML=`<div class="qtag">${topics[t]} · Q${i+1}</div><div class="qtext">${q}</div>`;
+    const order = opts.map((_,i)=>i);
+    for(let k=order.length-1;k>0;k--){
+      const j=Math.floor(Math.random()*(k+1));
+      [order[k],order[j]]=[order[j],order[k]];
+    }
+    order.forEach(oi=>{
+      const o=opts[oi];
+      const b=document.createElement('button'); b.className='opt'; b.textContent=o;
+      b.onclick=()=>{
+        if(b.dataset.done) return;
+        [...card.querySelectorAll('.opt')].forEach(x=>x.dataset.done=1);
+        const buttons=[...card.querySelectorAll('.opt')];
+        const correctPos=order.indexOf(ans);
+        buttons[correctPos].classList.add('correct');
+        if(oi!==ans) b.classList.add('wrong');
+        card.querySelector('.expl').classList.add('show');
+        answered++; if(oi===ans) correct++;
+        document.getElementById('ansCount').textContent=answered;
+        document.getElementById('corrCount').textContent=correct;
+      };
+      card.appendChild(b);
+    });
+    const e=document.createElement('div'); e.className='expl'; e.textContent=exp;
+    card.appendChild(e);
+    list.appendChild(card);
+  });
+}
+
+function renderMSQ(){
+ const list=document.getElementById('qlist'); list.innerHTML='';
+ MSQ.forEach((item,i)=>{
+  const [t,q,opts,ans,exp]=item; if(filter!=="ALL"&&filter!==t)return;
+  const card=document.createElement('div'); card.className='qcard';
+  const tag=document.createElement('div'); tag.className='qtag'; tag.textContent=(topics[t]||t)+' · MSQ'+(i+1); card.appendChild(tag);
+  const qt=document.createElement('div'); qt.className='qtext'; qt.textContent=q; card.appendChild(qt);
+  const hint=document.createElement('div'); hint.className='sub'; hint.textContent='Select all correct options. Scoring is all-or-nothing.'; card.appendChild(hint);
+  const order=[...opts.keys()]; for(let k=order.length-1;k>0;k--){const j=Math.floor(Math.random()*(k+1));[order[k],order[j]]=[order[j],order[k]];}
+  const selected=new Set();
+  order.forEach(orig=>{const b=document.createElement('button');b.className='opt';b.textContent=opts[orig];b.onclick=()=>{if(card.dataset.submitted)return;if(selected.has(orig)){selected.delete(orig);b.classList.remove('selected');}else{selected.add(orig);b.classList.add('selected');}};card.appendChild(b);});
+  const submit=document.createElement('button');submit.className='hy-btn primary';submit.style.marginTop='10px';submit.textContent='Submit MSQ';submit.onclick=()=>{if(card.dataset.submitted||selected.size===0)return;card.dataset.submitted='1';const correctSet=new Set(ans);const ok=selected.size===correctSet.size&&[...selected].every(x=>correctSet.has(x));const buttons=[...card.querySelectorAll('.opt')];buttons.forEach((b,idx)=>{const orig=order[idx];if(correctSet.has(orig))b.classList.add('correct');if(selected.has(orig)&&!correctSet.has(orig))b.classList.add('wrong');b.dataset.done=1;});card.querySelector('.expl').classList.add('show');answered++;if(ok)correct++;document.getElementById('ansCount').textContent=answered;document.getElementById('corrCount').textContent=correct;};card.appendChild(submit);
+  const e=document.createElement('div');e.className='expl';e.textContent=exp;card.appendChild(e);list.appendChild(card);
+ });
+}
+function render(){mode==='MCQ'?renderMCQ():renderMSQ();}
+
+const bar=document.getElementById('qtopics');
+["ALL",...Object.keys(topics)].forEach(t=>{
+  const b=document.createElement('button'); b.textContent=t==="ALL"?"All 58":topics[t];
+  if(t==="ALL")b.classList.add('active');
+  b.onclick=()=>{filter=t; [...bar.children].forEach(x=>x.classList.remove('active')); b.classList.add('active'); render();};
+  bar.appendChild(b);
+});
+function resetQuizScore(total){answered=0;correct=0;document.getElementById('ansCount').textContent='0';document.getElementById('corrCount').textContent='0';const sc=document.getElementById('score');if(sc)sc.innerHTML='Answered <b id="ansCount">0</b>/'+total+' · Correct <b id="corrCount">0</b>';}
+document.getElementById('mcqMode').onclick=()=>{mode='MCQ';resetQuizScore(Q.length);document.getElementById('mcqMode').classList.add('active');document.getElementById('msqMode').classList.remove('active');render();};
+document.getElementById('msqMode').onclick=()=>{mode='MSQ';resetQuizScore(MSQ.length);document.getElementById('msqMode').classList.add('active');document.getElementById('mcqMode').classList.remove('active');render();};
+render();
+</script>
+
+<script>
+(function(){
+  const curatedRapid = [["formula", "Memory interfacing: chips needed = (N×W)/(n×w). Word-size expansion = chips in parallel (same address and CS, data lines concatenated); capacity expansion = chips stacked (high address bits → decoder → CS)."], ["must", "Low address bits go to every chip (one chip\u2019s worth: log₂n bits); the remaining high bits feed a decoder whose outputs are the chip selects. CS is usually active-low."], ["trap", "Partial address decoding leaves unused high bits as don\u2019t-cares, so one chip answers at several address ranges (aliasing). Full decoding gives each location a unique address."], ["must", "Two’s complement represents signed integers; the most significant bit acts as the sign bit."], ["formula", "For n-bit two’s-complement integers, the representable range is -2^{n-1} to 2^{n-1}-1."], ["trap", "Overflow in signed fixed-width arithmetic is distinct from carry out of the most significant bit."], ["must", "Addressing modes determine how an instruction obtains its operand/effective address; distinguish immediate, direct, indirect, register, and indexed forms."], ["formula", "Effective address questions require careful attention to base/index/offset semantics and word vs byte addressing."], ["must", "Cache mapping types: direct-mapped, fully associative, and set-associative."], ["formula", "Address bits = tag + set/index bits + block-offset bits; offset bits = log₂(block size in bytes)."], ["trap", "AMAT depends on hit time and miss penalty; do not treat cache hit rate as the only performance factor."], ["must", "DMA transfers blocks between I/O and memory with limited CPU involvement; interrupts notify the CPU of events."], ["must", "Pipeline hazards: structural, data, and control hazards."], ["gate", "Data hazards include RAW, WAR, and WAW; in a simple in-order pipeline, RAW is the central true dependency hazard."], ["formula", "Pipeline speedup is limited by stage imbalance, register overhead, stalls, and pipeline fill/drain effects."], ["must", "Know branch penalties, forwarding, stalling, and branch prediction at the level required for pipeline traces."] , ["must", "CNF can be built as a conjunction of clauses; DNF as a disjunction of terms. Use truth-table rows when algebra becomes error-prone."], ["gate", "For a finite set, equivalence relations correspond exactly to partitions of the set."], ["must", "Cayley–Hamilton: every square matrix satisfies its own characteristic polynomial; use it to reduce high powers of A."], ["gate", "For binomial X~Bin(n,p): E=np and Var=np(1−p). For Poisson(λ): E=Var=λ."], ["trap", "Zero covariance does not generally imply independence. For independence, factor the joint distribution into marginals."], ["must", "For a connected undirected graph with n−1 edges, the graph is a tree; every tree edge is a bridge."], ["gate", "Use complement for 'at least one', inclusion–exclusion for overlapping cases, and pigeonhole for guaranteed repetition."], ["must", "Convergence-test choice is pattern-driven: ratio/root for factorials and powers; comparison/integral for rational-like terms."] , ["must", "Instruction encoding problems are bit-budget problems: total instruction bits = opcode/function bits + operand/address bits."], ["gate", "Expanding opcode questions are best solved with a prefix-tree/code-space view, not by blindly counting all bit patterns."], ["formula", "AMAT = hit time + miss rate × miss penalty; expand recursively for multi-level caches."], ["must", "For an S-way set-associative cache, number of sets = total cache lines / S."], ["trap", "Endianness changes byte order across addresses; it does not reverse the bit order inside each byte."], ["formula", "CPU time = Instruction Count × CPI × Clock Cycle Time."], ["gate", "Amdahl speedup = 1/[(1−f)+f/s], where f is the original execution-time fraction improved by factor s."], ["must", "Single-bus datapaths serialize bus transfers; multi-bus datapaths can read multiple sources concurrently."], ["trap", "Forwarding does not eliminate every pipeline stall; a load-use RAW hazard may still require a bubble depending on the pipeline."], ["must", "Low-order interleaving maps word address A to bank A mod number_of_banks; high-order interleaving uses higher address bits."], ["gate", "DMA transfers blocks between an I/O device and memory with much less CPU involvement than programmed I/O."], ["must", "Memory-mapped I/O shares the memory address space; isolated I/O uses a separate I/O address space."], ["formula", "Expanding opcode: each level multiplies leftover patterns by 2^(address bits freed). Carry = carry out of the MSB (unsigned); overflow = carry into MSB XOR carry out (signed)."],["must", "Write-back + write-allocate vs write-through + no-write-allocate. Miss types: compulsory, capacity, conflict (none in a fully associative cache)."],["formula", "Multi-level AMAT = t1 + m1·(t2 + m2·t_mem). TLB EMAT (single level) = h·(t_tlb + t_mem) + (1−h)·(t_tlb + 2·t_mem). Disk access = seek + half-rotation + transfer."],["trap", "Only RAW hazards stall a simple in-order pipeline; WAR and WAW need out-of-order execution. A load-use pair still costs 1 stall even with forwarding."],["formula", "Pipeline clock = slowest stage + latch delay. CPI = 1 + branch freq × mispredict rate × penalty. CPU time = IC × CPI × cycle time. Amdahl: 1/((1−f)+f/s)."],["must", "Daisy chain: nearest device has highest priority. DMA modes: burst blocks the CPU, cycle stealing takes one word at a time, transparent uses idle bus cycles. Memory-mapped I/O uses ordinary load/store."],["must", "Single-bus data path needs Y and Z registers (3 steps for R3 ← R1 + R2); three-bus does it in 1 step. Endianness: big-endian stores the most significant byte first."]];
+  const labelDefs = {
+    must: ['🟢 Must Remember','hy-must'],
+    trap: ['🟡 Common Trap','hy-trap'],
+    formula: ['🧮 Formula / Rule','hy-formula'],
+    gate: ['⚠️ GATE Favourite','hy-gate'],
+    shortcut: ['💡 Shortcut','hy-shortcut']
+  };
+
+  function addBadge(el, type){
+    if(!el || el.querySelector(':scope > .hy-badge')) return;
+    const [label, cls] = labelDefs[type];
+    el.classList.add('hy-marked');
+    const b=document.createElement('span');
+    b.className='hy-badge '+cls;
+    b.textContent=label;
+    el.insertBefore(b, el.firstChild);
+    el.dataset.hyType=type;
+  }
+
+  function classifyCards(){
+    document.querySelectorAll('main .card').forEach(el=>{
+      const t=el.textContent.replace(/\s+/g,' ').trim().toLowerCase();
+      if(!t || el.closest('#hyRapidPanel')) return;
+      if(/\b(shortcut|quick trick|handy trick|easy trick)\b/.test(t)) addBadge(el,'shortcut');
+      else if(/\b(formula|identity|identities|range\s*=|det\(|log\s*|o\(|theta\(|n\(|probability formula|equation)\b/.test(t)) addBadge(el,'formula');
+      else if(/\b(theorem|key fact|must remember|remember|important|property|properties|rule of thumb|definition|distinction|difference between|classic)\b/.test(t)) addBadge(el,'must');
+    });
+    document.querySelectorAll('main .warn').forEach(el=>{
+      const t=el.textContent.replace(/\s+/g,' ').trim().toLowerCase();
+      addBadge(el, /gate (angle|trap|strategy|note|convention|favourite|favorite)/.test(t) ? 'gate' : 'trap');
+    });
+    document.querySelectorAll('main .num').forEach(el=>{
+      const t=el.textContent.replace(/\s+/g,' ').trim().toLowerCase();
+      if(/\b(rule of thumb|formula|shortcut|range|identity|key|remember)\b/.test(t)) addBadge(el,'formula');
+    });
+    document.querySelectorAll('main .gq').forEach(el=>addBadge(el,'gate'));
+  }
+
+  function makeToolbar(){
+    if(document.querySelector('.hy-toolbar')) return;
+    const main=document.querySelector('.wrap>main');
+    if(!main) return;
+    const toolbar=document.createElement('div');
+    toolbar.className='hy-toolbar';
+    toolbar.innerHTML=`
+      <div class="hy-toolbar-row">
+        <div>
+          <div class="hy-title">⚡ <span>Revision Layer</span></div>
+          <div class="hy-sub">Use Last-Minute mode for a rapid recall pass before solving PYQs.</div>
+        </div>
+        <div class="hy-actions">
+          <button class="hy-btn primary" id="hyRapidOn">⚡ Last-Minute Revision</button>
+          <button class="hy-btn secondary" id="hyRapidOff">↩ Full Notes</button>
+        </div>
+      </div>
+      <div class="hy-legend">
+        <span class="hy-must">🟢 Must Remember</span>
+        <span class="hy-trap">🟡 Common Trap</span>
+        <span class="hy-formula">🧮 Formula / Rule</span>
+        <span class="hy-gate">⚠️ GATE Favourite</span>
+        <span class="hy-shortcut">💡 Shortcut</span>
+      </div>`;
+    main.insertBefore(toolbar, main.firstElementChild);
+    document.getElementById('hyRapidOn').onclick=()=>{buildRapid(); document.body.classList.add('rapid-mode'); window.scrollTo({top:0,behavior:'smooth'});};
+    document.getElementById('hyRapidOff').onclick=()=>{document.body.classList.remove('rapid-mode'); window.scrollTo({top:0,behavior:'smooth'});};
+  }
+
+  function buildRapid(){
+    let panel=document.getElementById('hyRapidPanel');
+    if(panel) return;
+    panel=document.createElement('section');
+    panel.id='hyRapidPanel';
+    panel.innerHTML='<h1>⚡ Last-Minute Revision</h1><p class="rapid-intro">A manually curated recall pass for the final 15–30 minutes before PYQs. Start here, then switch to the full notes only if a point needs clarification.</p>';
+    const curatedBox=document.createElement('div'); curatedBox.className='rapid-curated';
+    curatedBox.innerHTML='<h2>🎯 High-Yield Recall</h2><p class="rapid-note">These points are intentionally selected for quick GATE-oriented recall.</p>';
+    const groups={must:[],trap:[],formula:[],gate:[],shortcut:[]};
+    curatedRapid.forEach(([type,text])=>groups[type]?.push(text));
+    const labels={must:'🟢 Must Remember',trap:'🟡 Common Trap',formula:'🧮 Formula / Rule',gate:'⚠️ GATE Favourite',shortcut:'💡 Shortcut'};
+    Object.entries(groups).forEach(([type,items])=>{
+      if(!items.length) return;
+      const g=document.createElement('div'); g.className='rapid-group '+type;
+      g.innerHTML='<h3>'+labels[type]+'</h3>';
+      const ul=document.createElement('ul'); items.forEach(x=>{const li=document.createElement('li'); li.textContent=x; ul.appendChild(li);});
+      g.appendChild(ul); curatedBox.appendChild(g);
+    });
+    panel.appendChild(curatedBox);
+    const sourceSections=[...document.querySelectorAll('main>section')].filter(s=>s.id!=='quiz'&&s.id!=='pyq'&&s.id!=='hyRapidPanel');
+    let total=0;
+    sourceSections.forEach(sec=>{
+      const items=[...sec.querySelectorAll(':scope > .card, :scope > .warn, :scope > .num, :scope > .gq')]
+        .filter(el=>el.dataset.hyType);
+      if(!items.length) return;
+      const rs=document.createElement('div'); rs.className='rapid-section';
+      const title=sec.querySelector('h1')?.textContent.trim() || sec.id;
+      rs.innerHTML='<h2>'+escapeHtml(title)+'</h2>';
+      items.forEach(el=>{
+        // Last-minute mode keeps high-yield cards and warnings, plus only explicitly formula/rule numericals.
+        const type=el.dataset.hyType;
+        if(el.classList.contains('num') && type!=='formula') return;
+        const wrap=document.createElement('div'); wrap.className='rapid-source';
+        wrap.appendChild(el.cloneNode(true));
+        rs.appendChild(wrap); total++;
+      });
+      if(rs.children.length>1) panel.appendChild(rs);
+    });
+    if(!total){
+      const e=document.createElement('div'); e.className='rapid-empty'; e.textContent='No high-yield blocks were detected in this subject.'; panel.appendChild(e);
+    }
+    document.querySelector('.wrap>main').appendChild(panel);
+  }
+
+  function escapeHtml(s){return s.replace(/[&<>'"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[c]));}
+  function init(){classifyCards(); makeToolbar();}
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',init); else init();
+})();
+</script>
+
+<script>
+/* Randomise the position of the correct option in each solved problem on every page load,
+   and rewrite the "Correct: Option N" line to match. Problems whose options or explanation
+   refer to other options by position or say "all/none of the above" keep their order. */
+(function(){
+  var PIN=/\b(above|both of these|all of these|none of these|neither of these)\b/i;
+  var POSREF=/\b[Oo]ptions?\s*\(?[1-4A-Da-d]\)?(?![\w-])|\([a-d]\)\s|\bchoice\s*\(?[1-4A-D]\)?/;
+  document.querySelectorAll('.gq').forEach(function(g){
+    var ol=g.querySelector('.gopts'), ans=g.querySelector('.gans'); if(!ol||!ans) return;
+    var m=ans.innerHTML.match(/Option (\d)/); if(!m) return;
+    var lis=Array.prototype.slice.call(ol.children); if(lis.length<2) return;
+    var ci=parseInt(m[1],10)-1; if(ci<0||ci>=lis.length) return;
+    if(lis.some(function(li){return PIN.test(li.textContent)||POSREF.test(li.textContent);})) return;
+    var pre=g.querySelector('pre'); if(pre&&POSREF.test(pre.textContent)) return;
+    if(POSREF.test(ans.textContent.replace(/Option \d/,''))) return;
+    var correct=lis[ci], order=lis.slice();
+    for(var i=order.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=order[i];order[i]=order[j];order[j]=t;}
+    order.forEach(function(li){ol.appendChild(li);});
+    ans.innerHTML=ans.innerHTML.replace(/Option \d/,'Option '+(order.indexOf(correct)+1));
+  });
+})();
+</script>
+<script>
+(function(){
+  document.querySelectorAll('h2[data-tier]').forEach(function(h){
+    var t=h.getAttribute('data-tier'); if(t==='core') return;
+    var el=h.nextElementSibling;
+    while(el && el.tagName!=='H1' && el.tagName!=='H2' && el.tagName!=='SECTION'){
+      el.classList.add(t==='ext'?'tier-ext-body':'tier-hy-body'); el=el.nextElementSibling;
+    }
+  });
+  var seg=document.getElementById('tierSeg'); if(!seg) return;
+  seg.querySelectorAll('button').forEach(function(b){
+    b.onclick=function(){
+      document.body.setAttribute('data-tier-view',b.getAttribute('data-view'));
+      seg.querySelectorAll('button').forEach(function(x){x.classList.toggle('active',x===b);});
+    };
+  });
+})();
+</script>
+<!-- readiness:start -->
+<script>window.__READINESS_CFG__={review:{"NS": {"sec": "numsys", "label": "Number Systems", "h2": ["Floating point"]}, "ISA": {"sec": "isa", "label": "ISA & Addressing", "h2": ["Addressing modes"]}, "ALU": {"sec": "alu", "label": "ALU Design", "h2": ["Booth"]}, "CU": {"sec": "cu", "label": "Control Unit", "h2": ["Two ways"]}, "MEM": {"sec": "mem", "label": "Memory & Cache", "h2": ["How an address maps"]}, "IO": {"sec": "io", "label": "I/O: Interrupts & DMA", "h2": ["DMA"]}, "PIPE": {"sec": "pipe", "label": "Pipelining", "h2": ["Hazards"]}}};</script>
+<script>
+(function(){
+  /* ===== Revision Readiness: turns the quiz into a revision loop ===== */
+  var CFG = window.__READINESS_CFG__ || {};
+  var NAME = (location.pathname.split('/').pop()||'page').replace(/\.html?$/,'');
+  var KEY = 'readiness:'+NAME;
+  var STRONG=75, WEAK=55, MIN_ATT=3;
+  var results = {};             // "Q12" / "MSQ3" -> 1 (correct) | 0 (wrong); latest attempt wins
+  try{ var raw=localStorage.getItem(KEY); if(raw) results=JSON.parse(raw)||{}; }catch(e){}
+  function save(){ try{ localStorage.setItem(KEY, JSON.stringify(results)); }catch(e){} }
+
+  var score=document.getElementById('score'), qlist=document.getElementById('qlist');
+  if(!score||!qlist||typeof Q==='undefined'||typeof topics==='undefined') return;
+
+  // ---- denominators per topic (MCQ + MSQ) ----
+  var totals={}, order=[];
+  function addTotal(arr){ (arr||[]).forEach(function(it){ var k=it[0]; if(!(k in totals)){totals[k]=0;order.push(k);} totals[k]++; }); }
+  addTotal(Q); if(typeof MSQ!=='undefined') addTotal(MSQ);
+  var totalQ=Q.length+(typeof MSQ!=='undefined'?MSQ.length:0);
+  function topicOf(id){
+    var m=/^(MSQ|Q)(\d+)$/.exec(id); if(!m) return null;
+    var arr=(m[1]==='Q')?Q:MSQ; var it=arr[+m[2]-1]; return it?it[0]:null;
+  }
+  function label(k){ return topics[k]||k; }
+
+  // ---- panel ----
+  var panel=document.createElement('div'); panel.id='readiness'; panel.className='rd-panel';
+  score.parentNode.insertBefore(panel, score.nextSibling);
+  var css=document.createElement('style');
+  css.textContent=
+   '.rd-panel{margin:16px 0 22px;padding:16px 18px;border:1px solid var(--border,#242b3a);border-radius:14px;background:linear-gradient(135deg,var(--panel,#12161f),var(--panel2,#181d29));display:none}'+
+   '.rd-panel.show{display:block}'+
+   '.rd-head{display:flex;align-items:baseline;justify-content:space-between;gap:10px;flex-wrap:wrap}'+
+   '.rd-title{font-size:12px;letter-spacing:1px;text-transform:uppercase;font-weight:800;color:var(--accent,#5ee6c8)}'+
+   '.rd-big{font-size:30px;font-weight:800;line-height:1.1;margin:4px 0 0;color:var(--text,#e6e9f0)}'+
+   '.rd-big small{font-size:13px;font-weight:600;color:var(--muted,#93a0b8);margin-left:8px}'+
+   '.rd-verdict{font-size:13px;font-weight:700;padding:4px 10px;border-radius:999px;border:1px solid}'+
+   '.rd-v-good{color:#7ee787;border-color:#7ee78766;background:#7ee78722}.rd-v-mid{color:#ffc978;border-color:#ffb45466;background:#ffb45422}.rd-v-low{color:#ff9b9b;border-color:#ff6b6b66;background:#ff6b6b22}'+
+   '.rd-cov{font-size:12.5px;color:var(--muted,#93a0b8);margin:8px 0 12px}'+
+   '.rd-rows{display:grid;gap:7px;margin:10px 0}'+
+   '.rd-row{display:grid;grid-template-columns:minmax(96px,34%) 1fr 74px;gap:10px;align-items:center;font-size:12.5px}'+
+   '.rd-name{color:var(--text,#e6e9f0);overflow-wrap:anywhere}'+
+   '.rd-bar{height:9px;border-radius:99px;background:#ffffff14;overflow:hidden}'+
+   '.rd-bar i{display:block;height:100%;border-radius:99px}'+
+   '.rd-pct{text-align:right;color:var(--muted,#93a0b8);white-space:nowrap}'+
+   '.rd-sec{margin:14px 0 4px;font-size:13px;color:#c9d1e0;line-height:1.55}'+
+   '.rd-sec b.g{color:#7ee787}.rd-sec b.w{color:#ff9b9b}.rd-sec b.d{color:#ffc978}'+
+   '.rd-rec{margin:14px 0 0;padding:12px 14px;border-left:3px solid var(--accent2,#7c9fff);background:#00000022;border-radius:0 10px 10px 0;font-size:13px;color:#c9d1e0}'+
+   '.rd-rec .t{font-size:11px;letter-spacing:1px;text-transform:uppercase;font-weight:800;color:var(--accent2,#7c9fff);margin-bottom:6px}'+
+   '.rd-rec a{color:var(--accent,#5ee6c8);font-weight:700;text-decoration:none}.rd-rec a:hover{text-decoration:underline}'+
+   '.rd-rec div.l{margin:5px 0}'+
+   '.rd-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}'+
+   '.rd-btn{border:1px solid var(--border,#242b3a);background:var(--panel2,#181d29);color:var(--text,#e6e9f0);padding:8px 12px;border-radius:9px;font-size:12.5px;font-weight:700;cursor:pointer}'+
+   '.rd-btn:hover{border-color:var(--accent2,#7c9fff);color:var(--accent,#5ee6c8)}.rd-btn[disabled]{opacity:.45;cursor:default}'+
+   '.rd-note{font-size:11.5px;color:var(--muted,#93a0b8);margin-top:10px}'+
+   '.qcard.rd-hide{display:none}';
+  document.head.appendChild(css);
+
+  function pct(c,n){ return n? Math.round(100*c/n):0; }
+  function colour(p){ return p>=STRONG?'#7ee787':(p>=WEAK?'#ffc978':'#ff6b6b'); }
+
+  function sectionLink(t){
+    var c=(CFG.review||{})[t]; if(!c) return null;
+    if(c.href) return '<a href="'+c.href+'">'+c.label+'</a>';
+    var sec=document.getElementById(c.sec); if(!sec) return null;
+    var parts=['<a href="#'+c.sec+'">'+c.label+'</a>'];
+    (c.h2||[]).forEach(function(h){
+      var hs=sec.querySelectorAll('h2'); 
+      for(var i=0;i<hs.length;i++){
+        if(hs[i].textContent.replace(/\s+/g,' ').toLowerCase().indexOf(h.toLowerCase())>-1){
+          if(!hs[i].id) hs[i].id=c.sec+'-rd-'+i;
+          parts.push('<a href="#'+hs[i].id+'">'+hs[i].firstChild.textContent.replace(/\s+$/,'')+'</a>'); break;
+        }
+      }
+    });
+    return parts.join(' → ');
+  }
+
+  function build(){
+    var att=0,cor=0,per={};
+    order.forEach(function(k){per[k]={a:0,c:0};});
+    Object.keys(results).forEach(function(id){
+      var k=topicOf(id); if(!k||!per[k]) return;
+      per[k].a++; att++; if(results[id]===1){per[k].c++; cor++;}
+    });
+    if(!att){ panel.className='rd-panel'; return; }
+    var overall=pct(cor,att);
+    var cov=Math.round(100*att/totalQ);
+    var verdict, vcls;
+    if(overall>=80){verdict='Exam-ready here';vcls='rd-v-good';}
+    else if(overall>=65){verdict='Nearly there';vcls='rd-v-mid';}
+    else if(overall>=50){verdict='Needs revision';vcls='rd-v-mid';}
+    else {verdict='Revise before PYQs';vcls='rd-v-low';}
+    var strong=[],weak=[],dev=[],thin=[];
+    order.forEach(function(k){
+      var p=per[k]; if(p.a<MIN_ATT){ thin.push(k); return; }
+      var x=pct(p.c,p.a);
+      if(x>=STRONG) strong.push([k,x]); else if(x<WEAK) weak.push([k,x]); else dev.push([k,x]);
+    });
+    weak.sort(function(a,b){return a[1]-b[1];}); dev.sort(function(a,b){return a[1]-b[1];});
+    var h='<div class="rd-head"><div><div class="rd-title">Revision readiness</div>'+
+      '<div class="rd-big">Revision Score: '+overall+'%<small>'+cor+' / '+att+' answered correctly</small></div></div>'+
+      '<span class="rd-verdict '+vcls+'">'+verdict+'</span></div>';
+    h+='<div class="rd-cov">Coverage: '+att+' of '+totalQ+' questions attempted ('+cov+'%)'+(cov<50?' — provisional; attempt more questions for a reliable reading.':'.')+'</div>';
+    h+='<div class="rd-rows">';
+    order.forEach(function(k){
+      var p=per[k], x=pct(p.c,p.a);
+      h+='<div class="rd-row"><span class="rd-name">'+label(k)+'</span><span class="rd-bar"><i style="width:'+(p.a?x:0)+'%;background:'+(p.a?colour(x):'transparent')+'"></i></span><span class="rd-pct">'+(p.a?x+'% · '+p.c+'/'+p.a:'not tried')+'</span></div>';
+    });
+    h+='</div>';
+    function names(a){return a.map(function(z){return label(z[0])+' ('+z[1]+'%)';}).join(', ');}
+    if(strong.length) h+='<div class="rd-sec"><b class="g">Strong:</b> '+names(strong)+'</div>';
+    if(dev.length) h+='<div class="rd-sec"><b class="d">Developing:</b> '+names(dev)+'</div>';
+    if(weak.length) h+='<div class="rd-sec"><b class="w">Weak:</b> '+names(weak)+'</div>';
+    if(thin.length) h+='<div class="rd-sec" style="color:var(--muted,#93a0b8)">Too few attempts to judge (under '+MIN_ATT+'): '+thin.map(label).join(', ')+'</div>';
+    // recommendation
+    var focus=weak.concat(dev).slice(0,3), lines=[];
+    focus.forEach(function(z){ var l=sectionLink(z[0]); if(l) lines.push('<div class="l">Review → '+l+'</div>'); });
+    var pyq=document.getElementById('pyq');
+    h+='<div class="rd-rec"><div class="t">Recommendation</div>';
+    if(lines.length){
+      h+=lines.join('')+'<div class="l">Then retry the questions you missed, and after that'+(pyq?' attempt the <a href="#pyq">solved PYQ-style problems</a>':' attempt PYQs')+'.</div>';
+    } else if(thin.length&&!strong.length){
+      h+='<div class="l">Answer a few more questions in each topic to get a reliable reading.</div>';
+    } else {
+      h+='<div class="l">No weak topics so far. Move on to '+(pyq?'<a href="#pyq">the PYQ-style problems</a>':'PYQs')+'.'+(cov<60?' Cover the untried topics first for a trustworthy score.':'')+'</div>';
+    }
+    h+='</div>';
+    var missed=Object.keys(results).filter(function(id){return results[id]===0;});
+    h+='<div class="rd-actions"><button class="rd-btn" id="rdRetry"'+(missed.length?'':' disabled')+'>Retry missed ('+missed.length+')</button><button class="rd-btn" id="rdReset">Reset results</button></div>';
+    h+='<div class="rd-note">Scores are saved in this browser. A question\'s latest attempt counts, so re-answering a missed question updates the report. The sub-heading shown is the highest-yield part of a weak topic. Topic labels need at least '+MIN_ATT+' attempts: Strong ≥ '+STRONG+'%, Weak &lt; '+WEAK+'%.</div>';
+    panel.innerHTML=h; panel.className='rd-panel show';
+    var r=document.getElementById('rdRetry'); if(r) r.onclick=retry;
+    var z=document.getElementById('rdReset'); if(z) z.onclick=function(){ if(confirm('Clear saved quiz results for this subject?')){results={};save();build();} };
+  }
+
+  function currentMode(){ try{ return (typeof mode!=='undefined')?mode:'MCQ'; }catch(e){ return 'MCQ'; } }
+  function retry(){
+    var m=currentMode(), pre=(m==='MSQ')?'MSQ':'Q';
+    var missed=Object.keys(results).filter(function(id){return results[id]===0 && id.indexOf(pre)===0 && (pre==='MSQ'||id.indexOf('MSQ')!==0);});
+    if(!missed.length){
+      // missed questions exist only in the other mode
+      var other=(m==='MSQ')?'mcqMode':'msqMode', b=document.getElementById(other); if(b) b.click();
+      pre=(pre==='Q')?'MSQ':'Q';
+      missed=Object.keys(results).filter(function(id){return results[id]===0 && (pre==='MSQ'?id.indexOf('MSQ')===0:/^Q\d/.test(id));});
+    }
+    if(typeof filter!=='undefined'){ try{ filter='ALL'; }catch(e){} }
+    var all=document.querySelector('#qtopics button'); if(all) all.click();   // re-renders with ALL
+    var set={}; missed.forEach(function(id){set[id]=1;});
+    var shown=0;
+    qlist.querySelectorAll('.qcard').forEach(function(c){
+      var t=c.querySelector('.qtag'); var mm=t&&/·\s*(MSQ|Q)(\d+)/.exec(t.textContent);
+      var id=mm?mm[1]+mm[2]:null;
+      if(id&&set[id]){shown++;} else c.classList.add('rd-hide');
+    });
+    qlist.scrollIntoView({behavior:'smooth',block:'start'});
+  }
+
+  // ---- capture answers: after each click, read the card's final state ----
+  function outcome(card, id){
+    if(!card.querySelector('.expl.show')) return null;            // not answered/submitted yet
+    if(card.querySelector('.opt.wrong')) return 0;
+    if(id.indexOf('MSQ')===0){                                      // a missed correct option is not marked wrong
+      var cs=card.querySelectorAll('.opt.correct');
+      for(var i=0;i<cs.length;i++) if(!cs[i].classList.contains('selected')) return 0;
+    }
+    return 1;
+  }
+  qlist.addEventListener('click',function(e){
+    var card=e.target.closest&&e.target.closest('.qcard'); if(!card) return;
+    setTimeout(function(){
+      var t=card.querySelector('.qtag'); var mm=t&&/·\s*(MSQ|Q)(\d+)/.exec(t.textContent); if(!mm) return;
+      var id=mm[1]+mm[2], r=outcome(card,id);
+      if(r===null) return;
+      if(card.dataset.rdRecorded) return; card.dataset.rdRecorded='1';
+      results[id]=r; save(); build();
+    },0);
+  },true);
+
+  build();
+})();
+
+</script>
+<!-- readiness:end -->
+<script id="ux-fix-v11-js">
+(function(){
+  var nav=document.getElementById('side'); if(!nav) return;
+  var scrim=document.createElement('div'); scrim.id='navScrim'; document.body.appendChild(scrim);
+  var fab=document.createElement('button'); fab.id='navFab'; fab.type='button'; fab.setAttribute('aria-label','Topics'); fab.textContent='\u2630';
+  fab.addEventListener('click',function(){ nav.classList.toggle('open'); });
+  document.body.appendChild(fab);
+  function sync(){ document.body.classList.toggle('nav-open', nav.classList.contains('open')); }
+  new MutationObserver(sync).observe(nav,{attributes:true,attributeFilter:['class']});
+  function close(){ nav.classList.remove('open'); }
+  function outside(e){
+    if(!nav.classList.contains('open')) return;
+    var t=e.target; if(!t||!t.closest) return;
+    if(t.closest('#menuBtn')||t.closest('#navFab')) return;                  // button handles its own toggle
+    if(!t.closest('#side') || (e.type==='click' && t.closest('#side a'))) close();
+  }
+  document.addEventListener('pointerdown',outside,true);
+  document.addEventListener('touchstart',outside,{capture:true,passive:true});
+  document.addEventListener('click',outside,true);
+  scrim.addEventListener('click',close);
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape') close(); });
+})();
+</script>
+<script id="fmt-v12-js">
+(function(){
+  var EQ=/[=≤≥⇔→⇒≠≈∑Σπ⌈⌊]|\^|_\{|\bO\(|\blog\b|\bmod\b/;
+  function esc(s){return s.replace(/[&<>]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;'}[c];});}
+  function fmtItem(li,isFormula){
+    if(li.dataset.fmt) return; li.dataset.fmt='1';
+    var t=li.textContent.trim(), label='', body=t;
+    var m=t.match(/^([^:=]{2,44}?):\s+([\s\S]+)$/);
+    if(m && m[1].split(/\s+/).length<=6){label=m[1];body=m[2];}
+    var html='';
+    if(label) html+='<span class="rg-label">'+esc(label)+'</span>';
+    if(isFormula){
+      var parts=body.split(/;\s+|\.\s+(?=[A-Z])/).map(function(x){return x.trim();}).filter(Boolean);
+      parts.forEach(function(x,i){
+        var last=(i===parts.length-1);
+        var txt=x; if(!/[.!?)]$/.test(txt) && !last) txt=x; 
+        var prose=(x.match(/\b[a-z]{4,}\b/g)||[]).length; var isEq=EQ.test(x)&&(prose<=3||(/[=≤≥⇔]/.test(x)&&x.length<=70));
+        html+='<span class="'+(isEq?'rg-eq':'rg-txt')+'">'+esc(x)+'</span>';
+      });
+    } else {
+      html+='<span class="rg-body">'+esc(body)+'</span>';
+    }
+    li.innerHTML=html;
+  }
+  function enhance(panel){
+    if(panel.dataset.fmt) return; panel.dataset.fmt='1';
+    var groups=panel.querySelectorAll('.rapid-group'), chips=[];
+    groups.forEach(function(g,i){
+      var type=(g.className.match(/\b(must|trap|formula|gate|shortcut)\b/)||[])[1]; if(!type) return;
+      g.id='rg-'+type;
+      var items=g.querySelectorAll('li');
+      items.forEach(function(li){fmtItem(li,type==='formula');});
+      var h=g.querySelector('h3'); var c=document.createElement('span'); c.className='rg-count'; c.textContent=items.length; h.appendChild(c);
+      chips.push('<a href="#rg-'+type+'">'+h.firstChild.textContent.trim()+' <b>'+items.length+'</b></a>');
+    });
+    if(chips.length){
+      var j=document.createElement('nav'); j.className='rapid-jump'; j.setAttribute('aria-label','Jump to group'); j.innerHTML=chips.join('');
+      var cur=panel.querySelector('.rapid-curated'); if(cur){var note=cur.querySelector('.rapid-note'); (note||cur.firstChild).insertAdjacentElement('afterend',j);}
+      j.addEventListener('click',function(e){var a=e.target.closest('a'); if(!a) return; e.preventDefault();
+        var el=document.querySelector(a.getAttribute('href')); if(el) el.scrollIntoView({behavior:'smooth',block:'start'});});
+    }
+  }
+  function check(){var p=document.getElementById('hyRapidPanel'); if(p) enhance(p);}
+  var main=document.querySelector('.wrap>main'); if(main){ new MutationObserver(check).observe(main,{childList:true}); }
+  check();
+})();
+</script>
+<a id="homeFab" href="index.html" aria-label="Back to Study Hub">🏠</a>
+<!-- gatetest:start -->
+<script src="gate-test.js"></script>
+<script>(function(){var a=document.getElementById("qtopics");if(a&&window.GateTest)GateTest.mountLauncher("coa",a);})();</script>
+<!-- gatetest:end -->
+<!-- pwa-reg:start -->
+<script>if('serviceWorker' in navigator&&(location.protocol==='https:'||location.hostname==='localhost'||location.hostname==='127.0.0.1')){window.addEventListener('load',function(){navigator.serviceWorker.register('sw.js').catch(function(){});});}</script>
+<!-- pwa-reg:end -->
+</body>
+</html>

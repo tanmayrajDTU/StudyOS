@@ -1,0 +1,1834 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Digital Logic for GATE CSE 2027</title>
+<style>
+:root{
+  --bg:#0b0e14; --panel:#12161f; --panel2:#181d29; --border:#242b3a;
+  --text:#e6e9f0; --muted:#93a0b8; --accent:#5ee6c8; --accent2:#7c9fff;
+  --warn:#ffb454; --good:#7ee787; --code-bg:#0d1420;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){ } }
+*{box-sizing:border-box}
+html{scroll-padding-top:calc(64px + env(safe-area-inset-top,0px));height:100%}
+body{
+  margin:0;height:100%;background:var(--bg);color:var(--text);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  line-height:1.55;
+}
+a{color:var(--accent2)}
+header{
+  position:sticky;top:0;z-index:20;
+  padding:calc(14px + env(safe-area-inset-top,0px)) 16px 14px;
+  background:rgba(11,14,20,0.9);backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--border);
+  display:flex;align-items:center;gap:10px;justify-content:space-between;
+}
+header .title{font-weight:700;font-size:15px;letter-spacing:.2px}
+header .title span{color:var(--accent)}
+#menuBtn{display:none;background:var(--panel2);border:1px solid var(--border);color:var(--text);
+  padding:8px 12px;border-radius:8px;font-size:13px}
+.wrap{display:flex;max-width:1280px;margin:0 auto}
+nav#side{
+  width:250px;flex:none;padding:18px 12px;position:sticky;
+  top:calc(58px + env(safe-area-inset-top,0px));
+  height:calc(100vh - 58px - env(safe-area-inset-top,0px));
+  overflow-y:auto;border-right:1px solid var(--border);
+}
+nav#side .grp{margin-bottom:14px}
+nav#side .grp-title{font-size:11px;text-transform:uppercase;letter-spacing:1px;color:var(--muted);margin:10px 6px 6px}
+nav#side a{
+  display:block;padding:7px 10px;border-radius:8px;color:var(--muted);text-decoration:none;font-size:13.5px;
+}
+nav#side a:hover{background:var(--panel2);color:var(--text)}
+nav#side a.soon{opacity:.45;font-style:italic}
+main{flex:1;min-width:0;padding:28px 22px 80px}
+section{max-width:820px;margin:0 auto 64px;scroll-margin-top:70px}
+section h1{font-size:26px;margin:0 0 6px;color:var(--accent)}
+section h2{font-size:20px;margin:38px 0 10px;color:var(--accent2);border-bottom:1px solid var(--border);padding-bottom:8px}
+section h3{font-size:16px;margin:22px 0 8px;color:var(--text)}
+p{color:#c9d1e0}
+.sub{color:var(--muted);font-size:14px;margin-bottom:20px}
+.card{
+  background:var(--panel);border:1px solid var(--border);border-radius:12px;
+  padding:16px 18px;margin:14px 0;
+}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media (max-width:720px){.grid2{grid-template-columns:1fr}}
+.num{
+  border-left:3px solid var(--accent);background:var(--panel2);
+  padding:14px 16px;border-radius:0 10px 10px 0;margin:16px 0;
+}
+.num .tag{font-size:11px;color:var(--accent);text-transform:uppercase;letter-spacing:1px;font-weight:700}
+.warn{border-left:3px solid var(--warn);background:#1c1810;padding:12px 16px;border-radius:0 10px 10px 0;margin:14px 0}
+.warn .tag{color:var(--warn);font-size:11px;text-transform:uppercase;letter-spacing:1px;font-weight:700}
+code,.mono{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;background:var(--code-bg);
+  padding:2px 6px;border-radius:5px;font-size:13px;color:var(--good)}
+pre{background:var(--code-bg);padding:12px 14px;border-radius:8px;overflow-x:auto;border:1px solid var(--border)}
+table{border-collapse:collapse;width:100%;margin:12px 0;font-size:13.5px}
+th,td{border:1px solid var(--border);padding:8px 10px;text-align:left}
+th{background:var(--panel2);color:var(--accent2)}
+tr:nth-child(even){background:#10141d}
+.bitfield{display:flex;font-family:ui-monospace,monospace;font-size:12px;overflow-x:auto;margin:14px 0}
+.bit{border:1px solid var(--border);padding:10px 4px;text-align:center;flex:none;min-width:26px}
+.bit.hdr{background:var(--panel2);color:var(--muted);border-bottom:none}
+.bfrow{display:flex}
+.bf-label{padding:8px 10px;font-size:12px;color:#0b0e14;font-weight:700;text-align:center;flex:none}
+.pill{display:inline-block;padding:3px 10px;border-radius:999px;font-size:11.5px;font-weight:700;margin-right:6px}
+.pill.s{background:#ff6b6b33;color:#ff9b9b}
+.pill.e{background:#7c9fff33;color:#9fb6ff}
+.pill.m{background:#5ee6c833;color:#8ff0da}
+.addr-flow{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:14px 0;font-size:13px}
+.addr-flow .box{background:var(--panel2);border:1px solid var(--border);border-radius:8px;padding:8px 12px}
+.addr-flow .arrow{color:var(--accent);font-weight:700}
+footer{border-top:1px solid var(--border);text-align:center;color:var(--muted);font-size:12.5px;padding:30px 16px}
+::-webkit-scrollbar{width:9px;height:9px}
+::-webkit-scrollbar-thumb{background:var(--border);border-radius:6px}
+@media (max-width:860px){
+  nav#side{position:fixed;left:0;top:calc(58px + env(safe-area-inset-top,0px));
+    height:calc(100vh - 58px - env(safe-area-inset-top,0px));
+    background:var(--bg);z-index:15;transform:translateX(-105%);transition:transform .2s;width:230px}
+  nav#side.open{transform:translateX(0)}
+  #menuBtn{display:inline-block}
+}
+.qtopics{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0 20px;position:sticky;top:58px;background:var(--bg);padding:8px 0;z-index:5}
+.qtopics button{background:var(--panel2);border:1px solid var(--border);color:var(--muted);padding:6px 13px;
+  border-radius:999px;font-size:12.5px;cursor:pointer}
+.qtopics button.active{background:var(--accent);color:#062019;border-color:var(--accent);font-weight:700}
+#score{font-size:13px;color:var(--muted);margin-bottom:16px}
+#score b{color:var(--accent)}
+.qcard{background:var(--panel);border:1px solid var(--border);border-radius:12px;padding:16px;margin:12px 0}
+.qcard .qtag{font-size:10.5px;color:var(--accent2);text-transform:uppercase;letter-spacing:.5px;font-weight:700}
+.qcard .qtext{margin:6px 0 12px;font-size:14.5px}
+.opt{display:block;width:100%;text-align:left;background:var(--panel2);border:1px solid var(--border);
+  color:var(--text);padding:9px 12px;border-radius:8px;margin:6px 0;cursor:pointer;font-size:13.5px}
+.opt:hover{border-color:var(--accent2)}
+.opt.correct{background:#123322;border-color:var(--good);color:var(--good)}
+.opt.wrong{background:#331414;border-color:#ff6b6b;color:#ff9b9b}
+.opt[disabled]{cursor:default}
+.expl{display:none;margin-top:10px;font-size:13px;color:var(--muted);background:var(--code-bg);
+  padding:10px 12px;border-radius:8px;border:1px solid var(--border)}
+.gq{border-left:3px solid var(--accent2);background:var(--panel2);padding:16px 18px;border-radius:0 10px 10px 0;margin:20px 0}
+.gq .gtag{font-size:11px;color:var(--accent2);text-transform:uppercase;letter-spacing:1px;font-weight:700}
+.gq .gopts{margin:10px 0;padding-left:18px;color:#c9d1e0;font-size:13.5px}
+.gq .gopts li{margin:3px 0}
+.gq .gans{color:var(--good);font-weight:700}
+.expl.show{display:block}
+.grid2>*{min-width:0;overflow-x:auto}
+
+/* ===== High-yield revision system ===== */
+.hy-toolbar{
+  max-width:820px;margin:0 auto 28px;padding:14px 16px;
+  background:linear-gradient(135deg,var(--panel),var(--panel2));
+  border:1px solid var(--border);border-radius:14px;
+}
+.hy-toolbar-row{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.hy-title{font-weight:800;color:var(--text);font-size:14px}
+.hy-title span{color:var(--accent)}
+.hy-sub{color:var(--muted);font-size:12.5px;margin-top:4px}
+.hy-actions{display:flex;gap:8px;flex-wrap:wrap}
+.hy-btn{border:1px solid var(--border);background:var(--panel2);color:var(--text);padding:8px 12px;border-radius:9px;font-size:12.5px;font-weight:700;cursor:pointer}
+.hy-btn:hover{border-color:var(--accent2);color:var(--accent)}
+.hy-btn.primary{background:var(--accent);color:#062019;border-color:var(--accent)}
+.hy-legend{display:flex;flex-wrap:wrap;gap:7px;margin-top:12px}
+.hy-legend span,.hy-badge{display:inline-flex;align-items:center;gap:4px;padding:3px 8px;border-radius:999px;font-size:10.5px;font-weight:800;letter-spacing:.15px}
+.hy-must{background:#7c9fff22;color:#9fb6ff;border:1px solid #7c9fff55}
+.hy-trap{background:#ffb45422;color:#ffc978;border:1px solid #ffb45455}
+.hy-formula{background:#5ee6c822;color:#8ff0da;border:1px solid #5ee6c855}
+.hy-gate{background:#ff6b6b22;color:#ff9b9b;border:1px solid #ff6b6b55}
+.hy-shortcut{background:#c792ea22;color:#dcb7f7;border:1px solid #c792ea55}
+.hy-marked{position:relative}
+.hy-marked>.hy-badge{margin-bottom:8px}
+.hy-rapid-overlay{display:none}
+body.rapid-mode .hy-rapid-overlay{display:block}
+body.rapid-mode .wrap>main>section:not(#hyRapidPanel){display:none}
+body.rapid-mode .wrap>main{padding-top:18px}
+body.rapid-mode nav#side{opacity:.55}
+body.rapid-mode .hy-toolbar{position:sticky;top:58px;z-index:10}
+#hyRapidPanel{max-width:820px}
+#hyRapidPanel h1{margin-bottom:5px}
+#hyRapidPanel .rapid-intro{margin:0 0 24px;color:var(--muted);font-size:13px}
+.rapid-section{margin:0 0 34px}
+.rapid-section h2{font-size:18px;margin:0 0 12px;color:var(--accent2);border-bottom:1px solid var(--border);padding-bottom:8px}
+.rapid-empty{color:var(--muted);font-size:13px;background:var(--panel);border:1px dashed var(--border);padding:12px 14px;border-radius:10px}
+.rapid-source{margin:0 0 12px}
+.rapid-source .hy-badge{display:inline-flex;margin-bottom:8px}
+body.rapid-mode .hy-toolbar .hy-btn.primary{display:none}
+body:not(.rapid-mode) .hy-toolbar .hy-btn.secondary{display:none}
+@media(max-width:720px){
+  .hy-toolbar-row{align-items:flex-start}.hy-actions{width:100%}.hy-btn{flex:1}
+  body.rapid-mode .hy-toolbar{top:58px}
+}
+
+
+/* Second-pass curated high-yield revision layer */
+.rapid-curated{margin:18px 0 28px;padding:20px;border:1px solid var(--border,#334155);border-radius:16px;background:rgba(15,23,42,.45)}
+.rapid-curated>h2{margin:0 0 4px}.rapid-note{margin:0 0 16px;opacity:.72}
+.rapid-group{margin:14px 0;padding:14px 16px;border-radius:12px;border-left:4px solid #64748b;background:rgba(255,255,255,.025)}
+.rapid-group h3{margin:0 0 8px;font-size:1rem}.rapid-group ul{margin:0;padding-left:20px}.rapid-group li{margin:7px 0;line-height:1.55}
+.rapid-group.must{border-left-color:#22c55e}.rapid-group.trap{border-left-color:#eab308}.rapid-group.formula{border-left-color:#38bdf8}.rapid-group.gate{border-left-color:#f97316}.rapid-group.shortcut{border-left-color:#a78bfa}
+@media(max-width:700px){.rapid-curated{padding:14px}.rapid-group{padding:12px}}
+@media (max-width:640px){table{display:block;max-width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch}.card,.num,.warn,p,li{overflow-wrap:break-word}td,th{overflow-wrap:normal;word-break:normal}}
+</style>
+<style id="ux-fix-v11">
+html,body{height:auto!important;min-height:100%}
+#navScrim{cursor:pointer;-webkit-tap-highlight-color:transparent}
+
+/* v11: no sticky banners in the reading/quiz flow; tap-outside closes the topics drawer */
+.qtopics{position:static!important;top:auto!important}
+body.rapid-mode .hy-toolbar{position:static!important;top:auto!important}
+#navScrim{display:none}
+@media (max-width:860px){
+  body.nav-open #navScrim{display:block;position:fixed;left:0;right:0;bottom:0;top:calc(58px + env(safe-area-inset-top,0px));background:rgba(0,0,0,.45);z-index:14}
+}
+@media (max-width:860px){
+  header{position:static!important}
+  html{scroll-padding-top:12px!important}
+  nav#side{top:0!important;height:100%!important;padding-top:calc(18px + env(safe-area-inset-top,0px))!important}
+  body.nav-open #navScrim{top:0!important}
+  #navFab{position:fixed;left:12px;bottom:calc(14px + env(safe-area-inset-bottom,0px));z-index:16;width:42px;height:42px;border-radius:50%;
+    border:1px solid var(--border);background:rgba(23,28,40,.92);color:var(--text);font-size:19px;line-height:1;opacity:.9;
+    box-shadow:0 2px 10px rgba(0,0,0,.45);cursor:pointer;-webkit-tap-highlight-color:transparent}
+}
+@media (min-width:861px){#navFab{display:none}}
+</style>
+<style id="fmt-v12">
+/* v12 readability revamp — formatting only, content untouched */
+:root{--rg-must:#22c55e;--rg-trap:#eab308;--rg-formula:#38bdf8;--rg-gate:#f97316;--rg-shortcut:#a78bfa}
+body.rapid-mode .wrap>main{padding-left:clamp(14px,4vw,32px);padding-right:clamp(14px,4vw,32px)}
+#hyRapidPanel{max-width:760px;margin:0 auto}
+#hyRapidPanel>h1{font-size:clamp(22px,6vw,28px);line-height:1.25;margin:4px 0 8px}
+#hyRapidPanel .rapid-intro{font-size:14.5px;line-height:1.65;margin:0 0 18px}
+
+/* jump chips */
+.rapid-jump{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 22px}
+.rapid-jump a{display:inline-flex;align-items:center;gap:6px;padding:8px 12px;border-radius:999px;font-size:13px;font-weight:700;text-decoration:none;
+  color:var(--text);background:var(--panel2);border:1px solid var(--border)}
+.rapid-jump a b{font-weight:800;opacity:.7}
+
+/* curated block: flat, no box-in-box */
+.rapid-curated{margin:0 0 34px!important;padding:0!important;border:0!important;background:none!important;border-radius:0!important}
+.rapid-curated>h2{font-size:20px;margin:0 0 4px!important;color:var(--text)}
+.rapid-note{font-size:13.5px;line-height:1.6;margin:0 0 6px!important}
+.rapid-group{margin:26px 0 0!important;padding:0!important;border:0!important;background:none!important;scroll-margin-top:12px}
+.rapid-group h3{display:flex;align-items:center;gap:8px;margin:0 0 12px!important;padding-bottom:10px;font-size:14px!important;font-weight:800;
+  letter-spacing:.6px;text-transform:uppercase;border-bottom:2px solid var(--gc,#64748b);color:var(--gc,var(--text))}
+.rapid-group h3 .rg-count{margin-left:auto;font-size:12px;font-weight:800;letter-spacing:0;text-transform:none;padding:2px 9px;border-radius:999px;
+  background:var(--gc,#64748b);color:#0b0e14}
+.rapid-group.must{--gc:var(--rg-must)}.rapid-group.trap{--gc:var(--rg-trap)}.rapid-group.formula{--gc:var(--rg-formula)}
+.rapid-group.gate{--gc:var(--rg-gate)}.rapid-group.shortcut{--gc:var(--rg-shortcut)}
+.rapid-group ul{list-style:none!important;margin:0!important;padding:0!important;display:grid;gap:12px}
+.rapid-group li{margin:0!important;padding:14px 16px;background:var(--panel);border:1px solid var(--border);border-left:4px solid var(--gc,#64748b);
+  border-radius:12px;font-size:15.5px;line-height:1.7;color:var(--text);overflow-wrap:anywhere}
+.rg-label{display:block;margin:0 0 6px;font-size:15px;font-weight:800;line-height:1.35;color:var(--gc,var(--text))}
+.rg-body{display:block;color:#d3d9e6}
+.rg-line{display:block}.rg-line+.rg-line{margin-top:8px}
+.rg-eq{display:block;margin:8px 0 0;padding:10px 12px;border-radius:9px;background:#0a1220;border:1px solid #1d3350;
+  font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:14px;line-height:1.65;color:#8fd8ff;overflow-x:auto;white-space:pre-wrap;overflow-wrap:anywhere}
+.rg-txt{display:block;margin:8px 0 0;color:#d3d9e6}
+.rg-label+.rg-eq,.rg-label+.rg-txt,.rapid-group li>.rg-eq:first-child,.rapid-group li>.rg-txt:first-child{margin-top:0}
+
+/* per-topic cloned cards: roomier, clearer hierarchy */
+.rapid-section{margin:0 0 40px!important}
+.rapid-section h2{font-size:clamp(18px,5vw,22px)!important;line-height:1.3;margin:0 0 16px!important;padding:12px 14px!important;border:1px solid var(--border)!important;
+  border-left:4px solid var(--accent2)!important;border-radius:12px;background:var(--panel)}
+.rapid-source{margin:0 0 14px!important}
+.rapid-source>*{margin:0!important;padding:16px!important;border-radius:14px!important;font-size:15.5px;line-height:1.75;overflow-wrap:anywhere}
+.rapid-source .hy-badge{margin-bottom:10px!important}
+.rapid-source p{margin:0 0 10px;line-height:1.75}.rapid-source p:last-child{margin-bottom:0}
+.rapid-source ul,.rapid-source ol{padding-left:22px;margin:8px 0}.rapid-source li{margin:6px 0;line-height:1.7}
+.rapid-source b,.rapid-source strong{color:#fff}
+.rapid-source code{font-size:.92em;padding:2px 6px;border-radius:6px}
+.rapid-source pre{padding:12px;border-radius:10px;overflow-x:auto;font-size:13.5px;line-height:1.6}
+.rapid-source table{display:block;overflow-x:auto;max-width:100%}
+.rapid-source td,.rapid-source th{padding:8px 10px;line-height:1.55}
+
+/* notes mode: gentle readability lift */
+@media (max-width:700px){
+  main .card,main .warn,main .num{padding:16px!important}
+  main p,main li{line-height:1.75}
+  main section>p{margin:0 0 14px}
+}
+</style>
+<style id="theme-v13">
+/* v13 premium dark + colour theme — visual layer only */
+:root{
+  --bg:#070916;--panel:#0f1330;--panel2:#161b3f;--border:#2a3166;--text:#eef1ff;--muted:#9ea8d4;
+  --accent:#4ff0d0;--accent2:#8aa4ff;--warn:#ffb454;--good:#6ef0a0;--code-bg:#0a1030;
+  --green:#7af0ae;--yellow:#ffe08a;--red:#ff9aa8;--purple:#c9a8ff;
+  --glow-a:#7c5cff;--glow-b:#19d3ff;--glow-c:#ff4fa3;
+}
+html{background:#070916}
+body{background:transparent!important;color:var(--text)}
+body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;
+  background:
+   radial-gradient(60% 40% at 8% 0%,rgba(124,92,255,.28),transparent 70%),
+   radial-gradient(50% 35% at 100% 6%,rgba(25,211,255,.18),transparent 70%),
+   radial-gradient(60% 40% at 50% 100%,rgba(255,79,163,.14),transparent 70%),
+   #070916}
+::selection{background:rgba(124,92,255,.55);color:#fff}
+
+/* header */
+header,.top{background:linear-gradient(180deg,rgba(14,18,48,.92),rgba(9,11,30,.86))!important;
+  -webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);border-bottom:1px solid transparent!important;
+  border-image:linear-gradient(90deg,#7c5cff,#19d3ff,#ff4fa3) 1;box-shadow:0 6px 24px rgba(0,0,0,.35)}
+header h1 span,.top h1 span,header .hl,.top .hl{background:linear-gradient(90deg,#4ff0d0,#8aa4ff,#d28bff);-webkit-background-clip:text;background-clip:text;color:transparent!important}
+
+/* headings */
+main h2,.wrap h2{background:linear-gradient(90deg,#9db4ff,#c9a8ff 55%,#ff9ad0);-webkit-background-clip:text;background-clip:text;color:transparent;
+  border-bottom:1px solid transparent!important;border-image:linear-gradient(90deg,rgba(138,164,255,.6),rgba(255,79,163,.25),transparent) 1}
+main h3{color:#8fe9ff}
+
+/* surfaces: glass panels */
+.card,.warn,.num,.hy-panel,.hy-toolbar,.rapid-curated,table,.q,.qcard,.sol,details,.callout,.box{
+  background:linear-gradient(150deg,rgba(32,38,88,.62),rgba(14,17,42,.9))!important;
+  border-top-color:rgba(138,150,255,.2)!important;border-right-color:rgba(138,150,255,.2)!important;border-bottom-color:rgba(138,150,255,.2)!important;box-shadow:0 10px 30px rgba(3,4,18,.45),inset 0 1px 0 rgba(255,255,255,.06)}
+.hy-toolbar{border-radius:16px}
+.hy-toolbar h3,.hy-toolbar strong{background:linear-gradient(90deg,#4ff0d0,#8aa4ff);-webkit-background-clip:text;background-clip:text;color:transparent}
+
+/* nav drawer */
+nav#side,.side{background:linear-gradient(180deg,rgba(18,22,58,.97),rgba(9,11,30,.98))!important;border-color:rgba(138,150,255,.2)!important}
+nav#side a.active,.side a.active,nav#side a:hover,.side a:hover{background:linear-gradient(90deg,rgba(124,92,255,.35),rgba(25,211,255,.14))!important;color:#fff!important;border-radius:10px}
+nav#side .grp,.side .grp,nav#side h4,.side h4{color:#c9a8ff!important}
+
+/* buttons */
+.hy-btn{background:rgba(26,31,72,.9);border-color:rgba(138,150,255,.3)}
+.hy-btn:hover{border-color:#8aa4ff;box-shadow:0 0 0 3px rgba(124,92,255,.22);color:#fff}
+.hy-btn.primary,.btn.primary,button.primary{background:linear-gradient(90deg,#19d3ff,#7c5cff 60%,#ff4fa3)!important;color:#fff!important;border:0!important;
+  box-shadow:0 6px 20px rgba(124,92,255,.45)}
+#navFab{background:linear-gradient(135deg,#7c5cff,#19d3ff)!important;color:#fff!important;border:0!important;box-shadow:0 8px 22px rgba(124,92,255,.55)!important;opacity:1!important}
+#menuBtn{background:rgba(26,31,72,.9)!important;border-color:rgba(138,150,255,.35)!important}
+
+/* code & equations */
+code,pre{background:#0a1030!important;color:#8ff5e2;border:1px solid rgba(79,240,208,.18)}
+.rg-eq,.card p>code:only-child{background:linear-gradient(135deg,#0a1436,#0d0f2e)!important;border-color:rgba(25,211,255,.35)!important;color:#9af2ff!important;
+  box-shadow:inset 0 0 0 1px rgba(25,211,255,.06)}
+
+/* last-minute groups: tinted by their colour */
+.rapid-group li{background:linear-gradient(135deg,color-mix(in srgb,var(--gc) 14%,#12163a),#0d1030 70%)!important;border-top-color:color-mix(in srgb,var(--gc) 30%,#262d62)!important;border-right-color:color-mix(in srgb,var(--gc) 30%,#262d62)!important;border-bottom-color:color-mix(in srgb,var(--gc) 30%,#262d62)!important;border-left-color:var(--gc)!important;
+  box-shadow:0 6px 18px rgba(3,4,18,.4)}
+.rapid-group h3{text-shadow:0 0 18px color-mix(in srgb,var(--gc) 55%,transparent)}
+.rapid-group h3 .rg-count{box-shadow:0 0 14px color-mix(in srgb,var(--gc) 60%,transparent)}
+.rapid-jump a{background:rgba(26,31,72,.85);border-color:rgba(138,150,255,.3)}
+.rapid-section h2{background:linear-gradient(90deg,rgba(124,92,255,.28),rgba(25,211,255,.08))!important;-webkit-text-fill-color:#fff;color:#fff;border-image:none!important;
+  border-color:rgba(138,150,255,.3)!important;border-left:4px solid #19d3ff!important}
+
+/* tags / badges: more vivid */
+.tag,.hy-badge,.badge{backdrop-filter:blur(4px);font-weight:800}
+.tag.must,.hy-badge.must{background:rgba(34,197,94,.18)!important;color:#7af0ae!important;border-color:rgba(34,197,94,.5)!important}
+.tag.formula,.hy-badge.formula{background:rgba(56,189,248,.18)!important;color:#8fe0ff!important;border-color:rgba(56,189,248,.5)!important}
+.tag.fav,.hy-badge.fav{background:rgba(255,79,100,.16)!important;color:#ff9aa8!important;border-color:rgba(255,79,100,.5)!important}
+
+/* quiz options */
+.opt,.option,button.opt,label.opt{background:rgba(22,27,68,.8)!important;border-color:rgba(138,150,255,.25)!important;transition:.15s}
+.opt:hover,.option:hover{border-color:#19d3ff!important;box-shadow:0 0 0 3px rgba(25,211,255,.18)}
+.qtopics button,.qtopics .chip{background:rgba(26,31,72,.85);border-color:rgba(138,150,255,.3)}
+.qtopics .on,.qtopics .active{background:linear-gradient(90deg,#7c5cff,#19d3ff)!important;color:#fff!important;border-color:transparent!important}
+
+/* tables */
+th{background:linear-gradient(90deg,rgba(124,92,255,.35),rgba(25,211,255,.18))!important;color:#fff!important}
+td,th{border-color:rgba(138,150,255,.2)!important}
+tbody tr:nth-child(even) td{background:rgba(124,92,255,.06)}
+
+a{color:#8fe9ff}
+::-webkit-scrollbar{width:10px;height:10px}::-webkit-scrollbar-thumb{background:linear-gradient(#7c5cff,#19d3ff);border-radius:8px}
+</style>
+<style id="home-v14">
+.homeLink{justify-self:end;display:inline-flex;align-items:center;gap:6px;padding:8px 12px;border-radius:10px;font-size:13px;font-weight:800;text-decoration:none;white-space:nowrap;
+  color:#fff!important;background:linear-gradient(135deg,rgba(124,92,255,.55),rgba(25,211,255,.3));border:1px solid rgba(138,150,255,.4)}
+nav#side a.backhome,.side a.backhome{display:block;margin:0 0 10px;padding:10px 12px;border-radius:10px;font-weight:800;color:#fff!important;
+  background:linear-gradient(90deg,rgba(124,92,255,.45),rgba(25,211,255,.2));border:1px solid rgba(138,150,255,.4)}
+#homeFab{display:none}
+@media (max-width:860px){
+  #homeFab{display:flex;align-items:center;justify-content:center;position:fixed;left:64px;bottom:calc(14px + env(safe-area-inset-bottom,0px));z-index:16;width:42px;height:42px;border-radius:50%;
+    text-decoration:none;font-size:19px;background:rgba(22,27,68,.95);border:1px solid rgba(138,150,255,.45);box-shadow:0 8px 22px rgba(3,4,18,.6)}
+}
+</style>
+<!-- pwa:start -->
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#070916">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="GATE 2027">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="icon" type="image/png" href="favicon-64.png">
+<!-- pwa:end -->
+</head>
+<body>
+<header>
+  <button id="menuBtn" onclick="document.getElementById('side').classList.toggle('open')">☰ Topics</button>
+  <div class="title">🔌 Digital Logic <span>for GATE CSE 2027</span></div>
+  <a class="homeLink" href="index.html">🏠 Home</a>
+</header>
+<div class="wrap">
+<nav id="side">
+<a class="backhome" href="index.html">← Study Hub (Home)</a><a class="gt-sidelink" href="cheatsheet-gate-2027.html#dl">📄 Formula cheat sheet</a><a class="gt-sidelink" href="mock-gate-2027.html">🎯 Full mock exam</a>
+  <div class="grp">
+    <div class="grp-title">Part 1 · Foundations</div>
+    <a href="#num">1. Number Systems & Arithmetic</a>
+    <a href="#bool">2. Boolean Algebra & Gates</a>
+    <a href="#kmap">3. K-Maps & Minimisation</a>
+  </div>
+  <div class="grp">
+    <div class="grp-title">Part 2 · Combinational</div>
+    <a href="#comb">4. Combinational Circuits</a>
+  </div>
+  <div class="grp">
+    <div class="grp-title">Part 3 · Sequential</div>
+    <a href="#ff">5. Latches & Flip-Flops</a>
+    <a href="#cnt">6. Counters & Shift Registers</a>
+    <a href="#fsm">7. FSMs & Counter Design</a>
+  </div>
+  <div class="grp">
+    <div class="grp-title">Part 4 · Memory, Arithmetic, Codes</div>
+    <a href="#mem">8. Memory & Programmable Logic</a>
+    <a href="#ari">9. Arithmetic Circuits & Codes</a>
+    <a href="#advanced">10. High-Yield Sequential & Boolean Methods</a>
+  </div>
+  <div class="grp">
+    <div class="grp-title">Practice</div>
+    <a href="#quiz">11. Practice Quiz — 68 Qs (basic)</a>
+    <a href="#pyq">12. GATE-Level Solved Problems</a>
+  </div>
+</nav>
+<main>
+<section id="num">
+<h1>1. Number Systems & Computer Arithmetic</h1>
+<div class="sub">Base conversion, signed representations, overflow, codes, and IEEE 754 floating point — the arithmetic that every later circuit is built to compute.</div>
+
+<h2>Positional systems & conversion</h2>
+<p>A number in base <i>r</i> is a sum of digit × r<sup>position</sup>. Common bases: binary (2), octal (8, groups of <b>3 bits</b>), hexadecimal (16, groups of <b>4 bits</b>). To convert integer → base r, divide repeatedly by r and read remainders <b>bottom-up</b>; for the fractional part multiply repeatedly by r and read the integer parts <b>top-down</b>.</p>
+<div class="num"><div class="tag">Worked numerical — conversions</div>
+<pre>(1101.101)₂ = 8 + 4 + 0 + 1 + 1/2 + 0 + 1/8 = 13.625
+156 ÷ 2 …  = (10011100)₂ = (234)₈ = (9C)₁₆        [group bits: 010 011 100 → 2 3 4 ; 1001 1100 → 9 C]
+(0.1)₁₀ in binary = 0.000110011001…  (non-terminating — why 0.1 is inexact in floating point)</pre>
+Digits needed for the unsigned value N in base r: <code>⌈log<sub>r</sub>(N+1)⌉</code>. n bits hold 0 … 2<sup>n</sup>−1.
+</div>
+
+<h2>Signed number representations (n bits)</h2>
+<div style="overflow-x:auto">
+<table>
+<tr><th>Scheme</th><th>How negatives are formed</th><th>Range</th><th>Zeros</th></tr>
+<tr><td>Sign-magnitude</td><td>MSB = sign, rest = |x|</td><td>−(2<sup>n−1</sup>−1) … +(2<sup>n−1</sup>−1)</td><td>2 (+0, −0)</td></tr>
+<tr><td>1's complement</td><td>invert every bit</td><td>−(2<sup>n−1</sup>−1) … +(2<sup>n−1</sup>−1)</td><td>2</td></tr>
+<tr><td><b>2's complement</b></td><td>invert every bit, add 1  (= 2<sup>n</sup> − x)</td><td><b>−2<sup>n−1</sup> … +(2<sup>n−1</sup>−1)</b></td><td>1</td></tr>
+</table>
+</div>
+<div class="num"><div class="tag">Worked numerical — representing −45 in 8 bits</div>
+<pre>+45 = 0010 1101
+1's complement of 45 : 1101 0010   (= −45 in 1's complement)
+2's complement of 45 : 1101 0011   (= −45 in 2's complement)
+Check: 256 − 45 = 211 = 1101 0011 ✔</pre>
+8-bit 2's complement range: <b>−128 … +127</b>. Subtraction is done as addition: <code>A − B = A + (2's complement of B)</code>.
+<pre>13 − 6 in 5 bits:   6 = 00110 → 1's complement 11001 → 2's complement 11010
+  01101 + 11010 = 1 00111 → discard the carry-out → 00111 = 7 ✔</pre>
+</div>
+<div class="warn"><div class="tag">GATE angle</div>2's complement has the <b>asymmetric range</b> (one more negative than positive), and sign extension (copy the MSB leftwards) preserves the value. Only 2's complement has a <b>unique zero</b>.</div>
+
+<h2>Overflow in signed addition</h2>
+<p>Overflow happens when the true sum is outside the representable range. Detect it as: <b>carry into the MSB ≠ carry out of the MSB</b>, or equivalently both operands have the same sign but the result has the opposite sign. Adding numbers of <b>opposite sign never overflows</b>. Carry-out alone is the overflow flag for <b>unsigned</b> arithmetic.</p>
+<div class="num"><div class="tag">Worked numerical — 8-bit overflow test</div>
+<pre>  0111 1010   (+122)                     1111 0110   (−10)
++ 0001 1101   (+29)                     + 0000 1010   (+10)
+  ---------                               ---------
+  1001 0111   (shows −105)               1 0000 0000   (0)
+carry into MSB = 1, carry out = 0       carry into MSB = 1, carry out = 1
+different → <b>OVERFLOW</b> (151 &gt; 127)        same → no overflow, result 0 ✔</pre>
+</div>
+
+<h2>Binary codes</h2>
+<div style="overflow-x:auto">
+<table>
+<tr><th>Code</th><th>Idea</th><th>Example</th></tr>
+<tr><td>BCD (8421)</td><td>each decimal digit → 4 bits; 1010–1111 invalid</td><td>47 → 0100 0111</td></tr>
+<tr><td>Excess-3</td><td>BCD + 3 (self-complementing)</td><td>5 → 1000</td></tr>
+<tr><td>Gray</td><td>adjacent values differ in <b>exactly one bit</b></td><td>binary 1011 → gray 1110</td></tr>
+<tr><td>ASCII</td><td>7-bit character code</td><td>'A' = 65 = 1000001</td></tr>
+</table>
+</div>
+<p><b>Binary → Gray:</b> G<sub>n−1</sub> = B<sub>n−1</sub>, G<sub>i</sub> = B<sub>i+1</sub> ⊕ B<sub>i</sub> (<code>1011 → 1, 1⊕0=1, 0⊕1=1, 1⊕1=0 → 1110</code>). <b>Gray → binary:</b> B<sub>n−1</sub> = G<sub>n−1</sub>, B<sub>i</sub> = B<sub>i+1</sub> ⊕ G<sub>i</sub>. <b>BCD addition:</b> if a digit sum exceeds 9, add 6 (0110) to that digit.</p>
+
+<h2>IEEE 754 floating point</h2>
+<div style="overflow-x:auto">
+<table>
+<tr><th>Format</th><th>Sign</th><th>Exponent</th><th>Mantissa (fraction)</th><th>Bias</th></tr>
+<tr><td>Single (32-bit)</td><td>1</td><td>8</td><td>23</td><td>127</td></tr>
+<tr><td>Double (64-bit)</td><td>1</td><td>11</td><td>52</td><td>1023</td></tr>
+</table>
+</div>
+<p>Normalised value = <code>(−1)<sup>s</sup> × 1.m × 2<sup>e − bias</sup></code> (a hidden leading 1). Exponent field all 0s → zero / denormal; all 1s → ∞ or NaN.</p>
+<div class="num"><div class="tag">Worked numerical — encode 13.625 (single precision)</div>
+<pre>13.625 = 1101.101₂ = 1.101101 × 2³
+sign = 0
+exponent = 3 + 127 = 130 = 1000 0010
+mantissa = 1011 0100 0000 0000 0000 000   (drop the leading 1)
+
+bits: 0 10000010 10110100000000000000000  = 0100 0001 0101 1010 0000 … = <b>0x415A0000</b></pre>
+</div>
+<div class="warn"><div class="tag">Pitfall</div>Floating-point addition needs the exponents <b>aligned first</b>; because mantissas have finite length, <code>(a + b) + c</code> may differ from <code>a + (b + c)</code> — floating-point addition is <b>not associative</b>.</div>
+
+<h2>More on IEEE 754 — limits, denormals, rounding</h2>
+<div style="overflow-x:auto">
+<table>
+<tr><th>Quantity (single precision)</th><th>Value</th></tr>
+<tr><td>Significand bits (with hidden 1)</td><td>24</td></tr>
+<tr><td>Largest finite number</td><td>(2 − 2<sup>−23</sup>) × 2<sup>127</sup> ≈ 3.4028 × 10<sup>38</sup>  (exponent field 254)</td></tr>
+<tr><td>Smallest positive normalised</td><td>2<sup>−126</sup> ≈ 1.1755 × 10<sup>−38</sup>  (exponent field 1)</td></tr>
+<tr><td>Smallest positive denormal</td><td>2<sup>−149</sup> ≈ 1.4 × 10<sup>−45</sup>  (exponent field 0, no hidden 1)</td></tr>
+<tr><td>Machine epsilon (gap above 1.0)</td><td>2<sup>−23</sup> ≈ 1.19 × 10<sup>−7</sup>  (about 7 decimal digits)</td></tr>
+<tr><td>Floats between 1 and 2</td><td>2<sup>23</sup> (evenly spaced)</td></tr>
+</table>
+</div>
+<ul style="color:#c9d1e0">
+<li><b>Denormals</b> (exponent field 0, fraction ≠ 0): value = (−1)<sup>s</sup> × 0.m × 2<sup>−126</sup>. They fill the gap between 0 and the smallest normalised number (gradual underflow).</li>
+<li>Exponent field 255: fraction 0 → ±∞; fraction ≠ 0 → NaN. Exponent and fraction both 0 → ±0.</li>
+<li>Default rounding: <b>round to nearest, ties to even</b>. Spacing between floats doubles each time the exponent increases by 1, so large numbers lose absolute precision.</li>
+</ul>
+<div class="num"><div class="tag">Worked numerical — adding floats</div>
+<b>Q:</b> Add 1.5 and 0.25 in binary floating point.<br>
+<b>A:</b> 1.5 = 1.1 × 2⁰ and 0.25 = 1.0 × 2⁻². Align the smaller exponent to the larger one by shifting the mantissa right 2 places, add, then renormalise:
+<pre>  1.100  × 2⁰
++ 0.010  × 2⁰      (1.0 × 2⁻² shifted right by 2)
+= 1.110  × 2⁰  = 1.75      (already normalised; stored as 0x3FE00000 in double precision)</pre>
+</div>
+<div class="num"><div class="tag">Worked numerical — precision loss</div>
+Single precision has 24 significant bits, so integers above 2<sup>24</sup> = 16 777 216 are no longer all representable: <code>16777216 + 1</code> rounds back to <b>16777216</b>. In double precision <code>0.1 + 0.2 = 0.30000000000000004 ≠ 0.3</code>, because neither 0.1 nor 0.2 has a finite binary expansion. Never test floating-point results with <code>==</code>.
+</div>
+<h2>Fixed point and range summary</h2>
+<ul style="color:#c9d1e0">
+<li><b>Fixed point</b>: a fixed number of integer and fraction bits. An unsigned Qm.n format with m integer bits and n fraction bits has resolution 2<sup>−n</sup> and range 0 … 2<sup>m</sup> − 2<sup>−n</sup>.</li>
+<li>Multiplying two n-bit unsigned numbers needs up to <b>2n bits</b> for the product; adding two n-bit numbers needs up to <b>n + 1</b> bits.</li>
+<li>Sign extension: to widen a 2's complement number, copy the sign bit into the new high bits (e.g. 1101 → 1111 1101 keeps −3).</li>
+</ul>
+</section>
+
+<section id="bool">
+<h1>2. Boolean Algebra & Logic Gates</h1>
+<div class="sub">The algebra of 0 and 1 that lets you simplify circuits on paper before building them.</div>
+
+<h2>Basic gates</h2>
+<div style="overflow-x:auto">
+<table>
+<tr><th>Gate</th><th>Expression</th><th>Output is 1 when…</th></tr>
+<tr><td>AND</td><td>A·B</td><td>all inputs are 1</td></tr>
+<tr><td>OR</td><td>A + B</td><td>at least one input is 1</td></tr>
+<tr><td>NOT</td><td>A'</td><td>input is 0</td></tr>
+<tr><td>NAND</td><td>(A·B)'</td><td>at least one input is 0</td></tr>
+<tr><td>NOR</td><td>(A + B)'</td><td>all inputs are 0</td></tr>
+<tr><td>XOR</td><td>A ⊕ B = A'B + AB'</td><td>inputs differ (odd number of 1s)</td></tr>
+<tr><td>XNOR</td><td>(A ⊕ B)'</td><td>inputs are equal</td></tr>
+</table>
+</div>
+
+<h2>Laws you must know cold</h2>
+<div class="grid2">
+<div class="card"><b>Identities</b><pre>A + 0 = A      A · 1 = A
+A + 1 = 1      A · 0 = 0
+A + A = A      A · A = A
+A + A' = 1     A · A' = 0
+(A')' = A</pre></div>
+<div class="card"><b>Absorption / redundancy</b><pre>A + AB = A
+A(A + B) = A
+A + A'B = A + B
+A(A' + B) = AB</pre></div>
+<div class="card"><b>De Morgan</b><pre>(A + B)' = A'·B'
+(A · B)' = A' + B'
+(general): complement of f =
+ swap + ↔ ·  and complement every literal</pre></div>
+<div class="card"><b>Consensus</b><pre>AB + A'C + BC = AB + A'C
+(A+B)(A'+C)(B+C) = (A+B)(A'+C)</pre>The consensus term BC is redundant — but it is exactly the term that <b>removes hazards</b> (Section 4).</div>
+</div>
+<p><b>Duality:</b> swap AND↔OR and 0↔1 (literals unchanged) to get the dual of an identity — the dual of a true identity is also true. The dual of <code>A + BC'</code> is <code>A·(B + C')</code>. A function with <code>f<sup>d</sup> = f</code> is <b>self-dual</b>.</p>
+
+<h2>XOR properties</h2>
+<pre>A ⊕ 0 = A     A ⊕ 1 = A'     A ⊕ A = 0     A ⊕ A' = 1
+Commutative and associative.   A ⊕ B ⊕ C = 1  iff an ODD number of inputs is 1  (parity)
+The complement of an n-input XOR chain is the <b>even-parity</b> function (1 iff an even number of inputs is 1).
+
+<h2>Canonical forms & counting</h2>
+<ul style="color:#c9d1e0">
+<li><b>Minterm</b>: product containing every variable once (true or complemented); n variables → 2<sup>n</sup> minterms. <code>f = Σm(…)</code> (sum of minterms, canonical SOP).</li>
+<li><b>Maxterm</b>: sum containing every variable once. <code>f = ΠM(…)</code> lists the rows where f = <b>0</b>. The minterm numbers of f and the maxterm numbers of f are <b>complementary sets</b>.</li>
+<li>Number of distinct Boolean functions of n variables = <b>2<sup>2<sup>n</sup></sup></b> (n = 2: 16, n = 3: 256).</li>
+<li>Number of <b>self-dual</b> functions of n variables = 2<sup>2<sup>n−1</sup></sup> (n = 3: <b>16</b>).</li>
+</ul>
+<div class="num"><div class="tag">Worked numerical — simplify with consensus</div>
+<b>Q:</b> Simplify <code>(A + B)(A' + C)(B + C)</code>.<br>
+<b>A:</b> This is the dual of the consensus pattern: the term <code>(B + C)</code> is redundant, so the result is <code>(A + B)(A' + C)</code>. Expanding: <code>AC + A'B</code> (the <code>BC</code> cross term is absorbed).
+</div>
+
+<h2>Universal gates</h2>
+<p>NAND alone (and NOR alone) can build every other gate, so each is <b>functionally complete</b>. {AND, NOT} and {OR, NOT} are also complete; <b>{AND, OR} is not</b> (no way to invert).</p>
+<pre>NOT :  A' = (A·A)'                      (tie the inputs together)
+AND :  A·B = ((A·B)')'                  (NAND followed by NAND-as-inverter)
+OR  :  A + B = (A'·B')'                 (NAND of the inverted inputs)
+XOR :  4 NAND gates:  N1 = (AB)'; N2 = (A·N1)'; N3 = (B·N1)'; A⊕B = (N2·N3)'</pre>
+<div class="warn"><div class="tag">Bubble pushing</div>Any AND-OR (SOP) network can be redrawn as <b>all-NAND two-level logic</b> directly: NAND–NAND = AND–OR. Similarly an OR-AND (POS) network becomes NOR–NOR.</div>
+</section>
+
+<section id="kmap">
+<h1>3. Minimisation: K-Maps & Quine–McCluskey</h1>
+<div class="sub">Turn a truth table into the cheapest two-level circuit by grouping adjacent 1s.</div>
+
+<h2>K-map rules</h2>
+<ul style="color:#c9d1e0">
+<li>Rows and columns are labelled in <b>Gray-code order</b> (00, 01, 11, 10) so neighbouring cells differ in one variable.</li>
+<li>Group 1s (for SOP) in rectangles of size <b>1, 2, 4, 8, 16</b> — always a power of 2. A group of 2<sup>k</sup> cells removes <b>k</b> variables.</li>
+<li>Groups may <b>wrap around</b> edges (the map is a torus), and may overlap. Use the <b>fewest, largest</b> groups that cover every 1.</li>
+<li>For <b>POS</b>, group the 0s to get f' as SOP, then complement (or read the groups as sum terms with literals inverted).</li>
+<li>Every cell in an n-variable map has exactly <b>n neighbours</b> (4 in a 4-variable map).</li>
+</ul>
+<div style="overflow-x:auto">
+<table>
+<tr><th>Term</th><th>Meaning</th></tr>
+<tr><td>Implicant</td><td>any product term that implies f (a group of 1s)</td></tr>
+<tr><td><b>Prime implicant (PI)</b></td><td>an implicant that cannot be enlarged — a <b>maximal</b> group</td></tr>
+<tr><td><b>Essential PI (EPI)</b></td><td>a PI covering at least one 1 that <b>no other PI</b> covers — it must be in every minimal cover</td></tr>
+<tr><td>Don't care (d / X)</td><td>input combination that never occurs or whose output is irrelevant; treat as 1 only if it enlarges a group, never need to cover it</td></tr>
+</table>
+</div>
+
+<div class="num"><div class="tag">Worked numerical — 4-variable map</div>
+<b>Q:</b> f(A,B,C,D) = Σm(0, 2, 3, 5, 7, 8, 9, 10, 11, 13, 15). Find all prime implicants, the essential ones, and a minimal SOP.
+<div style="overflow-x:auto"><table style="width:auto;margin:10px auto;border-collapse:collapse"><tr><th style="border:1px solid #242b3a;padding:6px 10px;text-align:center;">AB \ CD</th><th style="border:1px solid #242b3a;padding:6px 10px;text-align:center;">00</th><th style="border:1px solid #242b3a;padding:6px 10px;text-align:center;">01</th><th style="border:1px solid #242b3a;padding:6px 10px;text-align:center;">11</th><th style="border:1px solid #242b3a;padding:6px 10px;text-align:center;">10</th></tr><tr><th style="border:1px solid #242b3a;padding:6px 10px;text-align:center;">00</th><td style="border:1px solid #242b3a;padding:6px 10px;text-align:center;background:rgba(94,230,200,.22);color:#5ee6c8;font-weight:700;" title="m0">1<sub style="font-size:9px;opacity:.6"> 0</sub></td><td style="border:1px solid #242b3a;padding:6px 10px;text-align:center;color:#93a0b8;" title="m1">0<sub style="font-size:9px;opacity:.6"> 1</sub></td><td style="border:1px solid #242b3a;padding:6px 10px;text-align:center;background:rgba(94,230,200,.22);color:#5ee6c8;font-weight:700;" title="m3">1<sub style="font-size:9px;opacity:.6"> 3</sub></td><td style="border:1px solid #242b3a;padding:6px 10px;text-align:center;background:rgba(94,230,200,.22);color:#5ee6c8;font-weight:700;" title="m2">1<sub style="font-size:9px;opacity:.6"> 2</sub></td></tr><tr><th style="border:1px solid #242b3a;padding:6px 10px;text-align:center;">01</th><td style="border:1px solid #242b3a;padding:6px 10px;text-align:center;color:#93a0b8;" title="m4">0<sub style="font-size:9px;opacity:.6"> 4</sub></td><td style="border:1px solid #242b3a;padding:6px 10px;text-align:center;background:rgba(94,230,200,.22);color:#5ee6c8;font-weight:700;" title="m5">1<sub style="font-size:9px;opacity:.6"> 5</sub></td><td style="border:1px solid #242b3a;padding:6px 10px;text-align:center;background:rgba(94,230,200,.22);color:#5ee6c8;font-weight:700;" title="m7">1<sub style="font-size:9px;opacity:.6"> 7</sub></td><td style="border:1px solid #242b3a;padding:6px 10px;text-align:center;color:#93a0b8;" title="m6">0<sub style="font-size:9px;opacity:.6"> 6</sub></td></tr><tr><th style="border:1px solid #242b3a;padding:6px 10px;text-align:center;">11</th><td style="border:1px solid #242b3a;padding:6px 10px;text-align:center;color:#93a0b8;" title="m12">0<sub style="font-size:9px;opacity:.6"> 12</sub></td><td style="border:1px solid #242b3a;padding:6px 10px;text-align:center;background:rgba(94,230,200,.22);color:#5ee6c8;font-weight:700;" title="m13">1<sub style="font-size:9px;opacity:.6"> 13</sub></td><td style="border:1px solid #242b3a;padding:6px 10px;text-align:center;background:rgba(94,230,200,.22);color:#5ee6c8;font-weight:700;" title="m15">1<sub style="font-size:9px;opacity:.6"> 15</sub></td><td style="border:1px solid #242b3a;padding:6px 10px;text-align:center;color:#93a0b8;" title="m14">0<sub style="font-size:9px;opacity:.6"> 14</sub></td></tr><tr><th style="border:1px solid #242b3a;padding:6px 10px;text-align:center;">10</th><td style="border:1px solid #242b3a;padding:6px 10px;text-align:center;background:rgba(94,230,200,.22);color:#5ee6c8;font-weight:700;" title="m8">1<sub style="font-size:9px;opacity:.6"> 8</sub></td><td style="border:1px solid #242b3a;padding:6px 10px;text-align:center;background:rgba(94,230,200,.22);color:#5ee6c8;font-weight:700;" title="m9">1<sub style="font-size:9px;opacity:.6"> 9</sub></td><td style="border:1px solid #242b3a;padding:6px 10px;text-align:center;background:rgba(94,230,200,.22);color:#5ee6c8;font-weight:700;" title="m11">1<sub style="font-size:9px;opacity:.6"> 11</sub></td><td style="border:1px solid #242b3a;padding:6px 10px;text-align:center;background:rgba(94,230,200,.22);color:#5ee6c8;font-weight:700;" title="m10">1<sub style="font-size:9px;opacity:.6"> 10</sub></td></tr></table></div>
+<pre>Prime implicants (6):  B'D' {0,2,8,10}   BD {5,7,13,15}   CD {3,7,11,15}
+                       B'C {2,3,10,11}    AD {9,11,13,15}   AB' {8,9,10,11}
+Essential (2):  B'D'  (only PI covering m0)   and   BD  (only PI covering m5)
+Left over after the EPIs: m3, m9, m11
+   → pick one PI for m3/m11 (CD or B'C) and one for m9 (AD or AB')
+
+Minimal SOP:  f = B'D' + BD + CD + AD        → 4 terms, 8 literals
+(several equal-cost minimal forms exist — e.g. replacing CD by B'C)</pre>
+</div>
+
+<div class="num"><div class="tag">Worked numerical — a map with NO essential prime implicants</div>
+<b>Q:</b> f(A,B,C) = Σm(0, 1, 2, 5, 6, 7).
+<div style="overflow-x:auto"><table style="width:auto;margin:10px auto;border-collapse:collapse"><tr><th style="border:1px solid #242b3a;padding:6px 10px;text-align:center;">A \ BC</th><th style="border:1px solid #242b3a;padding:6px 10px;text-align:center;">00</th><th style="border:1px solid #242b3a;padding:6px 10px;text-align:center;">01</th><th style="border:1px solid #242b3a;padding:6px 10px;text-align:center;">11</th><th style="border:1px solid #242b3a;padding:6px 10px;text-align:center;">10</th></tr><tr><th style="border:1px solid #242b3a;padding:6px 10px;text-align:center;">0</th><td style="border:1px solid #242b3a;padding:6px 10px;text-align:center;background:rgba(94,230,200,.22);color:#5ee6c8;font-weight:700;" title="m0">1<sub style="font-size:9px;opacity:.6"> 0</sub></td><td style="border:1px solid #242b3a;padding:6px 10px;text-align:center;background:rgba(94,230,200,.22);color:#5ee6c8;font-weight:700;" title="m1">1<sub style="font-size:9px;opacity:.6"> 1</sub></td><td style="border:1px solid #242b3a;padding:6px 10px;text-align:center;color:#93a0b8;" title="m3">0<sub style="font-size:9px;opacity:.6"> 3</sub></td><td style="border:1px solid #242b3a;padding:6px 10px;text-align:center;background:rgba(94,230,200,.22);color:#5ee6c8;font-weight:700;" title="m2">1<sub style="font-size:9px;opacity:.6"> 2</sub></td></tr><tr><th style="border:1px solid #242b3a;padding:6px 10px;text-align:center;">1</th><td style="border:1px solid #242b3a;padding:6px 10px;text-align:center;color:#93a0b8;" title="m4">0<sub style="font-size:9px;opacity:.6"> 4</sub></td><td style="border:1px solid #242b3a;padding:6px 10px;text-align:center;background:rgba(94,230,200,.22);color:#5ee6c8;font-weight:700;" title="m5">1<sub style="font-size:9px;opacity:.6"> 5</sub></td><td style="border:1px solid #242b3a;padding:6px 10px;text-align:center;background:rgba(94,230,200,.22);color:#5ee6c8;font-weight:700;" title="m7">1<sub style="font-size:9px;opacity:.6"> 7</sub></td><td style="border:1px solid #242b3a;padding:6px 10px;text-align:center;background:rgba(94,230,200,.22);color:#5ee6c8;font-weight:700;" title="m6">1<sub style="font-size:9px;opacity:.6"> 6</sub></td></tr></table></div>
+<pre>Every 1 is covered by TWO pairs → six PIs, none essential (a "cyclic" map):
+  A'B' {0,1}  A'C' {0,2}  BC' {2,6}  AB {6,7}  AC {5,7}  B'C {1,5}
+Minimal covers use 3 pairs, e.g.  f = A'C' + AB + B'C   or   f = A'B' + BC' + AC   (3 terms, 6 literals)</pre>
+</div>
+
+<div class="num"><div class="tag">Worked numerical — don't cares</div>
+<b>Q:</b> f(A,B,C,D) = Σm(1, 4, 6, 7, 8, 9, 10, 11, 15) + d(0, 5). Find the minimal SOP.
+<div style="overflow-x:auto"><table style="width:auto;margin:10px auto;border-collapse:collapse"><tr><th style="border:1px solid #242b3a;padding:6px 10px;text-align:center;">AB \ CD</th><th style="border:1px solid #242b3a;padding:6px 10px;text-align:center;">00</th><th style="border:1px solid #242b3a;padding:6px 10px;text-align:center;">01</th><th style="border:1px solid #242b3a;padding:6px 10px;text-align:center;">11</th><th style="border:1px solid #242b3a;padding:6px 10px;text-align:center;">10</th></tr><tr><th style="border:1px solid #242b3a;padding:6px 10px;text-align:center;">00</th><td style="border:1px solid #242b3a;padding:6px 10px;text-align:center;background:rgba(255,180,84,.18);color:#ffb454;font-weight:700;" title="m0">X<sub style="font-size:9px;opacity:.6"> 0</sub></td><td style="border:1px solid #242b3a;padding:6px 10px;text-align:center;background:rgba(94,230,200,.22);color:#5ee6c8;font-weight:700;" title="m1">1<sub style="font-size:9px;opacity:.6"> 1</sub></td><td style="border:1px solid #242b3a;padding:6px 10px;text-align:center;color:#93a0b8;" title="m3">0<sub style="font-size:9px;opacity:.6"> 3</sub></td><td style="border:1px solid #242b3a;padding:6px 10px;text-align:center;color:#93a0b8;" title="m2">0<sub style="font-size:9px;opacity:.6"> 2</sub></td></tr><tr><th style="border:1px solid #242b3a;padding:6px 10px;text-align:center;">01</th><td style="border:1px solid #242b3a;padding:6px 10px;text-align:center;background:rgba(94,230,200,.22);color:#5ee6c8;font-weight:700;" title="m4">1<sub style="font-size:9px;opacity:.6"> 4</sub></td><td style="border:1px solid #242b3a;padding:6px 10px;text-align:center;background:rgba(255,180,84,.18);color:#ffb454;font-weight:700;" title="m5">X<sub style="font-size:9px;opacity:.6"> 5</sub></td><td style="border:1px solid #242b3a;padding:6px 10px;text-align:center;background:rgba(94,230,200,.22);color:#5ee6c8;font-weight:700;" title="m7">1<sub style="font-size:9px;opacity:.6"> 7</sub></td><td style="border:1px solid #242b3a;padding:6px 10px;text-align:center;background:rgba(94,230,200,.22);color:#5ee6c8;font-weight:700;" title="m6">1<sub style="font-size:9px;opacity:.6"> 6</sub></td></tr><tr><th style="border:1px solid #242b3a;padding:6px 10px;text-align:center;">11</th><td style="border:1px solid #242b3a;padding:6px 10px;text-align:center;color:#93a0b8;" title="m12">0<sub style="font-size:9px;opacity:.6"> 12</sub></td><td style="border:1px solid #242b3a;padding:6px 10px;text-align:center;color:#93a0b8;" title="m13">0<sub style="font-size:9px;opacity:.6"> 13</sub></td><td style="border:1px solid #242b3a;padding:6px 10px;text-align:center;background:rgba(94,230,200,.22);color:#5ee6c8;font-weight:700;" title="m15">1<sub style="font-size:9px;opacity:.6"> 15</sub></td><td style="border:1px solid #242b3a;padding:6px 10px;text-align:center;color:#93a0b8;" title="m14">0<sub style="font-size:9px;opacity:.6"> 14</sub></td></tr><tr><th style="border:1px solid #242b3a;padding:6px 10px;text-align:center;">10</th><td style="border:1px solid #242b3a;padding:6px 10px;text-align:center;background:rgba(94,230,200,.22);color:#5ee6c8;font-weight:700;" title="m8">1<sub style="font-size:9px;opacity:.6"> 8</sub></td><td style="border:1px solid #242b3a;padding:6px 10px;text-align:center;background:rgba(94,230,200,.22);color:#5ee6c8;font-weight:700;" title="m9">1<sub style="font-size:9px;opacity:.6"> 9</sub></td><td style="border:1px solid #242b3a;padding:6px 10px;text-align:center;background:rgba(94,230,200,.22);color:#5ee6c8;font-weight:700;" title="m11">1<sub style="font-size:9px;opacity:.6"> 11</sub></td><td style="border:1px solid #242b3a;padding:6px 10px;text-align:center;background:rgba(94,230,200,.22);color:#5ee6c8;font-weight:700;" title="m10">1<sub style="font-size:9px;opacity:.6"> 10</sub></td></tr></table></div>
+<pre>Prime implicants (6):  B'C' {0,1,8,9}   A'C' {0,1,4,5}   A'B {4,5,6,7}
+                       AB' {8,9,10,11}   BCD {7,15}   ACD {11,15}
+Essential: A'B (only PI covering m6) and AB' (only PI covering m10).
+Remaining: m1 → B'C' (or A'C'),  m15 → BCD (or ACD)
+
+Minimal SOP:  f = A'B + AB' + B'C' + BCD      → 4 terms, 9 literals
+(here A'B + AB' is the XOR of A and B)</pre>
+The don't cares d0 and d5 were used as 1s to enlarge groups; they did <b>not</b> have to be covered.
+</div>
+
+<h2>POS from a map</h2>
+<div class="num"><div class="tag">Worked numerical</div>
+For the first function above, the 0s are m1, 4, 6, 12, 14. Grouping them: <code>BD'</code> {4,6,12,14} and <code>A'B'C'D</code> {1}, so <code>f' = BD' + A'B'C'D</code>. Complementing with De Morgan:
+<pre>f = (B' + D)(A + B + C + D')</pre>
+</div>
+
+<h2>Quine–McCluskey (tabular) method</h2>
+<ol style="color:#c9d1e0">
+<li>List all minterms (and don't cares) in binary, grouped by the <b>number of 1s</b>.</li>
+<li>Repeatedly combine pairs from <b>adjacent groups</b> that differ in exactly one bit, replacing that bit by <b>–</b>; mark combined terms as used.</li>
+<li>Terms that can no longer combine are the <b>prime implicants</b>.</li>
+<li>Build a PI chart (rows = PIs, columns = minterms, <b>excluding don't cares</b>); pick essential PIs first, then cover the rest with the fewest/cheapest PIs (Petrick's method for cyclic charts).</li>
+</ol>
+<div class="warn"><div class="tag">GATE angle</div>Typical questions: "number of prime implicants", "number of essential prime implicants", "minimum number of literals/gates/NAND gates". Remember: minimum SOP ≠ unique; PIs count is unique; and the answer changes if you must also realise the complement or use POS.</div>
+</section>
+
+<section id="comb">
+<h1>4. Combinational Circuits</h1>
+<div class="sub">Circuits whose outputs depend only on the <b>present inputs</b> — no memory. Adders, multiplexers, decoders, and the glitches (hazards) that can appear.</div>
+
+<h2>Adders and subtractors</h2>
+<div style="overflow-x:auto">
+<table>
+<tr><th>Circuit</th><th>Outputs</th></tr>
+<tr><td>Half adder</td><td>Sum = A ⊕ B,  Carry = A·B</td></tr>
+<tr><td>Full adder</td><td>Sum = A ⊕ B ⊕ Cin,  Cout = AB + Cin(A ⊕ B) = AB + BCin + ACin (majority)</td></tr>
+<tr><td>Half subtractor</td><td>Diff = A ⊕ B,  Borrow = A'B</td></tr>
+<tr><td>Full subtractor</td><td>Diff = A ⊕ B ⊕ Bin,  Bout = A'B + (A ⊕ B)'Bin</td></tr>
+</table>
+</div>
+<p>A <b>full adder = 2 half adders + 1 OR gate</b>. An <b>n-bit adder/subtractor</b> uses n full adders, with each B input XORed with a control line M and Cin = M: M = 0 adds, M = 1 computes A + B' + 1 = A − B.</p>
+
+<h3>Ripple-carry vs carry-lookahead</h3>
+<ul style="color:#c9d1e0">
+<li><b>Ripple-carry</b>: each stage waits for the previous carry, so delay grows <b>linearly</b> with n.</li>
+<li><b>Carry-lookahead (CLA)</b>: define <b>generate</b> G<sub>i</sub> = A<sub>i</sub>B<sub>i</sub> and <b>propagate</b> P<sub>i</sub> = A<sub>i</sub> ⊕ B<sub>i</sub>. Then <code>C<sub>i+1</sub> = G<sub>i</sub> + P<sub>i</sub>C<sub>i</sub></code>, and unrolling gives every carry directly from the inputs and C<sub>0</sub> in two gate levels:
+<pre>C1 = G0 + P0·C0
+C2 = G1 + P1·G0 + P1·P0·C0
+C3 = G2 + P2·G1 + P2·P1·G0 + P2·P1·P0·C0
+Sum_i = P_i ⊕ C_i</pre></li>
+</ul>
+<div class="num"><div class="tag">Worked numerical — 4-bit CLA</div>
+<b>Q:</b> A = 1011, B = 0110, C0 = 0. Find P, G, all carries and the sum.<br>
+<b>A:</b> (bit 0 is the rightmost)
+<pre>bit :   3 2 1 0
+A   :   1 0 1 1
+B   :   0 1 1 0
+P=A⊕B:  1 1 0 1      G=A·B:  0 0 1 0
+C1 = G0 + P0C0 = 0 + 1·0 = 0
+C2 = G1 + P1C1 = 1 + 0·0 = 1
+C3 = G2 + P2C2 = 0 + 1·1 = 1
+C4 = G3 + P3C3 = 0 + 1·1 = 1
+Sum_i = P_i ⊕ C_i :  S0 = 1⊕0 = 1,  S1 = 0⊕0 = 0,  S2 = 1⊕1 = 0,  S3 = 1⊕1 = 0
+Result = C4 S3 S2 S1 S0 = 1 0001 = 17 = 11 + 6 ✔</pre>
+</div>
+
+<h2>Multiplexer (MUX), demultiplexer, decoder, encoder</h2>
+<div style="overflow-x:auto">
+<table>
+<tr><th>Block</th><th>Inputs → Outputs</th><th>Key fact</th></tr>
+<tr><td>2<sup>n</sup>:1 MUX</td><td>2<sup>n</sup> data + n select → 1</td><td>output = Σ (minterm of selects · data input); a 2<sup>n</sup>:1 mux needs <b>2<sup>n</sup> − 1</b> 2:1 muxes</td></tr>
+<tr><td>1:2<sup>n</sup> DEMUX</td><td>1 data + n select → 2<sup>n</sup></td><td>a decoder with enable used as data input</td></tr>
+<tr><td>n-to-2<sup>n</sup> decoder</td><td>n → 2<sup>n</sup> (one-hot)</td><td>generates all minterms; any function = OR of its minterm outputs</td></tr>
+<tr><td>2<sup>n</sup>-to-n encoder</td><td>one-hot → n-bit code</td><td>assumes exactly one input active; a <b>priority encoder</b> resolves several active inputs</td></tr>
+<tr><td>Comparator</td><td>A, B → A&gt;B, A=B, A&lt;B</td><td>bit equality is XNOR; A = B iff all bit-XNORs are 1</td></tr>
+</table>
+</div>
+<div class="num"><div class="tag">Worked numerical — function with a 4:1 MUX</div>
+<b>Q:</b> Implement f(A,B,C) = Σm(1,2,4,7) using a 4:1 MUX with A and B as select lines.<br>
+<b>A:</b> For each value of AB, look at f for C = 0 and C = 1:
+<pre>AB = 00  → m0, m1 : f = 0, 1  → f = C       I0 = C
+AB = 01  → m2, m3 : f = 1, 0  → f = C'      I1 = C'
+AB = 10  → m4, m5 : f = 1, 0  → f = C'      I2 = C'
+AB = 11  → m6, m7 : f = 0, 1  → f = C       I3 = C</pre>
+So I0 = C, I1 = C', I2 = C', I3 = C. In general an <b>n-variable</b> function needs only a <b>2<sup>n−1</sup>:1 MUX</b> plus at most one inverter. (This f is the 3-input XOR.)
+</div>
+<div class="num"><div class="tag">Worked numerical — building bigger decoders</div>
+<b>Q:</b> How many 2-to-4 decoders (with enable) build a 4-to-16 decoder? And how many 3-to-8 decoders plus one 2-to-4 for a 5-to-32?<br>
+<b>A:</b> 16 outputs / 4 = 4 decoders in the second level, plus 1 decoder in the first level to enable one of them → <b>5</b>. For 5-to-32: 32 / 8 = 4 decoders (3-to-8) at the second level + 1 (2-to-4) at the first → <b>5 decoders</b> in total.
+</div>
+
+<h2>Hazards (glitches)</h2>
+<p>A <b>hazard</b> is a momentary wrong output caused by unequal gate delays when inputs change.</p>
+<ul style="color:#c9d1e0">
+<li><b>Static-1 hazard</b>: output should stay 1 but briefly drops to 0 — occurs in SOP when two adjacent 1-cells are covered by <b>different</b> product terms with no common term.</li>
+<li><b>Static-0 hazard</b>: output should stay 0 but pulses 1 (in POS circuits).</li>
+<li><b>Dynamic hazard</b>: output changes 3 or more times when it should change once.</li>
+</ul>
+<div class="num"><div class="tag">Worked numerical — removing a static-1 hazard</div>
+<code>f = AB + A'C</code>. With B = C = 1 and A switching 1 → 0, f should stay 1, but AB falls before A'C rises (the inverter delay) → glitch. Add the <b>consensus term</b> BC, which stays 1 throughout: <code>f = AB + A'C + BC</code>. On the K-map this is the extra group straddling the two adjacent cells.
+</div>
+<div class="warn"><div class="tag">Remember</div>Hazard-free covers need <b>every pair of adjacent 1s covered by some single product term</b> — that can mean using non-essential PIs, so the hazard-free circuit is not the minimal one.</div>
+</section>
+
+<section id="ff">
+<h1>5. Latches & Flip-Flops</h1>
+<div class="sub">The one-bit memory cells. A <b>latch</b> is level-sensitive; a <b>flip-flop</b> changes only on a clock <b>edge</b>.</div>
+
+<h2>SR latch</h2>
+<p>Two cross-coupled NOR (or NAND) gates. For the NOR version: S = 1 sets Q = 1, R = 1 resets Q = 0, S = R = 0 holds, and <b>S = R = 1 is forbidden</b> (both outputs go 0, and the next state is unpredictable if both return to 0 together). The NAND version is active-low (S' and R'), with S' = R' = 0 forbidden. Adding a clock/enable gives a <b>gated SR latch</b>; connecting S = D, R = D' removes the forbidden state and gives the <b>D latch</b>.</p>
+
+<h2>Characteristic equations and tables</h2>
+<div style="overflow-x:auto">
+<table>
+<tr><th>Type</th><th>Characteristic equation</th><th>Behaviour</th></tr>
+<tr><td>SR</td><td>Q⁺ = S + R'Q  (SR = 0)</td><td>00 hold, 01 reset, 10 set, 11 invalid</td></tr>
+<tr><td>D</td><td>Q⁺ = D</td><td>copies D on the clock edge</td></tr>
+<tr><td>JK</td><td>Q⁺ = JQ' + K'Q</td><td>00 hold, 01 reset, 10 set, 11 <b>toggle</b></td></tr>
+<tr><td>T</td><td>Q⁺ = T ⊕ Q = TQ' + T'Q</td><td>0 hold, 1 toggle</td></tr>
+</table>
+</div>
+<p><b>Excitation tables</b> (what inputs are needed for a wanted Q → Q⁺ transition; X = don't care):</p>
+<div style="overflow-x:auto">
+<table>
+<tr><th>Q → Q⁺</th><th>S</th><th>R</th><th>J</th><th>K</th><th>D</th><th>T</th></tr>
+<tr><td>0 → 0</td><td>0</td><td>X</td><td>0</td><td>X</td><td>0</td><td>0</td></tr>
+<tr><td>0 → 1</td><td>1</td><td>0</td><td>1</td><td>X</td><td>1</td><td>1</td></tr>
+<tr><td>1 → 0</td><td>0</td><td>1</td><td>X</td><td>1</td><td>0</td><td>1</td></tr>
+<tr><td>1 → 1</td><td>X</td><td>0</td><td>X</td><td>0</td><td>1</td><td>0</td></tr>
+</table>
+</div>
+<div class="warn"><div class="tag">Memory hook</div>JK with J = K = 1 <b>toggles</b>, so it acts as a T flip-flop; JK with K = J' acts as a D flip-flop. JK is the most flexible, T is the building block of counters, D is the building block of registers.</div>
+
+<h2>Flip-flop conversions</h2>
+<div style="overflow-x:auto">
+<table>
+<tr><th>Build…</th><th>From…</th><th>Connection</th></tr>
+<tr><td>T</td><td>JK</td><td>J = K = T</td></tr>
+<tr><td>D</td><td>JK</td><td>J = D, K = D'</td></tr>
+<tr><td>D</td><td>SR</td><td>S = D, R = D'</td></tr>
+<tr><td>T</td><td>D</td><td>D = T ⊕ Q</td></tr>
+<tr><td>JK</td><td>D</td><td>D = JQ' + K'Q</td></tr>
+</table>
+</div>
+
+<h2>Triggering and the race-around condition</h2>
+<ul style="color:#c9d1e0">
+<li><b>Level-triggered</b> (latch): output follows input for the whole time the clock is high.</li>
+<li><b>Edge-triggered</b>: samples inputs only at the rising (or falling) edge.</li>
+<li><b>Race-around</b>: a level-triggered JK with <b>J = K = 1</b> toggles repeatedly while the clock stays high, if the clock pulse is <b>longer than the propagation delay</b>. Cures: <b>master–slave</b> or <b>edge-triggered</b> design, or a pulse shorter than t<sub>pd</sub> (impractical).</li>
+<li><b>Master–slave</b>: two latches on opposite clock phases — the master samples while CLK = 1, the slave copies at the falling edge, so the output changes once per cycle.</li>
+</ul>
+
+<h2>Timing parameters</h2>
+<ul style="color:#c9d1e0">
+<li><b>Setup time</b> t<sub>su</sub>: data must be stable <b>before</b> the active edge. <b>Hold time</b> t<sub>h</sub>: data must stay stable <b>after</b> the edge. <b>Clock-to-Q</b> t<sub>cq</sub>: delay from the edge to the new output.</li>
+<li>Minimum clock period between two flip-flops: <code>T ≥ t<sub>cq</sub> + t<sub>comb(max)</sub> + t<sub>su</sub></code> (plus clock skew). Hold condition: <code>t<sub>cq(min)</sub> + t<sub>comb(min)</sub> ≥ t<sub>h</sub></code>. Violating setup is cured by a slower clock; violating hold is <b>not</b>.</li>
+</ul>
+<div class="num"><div class="tag">Worked numerical — maximum clock frequency</div>
+<b>Q:</b> t<sub>cq</sub> = 2 ns, longest combinational delay = 5 ns, t<sub>su</sub> = 1 ns (no skew). Find the maximum clock frequency.<br>
+<b>A:</b> T<sub>min</sub> = 2 + 5 + 1 = 8 ns → f<sub>max</sub> = 1 / 8 ns = <b>125 MHz</b>.
+</div>
+</section>
+
+<section id="cnt">
+<h1>6. Counters & Shift Registers</h1>
+<div class="sub">Flip-flops wired together to count clock pulses or to move bits around.</div>
+
+<h2>Asynchronous (ripple) counters</h2>
+<p>Each flip-flop (toggle mode, J = K = 1 or T = 1) is clocked by the <b>output of the previous one</b>, so the clock ripples through. An n-bit ripple counter counts 0 … 2<sup>n</sup> − 1 (modulus 2<sup>n</sup>); each stage <b>divides frequency by 2</b>, so the n-th output has frequency f/2<sup>n</sup>.</p>
+<ul style="color:#c9d1e0">
+<li><b>Up counter</b>: clock from Q (falling-edge FFs) or from Q' (rising-edge FFs). <b>Down counter</b>: the opposite connection.</li>
+<li><b>Drawback</b>: delays add up. For an n-bit ripple counter the output settles after <b>n × t<sub>pd</sub></b>, so <code>f<sub>max</sub> ≈ 1 / (n · t<sub>pd</sub>)</code> and decoding glitches appear while it ripples.</li>
+</ul>
+<div class="num"><div class="tag">Worked numerical</div>
+<b>Q:</b> A 4-bit ripple counter uses flip-flops with t<sub>pd</sub> = 20 ns. Maximum clock frequency?<br>
+<b>A:</b> Settling time = 4 × 20 = 80 ns → f<sub>max</sub> = 1 / 80 ns = <b>12.5 MHz</b>. A synchronous 4-bit counter needs only one t<sub>pd</sub> plus the AND-gate delay, so it runs much faster.
+</div>
+
+<h2>Synchronous counters</h2>
+<p>All flip-flops share <b>one clock</b>, so every output changes together after a single t<sub>pd</sub>. The T-inputs come from combinational logic; for an up counter <code>T<sub>i</sub> = Q<sub>0</sub>·Q<sub>1</sub>·…·Q<sub>i−1</sub></code>. They are faster but need extra gates.</p>
+
+<h2>Modulo-N counters</h2>
+<ul style="color:#c9d1e0">
+<li>Flip-flops needed: <code>⌈log₂ N⌉</code> (mod-10 → 4, mod-60 → 6).</li>
+<li>With an <b>asynchronous reset</b>: decode state N with a NAND gate and feed it to the clear inputs. The invalid state N exists only for a few nanoseconds (a glitch).</li>
+<li>Output frequency of a mod-N counter = f<sub>clk</sub> / N (so 1.6 MHz into a mod-16 gives 100 kHz at its MSB).</li>
+</ul>
+<div class="num"><div class="tag">Worked numerical — mod-6 from a 3-bit ripple counter</div>
+<pre>Count: 000 → 001 → 010 → 011 → 100 → 101 → (110 appears for an instant) → 000</pre>
+Decode <b>Q2 Q1 Q0 = 110</b> (the first state ≥ 6; Q2 and Q1 are enough to detect it) with a NAND and drive all CLEAR lines. Counts 0–5 are stable, so the modulus is 6.
+</div>
+
+<h2>Shift registers</h2>
+<div style="overflow-x:auto">
+<table>
+<tr><th>Type</th><th>Load</th><th>Read</th><th>Clocks for n bits</th></tr>
+<tr><td>SISO</td><td>serial</td><td>serial</td><td>n to load, n more to read out</td></tr>
+<tr><td>SIPO</td><td>serial</td><td>parallel</td><td>n to load, then read at once</td></tr>
+<tr><td>PISO</td><td>parallel</td><td>serial</td><td>1 to load, n to read out</td></tr>
+<tr><td>PIPO</td><td>parallel</td><td>parallel</td><td>1</td></tr>
+</table>
+</div>
+<p>A serial-to-parallel conversion of an n-bit word needs <b>n clock pulses</b>. Shifting left by one position doubles an unsigned number.</p>
+
+<h2>Ring and Johnson (twisted-ring) counters</h2>
+<div class="grid2">
+<div class="card"><b>Ring counter</b><br>Q of the last FF fed to D of the first. One circulating 1.<br><b>n flip-flops → n states</b><pre>1000 → 0100 → 0010 → 0001 → 1000</pre>Needs initial preset; self-starting only with extra logic.</div>
+<div class="card"><b>Johnson counter</b><br>Q' of the last FF fed to the first.<br><b>n flip-flops → 2n states</b><pre>0000 → 1000 → 1100 → 1110 → 1111
+→ 0111 → 0011 → 0001 → 0000</pre>Adjacent states differ in <b>one bit</b>, so decoding is glitch-free; each state decodes with a 2-input AND.</div>
+</div>
+<div class="warn"><div class="tag">GATE angle</div>Mod comparison: n flip-flops give 2<sup>n</sup> states as a binary counter, 2n states as a Johnson counter, and only n states as a ring counter. The unused states of Johnson/ring counters form <b>lock-out</b> cycles unless corrected.</div>
+</section>
+
+<section id="fsm">
+<h1>7. Finite State Machines & Synchronous Design</h1>
+<div class="sub">Sequential circuits with state: the next state depends on the present state and input; the output depends on the machine type.</div>
+
+<h2>Mealy vs Moore</h2>
+<div style="overflow-x:auto">
+<table>
+<tr><th></th><th>Moore</th><th>Mealy</th></tr>
+<tr><td>Output depends on</td><td><b>present state only</b></td><td><b>present state AND present input</b></td></tr>
+<tr><td>Output labelled on</td><td>states</td><td>transitions (input / output)</td></tr>
+<tr><td>Typical state count</td><td>more states</td><td>fewer states</td></tr>
+<tr><td>Output timing</td><td>changes after clock edge (synchronous, glitch-free)</td><td>can change as soon as input changes (reacts a cycle earlier, may glitch)</td></tr>
+</table>
+</div>
+<ul style="color:#c9d1e0">
+<li>Moore → Mealy: always possible with the <b>same number of states</b>.</li>
+<li>Mealy → Moore: may need up to <b>(states × distinct outputs)</b> states.</li>
+<li>Flip-flops needed for N states: <code>⌈log₂ N⌉</code> (5 states → 3 flip-flops).</li>
+</ul>
+
+<h2>Synchronous design procedure</h2>
+<ol style="color:#c9d1e0">
+<li>Draw the state diagram / state table from the specification.</li>
+<li><b>Minimise states</b> (merge equivalent states).</li>
+<li><b>Assign binary codes</b> to states (number of flip-flops = ⌈log₂ N⌉).</li>
+<li>Use the flip-flop <b>excitation table</b> to derive flip-flop input equations and output equations (K-maps; unused states are don't cares).</li>
+<li>Draw the circuit; check that unused states eventually return to a valid state (self-starting).</li>
+</ol>
+
+<h2>Sequence detector: overlapping 1011</h2>
+<p>State names track the longest suffix of the input that is a prefix of 1011: S0 = nothing, S1 = "1", S2 = "10", S3 = "101".</p>
+<div style="overflow-x:auto">
+<pre>Mealy machine  (next state / output)
+State    input 0     input 1
+S0       S0 / 0      S1 / 0
+S1       S2 / 0      S1 / 0
+S2       S0 / 0      S3 / 0
+S3       S2 / 0      S1 / 1      ← the final 1 of 1011 completes the pattern; suffix "1" stays → S1</pre>
+</div>
+<div class="num"><div class="tag">Worked numerical — states, flip-flops and a trace</div>
+Mealy machine: <b>4 states → 2 flip-flops</b>.  Moore machine: needs an extra state S4 ("1011", output 1) → <b>5 states → 3 flip-flops</b>.
+<pre>input :  1 0 1 1 0 1 1 0 1 0 1 1 1
+output:  0 0 0 1 0 0 1 0 0 0 0 1 0        → three detections (overlaps at the 4th and 7th bits count)</pre>
+</div>
+<div class="num"><div class="tag">Worked numerical — 101 detector, overlapping</div>
+Three Mealy states (none / "1" / "10"); on state "10" with input 1 the output is 1 and the next state is "1". For input <code>1101011</code> the output is <code>0001010</code>.
+</div>
+
+<h2>State minimisation</h2>
+<p>Two states are <b>equivalent</b> if, for every input sequence, they produce the same outputs (and move to equivalent states). Procedure: partition states by output behaviour, then keep splitting while their next states fall in different blocks (partition refinement — the same idea as DFA minimisation). Equivalent states merge, reducing the number of flip-flops and logic.</p>
+<div class="warn"><div class="tag">GATE angle</div>"How many states / flip-flops for this detector?" and "what is the output sequence for this input?" are the two commonest questions. Always check whether the machine is <b>overlapping or non-overlapping</b>, and Mealy or Moore, before counting.</div>
+
+<h2>Worked design — a synchronous mod-5 counter with T flip-flops</h2>
+<p>Design a counter that follows <code>000 → 001 → 010 → 011 → 100 → 000</code>. The states 101, 110, 111 never occur, so they are <b>don't cares</b>. For a T flip-flop the excitation is <code>T = Q ⊕ Q⁺</code> (T = 1 exactly when that bit must change).</p>
+<div style="overflow-x:auto">
+<pre>Present Q2Q1Q0  Next Q2Q1Q0   T2 T1 T0
+000             001           0  0  1
+001             010           0  1  1
+010             011           0  0  1
+011             100           1  1  1
+100             000           1  0  0
+101,110,111     X X X         X  X  X</pre>
+</div>
+<p>K-map each T over the 3 present-state variables, using the don't cares to enlarge groups:</p>
+<pre>T0 = Σm(0,1,2,3) + d(5,6,7)   →  T0 = Q2'
+T1 = Σm(1,3)     + d(5,6,7)   →  T1 = Q0
+T2 = Σm(3,4)     + d(5,6,7)   →  T2 = Q2 + Q1·Q0</pre>
+<div class="num"><div class="tag">Self-start check (always do this)</div>
+Feed the unused states through the final equations:
+<pre>101 → T2T1T0 = 1 1 0 → 011        110 → T = 1 0 0 → 010        111 → T = 1 1 0 → 001</pre>
+Every unused state falls into the main cycle within one clock, so the counter is <b>self-starting</b>. Counter modulus = 5 → ⌈log₂5⌉ = 3 flip-flops.
+</div>
+</section>
+
+<section id="mem">
+<h1>8. Memory & Programmable Logic</h1>
+<div class="sub">Memories double as logic: a ROM is a lookup table, and PLA/PAL/FPGA devices let you "program" a Boolean function instead of wiring gates.</div>
+
+<h2>Memory sizing</h2>
+<ul style="color:#c9d1e0">
+<li>A memory with <b>k address lines</b> holds 2<sup>k</sup> words; with w bits per word, capacity = 2<sup>k</sup> × w bits. Address lines needed for N words = ⌈log₂ N⌉.</li>
+<li>12 address lines × 8-bit words → 4096 × 8 = 32 768 bits = <b>4 KB</b>.</li>
+<li>Building a bigger memory from smaller chips: chips needed = (total words ÷ words per chip) × (total width ÷ chip width). A 16K × 16 memory from 4K × 8 chips: (16K/4K) × (16/8) = 4 × 2 = <b>8 chips</b>. The extra high-order address lines (2 here) drive a <b>decoder</b> that selects the chip row.</li>
+<li><b>RAM</b> is volatile read/write (SRAM: flip-flop cells, fast; DRAM: capacitor cells, dense, needs refresh). <b>ROM</b> is non-volatile (mask ROM, PROM, EPROM, EEPROM, Flash).</li>
+</ul>
+
+<h2>ROM as a combinational circuit</h2>
+<p>A ROM with n address lines and m data lines is an <b>n-to-2<sup>n</sup> decoder followed by m OR gates</b>: the decoder produces every minterm and each output is the OR of the minterms stored as 1. Hence a 2<sup>n</sup> × m ROM can implement <b>any m Boolean functions of n variables</b>; its size is 2<sup>n</sup> × m bits. A ROM with 4 inputs and 3 outputs holds 16 × 3 = <b>48 bits</b>. It is simple but wasteful when only a few minterms are needed, since the table doubles with each extra input.</p>
+
+<h2>PLA, PAL, CPLD, FPGA</h2>
+<div style="overflow-x:auto">
+<table>
+<tr><th>Device</th><th>AND array</th><th>OR array</th><th>Note</th></tr>
+<tr><td>ROM</td><td>fixed (full decoder, all minterms)</td><td>programmable</td><td>every minterm available</td></tr>
+<tr><td><b>PLA</b></td><td><b>programmable</b></td><td><b>programmable</b></td><td>only the needed product terms are generated and can be shared between outputs</td></tr>
+<tr><td><b>PAL</b></td><td><b>programmable</b></td><td>fixed</td><td>cheaper and faster, but each output has a limited number of product terms</td></tr>
+<tr><td>CPLD</td><td colspan="2">several PAL-like blocks with programmable interconnect</td><td>non-volatile, fast fixed timing</td></tr>
+<tr><td>FPGA</td><td colspan="2">array of <b>look-up tables (LUTs)</b>, flip-flops and routing</td><td>a k-input LUT is a 2<sup>k</sup> × 1 memory and can realise <b>any</b> function of k variables (4-input LUT = 16 bits)</td></tr>
+</table>
+</div>
+<div class="num"><div class="tag">Worked numerical — size of a PLA vs a ROM</div>
+<b>Q:</b> A circuit has 5 inputs and 4 outputs. Compare a ROM with a PLA that needs 20 product terms.<br>
+<b>A:</b> Assume each input is available true and complemented, so the AND array has 2 × 5 = 10 input lines.
+<pre>ROM : 2⁵ × 4                     = 128 programmable bits
+PLA : AND array 10 × 20          = 200 links
+      OR  array 20 × 4           =  80 links         total 280 links</pre>
+For this function the ROM is smaller. A PLA wins when the number of product terms is far below 2<sup>n</sup> (for example 5 inputs but only 6 product terms: 60 + 24 = 84 links).
+</div>
+<h2>Other useful building blocks</h2>
+<ul style="color:#c9d1e0">
+<li><b>Tri-state buffer</b>: output is 0, 1 or high-impedance (Z). Several tri-state drivers can share one <b>bus</b> if exactly one is enabled at a time.</li>
+<li><b>Open-collector / open-drain</b> outputs allow a <b>wired-AND</b> on a shared line with a pull-up resistor.</li>
+<li><b>Fan-in</b> = number of inputs a gate accepts; <b>fan-out</b> = number of gate inputs one output can drive. A wide AND with limited fan-in is built as a tree of smaller gates, adding delay of about ⌈log<sub>k</sub> n⌉ levels.</li>
+<li><b>Propagation delay</b>: critical path = the longest delay from any input to any output; it sets the clock-period limit of a synchronous design.</li>
+</ul>
+</section>
+
+<section id="ari">
+<h1>9. Arithmetic Circuits & Error-Control Codes</h1>
+<div class="sub">Multi-digit adders and multipliers, and the redundancy bits that let hardware detect and correct bit errors.</div>
+
+<h2>BCD adder</h2>
+<p>Add two BCD digits with a 4-bit binary adder. If the binary sum is greater than 9 (that is, the carry-out is 1, or the sum is 1010–1111), <b>add 6 (0110)</b> to correct it and propagate a decimal carry. The correction condition is <code>K = C<sub>out</sub> + S<sub>3</sub>S<sub>2</sub> + S<sub>3</sub>S<sub>1</sub></code>.</p>
+<div class="num"><div class="tag">Worked numerical</div>
+8 + 5 = 13: 1000 + 0101 = 1101 (13 &gt; 9) → add 0110: 1101 + 0110 = 1 0011 → carry 1, digit 0011 → BCD <b>0001 0011</b> = 13 ✔.
+</div>
+
+<h2>Multipliers</h2>
+<ul style="color:#c9d1e0">
+<li><b>Shift-and-add</b>: for each multiplier bit that is 1, add the shifted multiplicand — n cycles for n-bit operands, 2n-bit product.</li>
+<li><b>Array multiplier</b> (n × n): n² AND gates generate the partial products; they are added by n(n−1) adders in total (n(n−2) full adders and n half adders). A 4 × 4 array multiplier therefore uses <b>16 AND gates, 8 full adders and 4 half adders</b>. It is fast (delay grows linearly with n) but large.</li>
+<li><b>Booth's algorithm</b> handles signed 2's complement operands by recoding runs of 1s in the multiplier (the pair Q₀Q₋₁ = 10 → subtract, 01 → add, 00/11 → shift only).</li>
+<li>Adders recap: ripple-carry delay ∝ n; carry-lookahead is about constant to log n; <b>carry-select</b> and <b>carry-skip</b> adders sit in between.</li>
+</ul>
+
+<h2>Parity and Hamming distance</h2>
+<ul style="color:#c9d1e0">
+<li><b>Even parity</b>: add a bit so the total number of 1s is even (odd parity: odd). A single parity bit detects any <b>odd</b> number of bit errors but cannot locate them and misses even-numbered errors.</li>
+<li><b>Hamming distance</b> d(x, y) = number of positions where x and y differ. The minimum distance d<sub>min</sub> of a code decides its power:
+<pre>detect up to  d_min − 1  errors
+correct up to ⌊(d_min − 1)/2⌋ errors
+detect e and correct t simultaneously if d_min ≥ e + t + 1  (e ≥ t)</pre></li>
+<li>A code with d<sub>min</sub> = 5 detects up to 4 errors or corrects up to 2. A code with d<sub>min</sub> = 3 corrects 1 error; adding an overall parity bit makes d<sub>min</sub> = 4 (<b>SECDED</b>: single-error-correct, double-error-detect).</li>
+</ul>
+<div class="num"><div class="tag">Worked numerical</div>
+d(10110, 11011): XOR = 01101 → three 1s → distance <b>3</b>. Even parity bit for 1011011 (five 1s) = <b>1</b>.
+</div>
+
+<h2>Hamming (7,4) single-error-correcting code</h2>
+<p>For m data bits you need r check bits with <code>2<sup>r</sup> ≥ m + r + 1</code>: m = 4 → r = 3 (7-bit code word), m = 8 → r = 4 (12-bit word). Check bits sit at the <b>power-of-two positions</b> 1, 2, 4, …; check bit p<sub>i</sub> covers every position whose binary index contains bit i.</p>
+<pre>Position:   1   2   3   4   5   6   7
+Role:       p1  p2  d1  p4  d2  d3  d4
+p1 covers positions 1,3,5,7     p2 covers 2,3,6,7     p4 covers 4,5,6,7  (even parity)</pre>
+<div class="num"><div class="tag">Worked numerical — encode and correct</div>
+<b>Encode data 1011</b> (d1 d2 d3 d4 = 1,0,1,1):
+<pre>p1 = d1⊕d2⊕d4 = 1⊕0⊕1 = 0
+p2 = d1⊕d3⊕d4 = 1⊕1⊕1 = 1
+p4 = d2⊕d3⊕d4 = 0⊕1⊕1 = 0
+code word (positions 1…7) = 0 1 1 0 0 1 1  =  0110011</pre>
+<b>Receive 0110111</b> (bit 5 flipped). Recompute the three checks over their groups; the failed checks form the <b>syndrome</b>:
+<pre>c1 (1,3,5,7) = 0⊕1⊕1⊕1 = 1       c2 (2,3,6,7) = 1⊕1⊕1⊕1 = 0       c4 (4,5,6,7) = 0⊕1⊕1⊕1 = 1
+syndrome c4c2c1 = 101 = 5  →  the error is in position 5: flip it back → 0110011 → data bits (3,5,6,7) = <b>1011</b></pre>
+The syndrome, read as a binary number, <b>is the position of the error</b> (0 means no error). All 16 × 7 single-bit-error cases were checked by program.
+</div>
+<h2>CRC (brief)</h2>
+<p>A <b>cyclic redundancy check</b> divides the message (shifted left by the degree of the generator polynomial) by the generator using XOR (mod-2) division; the remainder is appended. A receiver recomputes it; a non-zero remainder signals an error. A CRC with a degree-r generator detects all burst errors of length ≤ r and all single-bit errors if the generator has at least two terms.</p>
+</section>
+
+
+<section id="advanced" class="full"><h1>10. High-Yield Sequential & Boolean Methods</h1>
+<div class="sub">Canonical methods for the remaining timing, asynchronous-circuit, race/hazard, LFSR and Shannon-expansion patterns.</div>
+<h2>Asynchronous sequential circuits</h2>
+<div class="grid">
+<div class="card"><span class="tag must">🟢 Must Remember</span><b>Fundamental-mode assumption</b><p>For fundamental-mode analysis, only one input changes at a time and the circuit is allowed to reach a stable state before the next input change. Do not apply synchronous edge-triggered assumptions.</p></div>
+<div class="card"><span class="tag fav">⚠️ GATE Favourite</span><b>Stable-state analysis</b><p>Write the next-state equation, identify states satisfying <code>Q<sub>next</sub>=Q</code> for the current input, then check whether transitions under the permitted input changes lead to the intended stable state.</p></div>
+<div class="card"><span class="tag trap">🟡 Common Trap</span><b>Race vs hazard</b><p>A <b>race</b> concerns multiple state variables changing and potentially reaching different final states. A <b>hazard</b> is an unwanted transient caused by unequal propagation delays in a combinational path.</p></div>
+<div class="card"><span class="tag must">🟢 Must Remember</span><b>Critical race</b><p>A race is critical when different possible orders of state-variable changes can lead to different stable states. State assignment should avoid assigning adjacent transitions to codes requiring multiple simultaneous bit changes.</p></div>
+<div class="card"><span class="tag fav">⚠️ GATE Favourite</span><b>Essential hazard</b><p>Occurs in asynchronous circuits because a feedback path has unequal delays. Unlike a static/dynamic logic hazard, it cannot generally be removed by merely adding a redundant combinational consensus term; the feedback path must be designed with appropriate delays/structure.</p></div>
+<div class="card"><span class="tag formula">🧮 Formula / Rule</span><b>Static-1 hazard</b><p>For SOP logic, if adjacent 1-minterms are covered by separate product terms but not a common implicant, unequal delays can create a temporary 0. Add the consensus/overlap implicant when appropriate.</p></div>
+</div>
+<h2>Timing-diagram workflow</h2>
+<div class="guide"><details open><summary>How to solve a flip-flop timing question</summary><div class="inside"><ol><li>Identify the active clock edge/level.</li><li>Evaluate J/K, D or T immediately before the active edge.</li><li>Apply the characteristic equation: D → Q<sub>next</sub>=D; T → Q<sub>next</sub>=Q⊕T; JK → 00 hold, 01 reset, 10 set, 11 toggle.</li><li>Apply preset/clear first if asynchronous controls are asserted.</li><li>Only then draw Q and account for clock-to-Q delay if the question asks for waveform timing.</li></ol></div></details></div>
+<h2>State assignment</h2>
+<div class="grid"><div class="card"><span class="tag shortcut">💡 Shortcut</span><b>Adjacent transitions</b><p>Prefer state codes that differ in one bit for transitions that occur frequently. This reduces race risk in asynchronous implementations and often simplifies excitation equations.</p></div><div class="card"><span class="tag trap">🟡 Common Trap</span><b>Don't confuse minimisation with assignment</b><p>State minimisation merges equivalent states; state assignment maps the remaining states to binary codes. They are different design stages.</p></div></div>
+<h2>LFSR</h2>
+<div class="grid"><div class="card"><span class="tag must">🟢 Must Remember</span><b>Linear feedback</b><p>An n-bit maximal-length LFSR can generate at most <code>2<sup>n</sup>−1</code> nonzero states when its feedback polynomial is primitive. The all-zero state is a lock-up state for a standard XOR-feedback LFSR.</p></div><div class="card"><span class="tag formula">🧮 Formula / Rule</span><b>State transition method</b><p>Write the current register, compute the feedback XOR from the specified taps, shift in the feedback bit, and repeat until a state repeats. The number of distinct nonzero states is the period.</p></div></div>
+<h2>Shannon expansion</h2>
+<div class="card"><span class="tag formula">🧮 Formula / Rule</span><b>Shannon expansion</b><p>For variable x: <code>F = x·F|<sub>x=1</sub> + x'·F|<sub>x=0</sub></code>. It is the algebraic basis of MUX implementation: use x as the select and the two cofactors as the data inputs.</p></div>
+<h2>Representative worked problems</h2>
+<div class="guide"><details open><summary>Q1 · LFSR period</summary><div class="inside"><p><b>Problem:</b> An n=4 maximal-length XOR LFSR is initialized to any nonzero state. What is its maximum period?</p><p><span class="method">Method:</span> A primitive 4-bit LFSR visits every nonzero state exactly once.</p><p><code>2<sup>4</sup>−1 = 15</code>. Maximum period = <b>15 clocks</b>. The zero state must be avoided.</p></div></details></div>
+<div class="guide"><details><summary>Q2 · Shannon expansion / MUX</summary><div class="inside"><p><b>Problem:</b> Express <code>F(A,B,C)=Σm(1,2,5,7)</code> using A as the MUX select.</p><p><span class="method">Method:</span> Compute cofactors. For A=0, minterms 1,2 correspond to BC=01,10, giving <code>F<sub>0</sub>=B⊕C</code>. For A=1, minterms 5,7 correspond to BC=01,11, giving <code>F<sub>1</sub>=C</code>.</p><p>Therefore <code>F=A'·(B⊕C)+A·C</code>. A 2:1 MUX uses select A, D0=B⊕C and D1=C.</p></div></details></div>
+<div class="guide"><details><summary>Q3 · Static-1 hazard recognition</summary><div class="inside"><p><b>Problem:</b> A two-level SOP changes from one input combination where F=1 to an adjacent combination where F=1, but the two points are covered by different product terms with no common implicant. What failure should you suspect?</p><p><span class="method">Method:</span> Adjacent 1-cells should have an overlapping implicant for a hazard-free static-1 transition.</p><p>Suspect a <b>static-1 hazard</b>. Add the appropriate consensus/overlap term if it is logically redundant and permitted by the implementation.</p></div></details></div>
+<div class="guide"><details><summary>Q4 · Flip-flop timing</summary><div class="inside"><p><b>Problem:</b> A positive-edge D flip-flop sees D=1 immediately before one rising edge and D=0 immediately before the next rising edge. Ignore asynchronous inputs. What are the sampled Q values?</p><p><span class="method">Method:</span> Sample D only at the active edge; between edges Q retains its stored value.</p><p>After the first rising edge Q becomes <b>1</b>; after the second rising edge Q becomes <b>0</b>. Changes in D between those edges do not immediately change Q.</p></div></details></div>
+</section>
+
+<section id="quiz">
+<h1>10. Practice Quiz — 68 Questions</h1>
+<div class="sub">Covers all 9 topics above. Click an option to check yourself instantly — explanations included.</div>
+<div class="qtopics" id="qtopics"></div><style>.qmode button{cursor:pointer;padding:8px 12px;border:1px solid #888;border-radius:8px;background:transparent}.qmode button.active{font-weight:700}.opt.selected{outline:2px solid currentColor;transform:translateX(2px)}</style><div class="qmode" style="margin:12px 0;display:flex;gap:8px;flex-wrap:wrap"><button id="mcqMode" class="active">MCQ</button><button id="msqMode">MSQ · Select all that apply</button></div>
+<div id="score">Answered <b id="ansCount">0</b>/68 · Correct <b id="corrCount">0</b></div>
+<div id="qlist"></div>
+</section>
+
+<section id="pyq">
+<h1>11. GATE-Level Solved Problems</h1>
+<div class="sub">The 68 quiz questions above check fundamentals. These are heavier, multi-step problems in GATE style — every step shown, and every answer machine-verified.</div>
+
+<div class="gq"><div class="gtag">Q1 · IEEE 754 decoding</div>
+<b>The 32-bit pattern 0xC1580000 is interpreted as an IEEE 754 single-precision number. Its value is:</b>
+<ol class="gopts"><li>−13.5</li><li>−27.0</li><li>+13.5</li><li>−6.75</li></ol>
+<pre>0xC1580000 = 1100 0001 0101 1000 0000 … 
+sign = 1 (negative)
+exponent = 1000 0010 = 130  →  130 − 127 = 3
+mantissa = 1011 000… → 1.1011₂ = 1 + 1/2 + 1/8 + 1/16 = 1.6875
+value = −1.6875 × 2³ = −13.5</pre>
+<p class="gans">Correct: Option 1 — −13.5.</p>
+</div>
+
+<div class="gq"><div class="gtag">Q2 · Signed overflow</div>
+<b>Add the 8-bit 2's complement numbers 0111 1010 and 0001 1101. Which statement is correct?</b>
+<ol class="gopts"><li>Result 1001 0111, no overflow</li><li>Result 1001 0111, overflow occurs</li><li>Result 0001 0111, carry out = 1</li><li>Result 1001 0111, overflow occurs, carry out = 1</li></ol>
+<pre>  0111 1010  (+122)
++ 0001 1101  (+29)
+  1001 0111  → as signed this reads −105
+low 7 bits: 122 + 29 = 151 > 127 → carry INTO the MSB = 1;  carry OUT of the MSB = 0
+different carries → overflow (true sum 151 exceeds +127). Carry-out = 0, so option 4 is wrong.</pre>
+<p class="gans">Correct: Option 2 — result 1001 0111 with overflow.</p>
+</div>
+
+<div class="gq"><div class="gtag">Q3 · Prime implicants</div>
+<b>For f(A,B,C) = Σm(0,1,2,5,6,7), how many prime implicants and how many essential prime implicants are there?</b>
+<ol class="gopts"><li>3 PIs, 3 essential</li><li>6 PIs, 0 essential</li><li>6 PIs, 3 essential</li><li>4 PIs, 2 essential</li></ol>
+<pre>Prime implicants (all pairs of adjacent 1s):
+  A'B' {0,1}   A'C' {0,2}   BC' {2,6}   AB {6,7}   AC {5,7}   B'C {1,5}
+Every minterm lies in exactly two of them, so none is essential.
+Minimal SOP uses 3 of the 6, e.g.  f = A'C' + AB + B'C  (6 literals).</pre>
+<p class="gans">Correct: Option 2 — 6 prime implicants, 0 essential.</p>
+</div>
+
+<div class="gq"><div class="gtag">Q4 · Minimal SOP with don't cares</div>
+<b>f(A,B,C,D) = Σm(1,4,6,7,8,9,10,11,15) + d(0,5). The minimum number of literals in a minimal SOP expression for f is:</b>
+<ol class="gopts"><li>8</li><li>9</li><li>10</li><li>11</li></ol>
+<pre>Essential PIs:  A'B {4,5,6,7} (only one covering m6)   AB' {8,9,10,11} (only one covering m10)
+Remaining minterms: m1 and m15
+  m1  → B'C' {0,1,8,9}  (2 literals)      [A'C' also works]
+  m15 → BCD  {7,15}     (3 literals)      [ACD  also works]
+
+f = A'B + AB' + B'C' + BCD        literals = 2 + 2 + 2 + 3 = 9   (4 terms)
+No 5-term cover can beat this: every term has ≥ 2 literals and 5 terms ≥ 10.</pre>
+<p class="gans">Correct: Option 2 — 9 literals.</p>
+</div>
+
+<div class="gq"><div class="gtag">Q5 · Implementing with a MUX</div>
+<b>A 4:1 MUX has select inputs S1 = A and S0 = B. To implement f(A,B,C) = Σm(1,2,4,7), the data inputs (I0, I1, I2, I3) should be:</b>
+<ol class="gopts"><li>(C, C', C', C)</li><li>(C', C, C, C')</li><li>(0, 1, C, C')</li><li>(C, C, C', C')</li></ol>
+<pre>AB = 00:  f(C=0)=0, f(C=1)=1  → I0 = C
+AB = 01:  f(C=0)=1, f(C=1)=0  → I1 = C'
+AB = 10:  f(C=0)=1, f(C=1)=0  → I2 = C'
+AB = 11:  f(C=0)=0, f(C=1)=1  → I3 = C            (this is the 3-input XOR)</pre>
+<p class="gans">Correct: Option 1 — (C, C', C', C).</p>
+</div>
+
+<div class="gq"><div class="gtag">Q6 · Decoder trees</div>
+<b>The minimum number of decoders (3-to-8 and 2-to-4, all with enable) needed to build a 5-to-32 decoder is:</b>
+<ol class="gopts"><li>4</li><li>5</li><li>8</li><li>9</li></ol>
+<pre>32 outputs ÷ 8 outputs per 3-to-8 decoder = 4 decoders in the second level (fed by the low 3 bits).
+The top 2 input bits select which of the 4 is enabled → one 2-to-4 decoder.
+Total = 4 + 1 = 5.</pre>
+<p class="gans">Correct: Option 2 — 5 decoders.</p>
+</div>
+
+<div class="gq"><div class="gtag">Q7 · Analysing a sequential circuit</div>
+<b>Two JK flip-flops A and B have inputs J<sub>A</sub> = B, K<sub>A</sub> = B', J<sub>B</sub> = A', K<sub>B</sub> = A. Starting from AB = 00, what is AB after 7 clock pulses?</b>
+<ol class="gopts"><li>00</li><li>01</li><li>11</li><li>10</li></ol>
+<pre>Using Q⁺ = JQ' + K'Q:
+ J_A = B, K_A = B'  →  A⁺ = B   (acts as a D flip-flop with D = B)
+ J_B = A', K_B = A  →  B⁺ = A'  (D = A')
+
+AB: 00 → 01 → 11 → 10 → 00 → …   a 2-bit Gray-code counter (period 4)
+After pulses 1…7:  01, 11, 10, 00, 01, 11, 10      (7 mod 4 = 3 → third state after 00)</pre>
+<p class="gans">Correct: Option 4 — AB = 10.</p>
+</div>
+
+<div class="gq"><div class="gtag">Q8 · Sequence detector</div>
+<b>An overlapping detector for the pattern 1011 is built as (i) a Mealy machine and (ii) a Moore machine. How many flip-flops do they need, and how many times does the output become 1 for the input 1011011010111 (Mealy)?</b>
+<ol class="gopts"><li>Mealy 2, Moore 3; output 1 three times</li><li>Mealy 3, Moore 3; output 1 twice</li><li>Mealy 2, Moore 2; output 1 three times</li><li>Mealy 3, Moore 4; output 1 four times</li></ol>
+<pre>Mealy states: S0 (none), S1 ("1"), S2 ("10"), S3 ("101")  → 4 states → ⌈log₂4⌉ = 2 flip-flops
+Moore needs an extra state S4 ("1011", output 1)            → 5 states → ⌈log₂5⌉ = 3 flip-flops
+
+input : 1 0 1 1 0 1 1 0 1 0 1 1 1
+output: 0 0 0 1 0 0 1 0 0 0 0 1 0     → matches end at bits 4, 7 and 12 (overlaps allowed) = 3</pre>
+<p class="gans">Correct: Option 1 — Mealy 2, Moore 3 flip-flops; output is 1 three times.</p>
+</div>
+
+<div class="gq"><div class="gtag">Q9 · Carry lookahead</div>
+<b>A 4-bit CLA adds A = 1011 and B = 0110 with C0 = 0. The carries (C1, C2, C3, C4) are:</b>
+<ol class="gopts"><li>(0, 1, 1, 1)</li><li>(0, 1, 0, 1)</li><li>(1, 1, 1, 1)</li><li>(0, 0, 1, 1)</li></ol>
+<pre>P = A⊕B = 1101,  G = A·B = 0010      (bit 0 on the right)
+C1 = G0 + P0C0 = 0 + 1·0 = 0
+C2 = G1 + P1C1 = 1 + 0·0 = 1
+C3 = G2 + P2C2 = 0 + 1·1 = 1
+C4 = G3 + P3C3 = 0 + 1·1 = 1
+Sum = P ⊕ carries-in = 0001 with C4 = 1  →  1 0001 = 17 = 11 + 6 ✔</pre>
+<p class="gans">Correct: Option 1 — (0, 1, 1, 1).</p>
+</div>
+
+
+<div class="gq"><div class="gtag">Q10 · ROM vs PLA size</div>
+<b>A combinational circuit has 5 inputs and 4 outputs. It is realised (i) as a ROM and (ii) as a PLA with 20 product terms (inputs available true and complemented; one programmable link per AND-array crossing and per OR-array crossing). The ROM bits and PLA links are respectively:</b>
+<ol class="gopts"><li>128 and 280</li><li>128 and 200</li><li>160 and 280</li><li>32 and 100</li></ol>
+<pre>ROM: 2⁵ words × 4 bits = 32 × 4 = 128 bits
+PLA: AND array = (2 × 5 input lines) × 20 product terms = 200
+     OR array  = 20 product terms × 4 outputs         =  80
+     total links = 280</pre>
+<p class="gans">Correct: Option 1 — 128 ROM bits and 280 PLA links.</p>
+</div>
+
+<div class="gq"><div class="gtag">Q11 · Hamming single-error correction</div>
+<b>A Hamming (7,4) code (even parity, check bits at positions 1, 2, 4; data bits at positions 3, 5, 6, 7) receives the word 0110111. What 4-bit data was sent, assuming at most one bit error?</b>
+<ol class="gopts"><li>1011</li><li>1111</li><li>0110</li><li>1001</li></ol>
+<pre>Check 1 (positions 1,3,5,7): 0⊕1⊕1⊕1 = 1  → fails
+Check 2 (positions 2,3,6,7): 1⊕1⊕1⊕1 = 0  → passes
+Check 4 (positions 4,5,6,7): 0⊕1⊕1⊕1 = 1  → fails
+Syndrome c4c2c1 = 101 = 5 → bit 5 is wrong; flip it: 0110011
+Data bits = positions 3, 5, 6, 7 = 1, 0, 1, 1 → 1011</pre>
+<p class="gans">Correct: Option 1 — 1011.</p>
+</div>
+
+<div class="gq"><div class="gtag">Q12 · Synchronous counter design (T flip-flops)</div>
+<b>A synchronous counter must follow 000 → 001 → 010 → 011 → 100 → 000 (states Q2Q1Q0), with 101, 110, 111 as don't cares, using T flip-flops. Which excitation equations are correct, and is the design self-starting?</b>
+<ol class="gopts"><li>T2 = Q2 + Q1Q0, T1 = Q0, T0 = Q2'; self-starting</li><li>T2 = Q1Q0, T1 = Q0, T0 = 1; it is a mod-8 counter</li><li>T2 = Q1Q0, T1 = Q0, T0 = Q2'; self-starting</li><li>T2 = Q2 + Q0, T1 = Q1', T0 = Q2'; self-starting</li></ol>
+<pre>T = Q ⊕ Q⁺ (toggle exactly where the bit changes):
+ T0 = Σm(0,1,2,3) + d(5,6,7) → Q2'      T1 = Σm(1,3) + d(5,6,7) → Q0      T2 = Σm(3,4) + d(5,6,7) → Q2 + Q1Q0
+Check the sequence: 000→001→010→011→100→000 ✔; unused states: 101→011, 110→010, 111→001 (self-starting).
+Option 2 never resets (it counts to 111). Option 3 gets stuck at 100 (all T inputs 0).
+Option 4 produces 000→011→110→010→… — wrong sequence.</pre>
+<p class="gans">Correct: Option 1.</p>
+</div>
+
+<div class="gq"><div class="gtag">Q13 · Binary ↔ Gray and Excess-3 conversion</div>
+<b>The Gray code of binary 101101, and the Excess-3 code of decimal 59, are respectively:</b>
+<ol class="gopts"><li>111011 and 1000 1100</li><li>110110 and 0101 1001</li><li>111011 and 0101 1001</li><li>110110 and 1000 1100</li></ol>
+<pre>Binary → Gray:  g(MSB) = b(MSB);   gᵢ = bᵢ ⊕ bᵢ₊₁   (each bit XOR its left neighbour)
+   b = 1 0 1 1 0 1
+   g = 1, 1⊕0, 0⊕1, 1⊕1, 1⊕0, 0⊕1 = 1 1 1 0 1 1   → 111011
+
+Excess-3 = BCD digit + 3, digit by digit:
+   5 → 5+3 = 8 → 1000        9 → 9+3 = 12 → 1100        → 1000 1100
+
+Reverse check (Gray → binary: b(MSB) = g(MSB), bᵢ = bᵢ₊₁ ⊕ gᵢ):
+   Gray 1101 → 1, 1⊕1, 0⊕0, 0⊕1 = 1 0 0 1 = 1001.
+Excess-3 is self-complementing: 9's complement of a digit = bitwise NOT of its code
+   (e.g. 4 → 0111, 5 → 1000).</pre>
+<p class="gans">Correct: Option 1 — 111011 and 1000 1100.</p>
+</div>
+
+<div class="gq"><div class="gtag">Q14 · BCD addition with correction</div>
+<b>Two packed-BCD numbers 0100 0111 (47) and 0011 1000 (38) are added with a binary adder followed by BCD correction. What is the corrected result, and how many nibbles needed the +0110 correction?</b>
+<ol class="gopts"><li>1000 0101, one nibble</li><li>0111 1111, none</li><li>1000 0101, two nibbles</li><li>1000 1011, one nibble</li></ol>
+<pre>  0100 0111       (47)
++ 0011 1000       (38)
+-----------
+  0111 1111       binary sum = 7F — not valid BCD (low nibble 1111 = 15 > 9)
+
+Low nibble:  1111 > 1001  → add 0110:  1111 + 0110 = 1 0101  → digit 0101, carry 1 into the high nibble
+High nibble: 0111 + carry 1 = 1000  (= 8, valid, ≤ 9, and no carry out) → no correction needed
+
+Result: 1000 0101 = 85 ✔       Only the low nibble was corrected.
+
+Rule: correct a nibble by +0110 when it exceeds 1001 OR when it produced a carry out of the nibble.</pre>
+<p class="gans">Correct: Option 1 — 1000 0101 (85), one nibble corrected.</p>
+</div>
+
+<div class="gq"><div class="gtag">Q15 · Quine–McCluskey — prime implicants, essentials and minimal SOP</div>
+<b>Minimise f(A,B,C,D) = Σm(0, 2, 3, 6, 7, 8, 9, 10, 13) with don't-cares d(1, 5, 15). How many prime implicants does the function have, which are essential, and what is the minimal SOP?</b>
+<ol class="gopts"><li>7 prime implicants; essential: B'D' and A'C; f = B'D' + A'C + C'D</li><li>6 prime implicants; essential: B'D' and A'C; f = B'D' + A'C + BD</li><li>7 prime implicants; essential: A'B', B'D' and A'C; f = A'B' + B'D' + A'C + C'D</li><li>7 prime implicants; essential: B'D' only; f = B'D' + A'C + BD</li></ol>
+<pre>Group the minterms and don't-cares (1s counted) and combine terms that differ in exactly one bit:
+   size 2:  0-2, 0-8, 0-1, 2-3, 2-6, 2-10, 8-9, 8-10, 1-3, 1-5, 1-9, 3-7, 5-7, 5-13, 6-7, 7-15, 9-13, 13-15
+   size 4:  0,2,8,10 → B'D'     0,1,8,9 → B'C'     0,1,2,3 → A'B'     2,3,6,7 → A'C
+            1,3,5,7 → A'D       1,5,9,13 → C'D     5,7,13,15 → BD
+All seven size-4 groups are prime (no size-8 group exists):   B'D', B'C', A'B', A'C, A'D, C'D, BD.
+
+Prime-implicant chart (only the required minterms 0,2,3,6,7,8,9,10,13 must be covered; d's need not be):
+   minterm 8  is covered only by B'D' (0,2,8,10) or B'C' (0,8,9) → look at 10: only B'D' covers 10  ⇒ B'D' is ESSENTIAL
+   minterm 6  is covered only by A'C (2,3,6,7)                                               ⇒ A'C  is ESSENTIAL
+   After B'D' (0,2,8,10) and A'C (2,3,6,7) the minterms 9 and 13 are still uncovered.
+   One implicant covers both: C'D (1,5,9,13) — chosen (B'C' would cover only 9, BD only 13).
+Minimal SOP:  f = B'D' + A'C + C'D      (3 terms, 6 literals).
+
+Check: a program ran the tabular method and reproduced the 7 primes, the 2 essentials, the single extra term C'D, and a logic-minimisation library returned the same SOP.
+Trap: counting 1-minterms 9 and 13 as needing two extra terms — don't-cares 1, 5 are what let one group (C'D) cover both.</pre>
+<p class="gans">Correct: Option 1 — 7 prime implicants, essentials B'D' and A'C, minimal SOP B'D' + A'C + C'D.</p>
+</div>
+
+<div class="gq"><div class="gtag">Q16 · State minimisation of a DFA by partition refinement</div>
+<b>A DFA over {0, 1} has start state A, accepting states {C, D, E} and transitions (on 0, on 1): A→(B,C), B→(A,D), C→(E,F), D→(E,F), E→(E,F), F→(F,F). How many states does the minimal equivalent DFA have, and which states merge?</b>
+<ol class="gopts"><li>3 states; A≡B and C≡D≡E</li><li>4 states; only C≡D and D≡E merge</li><li>3 states; A≡B and C≡D but E stays separate</li><li>5 states; only A≡B merge</li></ol>
+<pre>Partition refinement (Myhill–Nerode / table filling):
+ P0  = {C, D, E} (accepting)  |  {A, B, F} (non-accepting)
+ P1  : look at where each state goes under 0 and 1, as block labels (X = {C,D,E}, Y = {A,B,F}):
+       C → (E,F) = (X,Y)   D → (E,F) = (X,Y)   E → (E,F) = (X,Y)      → {C, D, E} stays together
+       A → (B,C) = (Y,X)   B → (A,D) = (Y,X)   F → (F,F) = (Y,Y)      → F separates from A and B
+       P1 = {C,D,E} | {A,B} | {F}
+ P2  : A → (B,C) = ({A,B},{C,D,E}),  B → (A,D) = ({A,B},{C,D,E})   → same;   C, D, E all → ({C,D,E},{F}) → same
+       No block splits, so P2 = P1.
+Equivalence classes: {A,B}, {C,D,E}, {F}  →  3 states in the minimal DFA.
+Language accepted: exactly one 1, i.e. 0*10*. The three classes are 'no 1 seen yet' {A,B}, 'exactly one 1 seen' {C,D,E} and the dead state {F} (a second 1).
+
+Check: partition refinement was run by program; classes [A,B], [C,D,E], [F].
+Trap: E looks different because it loops to itself on 0, but loops are irrelevant — what matters is that E, C and D have identical futures.</pre>
+<p class="gans">Correct: Option 1 — 3 states, with A≡B and C≡D≡E merged.</p>
+</div>
+
+<div class="gq"><div class="gtag">Q17 · LFSR sequence length and Johnson counter states</div>
+<b>(i) A 4-bit shift register shifts right each clock; the new MSB is Q0 ⊕ Q1 (the XOR of the two least significant bits). Starting from 1000, how many clocks before the state repeats, and which state can never occur? (ii) How many distinct states does a 4-bit Johnson (twisted-ring) counter use, compared with a 4-bit ring counter?</b>
+<ol class="gopts"><li>15 states, 0000 never occurs; Johnson 8 vs ring 4</li><li>16 states, 0000 occurs; Johnson 8 vs ring 4</li><li>15 states, 0000 never occurs; Johnson 16 vs ring 4</li><li>7 states, 1111 never occurs; Johnson 8 vs ring 4</li></ol>
+<pre>(i) State = Q3Q2Q1Q0, shift right, feedback bit = Q1 ⊕ Q0 enters Q3.
+     1000 → 0100 → 0010 → 1001 → 1100 → 0110 → 1011 → 0101 → 1010 → 1101 → 1110 → 1111 → 0111 → 0011 → 0001 → 1000
+     15 distinct states before returning to 1000 — the maximum possible 2^4 − 1 (a maximal-length sequence).
+     The all-zero state 0000 maps to itself (feedback 0 ⊕ 0 = 0), so it is a LOCK-UP state; it never occurs in the 15-state cycle and must be avoided at start-up.
+     A poor tap choice gives a shorter cycle: feedback Q0 ⊕ Q2 from 0001 repeats after only 6 states.
+(ii) Johnson counter (feedback = complement of the last bit): 0000 → 1000 → 1100 → 1110 → 1111 → 0111 → 0011 → 0001 → 0000: 2n = 8 states.
+     Ring counter (one hot bit circulating): n = 4 states.   Mod-N Johnson needs N/2 flip-flops, a ring needs N.
+     Johnson states are decoded with 2-input gates (any state is identified by two adjacent bits).
+
+Check: the 15-state cycle and the 6-state cycle for the other tap pair were produced by program; the Johnson cycle has 8 states.
+Trap: with XOR feedback, the all-zeros state is the illegal one; with XNOR feedback it would be all-ones.</pre>
+<p class="gans">Correct: Option 1 — period 15 with 0000 as the lock-up state; Johnson uses 8 states, a ring counter 4.</p>
+</div>
+
+<div class="gq"><div class="gtag">Q18 · Static-1 hazard and its removal</div>
+<b>For f = AB + A'C (implemented as two AND gates feeding an OR gate, with an inverter on A), which input transition can cause a static-1 hazard, and which extra product term removes it?</b>
+<ol class="gopts"><li>A changes while B = C = 1; add the term BC</li><li>B changes while A = C = 1; add the term AC</li><li>C changes while A = 0, B = 1; add the term A'B</li><li>A changes while B = 0, C = 1; add the term B'C</li></ol>
+<pre>K-map of f = AB + A'C (cells ABC):  ones at 011 (A'C), 001 (A'C), 110 (AB), 111 (AB) and 011/111 share B = C = 1.
+Prime implicants in the cover: AB (cells 110, 111) and A'C (cells 001, 011). The adjacent cells 011 and 111 are both 1 but belong to DIFFERENT groups.
+
+When A switches 1 → 0 with B = C = 1: AB falls to 0 immediately, but A'C rises only after the inverter delay.
+For a short time BOTH terms are 0 → the output momentarily drops to 0 (a glitch) even though it should stay 1: a static-1 hazard.
+
+Fix: add the redundant consensus term BC (covers 011 and 111).  f = AB + A'C + BC — logically the same function, but a single product term now holds the output at 1 during the transition.
+The adjacency scan of the 3-variable map finds exactly one hazardous pair (011, 111).
+Check: all adjacent minterm pairs were scanned by program (only 011–111 qualifies), and f = AB + A'C + BC was confirmed equal to AB + A'C on all 8 inputs.
+Rules: static-1 hazards in SOP circuits come from adjacent 1-cells in different groups; static-0 hazards appear in POS circuits; a redundant (consensus) term removes it, at the price of a larger circuit.</pre>
+<p class="gans">Correct: Option 1 — A changing with B = C = 1 causes the hazard; adding BC removes it.</p>
+</div>
+</section>
+
+</main>
+</div>
+<footer>Complete · 9 GATE CSE 2027 Digital Logic topics · 68-question basic quiz · 18 fully solved GATE-level problems</footer>
+<script>
+const Q = [
+["NUM","The decimal number 156 in hexadecimal is:",["8C","C9","9C","9A"],2,"156 = 9×16 + 12, and 12 is C, so 9C (= 1001 1100 in binary)."],
+["NUM","The range of an 8-bit 2's complement integer is:",["−127 to +127","0 to 255","−128 to +127","−128 to +128"],2,"n-bit 2's complement covers −2^(n−1) to 2^(n−1)−1; for n = 8 that is −128 to +127."],
+["NUM","The 8-bit 2's complement representation of −45 is:",["11010010","11010011","00101101","10101101"],1,"+45 = 00101101; invert → 11010010; add 1 → 11010011 (check: 256 − 45 = 211)."],
+["NUM","In 2's complement addition, overflow occurs when:",["There is a carry out of the MSB","The operands have different signs","The carry into the MSB differs from the carry out of the MSB","The result is zero"],2,"Equivalently, both operands have the same sign and the result has the opposite sign. A carry-out alone only indicates unsigned overflow."],
+["NUM","8-bit signed addition of 01111010 and 00011101 gives:",["00010111 with overflow","10010111 with overflow","10010111 with no overflow","Carry out of 1, no overflow"],1,"122 + 29 = 151 > 127, so the result 10010111 (−105) is wrong: overflow. Carry into MSB = 1, carry out = 0."],
+["NUM","In IEEE 754 single precision, the exponent field is 8 bits and the bias is:",["128","63","1023","127"],3,"Single precision uses a bias of 127 (double precision uses 11 bits with bias 1023)."],
+["NUM","The Gray code equivalent of binary 1011 is:",["1010","1110","1001","1101"],1,"G3 = 1; G2 = 1⊕0 = 1; G1 = 0⊕1 = 1; G0 = 1⊕1 = 0, giving 1110."],
+["NUM","In IEEE 754 single precision, the number of significand bits (including the hidden leading 1) is:",["32","25","24","23"],2,"23 fraction bits are stored; the leading 1 of a normalised number is implicit, giving 24 significant bits."],
+["NUM","In single-precision floating point, the value of 16777216 + 1 (that is, 2²⁴ + 1) is:",["16777218","16777217","16777216","Overflow"],2,"Above 2²⁴ the spacing between floats is 2, so 2²⁴ + 1 is not representable and rounds (to even) back to 2²⁴."],
+["BOOL","The dual of the expression A + BC' is:",["A'·B' + C","A + (B' · C)","A'(B' + C)","A·(B + C')"],3,"Duality swaps AND↔OR (and 0↔1) while leaving literals unchanged: A + B·C' becomes A·(B + C')."],
+["BOOL","By the consensus theorem, AB + A'C + BC equals:",["A'C + BC","AB + BC","AB + A'C","AB + A'C + B"],2,"BC is the consensus term of AB and A'C and is redundant."],
+["BOOL","The number of distinct Boolean functions of 3 variables is:",["8","256","64","128"],1,"There are 2^(2^n) functions of n variables; for n = 3 that is 2^8 = 256."],
+["BOOL","Which of the following sets of gates is NOT functionally complete?",["{AND, OR}","{AND, NOT}","{NAND}","{NOR}"],0,"Without NOT (or NAND/NOR) you cannot produce inversion, so {AND, OR} is incomplete — both are monotone."],
+["BOOL","A ⊕ B ⊕ C ⊕ D equals 1 when:",["At least two inputs are 1","An even number of inputs are 1","An odd number of inputs are 1","All inputs are 1"],2,"XOR is the odd-parity function."],
+["BOOL","The number of self-dual Boolean functions of 3 variables is:",["256","16","8","32"],1,"A self-dual function is determined by half of its truth table: 2^(2^(n−1)) = 2^4 = 16 for n = 3."],
+["BOOL","A + A'B simplifies to:",["A + B","AB","B","A"],0,"A + A'B = (A + A')(A + B) = A + B."],
+["KMAP","In a K-map, the cells in a valid group must be:",["Any number of adjacent cells","Only cells on one row","A power-of-two number of adjacent cells (1, 2, 4, 8, …)","An even number of cells only"],2,"Group size is 2^k; each group of 2^k cells eliminates k variables."],
+["KMAP","In a 4-variable K-map, every cell is adjacent (counting wrap-around) to how many cells?",["3","2","8","4"],3,"Each cell has one neighbour per variable, so 4 neighbours in a 4-variable map."],
+["KMAP","A prime implicant is:",["A single minterm","Any product term covering a 1","A group containing no don't cares","A maximal group of 1s that cannot be enlarged"],3,"It is an implicant that is not contained in any larger implicant."],
+["KMAP","An essential prime implicant is one that:",["Covers all don't cares","Has the most literals","Is always the largest group","Covers at least one minterm covered by no other prime implicant"],3,"Such a PI must appear in every minimal SOP."],
+["KMAP","The number of essential prime implicants of f = Σm(0,1,2,5,6,7) is:",["3","6","2","0"],3,"There are six prime implicants and every 1 is covered by two of them, so none is essential (a cyclic map)."],
+["KMAP","The number of prime implicants of f(A,B,C,D) = Σm(0,2,3,5,7,8,9,10,11,13,15) is:",["4","6","5","8"],1,"The prime implicants are B'D', BD, CD, B'C, AD and AB' — six in total (two are essential)."],
+["KMAP","Don't-care entries in a K-map are used by:",["Always treating them as 1","Ignoring the map entirely","Always treating them as 0","Treating them as 1 only when that makes a larger group, and never being forced to cover them"],3,"They are optional: include them to enlarge groups, but they do not need to be covered."],
+["COMB","The Sum output of a full adder is:",["A·B·Cin","A + B + Cin","A ⊕ B ⊕ Cin","AB + BCin + ACin"],2,"Sum is the 3-input XOR (odd parity). The carry is the majority function AB + BCin + ACin."],
+["COMB","The carry-out of a full adder equals:",["A + B","The majority function of A, B, Cin","A·B only","The XOR of the three inputs"],1,"Cout = AB + BCin + ACin, which is 1 when at least two inputs are 1."],
+["COMB","A full adder can be built from:",["Three half adders","One half adder and one XOR","Two half adders and an OR gate","Two half adders and an AND gate"],2,"The first half adder adds A and B, the second adds the result and Cin; the two carries are ORed."],
+["COMB","In a carry-lookahead adder, the carry equation is:",["C(i+1) = G(i)·P(i)·C(i)","C(i+1) = P(i)·G(i) + C(i)","C(i+1) = A ⊕ B ⊕ C(i)","C(i+1) = G(i) + P(i)·C(i), with P = A⊕B and G = A·B"],3,"Generate G = AB, propagate P = A⊕B; unrolling gives all carries in two gate levels."],
+["COMB","How many 2:1 multiplexers are needed to build a 16:1 multiplexer?",["16","31","15","8"],2,"A 2^n:1 mux needs 2^n − 1 two-to-one muxes: 8 + 4 + 2 + 1 = 15."],
+["COMB","Implementing f(A,B,C) = Σm(1,2,4,7) on a 4:1 MUX with A,B as selects, the data inputs I0, I1, I2, I3 are:",["C, C', C', C","C, C, C', C'","0, 1, C, C'","C', C, C, C'"],0,"For AB = 00: f = C; 01: f = C'; 10: f = C'; 11: f = C."],
+["COMB","The number of 2-to-4 decoders (with enable) needed to build a 4-to-16 decoder is:",["8","5","4","2"],1,"Four decoders produce the 16 outputs, plus one decoder to select which of them is enabled."],
+["COMB","To remove the static-1 hazard in f = AB + A'C, add the term:",["AB'","BC","A'B","AC"],1,"BC (the consensus term) covers the two adjacent minterms that the other terms handle separately."],
+["FF","The characteristic equation of a JK flip-flop is:",["Q⁺ = J + K","Q⁺ = J'Q + KQ'","Q⁺ = J ⊕ K","Q⁺ = JQ' + K'Q"],3,"J = K = 0 holds, J = 1,K = 0 sets, J = 0,K = 1 resets, J = K = 1 toggles."],
+["FF","The characteristic equation of a T flip-flop is:",["Q⁺ = T","Q⁺ = T + Q","Q⁺ = T ⊕ Q","Q⁺ = T'Q"],2,"T = 1 toggles the output; T = 0 holds."],
+["FF","For a NOR-based SR latch, the input S = R = 1 is:",["A valid hold","A valid toggle","A valid set operation","Forbidden — both outputs are driven to 0 and the next state is unpredictable"],3,"Both NOR outputs go low, violating Q' = complement of Q, and releasing both inputs together causes a race."],
+["FF","The race-around condition occurs in a level-triggered flip-flop when:",["J = K = 1 and the clock pulse is longer than the propagation delay","S = R = 1","D changes at the edge","J = K = 0"],0,"The output toggles repeatedly during the high clock level; master–slave or edge-triggered designs avoid it."],
+["FF","A T flip-flop can be built from a JK flip-flop by:",["Connecting J to Q","Connecting K = J'","Connecting J and K together as T","Grounding K"],2,"With J = K = T, the JK equation becomes Q⁺ = TQ' + T'Q = T ⊕ Q."],
+["FF","A D flip-flop can be built from a JK flip-flop by:",["J = K = D","J = Q, K = D","J = D', K = D","J = D, K = D'"],3,"Q⁺ = DQ' + DQ = D."],
+["FF","tcq = 2 ns, combinational delay = 5 ns and setup = 1 ns between two flip-flops. The maximum clock frequency is:",["125 MHz","80 MHz","200 MHz","100 MHz"],0,"T ≥ 2 + 5 + 1 = 8 ns, so f = 1/8 ns = 125 MHz."],
+["CNT","The minimum number of flip-flops needed for a modulo-60 counter is:",["5","7","60","6"],3,"⌈log₂ 60⌉ = 6 (2⁵ = 32 is too small, 2⁶ = 64 suffices)."],
+["CNT","A 5-bit Johnson (twisted-ring) counter has how many distinct states in normal operation?",["5","32","16","10"],3,"An n-bit Johnson counter cycles through 2n states."],
+["CNT","A 1.6 MHz clock drives a mod-16 counter. The frequency at its most significant output is:",["800 kHz","100 kHz","200 kHz","1.6 MHz"],1,"The MSB divides the clock by 16: 1.6 MHz / 16 = 100 kHz."],
+["CNT","A 4-bit ripple counter uses flip-flops with propagation delay 20 ns. Its approximate maximum clock frequency is:",["25 MHz","200 MHz","50 MHz","12.5 MHz"],3,"Settling time = 4 × 20 ns = 80 ns, so f ≈ 1/80 ns = 12.5 MHz."],
+["CNT","Synchronous counters are faster than ripple counters because:",["They use fewer flip-flops","They use no gates","They are level-triggered","All flip-flops are clocked simultaneously, so propagation delays do not accumulate"],3,"Only one flip-flop delay (plus gate delay) determines the clock period."],
+["CNT","A 3-bit ripple counter is made modulo-6 using a NAND-gate asynchronous reset. The reset is triggered when Q2Q1Q0 equals:",["111","100","101","110"],3,"The counter counts 0–5 and the temporary state 110 (6) resets it to 000."],
+["CNT","A 4-bit ring counter holds 1000 initially. After 2 clock pulses it holds:",["0010","1000","0001","0100"],0,"The 1 rotates: 1000 → 0100 → 0010."],
+["FSM","In a Moore machine, the output depends on:",["Present state only","Next state only","Present state and present input","Present input only"],0,"Moore outputs are functions of the state; Mealy outputs also depend on the input."],
+["FSM","In a Mealy machine, the output depends on:",["Present state and present input","Present state only","Previous output only","Clock only"],0,"Mealy outputs are attached to transitions."],
+["FSM","An overlapping 1011 sequence detector as a Mealy machine needs how many states?",["4","3","5","6"],0,"States track the prefixes: none, 1, 10, 101. The final 1 completes the match on a transition."],
+["FSM","The minimum number of flip-flops needed to implement a machine with 5 states is:",["4","3","5","2"],1,"⌈log₂ 5⌉ = 3."],
+["FSM","A Moore machine with n states can be converted to an equivalent Mealy machine with:",["n states (no more)","n² states","n+1 states","2n states"],0,"Move each state's output onto the incoming transitions; the state set stays the same."],
+["FSM","For an overlapping Mealy 101 detector, the output for the input 1101011 is:",["0001001","0101010","0001010","0000101"],2,"A 1 is output when the last three bits are 101: positions 4 and 6 (counting from 1)."],
+["FSM","Two states of a sequential machine are equivalent if:",["They have the same binary code","They are both reachable from the start state","They have the same number of transitions","For every input sequence they produce the same output sequence"],3,"Equivalent states can be merged, reducing the number of states and flip-flops."],
+["MEM","A ROM with 4 address lines and 3 output lines stores how many bits?",["48","7","64","12"],0,"2⁴ words × 3 bits = 16 × 3 = 48 bits; it can implement any 3 Boolean functions of 4 variables."],
+["MEM","A memory has 12 address lines and 8-bit words. Its capacity is:",["1 KB","12 KB","4 KB","8 KB"],2,"2¹² words × 8 bits = 4096 bytes = 4 KB."],
+["MEM","In a PAL (programmable array logic):",["Both the AND and OR arrays are programmable","The AND array is fixed and the OR array is programmable","Both arrays are fixed","The AND array is programmable and the OR array is fixed"],3,"A PLA has both programmable; a ROM has a fixed AND array (full decoder) and a programmable OR array."],
+["MEM","How many memory bits does a 4-input look-up table (LUT) in an FPGA contain?",["64","16","8","4"],1,"A k-input LUT stores one output bit for each of its 2ᵏ input combinations: 2⁴ = 16."],
+["ARC","The Hamming distance between the code words 10110 and 11011 is:",["2","3","4","5"],1,"The XOR is 01101, which contains three 1s."],
+["ARC","A code has minimum Hamming distance 5. It can detect up to ___ errors, or correct up to ___ errors:",["4 and 3","2 and 4","5 and 2","4 and 2"],3,"Detect d − 1 = 4; correct ⌊(d − 1)/2⌋ = 2 (when used for correction only)."],
+["ARC","The even-parity bit that must be appended to the data 1011011 is:",["0","Either, it does not matter","Cannot be determined","1"],3,"The data has five 1s (odd), so a 1 is needed to make the total even."],
+["ARC","The minimum number of check bits for a single-error-correcting Hamming code protecting 8 data bits is:",["4","8","5","3"],0,"2^r ≥ m + r + 1: r = 3 gives 8 ≥ 12 (false); r = 4 gives 16 ≥ 13 (true)."],
+["COMB", "A 8-to-3 priority encoder has inputs D7 … D0 where D7 has the highest priority. If D5, D2 and D0 are all 1, the output code is:", ["101", "111", "010", "000"], 0, "The highest-priority active input wins, so D5 gives 101. The valid output (V) is 1 because at least one input is active."],
+["MEM", "Compared with static RAM (SRAM), dynamic RAM (DRAM):", ["Is faster and needs no refresh", "Is denser and cheaper per bit but needs periodic refresh", "Stores each bit in a flip-flop of six transistors", "Is used for the CPU cache"], 1, "DRAM stores a bit as charge on a capacitor (one transistor per cell), which leaks, so it must be refreshed; SRAM's flip-flop cells are faster but larger and costlier."],
+["CNT", "A 3-stage ring counter (one hot bit) can count up to:", ["8 states", "6 states", "3 states", "2 states"], 2, "A ring counter with n flip-flops has n states. A Johnson counter has 2n states and a binary counter 2^n."],
+["BOOL", "Shannon's expansion of f(x, y, z) about x is:", ["f = x'·f(0, y, z) + x·f(1, y, z)", "f = x·f(0, y, z) + x'·f(1, y, z)", "f = f(0, y, z) + f(1, y, z)", "f = x ⊕ f(1, y, z)"], 0, "Fixing x to 0 and 1 gives the two cofactors. This is exactly a 2-to-1 multiplexer with select x, which is why any function of n variables can be built from MUXes of n − 1 variables."],
+["BOOL", "The minimum number of 2-input NOR gates needed to build a 2-input AND gate is:", ["2", "4", "1", "3"], 3, "A·B = (A')'·(B')' = NOR(A', B'), and each inverter is a NOR with tied inputs: NOR(A,A), NOR(B,B), then NOR of those two = 3 gates."],
+["FSM", "In a Moore machine the output depends on:", ["The present state and the present input", "The present state only", "The present input only", "The next state only"], 1, "A Mealy output depends on the state and the input; a Moore output depends on the state alone, so it changes only at clock edges but may need more states."],
+["FF", "A shift register of n flip-flops delays a serial input by:", ["n clock periods", "1 clock period", "n² clock periods", "Half a clock period"], 0, "Each flip-flop passes its value on at every clock edge, so a bit applied at the input appears at the last output after n edges."],
+["KMAP", "A group of 8 cells in a 4-variable K-map yields a product term with how many literals?", ["3", "2", "1", "4"], 2, "A group of 2^k cells eliminates k variables: 16-cell group → 0 literals, 8 → 1, 4 → 2, 2 → 3, 1 → 4."]
+];
+const MSQ=[["FF", "Which flip-flop statements are correct?", ["JK with J=K=1 toggles", "D captures D at the active edge", "T with T=1 toggles", "T with T=0 toggles"], [0, 1, 2], "JK=11 toggles; D captures D; T=1 toggles while T=0 holds."], ["COMB", "Which statements are correct?", ["Static-1 hazard can produce a momentary 0", "K-map adjacency helps identify static hazards", "Essential hazards occur in asynchronous circuits", "A race is always just a gate glitch"], [0, 1, 2], "Static-1 hazards are 1→0→1 glitches; K-map coverage helps expose them; essential hazards are associated with asynchronous circuits. A race concerns state-variable transitions."]];
+const topics={NUM:"Number Systems",BOOL:"Boolean Algebra",KMAP:"Minimisation",COMB:"Combinational Circuits",FF:"Flip-Flops",CNT:"Counters & Registers",FSM:"State Machines",MEM:"Memory & PLDs",ARC:"Arithmetic & Codes"};
+let filter="ALL",answered=0,correct=0,mode="MCQ";
+function renderMCQ(){
+  const list=document.getElementById('qlist');
+  list.innerHTML="";
+  Q.forEach((item,i)=>{
+    const [t,q,opts,ans,exp]=item;
+    if(filter!=="ALL"&&filter!==t) return;
+    const card=document.createElement('div'); card.className='qcard';
+    const tag=document.createElement('div'); tag.className='qtag'; tag.textContent=topics[t]+" · Q"+(i+1);
+    const qt=document.createElement('div'); qt.className='qtext'; qt.textContent=q;
+    card.appendChild(tag); card.appendChild(qt);
+    const order = opts.map((_,i)=>i);
+    for(let k=order.length-1;k>0;k--){
+      const j=Math.floor(Math.random()*(k+1));
+      [order[k],order[j]]=[order[j],order[k]];
+    }
+    order.forEach(oi=>{
+      const o=opts[oi];
+      const b=document.createElement('button'); b.className='opt'; b.textContent=o;
+      b.onclick=()=>{
+        if(b.dataset.done) return;
+        [...card.querySelectorAll('.opt')].forEach(x=>x.dataset.done=1);
+        const buttons=[...card.querySelectorAll('.opt')];
+        const correctPos=order.indexOf(ans);
+        buttons[correctPos].classList.add('correct');
+        if(oi!==ans) b.classList.add('wrong');
+        card.querySelector('.expl').classList.add('show');
+        answered++; if(oi===ans) correct++;
+        document.getElementById('ansCount').textContent=answered;
+        document.getElementById('corrCount').textContent=correct;
+      };
+      card.appendChild(b);
+    });
+    const e=document.createElement('div'); e.className='expl'; e.textContent=exp;
+    card.appendChild(e);
+    list.appendChild(card);
+  });
+}
+
+function renderMSQ(){
+ const list=document.getElementById('qlist'); list.innerHTML='';
+ MSQ.forEach((item,i)=>{
+  const [t,q,opts,ans,exp]=item; if(filter!=="ALL"&&filter!==t)return;
+  const card=document.createElement('div'); card.className='qcard';
+  const tag=document.createElement('div'); tag.className='qtag'; tag.textContent=(topics[t]||t)+' · MSQ'+(i+1); card.appendChild(tag);
+  const qt=document.createElement('div'); qt.className='qtext'; qt.textContent=q; card.appendChild(qt);
+  const hint=document.createElement('div'); hint.className='sub'; hint.textContent='Select all correct options. Scoring is all-or-nothing.'; card.appendChild(hint);
+  const order=[...opts.keys()]; for(let k=order.length-1;k>0;k--){const j=Math.floor(Math.random()*(k+1));[order[k],order[j]]=[order[j],order[k]];}
+  const selected=new Set();
+  order.forEach(orig=>{const b=document.createElement('button');b.className='opt';b.textContent=opts[orig];b.onclick=()=>{if(card.dataset.submitted)return;if(selected.has(orig)){selected.delete(orig);b.classList.remove('selected');}else{selected.add(orig);b.classList.add('selected');}};card.appendChild(b);});
+  const submit=document.createElement('button');submit.className='hy-btn primary';submit.style.marginTop='10px';submit.textContent='Submit MSQ';submit.onclick=()=>{if(card.dataset.submitted||selected.size===0)return;card.dataset.submitted='1';const correctSet=new Set(ans);const ok=selected.size===correctSet.size&&[...selected].every(x=>correctSet.has(x));const buttons=[...card.querySelectorAll('.opt')];buttons.forEach((b,idx)=>{const orig=order[idx];if(correctSet.has(orig))b.classList.add('correct');if(selected.has(orig)&&!correctSet.has(orig))b.classList.add('wrong');b.dataset.done=1;});card.querySelector('.expl').classList.add('show');answered++;if(ok)correct++;document.getElementById('ansCount').textContent=answered;document.getElementById('corrCount').textContent=correct;};card.appendChild(submit);
+  const e=document.createElement('div');e.className='expl';e.textContent=exp;card.appendChild(e);list.appendChild(card);
+ });
+}
+function render(){mode==='MCQ'?renderMCQ():renderMSQ();}
+
+const bar=document.getElementById('qtopics');
+["ALL",...Object.keys(topics)].forEach(t=>{
+  const b=document.createElement('button'); b.textContent=t==="ALL"?"All "+Q.length:topics[t];
+  if(t==="ALL")b.classList.add('active');
+  b.onclick=()=>{filter=t; [...bar.children].forEach(x=>x.classList.remove('active')); b.classList.add('active'); render();};
+  bar.appendChild(b);
+});
+function resetQuizScore(total){answered=0;correct=0;document.getElementById('ansCount').textContent='0';document.getElementById('corrCount').textContent='0';const sc=document.getElementById('score');if(sc)sc.innerHTML='Answered <b id="ansCount">0</b>/'+total+' · Correct <b id="corrCount">0</b>';}
+document.getElementById('mcqMode').onclick=()=>{mode='MCQ';resetQuizScore(Q.length);document.getElementById('mcqMode').classList.add('active');document.getElementById('msqMode').classList.remove('active');render();};
+document.getElementById('msqMode').onclick=()=>{mode='MSQ';resetQuizScore(MSQ.length);document.getElementById('msqMode').classList.add('active');document.getElementById('mcqMode').classList.remove('active');render();};
+render();
+</script>
+
+<script>
+(function(){
+  const curatedRapid = [["formula", "For n variables, a complete truth table has 2^n rows."], ["must", "De Morgan: (AB)’ = A’+B’ and (A+B)’ = A’B’."], ["must", "XOR is 1 when inputs differ; XNOR is 1 when inputs are equal."], ["trap", "K-map groups must contain 1,2,4,8,... cells and be rectangular; wrapping across edges is allowed."], ["must", "Use don’t-care terms when they are permitted to simplify the implementation; they may be treated as 0 or 1 as convenient."], ["must", "MUX can implement Boolean functions; a 2^n:1 MUX can directly realise functions of n select variables plus suitable data inputs."], ["formula", "Half adder: Sum=A⊕B, Carry=AB. Full adder: Sum=A⊕B⊕Cin."], ["must", "Latch is level-sensitive; flip-flop is edge-triggered in the standard synchronous design model."], ["must", "Setup and hold time violations can cause metastability; clock-to-Q is a propagation characteristic, not a setup requirement."], ["must", "Synchronous counters share a common clock; ripple/asynchronous counters propagate state changes stage by stage."], ["gate", "For FSMs, distinguish Moore output dependence on state from Mealy output dependence on state and input."], ["formula", "For a k-bit binary counter, the number of states is 2^k."], ["must", "Combinational circuits have no memory; sequential circuits depend on present inputs and stored state."], ["must", "Asynchronous circuits: assume one input change at a time and allow the circuit to settle before the next change."], ["gate", "Critical race: different possible orders of state-bit changes can lead to different stable states."], ["trap", "Race is a state-transition problem; hazard is a propagation-delay transient."], ["formula", "Shannon: F = x·F|x=1 + x'·F|x=0; the two cofactors can directly feed a 2:1 MUX."], ["must", "A maximal-length n-bit XOR LFSR has period 2^n−1 and must avoid the all-zero lock-up state."], ["gate", "Static-1 hazard: adjacent 1-cells need a common implicant for a hazard-free SOP transition."]];
+  const labelDefs = {
+    must: ['🟢 Must Remember','hy-must'],
+    trap: ['🟡 Common Trap','hy-trap'],
+    formula: ['🧮 Formula / Rule','hy-formula'],
+    gate: ['⚠️ GATE Favourite','hy-gate'],
+    shortcut: ['💡 Shortcut','hy-shortcut']
+  };
+
+  function addBadge(el, type){
+    if(!el || el.querySelector(':scope > .hy-badge')) return;
+    const [label, cls] = labelDefs[type];
+    el.classList.add('hy-marked');
+    const b=document.createElement('span');
+    b.className='hy-badge '+cls;
+    b.textContent=label;
+    el.insertBefore(b, el.firstChild);
+    el.dataset.hyType=type;
+  }
+
+  function classifyCards(){
+    document.querySelectorAll('main .card').forEach(el=>{
+      const t=el.textContent.replace(/\s+/g,' ').trim().toLowerCase();
+      if(!t || el.closest('#hyRapidPanel')) return;
+      if(/\b(shortcut|quick trick|handy trick|easy trick)\b/.test(t)) addBadge(el,'shortcut');
+      else if(/\b(formula|identity|identities|range\s*=|det\(|log\s*|o\(|theta\(|n\(|probability formula|equation)\b/.test(t)) addBadge(el,'formula');
+      else if(/\b(theorem|key fact|must remember|remember|important|property|properties|rule of thumb|definition|distinction|difference between|classic)\b/.test(t)) addBadge(el,'must');
+    });
+    document.querySelectorAll('main .warn').forEach(el=>{
+      const t=el.textContent.replace(/\s+/g,' ').trim().toLowerCase();
+      addBadge(el, /gate (angle|trap|strategy|note|convention|favourite|favorite)/.test(t) ? 'gate' : 'trap');
+    });
+    document.querySelectorAll('main .num').forEach(el=>{
+      const t=el.textContent.replace(/\s+/g,' ').trim().toLowerCase();
+      if(/\b(rule of thumb|formula|shortcut|range|identity|key|remember)\b/.test(t)) addBadge(el,'formula');
+    });
+    document.querySelectorAll('main .gq').forEach(el=>addBadge(el,'gate'));
+  }
+
+  function makeToolbar(){
+    if(document.querySelector('.hy-toolbar')) return;
+    const main=document.querySelector('.wrap>main');
+    if(!main) return;
+    const toolbar=document.createElement('div');
+    toolbar.className='hy-toolbar';
+    toolbar.innerHTML=`
+      <div class="hy-toolbar-row">
+        <div>
+          <div class="hy-title">⚡ <span>Revision Layer</span></div>
+          <div class="hy-sub">Use Last-Minute mode for a rapid recall pass before solving PYQs.</div>
+        </div>
+        <div class="hy-actions">
+          <button class="hy-btn primary" id="hyRapidOn">⚡ Last-Minute Revision</button>
+          <button class="hy-btn secondary" id="hyRapidOff">↩ Full Notes</button>
+        </div>
+      </div>
+      <div class="hy-legend">
+        <span class="hy-must">🟢 Must Remember</span>
+        <span class="hy-trap">🟡 Common Trap</span>
+        <span class="hy-formula">🧮 Formula / Rule</span>
+        <span class="hy-gate">⚠️ GATE Favourite</span>
+        <span class="hy-shortcut">💡 Shortcut</span>
+      </div>`;
+    main.insertBefore(toolbar, main.firstElementChild);
+    document.getElementById('hyRapidOn').onclick=()=>{buildRapid(); document.body.classList.add('rapid-mode'); window.scrollTo({top:0,behavior:'smooth'});};
+    document.getElementById('hyRapidOff').onclick=()=>{document.body.classList.remove('rapid-mode'); window.scrollTo({top:0,behavior:'smooth'});};
+  }
+
+  function buildRapid(){
+    let panel=document.getElementById('hyRapidPanel');
+    if(panel) return;
+    panel=document.createElement('section');
+    panel.id='hyRapidPanel';
+    panel.innerHTML='<h1>⚡ Last-Minute Revision</h1><p class="rapid-intro">A manually curated recall pass for the final 15–30 minutes before PYQs. Start here, then switch to the full notes only if a point needs clarification.</p>';
+    const curatedBox=document.createElement('div'); curatedBox.className='rapid-curated';
+    curatedBox.innerHTML='<h2>🎯 High-Yield Recall</h2><p class="rapid-note">These points are intentionally selected for quick GATE-oriented recall.</p>';
+    const groups={must:[],trap:[],formula:[],gate:[],shortcut:[]};
+    curatedRapid.forEach(([type,text])=>groups[type]?.push(text));
+    const labels={must:'🟢 Must Remember',trap:'🟡 Common Trap',formula:'🧮 Formula / Rule',gate:'⚠️ GATE Favourite',shortcut:'💡 Shortcut'};
+    Object.entries(groups).forEach(([type,items])=>{
+      if(!items.length) return;
+      const g=document.createElement('div'); g.className='rapid-group '+type;
+      g.innerHTML='<h3>'+labels[type]+'</h3>';
+      const ul=document.createElement('ul'); items.forEach(x=>{const li=document.createElement('li'); li.textContent=x; ul.appendChild(li);});
+      g.appendChild(ul); curatedBox.appendChild(g);
+    });
+    panel.appendChild(curatedBox);
+    const sourceSections=[...document.querySelectorAll('main>section')].filter(s=>s.id!=='quiz'&&s.id!=='pyq'&&s.id!=='hyRapidPanel');
+    let total=0;
+    sourceSections.forEach(sec=>{
+      const items=[...sec.querySelectorAll(':scope > .card, :scope > .warn, :scope > .num, :scope > .gq')]
+        .filter(el=>el.dataset.hyType);
+      if(!items.length) return;
+      const rs=document.createElement('div'); rs.className='rapid-section';
+      const title=sec.querySelector('h1')?.textContent.trim() || sec.id;
+      rs.innerHTML='<h2>'+escapeHtml(title)+'</h2>';
+      items.forEach(el=>{
+        // Last-minute mode keeps high-yield cards and warnings, plus only explicitly formula/rule numericals.
+        const type=el.dataset.hyType;
+        if(el.classList.contains('num') && type!=='formula') return;
+        const wrap=document.createElement('div'); wrap.className='rapid-source';
+        wrap.appendChild(el.cloneNode(true));
+        rs.appendChild(wrap); total++;
+      });
+      if(rs.children.length>1) panel.appendChild(rs);
+    });
+    if(!total){
+      const e=document.createElement('div'); e.className='rapid-empty'; e.textContent='No high-yield blocks were detected in this subject.'; panel.appendChild(e);
+    }
+    document.querySelector('.wrap>main').appendChild(panel);
+  }
+
+  function escapeHtml(s){return s.replace(/[&<>'"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[c]));}
+  function init(){classifyCards(); makeToolbar();}
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',init); else init();
+})();
+</script>
+
+<script>
+/* Randomise the position of the correct option in each solved problem on every page load,
+   and rewrite the "Correct: Option N" line to match. Problems whose options or explanation
+   refer to other options by position or say "all/none of the above" keep their order. */
+(function(){
+  var PIN=/\b(above|both of these|all of these|none of these|neither of these)\b/i;
+  var POSREF=/\b[Oo]ptions?\s*\(?[1-4A-Da-d]\)?(?![\w-])|\([a-d]\)\s|\bchoice\s*\(?[1-4A-D]\)?/;
+  document.querySelectorAll('.gq').forEach(function(g){
+    var ol=g.querySelector('.gopts'), ans=g.querySelector('.gans'); if(!ol||!ans) return;
+    var m=ans.innerHTML.match(/Option (\d)/); if(!m) return;
+    var lis=Array.prototype.slice.call(ol.children); if(lis.length<2) return;
+    var ci=parseInt(m[1],10)-1; if(ci<0||ci>=lis.length) return;
+    if(lis.some(function(li){return PIN.test(li.textContent)||POSREF.test(li.textContent);})) return;
+    var pre=g.querySelector('pre'); if(pre&&POSREF.test(pre.textContent)) return;
+    if(POSREF.test(ans.textContent.replace(/Option \d/,''))) return;
+    var correct=lis[ci], order=lis.slice();
+    for(var i=order.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=order[i];order[i]=order[j];order[j]=t;}
+    order.forEach(function(li){ol.appendChild(li);});
+    ans.innerHTML=ans.innerHTML.replace(/Option \d/,'Option '+(order.indexOf(correct)+1));
+  });
+})();
+</script>
+<!-- readiness:start -->
+<script>window.__READINESS_CFG__={review:{"NUM": {"sec": "num", "label": "Number Systems", "h2": ["Signed number"]}, "BOOL": {"sec": "bool", "label": "Boolean Algebra", "h2": ["Canonical forms"]}, "KMAP": {"sec": "kmap", "label": "Minimisation", "h2": ["K-map rules"]}, "COMB": {"sec": "comb", "label": "Combinational Circuits", "h2": ["Multiplexer"]}, "FF": {"sec": "ff", "label": "Flip-Flops", "h2": ["Characteristic equations"]}, "CNT": {"sec": "cnt", "label": "Counters & Registers", "h2": ["Synchronous counters"]}, "FSM": {"sec": "fsm", "label": "State Machines", "h2": ["Mealy vs Moore"]}, "MEM": {"sec": "mem", "label": "Memory & PLDs", "h2": ["Memory sizing"]}, "ARC": {"sec": "ari", "label": "Arithmetic & Codes", "h2": ["Hamming (7,4)"]}}};</script>
+<script>
+(function(){
+  /* ===== Revision Readiness: turns the quiz into a revision loop ===== */
+  var CFG = window.__READINESS_CFG__ || {};
+  var NAME = (location.pathname.split('/').pop()||'page').replace(/\.html?$/,'');
+  var KEY = 'readiness:'+NAME;
+  var STRONG=75, WEAK=55, MIN_ATT=3;
+  var results = {};             // "Q12" / "MSQ3" -> 1 (correct) | 0 (wrong); latest attempt wins
+  try{ var raw=localStorage.getItem(KEY); if(raw) results=JSON.parse(raw)||{}; }catch(e){}
+  function save(){ try{ localStorage.setItem(KEY, JSON.stringify(results)); }catch(e){} }
+
+  var score=document.getElementById('score'), qlist=document.getElementById('qlist');
+  if(!score||!qlist||typeof Q==='undefined'||typeof topics==='undefined') return;
+
+  // ---- denominators per topic (MCQ + MSQ) ----
+  var totals={}, order=[];
+  function addTotal(arr){ (arr||[]).forEach(function(it){ var k=it[0]; if(!(k in totals)){totals[k]=0;order.push(k);} totals[k]++; }); }
+  addTotal(Q); if(typeof MSQ!=='undefined') addTotal(MSQ);
+  var totalQ=Q.length+(typeof MSQ!=='undefined'?MSQ.length:0);
+  function topicOf(id){
+    var m=/^(MSQ|Q)(\d+)$/.exec(id); if(!m) return null;
+    var arr=(m[1]==='Q')?Q:MSQ; var it=arr[+m[2]-1]; return it?it[0]:null;
+  }
+  function label(k){ return topics[k]||k; }
+
+  // ---- panel ----
+  var panel=document.createElement('div'); panel.id='readiness'; panel.className='rd-panel';
+  score.parentNode.insertBefore(panel, score.nextSibling);
+  var css=document.createElement('style');
+  css.textContent=
+   '.rd-panel{margin:16px 0 22px;padding:16px 18px;border:1px solid var(--border,#242b3a);border-radius:14px;background:linear-gradient(135deg,var(--panel,#12161f),var(--panel2,#181d29));display:none}'+
+   '.rd-panel.show{display:block}'+
+   '.rd-head{display:flex;align-items:baseline;justify-content:space-between;gap:10px;flex-wrap:wrap}'+
+   '.rd-title{font-size:12px;letter-spacing:1px;text-transform:uppercase;font-weight:800;color:var(--accent,#5ee6c8)}'+
+   '.rd-big{font-size:30px;font-weight:800;line-height:1.1;margin:4px 0 0;color:var(--text,#e6e9f0)}'+
+   '.rd-big small{font-size:13px;font-weight:600;color:var(--muted,#93a0b8);margin-left:8px}'+
+   '.rd-verdict{font-size:13px;font-weight:700;padding:4px 10px;border-radius:999px;border:1px solid}'+
+   '.rd-v-good{color:#7ee787;border-color:#7ee78766;background:#7ee78722}.rd-v-mid{color:#ffc978;border-color:#ffb45466;background:#ffb45422}.rd-v-low{color:#ff9b9b;border-color:#ff6b6b66;background:#ff6b6b22}'+
+   '.rd-cov{font-size:12.5px;color:var(--muted,#93a0b8);margin:8px 0 12px}'+
+   '.rd-rows{display:grid;gap:7px;margin:10px 0}'+
+   '.rd-row{display:grid;grid-template-columns:minmax(96px,34%) 1fr 74px;gap:10px;align-items:center;font-size:12.5px}'+
+   '.rd-name{color:var(--text,#e6e9f0);overflow-wrap:anywhere}'+
+   '.rd-bar{height:9px;border-radius:99px;background:#ffffff14;overflow:hidden}'+
+   '.rd-bar i{display:block;height:100%;border-radius:99px}'+
+   '.rd-pct{text-align:right;color:var(--muted,#93a0b8);white-space:nowrap}'+
+   '.rd-sec{margin:14px 0 4px;font-size:13px;color:#c9d1e0;line-height:1.55}'+
+   '.rd-sec b.g{color:#7ee787}.rd-sec b.w{color:#ff9b9b}.rd-sec b.d{color:#ffc978}'+
+   '.rd-rec{margin:14px 0 0;padding:12px 14px;border-left:3px solid var(--accent2,#7c9fff);background:#00000022;border-radius:0 10px 10px 0;font-size:13px;color:#c9d1e0}'+
+   '.rd-rec .t{font-size:11px;letter-spacing:1px;text-transform:uppercase;font-weight:800;color:var(--accent2,#7c9fff);margin-bottom:6px}'+
+   '.rd-rec a{color:var(--accent,#5ee6c8);font-weight:700;text-decoration:none}.rd-rec a:hover{text-decoration:underline}'+
+   '.rd-rec div.l{margin:5px 0}'+
+   '.rd-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}'+
+   '.rd-btn{border:1px solid var(--border,#242b3a);background:var(--panel2,#181d29);color:var(--text,#e6e9f0);padding:8px 12px;border-radius:9px;font-size:12.5px;font-weight:700;cursor:pointer}'+
+   '.rd-btn:hover{border-color:var(--accent2,#7c9fff);color:var(--accent,#5ee6c8)}.rd-btn[disabled]{opacity:.45;cursor:default}'+
+   '.rd-note{font-size:11.5px;color:var(--muted,#93a0b8);margin-top:10px}'+
+   '.qcard.rd-hide{display:none}';
+  document.head.appendChild(css);
+
+  function pct(c,n){ return n? Math.round(100*c/n):0; }
+  function colour(p){ return p>=STRONG?'#7ee787':(p>=WEAK?'#ffc978':'#ff6b6b'); }
+
+  function sectionLink(t){
+    var c=(CFG.review||{})[t]; if(!c) return null;
+    if(c.href) return '<a href="'+c.href+'">'+c.label+'</a>';
+    var sec=document.getElementById(c.sec); if(!sec) return null;
+    var parts=['<a href="#'+c.sec+'">'+c.label+'</a>'];
+    (c.h2||[]).forEach(function(h){
+      var hs=sec.querySelectorAll('h2'); 
+      for(var i=0;i<hs.length;i++){
+        if(hs[i].textContent.replace(/\s+/g,' ').toLowerCase().indexOf(h.toLowerCase())>-1){
+          if(!hs[i].id) hs[i].id=c.sec+'-rd-'+i;
+          parts.push('<a href="#'+hs[i].id+'">'+hs[i].firstChild.textContent.replace(/\s+$/,'')+'</a>'); break;
+        }
+      }
+    });
+    return parts.join(' → ');
+  }
+
+  function build(){
+    var att=0,cor=0,per={};
+    order.forEach(function(k){per[k]={a:0,c:0};});
+    Object.keys(results).forEach(function(id){
+      var k=topicOf(id); if(!k||!per[k]) return;
+      per[k].a++; att++; if(results[id]===1){per[k].c++; cor++;}
+    });
+    if(!att){ panel.className='rd-panel'; return; }
+    var overall=pct(cor,att);
+    var cov=Math.round(100*att/totalQ);
+    var verdict, vcls;
+    if(overall>=80){verdict='Exam-ready here';vcls='rd-v-good';}
+    else if(overall>=65){verdict='Nearly there';vcls='rd-v-mid';}
+    else if(overall>=50){verdict='Needs revision';vcls='rd-v-mid';}
+    else {verdict='Revise before PYQs';vcls='rd-v-low';}
+    var strong=[],weak=[],dev=[],thin=[];
+    order.forEach(function(k){
+      var p=per[k]; if(p.a<MIN_ATT){ thin.push(k); return; }
+      var x=pct(p.c,p.a);
+      if(x>=STRONG) strong.push([k,x]); else if(x<WEAK) weak.push([k,x]); else dev.push([k,x]);
+    });
+    weak.sort(function(a,b){return a[1]-b[1];}); dev.sort(function(a,b){return a[1]-b[1];});
+    var h='<div class="rd-head"><div><div class="rd-title">Revision readiness</div>'+
+      '<div class="rd-big">Revision Score: '+overall+'%<small>'+cor+' / '+att+' answered correctly</small></div></div>'+
+      '<span class="rd-verdict '+vcls+'">'+verdict+'</span></div>';
+    h+='<div class="rd-cov">Coverage: '+att+' of '+totalQ+' questions attempted ('+cov+'%)'+(cov<50?' — provisional; attempt more questions for a reliable reading.':'.')+'</div>';
+    h+='<div class="rd-rows">';
+    order.forEach(function(k){
+      var p=per[k], x=pct(p.c,p.a);
+      h+='<div class="rd-row"><span class="rd-name">'+label(k)+'</span><span class="rd-bar"><i style="width:'+(p.a?x:0)+'%;background:'+(p.a?colour(x):'transparent')+'"></i></span><span class="rd-pct">'+(p.a?x+'% · '+p.c+'/'+p.a:'not tried')+'</span></div>';
+    });
+    h+='</div>';
+    function names(a){return a.map(function(z){return label(z[0])+' ('+z[1]+'%)';}).join(', ');}
+    if(strong.length) h+='<div class="rd-sec"><b class="g">Strong:</b> '+names(strong)+'</div>';
+    if(dev.length) h+='<div class="rd-sec"><b class="d">Developing:</b> '+names(dev)+'</div>';
+    if(weak.length) h+='<div class="rd-sec"><b class="w">Weak:</b> '+names(weak)+'</div>';
+    if(thin.length) h+='<div class="rd-sec" style="color:var(--muted,#93a0b8)">Too few attempts to judge (under '+MIN_ATT+'): '+thin.map(label).join(', ')+'</div>';
+    // recommendation
+    var focus=weak.concat(dev).slice(0,3), lines=[];
+    focus.forEach(function(z){ var l=sectionLink(z[0]); if(l) lines.push('<div class="l">Review → '+l+'</div>'); });
+    var pyq=document.getElementById('pyq');
+    h+='<div class="rd-rec"><div class="t">Recommendation</div>';
+    if(lines.length){
+      h+=lines.join('')+'<div class="l">Then retry the questions you missed, and after that'+(pyq?' attempt the <a href="#pyq">solved PYQ-style problems</a>':' attempt PYQs')+'.</div>';
+    } else if(thin.length&&!strong.length){
+      h+='<div class="l">Answer a few more questions in each topic to get a reliable reading.</div>';
+    } else {
+      h+='<div class="l">No weak topics so far. Move on to '+(pyq?'<a href="#pyq">the PYQ-style problems</a>':'PYQs')+'.'+(cov<60?' Cover the untried topics first for a trustworthy score.':'')+'</div>';
+    }
+    h+='</div>';
+    var missed=Object.keys(results).filter(function(id){return results[id]===0;});
+    h+='<div class="rd-actions"><button class="rd-btn" id="rdRetry"'+(missed.length?'':' disabled')+'>Retry missed ('+missed.length+')</button><button class="rd-btn" id="rdReset">Reset results</button></div>';
+    h+='<div class="rd-note">Scores are saved in this browser. A question\'s latest attempt counts, so re-answering a missed question updates the report. The sub-heading shown is the highest-yield part of a weak topic. Topic labels need at least '+MIN_ATT+' attempts: Strong ≥ '+STRONG+'%, Weak &lt; '+WEAK+'%.</div>';
+    panel.innerHTML=h; panel.className='rd-panel show';
+    var r=document.getElementById('rdRetry'); if(r) r.onclick=retry;
+    var z=document.getElementById('rdReset'); if(z) z.onclick=function(){ if(confirm('Clear saved quiz results for this subject?')){results={};save();build();} };
+  }
+
+  function currentMode(){ try{ return (typeof mode!=='undefined')?mode:'MCQ'; }catch(e){ return 'MCQ'; } }
+  function retry(){
+    var m=currentMode(), pre=(m==='MSQ')?'MSQ':'Q';
+    var missed=Object.keys(results).filter(function(id){return results[id]===0 && id.indexOf(pre)===0 && (pre==='MSQ'||id.indexOf('MSQ')!==0);});
+    if(!missed.length){
+      // missed questions exist only in the other mode
+      var other=(m==='MSQ')?'mcqMode':'msqMode', b=document.getElementById(other); if(b) b.click();
+      pre=(pre==='Q')?'MSQ':'Q';
+      missed=Object.keys(results).filter(function(id){return results[id]===0 && (pre==='MSQ'?id.indexOf('MSQ')===0:/^Q\d/.test(id));});
+    }
+    if(typeof filter!=='undefined'){ try{ filter='ALL'; }catch(e){} }
+    var all=document.querySelector('#qtopics button'); if(all) all.click();   // re-renders with ALL
+    var set={}; missed.forEach(function(id){set[id]=1;});
+    var shown=0;
+    qlist.querySelectorAll('.qcard').forEach(function(c){
+      var t=c.querySelector('.qtag'); var mm=t&&/·\s*(MSQ|Q)(\d+)/.exec(t.textContent);
+      var id=mm?mm[1]+mm[2]:null;
+      if(id&&set[id]){shown++;} else c.classList.add('rd-hide');
+    });
+    qlist.scrollIntoView({behavior:'smooth',block:'start'});
+  }
+
+  // ---- capture answers: after each click, read the card's final state ----
+  function outcome(card, id){
+    if(!card.querySelector('.expl.show')) return null;            // not answered/submitted yet
+    if(card.querySelector('.opt.wrong')) return 0;
+    if(id.indexOf('MSQ')===0){                                      // a missed correct option is not marked wrong
+      var cs=card.querySelectorAll('.opt.correct');
+      for(var i=0;i<cs.length;i++) if(!cs[i].classList.contains('selected')) return 0;
+    }
+    return 1;
+  }
+  qlist.addEventListener('click',function(e){
+    var card=e.target.closest&&e.target.closest('.qcard'); if(!card) return;
+    setTimeout(function(){
+      var t=card.querySelector('.qtag'); var mm=t&&/·\s*(MSQ|Q)(\d+)/.exec(t.textContent); if(!mm) return;
+      var id=mm[1]+mm[2], r=outcome(card,id);
+      if(r===null) return;
+      if(card.dataset.rdRecorded) return; card.dataset.rdRecorded='1';
+      results[id]=r; save(); build();
+    },0);
+  },true);
+
+  build();
+})();
+
+</script>
+<!-- readiness:end -->
+<script id="ux-fix-v11-js">
+(function(){
+  var nav=document.getElementById('side'); if(!nav) return;
+  var scrim=document.createElement('div'); scrim.id='navScrim'; document.body.appendChild(scrim);
+  var fab=document.createElement('button'); fab.id='navFab'; fab.type='button'; fab.setAttribute('aria-label','Topics'); fab.textContent='\u2630';
+  fab.addEventListener('click',function(){ nav.classList.toggle('open'); });
+  document.body.appendChild(fab);
+  function sync(){ document.body.classList.toggle('nav-open', nav.classList.contains('open')); }
+  new MutationObserver(sync).observe(nav,{attributes:true,attributeFilter:['class']});
+  function close(){ nav.classList.remove('open'); }
+  function outside(e){
+    if(!nav.classList.contains('open')) return;
+    var t=e.target; if(!t||!t.closest) return;
+    if(t.closest('#menuBtn')||t.closest('#navFab')) return;                  // button handles its own toggle
+    if(!t.closest('#side') || (e.type==='click' && t.closest('#side a'))) close();
+  }
+  document.addEventListener('pointerdown',outside,true);
+  document.addEventListener('touchstart',outside,{capture:true,passive:true});
+  document.addEventListener('click',outside,true);
+  scrim.addEventListener('click',close);
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape') close(); });
+})();
+</script>
+<script id="fmt-v12-js">
+(function(){
+  var EQ=/[=≤≥⇔→⇒≠≈∑Σπ⌈⌊]|\^|_\{|\bO\(|\blog\b|\bmod\b/;
+  function esc(s){return s.replace(/[&<>]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;'}[c];});}
+  function fmtItem(li,isFormula){
+    if(li.dataset.fmt) return; li.dataset.fmt='1';
+    var t=li.textContent.trim(), label='', body=t;
+    var m=t.match(/^([^:=]{2,44}?):\s+([\s\S]+)$/);
+    if(m && m[1].split(/\s+/).length<=6){label=m[1];body=m[2];}
+    var html='';
+    if(label) html+='<span class="rg-label">'+esc(label)+'</span>';
+    if(isFormula){
+      var parts=body.split(/;\s+|\.\s+(?=[A-Z])/).map(function(x){return x.trim();}).filter(Boolean);
+      parts.forEach(function(x,i){
+        var last=(i===parts.length-1);
+        var txt=x; if(!/[.!?)]$/.test(txt) && !last) txt=x; 
+        var prose=(x.match(/\b[a-z]{4,}\b/g)||[]).length; var isEq=EQ.test(x)&&(prose<=3||(/[=≤≥⇔]/.test(x)&&x.length<=70));
+        html+='<span class="'+(isEq?'rg-eq':'rg-txt')+'">'+esc(x)+'</span>';
+      });
+    } else {
+      html+='<span class="rg-body">'+esc(body)+'</span>';
+    }
+    li.innerHTML=html;
+  }
+  function enhance(panel){
+    if(panel.dataset.fmt) return; panel.dataset.fmt='1';
+    var groups=panel.querySelectorAll('.rapid-group'), chips=[];
+    groups.forEach(function(g,i){
+      var type=(g.className.match(/\b(must|trap|formula|gate|shortcut)\b/)||[])[1]; if(!type) return;
+      g.id='rg-'+type;
+      var items=g.querySelectorAll('li');
+      items.forEach(function(li){fmtItem(li,type==='formula');});
+      var h=g.querySelector('h3'); var c=document.createElement('span'); c.className='rg-count'; c.textContent=items.length; h.appendChild(c);
+      chips.push('<a href="#rg-'+type+'">'+h.firstChild.textContent.trim()+' <b>'+items.length+'</b></a>');
+    });
+    if(chips.length){
+      var j=document.createElement('nav'); j.className='rapid-jump'; j.setAttribute('aria-label','Jump to group'); j.innerHTML=chips.join('');
+      var cur=panel.querySelector('.rapid-curated'); if(cur){var note=cur.querySelector('.rapid-note'); (note||cur.firstChild).insertAdjacentElement('afterend',j);}
+      j.addEventListener('click',function(e){var a=e.target.closest('a'); if(!a) return; e.preventDefault();
+        var el=document.querySelector(a.getAttribute('href')); if(el) el.scrollIntoView({behavior:'smooth',block:'start'});});
+    }
+  }
+  function check(){var p=document.getElementById('hyRapidPanel'); if(p) enhance(p);}
+  var main=document.querySelector('.wrap>main'); if(main){ new MutationObserver(check).observe(main,{childList:true}); }
+  check();
+})();
+</script>
+<a id="homeFab" href="index.html" aria-label="Back to Study Hub">🏠</a>
+<!-- gatetest:start -->
+<script src="gate-test.js"></script>
+<script>(function(){var a=document.getElementById("qtopics");if(a&&window.GateTest)GateTest.mountLauncher("dl",a);})();</script>
+<!-- gatetest:end -->
+<!-- pwa-reg:start -->
+<script>if('serviceWorker' in navigator&&(location.protocol==='https:'||location.hostname==='localhost'||location.hostname==='127.0.0.1')){window.addEventListener('load',function(){navigator.serviceWorker.register('sw.js').catch(function(){});});}</script>
+<!-- pwa-reg:end -->
+</body>
+</html>

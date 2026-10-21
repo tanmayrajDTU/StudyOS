@@ -1,0 +1,1764 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Programming & Data Structures for GATE CSE 2027</title>
+<style>
+:root{
+  --bg:#0b0e14; --panel:#12161f; --panel2:#181d29; --border:#242b3a;
+  --text:#e6e9f0; --muted:#93a0b8; --accent:#5ee6c8; --accent2:#7c9fff;
+  --warn:#ffb454; --good:#7ee787; --code-bg:#0d1420;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){ } }
+*{box-sizing:border-box}
+html{scroll-padding-top:calc(64px + env(safe-area-inset-top,0px));height:100%}
+body{
+  margin:0;height:100%;background:var(--bg);color:var(--text);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  line-height:1.55;
+}
+a{color:var(--accent2)}
+header{
+  position:sticky;top:0;z-index:20;
+  padding:calc(14px + env(safe-area-inset-top,0px)) 16px 14px;
+  background:rgba(11,14,20,0.9);backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--border);
+  display:flex;align-items:center;gap:10px;justify-content:space-between;
+}
+header .title{font-weight:700;font-size:15px;letter-spacing:.2px}
+header .title span{color:var(--accent)}
+#menuBtn{display:none;background:var(--panel2);border:1px solid var(--border);color:var(--text);
+  padding:8px 12px;border-radius:8px;font-size:13px}
+.wrap{display:flex;max-width:1280px;margin:0 auto}
+nav#side{
+  width:250px;flex:none;padding:18px 12px;position:sticky;
+  top:calc(58px + env(safe-area-inset-top,0px));
+  height:calc(100vh - 58px - env(safe-area-inset-top,0px));
+  overflow-y:auto;border-right:1px solid var(--border);
+}
+nav#side .grp{margin-bottom:14px}
+nav#side .grp-title{font-size:11px;text-transform:uppercase;letter-spacing:1px;color:var(--muted);margin:10px 6px 6px}
+nav#side a{
+  display:block;padding:7px 10px;border-radius:8px;color:var(--muted);text-decoration:none;font-size:13.5px;
+}
+nav#side a:hover{background:var(--panel2);color:var(--text)}
+nav#side a.soon{opacity:.45;font-style:italic}
+main{flex:1;min-width:0;padding:28px 22px 80px}
+section{max-width:820px;margin:0 auto 64px;scroll-margin-top:70px}
+section h1{font-size:26px;margin:0 0 6px;color:var(--accent)}
+section h2{font-size:20px;margin:38px 0 10px;color:var(--accent2);border-bottom:1px solid var(--border);padding-bottom:8px}
+section h3{font-size:16px;margin:22px 0 8px;color:var(--text)}
+p{color:#c9d1e0}
+.sub{color:var(--muted);font-size:14px;margin-bottom:20px}
+.card{
+  background:var(--panel);border:1px solid var(--border);border-radius:12px;
+  padding:16px 18px;margin:14px 0;
+}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media (max-width:720px){.grid2{grid-template-columns:1fr}}
+.num{
+  border-left:3px solid var(--accent);background:var(--panel2);
+  padding:14px 16px;border-radius:0 10px 10px 0;margin:16px 0;
+}
+.num .tag{font-size:11px;color:var(--accent);text-transform:uppercase;letter-spacing:1px;font-weight:700}
+.warn{border-left:3px solid var(--warn);background:#1c1810;padding:12px 16px;border-radius:0 10px 10px 0;margin:14px 0}
+.warn .tag{color:var(--warn);font-size:11px;text-transform:uppercase;letter-spacing:1px;font-weight:700}
+code,.mono{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;background:var(--code-bg);
+  padding:2px 6px;border-radius:5px;font-size:13px;color:var(--good)}
+pre{background:var(--code-bg);padding:12px 14px;border-radius:8px;overflow-x:auto;border:1px solid var(--border)}
+table{border-collapse:collapse;width:100%;margin:12px 0;font-size:13.5px}
+th,td{border:1px solid var(--border);padding:8px 10px;text-align:left}
+th{background:var(--panel2);color:var(--accent2)}
+tr:nth-child(even){background:#10141d}
+.bitfield{display:flex;font-family:ui-monospace,monospace;font-size:12px;overflow-x:auto;margin:14px 0}
+.bit{border:1px solid var(--border);padding:10px 4px;text-align:center;flex:none;min-width:26px}
+.bit.hdr{background:var(--panel2);color:var(--muted);border-bottom:none}
+.bfrow{display:flex}
+.bf-label{padding:8px 10px;font-size:12px;color:#0b0e14;font-weight:700;text-align:center;flex:none}
+.pill{display:inline-block;padding:3px 10px;border-radius:999px;font-size:11.5px;font-weight:700;margin-right:6px}
+.pill.s{background:#ff6b6b33;color:#ff9b9b}
+.pill.e{background:#7c9fff33;color:#9fb6ff}
+.pill.m{background:#5ee6c833;color:#8ff0da}
+.addr-flow{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:14px 0;font-size:13px}
+.addr-flow .box{background:var(--panel2);border:1px solid var(--border);border-radius:8px;padding:8px 12px}
+.addr-flow .arrow{color:var(--accent);font-weight:700}
+footer{border-top:1px solid var(--border);text-align:center;color:var(--muted);font-size:12.5px;padding:30px 16px}
+::-webkit-scrollbar{width:9px;height:9px}
+::-webkit-scrollbar-thumb{background:var(--border);border-radius:6px}
+@media (max-width:860px){
+  nav#side{position:fixed;left:0;top:calc(58px + env(safe-area-inset-top,0px));
+    height:calc(100vh - 58px - env(safe-area-inset-top,0px));
+    background:var(--bg);z-index:15;transform:translateX(-105%);transition:transform .2s;width:230px}
+  nav#side.open{transform:translateX(0)}
+  #menuBtn{display:inline-block}
+}
+.qtopics{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0 20px;position:sticky;top:58px;background:var(--bg);padding:8px 0;z-index:5}
+.qtopics button{background:var(--panel2);border:1px solid var(--border);color:var(--muted);padding:6px 13px;
+  border-radius:999px;font-size:12.5px;cursor:pointer}
+.qtopics button.active{background:var(--accent);color:#062019;border-color:var(--accent);font-weight:700}
+#score{font-size:13px;color:var(--muted);margin-bottom:16px}
+#score b{color:var(--accent)}
+.qcard{background:var(--panel);border:1px solid var(--border);border-radius:12px;padding:16px;margin:12px 0}
+.qcard .qtag{font-size:10.5px;color:var(--accent2);text-transform:uppercase;letter-spacing:.5px;font-weight:700}
+.qcard .qtext{margin:6px 0 12px;font-size:14.5px}
+.opt{display:block;width:100%;text-align:left;background:var(--panel2);border:1px solid var(--border);
+  color:var(--text);padding:9px 12px;border-radius:8px;margin:6px 0;cursor:pointer;font-size:13.5px}
+.opt:hover{border-color:var(--accent2)}
+.opt.correct{background:#123322;border-color:var(--good);color:var(--good)}
+.opt.wrong{background:#331414;border-color:#ff6b6b;color:#ff9b9b}
+.opt[disabled]{cursor:default}
+.expl{display:none;margin-top:10px;font-size:13px;color:var(--muted);background:var(--code-bg);
+  padding:10px 12px;border-radius:8px;border:1px solid var(--border)}
+.gq{border-left:3px solid var(--accent2);background:var(--panel2);padding:16px 18px;border-radius:0 10px 10px 0;margin:20px 0}
+.gq .gtag{font-size:11px;color:var(--accent2);text-transform:uppercase;letter-spacing:1px;font-weight:700}
+.gq .gopts{margin:10px 0;padding-left:18px;color:#c9d1e0;font-size:13.5px}
+.gq .gopts li{margin:3px 0}
+.gq .gans{color:var(--good);font-weight:700}
+.expl.show{display:block}
+.grid2>*{min-width:0;overflow-x:auto}
+
+/* ===== High-yield revision system ===== */
+.hy-toolbar{
+  max-width:820px;margin:0 auto 28px;padding:14px 16px;
+  background:linear-gradient(135deg,var(--panel),var(--panel2));
+  border:1px solid var(--border);border-radius:14px;
+}
+.hy-toolbar-row{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.hy-title{font-weight:800;color:var(--text);font-size:14px}
+.hy-title span{color:var(--accent)}
+.hy-sub{color:var(--muted);font-size:12.5px;margin-top:4px}
+.hy-actions{display:flex;gap:8px;flex-wrap:wrap}
+.hy-btn{border:1px solid var(--border);background:var(--panel2);color:var(--text);padding:8px 12px;border-radius:9px;font-size:12.5px;font-weight:700;cursor:pointer}
+.hy-btn:hover{border-color:var(--accent2);color:var(--accent)}
+.hy-btn.primary{background:var(--accent);color:#062019;border-color:var(--accent)}
+.hy-legend{display:flex;flex-wrap:wrap;gap:7px;margin-top:12px}
+.hy-legend span,.hy-badge{display:inline-flex;align-items:center;gap:4px;padding:3px 8px;border-radius:999px;font-size:10.5px;font-weight:800;letter-spacing:.15px}
+.hy-must{background:#7c9fff22;color:#9fb6ff;border:1px solid #7c9fff55}
+.hy-trap{background:#ffb45422;color:#ffc978;border:1px solid #ffb45455}
+.hy-formula{background:#5ee6c822;color:#8ff0da;border:1px solid #5ee6c855}
+.hy-gate{background:#ff6b6b22;color:#ff9b9b;border:1px solid #ff6b6b55}
+.hy-shortcut{background:#c792ea22;color:#dcb7f7;border:1px solid #c792ea55}
+.hy-marked{position:relative}
+.hy-marked>.hy-badge{margin-bottom:8px}
+.hy-rapid-overlay{display:none}
+body.rapid-mode .hy-rapid-overlay{display:block}
+body.rapid-mode .wrap>main>section:not(#hyRapidPanel){display:none}
+body.rapid-mode .wrap>main{padding-top:18px}
+body.rapid-mode nav#side{opacity:.55}
+body.rapid-mode .hy-toolbar{position:sticky;top:58px;z-index:10}
+#hyRapidPanel{max-width:820px}
+#hyRapidPanel h1{margin-bottom:5px}
+#hyRapidPanel .rapid-intro{margin:0 0 24px;color:var(--muted);font-size:13px}
+.rapid-section{margin:0 0 34px}
+.rapid-section h2{font-size:18px;margin:0 0 12px;color:var(--accent2);border-bottom:1px solid var(--border);padding-bottom:8px}
+.rapid-empty{color:var(--muted);font-size:13px;background:var(--panel);border:1px dashed var(--border);padding:12px 14px;border-radius:10px}
+.rapid-source{margin:0 0 12px}
+.rapid-source .hy-badge{display:inline-flex;margin-bottom:8px}
+body.rapid-mode .hy-toolbar .hy-btn.primary{display:none}
+body:not(.rapid-mode) .hy-toolbar .hy-btn.secondary{display:none}
+@media(max-width:720px){
+  .hy-toolbar-row{align-items:flex-start}.hy-actions{width:100%}.hy-btn{flex:1}
+  body.rapid-mode .hy-toolbar{top:58px}
+}
+
+
+/* Second-pass curated high-yield revision layer */
+.rapid-curated{margin:18px 0 28px;padding:20px;border:1px solid var(--border,#334155);border-radius:16px;background:rgba(15,23,42,.45)}
+.rapid-curated>h2{margin:0 0 4px}.rapid-note{margin:0 0 16px;opacity:.72}
+.rapid-group{margin:14px 0;padding:14px 16px;border-radius:12px;border-left:4px solid #64748b;background:rgba(255,255,255,.025)}
+.rapid-group h3{margin:0 0 8px;font-size:1rem}.rapid-group ul{margin:0;padding-left:20px}.rapid-group li{margin:7px 0;line-height:1.55}
+.rapid-group.must{border-left-color:#22c55e}.rapid-group.trap{border-left-color:#eab308}.rapid-group.formula{border-left-color:#38bdf8}.rapid-group.gate{border-left-color:#f97316}.rapid-group.shortcut{border-left-color:#a78bfa}
+@media(max-width:700px){.rapid-curated{padding:14px}.rapid-group{padding:12px}}
+@media (max-width:640px){table{display:block;max-width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch}.card,.num,.warn,p,li{overflow-wrap:break-word}td,th{overflow-wrap:normal;word-break:normal}}
+</style>
+<style id="ux-fix-v11">
+html,body{height:auto!important;min-height:100%}
+#navScrim{cursor:pointer;-webkit-tap-highlight-color:transparent}
+
+/* v11: no sticky banners in the reading/quiz flow; tap-outside closes the topics drawer */
+.qtopics{position:static!important;top:auto!important}
+body.rapid-mode .hy-toolbar{position:static!important;top:auto!important}
+#navScrim{display:none}
+@media (max-width:860px){
+  body.nav-open #navScrim{display:block;position:fixed;left:0;right:0;bottom:0;top:calc(58px + env(safe-area-inset-top,0px));background:rgba(0,0,0,.45);z-index:14}
+}
+@media (max-width:860px){
+  header{position:static!important}
+  html{scroll-padding-top:12px!important}
+  nav#side{top:0!important;height:100%!important;padding-top:calc(18px + env(safe-area-inset-top,0px))!important}
+  body.nav-open #navScrim{top:0!important}
+  #navFab{position:fixed;left:12px;bottom:calc(14px + env(safe-area-inset-bottom,0px));z-index:16;width:42px;height:42px;border-radius:50%;
+    border:1px solid var(--border);background:rgba(23,28,40,.92);color:var(--text);font-size:19px;line-height:1;opacity:.9;
+    box-shadow:0 2px 10px rgba(0,0,0,.45);cursor:pointer;-webkit-tap-highlight-color:transparent}
+}
+@media (min-width:861px){#navFab{display:none}}
+</style>
+<style id="fmt-v12">
+/* v12 readability revamp — formatting only, content untouched */
+:root{--rg-must:#22c55e;--rg-trap:#eab308;--rg-formula:#38bdf8;--rg-gate:#f97316;--rg-shortcut:#a78bfa}
+body.rapid-mode .wrap>main{padding-left:clamp(14px,4vw,32px);padding-right:clamp(14px,4vw,32px)}
+#hyRapidPanel{max-width:760px;margin:0 auto}
+#hyRapidPanel>h1{font-size:clamp(22px,6vw,28px);line-height:1.25;margin:4px 0 8px}
+#hyRapidPanel .rapid-intro{font-size:14.5px;line-height:1.65;margin:0 0 18px}
+
+/* jump chips */
+.rapid-jump{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 22px}
+.rapid-jump a{display:inline-flex;align-items:center;gap:6px;padding:8px 12px;border-radius:999px;font-size:13px;font-weight:700;text-decoration:none;
+  color:var(--text);background:var(--panel2);border:1px solid var(--border)}
+.rapid-jump a b{font-weight:800;opacity:.7}
+
+/* curated block: flat, no box-in-box */
+.rapid-curated{margin:0 0 34px!important;padding:0!important;border:0!important;background:none!important;border-radius:0!important}
+.rapid-curated>h2{font-size:20px;margin:0 0 4px!important;color:var(--text)}
+.rapid-note{font-size:13.5px;line-height:1.6;margin:0 0 6px!important}
+.rapid-group{margin:26px 0 0!important;padding:0!important;border:0!important;background:none!important;scroll-margin-top:12px}
+.rapid-group h3{display:flex;align-items:center;gap:8px;margin:0 0 12px!important;padding-bottom:10px;font-size:14px!important;font-weight:800;
+  letter-spacing:.6px;text-transform:uppercase;border-bottom:2px solid var(--gc,#64748b);color:var(--gc,var(--text))}
+.rapid-group h3 .rg-count{margin-left:auto;font-size:12px;font-weight:800;letter-spacing:0;text-transform:none;padding:2px 9px;border-radius:999px;
+  background:var(--gc,#64748b);color:#0b0e14}
+.rapid-group.must{--gc:var(--rg-must)}.rapid-group.trap{--gc:var(--rg-trap)}.rapid-group.formula{--gc:var(--rg-formula)}
+.rapid-group.gate{--gc:var(--rg-gate)}.rapid-group.shortcut{--gc:var(--rg-shortcut)}
+.rapid-group ul{list-style:none!important;margin:0!important;padding:0!important;display:grid;gap:12px}
+.rapid-group li{margin:0!important;padding:14px 16px;background:var(--panel);border:1px solid var(--border);border-left:4px solid var(--gc,#64748b);
+  border-radius:12px;font-size:15.5px;line-height:1.7;color:var(--text);overflow-wrap:anywhere}
+.rg-label{display:block;margin:0 0 6px;font-size:15px;font-weight:800;line-height:1.35;color:var(--gc,var(--text))}
+.rg-body{display:block;color:#d3d9e6}
+.rg-line{display:block}.rg-line+.rg-line{margin-top:8px}
+.rg-eq{display:block;margin:8px 0 0;padding:10px 12px;border-radius:9px;background:#0a1220;border:1px solid #1d3350;
+  font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:14px;line-height:1.65;color:#8fd8ff;overflow-x:auto;white-space:pre-wrap;overflow-wrap:anywhere}
+.rg-txt{display:block;margin:8px 0 0;color:#d3d9e6}
+.rg-label+.rg-eq,.rg-label+.rg-txt,.rapid-group li>.rg-eq:first-child,.rapid-group li>.rg-txt:first-child{margin-top:0}
+
+/* per-topic cloned cards: roomier, clearer hierarchy */
+.rapid-section{margin:0 0 40px!important}
+.rapid-section h2{font-size:clamp(18px,5vw,22px)!important;line-height:1.3;margin:0 0 16px!important;padding:12px 14px!important;border:1px solid var(--border)!important;
+  border-left:4px solid var(--accent2)!important;border-radius:12px;background:var(--panel)}
+.rapid-source{margin:0 0 14px!important}
+.rapid-source>*{margin:0!important;padding:16px!important;border-radius:14px!important;font-size:15.5px;line-height:1.75;overflow-wrap:anywhere}
+.rapid-source .hy-badge{margin-bottom:10px!important}
+.rapid-source p{margin:0 0 10px;line-height:1.75}.rapid-source p:last-child{margin-bottom:0}
+.rapid-source ul,.rapid-source ol{padding-left:22px;margin:8px 0}.rapid-source li{margin:6px 0;line-height:1.7}
+.rapid-source b,.rapid-source strong{color:#fff}
+.rapid-source code{font-size:.92em;padding:2px 6px;border-radius:6px}
+.rapid-source pre{padding:12px;border-radius:10px;overflow-x:auto;font-size:13.5px;line-height:1.6}
+.rapid-source table{display:block;overflow-x:auto;max-width:100%}
+.rapid-source td,.rapid-source th{padding:8px 10px;line-height:1.55}
+
+/* notes mode: gentle readability lift */
+@media (max-width:700px){
+  main .card,main .warn,main .num{padding:16px!important}
+  main p,main li{line-height:1.75}
+  main section>p{margin:0 0 14px}
+}
+</style>
+<style id="theme-v13">
+/* v13 premium dark + colour theme — visual layer only */
+:root{
+  --bg:#070916;--panel:#0f1330;--panel2:#161b3f;--border:#2a3166;--text:#eef1ff;--muted:#9ea8d4;
+  --accent:#4ff0d0;--accent2:#8aa4ff;--warn:#ffb454;--good:#6ef0a0;--code-bg:#0a1030;
+  --green:#7af0ae;--yellow:#ffe08a;--red:#ff9aa8;--purple:#c9a8ff;
+  --glow-a:#7c5cff;--glow-b:#19d3ff;--glow-c:#ff4fa3;
+}
+html{background:#070916}
+body{background:transparent!important;color:var(--text)}
+body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;
+  background:
+   radial-gradient(60% 40% at 8% 0%,rgba(124,92,255,.28),transparent 70%),
+   radial-gradient(50% 35% at 100% 6%,rgba(25,211,255,.18),transparent 70%),
+   radial-gradient(60% 40% at 50% 100%,rgba(255,79,163,.14),transparent 70%),
+   #070916}
+::selection{background:rgba(124,92,255,.55);color:#fff}
+
+/* header */
+header,.top{background:linear-gradient(180deg,rgba(14,18,48,.92),rgba(9,11,30,.86))!important;
+  -webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);border-bottom:1px solid transparent!important;
+  border-image:linear-gradient(90deg,#7c5cff,#19d3ff,#ff4fa3) 1;box-shadow:0 6px 24px rgba(0,0,0,.35)}
+header h1 span,.top h1 span,header .hl,.top .hl{background:linear-gradient(90deg,#4ff0d0,#8aa4ff,#d28bff);-webkit-background-clip:text;background-clip:text;color:transparent!important}
+
+/* headings */
+main h2,.wrap h2{background:linear-gradient(90deg,#9db4ff,#c9a8ff 55%,#ff9ad0);-webkit-background-clip:text;background-clip:text;color:transparent;
+  border-bottom:1px solid transparent!important;border-image:linear-gradient(90deg,rgba(138,164,255,.6),rgba(255,79,163,.25),transparent) 1}
+main h3{color:#8fe9ff}
+
+/* surfaces: glass panels */
+.card,.warn,.num,.hy-panel,.hy-toolbar,.rapid-curated,table,.q,.qcard,.sol,details,.callout,.box{
+  background:linear-gradient(150deg,rgba(32,38,88,.62),rgba(14,17,42,.9))!important;
+  border-top-color:rgba(138,150,255,.2)!important;border-right-color:rgba(138,150,255,.2)!important;border-bottom-color:rgba(138,150,255,.2)!important;box-shadow:0 10px 30px rgba(3,4,18,.45),inset 0 1px 0 rgba(255,255,255,.06)}
+.hy-toolbar{border-radius:16px}
+.hy-toolbar h3,.hy-toolbar strong{background:linear-gradient(90deg,#4ff0d0,#8aa4ff);-webkit-background-clip:text;background-clip:text;color:transparent}
+
+/* nav drawer */
+nav#side,.side{background:linear-gradient(180deg,rgba(18,22,58,.97),rgba(9,11,30,.98))!important;border-color:rgba(138,150,255,.2)!important}
+nav#side a.active,.side a.active,nav#side a:hover,.side a:hover{background:linear-gradient(90deg,rgba(124,92,255,.35),rgba(25,211,255,.14))!important;color:#fff!important;border-radius:10px}
+nav#side .grp,.side .grp,nav#side h4,.side h4{color:#c9a8ff!important}
+
+/* buttons */
+.hy-btn{background:rgba(26,31,72,.9);border-color:rgba(138,150,255,.3)}
+.hy-btn:hover{border-color:#8aa4ff;box-shadow:0 0 0 3px rgba(124,92,255,.22);color:#fff}
+.hy-btn.primary,.btn.primary,button.primary{background:linear-gradient(90deg,#19d3ff,#7c5cff 60%,#ff4fa3)!important;color:#fff!important;border:0!important;
+  box-shadow:0 6px 20px rgba(124,92,255,.45)}
+#navFab{background:linear-gradient(135deg,#7c5cff,#19d3ff)!important;color:#fff!important;border:0!important;box-shadow:0 8px 22px rgba(124,92,255,.55)!important;opacity:1!important}
+#menuBtn{background:rgba(26,31,72,.9)!important;border-color:rgba(138,150,255,.35)!important}
+
+/* code & equations */
+code,pre{background:#0a1030!important;color:#8ff5e2;border:1px solid rgba(79,240,208,.18)}
+.rg-eq,.card p>code:only-child{background:linear-gradient(135deg,#0a1436,#0d0f2e)!important;border-color:rgba(25,211,255,.35)!important;color:#9af2ff!important;
+  box-shadow:inset 0 0 0 1px rgba(25,211,255,.06)}
+
+/* last-minute groups: tinted by their colour */
+.rapid-group li{background:linear-gradient(135deg,color-mix(in srgb,var(--gc) 14%,#12163a),#0d1030 70%)!important;border-top-color:color-mix(in srgb,var(--gc) 30%,#262d62)!important;border-right-color:color-mix(in srgb,var(--gc) 30%,#262d62)!important;border-bottom-color:color-mix(in srgb,var(--gc) 30%,#262d62)!important;border-left-color:var(--gc)!important;
+  box-shadow:0 6px 18px rgba(3,4,18,.4)}
+.rapid-group h3{text-shadow:0 0 18px color-mix(in srgb,var(--gc) 55%,transparent)}
+.rapid-group h3 .rg-count{box-shadow:0 0 14px color-mix(in srgb,var(--gc) 60%,transparent)}
+.rapid-jump a{background:rgba(26,31,72,.85);border-color:rgba(138,150,255,.3)}
+.rapid-section h2{background:linear-gradient(90deg,rgba(124,92,255,.28),rgba(25,211,255,.08))!important;-webkit-text-fill-color:#fff;color:#fff;border-image:none!important;
+  border-color:rgba(138,150,255,.3)!important;border-left:4px solid #19d3ff!important}
+
+/* tags / badges: more vivid */
+.tag,.hy-badge,.badge{backdrop-filter:blur(4px);font-weight:800}
+.tag.must,.hy-badge.must{background:rgba(34,197,94,.18)!important;color:#7af0ae!important;border-color:rgba(34,197,94,.5)!important}
+.tag.formula,.hy-badge.formula{background:rgba(56,189,248,.18)!important;color:#8fe0ff!important;border-color:rgba(56,189,248,.5)!important}
+.tag.fav,.hy-badge.fav{background:rgba(255,79,100,.16)!important;color:#ff9aa8!important;border-color:rgba(255,79,100,.5)!important}
+
+/* quiz options */
+.opt,.option,button.opt,label.opt{background:rgba(22,27,68,.8)!important;border-color:rgba(138,150,255,.25)!important;transition:.15s}
+.opt:hover,.option:hover{border-color:#19d3ff!important;box-shadow:0 0 0 3px rgba(25,211,255,.18)}
+.qtopics button,.qtopics .chip{background:rgba(26,31,72,.85);border-color:rgba(138,150,255,.3)}
+.qtopics .on,.qtopics .active{background:linear-gradient(90deg,#7c5cff,#19d3ff)!important;color:#fff!important;border-color:transparent!important}
+
+/* tables */
+th{background:linear-gradient(90deg,rgba(124,92,255,.35),rgba(25,211,255,.18))!important;color:#fff!important}
+td,th{border-color:rgba(138,150,255,.2)!important}
+tbody tr:nth-child(even) td{background:rgba(124,92,255,.06)}
+
+a{color:#8fe9ff}
+::-webkit-scrollbar{width:10px;height:10px}::-webkit-scrollbar-thumb{background:linear-gradient(#7c5cff,#19d3ff);border-radius:8px}
+</style>
+<style id="home-v14">
+.homeLink{justify-self:end;display:inline-flex;align-items:center;gap:6px;padding:8px 12px;border-radius:10px;font-size:13px;font-weight:800;text-decoration:none;white-space:nowrap;
+  color:#fff!important;background:linear-gradient(135deg,rgba(124,92,255,.55),rgba(25,211,255,.3));border:1px solid rgba(138,150,255,.4)}
+nav#side a.backhome,.side a.backhome{display:block;margin:0 0 10px;padding:10px 12px;border-radius:10px;font-weight:800;color:#fff!important;
+  background:linear-gradient(90deg,rgba(124,92,255,.45),rgba(25,211,255,.2));border:1px solid rgba(138,150,255,.4)}
+#homeFab{display:none}
+@media (max-width:860px){
+  #homeFab{display:flex;align-items:center;justify-content:center;position:fixed;left:64px;bottom:calc(14px + env(safe-area-inset-bottom,0px));z-index:16;width:42px;height:42px;border-radius:50%;
+    text-decoration:none;font-size:19px;background:rgba(22,27,68,.95);border:1px solid rgba(138,150,255,.45);box-shadow:0 8px 22px rgba(3,4,18,.6)}
+}
+</style>
+<!-- pwa:start -->
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#070916">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="GATE 2027">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="icon" type="image/png" href="favicon-64.png">
+<!-- pwa:end -->
+</head>
+<body>
+<header>
+  <button id="menuBtn" onclick="document.getElementById('side').classList.toggle('open')">☰ Topics</button>
+  <div class="title">💻 Programming &amp; Data Structures <span>for GATE CSE 2027</span></div>
+  <a class="homeLink" href="index.html">🏠 Home</a>
+</header>
+<div class="wrap">
+<nav id="side">
+<a class="backhome" href="index.html">← Study Hub (Home)</a><a class="gt-sidelink" href="cheatsheet-gate-2027.html#pds">📄 Formula cheat sheet</a><a class="gt-sidelink" href="mock-gate-2027.html">🎯 Full mock exam</a>
+  <div class="grp">
+    <div class="grp-title">Part 1 · Programming in C</div>
+    <a href="#cfund">1. C Fundamentals</a>
+    <a href="#ptr">2. Pointers, Arrays & Memory</a>
+    <a href="#rec">3. Functions & Recursion</a>
+  </div>
+  <div class="grp">
+    <div class="grp-title">Part 2 · Linear Structures</div>
+    <a href="#stack">4. Arrays, Stacks & Queues</a>
+    <a href="#ll">5. Linked Lists</a>
+  </div>
+  <div class="grp">
+    <div class="grp-title">Part 3 · Non-linear Structures</div>
+    <a href="#tree">6. Trees, BST & AVL</a>
+    <a href="#heap">7. Heaps, Hashing & Graphs</a>
+  </div>
+  <div class="grp">
+    <div class="grp-title">Practice</div>
+    <a href="#methods">8. Problem → Standard Method Playbook</a>
+    <a href="#quiz">9. Practice Quiz — 58 Qs (basic)</a>
+    <a href="#pyq">10. GATE-Level Solved Problems</a>
+  </div>
+</nav>
+<main>
+<section id="cfund">
+<h1>1. C Programming Fundamentals</h1>
+<div class="sub">Types, operators, evaluation rules and the preprocessor — the facts that decide what a GATE "what does this program print?" question outputs. <b>For questions in this section, assume 32-bit <code>int</code> and 64-bit pointers (8 bytes) unless stated otherwise.</b></div><div class="warn"><div class="tag">Scope of this assumption</div>These sizes are a convention for the examples and practice questions in this hub, <b>not a property of C</b>. The C standard only guarantees <code>sizeof(char) == 1</code>, minimum value ranges (<code>int</code> ≥ 16 bits, <code>long</code> ≥ 32 bits, <code>long long</code> ≥ 64 bits) and the ordering <code>short ≤ int ≤ long ≤ long long</code>. In a real GATE question, <b>use the machine assumptions the question gives</b> (e.g. “4-byte int”, “8-byte pointers”) and do not carry the numbers below into other problems.</div>
+
+<h2>Data types and sizes</h2>
+<div style="overflow-x:auto">
+<table>
+<tr><th>Type</th><th>Size assumed in this section</th><th>Notes</th></tr>
+<tr><td>char</td><td>1 byte</td><td>sizeof(char) is always 1; may be signed or unsigned (implementation-defined)</td></tr>
+<tr><td>short / int</td><td>2 / 4 bytes</td><td>int is the "natural" word size</td></tr>
+<tr><td>long / long long</td><td>8 (Linux 64-bit) / 8 bytes</td><td>long is 4 bytes on some platforms — read the question</td></tr>
+<tr><td>float / double</td><td>4 / 8 bytes</td><td>IEEE 754 single / double</td></tr>
+<tr><td>pointer</td><td>8 bytes (64-bit)</td><td>size does not depend on the type pointed to</td></tr>
+</table>
+</div>
+<p><b>Unsigned</b> arithmetic wraps modulo 2<sup>n</sup>. <b>Signed</b> overflow is <b>undefined behaviour</b>. In mixed signed/unsigned expressions the signed operand is converted to unsigned.</p>
+
+<h2>Operators, precedence and evaluation</h2>
+<ul style="color:#c9d1e0">
+<li><b>Integer division truncates toward zero</b> (C99): <code>7/2 = 3</code>, <code>-7/2 = -3</code>, <code>7/-2 = -3</code>. The remainder takes the sign of the dividend: <code>-7 % 2 = -1</code>. Always <code>(a/b)*b + a%b == a</code>.</li>
+<li>Precedence (high → low, simplified): <code>() [] -&gt; .</code> → unary <code>! ~ ++ -- * &amp; sizeof</code> → <code>* / %</code> → <code>+ -</code> → <code>&lt;&lt; &gt;&gt;</code> → <code>&lt; &lt;= &gt; &gt;=</code> → <code>== !=</code> → <code>&amp;</code> → <code>^</code> → <code>|</code> → <code>&amp;&amp;</code> → <code>||</code> → <code>?:</code> → assignment → <code>,</code>.</li>
+<li>Relational operators are left-associative and yield 0 or 1, so <code>5 &gt; 3 &gt; 1</code> is <code>(5 &gt; 3) &gt; 1</code> = <code>1 &gt; 1</code> = <b>0</b>.</li>
+<li><b>Short-circuit</b>: in <code>a &amp;&amp; b</code> b is evaluated only if a is true; in <code>a || b</code> only if a is false. So <code>if (i++ &amp;&amp; j++)</code> with i = 0, j = 0 leaves <b>i = 1, j = 0</b>.</li>
+<li>Prefix <code>++i</code> increments then yields the new value; postfix <code>i++</code> yields the old value then increments.</li>
+<li><div class="warn" style="margin:6px 0"><div class="tag">Undefined behaviour</div>Modifying a variable twice between sequence points — <code>i = i++ + ++i</code>, <code>a[i] = i++</code>, <code>printf("%d %d", i++, i)</code> — is undefined or unspecified. GATE usually avoids it; if an option says "undefined/compiler dependent", it is often right.</div></li>
+</ul>
+<div class="num"><div class="tag">Worked numerical — integer and unsigned semantics</div>
+<pre>unsigned char c = 200;
+c = c + 100;                   // 300 mod 256 = 44                     → prints 44
+printf("%d", -1 &lt; 1u);          // -1 converted to unsigned = 4294967295 → comparison false → 0
+printf("%d", -7/2 + -7%2);     // -3 + (-1) = -4</pre>
+Output of the three prints: <b>44, 0, −4</b> (verified by compiling and running).
+</div>
+<div class="num"><div class="tag">Worked numerical — switch fall-through and loops</div>
+<pre>int k = 3;
+switch (k) { case 1: printf("one ");  case 3: printf("three ");  case 4: printf("four "); break;  default: printf("def "); }
+// prints:  three four       (no break after case 3, so execution falls into case 4)
+
+for (i = 0; i &lt; 5; i++) { if (i == 2) continue; if (i == 4) break; s += i; }
+// s = 0 + 1 + 3 = 4, and i ends at 4</pre>
+</div>
+
+<h2>Bitwise operations</h2>
+<div class="grid2">
+<div class="card"><b>Handy identities</b><pre>x &amp; (x-1)   clears the lowest set bit
+x &amp; -x       isolates the lowest set bit
+x &lt;&lt; k       = x · 2ᵏ    (no overflow)
+x &gt;&gt; k       = ⌊x / 2ᵏ⌋  (unsigned)
+x ^ x = 0,   x ^ 0 = x
+a ^= b; b ^= a; a ^= b;   swaps without temp</pre></div>
+<div class="card"><b>Counting set bits (Kernighan)</b><pre>while (x) { x &amp;= x - 1; count++; }
+// 0x2D = 101101  → 4 iterations
+// 40 &amp; 39 = 32  (101000 → 100000)</pre></div>
+</div>
+
+<h2>Storage classes and scope</h2>
+<div style="overflow-x:auto">
+<table>
+<tr><th>Class</th><th>Lifetime / scope</th></tr>
+<tr><td>auto (default for locals)</td><td>created on entry to the block, destroyed on exit; stack; uninitialised = garbage</td></tr>
+<tr><td>register</td><td>hint to keep in a register; you cannot take its address</td></tr>
+<tr><td><b>static</b> (local)</td><td>lives for the whole program, initialised <b>once</b> (to 0 by default), keeps its value between calls; scope is still the block</td></tr>
+<tr><td>static (file level)</td><td>internal linkage — visible only inside that file</td></tr>
+<tr><td>extern</td><td>declares a global defined elsewhere; globals default to 0</td></tr>
+</table>
+</div>
+<div class="num"><div class="tag">Worked numerical — static variable</div>
+<pre>int cnt() { static int n = 0; return ++n; }
+cnt(); cnt(); printf("%d", cnt());      // static n persists → 3</pre>
+</div>
+
+<h2>The preprocessor</h2>
+<p>Macros are <b>textual substitution</b> before compilation — no type checking, no evaluation of arguments. Always parenthesise arguments and the whole body.</p>
+<div class="num"><div class="tag">Worked numerical — macro pitfalls</div>
+<pre>#define SQ(x) x*x
+SQ(2+3)       →  2+3*2+3 = 11            (not 25)
+100 / SQ(5)   →  100/5*5 = 20*5 = 100   (not 4)
+#define SQ2(x) ((x)*(x))   →  SQ2(2+3) = 25   ✔</pre>
+</div>
+</section>
+
+<section id="ptr">
+<h1>2. Pointers, Arrays, Strings & Memory</h1>
+<div class="sub">A pointer is an address; arrays and pointers are tightly linked; structures are padded for alignment; and malloc/free put memory management in your hands. <i>Size-dependent examples here assume 32-bit <code>int</code> and 64-bit pointers unless stated otherwise.</i></div>
+
+<h2>Pointer arithmetic</h2>
+<ul style="color:#c9d1e0">
+<li>For <code>T *p</code>, <code>p + k</code> advances by <b>k · sizeof(T)</b> bytes. <code>p - q</code> (same array) gives the number of <b>elements</b> between them, not bytes.</li>
+<li><code>a[i]</code> is defined as <code>*(a + i)</code>, so <code>i[a]</code> works too: for <code>int arr[] = {1,2,3,4}</code>, <code>2[arr] = 3</code>.</li>
+<li>The array name <b>decays</b> to a pointer to its first element in most expressions — but <code>sizeof(a)</code> gives the whole array (20 bytes for <code>int a[5]</code>), while for <b>a function parameter</b> <code>int a[]</code> is really <code>int *a</code>, so <code>sizeof(a)</code> there is 8.</li>
+<li>An array name is not an lvalue: <code>a = p;</code> is illegal, <code>a++</code> is illegal.</li>
+</ul>
+<div class="grid2">
+<div class="card"><b>Pre/postfix with pointers</b><pre>*p++    value at p, then p moves  (postfix binds tighter than *)
+(*p)++  increments the VALUE
+*++p    moves p first, then reads
+++*p    increments the value, yields new value</pre></div>
+<div class="card"><b>Dereference and address</b><pre>int x = 5, *p = &amp;x, **pp = &amp;p;
+*p = 7;     // x is 7
+**pp = 9;   // x is 9
+*(&amp;x) == x</pre></div>
+</div>
+<div class="num"><div class="tag">Worked numerical — traversing with a pointer</div>
+<pre>int a[] = {10, 20, 30, 40, 50};  int *p = a;
+int v1 = *p++;     // v1 = 10, p now points to a[1]
+int v2 = *p;       // v2 = 20
+int v3 = ++*p;     // a[1] becomes 21, v3 = 21
+// p - a = 1, and a[1] is now 21         → v1, v2, v3 = 10, 20, 21</pre>
+</div>
+
+<h2>Two-dimensional arrays</h2>
+<p>C stores 2-D arrays in <b>row-major order</b>. For <code>int m[R][C]</code>: <code>&amp;m[i][j] = base + (i·C + j)·sizeof(int)</code>, and <code>m[i][j] == *(*(m + i) + j)</code>. Here <code>m + 1</code> advances a whole row (C elements), whereas <code>*m + 1</code> advances one element.</p>
+<div class="num"><div class="tag">Worked numerical</div>
+<code>int m[3][4]</code>: <code>&amp;m[2][1] − &amp;m[0][0] = 2·4 + 1 = <b>9</b></code> elements. <code>sizeof(m) = 48</code>, and <code>sizeof(m)/sizeof(m[0]) = 3</code> rows.
+</div>
+
+<h2>Call by value and pointers</h2>
+<p>C passes <b>everything by value</b>. A function receives a copy, so swapping two ints requires passing their addresses:</p>
+<pre>void swapv(int a, int b) { int t = a; a = b; b = t; }      // swaps the copies only
+void swapp(int *a, int *b) { int t = *a; *a = *b; *b = t; } // swaps the caller's variables
+// u = 3, w = 4:  swapv(u, w) → still 3 4;   swapp(&amp;u, &amp;w) → now 4 3</pre>
+
+<h2>Strings</h2>
+<ul style="color:#c9d1e0">
+<li>A string is a <code>char</code> array ending with <code>'\0'</code>. <code>strlen</code> does not count the terminator, <code>sizeof</code> of an array does.</li>
+<li><code>char s[] = "GATE";</code> → a writable array: <b>sizeof(s) = 5</b>, <b>strlen(s) = 4</b>. <code>char *t = "GATE";</code> → a pointer to a read-only literal: <code>sizeof(t) = 8</code>, and modifying <code>t[0]</code> is undefined behaviour.</li>
+<li>Comparing strings with <code>==</code> compares addresses; use <code>strcmp</code>. <code>strcpy</code> needs a destination of at least strlen+1 bytes.</li>
+</ul>
+
+<h2>Structures, unions and padding</h2>
+<p>Each member is aligned to its own size; the whole struct is padded to a multiple of its <b>largest alignment</b>. Member order matters. A <b>union</b> shares one block of memory; its size is the largest member, rounded up to the alignment.</p>
+<div class="num"><div class="tag">Worked numerical — sizeof with padding (verified with gcc)</div>
+<pre>struct A { char c; int i; char d; };        c(1) + pad(3) + i(4) + d(1) + pad(3)   = <b>12</b>
+struct B { int i; char c; char d; };        i(4) + c(1) + d(1) + pad(2)            = <b>8</b>
+struct C { char c; double d; int i; };      c(1) + pad(7) + d(8) + i(4) + pad(4)   = <b>24</b>
+union  U { int i; char c[6]; };             max(4, 6) = 6, rounded to alignment 4   = <b>8</b></pre>
+Reordering members from largest to smallest alignment usually minimises padding.
+</div>
+
+<h2>Dynamic memory</h2>
+<div style="overflow-x:auto">
+<table>
+<tr><th>Function</th><th>Behaviour</th></tr>
+<tr><td>malloc(n)</td><td>n uninitialised bytes from the <b>heap</b>; NULL on failure</td></tr>
+<tr><td>calloc(k, n)</td><td>k·n bytes, <b>zero-initialised</b></td></tr>
+<tr><td>realloc(p, n)</td><td>resize; may move the block (old pointer becomes invalid)</td></tr>
+<tr><td>free(p)</td><td>returns the block; <code>free(NULL)</code> is safe; freeing twice is undefined</td></tr>
+</table>
+</div>
+<ul style="color:#c9d1e0">
+<li><b>Memory leak</b>: allocated memory that is no longer reachable and never freed.</li>
+<li><b>Dangling pointer</b>: pointer to memory that was freed, or to a local variable that has gone out of scope (returning <code>&amp;local</code> from a function).</li>
+<li><b>Wild/uninitialised pointer</b>: never assigned; dereferencing it is undefined. Set pointers to NULL after free.</li>
+<li>Memory layout: <b>code</b> (text), <b>static/global data</b>, <b>heap</b> (grows up), <b>stack</b> (grows down).</li>
+</ul>
+<h3>Function pointers</h3>
+<pre>int (*op)(int, int) = add;   // pointer to a function returning int taking two ints
+int r = op(2, 3);            // calls add(2, 3);   used for callbacks, qsort's comparator</pre>
+</section>
+
+<section id="rec">
+<h1>3. Functions & Recursion</h1>
+<div class="sub">How calls use the stack, how to trace recursive programs by hand, and how to count calls and stack depth.</div>
+
+<h2>How a call works</h2>
+<p>Each call pushes an <b>activation record</b> (stack frame) holding the parameters, the return address, saved registers and local variables; return pops it. Recursion works because every invocation has its own frame. <b>Stack depth</b> = number of active (not yet returned) calls — infinite recursion ends in stack overflow.</p>
+<ul style="color:#c9d1e0">
+<li>Parameters are passed <b>by value</b> (copies). Locals are re-created on every call; <b>static</b> locals and globals are shared across all invocations.</li>
+<li>The order in which operands of <code>+</code>, function arguments, etc. are evaluated is <b>unspecified</b> in C — avoid questions that depend on it (for example, an expression that reads a global that a recursive call in the same expression modifies).</li>
+<li><b>Tail recursion</b>: the recursive call is the very last action (<code>return f(n-1, acc*n);</code>); a compiler can reuse the frame, turning it into a loop with O(1) stack. <code>return n * f(n-1);</code> is <b>not</b> tail recursive (a multiplication follows the call).</li>
+</ul>
+
+<h2>Tracing technique</h2>
+<ol style="color:#c9d1e0">
+<li>Write the call tree. Mark what is printed <b>before</b> the recursive calls (pre-order) and <b>after</b> them (post-order).</li>
+<li>Evaluate from the base case upward; keep local variables separate per call.</li>
+<li>For counting problems write a recurrence for the number of calls and solve it.</li>
+</ol>
+<div class="num"><div class="tag">Worked numerical — print between two recursive calls</div>
+<pre>void ruler(int n) { if (n == 0) return;  ruler(n-1);  printf("%d ", n);  ruler(n-1); }
+ruler(3):   ruler(2) prints  1 2 1;  then 3;  then ruler(2) prints 1 2 1
+Output:  <b>1 2 1 3 1 2 1</b>
+
+Calls: C(0) = 1,  C(n) = 2·C(n−1) + 1  →  C(n) = 2ⁿ⁺¹ − 1  →  C(3) = <b>15</b> calls
+Number of values printed = 2ⁿ − 1 = 7</pre>
+</div>
+
+<h2>Classic recursive functions</h2>
+<div style="overflow-x:auto">
+<table>
+<tr><th>Function</th><th>Recurrence</th><th>Result</th></tr>
+<tr><td>factorial</td><td>n! = n · (n−1)!</td><td>n calls deep → O(n) time, O(n) stack</td></tr>
+<tr><td>gcd(a, b)</td><td>gcd(b, a mod b); gcd(a, 0) = a</td><td>gcd(48, 18) → gcd(18, 12) → gcd(12, 6) → gcd(6, 0) = <b>6</b></td></tr>
+<tr><td>Fibonacci (naive)</td><td>F(n) = F(n−1) + F(n−2)</td><td>exponential time Θ(φⁿ); stack depth only n</td></tr>
+<tr><td>Tower of Hanoi</td><td>H(n) = 2H(n−1) + 1</td><td>2ⁿ − 1 moves: 3 disks → 7, 10 disks → <b>1023</b></td></tr>
+<tr><td>Binary search (recursive)</td><td>T(n) = T(n/2) + 1</td><td>O(log n) time and stack</td></tr>
+<tr><td>McCarthy 91</td><td>f(n) = n−10 if n &gt; 100, else f(f(n+11))</td><td>f(n) = 91 for every n ≤ 100: f(50) = f(99) = <b>91</b></td></tr>
+</table>
+</div>
+<div class="num"><div class="tag">Worked numerical — number of calls in naive Fibonacci</div>
+Let C(n) = calls made by <code>fib(n)</code>: C(0) = C(1) = 1 and C(n) = C(n−1) + C(n−2) + 1.
+<pre>C(2) = 3   C(3) = 5   C(4) = 9   C(5) = <b>15</b>   C(6) = 25
+In general C(n) = 2·F(n+1) − 1.  fib(5) returns 5 and makes 15 calls (counted by running the program).</pre>
+Many of these calls recompute the same value — the reason dynamic programming and memoisation turn the time into O(n).
+</div>
+<div class="warn"><div class="tag">GATE angle</div>Three things to check every time: (1) <b>what is printed before vs after</b> the recursive call; (2) <b>static / global</b> state shared across calls; (3) the <b>base case</b> — a missing or unreachable base case means infinite recursion. Also be ready to give the space complexity as the <b>maximum depth</b> of the recursion, not the number of calls.</div>
+</section>
+
+<section id="stack">
+<h1>4. Arrays, Stacks & Queues</h1>
+<div class="sub">Linear data structures with strict access rules: LIFO stacks, FIFO queues, and the expression evaluation problems built on them.</div>
+
+<h2>Arrays</h2>
+<div style="overflow-x:auto">
+<table>
+<tr><th>Operation</th><th>Unsorted array</th><th>Sorted array</th></tr>
+<tr><td>Access by index</td><td>O(1)</td><td>O(1)</td></tr>
+<tr><td>Search</td><td>O(n)</td><td>O(log n) (binary search)</td></tr>
+<tr><td>Insert / delete at a position</td><td>O(n) (shift elements); O(1) at the end</td><td>O(n)</td></tr>
+</table>
+</div>
+<p>Address of element i of a 1-D array = <code>base + (i − lower)·w</code>; 2-D addressing is as in the pointer section. Sparse matrices are stored as triples (row, col, value) or in CSR form to save space.</p>
+
+<h2>Stack (LIFO)</h2>
+<p>Operations <b>push, pop, peek, isEmpty</b> all take O(1). Uses: function calls, undo, expression evaluation, balanced-bracket checking, DFS, backtracking.</p>
+<ul style="color:#c9d1e0">
+<li><b>Two stacks in one array</b> of size n: start one at index 0 growing up, the other at n−1 growing down; overflow only when they meet — the whole array is usable.</li>
+<li><b>Stack permutations</b>: if 1, 2, …, n are pushed in order and popped at any time, the number of possible pop sequences is the Catalan number C(n) = (1/(n+1))·C(2n, n): n = 3 → <b>5</b> (only 3 1 2 is impossible), n = 4 → <b>14</b>.</li>
+</ul>
+
+<h3>Infix → postfix with a stack</h3>
+<p>Scan left to right. Operands go straight to the output. For an operator, pop operators of <b>higher or equal precedence</b> (for left-associative operators; for the right-associative <code>^</code> only strictly higher) to the output, then push it. <code>(</code> is pushed; <code>)</code> pops until <code>(</code>. At the end pop everything.</p>
+<div class="num"><div class="tag">Worked numerical — conversions</div>
+<pre>A + B * C - D / E        →  A B C * + D E / -          (max stack size 2)
+A * (B + C) / D - E      →  A B C + * D / E -          (max stack size 3, counting the parenthesis)
+(A + B) * (C - D)        →  A B + C D - *</pre>
+</div>
+<h3>Postfix evaluation</h3>
+<p>Operands are pushed; an operator pops two values (right operand first), applies the operation and pushes the result. The stack depth needed is the maximum number of pending operands.</p>
+<div class="num"><div class="tag">Worked numerical</div>
+<code>5 6 2 + * 12 4 / -</code>:
+<pre>push 5, 6, 2     [5 6 2]
++                [5 8]
+*                [40]
+push 12, 4       [40 12 4]
+/                [40 3]
+-                [37]       → result <b>37</b>   (maximum stack size 3)</pre>
+</div>
+
+<h2>Queue (FIFO)</h2>
+<p>Operations <b>enqueue</b> at the rear, <b>dequeue</b> from the front — O(1) with a linked list or a circular array. Uses: BFS, scheduling, buffering, level-order traversal.</p>
+<ul style="color:#c9d1e0">
+<li><b>Circular array queue</b> of size n (indices mod n), with <code>front</code> = index of the first element and <code>rear</code> = index of the next free slot, one slot kept empty:
+<pre>empty : front == rear
+full  : (rear + 1) % n == front        → capacity n − 1
+count : (rear − front + n) % n</pre>
+Without the "wasted slot" trick, front == rear is ambiguous between empty and full, so a separate counter is needed.</li>
+<li><b>Queue using two stacks</b>: push into stack 1; to dequeue, if stack 2 is empty move everything from stack 1 over (reversing order), then pop stack 2. Each element moves at most once → <b>amortised O(1)</b> per operation. A <b>stack using two queues</b> needs one operation to cost O(n).</li>
+<li><b>Deque</b> allows insertion/deletion at both ends; a <b>priority queue</b> removes the highest-priority element (implemented with a heap).</li>
+</ul>
+<div class="num"><div class="tag">Worked numerical</div>
+Circular queue with n = 8, front = 5, rear = 2: count = (2 − 5 + 8) mod 8 = <b>5</b> elements (at indices 5, 6, 7, 0, 1).
+</div>
+<div class="warn"><div class="tag">Remember</div>BFS uses a <b>queue</b>; iterative DFS uses a <b>stack</b> (recursion uses the system call stack). Minimum number of stacks needed to simulate a queue = 2; minimum number of queues to simulate a stack = 2.</div>
+</section>
+
+<section id="ll">
+<h1>5. Linked Lists</h1>
+<div class="sub">Dynamic sequences built from nodes joined by pointers: cheap insertion and deletion, but no random access.</div>
+
+<h2>Node structure and types</h2>
+<pre>struct node { int data;  struct node *next; };       // singly linked
+struct dnode { int data; struct dnode *prev, *next; }; // doubly linked</pre>
+<ul style="color:#c9d1e0">
+<li><b>Singly</b>: traverse one way only. <b>Doubly</b>: both ways; can delete a given node in O(1). <b>Circular</b>: last node points back to the first (no NULL); the traversal condition is <code>p-&gt;next != head</code>.</li>
+<li>Use a <b>dummy (sentinel) head node</b> to avoid special cases for the first element.</li>
+<li>A list with n nodes holds n <code>next</code> pointers (singly) or 2n pointers (doubly), plus the head pointer.</li>
+</ul>
+
+<h2>Complexity</h2>
+<div style="overflow-x:auto">
+<table>
+<tr><th>Operation</th><th>Singly (head only)</th><th>Singly (head + tail)</th><th>Doubly</th></tr>
+<tr><td>Insert at front</td><td>O(1)</td><td>O(1)</td><td>O(1)</td></tr>
+<tr><td>Insert at end</td><td>O(n)</td><td>O(1)</td><td>O(1) with tail</td></tr>
+<tr><td>Delete first</td><td>O(1)</td><td>O(1)</td><td>O(1)</td></tr>
+<tr><td>Delete last</td><td>O(n) (need predecessor)</td><td>O(n)</td><td>O(1) with tail</td></tr>
+<tr><td>Delete a node given a pointer to it</td><td>O(n) normally (O(1) trick below)</td><td>–</td><td><b>O(1)</b></td></tr>
+<tr><td>Search / access k-th</td><td colspan="3">O(n) — binary search is not possible on a linked list in O(log n)</td></tr>
+</table>
+</div>
+<p><b>O(1) deletion trick</b> (node is not the last): copy the next node's data into the given node, then unlink and free the next node.</p>
+
+<h2>Essential algorithms</h2>
+<div class="grid2">
+<div class="card"><b>Reverse a list (iterative, O(n) time, O(1) space)</b><pre>prev = NULL; cur = head;
+while (cur) {
+  nxt = cur-&gt;next;
+  cur-&gt;next = prev;
+  prev = cur;  cur = nxt;
+}
+head = prev;</pre>Performs exactly n pointer reversals.</div>
+<div class="card"><b>Middle / cycle (two pointers)</b><pre>slow = fast = head;
+while (fast &amp;&amp; fast-&gt;next) {
+  slow = slow-&gt;next;
+  fast = fast-&gt;next-&gt;next;   // meets slow iff a cycle exists
+}
+// no cycle: slow is the middle</pre>Floyd's cycle detection: O(n) time, O(1) space.</div>
+</div>
+<ul style="color:#c9d1e0">
+<li><b>k-th node from the end</b>: advance one pointer k steps, then move both until the first hits NULL — one pass.</li>
+<li><b>Merge two sorted lists</b>: O(m + n) time, O(1) extra space. <b>Merge sort</b> on a linked list: O(n log n) time (and it is the preferred sort for lists). Insertion sort works on a list in O(n²).</li>
+<li>Polynomial and large-integer arithmetic, adjacency lists and hash-chaining all rely on linked lists. An <b>XOR linked list</b> stores prev ⊕ next in one field to halve the pointer cost.</li>
+</ul>
+<div class="num"><div class="tag">Worked numerical — recursion on a list</div>
+<pre>void fun(struct node *h) {
+    if (!h) return;
+    printf("%d ", h-&gt;data);
+    if (h-&gt;next) fun(h-&gt;next-&gt;next);
+    printf("%d ", h-&gt;data);
+}
+List: 1 → 2 → 3 → 4 → 5          fun(head) prints:  <b>1 3 5 5 3 1</b>
+fun(1) prints 1, jumps to 3; fun(3) prints 3, jumps to 5; fun(5) prints 5, next is NULL so no call;
+then each frame prints its value again on the way back: 5, 3, 1.</pre>
+</div>
+<div class="num"><div class="tag">Worked numerical — delete alternate nodes</div>
+Keep a node, unlink its successor, move to the node after: on 1→2→3→4→5 the loop leaves <b>1→3→5</b>; on 1→2→3→4→5→6 it also leaves <b>1→3→5</b>.
+</div>
+<div class="warn"><div class="tag">Array vs linked list</div>Array: random access O(1), contiguous, cache-friendly, fixed or costly resize, insertion O(n). Linked list: insertion/deletion O(1) once the position is known, no resize cost, extra pointer memory per node, no random access.</div>
+</section>
+
+<section id="tree">
+<h1>6. Trees, BST & AVL</h1>
+<div class="sub">Hierarchical structures: counting formulas, traversals, binary search trees and self-balancing trees.</div>
+
+<h2>Binary tree facts</h2>
+<p>Take the root at <b>level 0</b> and the height of a single node as 0 (height = number of edges on the longest root–leaf path). Be careful: some problems count levels from 1 — read the convention.</p>
+<ul style="color:#c9d1e0">
+<li>Maximum nodes at level i = 2<sup>i</sup>. Maximum nodes in a tree of height h = <b>2<sup>h+1</sup> − 1</b> (h = 3 → 15). Minimum height of n nodes = ⌊log₂ n⌋.</li>
+<li>A binary tree with n nodes has <b>n − 1</b> edges and <b>n + 1</b> NULL child pointers.</li>
+<li>In any binary tree: (leaves) = (nodes with 2 children) + 1.</li>
+<li>For a tree in which every internal node has exactly k children: with i internal nodes, n = k·i + 1 nodes and (k−1)·i + 1 leaves. With k = 3 and i = 10 → <b>21 leaves</b>. A full binary tree with i internal nodes has i + 1 leaves.</li>
+<li>Number of structurally different binary trees with n nodes = Catalan(n) = C(2n, n)/(n+1): 1, 2, 5, 14, 42 for n = 1…5. The same number of distinct BSTs can be built on n distinct keys: <b>4 keys → 14</b>.</li>
+<li>Complete tree in an array (0-based): children of i are 2i+1 and 2i+2, parent is ⌊(i−1)/2⌋ (1-based: 2i, 2i+1, ⌊i/2⌋).</li>
+</ul>
+
+<h2>Traversals</h2>
+<div style="overflow-x:auto">
+<table>
+<tr><th>Traversal</th><th>Order</th><th>Typical use</th></tr>
+<tr><td>Inorder</td><td>Left, Node, Right</td><td>sorted output of a BST</td></tr>
+<tr><td>Preorder</td><td>Node, Left, Right</td><td>copy a tree; prefix expression</td></tr>
+<tr><td>Postorder</td><td>Left, Right, Node</td><td>delete a tree; postfix expression; evaluate expression trees</td></tr>
+<tr><td>Level order</td><td>level by level (queue)</td><td>BFS, shortest depth</td></tr>
+</table>
+</div>
+<ul style="color:#c9d1e0">
+<li>All recursive traversals take O(n) time and O(h) stack space. Morris traversal does inorder in O(1) space using threads.</li>
+<li><b>Unique reconstruction</b>: inorder + preorder, or inorder + postorder, determine a binary tree uniquely. <b>Preorder + postorder do not</b> (unless every node has 0 or 2 children). The first preorder element (or last postorder element) is the root; split the inorder sequence around it.</li>
+</ul>
+
+<h2>Binary search tree (BST)</h2>
+<p>Left subtree keys &lt; node &lt; right subtree keys. Search, insert and delete cost <b>O(h)</b>: O(log n) when balanced, <b>O(n)</b> when skewed (e.g. keys inserted in sorted order). The <b>inorder traversal of a BST is sorted</b>.</p>
+<p><b>Deletion</b>: (1) leaf → remove; (2) one child → replace by that child; (3) two children → replace the key by its <b>inorder successor</b> (minimum of the right subtree) or predecessor, then delete that node.</p>
+<div class="num"><div class="tag">Worked numerical — build, traverse, delete</div>
+Insert <code>50, 30, 70, 20, 40, 60, 80, 35</code> into an empty BST.
+<pre>        50
+      /    \
+    30      70
+   /  \    /  \
+  20  40  60  80
+      /
+    35
+Inorder  : 20 30 35 40 50 60 70 80        (sorted)
+Preorder : 50 30 20 40 35 70 60 80
+Postorder: 20 35 40 30 60 80 70 50        height = 3
+
+Delete 30 (two children): successor = min of right subtree {40, 35} = 35 → 35 replaces 30.
+   Preorder now: 50 35 20 40 70 60 80
+Delete 50 (root, two children): successor = min of {70, 60, 80} = 60 → 60 becomes the root.
+   Preorder now: <b>60 35 20 40 70 80</b></pre>
+</div>
+
+<h2>AVL tree (height-balanced)</h2>
+<p>A BST in which the <b>balance factor</b> (height of left − height of right) of every node is −1, 0 or +1. After an insert or delete, rebalance with rotations at the lowest unbalanced node:</p>
+<div style="overflow-x:auto">
+<table>
+<tr><th>Case</th><th>Cause</th><th>Fix</th></tr>
+<tr><td>LL</td><td>insertion into left subtree of left child</td><td>one right rotation</td></tr>
+<tr><td>RR</td><td>insertion into right subtree of right child</td><td>one left rotation</td></tr>
+<tr><td>LR</td><td>insertion into right subtree of left child</td><td>left rotation on the child, then right rotation</td></tr>
+<tr><td>RL</td><td>insertion into left subtree of right child</td><td>right rotation on the child, then left rotation</td></tr>
+</table>
+</div>
+<ul style="color:#c9d1e0">
+<li>Height is always O(log n) (≤ 1.44 log₂ n), so search/insert/delete are <b>O(log n)</b>. Insertion needs at most <b>one</b> (single or double) rotation; deletion may need O(log n) rotations.</li>
+<li><b>Minimum nodes</b> of an AVL tree of height h: N(h) = N(h−1) + N(h−2) + 1 with N(0) = 1, N(1) = 2: <b>1, 2, 4, 7, 12, 20, 33, 54</b> for h = 0…7. So height 4 needs at least <b>12</b> nodes.</li>
+</ul>
+<div class="num"><div class="tag">Worked numerical — AVL insertions</div>
+Insert <code>10, 20, 30, 40, 50, 25</code>:
+<pre>10, 20, 30   → right-right imbalance at 10         → left rotation          root 20 (10, 30)
+40           → fits                                  
+50           → right-right imbalance at 30         → left rotation          20 (10, 40(30, 50))
+25           → under 30's left; imbalance at 20 is right-left → double rotation
+Final tree:      30
+               /    \
+             20      40
+            /  \       \
+          10   25       50           preorder 30 20 10 25 40 50, height 2</pre>
+A plain (unbalanced) BST with the same insertions has height 4 and degenerates to a list-like shape.
+</div>
+</section>
+
+<section id="heap">
+<h1>7. Heaps, Hashing & Graph Representation</h1>
+<div class="sub">Priority queues, constant-time lookup by key, and how graphs are stored in memory.</div>
+
+<h2>Binary heap</h2>
+<p>A <b>complete binary tree</b> stored in an array. <b>Max-heap</b>: every parent ≥ its children (the maximum is at the root); <b>min-heap</b>: every parent ≤ its children. With 1-based indexing: left child 2i, right child 2i+1, parent ⌊i/2⌋. A heap with n nodes has height ⌊log₂ n⌋ and <b>⌈n/2⌉ leaves</b> (the last ⌈n/2⌉ array positions).</p>
+<div style="overflow-x:auto">
+<table>
+<tr><th>Operation</th><th>Time</th><th>How</th></tr>
+<tr><td>Find max (min-heap: min)</td><td>O(1)</td><td>root</td></tr>
+<tr><td>Insert</td><td>O(log n)</td><td>place at the end, <b>sift up</b> while larger than the parent</td></tr>
+<tr><td>Delete max</td><td>O(log n)</td><td>move the last element to the root, <b>sift down</b> (swap with the larger child)</td></tr>
+<tr><td><b>Build heap</b> from n elements</td><td><b>O(n)</b></td><td>sift down every internal node from ⌊n/2⌋ down to 1 (inserting one by one costs O(n log n))</td></tr>
+<tr><td>Heapsort</td><td>O(n log n)</td><td>build max-heap, then repeatedly swap the root to the end and sift down; in place, not stable</td></tr>
+<tr><td>Search for an arbitrary key</td><td>O(n)</td><td>a heap is not ordered across subtrees</td></tr>
+<tr><td>Find the minimum in a max-heap</td><td>O(n)</td><td>it is one of the leaves</td></tr>
+</table>
+</div>
+<div class="num"><div class="tag">Worked numerical — bottom-up build and one insertion</div>
+<pre>Build a max-heap from [4, 10, 3, 5, 1]   (n = 5, internal nodes at positions 2 and 1)
+ sift-down position 2 (10): children 5, 1 → fine
+ sift-down position 1 (4):  swap with 10 → [10, 4, 3, 5, 1];  4 then swaps with 5 → [10, 5, 3, 4, 1]
+ Result: <b>[10, 5, 3, 4, 1]</b>   (2 swaps)
+
+Insert 14 into the max-heap [15, 10, 12, 8, 9, 4, 3]:
+ append → [15, 10, 12, 8, 9, 4, 3, 14];  14 &gt; parent 8 → swap;  14 &gt; parent 10 → swap;  14 &lt; 15 stop
+ Result: [15, 14, 12, 10, 9, 4, 3, 8]   (2 swaps)
+
+Delete max from [20, 15, 12, 8, 9, 4, 3]: root ← last (3) → sift down: 3 ↔ 15, then 3 ↔ 9 → [15, 9, 12, 8, 3, 4]</pre>
+</div>
+<div class="num"><div class="tag">Worked numerical — inserting 1, 2, 3, 4, 5 one by one into a max-heap</div>
+Each new key is larger than everything before, so it climbs to the root: swaps = 0 + 1 + 1 + 2 + 2 = <b>6</b>, final array <b>[5, 4, 2, 1, 3]</b>. Building the same heap bottom-up from [1,2,3,4,5] needs fewer swaps — one reason build-heap is O(n) rather than O(n log n).
+</div>
+
+<h2>Hashing</h2>
+<p>A hash function h(k) maps a key to a slot in a table of size m. With n keys the <b>load factor</b> is α = n / m. A <b>collision</b> happens when two keys hash to the same slot.</p>
+<div style="overflow-x:auto">
+<table>
+<tr><th>Method</th><th>How collisions are handled</th><th>Notes</th></tr>
+<tr><td><b>Chaining</b></td><td>each slot holds a linked list</td><td>α can exceed 1; average search ≈ 1 + α; worst O(n)</td></tr>
+<tr><td><b>Linear probing</b></td><td>try h(k)+1, +2, … (mod m)</td><td>simple, cache friendly; suffers <b>primary clustering</b></td></tr>
+<tr><td>Quadratic probing</td><td>try h(k)+1², +2², …</td><td>avoids primary clustering; may not visit every slot</td></tr>
+<tr><td>Double hashing</td><td>try h₁(k) + i·h₂(k)</td><td>closest to uniform hashing; h₂(k) must be non-zero and coprime to m</td></tr>
+</table>
+</div>
+<ul style="color:#c9d1e0">
+<li><b>Open addressing</b> stores everything in the table, so n ≤ m (α ≤ 1). Expected probes for an unsuccessful search ≈ 1/(1 − α). Deleting a key must leave a <b>tombstone</b> marker, otherwise later searches stop too early.</li>
+<li>Good hash functions spread keys uniformly; the <b>division method</b> h(k) = k mod m works best with m prime and not close to a power of 2.</li>
+<li>Average search/insert/delete is <b>O(1)</b>; the worst case is O(n). Hash tables do not support ordered operations (min, range queries) efficiently.</li>
+</ul>
+<div class="num"><div class="tag">Worked numerical — collision resolution (m = 10, h(k) = k mod 10)</div>
+Insert <code>31, 12, 41, 22, 32, 13</code>.
+<pre>Linear probing:    31→1   12→2   41→1✗2✗→3   22→2✗3✗→4   32→2✗3✗4✗→5   13→3✗4✗5✗→6
+   table: [_, 31, 12, 41, 22, 32, 13, _, _, _]       probes: 1, 1, 3, 3, 4, 4  (total 16)
+Quadratic (+i²):   table: [_, 31, 12, 22, 13, 41, 32, _, _, _]      (41 lands at slot 1+4 = 5)
+Chaining:          slot 1: 31 → 41     slot 2: 12 → 22 → 32     slot 3: 13</pre>
+Note how linear probing builds one long cluster (slots 1–6) — new keys hashing anywhere into it must probe to its end.
+</div>
+<div class="num"><div class="tag">Worked numerical — load factor</div>
+1000 keys in a chained table of 200 slots: α = 1000 / 200 = <b>5</b> — the average chain holds 5 keys.
+</div>
+
+<h2>Graph representations</h2>
+<div style="overflow-x:auto">
+<table>
+<tr><th></th><th>Adjacency matrix</th><th>Adjacency list</th></tr>
+<tr><td>Space</td><td>O(V²)</td><td>O(V + E)</td></tr>
+<tr><td>Is (u, v) an edge?</td><td>O(1)</td><td>O(deg u)</td></tr>
+<tr><td>List all neighbours of u</td><td>O(V)</td><td>O(deg u)</td></tr>
+<tr><td>BFS / DFS of the whole graph</td><td>O(V²)</td><td><b>O(V + E)</b></td></tr>
+<tr><td>Best for</td><td>dense graphs</td><td>sparse graphs</td></tr>
+</table>
+</div>
+<ul style="color:#c9d1e0">
+<li>Undirected graph → symmetric matrix; the sum of all matrix entries = 2E. Matrix powers: entry (i, j) of A<sup>k</sup> counts walks of length k.</li>
+<li><b>BFS</b> uses a queue and visits by increasing distance; <b>DFS</b> uses a stack (or recursion).</li>
+</ul>
+<div class="num"><div class="tag">Worked numerical — traversal order</div>
+Graph with edges 0–1, 0–2, 1–3, 1–4, 2–5, 4–5 (neighbours visited in increasing order), starting at 0:
+<pre>BFS order: 0 1 2 3 4 5          DFS order: 0 1 3 4 5 2
+Edges = 6; adjacency matrix has 36 cells; adjacency lists hold 12 entries.</pre>
+</div>
+
+<h2>Complexity cheat sheet</h2>
+<div style="overflow-x:auto">
+<table>
+<tr><th>Structure</th><th>Search</th><th>Insert</th><th>Delete</th></tr>
+<tr><td>Unsorted array</td><td>O(n)</td><td>O(1) at end</td><td>O(n)</td></tr>
+<tr><td>Sorted array</td><td>O(log n)</td><td>O(n)</td><td>O(n)</td></tr>
+<tr><td>Linked list</td><td>O(n)</td><td>O(1) at known position</td><td>O(1) at known position</td></tr>
+<tr><td>BST (average / worst)</td><td>O(log n) / O(n)</td><td>O(log n) / O(n)</td><td>O(log n) / O(n)</td></tr>
+<tr><td>AVL tree</td><td>O(log n)</td><td>O(log n)</td><td>O(log n)</td></tr>
+<tr><td>Binary heap</td><td>O(n)</td><td>O(log n)</td><td>O(log n) (max / min)</td></tr>
+<tr><td>Hash table (average / worst)</td><td>O(1) / O(n)</td><td>O(1) / O(n)</td><td>O(1) / O(n)</td></tr>
+</table>
+</div>
+</section>
+
+
+<section id="methods">
+<h1>8. Problem → Standard Method Playbook</h1>
+<div class="sub">Canonical C-language and data-structure procedures for the recurring GATE problem types.</div>
+
+<h2>1. Pointer declarators: array of pointers vs pointer to array</h2>
+<div class="card"><b>Method:</b> start at the identifier and read the declaration outward, respecting parentheses. <code>int *p[5]</code> means an <b>array of 5 pointers to int</b>; <code>int (*p)[5]</code> means a <b>pointer to an array of 5 int</b>. For function pointers, parentheses around <code>*name</code> are essential.</div>
+<div class="num"><div class="tag">Worked problem — declaration parsing</div>
+<b>Q:</b> What is <code>int (*p)[10]</code>?</div>
+<p><b>Answer:</b> <code>p</code> is a pointer to an array of 10 integers. Thus <code>p+1</code> advances by <code>10*sizeof(int)</code> bytes, not by one integer.</p></div>
+
+<h2>2. Integer promotions and usual arithmetic conversions</h2><div class="card"><b>Method:</b> identify the operands' types before evaluating the operator. Smaller integer types undergo integer promotion (commonly to <code>int</code>/<code>unsigned int</code>); then the usual arithmetic conversions determine the common type. Only after the type conversion should you reason about signedness, overflow, shifts, and the final value.</div>
+<div class="warn"><div class="tag">Common trap</div> Never assume the type of the result from the variable receiving it. The expression is evaluated in its converted operand type first.</div>
+<div class="num"><div class="tag">Worked problem — promotion</div>
+<b>Q:</b> If <code>char a=200, b=100;</code> on a system where plain <code>char</code> is unsigned, what type is used for <code>a+b</code>?</div>
+<p><b>Solution:</b> both <code>char</code> operands undergo integer promotion to <code>int</code> (assuming <code>int</code> can represent all their values). Therefore the addition is performed as <b>int</b>.</p></div>
+
+<h2>3. typedef, enum and volatile</h2>
+<div class="card"><b>typedef</b> creates an alias for a type; it does not create a new distinct runtime type. <b>enum</b> declares named integer constants and an enumeration type. <b>volatile</b> tells the compiler that an object's value may change for reasons outside ordinary program flow, so accesses must not be optimized away merely because the compiler sees no ordinary write.</div>
+<div class="warn"><div class="tag">Common trap</div> <code>volatile</code> does <b>not</b> make an operation atomic and does not provide thread synchronization by itself.</div>
+
+<h2>4. Bit fields and object representation</h2>
+<div class="card"><b>Recognition:</b> declarations such as <code>unsigned x:3;</code> inside a structure. A bit-field allocates a specified number of bits, but layout/order, packing, and some alignment details are implementation-defined. For GATE questions, follow the stated implementation assumptions rather than importing a platform-specific ABI rule.</div>
+
+<h2>5. Morris inorder traversal / threaded-tree reasoning</h2>
+<div class="card"><b>Method:</b> if the current node has no left child, visit it and move right. Otherwise find its inorder predecessor in the left subtree. If the predecessor's right link is null, create a temporary thread to the current node and move left; if the thread already points to the current node, remove it, visit the current node, and move right. Extra auxiliary space is <b>O(1)</b>.</div>
+<div class="num"><div class="tag">Worked problem — Morris traversal</div>
+<b>Q:</b> What is the inorder sequence of a BST containing 4 as root, 2 and 6 as children, and 1,3,5,7 as leaves?</div>
+<p><b>Answer:</b> <code>1,2,3,4,5,6,7</code>. Morris traversal produces the same inorder sequence as recursive traversal while using <b>O(1)</b> auxiliary space (ignoring the output).</p></div>
+
+<h2>6. Data-structure recognition</h2>
+<div class="card"><b>Stack:</b> LIFO; balanced-parenthesis and DFS-style applications. <b>Queue:</b> FIFO; BFS and scheduling. <b>Heap:</b> complete tree + heap order; priority queue. <b>BST:</b> ordered search tree; inorder is sorted. <b>Hash table:</b> expected O(1) lookup under suitable hashing/load assumptions, but no efficient ordered traversal. <b>Adjacency list:</b> Θ(V+E); <b>adjacency matrix:</b> Θ(V²).</div>
+<div class="num"><div class="tag">Worked problem — choose the structure</div>
+<b>Q:</b> A system repeatedly needs the smallest-priority item, while insertions are frequent. Which standard structure should be considered first?</div>
+<p><b>Answer:</b> a <b>binary heap / priority queue</b>. It supports insertion and extract-min/max in O(log n) and gives O(1) access to the current extremum.</p></div>
+</section>
+
+<section id="quiz">
+<h1>9. Practice Quiz — 58 Questions</h1>
+<div class="sub">Covers all 7 topics above. Click an option to check yourself instantly — explanations included.</div>
+<div class="qtopics" id="qtopics"></div><style>.qmode button{cursor:pointer;padding:8px 12px;border:1px solid #888;border-radius:8px;background:transparent}.qmode button.active{font-weight:700}.opt.selected{outline:2px solid currentColor;transform:translateX(2px)}</style><div class="qmode" style="margin:12px 0;display:flex;gap:8px;flex-wrap:wrap"><button id="mcqMode" class="active">MCQ</button><button id="msqMode">MSQ · Select all that apply</button></div>
+<div id="score">Answered <b id="ansCount">0</b>/58 · Correct <b id="corrCount">0</b></div>
+<div id="qlist"></div>
+</section>
+
+<section id="pyq">
+<h1>10. GATE-Level Solved Problems</h1>
+<div class="sub">The 58 quiz questions above check fundamentals. These are heavier, multi-step problems in GATE style — every step shown, and every answer verified by compiling and running the C code or by a program that implements the data structure.</div>
+
+<div class="gq"><div class="gtag">Q1 · Integer semantics in C</div>
+<b>What does the following program print?</b>
+<pre>unsigned char c = 200;
+c = c + 100;
+printf("%d ", c);
+printf("%d ", -1 &lt; 1u);
+printf("%d", -7 / 2 + -7 % 2);</pre>
+<ol class="gopts"><li>300 1 -3</li><li>44 0 -4</li><li>44 1 -4</li><li>300 0 -3</li></ol>
+<pre>c = 200 + 100 = 300, stored in 8 bits: 300 mod 256 = 44.
+-1 &lt; 1u : -1 is converted to unsigned (4294967295), which is not less than 1 → 0.
+-7/2 = -3 (truncation toward zero) and -7 % 2 = -1 → sum = -4.</pre>
+<p class="gans">Correct: Option 2 — 44 0 -4.</p>
+</div>
+
+<div class="gq"><div class="gtag">Q2 · Pointer expressions</div>
+<b>int a[] = {10, 20, 30, 40, 50};  int *p = a;  int x = *p++;  int y = *p;  int z = ++*p;  What are x, y, z and a[1]?</b>
+<ol class="gopts"><li>10, 20, 21, 21</li><li>10, 20, 21, 20</li><li>11, 20, 21, 21</li><li>10, 21, 21, 21</li></ol>
+<pre>x = *p++ : yields a[0] = 10, then p advances to a[1].
+y = *p   : a[1] = 20.
+z = ++*p : increments the VALUE a[1] to 21 and yields 21.
+Now a[1] = 21.</pre>
+<p class="gans">Correct: Option 1 — x = 10, y = 20, z = 21, a[1] = 21.</p>
+</div>
+
+<div class="gq"><div class="gtag">Q3 · Structure size with padding</div>
+<b>On a machine with 4-byte int, 8-byte double and natural alignment, what are sizeof(struct A) and sizeof(struct C)?</b>
+<pre>struct A { char c; int i; char d; };
+struct C { char c; double d; int i; };</pre>
+<ol class="gopts"><li>6 and 13</li><li>8 and 16</li><li>12 and 24</li><li>12 and 16</li></ol>
+<pre>struct A: c (1) + 3 padding + i (4) + d (1) + 3 trailing padding = 12  (size must be a multiple of 4)
+struct C: c (1) + 7 padding + d (8) + i (4) + 4 trailing padding = 24  (multiple of the 8-byte alignment)</pre>
+<p class="gans">Correct: Option 3 — 12 and 24.</p>
+</div>
+
+<div class="gq"><div class="gtag">Q4 · Recursion — output and number of calls</div>
+<b>void f(int n) { if (n == 0) return;  f(n-1);  printf("%d ", n);  f(n-1); }  What does f(3) print, and how many times is f called in total (including f(3) itself)?</b>
+<ol class="gopts"><li>3 2 1 1 2 3, 7 calls</li><li>1 2 1 3 1 2 1, 7 calls</li><li>1 2 1 3 1 2 1, 15 calls</li><li>1 2 3 1 2 3, 15 calls</li></ol>
+<pre>Output: f(2) → (f(1) → 1) 2 (f(1) → 1) = "1 2 1", then 3, then "1 2 1"  =  1 2 1 3 1 2 1.
+Calls: C(0) = 1, C(n) = 2·C(n-1) + 1  →  C(1) = 3, C(2) = 7, C(3) = 15
+(2³ − 1 = 7 of them print; the other 8 are the n = 0 base-case calls).</pre>
+<p class="gans">Correct: Option 3 — output 1 2 1 3 1 2 1, with 15 calls.</p>
+</div>
+
+<div class="gq"><div class="gtag">Q5 · Recursion on a linked list</div>
+<b>void fun(struct node *h) { if (!h) return; printf("%d ", h-&gt;d); if (h-&gt;next) fun(h-&gt;next-&gt;next); printf("%d ", h-&gt;d); }  For the list 1→2→3→4→5, fun(head) prints:</b>
+<ol class="gopts"><li>1 3 5 5 3 1</li><li>1 2 3 4 5 5 4 3 2 1</li><li>1 3 5</li><li>1 3 5 3 1</li></ol>
+<pre>fun(1): prints 1, calls fun(3)
+  fun(3): prints 3, calls fun(5)
+    fun(5): prints 5; 5->next is NULL so no call; prints 5 again
+  back in fun(3): prints 3
+back in fun(1): prints 1
+Output: 1 3 5 5 3 1</pre>
+<p class="gans">Correct: Option 1 — 1 3 5 5 3 1.</p>
+</div>
+
+<div class="gq"><div class="gtag">Q6 · Infix to postfix</div>
+<b>The postfix expression equivalent to  A * (B + C) / D - E  is:</b>
+<ol class="gopts"><li>ABC+*D/E-</li><li>ABC+D*/E-</li><li>AB*C+D/E-</li><li>ABC+*DE/-</li></ol>
+<pre>A → out                          out: A
+*  → push                        stack: *
+(  → push                        stack: * (
+B, C → out; + pushed, ) pops +   out: A B C +        stack: *
+/  → pop * (equal precedence, left-assoc), push /    out: A B C + *     stack: /
+D → out                          out: A B C + * D
+-  → pop / , push -              out: A B C + * D /          stack: -
+E → out; end: pop -              out: A B C + * D / E -</pre>
+Maximum stack size during the conversion (counting the parenthesis) = 3.
+<p class="gans">Correct: Option 1 — ABC+*D/E-.</p>
+</div>
+
+<div class="gq"><div class="gtag">Q7 · BST deletion</div>
+<b>Keys 50, 30, 70, 20, 40, 60, 80, 35 are inserted into an empty BST. Then 30 is deleted and then 50 is deleted, always replacing a node that has two children by its inorder successor. The preorder traversal of the resulting tree is:</b>
+<ol class="gopts"><li>60 35 20 40 70 80</li><li>60 30 20 40 70 80</li><li>40 35 20 70 60 80</li><li>35 20 40 60 70 80</li></ol>
+<pre>Original preorder: 50 30 20 40 35 70 60 80
+Delete 30 (two children): inorder successor = smallest key of its right subtree (40 → 35) = 35.
+   Tree: 50 (35 (20, 40), 70 (60, 80))     preorder 50 35 20 40 70 60 80
+Delete 50 (two children): successor = smallest key of the right subtree (70, 60, 80) = 60.
+   60 becomes the root; 70 keeps only its right child 80.
+Preorder: 60 35 20 40 70 80</pre>
+<p class="gans">Correct: Option 1 — 60 35 20 40 70 80.</p>
+</div>
+
+<div class="gq"><div class="gtag">Q8 · AVL insertions</div>
+<b>Keys 10, 20, 30, 40, 50, 25 are inserted into an initially empty AVL tree. The preorder traversal of the final tree is:</b>
+<ol class="gopts"><li>30 20 10 25 40 50</li><li>20 10 40 30 25 50</li><li>40 20 10 30 25 50</li><li>30 20 10 25 50 40</li></ol>
+<pre>10, 20, 30 : right-right imbalance at 10 → left rotation → 20 (10, 30)
+40         : no imbalance
+50         : right-right imbalance at 30 → left rotation → 20 (10, 40 (30, 50))
+25         : inserted as left child of 30; node 20 becomes unbalanced (right-left case)
+             → right rotation at 40, then left rotation at 20 → root 30
+Final: 30 (20 (10, 25), 40 (–, 50))        preorder 30 20 10 25 40 50, height 2</pre>
+<p class="gans">Correct: Option 1 — 30 20 10 25 40 50.</p>
+</div>
+
+<div class="gq"><div class="gtag">Q9 · Heap insertions</div>
+<b>The keys 1, 2, 3, 4, 5 are inserted one by one into an initially empty max-heap. What is the final array and the total number of swaps?</b>
+<ol class="gopts"><li>[5, 4, 2, 1, 3] and 6 swaps</li><li>[5, 4, 3, 2, 1] and 4 swaps</li><li>[5, 4, 2, 1, 3] and 4 swaps</li><li>[5, 3, 4, 1, 2] and 6 swaps</li></ol>
+<pre>insert 1 : [1]                       0 swaps
+insert 2 : [2, 1]                    1 swap
+insert 3 : [3, 1, 2]                 1 swap
+insert 4 : [4, 3, 2, 1]              2 swaps  (4 swaps with 1, then with 3)
+insert 5 : [5, 4, 2, 1, 3]           2 swaps  (5 swaps with 3, then with 4)
+total = 0 + 1 + 1 + 2 + 2 = 6</pre>
+<p class="gans">Correct: Option 1 — [5, 4, 2, 1, 3] with 6 swaps.</p>
+</div>
+
+<div class="gq"><div class="gtag">Q10 · Hashing with linear probing</div>
+<b>A hash table of size 10 uses h(k) = k mod 10 and linear probing. Keys 31, 12, 41, 22, 32, 13 are inserted in this order. In which slot is 13 stored, and what is the total number of probes (slots examined) over all six insertions?</b>
+<ol class="gopts"><li>Slot 3, 8 probes</li><li>Slot 6, 16 probes</li><li>Slot 6, 12 probes</li><li>Slot 7, 16 probes</li></ol>
+<pre>31 → slot 1                       1 probe
+12 → slot 2                       1 probe
+41 → 1 taken, 2 taken → slot 3    3 probes
+22 → 2, 3 taken → slot 4          3 probes
+32 → 2, 3, 4 taken → slot 5       4 probes
+13 → 3, 4, 5 taken → slot 6       4 probes          total = 1 + 1 + 3 + 3 + 4 + 4 = 16</pre>
+<p class="gans">Correct: Option 2 — slot 6 with 16 probes.</p>
+</div>
+
+<div class="gq"><div class="gtag">Q11 · What does it print, and what is its time complexity?</div>
+<b>For n = 20, what does the program print, and what is the time complexity of the loop nest as a function of n?</b>
+<pre>int count = 0;
+for (int i = 1; i &lt;= n; i *= 2)
+    for (int j = 0; j &lt; i; j++)
+        count++;
+printf("%d", count);</pre>
+<ol class="gopts"><li>20, Θ(n log n)</li><li>31, Θ(n log n)</li><li>31, Θ(n)</li><li>20, Θ(n)</li></ol>
+<pre>The outer loop runs with i = 1, 2, 4, 8, 16 (i = 32 fails 32 &lt;= 20).
+The inner loop runs i times for each value of i:
+   count = 1 + 2 + 4 + 8 + 16 = 31
+
+General case: i takes the values 2^0 ... 2^k with k = floor(log2 n), so
+   count = 2^(k+1) - 1 &lt; 2n  ⇒  Θ(n).
+Trap: "log n outer iterations × n inner iterations" gives n log n, but the inner
+bound is i, not n — the sum is a geometric series dominated by its last term.</pre>
+<p class="gans">Correct: Option 3 — prints 31, time Θ(n).</p>
+</div>
+
+<div class="gq"><div class="gtag">Q12 · Postfix evaluation — value and stack depth</div>
+<b>The postfix expression  6 2 3 + - 3 8 2 / + * 2 ^ 3 +  is evaluated with a stack (^ is exponentiation, / is integer division). What is the result, and what is the maximum number of elements on the stack at any time?</b>
+<ol class="gopts"><li>49 and 4</li><li>52 and 3</li><li>52 and 4</li><li>55 and 5</li></ol>
+<pre>For a binary operator: pop b (top) FIRST, then a; push (a op b).
+
+token   stack after (bottom → top)
+6       6
+2       6 2
+3       6 2 3
++       6 5            2+3
+-       1              6-5   (a = 6, b = 5)
+3       1 3
+8       1 3 8
+2       1 3 8 2        ← maximum depth = 4
+/       1 3 4          8/2
++       1 7            3+4
+*       7              1*7
+2       7 2
+^       49             7^2
+3       49 3
++       52             49+3</pre>
+<p class="gans">Correct: Option 3 — result 52, maximum stack depth 4.</p>
+</div>
+
+<div class="gq"><div class="gtag">Q13 · BFS / DFS order from an adjacency matrix</div>
+<b>An undirected graph on vertices 0–5 has the adjacency matrix below. Starting at vertex 0 and always visiting neighbours in increasing index order, the BFS and DFS visit orders are:</b>
+<pre>     0  1  2  3  4  5
+0 [  0  1  1  0  0  0 ]
+1 [  1  0  0  0  1  0 ]
+2 [  1  0  0  1  1  0 ]
+3 [  0  0  1  0  0  1 ]
+4 [  0  1  1  0  0  1 ]
+5 [  0  0  0  1  1  0 ]</pre>
+<ol class="gopts"><li>BFS 0 1 2 4 3 5;  DFS 0 1 4 2 3 5</li><li>BFS 0 1 2 3 4 5;  DFS 0 1 4 2 3 5</li><li>BFS 0 1 2 4 3 5;  DFS 0 1 4 5 3 2</li><li>BFS 0 2 1 3 4 5;  DFS 0 1 4 2 3 5</li></ol>
+<pre>Adjacency lists: 0:{1,2}  1:{0,4}  2:{0,3,4}  3:{2,5}  4:{1,2,5}  5:{3,4}
+
+BFS (queue):  visit 0 → enqueue 1, 2
+              visit 1 → enqueue 4          visit 2 → enqueue 3 (4 already queued)
+              visit 4 → enqueue 5          visit 3, visit 5
+              order: 0 1 2 4 3 5
+
+DFS (stack / recursion): 0 → 1 → 4 (smallest unvisited neighbour of 1)
+              4's neighbours are 1, 2, 5 → go to 2 → 3 → 5
+              order: 0 1 4 2 3 5
+
+Cost: the matrix version scans a full row per vertex → Θ(V²) (36 entries here);
+      the adjacency-list version is Θ(V + E) (6 + 7 = 13 steps here).</pre>
+<p class="gans">Correct: Option 1 — BFS 0 1 2 4 3 5, DFS 0 1 4 2 3 5.</p>
+</div>
+
+<div class="gq"><div class="gtag">Q14 · Bitwise operators — output and precedence trap</div>
+<b>What does the following program print?<br>  unsigned int x = 0xB6;   /* 1011 0110 */<br>  int cnt = 0; unsigned t = x;<br>  while (t) { t = t &amp; (t - 1); cnt++; }<br>  printf("%u %u %d %u", x &amp; (x - 1), x &amp; -x, cnt, (x &gt;&gt; 2) ^ (x &lt;&lt; 1) &amp; 0xFF);</b>
+<ol class="gopts"><li>180 2 5 65</li><li>180 2 5 45</li><li>182 2 5 65</li><li>180 4 6 65</li></ol>
+<pre>x = 0xB6 = 1011 0110 (decimal 182).
+
+x &amp; (x − 1)  : subtracting 1 turns the lowest set bit into 0 and the zeros below it into 1s, so AND clears the lowest set bit
+               1011 0110 &amp; 1011 0101 = 1011 0100 = 0xB4 = 180
+x &amp; −x       : −x is the two's complement, so the AND keeps ONLY the lowest set bit
+               1011 0110 &amp; (…0100 1010) = 0000 0010 = 2
+cnt          : the loop clears one set bit per pass (Kernighan's trick), so it counts the 1 bits of x: 1011 0110 has 5 → 5
+Last value   : precedence is  shift  &gt;  &amp;  &gt;  ^, so it parses as  (x &gt;&gt; 2) ^ ((x &lt;&lt; 1) &amp; 0xFF)
+               x &gt;&gt; 2 = 0010 1101 = 45;   (x &lt;&lt; 1) &amp; 0xFF = 0x16C &amp; 0xFF = 0x6C = 108;   45 ^ 108 = 0010 1101 ^ 0110 1100 = 0100 0001 = 65
+
+Printed: 180 2 5 65.
+Check: the program was compiled and run; it prints exactly "180 2 5 65".
+Trap: writing ((x &gt;&gt; 2) ^ (x &lt;&lt; 1)) &amp; 0xFF gives a different answer — &amp; binds tighter than ^.</pre>
+<p class="gans">Correct: Option 1 — the output is 180 2 5 65.</p>
+</div>
+
+<div class="gq"><div class="gtag">Q15 · Storage classes — static local, global and block scope</div>
+<b>What is printed by the following program?<br>  int g = 10;<br>  int f(void) { static int c = 0; c += g; g -= 3; return c; }<br>  int main(void) {<br>      int a = f();<br>      { int g = 100; g += f(); printf("%d ", g); }<br>      int b = f();<br>      printf("%d %d %d", a, b, g);<br>  }</b>
+<ol class="gopts"><li>117 10 21 1</li><li>117 10 21 10</li><li>110 10 21 1</li><li>117 10 27 7</li></ol>
+<pre>Two different things are tested: a static local keeps its value between calls, and an inner block's g hides the global g ONLY inside that block's source text — the function f always refers to the global g.
+
+Call 1 (a = f()):  c = 0 + 10 = 10;   global g becomes 7;        a = 10
+Inner block:       local g = 100.  f() runs: c = 10 + 7 = 17 (it uses the GLOBAL g = 7), global g becomes 4, returns 17.
+                   local g = 100 + 17 = 117 → prints "117 "
+Call 3 (b = f()):  c = 17 + 4 = 21;   global g becomes 1;        b = 21
+Final printf (outside the block, so g is the global again): a = 10, b = 21, g = 1.
+
+Printed: 117 10 21 1.
+Check: compiled and run; output "117 10 21 1".
+Trap: static c is initialised ONCE (at program start), not on every call; and scope is lexical, so f never sees the block's g.</pre>
+<p class="gans">Correct: Option 1 — the output is 117 10 21 1.</p>
+</div>
+
+<div class="gq"><div class="gtag">Q16 · Two-dimensional arrays and pointer arithmetic</div>
+<b>int a[4][5] is stored in row-major order with sizeof(int) = 4 and base address 1000. What are the addresses of &amp;a[2][3], (a + 1) and (*(a + 1) + 2)?</b>
+<ol class="gopts"><li>1052, 1020 and 1028</li><li>1052, 1004 and 1028</li><li>1048, 1020 and 1024</li><li>1052, 1020 and 1020</li></ol>
+<pre>Row-major address of a[i][j] = base + (i × columns + j) × size  = 1000 + (i × 5 + j) × 4.
+
+&amp;a[2][3]       : (2×5 + 3) × 4 = 52                → 1052
+a + 1          : a has type int (*)[5] ('pointer to a row of 5 ints'), so adding 1 moves a WHOLE ROW = 5 × 4 = 20 bytes → 1020
+*(a + 1)       : the row a[1], which decays to int * pointing at a[1][0] (address 1020)
+*(a + 1) + 2   : now the step is ONE int (4 bytes): 1020 + 2×4 = 1028   (= &amp;a[1][2])
+
+Useful identities:  a[i][j] ≡ *(*(a + i) + j) ≡ *(a[i] + j);   sizeof(*a) = 20,  sizeof(a) = 80,  (a + 3) − a = 3 (rows).
+Check: compiled and run — byte offsets from a come out as 52, 20 and 28, and &amp;a[2][3] − &amp;a[0][0] = 13 ints.
+Trap: a + 1 skips a row, not one int — the pointer's TYPE decides the step size.</pre>
+<p class="gans">Correct: Option 1 — the addresses are 1052, 1020 and 1028.</p>
+</div>
+
+<div class="gq"><div class="gtag">Q17 · Rebuilding a binary tree from preorder and inorder</div>
+<b>The preorder traversal of a binary tree is A B D G H E C F I and its inorder traversal is G D H B E A C I F. What is the postorder traversal and the height of the tree (in edges)?</b>
+<ol class="gopts"><li>G H D E B I F C A, height 3</li><li>G H D E B F I C A, height 3</li><li>G H D E B I F C A, height 4</li><li>H G D E B I F C A, height 3</li></ol>
+<pre>Method: the FIRST preorder symbol is the root; in the inorder sequence everything to its left is the left subtree and everything to its right is the right subtree; recurse.
+
+Root A.  Inorder split:  left = G D H B E   |   right = C I F
+  left subtree (preorder B D G H E):   root B;  inorder G D H | E  →  B has left subtree {G D H}, right child E
+      {G D H} (preorder D G H):   root D, left child G, right child H
+  right subtree (preorder C F I):      root C;  inorder (empty) | I F →  C has no left child, right subtree {I F}
+      {I F} (preorder F I):            root F, left child I
+
+Tree:      A
+         /   \
+        B     C
+       / \     \
+      D   E     F
+     / \       /
+    G   H     I
+
+Postorder (left, right, root):  G H D E B I F C A.
+Height: longest root-to-leaf path = A–B–D–G (3 edges) = A–C–F–I (3 edges) → 3.   Leaves: G, H, E, I.
+Check: the tree was rebuilt by program from the two sequences (unique, because all keys are distinct); postorder GHDEBIFCA, height 3.
+Trap: preorder + postorder do NOT determine a tree uniquely, but preorder + inorder (or postorder + inorder) always do.</pre>
+<p class="gans">Correct: Option 1 — postorder G H D E B I F C A, height 3.</p>
+</div>
+</section>
+
+</main>
+</div>
+<footer>Complete · 7 GATE CSE 2027 Programming &amp; Data Structures topics · 58-question basic quiz · 17 fully solved GATE-level problems</footer>
+<script>
+const Q = [
+["CFUND","In C99, the value of -7 / 2 is:",["-3.5","-4","-3","3"],2,"Integer division truncates toward zero, so -7/2 = -3 (and -7 % 2 = -1)."],
+["CFUND","In C99, the value of -7 % 2 is:",["-3","-1","1","0"],1,"The remainder takes the sign of the dividend: (-7/2)*2 + (-7 % 2) must equal -7, so -7 % 2 = -1."],
+["CFUND","After  unsigned char c = 200;  c = c + 100;  the value of c is:",["0","300","44","255"],2,"300 mod 256 = 44 — unsigned arithmetic wraps around."],
+["CFUND","With  #define SQ(x) x*x , the value of SQ(2+3) is:",["25","11","10","Compilation error"],1,"The macro expands textually to 2+3*2+3 = 11."],
+["CFUND","After  int i = 0, j = 0;  if (i++ && j++) { }  the values of i and j are:",["i = 1, j = 1","i = 1, j = 0","i = 0, j = 1","i = 0, j = 0"],1,"i++ yields 0 (the old value), so && short-circuits and j++ is never evaluated; i is still incremented."],
+["CFUND","For x = 40 (binary 101000), the value of x & (x - 1) is:",["0","32","8","39"],1,"x & (x-1) clears the lowest set bit: 101000 & 100111 = 100000 = 32."],
+["CFUND","A function contains  static int n = 0; return ++n;  and is called three times. The third call returns:",["2","0","3","1"],2,"A static local is initialised once and keeps its value between calls, so the calls return 1, 2, 3."],
+["PTR","On a 64-bit system, inside  void f(int a[]) { ... }  the value of sizeof(a) is:",["8","4","It depends on the array length","The size of the caller's whole array"],0,"An array parameter is really a pointer (int *a), so sizeof gives the pointer size, 8 bytes."],
+["PTR","For  int arr[] = {1, 2, 3, 4};  the value of 2[arr] is:",["4","3","Compilation error","2"],1,"a[i] is defined as *(a + i), which equals *(i + a) = i[a]. So 2[arr] = arr[2] = 3."],
+["PTR","For  int m[3][4];  the value of &m[2][1] - &m[0][0] is:",["6","36","9","12"],2,"Pointer difference counts elements: 2*4 + 1 = 9."],
+["PTR","With 4-byte int alignment, sizeof(struct { char c; int i; char d; }) is:",["12","6","16","8"],0,"1 + 3 padding + 4 + 1 + 3 trailing padding = 12."],
+["PTR","Reordering the members to  struct { int i; char c; char d; }  makes the size:",["6","4","8","12"],2,"4 + 1 + 1 + 2 padding = 8 bytes."],
+["PTR","For  char s[] = \"GATE\";  the values of sizeof(s) and strlen(s) are:",["4 and 4","4 and 5","5 and 4","5 and 5"],2,"The array holds 4 characters plus the '\\0' terminator, so sizeof is 5 while strlen does not count it."],
+["PTR","With  void swapv(int a, int b) { int t = a; a = b; b = t; }  and u = 3, w = 4, after swapv(u, w) the values of u and w are:",["4 and 4","4 and 3","3 and 3","3 and 4"],3,"C passes arguments by value, so only the copies are swapped."],
+["PTR","Given  int b[] = {10, 20, 30}; int *p = b; int x = *p++;  the values of x and *p are:",["20 and 20","10 and 10","11 and 20","10 and 20"],3,"Postfix ++ yields the old pointer for the dereference (10), then p moves to b[1], so *p = 20."],
+["REC","The naive recursive fib(n) with fib(0) = 0 and fib(1) = 1 makes how many calls (including the first) to compute fib(5)?",["15","9","25","11"],0,"C(n) = C(n-1) + C(n-2) + 1 with C(0) = C(1) = 1 gives 1, 1, 3, 5, 9, 15."],
+["REC","void f(int n){ if(n==0) return; f(n-1); printf(\"%d \", n); f(n-1); }  The output of f(3) is:",["1 2 3 1 2 3","1 2 1 3 1 2 1","3 2 1 1 2 3","3 2 1 3 2 1"],1,"f(2) prints 1 2 1, then 3 is printed, then f(2) prints 1 2 1 again."],
+["REC","The number of moves to solve the Tower of Hanoi with 10 disks is:",["512","100","1024","1023"],3,"H(n) = 2H(n-1) + 1 = 2^n - 1 = 1023."],
+["REC","The space complexity (stack usage) of a recursive factorial function for input n is:",["O(n)","O(log n)","O(n log n)","O(1)"],0,"The recursion goes n levels deep, and each active call holds a stack frame."],
+["REC","What does gcd(48, 18) return for  int gcd(int a, int b){ return b == 0 ? a : gcd(b, a % b); } ?",["12","3","9","6"],3,"gcd(48,18) -> gcd(18,12) -> gcd(12,6) -> gcd(6,0) = 6."],
+["REC","Which function is tail recursive?",["return n * f(n - 1);","return 1 + f(n - 1);","return f(n - 1, acc * n);","return f(n - 1) + f(n - 2);"],2,"Only in the third is the recursive call the last operation, with nothing left to do after it returns."],
+["REC","The time complexity of the naive recursive Fibonacci function is:",["O(n log n)","O(n²)","O(n)","Exponential, Θ(φⁿ)"],3,"T(n) = T(n-1) + T(n-2) + 1 grows exponentially, because the same subproblems are recomputed."],
+["STACK","If the elements 1, 2, 3, 4 are pushed in this order and popped at any time, the number of different possible pop sequences is:",["12","24","14","16"],2,"It is the Catalan number C(4) = 14."],
+["STACK","The postfix form of the infix expression  A + B * C - D / E  is:",["ABC*+DE/-","ABC*DE/+-","+A*BC/DE-","AB+C*D-E/"],0,"* and / bind tighter than + and -, and equal-precedence operators are applied left to right."],
+["STACK","The value of the postfix expression  5 6 2 + * 12 4 / -  is:",["34","31","40","37"],3,"(6 + 2) = 8, 5 * 8 = 40, 12 / 4 = 3, and 40 - 3 = 37."],
+["STACK","A circular array queue of size 8 keeps one slot empty. front = 5 and rear = 2 (rear is the next free slot). The number of elements is:",["3","7","5","6"],2,"(rear - front + n) mod n = (2 - 5 + 8) mod 8 = 5."],
+["STACK","In a circular queue of size n (one empty slot kept), the 'full' condition is:",["(front + 1) % n == rear","rear == n - 1","front == rear","(rear + 1) % n == front"],3,"front == rear means empty; the queue is full when advancing rear would collide with front."],
+["STACK","A queue implemented with two stacks has which cost per operation?",["O(n²)","Amortised O(1)","O(log n)","O(n) always"],1,"Each element is moved from the input stack to the output stack at most once, so the amortised cost is O(1)."],
+["STACK","Which data structures are used by BFS and by an iterative DFS, respectively?",["Queue and queue","Queue and stack","Stack and stack","Stack and queue"],1,"BFS needs FIFO order (a queue); iterative DFS needs LIFO order (a stack)."],
+["LL","Reversing a singly linked list of n nodes in place takes:",["O(n²) time","O(log n) time","O(n) time and O(1) extra space","O(n) time and O(n) extra space"],2,"One pass changing each next pointer using three pointers."],
+["LL","For the list 1→2→3→4→5, fun(head) is: print(h->d); if (h->next) fun(h->next->next); print(h->d); with a NULL check at entry. The output is:",["5 3 1 1 3 5","1 3 5","1 3 5 5 3 1","1 2 3 4 5"],2,"fun(1) prints 1, calls fun(3), which prints 3, calls fun(5), which prints 5 twice; then 3 and 1 print again on return."],
+["LL","Given only a pointer to a node (not the last node) of a singly linked list, it can be deleted in O(1) by:",["Reversing the list","It is impossible","Copying the next node's data into it and removing the next node","Traversing from the head"],2,"Overwrite the node with its successor's contents and unlink the successor."],
+["LL","Inserting a node at the end of a singly linked list that has only a head pointer takes:",["O(n)","O(n²)","O(log n)","O(1)"],0,"You must traverse the whole list to find the last node."],
+["LL","Floyd's algorithm detects a cycle in a singly linked list using:",["A hash set of visited nodes: O(n) space","Sorting the nodes","Recursion with O(n) space","Two pointers moving at different speeds: O(n) time, O(1) space"],3,"The fast pointer (two steps) eventually meets the slow pointer (one step) if and only if a cycle exists."],
+["LL","In a doubly linked list, deleting a node when a pointer to that node is given takes:",["O(n²)","O(log n)","O(1)","O(n)"],2,"Both neighbours are reachable through prev and next, so relinking takes constant time."],
+["TREE","The maximum number of nodes in a binary tree of height 3 (root at height 0 for a single node) is:",["15","7","8","16"],0,"2^(h+1) - 1 = 2^4 - 1 = 15."],
+["TREE","A binary tree with n nodes has how many NULL child pointers?",["2n","n","n - 1","n + 1"],3,"Total pointer slots 2n minus the n - 1 used by edges = n + 1."],
+["TREE","In a tree where every internal node has exactly 3 children, with 10 internal nodes, the number of leaves is:",["21","20","30","31"],0,"Leaves = (k - 1)*i + 1 = 2*10 + 1 = 21."],
+["TREE","The inorder traversal of a binary search tree produces the keys:",["In ascending order","In insertion order","In descending order","In level order"],0,"Left subtree < node < right subtree, so inorder is sorted ascending."],
+["TREE","The number of structurally distinct binary search trees on 4 distinct keys is:",["14","4","42","24"],0,"Catalan(4) = 14."],
+["TREE","Keys 50, 30, 70, 20, 40, 60, 80, 35 are inserted into an empty BST. Its postorder traversal is:",["20 35 40 30 60 80 70 50","50 30 20 40 35 70 60 80","35 20 40 30 60 80 70 50","20 30 35 40 50 60 70 80"],0,"Left subtree of 50 gives 20 35 40 30; right subtree gives 60 80 70; then the root 50."],
+["TREE","The minimum number of nodes in an AVL tree of height 4 (height of a single node = 0) is:",["10","12","15","8"],1,"N(h) = N(h-1) + N(h-2) + 1 gives 1, 2, 4, 7, 12 for h = 0..4."],
+["TREE","Which pair of traversal sequences does NOT always determine a binary tree uniquely?",["Inorder and preorder","Inorder and postorder","Inorder and level order","Preorder and postorder"],3,"Two different trees can share the same preorder and postorder (for example when a node has only one child, left or right)."],
+["HEAP","In a 1-indexed array representation of a binary heap, the parent of the node at index i is:",["2i + 1","i / 2 (integer division)","2i","i - 1"],1,"Children of i are 2i and 2i + 1, so the parent is ⌊i/2⌋."],
+["HEAP","Building a binary heap from n arbitrary elements using the bottom-up (sift-down) method takes:",["O(log n)","O(n log n)","O(n)","O(n²)"],2,"Most nodes are near the bottom and sift only a short distance; the sum is O(n)."],
+["HEAP","Building a max-heap bottom-up from the array [4, 10, 3, 5, 1] gives:",["[10, 5, 4, 3, 1]","[10, 4, 3, 5, 1]","[10, 5, 3, 4, 1]","[5, 10, 3, 4, 1]"],2,"Sift 10 (fine), then sift 4 down: swap with 10, then with 5 → [10, 5, 3, 4, 1]."],
+["HEAP","A binary heap with 1000 nodes has how many leaf nodes?",["500","999","499","250"],0,"A heap has ⌈n/2⌉ leaves = 500."],
+["HEAP","Keys 31, 12, 41, 22 are inserted in this order into a table of size 10 with h(k) = k mod 10 and linear probing. Key 22 is stored in slot:",["5","4","3","2"],1,"31 → 1, 12 → 2, 41 → 1 taken, 2 taken → 3, 22 → 2, 3 taken → 4."],
+["HEAP","A hash table with chaining holds 1000 keys in 200 slots. Its load factor is:",["200","800","0.2","5"],3,"α = n / m = 1000 / 200 = 5."],
+["HEAP","BFS on a graph stored as an adjacency list with V vertices and E edges runs in:",["O(V²)","O(V log E)","O(E²)","O(V + E)"],3,"Each vertex is dequeued once and each adjacency entry is scanned once."],
+["CFUND", "With #define SQ(x) x*x, the value of SQ(2+3) is:", ["25", "10", "11", "13"], 2, "The macro is textual: 2+3*2+3 = 2 + 6 + 3 = 11. Writing ((x)*(x)) gives 25."],
+["CFUND", "Given enum {RED, GREEN = 5, BLUE, PINK = 2, GREY}; the values of BLUE and GREY are:", ["6 and 3", "1 and 3", "6 and 6", "1 and 2"], 0, "An enumerator without an initialiser is one more than the previous one: BLUE = 5 + 1 = 6, GREY = 2 + 1 = 3."],
+["PTR", "For char s[10] = \"GATE\"; char *p = \"GATE\"; on a machine with 8-byte pointers, strlen(s), sizeof(s), strlen(p), sizeof(p) are:", ["4, 4, 4, 4", "4, 10, 4, 8", "5, 10, 5, 8", "4, 10, 4, 4"], 1, "strlen counts characters before '\\0'; sizeof an array is its full size (10), while sizeof a pointer is the pointer size (8 here)."],
+["PTR", "Which declaration makes p a pointer to a function taking an int and returning an int?", ["int *p(int);", "int p(*int);", "int (*p)[int];", "int (*p)(int);"], 3, "The parentheses bind * to p first. Without them, int *p(int) declares a FUNCTION returning int *."],
+["PTR", "A function void swap(int a, int b) { int t = a; a = b; b = t; } is called as swap(x, y). After the call:", ["x and y are unchanged", "x and y are exchanged", "Only x changes", "The program fails to compile"], 0, "C passes arguments by value, so the function swaps copies. Passing pointers (int *a, int *b) is needed to exchange the caller's variables."],
+["STACK", "A circular queue is stored in an array of size n using front and rear indices and the convention 'full when (rear + 1) % n == front'. The maximum number of items it can hold is:", ["n", "n + 1", "n − 1", "n / 2"], 2, "One slot is sacrificed so that a full queue can be told apart from an empty one (front == rear)."],
+["LL", "To delete a node p (not first or last) from a doubly linked list, which pair of assignments is needed?", ["p->next = p->prev;  p->prev = p->next;", "p->prev->next = p->next;  p->next->prev = p->prev;", "p->prev->next = p;  p->next->prev = p;", "head = p->next;  tail = p->prev;"], 1, "Both neighbours must be re-linked around p; after that p can be freed."],
+["PTR", "After free(p), the pointer p still holds the old address. Using *p afterwards is an example of:", ["A memory leak", "A null pointer dereference", "A stack overflow", "A dangling pointer dereference (undefined behaviour)"], 3, "free does not change p; the memory is no longer yours, so reading or writing it is undefined. Setting p = NULL after free avoids the mistake."]
+];
+const MSQ=[["CFUND", "Which C statements are correct?", ["typedef creates a type alias", "enum constants have integer type", "volatile affects compiler assumptions about accesses", "Array expressions generally convert to a pointer to the first element"], [0, 1, 2, 3], "All four are standard C facts, with the usual exceptions to array-to-pointer conversion."], ["TREE", "Which BST statements are correct?", ["Inorder traversal gives sorted order", "Balanced BST search can be O(log n)", "A degenerate BST can have O(n) search", "Morris traversal uses O(1) auxiliary space"], [0, 1, 2, 3], "All four are standard BST/Morris facts."]];
+const topics={CFUND:"C Fundamentals",PTR:"Pointers & Memory",REC:"Recursion",STACK:"Stacks & Queues",LL:"Linked Lists",TREE:"Trees",HEAP:"Heaps & Hashing"};
+let filter="ALL",answered=0,correct=0,mode="MCQ";
+function renderMCQ(){
+  const list=document.getElementById('qlist');
+  list.innerHTML="";
+  Q.forEach((item,i)=>{
+    const [t,q,opts,ans,exp]=item;
+    if(filter!=="ALL"&&filter!==t) return;
+    const card=document.createElement('div'); card.className='qcard';
+    const tag=document.createElement('div'); tag.className='qtag'; tag.textContent=topics[t]+" · Q"+(i+1);
+    const qt=document.createElement('div'); qt.className='qtext'; qt.textContent=q;
+    card.appendChild(tag); card.appendChild(qt);
+    const order = opts.map((_,i)=>i);
+    for(let k=order.length-1;k>0;k--){
+      const j=Math.floor(Math.random()*(k+1));
+      [order[k],order[j]]=[order[j],order[k]];
+    }
+    order.forEach(oi=>{
+      const o=opts[oi];
+      const b=document.createElement('button'); b.className='opt'; b.textContent=o;
+      b.onclick=()=>{
+        if(b.dataset.done) return;
+        [...card.querySelectorAll('.opt')].forEach(x=>x.dataset.done=1);
+        const buttons=[...card.querySelectorAll('.opt')];
+        const correctPos=order.indexOf(ans);
+        buttons[correctPos].classList.add('correct');
+        if(oi!==ans) b.classList.add('wrong');
+        card.querySelector('.expl').classList.add('show');
+        answered++; if(oi===ans) correct++;
+        document.getElementById('ansCount').textContent=answered;
+        document.getElementById('corrCount').textContent=correct;
+      };
+      card.appendChild(b);
+    });
+    const e=document.createElement('div'); e.className='expl'; e.textContent=exp;
+    card.appendChild(e);
+    list.appendChild(card);
+  });
+}
+
+function renderMSQ(){
+ const list=document.getElementById('qlist'); list.innerHTML='';
+ MSQ.forEach((item,i)=>{
+  const [t,q,opts,ans,exp]=item; if(filter!=="ALL"&&filter!==t)return;
+  const card=document.createElement('div'); card.className='qcard';
+  const tag=document.createElement('div'); tag.className='qtag'; tag.textContent=(topics[t]||t)+' · MSQ'+(i+1); card.appendChild(tag);
+  const qt=document.createElement('div'); qt.className='qtext'; qt.textContent=q; card.appendChild(qt);
+  const hint=document.createElement('div'); hint.className='sub'; hint.textContent='Select all correct options. Scoring is all-or-nothing.'; card.appendChild(hint);
+  const order=[...opts.keys()]; for(let k=order.length-1;k>0;k--){const j=Math.floor(Math.random()*(k+1));[order[k],order[j]]=[order[j],order[k]];}
+  const selected=new Set();
+  order.forEach(orig=>{const b=document.createElement('button');b.className='opt';b.textContent=opts[orig];b.onclick=()=>{if(card.dataset.submitted)return;if(selected.has(orig)){selected.delete(orig);b.classList.remove('selected');}else{selected.add(orig);b.classList.add('selected');}};card.appendChild(b);});
+  const submit=document.createElement('button');submit.className='hy-btn primary';submit.style.marginTop='10px';submit.textContent='Submit MSQ';submit.onclick=()=>{if(card.dataset.submitted||selected.size===0)return;card.dataset.submitted='1';const correctSet=new Set(ans);const ok=selected.size===correctSet.size&&[...selected].every(x=>correctSet.has(x));const buttons=[...card.querySelectorAll('.opt')];buttons.forEach((b,idx)=>{const orig=order[idx];if(correctSet.has(orig))b.classList.add('correct');if(selected.has(orig)&&!correctSet.has(orig))b.classList.add('wrong');b.dataset.done=1;});card.querySelector('.expl').classList.add('show');answered++;if(ok)correct++;document.getElementById('ansCount').textContent=answered;document.getElementById('corrCount').textContent=correct;};card.appendChild(submit);
+  const e=document.createElement('div');e.className='expl';e.textContent=exp;card.appendChild(e);list.appendChild(card);
+ });
+}
+function render(){mode==='MCQ'?renderMCQ():renderMSQ();}
+
+const bar=document.getElementById('qtopics');
+["ALL",...Object.keys(topics)].forEach(t=>{
+  const b=document.createElement('button'); b.textContent=t==="ALL"?"All "+Q.length:topics[t];
+  if(t==="ALL")b.classList.add('active');
+  b.onclick=()=>{filter=t; [...bar.children].forEach(x=>x.classList.remove('active')); b.classList.add('active'); render();};
+  bar.appendChild(b);
+});
+function resetQuizScore(total){answered=0;correct=0;document.getElementById('ansCount').textContent='0';document.getElementById('corrCount').textContent='0';const sc=document.getElementById('score');if(sc)sc.innerHTML='Answered <b id="ansCount">0</b>/'+total+' · Correct <b id="corrCount">0</b>';}
+document.getElementById('mcqMode').onclick=()=>{mode='MCQ';resetQuizScore(Q.length);document.getElementById('mcqMode').classList.add('active');document.getElementById('msqMode').classList.remove('active');render();};
+document.getElementById('msqMode').onclick=()=>{mode='MSQ';resetQuizScore(MSQ.length);document.getElementById('msqMode').classList.add('active');document.getElementById('mcqMode').classList.remove('active');render();};
+render();
+</script>
+
+<script>
+(function(){
+  const curatedRapid = [["must", "In C, arrays are contiguous objects; pointer arithmetic is scaled by the pointed-to type."], ["trap", "Array names usually decay to pointers to the first element in expressions, but an array is not itself a pointer."], ["must", "String literals are not modifiable; char arrays initialised from literals are distinct from pointers to string literals."], ["formula", "For an array a with n elements, valid indices are 0 through n-1."], ["must", "Call-by-value passes a value; C does not have native call-by-reference, but pointers can be used to modify caller-visible objects."], ["must", "Recursion needs a correct base case and progress toward it; analyse recurrence/stack depth separately from total work."], ["must", "Stack follows LIFO; queue follows FIFO."], ["must", "A linked list provides dynamic node-based storage but loses direct O(1) random indexing."], ["formula", "A binary tree with height h has at most 2^{h+1}-1 nodes when root height is 0."], ["must", "BST inorder traversal produces keys in sorted order when the BST invariant holds."], ["must", "AVL trees maintain a balance-factor constraint, keeping height O(log n)."], ["must", "A binary heap is a complete binary tree satisfying heap order; build-heap can be done in O(n)."], ["trap", "Heap is not a BST: heap order does not imply globally sorted left/right subtrees."], ["must", "Adjacency matrix uses Θ(V²) space; adjacency lists use Θ(V+E) space for sparse graphs."], ["must", "Read C declarations from the identifier outward: int *p[5] is an array of pointers; int (*p)[5] is a pointer to an array."], ["must", "Integer promotions happen before the usual arithmetic conversions determine the common operand type."], ["trap", "volatile does not provide atomicity or inter-thread synchronization."], ["must", "Morris inorder traversal temporarily threads predecessor links and uses O(1) auxiliary space."], ["must", "Bit-field layout is partly implementation-defined; follow the assumptions stated by the question."], ["formula", "Adjacency matrix: Θ(V²) space; adjacency list: Θ(V+E)."], ["must", "A heap is a complete tree with heap order; it is not a BST."]];
+  const labelDefs = {
+    must: ['🟢 Must Remember','hy-must'],
+    trap: ['🟡 Common Trap','hy-trap'],
+    formula: ['🧮 Formula / Rule','hy-formula'],
+    gate: ['⚠️ GATE Favourite','hy-gate'],
+    shortcut: ['💡 Shortcut','hy-shortcut']
+  };
+
+  function addBadge(el, type){
+    if(!el || el.querySelector(':scope > .hy-badge')) return;
+    const [label, cls] = labelDefs[type];
+    el.classList.add('hy-marked');
+    const b=document.createElement('span');
+    b.className='hy-badge '+cls;
+    b.textContent=label;
+    el.insertBefore(b, el.firstChild);
+    el.dataset.hyType=type;
+  }
+
+  function classifyCards(){
+    document.querySelectorAll('main .card').forEach(el=>{
+      const t=el.textContent.replace(/\s+/g,' ').trim().toLowerCase();
+      if(!t || el.closest('#hyRapidPanel')) return;
+      if(/\b(shortcut|quick trick|handy trick|easy trick)\b/.test(t)) addBadge(el,'shortcut');
+      else if(/\b(formula|identity|identities|range\s*=|det\(|log\s*|o\(|theta\(|n\(|probability formula|equation)\b/.test(t)) addBadge(el,'formula');
+      else if(/\b(theorem|key fact|must remember|remember|important|property|properties|rule of thumb|definition|distinction|difference between|classic)\b/.test(t)) addBadge(el,'must');
+    });
+    document.querySelectorAll('main .warn').forEach(el=>{
+      const t=el.textContent.replace(/\s+/g,' ').trim().toLowerCase();
+      addBadge(el, /gate (angle|trap|strategy|note|convention|favourite|favorite)/.test(t) ? 'gate' : 'trap');
+    });
+    document.querySelectorAll('main .num').forEach(el=>{
+      const t=el.textContent.replace(/\s+/g,' ').trim().toLowerCase();
+      if(/\b(rule of thumb|formula|shortcut|range|identity|key|remember)\b/.test(t)) addBadge(el,'formula');
+    });
+    document.querySelectorAll('main .gq').forEach(el=>addBadge(el,'gate'));
+  }
+
+  function makeToolbar(){
+    if(document.querySelector('.hy-toolbar')) return;
+    const main=document.querySelector('.wrap>main');
+    if(!main) return;
+    const toolbar=document.createElement('div');
+    toolbar.className='hy-toolbar';
+    toolbar.innerHTML=`
+      <div class="hy-toolbar-row">
+        <div>
+          <div class="hy-title">⚡ <span>Revision Layer</span></div>
+          <div class="hy-sub">Use Last-Minute mode for a rapid recall pass before solving PYQs.</div>
+        </div>
+        <div class="hy-actions">
+          <button class="hy-btn primary" id="hyRapidOn">⚡ Last-Minute Revision</button>
+          <button class="hy-btn secondary" id="hyRapidOff">↩ Full Notes</button>
+        </div>
+      </div>
+      <div class="hy-legend">
+        <span class="hy-must">🟢 Must Remember</span>
+        <span class="hy-trap">🟡 Common Trap</span>
+        <span class="hy-formula">🧮 Formula / Rule</span>
+        <span class="hy-gate">⚠️ GATE Favourite</span>
+        <span class="hy-shortcut">💡 Shortcut</span>
+      </div>`;
+    main.insertBefore(toolbar, main.firstElementChild);
+    document.getElementById('hyRapidOn').onclick=()=>{buildRapid(); document.body.classList.add('rapid-mode'); window.scrollTo({top:0,behavior:'smooth'});};
+    document.getElementById('hyRapidOff').onclick=()=>{document.body.classList.remove('rapid-mode'); window.scrollTo({top:0,behavior:'smooth'});};
+  }
+
+  function buildRapid(){
+    let panel=document.getElementById('hyRapidPanel');
+    if(panel) return;
+    panel=document.createElement('section');
+    panel.id='hyRapidPanel';
+    panel.innerHTML='<h1>⚡ Last-Minute Revision</h1><p class="rapid-intro">A manually curated recall pass for the final 15–30 minutes before PYQs. Start here, then switch to the full notes only if a point needs clarification.</p>';
+    const curatedBox=document.createElement('div'); curatedBox.className='rapid-curated';
+    curatedBox.innerHTML='<h2>🎯 High-Yield Recall</h2><p class="rapid-note">These points are intentionally selected for quick GATE-oriented recall.</p>';
+    const groups={must:[],trap:[],formula:[],gate:[],shortcut:[]};
+    curatedRapid.forEach(([type,text])=>groups[type]?.push(text));
+    const labels={must:'🟢 Must Remember',trap:'🟡 Common Trap',formula:'🧮 Formula / Rule',gate:'⚠️ GATE Favourite',shortcut:'💡 Shortcut'};
+    Object.entries(groups).forEach(([type,items])=>{
+      if(!items.length) return;
+      const g=document.createElement('div'); g.className='rapid-group '+type;
+      g.innerHTML='<h3>'+labels[type]+'</h3>';
+      const ul=document.createElement('ul'); items.forEach(x=>{const li=document.createElement('li'); li.textContent=x; ul.appendChild(li);});
+      g.appendChild(ul); curatedBox.appendChild(g);
+    });
+    panel.appendChild(curatedBox);
+    const sourceSections=[...document.querySelectorAll('main>section')].filter(s=>s.id!=='quiz'&&s.id!=='pyq'&&s.id!=='hyRapidPanel');
+    let total=0;
+    sourceSections.forEach(sec=>{
+      const items=[...sec.querySelectorAll(':scope > .card, :scope > .warn, :scope > .num, :scope > .gq')]
+        .filter(el=>el.dataset.hyType);
+      if(!items.length) return;
+      const rs=document.createElement('div'); rs.className='rapid-section';
+      const title=sec.querySelector('h1')?.textContent.trim() || sec.id;
+      rs.innerHTML='<h2>'+escapeHtml(title)+'</h2>';
+      items.forEach(el=>{
+        // Last-minute mode keeps high-yield cards and warnings, plus only explicitly formula/rule numericals.
+        const type=el.dataset.hyType;
+        if(el.classList.contains('num') && type!=='formula') return;
+        const wrap=document.createElement('div'); wrap.className='rapid-source';
+        wrap.appendChild(el.cloneNode(true));
+        rs.appendChild(wrap); total++;
+      });
+      if(rs.children.length>1) panel.appendChild(rs);
+    });
+    if(!total){
+      const e=document.createElement('div'); e.className='rapid-empty'; e.textContent='No high-yield blocks were detected in this subject.'; panel.appendChild(e);
+    }
+    document.querySelector('.wrap>main').appendChild(panel);
+  }
+
+  function escapeHtml(s){return s.replace(/[&<>'"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[c]));}
+  function init(){classifyCards(); makeToolbar();}
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',init); else init();
+})();
+</script>
+
+<script>
+/* Randomise the position of the correct option in each solved problem on every page load,
+   and rewrite the "Correct: Option N" line to match. Problems whose options or explanation
+   refer to other options by position or say "all/none of the above" keep their order. */
+(function(){
+  var PIN=/\b(above|both of these|all of these|none of these|neither of these)\b/i;
+  var POSREF=/\b[Oo]ptions?\s*\(?[1-4A-Da-d]\)?(?![\w-])|\([a-d]\)\s|\bchoice\s*\(?[1-4A-D]\)?/;
+  document.querySelectorAll('.gq').forEach(function(g){
+    var ol=g.querySelector('.gopts'), ans=g.querySelector('.gans'); if(!ol||!ans) return;
+    var m=ans.innerHTML.match(/Option (\d)/); if(!m) return;
+    var lis=Array.prototype.slice.call(ol.children); if(lis.length<2) return;
+    var ci=parseInt(m[1],10)-1; if(ci<0||ci>=lis.length) return;
+    if(lis.some(function(li){return PIN.test(li.textContent)||POSREF.test(li.textContent);})) return;
+    var pre=g.querySelector('pre'); if(pre&&POSREF.test(pre.textContent)) return;
+    if(POSREF.test(ans.textContent.replace(/Option \d/,''))) return;
+    var correct=lis[ci], order=lis.slice();
+    for(var i=order.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=order[i];order[i]=order[j];order[j]=t;}
+    order.forEach(function(li){ol.appendChild(li);});
+    ans.innerHTML=ans.innerHTML.replace(/Option \d/,'Option '+(order.indexOf(correct)+1));
+  });
+})();
+</script>
+<!-- readiness:start -->
+<script>window.__READINESS_CFG__={review:{"CFUND": {"sec": "cfund", "label": "C Fundamentals", "h2": ["Data types"]}, "PTR": {"sec": "ptr", "label": "Pointers & Memory", "h2": ["Pointer arithmetic"]}, "REC": {"sec": "rec", "label": "Recursion", "h2": ["Tracing"]}, "STACK": {"sec": "stack", "label": "Stacks & Queues", "h2": ["Stack"]}, "LL": {"sec": "ll", "label": "Linked Lists", "h2": ["Essential algorithms"]}, "TREE": {"sec": "tree", "label": "Trees", "h2": ["Traversals"]}, "HEAP": {"sec": "heap", "label": "Heaps & Hashing", "h2": ["Binary heap"]}}};</script>
+<script>
+(function(){
+  /* ===== Revision Readiness: turns the quiz into a revision loop ===== */
+  var CFG = window.__READINESS_CFG__ || {};
+  var NAME = (location.pathname.split('/').pop()||'page').replace(/\.html?$/,'');
+  var KEY = 'readiness:'+NAME;
+  var STRONG=75, WEAK=55, MIN_ATT=3;
+  var results = {};             // "Q12" / "MSQ3" -> 1 (correct) | 0 (wrong); latest attempt wins
+  try{ var raw=localStorage.getItem(KEY); if(raw) results=JSON.parse(raw)||{}; }catch(e){}
+  function save(){ try{ localStorage.setItem(KEY, JSON.stringify(results)); }catch(e){} }
+
+  var score=document.getElementById('score'), qlist=document.getElementById('qlist');
+  if(!score||!qlist||typeof Q==='undefined'||typeof topics==='undefined') return;
+
+  // ---- denominators per topic (MCQ + MSQ) ----
+  var totals={}, order=[];
+  function addTotal(arr){ (arr||[]).forEach(function(it){ var k=it[0]; if(!(k in totals)){totals[k]=0;order.push(k);} totals[k]++; }); }
+  addTotal(Q); if(typeof MSQ!=='undefined') addTotal(MSQ);
+  var totalQ=Q.length+(typeof MSQ!=='undefined'?MSQ.length:0);
+  function topicOf(id){
+    var m=/^(MSQ|Q)(\d+)$/.exec(id); if(!m) return null;
+    var arr=(m[1]==='Q')?Q:MSQ; var it=arr[+m[2]-1]; return it?it[0]:null;
+  }
+  function label(k){ return topics[k]||k; }
+
+  // ---- panel ----
+  var panel=document.createElement('div'); panel.id='readiness'; panel.className='rd-panel';
+  score.parentNode.insertBefore(panel, score.nextSibling);
+  var css=document.createElement('style');
+  css.textContent=
+   '.rd-panel{margin:16px 0 22px;padding:16px 18px;border:1px solid var(--border,#242b3a);border-radius:14px;background:linear-gradient(135deg,var(--panel,#12161f),var(--panel2,#181d29));display:none}'+
+   '.rd-panel.show{display:block}'+
+   '.rd-head{display:flex;align-items:baseline;justify-content:space-between;gap:10px;flex-wrap:wrap}'+
+   '.rd-title{font-size:12px;letter-spacing:1px;text-transform:uppercase;font-weight:800;color:var(--accent,#5ee6c8)}'+
+   '.rd-big{font-size:30px;font-weight:800;line-height:1.1;margin:4px 0 0;color:var(--text,#e6e9f0)}'+
+   '.rd-big small{font-size:13px;font-weight:600;color:var(--muted,#93a0b8);margin-left:8px}'+
+   '.rd-verdict{font-size:13px;font-weight:700;padding:4px 10px;border-radius:999px;border:1px solid}'+
+   '.rd-v-good{color:#7ee787;border-color:#7ee78766;background:#7ee78722}.rd-v-mid{color:#ffc978;border-color:#ffb45466;background:#ffb45422}.rd-v-low{color:#ff9b9b;border-color:#ff6b6b66;background:#ff6b6b22}'+
+   '.rd-cov{font-size:12.5px;color:var(--muted,#93a0b8);margin:8px 0 12px}'+
+   '.rd-rows{display:grid;gap:7px;margin:10px 0}'+
+   '.rd-row{display:grid;grid-template-columns:minmax(96px,34%) 1fr 74px;gap:10px;align-items:center;font-size:12.5px}'+
+   '.rd-name{color:var(--text,#e6e9f0);overflow-wrap:anywhere}'+
+   '.rd-bar{height:9px;border-radius:99px;background:#ffffff14;overflow:hidden}'+
+   '.rd-bar i{display:block;height:100%;border-radius:99px}'+
+   '.rd-pct{text-align:right;color:var(--muted,#93a0b8);white-space:nowrap}'+
+   '.rd-sec{margin:14px 0 4px;font-size:13px;color:#c9d1e0;line-height:1.55}'+
+   '.rd-sec b.g{color:#7ee787}.rd-sec b.w{color:#ff9b9b}.rd-sec b.d{color:#ffc978}'+
+   '.rd-rec{margin:14px 0 0;padding:12px 14px;border-left:3px solid var(--accent2,#7c9fff);background:#00000022;border-radius:0 10px 10px 0;font-size:13px;color:#c9d1e0}'+
+   '.rd-rec .t{font-size:11px;letter-spacing:1px;text-transform:uppercase;font-weight:800;color:var(--accent2,#7c9fff);margin-bottom:6px}'+
+   '.rd-rec a{color:var(--accent,#5ee6c8);font-weight:700;text-decoration:none}.rd-rec a:hover{text-decoration:underline}'+
+   '.rd-rec div.l{margin:5px 0}'+
+   '.rd-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}'+
+   '.rd-btn{border:1px solid var(--border,#242b3a);background:var(--panel2,#181d29);color:var(--text,#e6e9f0);padding:8px 12px;border-radius:9px;font-size:12.5px;font-weight:700;cursor:pointer}'+
+   '.rd-btn:hover{border-color:var(--accent2,#7c9fff);color:var(--accent,#5ee6c8)}.rd-btn[disabled]{opacity:.45;cursor:default}'+
+   '.rd-note{font-size:11.5px;color:var(--muted,#93a0b8);margin-top:10px}'+
+   '.qcard.rd-hide{display:none}';
+  document.head.appendChild(css);
+
+  function pct(c,n){ return n? Math.round(100*c/n):0; }
+  function colour(p){ return p>=STRONG?'#7ee787':(p>=WEAK?'#ffc978':'#ff6b6b'); }
+
+  function sectionLink(t){
+    var c=(CFG.review||{})[t]; if(!c) return null;
+    if(c.href) return '<a href="'+c.href+'">'+c.label+'</a>';
+    var sec=document.getElementById(c.sec); if(!sec) return null;
+    var parts=['<a href="#'+c.sec+'">'+c.label+'</a>'];
+    (c.h2||[]).forEach(function(h){
+      var hs=sec.querySelectorAll('h2'); 
+      for(var i=0;i<hs.length;i++){
+        if(hs[i].textContent.replace(/\s+/g,' ').toLowerCase().indexOf(h.toLowerCase())>-1){
+          if(!hs[i].id) hs[i].id=c.sec+'-rd-'+i;
+          parts.push('<a href="#'+hs[i].id+'">'+hs[i].firstChild.textContent.replace(/\s+$/,'')+'</a>'); break;
+        }
+      }
+    });
+    return parts.join(' → ');
+  }
+
+  function build(){
+    var att=0,cor=0,per={};
+    order.forEach(function(k){per[k]={a:0,c:0};});
+    Object.keys(results).forEach(function(id){
+      var k=topicOf(id); if(!k||!per[k]) return;
+      per[k].a++; att++; if(results[id]===1){per[k].c++; cor++;}
+    });
+    if(!att){ panel.className='rd-panel'; return; }
+    var overall=pct(cor,att);
+    var cov=Math.round(100*att/totalQ);
+    var verdict, vcls;
+    if(overall>=80){verdict='Exam-ready here';vcls='rd-v-good';}
+    else if(overall>=65){verdict='Nearly there';vcls='rd-v-mid';}
+    else if(overall>=50){verdict='Needs revision';vcls='rd-v-mid';}
+    else {verdict='Revise before PYQs';vcls='rd-v-low';}
+    var strong=[],weak=[],dev=[],thin=[];
+    order.forEach(function(k){
+      var p=per[k]; if(p.a<MIN_ATT){ thin.push(k); return; }
+      var x=pct(p.c,p.a);
+      if(x>=STRONG) strong.push([k,x]); else if(x<WEAK) weak.push([k,x]); else dev.push([k,x]);
+    });
+    weak.sort(function(a,b){return a[1]-b[1];}); dev.sort(function(a,b){return a[1]-b[1];});
+    var h='<div class="rd-head"><div><div class="rd-title">Revision readiness</div>'+
+      '<div class="rd-big">Revision Score: '+overall+'%<small>'+cor+' / '+att+' answered correctly</small></div></div>'+
+      '<span class="rd-verdict '+vcls+'">'+verdict+'</span></div>';
+    h+='<div class="rd-cov">Coverage: '+att+' of '+totalQ+' questions attempted ('+cov+'%)'+(cov<50?' — provisional; attempt more questions for a reliable reading.':'.')+'</div>';
+    h+='<div class="rd-rows">';
+    order.forEach(function(k){
+      var p=per[k], x=pct(p.c,p.a);
+      h+='<div class="rd-row"><span class="rd-name">'+label(k)+'</span><span class="rd-bar"><i style="width:'+(p.a?x:0)+'%;background:'+(p.a?colour(x):'transparent')+'"></i></span><span class="rd-pct">'+(p.a?x+'% · '+p.c+'/'+p.a:'not tried')+'</span></div>';
+    });
+    h+='</div>';
+    function names(a){return a.map(function(z){return label(z[0])+' ('+z[1]+'%)';}).join(', ');}
+    if(strong.length) h+='<div class="rd-sec"><b class="g">Strong:</b> '+names(strong)+'</div>';
+    if(dev.length) h+='<div class="rd-sec"><b class="d">Developing:</b> '+names(dev)+'</div>';
+    if(weak.length) h+='<div class="rd-sec"><b class="w">Weak:</b> '+names(weak)+'</div>';
+    if(thin.length) h+='<div class="rd-sec" style="color:var(--muted,#93a0b8)">Too few attempts to judge (under '+MIN_ATT+'): '+thin.map(label).join(', ')+'</div>';
+    // recommendation
+    var focus=weak.concat(dev).slice(0,3), lines=[];
+    focus.forEach(function(z){ var l=sectionLink(z[0]); if(l) lines.push('<div class="l">Review → '+l+'</div>'); });
+    var pyq=document.getElementById('pyq');
+    h+='<div class="rd-rec"><div class="t">Recommendation</div>';
+    if(lines.length){
+      h+=lines.join('')+'<div class="l">Then retry the questions you missed, and after that'+(pyq?' attempt the <a href="#pyq">solved PYQ-style problems</a>':' attempt PYQs')+'.</div>';
+    } else if(thin.length&&!strong.length){
+      h+='<div class="l">Answer a few more questions in each topic to get a reliable reading.</div>';
+    } else {
+      h+='<div class="l">No weak topics so far. Move on to '+(pyq?'<a href="#pyq">the PYQ-style problems</a>':'PYQs')+'.'+(cov<60?' Cover the untried topics first for a trustworthy score.':'')+'</div>';
+    }
+    h+='</div>';
+    var missed=Object.keys(results).filter(function(id){return results[id]===0;});
+    h+='<div class="rd-actions"><button class="rd-btn" id="rdRetry"'+(missed.length?'':' disabled')+'>Retry missed ('+missed.length+')</button><button class="rd-btn" id="rdReset">Reset results</button></div>';
+    h+='<div class="rd-note">Scores are saved in this browser. A question\'s latest attempt counts, so re-answering a missed question updates the report. The sub-heading shown is the highest-yield part of a weak topic. Topic labels need at least '+MIN_ATT+' attempts: Strong ≥ '+STRONG+'%, Weak &lt; '+WEAK+'%.</div>';
+    panel.innerHTML=h; panel.className='rd-panel show';
+    var r=document.getElementById('rdRetry'); if(r) r.onclick=retry;
+    var z=document.getElementById('rdReset'); if(z) z.onclick=function(){ if(confirm('Clear saved quiz results for this subject?')){results={};save();build();} };
+  }
+
+  function currentMode(){ try{ return (typeof mode!=='undefined')?mode:'MCQ'; }catch(e){ return 'MCQ'; } }
+  function retry(){
+    var m=currentMode(), pre=(m==='MSQ')?'MSQ':'Q';
+    var missed=Object.keys(results).filter(function(id){return results[id]===0 && id.indexOf(pre)===0 && (pre==='MSQ'||id.indexOf('MSQ')!==0);});
+    if(!missed.length){
+      // missed questions exist only in the other mode
+      var other=(m==='MSQ')?'mcqMode':'msqMode', b=document.getElementById(other); if(b) b.click();
+      pre=(pre==='Q')?'MSQ':'Q';
+      missed=Object.keys(results).filter(function(id){return results[id]===0 && (pre==='MSQ'?id.indexOf('MSQ')===0:/^Q\d/.test(id));});
+    }
+    if(typeof filter!=='undefined'){ try{ filter='ALL'; }catch(e){} }
+    var all=document.querySelector('#qtopics button'); if(all) all.click();   // re-renders with ALL
+    var set={}; missed.forEach(function(id){set[id]=1;});
+    var shown=0;
+    qlist.querySelectorAll('.qcard').forEach(function(c){
+      var t=c.querySelector('.qtag'); var mm=t&&/·\s*(MSQ|Q)(\d+)/.exec(t.textContent);
+      var id=mm?mm[1]+mm[2]:null;
+      if(id&&set[id]){shown++;} else c.classList.add('rd-hide');
+    });
+    qlist.scrollIntoView({behavior:'smooth',block:'start'});
+  }
+
+  // ---- capture answers: after each click, read the card's final state ----
+  function outcome(card, id){
+    if(!card.querySelector('.expl.show')) return null;            // not answered/submitted yet
+    if(card.querySelector('.opt.wrong')) return 0;
+    if(id.indexOf('MSQ')===0){                                      // a missed correct option is not marked wrong
+      var cs=card.querySelectorAll('.opt.correct');
+      for(var i=0;i<cs.length;i++) if(!cs[i].classList.contains('selected')) return 0;
+    }
+    return 1;
+  }
+  qlist.addEventListener('click',function(e){
+    var card=e.target.closest&&e.target.closest('.qcard'); if(!card) return;
+    setTimeout(function(){
+      var t=card.querySelector('.qtag'); var mm=t&&/·\s*(MSQ|Q)(\d+)/.exec(t.textContent); if(!mm) return;
+      var id=mm[1]+mm[2], r=outcome(card,id);
+      if(r===null) return;
+      if(card.dataset.rdRecorded) return; card.dataset.rdRecorded='1';
+      results[id]=r; save(); build();
+    },0);
+  },true);
+
+  build();
+})();
+
+</script>
+<!-- readiness:end -->
+<script id="ux-fix-v11-js">
+(function(){
+  var nav=document.getElementById('side'); if(!nav) return;
+  var scrim=document.createElement('div'); scrim.id='navScrim'; document.body.appendChild(scrim);
+  var fab=document.createElement('button'); fab.id='navFab'; fab.type='button'; fab.setAttribute('aria-label','Topics'); fab.textContent='\u2630';
+  fab.addEventListener('click',function(){ nav.classList.toggle('open'); });
+  document.body.appendChild(fab);
+  function sync(){ document.body.classList.toggle('nav-open', nav.classList.contains('open')); }
+  new MutationObserver(sync).observe(nav,{attributes:true,attributeFilter:['class']});
+  function close(){ nav.classList.remove('open'); }
+  function outside(e){
+    if(!nav.classList.contains('open')) return;
+    var t=e.target; if(!t||!t.closest) return;
+    if(t.closest('#menuBtn')||t.closest('#navFab')) return;                  // button handles its own toggle
+    if(!t.closest('#side') || (e.type==='click' && t.closest('#side a'))) close();
+  }
+  document.addEventListener('pointerdown',outside,true);
+  document.addEventListener('touchstart',outside,{capture:true,passive:true});
+  document.addEventListener('click',outside,true);
+  scrim.addEventListener('click',close);
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape') close(); });
+})();
+</script>
+<script id="fmt-v12-js">
+(function(){
+  var EQ=/[=≤≥⇔→⇒≠≈∑Σπ⌈⌊]|\^|_\{|\bO\(|\blog\b|\bmod\b/;
+  function esc(s){return s.replace(/[&<>]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;'}[c];});}
+  function fmtItem(li,isFormula){
+    if(li.dataset.fmt) return; li.dataset.fmt='1';
+    var t=li.textContent.trim(), label='', body=t;
+    var m=t.match(/^([^:=]{2,44}?):\s+([\s\S]+)$/);
+    if(m && m[1].split(/\s+/).length<=6){label=m[1];body=m[2];}
+    var html='';
+    if(label) html+='<span class="rg-label">'+esc(label)+'</span>';
+    if(isFormula){
+      var parts=body.split(/;\s+|\.\s+(?=[A-Z])/).map(function(x){return x.trim();}).filter(Boolean);
+      parts.forEach(function(x,i){
+        var last=(i===parts.length-1);
+        var txt=x; if(!/[.!?)]$/.test(txt) && !last) txt=x; 
+        var prose=(x.match(/\b[a-z]{4,}\b/g)||[]).length; var isEq=EQ.test(x)&&(prose<=3||(/[=≤≥⇔]/.test(x)&&x.length<=70));
+        html+='<span class="'+(isEq?'rg-eq':'rg-txt')+'">'+esc(x)+'</span>';
+      });
+    } else {
+      html+='<span class="rg-body">'+esc(body)+'</span>';
+    }
+    li.innerHTML=html;
+  }
+  function enhance(panel){
+    if(panel.dataset.fmt) return; panel.dataset.fmt='1';
+    var groups=panel.querySelectorAll('.rapid-group'), chips=[];
+    groups.forEach(function(g,i){
+      var type=(g.className.match(/\b(must|trap|formula|gate|shortcut)\b/)||[])[1]; if(!type) return;
+      g.id='rg-'+type;
+      var items=g.querySelectorAll('li');
+      items.forEach(function(li){fmtItem(li,type==='formula');});
+      var h=g.querySelector('h3'); var c=document.createElement('span'); c.className='rg-count'; c.textContent=items.length; h.appendChild(c);
+      chips.push('<a href="#rg-'+type+'">'+h.firstChild.textContent.trim()+' <b>'+items.length+'</b></a>');
+    });
+    if(chips.length){
+      var j=document.createElement('nav'); j.className='rapid-jump'; j.setAttribute('aria-label','Jump to group'); j.innerHTML=chips.join('');
+      var cur=panel.querySelector('.rapid-curated'); if(cur){var note=cur.querySelector('.rapid-note'); (note||cur.firstChild).insertAdjacentElement('afterend',j);}
+      j.addEventListener('click',function(e){var a=e.target.closest('a'); if(!a) return; e.preventDefault();
+        var el=document.querySelector(a.getAttribute('href')); if(el) el.scrollIntoView({behavior:'smooth',block:'start'});});
+    }
+  }
+  function check(){var p=document.getElementById('hyRapidPanel'); if(p) enhance(p);}
+  var main=document.querySelector('.wrap>main'); if(main){ new MutationObserver(check).observe(main,{childList:true}); }
+  check();
+})();
+</script>
+<a id="homeFab" href="index.html" aria-label="Back to Study Hub">🏠</a>
+<!-- gatetest:start -->
+<script src="gate-test.js"></script>
+<script>(function(){var a=document.getElementById("qtopics");if(a&&window.GateTest)GateTest.mountLauncher("pds",a);})();</script>
+<!-- gatetest:end -->
+<!-- pwa-reg:start -->
+<script>if('serviceWorker' in navigator&&(location.protocol==='https:'||location.hostname==='localhost'||location.hostname==='127.0.0.1')){window.addEventListener('load',function(){navigator.serviceWorker.register('sw.js').catch(function(){});});}</script>
+<!-- pwa-reg:end -->
+</body>
+</html>
