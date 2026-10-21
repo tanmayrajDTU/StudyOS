@@ -206,3 +206,20 @@ body {
 }
 
 
+
+/* ---- Native dropdowns: dark popup list that matches the theme (all <select> elements) ---- */
+select {
+  color-scheme: dark;
+}
+select option,
+select optgroup {
+  background-color: var(--popover);
+  color: var(--foreground);
+}
+select option:checked {
+  background-color: color-mix(in srgb, var(--primary) 30%, var(--popover));
+  color: var(--foreground);
+}
+select option:disabled {
+  color: var(--muted-foreground);
+}

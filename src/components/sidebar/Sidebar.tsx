@@ -14,7 +14,9 @@ import {
   ChevronRight,
   Sparkles,
   BookOpen,
-  NotebookText
+  NotebookText,
+  FlaskConical,
+  CalendarCheck
 } from 'lucide-react'
 import Image from 'next/image'
 import { createClient } from '@/utils/supabase/client'
@@ -68,11 +70,13 @@ export default function Sidebar({ profile }: SidebarProps) {
     }
   }
 
-  const menuItems = [
+  const menuItems: { name: string; icon: React.ElementType; path: string; exclude?: string[] }[] = [
     { name: 'Dashboard', icon: LayoutDashboard, path: '/' },
     { name: 'Subjects', icon: BookOpen, path: '/subjects' },
     { name: 'Roadmap', icon: Calendar, path: '/roadmap' },
     { name: 'Revision', icon: RotateCw, path: '/revision' },
+    { name: 'Tests & Quizzes', icon: FlaskConical, path: '/tests', exclude: ['/tests/plan'] },
+    { name: 'Day Plan', icon: CalendarCheck, path: '/tests/plan' },
     { name: 'Analytics', icon: BarChart2, path: '/analytics' },
     { name: 'Settings', icon: Settings, path: '/settings' },
   ]
@@ -105,7 +109,12 @@ export default function Sidebar({ profile }: SidebarProps) {
       <nav className="flex-1 space-y-1 p-3.5">
         {menuItems.map((item) => {
           const Icon = item.icon
-          const isActive = pathname === item.path
+          // nested paths stay active (/subjects/123), except routes that have their own entry
+          const isActive =
+            item.path === '/'
+              ? pathname === '/'
+              : (pathname === item.path || pathname.startsWith(item.path + '/')) &&
+                !item.exclude?.some((x) => pathname === x || pathname.startsWith(x + '/'))
  
           return (
             <Link

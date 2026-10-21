@@ -99,6 +99,26 @@ Ensure you have the following installed on your machine:
 
 ---
 
+## 🧪 Tests & Quizzes + Day Plan
+
+A parallel section for GO Classes tests and quizzes (~270 items): a library with attempt tracking, and a day-by-day planner.
+
+**Routes**
+- `/tests` — library: filter, log attempts (+/- or with score & notes), plan an item for a day.
+- `/tests/plan` — Day Plan: week strip + month view, drag to reorder, mark done (logs an attempt), skip, move, remove, overdue and 14-day upcoming. The dashboard also shows a "Today's Tests" card.
+
+**Database setup (once)**
+1. Open the Supabase SQL editor and run the whole of `supabase/tests-quizzes.sql`. It is idempotent (`CREATE ... IF NOT EXISTS`), so re-running is safe.
+2. Do **not** use `node supabase/migrate-and-seed.js` for this — it executes `schema.sql`, which DROPs existing tables. Never re-run `schema.sql` on a database you care about.
+
+**Seeding the library**
+The built-in list lives in `src/lib/tests-data/` (`tests.ts`, `quizzes.ts`). Open `/tests` and click **Load my tests & quizzes** on the empty-library screen (or `⋯` → **Sync built-in library** later to pick up new items). Seeding only inserts items that don't exist yet, so it never duplicates and keeps your attempts and plans.
+
+**Dates**
+`planned_date` is a plain `yyyy-MM-dd` date in your local timezone (never converted through UTC), so Asia/Kolkata evenings don't shift a day.
+
+---
+
 ## 🔐 Development Credentials (Local Testing)
 For local testing and verification, `src/proxy.ts` restricts access to authorized developers.
 

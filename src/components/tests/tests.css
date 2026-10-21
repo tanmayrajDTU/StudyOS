@@ -1,0 +1,52 @@
+/* ---- Tests & Quizzes feature (additive, scoped utility classes) ---- */
+.field-input {
+  width: 100%;
+  border-radius: var(--radius-input, 12px);
+  border: 1px solid var(--border);
+  background: var(--secondary);
+  padding: 0.5rem 0.75rem;
+  font-size: 0.8125rem;
+  color: var(--foreground);
+  outline: none;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+.field-input:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--primary) 20%, transparent);
+}
+.btn-primary,
+.btn-ghost,
+.btn-danger {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  border-radius: var(--radius-button, 12px);
+  padding: 0.5rem 0.9rem;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+.btn-primary { background: var(--primary); color: var(--primary-foreground); }
+.btn-primary:hover { filter: brightness(1.1); }
+.btn-primary:active { transform: scale(0.97); }
+.btn-primary:disabled, .btn-danger:disabled { opacity: 0.5; cursor: not-allowed; }
+.btn-ghost { border: 1px solid var(--border); color: var(--foreground); background: transparent; }
+.btn-ghost:hover { background: var(--secondary); }
+.btn-danger { background: rgba(239, 68, 68, 0.15); color: #f87171; border: 1px solid rgba(239, 68, 68, 0.3); }
+.btn-danger:hover { background: rgba(239, 68, 68, 0.25); }
+.tq-row { content-visibility: auto; contain-intrinsic-size: auto 76px; }
+
+/* Dropdowns: custom chevron, consistent height, themed focus */
+select.field-input {
+  appearance: none;
+  -webkit-appearance: none;
+  cursor: pointer;
+  padding-right: 2rem;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%23a1a1aa' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.65rem center;
+  background-size: 0.875rem;
+}
+select.field-input:hover { border-color: color-mix(in srgb, var(--primary) 45%, var(--border)); }
