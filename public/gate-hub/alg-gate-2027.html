@@ -1,0 +1,1719 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Algorithms for GATE CSE 2027</title>
+<style>
+:root{
+  --bg:#0b0e14; --panel:#12161f; --panel2:#181d29; --border:#242b3a;
+  --text:#e6e9f0; --muted:#93a0b8; --accent:#5ee6c8; --accent2:#7c9fff;
+  --warn:#ffb454; --good:#7ee787; --code-bg:#0d1420;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){ } }
+*{box-sizing:border-box}
+html{scroll-padding-top:calc(64px + env(safe-area-inset-top,0px));height:100%}
+body{
+  margin:0;height:100%;background:var(--bg);color:var(--text);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  line-height:1.55;
+}
+a{color:var(--accent2)}
+header{
+  position:sticky;top:0;z-index:20;
+  padding:calc(14px + env(safe-area-inset-top,0px)) 16px 14px;
+  background:rgba(11,14,20,0.9);backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--border);
+  display:flex;align-items:center;gap:10px;justify-content:space-between;
+}
+header .title{font-weight:700;font-size:15px;letter-spacing:.2px}
+header .title span{color:var(--accent)}
+#menuBtn{display:none;background:var(--panel2);border:1px solid var(--border);color:var(--text);
+  padding:8px 12px;border-radius:8px;font-size:13px}
+.wrap{display:flex;max-width:1280px;margin:0 auto}
+nav#side{
+  width:250px;flex:none;padding:18px 12px;position:sticky;
+  top:calc(58px + env(safe-area-inset-top,0px));
+  height:calc(100vh - 58px - env(safe-area-inset-top,0px));
+  overflow-y:auto;border-right:1px solid var(--border);
+}
+nav#side .grp{margin-bottom:14px}
+nav#side .grp-title{font-size:11px;text-transform:uppercase;letter-spacing:1px;color:var(--muted);margin:10px 6px 6px}
+nav#side a{
+  display:block;padding:7px 10px;border-radius:8px;color:var(--muted);text-decoration:none;font-size:13.5px;
+}
+nav#side a:hover{background:var(--panel2);color:var(--text)}
+nav#side a.soon{opacity:.45;font-style:italic}
+main{flex:1;min-width:0;padding:28px 22px 80px}
+section{max-width:820px;margin:0 auto 64px;scroll-margin-top:70px}
+section h1{font-size:26px;margin:0 0 6px;color:var(--accent)}
+section h2{font-size:20px;margin:38px 0 10px;color:var(--accent2);border-bottom:1px solid var(--border);padding-bottom:8px}
+section h3{font-size:16px;margin:22px 0 8px;color:var(--text)}
+p{color:#c9d1e0}
+.sub{color:var(--muted);font-size:14px;margin-bottom:20px}
+.card{
+  background:var(--panel);border:1px solid var(--border);border-radius:12px;
+  padding:16px 18px;margin:14px 0;
+}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media (max-width:720px){.grid2{grid-template-columns:1fr}}
+.num{
+  border-left:3px solid var(--accent);background:var(--panel2);
+  padding:14px 16px;border-radius:0 10px 10px 0;margin:16px 0;
+}
+.num .tag{font-size:11px;color:var(--accent);text-transform:uppercase;letter-spacing:1px;font-weight:700}
+.warn{border-left:3px solid var(--warn);background:#1c1810;padding:12px 16px;border-radius:0 10px 10px 0;margin:14px 0}
+.warn .tag{color:var(--warn);font-size:11px;text-transform:uppercase;letter-spacing:1px;font-weight:700}
+code,.mono{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;background:var(--code-bg);
+  padding:2px 6px;border-radius:5px;font-size:13px;color:var(--good)}
+pre{background:var(--code-bg);padding:12px 14px;border-radius:8px;overflow-x:auto;border:1px solid var(--border)}
+table{border-collapse:collapse;width:100%;margin:12px 0;font-size:13.5px}
+th,td{border:1px solid var(--border);padding:8px 10px;text-align:left}
+th{background:var(--panel2);color:var(--accent2)}
+tr:nth-child(even){background:#10141d}
+.bitfield{display:flex;font-family:ui-monospace,monospace;font-size:12px;overflow-x:auto;margin:14px 0}
+.bit{border:1px solid var(--border);padding:10px 4px;text-align:center;flex:none;min-width:26px}
+.bit.hdr{background:var(--panel2);color:var(--muted);border-bottom:none}
+.bfrow{display:flex}
+.bf-label{padding:8px 10px;font-size:12px;color:#0b0e14;font-weight:700;text-align:center;flex:none}
+.pill{display:inline-block;padding:3px 10px;border-radius:999px;font-size:11.5px;font-weight:700;margin-right:6px}
+.pill.s{background:#ff6b6b33;color:#ff9b9b}
+.pill.e{background:#7c9fff33;color:#9fb6ff}
+.pill.m{background:#5ee6c833;color:#8ff0da}
+.addr-flow{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:14px 0;font-size:13px}
+.addr-flow .box{background:var(--panel2);border:1px solid var(--border);border-radius:8px;padding:8px 12px}
+.addr-flow .arrow{color:var(--accent);font-weight:700}
+footer{border-top:1px solid var(--border);text-align:center;color:var(--muted);font-size:12.5px;padding:30px 16px}
+::-webkit-scrollbar{width:9px;height:9px}
+::-webkit-scrollbar-thumb{background:var(--border);border-radius:6px}
+@media (max-width:860px){
+  nav#side{position:fixed;left:0;top:calc(58px + env(safe-area-inset-top,0px));
+    height:calc(100vh - 58px - env(safe-area-inset-top,0px));
+    background:var(--bg);z-index:15;transform:translateX(-105%);transition:transform .2s;width:230px}
+  nav#side.open{transform:translateX(0)}
+  #menuBtn{display:inline-block}
+}
+.qtopics{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0 20px;position:sticky;top:58px;background:var(--bg);padding:8px 0;z-index:5}
+.qtopics button{background:var(--panel2);border:1px solid var(--border);color:var(--muted);padding:6px 13px;
+  border-radius:999px;font-size:12.5px;cursor:pointer}
+.qtopics button.active{background:var(--accent);color:#062019;border-color:var(--accent);font-weight:700}
+#score{font-size:13px;color:var(--muted);margin-bottom:16px}
+#score b{color:var(--accent)}
+.qcard{background:var(--panel);border:1px solid var(--border);border-radius:12px;padding:16px;margin:12px 0}
+.qcard .qtag{font-size:10.5px;color:var(--accent2);text-transform:uppercase;letter-spacing:.5px;font-weight:700}
+.qcard .qtext{margin:6px 0 12px;font-size:14.5px}
+.opt{display:block;width:100%;text-align:left;background:var(--panel2);border:1px solid var(--border);
+  color:var(--text);padding:9px 12px;border-radius:8px;margin:6px 0;cursor:pointer;font-size:13.5px}
+.opt:hover{border-color:var(--accent2)}
+.opt.correct{background:#123322;border-color:var(--good);color:var(--good)}
+.opt.wrong{background:#331414;border-color:#ff6b6b;color:#ff9b9b}
+.opt[disabled]{cursor:default}
+.expl{display:none;margin-top:10px;font-size:13px;color:var(--muted);background:var(--code-bg);
+  padding:10px 12px;border-radius:8px;border:1px solid var(--border)}
+.gq{border-left:3px solid var(--accent2);background:var(--panel2);padding:16px 18px;border-radius:0 10px 10px 0;margin:20px 0}
+.gq .gtag{font-size:11px;color:var(--accent2);text-transform:uppercase;letter-spacing:1px;font-weight:700}
+.gq .gopts{margin:10px 0;padding-left:18px;color:#c9d1e0;font-size:13.5px}
+.gq .gopts li{margin:3px 0}
+.gq .gans{color:var(--good);font-weight:700}
+.expl.show{display:block}
+.grid2>*{min-width:0;overflow-x:auto}
+
+/* ===== High-yield revision system ===== */
+.hy-toolbar{
+  max-width:820px;margin:0 auto 28px;padding:14px 16px;
+  background:linear-gradient(135deg,var(--panel),var(--panel2));
+  border:1px solid var(--border);border-radius:14px;
+}
+.hy-toolbar-row{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.hy-title{font-weight:800;color:var(--text);font-size:14px}
+.hy-title span{color:var(--accent)}
+.hy-sub{color:var(--muted);font-size:12.5px;margin-top:4px}
+.hy-actions{display:flex;gap:8px;flex-wrap:wrap}
+.hy-btn{border:1px solid var(--border);background:var(--panel2);color:var(--text);padding:8px 12px;border-radius:9px;font-size:12.5px;font-weight:700;cursor:pointer}
+.hy-btn:hover{border-color:var(--accent2);color:var(--accent)}
+.hy-btn.primary{background:var(--accent);color:#062019;border-color:var(--accent)}
+.hy-legend{display:flex;flex-wrap:wrap;gap:7px;margin-top:12px}
+.hy-legend span,.hy-badge{display:inline-flex;align-items:center;gap:4px;padding:3px 8px;border-radius:999px;font-size:10.5px;font-weight:800;letter-spacing:.15px}
+.hy-must{background:#7c9fff22;color:#9fb6ff;border:1px solid #7c9fff55}
+.hy-trap{background:#ffb45422;color:#ffc978;border:1px solid #ffb45455}
+.hy-formula{background:#5ee6c822;color:#8ff0da;border:1px solid #5ee6c855}
+.hy-gate{background:#ff6b6b22;color:#ff9b9b;border:1px solid #ff6b6b55}
+.hy-shortcut{background:#c792ea22;color:#dcb7f7;border:1px solid #c792ea55}
+.hy-marked{position:relative}
+.hy-marked>.hy-badge{margin-bottom:8px}
+.hy-rapid-overlay{display:none}
+body.rapid-mode .hy-rapid-overlay{display:block}
+body.rapid-mode .wrap>main>section:not(#hyRapidPanel){display:none}
+body.rapid-mode .wrap>main{padding-top:18px}
+body.rapid-mode nav#side{opacity:.55}
+body.rapid-mode .hy-toolbar{position:sticky;top:58px;z-index:10}
+#hyRapidPanel{max-width:820px}
+#hyRapidPanel h1{margin-bottom:5px}
+#hyRapidPanel .rapid-intro{margin:0 0 24px;color:var(--muted);font-size:13px}
+.rapid-section{margin:0 0 34px}
+.rapid-section h2{font-size:18px;margin:0 0 12px;color:var(--accent2);border-bottom:1px solid var(--border);padding-bottom:8px}
+.rapid-empty{color:var(--muted);font-size:13px;background:var(--panel);border:1px dashed var(--border);padding:12px 14px;border-radius:10px}
+.rapid-source{margin:0 0 12px}
+.rapid-source .hy-badge{display:inline-flex;margin-bottom:8px}
+body.rapid-mode .hy-toolbar .hy-btn.primary{display:none}
+body:not(.rapid-mode) .hy-toolbar .hy-btn.secondary{display:none}
+@media(max-width:720px){
+  .hy-toolbar-row{align-items:flex-start}.hy-actions{width:100%}.hy-btn{flex:1}
+  body.rapid-mode .hy-toolbar{top:58px}
+}
+
+
+/* Second-pass curated high-yield revision layer */
+.rapid-curated{margin:18px 0 28px;padding:20px;border:1px solid var(--border,#334155);border-radius:16px;background:rgba(15,23,42,.45)}
+.rapid-curated>h2{margin:0 0 4px}.rapid-note{margin:0 0 16px;opacity:.72}
+.rapid-group{margin:14px 0;padding:14px 16px;border-radius:12px;border-left:4px solid #64748b;background:rgba(255,255,255,.025)}
+.rapid-group h3{margin:0 0 8px;font-size:1rem}.rapid-group ul{margin:0;padding-left:20px}.rapid-group li{margin:7px 0;line-height:1.55}
+.rapid-group.must{border-left-color:#22c55e}.rapid-group.trap{border-left-color:#eab308}.rapid-group.formula{border-left-color:#38bdf8}.rapid-group.gate{border-left-color:#f97316}.rapid-group.shortcut{border-left-color:#a78bfa}
+@media(max-width:700px){.rapid-curated{padding:14px}.rapid-group{padding:12px}}
+@media (max-width:640px){table{display:block;max-width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch}.card,.num,.warn,p,li{overflow-wrap:break-word}td,th{overflow-wrap:normal;word-break:normal}}
+</style>
+<style id="ux-fix-v11">
+html,body{height:auto!important;min-height:100%}
+#navScrim{cursor:pointer;-webkit-tap-highlight-color:transparent}
+
+/* v11: no sticky banners in the reading/quiz flow; tap-outside closes the topics drawer */
+.qtopics{position:static!important;top:auto!important}
+body.rapid-mode .hy-toolbar{position:static!important;top:auto!important}
+#navScrim{display:none}
+@media (max-width:860px){
+  body.nav-open #navScrim{display:block;position:fixed;left:0;right:0;bottom:0;top:calc(58px + env(safe-area-inset-top,0px));background:rgba(0,0,0,.45);z-index:14}
+}
+@media (max-width:860px){
+  header{position:static!important}
+  html{scroll-padding-top:12px!important}
+  nav#side{top:0!important;height:100%!important;padding-top:calc(18px + env(safe-area-inset-top,0px))!important}
+  body.nav-open #navScrim{top:0!important}
+  #navFab{position:fixed;left:12px;bottom:calc(14px + env(safe-area-inset-bottom,0px));z-index:16;width:42px;height:42px;border-radius:50%;
+    border:1px solid var(--border);background:rgba(23,28,40,.92);color:var(--text);font-size:19px;line-height:1;opacity:.9;
+    box-shadow:0 2px 10px rgba(0,0,0,.45);cursor:pointer;-webkit-tap-highlight-color:transparent}
+}
+@media (min-width:861px){#navFab{display:none}}
+</style>
+<style id="fmt-v12">
+/* v12 readability revamp — formatting only, content untouched */
+:root{--rg-must:#22c55e;--rg-trap:#eab308;--rg-formula:#38bdf8;--rg-gate:#f97316;--rg-shortcut:#a78bfa}
+body.rapid-mode .wrap>main{padding-left:clamp(14px,4vw,32px);padding-right:clamp(14px,4vw,32px)}
+#hyRapidPanel{max-width:760px;margin:0 auto}
+#hyRapidPanel>h1{font-size:clamp(22px,6vw,28px);line-height:1.25;margin:4px 0 8px}
+#hyRapidPanel .rapid-intro{font-size:14.5px;line-height:1.65;margin:0 0 18px}
+
+/* jump chips */
+.rapid-jump{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 22px}
+.rapid-jump a{display:inline-flex;align-items:center;gap:6px;padding:8px 12px;border-radius:999px;font-size:13px;font-weight:700;text-decoration:none;
+  color:var(--text);background:var(--panel2);border:1px solid var(--border)}
+.rapid-jump a b{font-weight:800;opacity:.7}
+
+/* curated block: flat, no box-in-box */
+.rapid-curated{margin:0 0 34px!important;padding:0!important;border:0!important;background:none!important;border-radius:0!important}
+.rapid-curated>h2{font-size:20px;margin:0 0 4px!important;color:var(--text)}
+.rapid-note{font-size:13.5px;line-height:1.6;margin:0 0 6px!important}
+.rapid-group{margin:26px 0 0!important;padding:0!important;border:0!important;background:none!important;scroll-margin-top:12px}
+.rapid-group h3{display:flex;align-items:center;gap:8px;margin:0 0 12px!important;padding-bottom:10px;font-size:14px!important;font-weight:800;
+  letter-spacing:.6px;text-transform:uppercase;border-bottom:2px solid var(--gc,#64748b);color:var(--gc,var(--text))}
+.rapid-group h3 .rg-count{margin-left:auto;font-size:12px;font-weight:800;letter-spacing:0;text-transform:none;padding:2px 9px;border-radius:999px;
+  background:var(--gc,#64748b);color:#0b0e14}
+.rapid-group.must{--gc:var(--rg-must)}.rapid-group.trap{--gc:var(--rg-trap)}.rapid-group.formula{--gc:var(--rg-formula)}
+.rapid-group.gate{--gc:var(--rg-gate)}.rapid-group.shortcut{--gc:var(--rg-shortcut)}
+.rapid-group ul{list-style:none!important;margin:0!important;padding:0!important;display:grid;gap:12px}
+.rapid-group li{margin:0!important;padding:14px 16px;background:var(--panel);border:1px solid var(--border);border-left:4px solid var(--gc,#64748b);
+  border-radius:12px;font-size:15.5px;line-height:1.7;color:var(--text);overflow-wrap:anywhere}
+.rg-label{display:block;margin:0 0 6px;font-size:15px;font-weight:800;line-height:1.35;color:var(--gc,var(--text))}
+.rg-body{display:block;color:#d3d9e6}
+.rg-line{display:block}.rg-line+.rg-line{margin-top:8px}
+.rg-eq{display:block;margin:8px 0 0;padding:10px 12px;border-radius:9px;background:#0a1220;border:1px solid #1d3350;
+  font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:14px;line-height:1.65;color:#8fd8ff;overflow-x:auto;white-space:pre-wrap;overflow-wrap:anywhere}
+.rg-txt{display:block;margin:8px 0 0;color:#d3d9e6}
+.rg-label+.rg-eq,.rg-label+.rg-txt,.rapid-group li>.rg-eq:first-child,.rapid-group li>.rg-txt:first-child{margin-top:0}
+
+/* per-topic cloned cards: roomier, clearer hierarchy */
+.rapid-section{margin:0 0 40px!important}
+.rapid-section h2{font-size:clamp(18px,5vw,22px)!important;line-height:1.3;margin:0 0 16px!important;padding:12px 14px!important;border:1px solid var(--border)!important;
+  border-left:4px solid var(--accent2)!important;border-radius:12px;background:var(--panel)}
+.rapid-source{margin:0 0 14px!important}
+.rapid-source>*{margin:0!important;padding:16px!important;border-radius:14px!important;font-size:15.5px;line-height:1.75;overflow-wrap:anywhere}
+.rapid-source .hy-badge{margin-bottom:10px!important}
+.rapid-source p{margin:0 0 10px;line-height:1.75}.rapid-source p:last-child{margin-bottom:0}
+.rapid-source ul,.rapid-source ol{padding-left:22px;margin:8px 0}.rapid-source li{margin:6px 0;line-height:1.7}
+.rapid-source b,.rapid-source strong{color:#fff}
+.rapid-source code{font-size:.92em;padding:2px 6px;border-radius:6px}
+.rapid-source pre{padding:12px;border-radius:10px;overflow-x:auto;font-size:13.5px;line-height:1.6}
+.rapid-source table{display:block;overflow-x:auto;max-width:100%}
+.rapid-source td,.rapid-source th{padding:8px 10px;line-height:1.55}
+
+/* notes mode: gentle readability lift */
+@media (max-width:700px){
+  main .card,main .warn,main .num{padding:16px!important}
+  main p,main li{line-height:1.75}
+  main section>p{margin:0 0 14px}
+}
+</style>
+<style id="theme-v13">
+/* v13 premium dark + colour theme — visual layer only */
+:root{
+  --bg:#070916;--panel:#0f1330;--panel2:#161b3f;--border:#2a3166;--text:#eef1ff;--muted:#9ea8d4;
+  --accent:#4ff0d0;--accent2:#8aa4ff;--warn:#ffb454;--good:#6ef0a0;--code-bg:#0a1030;
+  --green:#7af0ae;--yellow:#ffe08a;--red:#ff9aa8;--purple:#c9a8ff;
+  --glow-a:#7c5cff;--glow-b:#19d3ff;--glow-c:#ff4fa3;
+}
+html{background:#070916}
+body{background:transparent!important;color:var(--text)}
+body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;
+  background:
+   radial-gradient(60% 40% at 8% 0%,rgba(124,92,255,.28),transparent 70%),
+   radial-gradient(50% 35% at 100% 6%,rgba(25,211,255,.18),transparent 70%),
+   radial-gradient(60% 40% at 50% 100%,rgba(255,79,163,.14),transparent 70%),
+   #070916}
+::selection{background:rgba(124,92,255,.55);color:#fff}
+
+/* header */
+header,.top{background:linear-gradient(180deg,rgba(14,18,48,.92),rgba(9,11,30,.86))!important;
+  -webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);border-bottom:1px solid transparent!important;
+  border-image:linear-gradient(90deg,#7c5cff,#19d3ff,#ff4fa3) 1;box-shadow:0 6px 24px rgba(0,0,0,.35)}
+header h1 span,.top h1 span,header .hl,.top .hl{background:linear-gradient(90deg,#4ff0d0,#8aa4ff,#d28bff);-webkit-background-clip:text;background-clip:text;color:transparent!important}
+
+/* headings */
+main h2,.wrap h2{background:linear-gradient(90deg,#9db4ff,#c9a8ff 55%,#ff9ad0);-webkit-background-clip:text;background-clip:text;color:transparent;
+  border-bottom:1px solid transparent!important;border-image:linear-gradient(90deg,rgba(138,164,255,.6),rgba(255,79,163,.25),transparent) 1}
+main h3{color:#8fe9ff}
+
+/* surfaces: glass panels */
+.card,.warn,.num,.hy-panel,.hy-toolbar,.rapid-curated,table,.q,.qcard,.sol,details,.callout,.box{
+  background:linear-gradient(150deg,rgba(32,38,88,.62),rgba(14,17,42,.9))!important;
+  border-top-color:rgba(138,150,255,.2)!important;border-right-color:rgba(138,150,255,.2)!important;border-bottom-color:rgba(138,150,255,.2)!important;box-shadow:0 10px 30px rgba(3,4,18,.45),inset 0 1px 0 rgba(255,255,255,.06)}
+.hy-toolbar{border-radius:16px}
+.hy-toolbar h3,.hy-toolbar strong{background:linear-gradient(90deg,#4ff0d0,#8aa4ff);-webkit-background-clip:text;background-clip:text;color:transparent}
+
+/* nav drawer */
+nav#side,.side{background:linear-gradient(180deg,rgba(18,22,58,.97),rgba(9,11,30,.98))!important;border-color:rgba(138,150,255,.2)!important}
+nav#side a.active,.side a.active,nav#side a:hover,.side a:hover{background:linear-gradient(90deg,rgba(124,92,255,.35),rgba(25,211,255,.14))!important;color:#fff!important;border-radius:10px}
+nav#side .grp,.side .grp,nav#side h4,.side h4{color:#c9a8ff!important}
+
+/* buttons */
+.hy-btn{background:rgba(26,31,72,.9);border-color:rgba(138,150,255,.3)}
+.hy-btn:hover{border-color:#8aa4ff;box-shadow:0 0 0 3px rgba(124,92,255,.22);color:#fff}
+.hy-btn.primary,.btn.primary,button.primary{background:linear-gradient(90deg,#19d3ff,#7c5cff 60%,#ff4fa3)!important;color:#fff!important;border:0!important;
+  box-shadow:0 6px 20px rgba(124,92,255,.45)}
+#navFab{background:linear-gradient(135deg,#7c5cff,#19d3ff)!important;color:#fff!important;border:0!important;box-shadow:0 8px 22px rgba(124,92,255,.55)!important;opacity:1!important}
+#menuBtn{background:rgba(26,31,72,.9)!important;border-color:rgba(138,150,255,.35)!important}
+
+/* code & equations */
+code,pre{background:#0a1030!important;color:#8ff5e2;border:1px solid rgba(79,240,208,.18)}
+.rg-eq,.card p>code:only-child{background:linear-gradient(135deg,#0a1436,#0d0f2e)!important;border-color:rgba(25,211,255,.35)!important;color:#9af2ff!important;
+  box-shadow:inset 0 0 0 1px rgba(25,211,255,.06)}
+
+/* last-minute groups: tinted by their colour */
+.rapid-group li{background:linear-gradient(135deg,color-mix(in srgb,var(--gc) 14%,#12163a),#0d1030 70%)!important;border-top-color:color-mix(in srgb,var(--gc) 30%,#262d62)!important;border-right-color:color-mix(in srgb,var(--gc) 30%,#262d62)!important;border-bottom-color:color-mix(in srgb,var(--gc) 30%,#262d62)!important;border-left-color:var(--gc)!important;
+  box-shadow:0 6px 18px rgba(3,4,18,.4)}
+.rapid-group h3{text-shadow:0 0 18px color-mix(in srgb,var(--gc) 55%,transparent)}
+.rapid-group h3 .rg-count{box-shadow:0 0 14px color-mix(in srgb,var(--gc) 60%,transparent)}
+.rapid-jump a{background:rgba(26,31,72,.85);border-color:rgba(138,150,255,.3)}
+.rapid-section h2{background:linear-gradient(90deg,rgba(124,92,255,.28),rgba(25,211,255,.08))!important;-webkit-text-fill-color:#fff;color:#fff;border-image:none!important;
+  border-color:rgba(138,150,255,.3)!important;border-left:4px solid #19d3ff!important}
+
+/* tags / badges: more vivid */
+.tag,.hy-badge,.badge{backdrop-filter:blur(4px);font-weight:800}
+.tag.must,.hy-badge.must{background:rgba(34,197,94,.18)!important;color:#7af0ae!important;border-color:rgba(34,197,94,.5)!important}
+.tag.formula,.hy-badge.formula{background:rgba(56,189,248,.18)!important;color:#8fe0ff!important;border-color:rgba(56,189,248,.5)!important}
+.tag.fav,.hy-badge.fav{background:rgba(255,79,100,.16)!important;color:#ff9aa8!important;border-color:rgba(255,79,100,.5)!important}
+
+/* quiz options */
+.opt,.option,button.opt,label.opt{background:rgba(22,27,68,.8)!important;border-color:rgba(138,150,255,.25)!important;transition:.15s}
+.opt:hover,.option:hover{border-color:#19d3ff!important;box-shadow:0 0 0 3px rgba(25,211,255,.18)}
+.qtopics button,.qtopics .chip{background:rgba(26,31,72,.85);border-color:rgba(138,150,255,.3)}
+.qtopics .on,.qtopics .active{background:linear-gradient(90deg,#7c5cff,#19d3ff)!important;color:#fff!important;border-color:transparent!important}
+
+/* tables */
+th{background:linear-gradient(90deg,rgba(124,92,255,.35),rgba(25,211,255,.18))!important;color:#fff!important}
+td,th{border-color:rgba(138,150,255,.2)!important}
+tbody tr:nth-child(even) td{background:rgba(124,92,255,.06)}
+
+a{color:#8fe9ff}
+::-webkit-scrollbar{width:10px;height:10px}::-webkit-scrollbar-thumb{background:linear-gradient(#7c5cff,#19d3ff);border-radius:8px}
+</style>
+<style id="home-v14">
+.homeLink{justify-self:end;display:inline-flex;align-items:center;gap:6px;padding:8px 12px;border-radius:10px;font-size:13px;font-weight:800;text-decoration:none;white-space:nowrap;
+  color:#fff!important;background:linear-gradient(135deg,rgba(124,92,255,.55),rgba(25,211,255,.3));border:1px solid rgba(138,150,255,.4)}
+nav#side a.backhome,.side a.backhome{display:block;margin:0 0 10px;padding:10px 12px;border-radius:10px;font-weight:800;color:#fff!important;
+  background:linear-gradient(90deg,rgba(124,92,255,.45),rgba(25,211,255,.2));border:1px solid rgba(138,150,255,.4)}
+#homeFab{display:none}
+@media (max-width:860px){
+  #homeFab{display:flex;align-items:center;justify-content:center;position:fixed;left:64px;bottom:calc(14px + env(safe-area-inset-bottom,0px));z-index:16;width:42px;height:42px;border-radius:50%;
+    text-decoration:none;font-size:19px;background:rgba(22,27,68,.95);border:1px solid rgba(138,150,255,.45);box-shadow:0 8px 22px rgba(3,4,18,.6)}
+}
+</style>
+<!-- pwa:start -->
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#070916">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="GATE 2027">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="icon" type="image/png" href="favicon-64.png">
+<!-- pwa:end -->
+</head>
+<body>
+<header>
+  <button id="menuBtn" onclick="document.getElementById('side').classList.toggle('open')">☰ Topics</button>
+  <div class="title">⚙️ Algorithms <span>for GATE CSE 2027</span></div>
+  <a class="homeLink" href="index.html">🏠 Home</a>
+</header>
+<div class="wrap">
+<nav id="side">
+<a class="backhome" href="index.html">← Study Hub (Home)</a><a class="gt-sidelink" href="cheatsheet-gate-2027.html#alg">📄 Formula cheat sheet</a><a class="gt-sidelink" href="mock-gate-2027.html">🎯 Full mock exam</a>
+  <div class="grp">
+    <div class="grp-title">Part 1 · Analysis & Sorting</div>
+    <a href="#asym">1. Asymptotics & Recurrences</a>
+    <a href="#sort">2. Searching & Sorting</a>
+  </div>
+  <div class="grp">
+    <div class="grp-title">Part 2 · Design Techniques</div>
+    <a href="#dc">3. Divide & Conquer</a>
+    <a href="#greedy">4. Greedy Algorithms</a>
+    <a href="#dp">5. Dynamic Programming</a>
+  </div>
+  <div class="grp">
+    <div class="grp-title">Part 3 · Graphs & Complexity</div>
+    <a href="#graph">6. Graph Algorithms</a>
+    <a href="#np">7. Amortized, Hashing & NP</a>
+  </div>
+  <div class="grp">
+    <div class="grp-title">Practice</div>
+    <a href="#methods">8. Problem → Standard Method Playbook</a>
+    <a href="#quiz">9. Practice Quiz — 58 Qs (basic)</a>
+    <a href="#pyq">10. GATE-Level Solved Problems</a>
+  </div>
+</nav>
+<main>
+<section id="asym">
+<h1>1. Asymptotic Analysis & Recurrences</h1>
+<div class="sub">How running time and space are measured as input size grows, and the standard techniques for solving the recurrences that recursive algorithms produce.</div>
+
+<h2>Asymptotic notation</h2>
+<div style="overflow-x:auto">
+<table>
+<tr><th>Notation</th><th>Meaning</th><th>Read as</th></tr>
+<tr><td>f = O(g)</td><td>f(n) ≤ c·g(n) for all n ≥ n₀</td><td>g is an <b>upper</b> bound</td></tr>
+<tr><td>f = Ω(g)</td><td>f(n) ≥ c·g(n) for all n ≥ n₀</td><td>g is a <b>lower</b> bound</td></tr>
+<tr><td>f = Θ(g)</td><td>both O(g) and Ω(g)</td><td><b>tight</b> bound (same growth rate)</td></tr>
+<tr><td>f = o(g) / ω(g)</td><td>f/g → 0 / f/g → ∞</td><td><b>strictly</b> smaller / larger</td></tr>
+</table>
+</div>
+<ul style="color:#c9d1e0">
+<li>Constants and lower-order terms are dropped: 5n² + 3n log n = Θ(n²). The base of a logarithm only changes a constant factor, so log₂n = Θ(log₁₀n); but 2<sup>n</sup> and 4<sup>n</sup> are <b>not</b> Θ of each other (the base of an exponential matters).</li>
+<li><b>Worst, average and best case</b> are different functions of n; O/Ω/Θ describe bounds on whichever function you chose. "Insertion sort is Ω(n)" (best case) and "O(n²)" (worst case) are both true.</li>
+<li>Transitivity holds for O, Ω, Θ; Θ is symmetric; f = O(g) ⇔ g = Ω(f).</li>
+</ul>
+
+<h3>Growth-rate ladder</h3>
+<pre>1  &lt;  log log n  &lt;  log n  &lt;  (log n)^k  &lt;  n^ε  &lt;  n  &lt;  n log n  &lt;  n²  &lt;  n³  &lt;  2ⁿ  &lt;  n!  &lt;  nⁿ</pre>
+<ul style="color:#c9d1e0">
+<li>Any polynomial beats any polylog; any exponential beats any polynomial.</li>
+<li><b>n<sup>log n</sup> = 2<sup>(log n)²</sup></b> grows faster than every polynomial but slower than 2<sup>n</sup>, because (log n)² = o(n).</li>
+<li><b>log(n!) = Θ(n log n)</b> (Stirling). Also √n is much bigger than log n; n<sup>0.01</sup> beats (log n)<sup>100</sup> eventually.</li>
+<li>Compare functions by taking logs or by limits: lim f/g = 0 ⇒ f = o(g).</li>
+</ul>
+
+<h2>Analysing loops</h2>
+<div class="num"><div class="tag">Worked numerical — nested loop with a doubling outer index</div>
+<pre>for (i = 1; i &lt;= n; i *= 2)
+    for (j = 1; j &lt;= i; j++)
+        count++;
+i takes the values 1, 2, 4, …, 2^k  with k = ⌊log₂ n⌋
+count = 1 + 2 + 4 + … + 2^k = 2^(k+1) − 1  &lt;  2n
+n = 16 → 31       n = 100 → 1 + 2 + 4 + 8 + 16 + 32 + 64 = 127       →  Θ(n), not Θ(n log n)</pre>
+</div>
+<ul style="color:#c9d1e0">
+<li><code>for (i = 1; i &lt; n; i *= 2)</code> runs ⌈log₂ n⌉ times. <code>for (i = 1; i*i &lt;= n; i++)</code> runs ⌊√n⌋ times (n = 100 → 10).</li>
+<li>Nested independent loops multiply: n × (log n) × … ; when the inner bound depends on the outer index, <b>sum</b> the series instead.</li>
+<li>For <code>for (i = n; i &gt; 1; i = √i)</code> the count is Θ(log log n).</li>
+<li>Space complexity counts extra memory beyond the input, including the <b>recursion stack depth</b>.</li>
+</ul>
+
+<h2>Solving recurrences</h2>
+<h3>Master theorem for T(n) = a·T(n/b) + f(n), a ≥ 1, b &gt; 1</h3>
+<p>Let <code>n<sup>c</sup> = n<sup>log<sub>b</sub> a</sup></code> (the work done at the leaves). Compare f(n) with it:</p>
+<div style="overflow-x:auto">
+<table>
+<tr><th>Case</th><th>Condition</th><th>Result</th></tr>
+<tr><td>1</td><td>f(n) = O(n<sup>c−ε</sup>) — leaves dominate</td><td>T(n) = Θ(n<sup>c</sup>)</td></tr>
+<tr><td>2</td><td>f(n) = Θ(n<sup>c</sup> log<sup>k</sup>n), k ≥ 0 — balanced</td><td>T(n) = Θ(n<sup>c</sup> log<sup>k+1</sup>n)</td></tr>
+<tr><td>3</td><td>f(n) = Ω(n<sup>c+ε</sup>) and a·f(n/b) ≤ δ·f(n), δ &lt; 1 — root dominates</td><td>T(n) = Θ(f(n))</td></tr>
+</table>
+</div>
+<div style="overflow-x:auto">
+<table>
+<tr><th>Recurrence</th><th>n<sup>log<sub>b</sub>a</sup></th><th>Case</th><th>Solution</th></tr>
+<tr><td>T(n) = 2T(n/2) + n  <i>(merge sort)</i></td><td>n</td><td>2</td><td><b>Θ(n log n)</b></td></tr>
+<tr><td>T(n) = 4T(n/2) + n</td><td>n²</td><td>1</td><td>Θ(n²)</td></tr>
+<tr><td>T(n) = 4T(n/2) + n²</td><td>n²</td><td>2</td><td><b>Θ(n² log n)</b></td></tr>
+<tr><td>T(n) = 3T(n/2) + n²</td><td>n<sup>1.58</sup></td><td>3</td><td>Θ(n²)</td></tr>
+<tr><td>T(n) = T(n/2) + 1  <i>(binary search)</i></td><td>1</td><td>2</td><td>Θ(log n)</td></tr>
+<tr><td>T(n) = 2T(n/2) + 1</td><td>n</td><td>1</td><td>Θ(n)</td></tr>
+<tr><td>T(n) = 2T(n/2) + n log n</td><td>n</td><td>2 (k = 1)</td><td><b>Θ(n log² n)</b></td></tr>
+<tr><td>T(n) = 7T(n/2) + n²  <i>(Strassen)</i></td><td>n<sup>2.81</sup></td><td>1</td><td>Θ(n<sup>log₂7</sup>)</td></tr>
+</table>
+</div>
+<div class="warn"><div class="tag">When the Master theorem does not apply</div>a or b not constant, f(n) not polynomially related (e.g. n/log n), or subproblems of unequal size such as T(n/3) + T(2n/3). Use the recursion tree, substitution, or the Akra–Bazzi idea instead.</div>
+<h3>Other forms</h3>
+<div style="overflow-x:auto">
+<table>
+<tr><th>Recurrence</th><th>Solution</th><th>How</th></tr>
+<tr><td>T(n) = T(n−1) + n</td><td>Θ(n²)</td><td>unroll: n + (n−1) + … + 1</td></tr>
+<tr><td>T(n) = T(n−1) + 1</td><td>Θ(n)</td><td>unroll</td></tr>
+<tr><td>T(n) = 2T(n−1) + 1</td><td>Θ(2ⁿ)</td><td>T(n) + 1 doubles each step (Tower of Hanoi: 2ⁿ − 1)</td></tr>
+<tr><td>T(n) = T(n−1) + T(n−2) + 1</td><td>Θ(φⁿ)</td><td>Fibonacci-type, exponential</td></tr>
+<tr><td>T(n) = T(√n) + 1</td><td>Θ(log log n)</td><td>n = 2^(2^k) takes k steps</td></tr>
+<tr><td>T(n) = T(n/3) + T(2n/3) + n</td><td>Θ(n log n)</td><td>recursion tree: every level costs ≤ n, depth log<sub>3/2</sub> n (checked numerically)</td></tr>
+<tr><td>T(n) = T(n/5) + T(7n/10) + n</td><td>Θ(n)</td><td>sizes sum to 9n/10 &lt; n: geometric decrease (median of medians)</td></tr>
+</table>
+</div>
+<div class="num"><div class="tag">Worked numerical — a Case 2 recurrence with a log factor</div>
+<b>Q:</b> Solve T(n) = 2T(n/2) + n log n.<br>
+<b>A:</b> n<sup>log₂2</sup> = n and f(n) = n·log¹n, so k = 1 and T(n) = Θ(n log<sup>2</sup>n). A numerical evaluation of the recurrence confirms that T(n)/(n log²n) settles near a constant (≈ 0.53–0.56 for n = 2¹⁰ … 2¹⁸).
+</div>
+</section>
+
+<section id="sort">
+<h1>2. Searching & Sorting</h1>
+<div class="sub">The standard sorting algorithms, their cost in the best, average and worst case, the Ω(n log n) lower bound, and the comparison counts GATE likes to ask for.</div>
+
+<h2>Searching</h2>
+<ul style="color:#c9d1e0">
+<li><b>Linear search</b>: Θ(n) worst case, (n+1)/2 comparisons on average for a successful search.</li>
+<li><b>Binary search</b> on a sorted array: at most <b>⌊log₂ n⌋ + 1</b> comparisons (n = 15 → 4, n = 1000 → 10 because 2¹⁰ = 1024). Recurrence T(n) = T(n/2) + 1. Not possible in O(log n) on a linked list.</li>
+<li>Interpolation search: O(log log n) on uniformly distributed data, O(n) worst case. Hash search: O(1) average.</li>
+</ul>
+
+<h2>Comparison sorts at a glance</h2>
+<div style="overflow-x:auto">
+<table>
+<tr><th>Algorithm</th><th>Best</th><th>Average</th><th>Worst</th><th>Extra space</th><th>Stable?</th></tr>
+<tr><td>Bubble</td><td>n (with early exit)</td><td>n²</td><td>n²</td><td>1</td><td>Yes</td></tr>
+<tr><td>Selection</td><td>n²</td><td>n²</td><td>n²</td><td>1</td><td>No</td></tr>
+<tr><td>Insertion</td><td><b>n</b></td><td>n²</td><td>n²</td><td>1</td><td>Yes</td></tr>
+<tr><td>Merge</td><td>n log n</td><td>n log n</td><td>n log n</td><td>O(n)</td><td>Yes</td></tr>
+<tr><td>Quick</td><td>n log n</td><td>n log n</td><td><b>n²</b></td><td>O(log n) stack (O(n) worst)</td><td>No</td></tr>
+<tr><td>Heap</td><td>n log n</td><td>n log n</td><td>n log n</td><td>1</td><td>No</td></tr>
+</table>
+</div>
+<p>A sort is <b>stable</b> if equal keys keep their original relative order, and <b>in place</b> if it uses O(1) extra memory. Selection sort makes at most n−1 swaps (the fewest of the simple sorts); insertion sort is best for nearly sorted data and small arrays; merge sort is the choice for linked lists and external sorting.</p>
+
+<h2>Lower bound and non-comparison sorts</h2>
+<ul style="color:#c9d1e0">
+<li>Any comparison sort corresponds to a binary <b>decision tree</b> with at least n! leaves, so its height is ≥ ⌈log₂ n!⌉ = Ω(n log n). Sorting 5 items needs at least ⌈log₂ 120⌉ = <b>7</b> comparisons in the worst case.</li>
+<li><b>Counting sort</b>: keys are integers in 0…k; Θ(n + k) time and space, stable. <b>Radix sort</b>: d passes of a stable sort, Θ(d(n + k)). <b>Bucket sort</b>: Θ(n) expected for uniform input. These beat n log n only because they do not compare keys.</li>
+</ul>
+
+<h2>Counting operations</h2>
+<div class="grid2">
+<div class="card"><b>Inversions</b><br>A pair i &lt; j with a[i] &gt; a[j]. Maximum n(n−1)/2 (reverse sorted). Insertion sort performs <b>exactly one shift per inversion</b>; bubble sort performs exactly one swap per inversion.</div>
+<div class="card"><b>Useful exact counts</b><pre>merge two sorted lists (m, n): m + n − 1 worst
+merge sort, n = 2ᵏ:  n log₂n − n + 1  worst
+selection sort comparisons: n(n−1)/2
+max AND min together:  ⌈3n/2⌉ − 2
+second largest:       n + ⌈log₂n⌉ − 2</pre></div>
+</div>
+<div class="num"><div class="tag">Worked numerical — inversions and shifts</div>
+<pre>[2, 4, 1, 3, 5]  : inversions (2,1) (4,1) (4,3) = <b>3</b>  → insertion sort makes 3 shifts
+[3, 8, 2, 5, 1, 4, 7, 6] : 12 inversions → 12 shifts, and bubble sort makes 12 swaps
+[5, 4, 3, 2, 1] : 10 inversions = 5·4/2 (the maximum), bubble sort needs 10 swaps</pre>
+</div>
+<div class="num"><div class="tag">Worked numerical — quicksort worst case</div>
+With the first (or last) element as the pivot, an already sorted array splits into 0 and n−1 elements every time, so comparisons = (n−1) + (n−2) + … + 1 = n(n−1)/2: n = 6 → <b>15</b>, n = 8 → 28 (counted by running the algorithm). The recurrence is T(n) = T(n−1) + n, i.e. Θ(n²). <b>Randomised pivot</b> or <b>median-of-three</b> avoids this on sorted input; expected comparisons ≈ 2n ln n ≈ 1.39 n log₂ n.
+</div>
+<div class="num"><div class="tag">Worked numerical — merge sort comparisons (n = 8)</div>
+Worst case = 8·3 − 8 + 1 = <b>17</b> comparisons, best case = 12 (n/2 · log₂ n). Both values were confirmed by sorting all 8! = 40 320 permutations and recording the minimum and maximum comparison counts.
+</div>
+
+<h2>Selection problems</h2>
+<ul style="color:#c9d1e0">
+<li><b>Quickselect</b> (k-th smallest): partition around a pivot and recurse into one side — O(n) average, O(n²) worst.</li>
+<li><b>Median of medians</b> guarantees a good pivot (groups of 5), giving O(n) worst case: T(n) = T(n/5) + T(7n/10) + O(n).</li>
+<li>Finding the maximum needs exactly n − 1 comparisons. Finding max and min together takes ⌈3n/2⌉ − 2 (compare in pairs first): n = 8 → 10, n = 100 → <b>148</b> (verified by simulation).</li>
+</ul>
+<div class="warn"><div class="tag">GATE angle</div>Know which sort is stable, in place, adaptive (insertion), and which has an O(n²) worst case (quick, insertion, bubble, selection). Expect questions on <b>number of swaps/comparisons for a given array</b>, <b>effect of the pivot rule</b> and "which sorting algorithm will take the least time on an already sorted input" (insertion sort: Θ(n)).</div>
+</section>
+
+<section id="dc">
+<h1>3. Divide & Conquer</h1>
+<div class="sub">Split the problem into independent subproblems, solve each recursively, and combine the results. The running time is a recurrence T(n) = aT(n/b) + f(n).</div>
+
+<h2>The pattern</h2>
+<ol style="color:#c9d1e0">
+<li><b>Divide</b> the input into a smaller instances of size n/b.</li>
+<li><b>Conquer</b> by solving them recursively (base case for tiny inputs).</li>
+<li><b>Combine</b> the answers in f(n) time.</li>
+</ol>
+<div style="overflow-x:auto">
+<table>
+<tr><th>Algorithm</th><th>Recurrence</th><th>Time</th></tr>
+<tr><td>Binary search</td><td>T(n) = T(n/2) + 1</td><td>Θ(log n)</td></tr>
+<tr><td>Merge sort</td><td>T(n) = 2T(n/2) + n</td><td>Θ(n log n)</td></tr>
+<tr><td>Quicksort (balanced split)</td><td>T(n) = 2T(n/2) + n</td><td>Θ(n log n); worst Θ(n²)</td></tr>
+<tr><td>Max &amp; min of an array</td><td>T(n) = 2T(n/2) + 2</td><td>3n/2 − 2 comparisons (n a power of 2)</td></tr>
+<tr><td>Maximum-subarray (D&amp;C)</td><td>T(n) = 2T(n/2) + n</td><td>Θ(n log n) (Kadane's DP does Θ(n))</td></tr>
+<tr><td>Closest pair of points</td><td>T(n) = 2T(n/2) + n</td><td>Θ(n log n)</td></tr>
+<tr><td>Karatsuba multiplication</td><td>T(n) = 3T(n/2) + n</td><td>Θ(n<sup>log₂3</sup>) ≈ n<sup>1.585</sup></td></tr>
+<tr><td>Strassen matrix multiplication</td><td>T(n) = 7T(n/2) + n²</td><td>Θ(n<sup>log₂7</sup>) ≈ n<sup>2.81</sup> (naive: n³)</td></tr>
+<tr><td>Median of medians selection</td><td>T(n) = T(n/5) + T(7n/10) + n</td><td>Θ(n)</td></tr>
+<tr><td>Fast exponentiation</td><td>T(n) = T(n/2) + 1</td><td>Θ(log n) multiplications</td></tr>
+</table>
+</div>
+
+<h2>Worked ideas</h2>
+<div class="num"><div class="tag">Worked numerical — Strassen</div>
+Naive 2×2 block multiplication needs 8 recursive products, giving n³. Strassen uses 7 products plus extra additions (Θ(n²) work).
+<pre>fully recursing an 8×8 matrix down to 1×1 scalars:
+   naive:    8³ = 512 scalar multiplications
+   Strassen: 7³ = 343 scalar multiplications          (4×4: 49 vs 64)
+exponent log₂7 ≈ 2.807  vs  3</pre>
+</div>
+<div class="num"><div class="tag">Worked numerical — fast exponentiation (square and multiply)</div>
+x¹³: 13 = 1101₂. Squarings needed = ⌊log₂13⌋ = 3 and extra multiplications = (number of 1 bits) − 1 = 2, so <b>5</b> multiplications instead of 12. x¹⁵ needs 6, x¹⁶ needs only 4.
+</div>
+<div class="num"><div class="tag">Worked numerical — max and min with n = 8</div>
+Recurrence T(2) = 1, T(n) = 2T(n/2) + 2 → T(n) = 3n/2 − 2 = <b>10</b> for n = 8. Compare this with the straightforward 2(n − 1) = 14 comparisons.
+</div>
+<ul style="color:#c9d1e0">
+<li><b>Merge step of merge sort</b> uses O(n) extra space; sorting an array of n elements has recursion depth log₂ n.</li>
+<li><b>Counting inversions</b> in O(n log n): piggy-back on merge sort — when an element from the right half is merged before elements of the left half, it forms inversions with all remaining left elements.</li>
+<li>Efficiency of D&amp;C comes from the combine cost: if the subproblems overlap (e.g. Fibonacci), plain D&amp;C is exponential and <b>dynamic programming</b> is needed instead.</li>
+</ul>
+</section>
+
+<section id="greedy">
+<h1>4. Greedy Algorithms</h1>
+<div class="sub">Make the locally best choice at each step and never reconsider. It works only when the problem has the <b>greedy-choice property</b> and <b>optimal substructure</b>.</div>
+
+<h2>When greedy works</h2>
+<ul style="color:#c9d1e0">
+<li><b>Greedy-choice property</b>: some optimal solution contains the greedy first choice (proved by an <b>exchange argument</b>: swap any optimal solution's first choice for the greedy one without making it worse).</li>
+<li><b>Optimal substructure</b>: after the greedy choice, the rest is a smaller instance of the same problem.</li>
+<li>Greedy algorithms are usually simple and fast (often O(n log n) because of a sort or a heap) but can be <b>wrong</b>: always look for a counter-example.</li>
+</ul>
+
+<h2>Classic problems</h2>
+<div style="overflow-x:auto">
+<table>
+<tr><th>Problem</th><th>Greedy rule</th><th>Time</th></tr>
+<tr><td>Activity selection (maximum number of non-overlapping activities)</td><td>sort by <b>earliest finish time</b>; take each activity that starts after the last chosen one ends</td><td>O(n log n)</td></tr>
+<tr><td>Fractional knapsack</td><td>sort by value/weight ratio; take whole items, then a fraction of the next</td><td>O(n log n)</td></tr>
+<tr><td>Huffman coding</td><td>repeatedly merge the two least-frequent nodes</td><td>O(n log n) with a min-heap</td></tr>
+<tr><td>Optimal merge pattern</td><td>always merge the two smallest files (same as Huffman)</td><td>O(n log n)</td></tr>
+<tr><td>Job sequencing with deadlines</td><td>sort by profit; place each job in the latest free slot ≤ its deadline</td><td>O(n²) (O(n log n) with union-find)</td></tr>
+<tr><td>Minimising total waiting time</td><td>shortest job first</td><td>O(n log n)</td></tr>
+<tr><td>MST (Kruskal, Prim)</td><td>cheapest safe edge</td><td>see graph section</td></tr>
+<tr><td>Dijkstra</td><td>closest unvisited vertex</td><td>see graph section</td></tr>
+</table>
+</div>
+
+<div class="num"><div class="tag">Worked numerical — activity selection</div>
+Activities (start, finish): (1,4) (3,5) (0,6) (5,7) (3,9) (5,9) (6,10) (8,11) (8,12) (2,14) (12,16). Sorted by finish time, the greedy picks <b>(1,4), (5,7), (8,11), (12,16)</b> — 4 activities, which is the maximum. Picking the shortest or the earliest-starting activity first is <b>not</b> always optimal.
+</div>
+<div class="num"><div class="tag">Worked numerical — Huffman coding</div>
+<b>Q:</b> Frequencies (per 100 characters): a 45, b 13, c 12, d 16, e 9, f 5. Find the total encoded length.<br>
+<b>A:</b> Merge the two smallest repeatedly: f+e = 14; c+b = 25; 14+d = 30; 25+30 = 55; a+55 = 100.
+<pre>code lengths:  a = 1,  b = 3,  c = 3,  d = 3,  e = 4,  f = 4
+total bits = 45·1 + 13·3 + 12·3 + 16·3 + 9·4 + 5·4 = 45 + 39 + 36 + 48 + 36 + 20 = <b>224</b>
+fixed-length 3-bit code: 300 bits.   (also = sum of all internal-node weights: 14 + 25 + 30 + 55 + 100 = 224)</pre>
+A Huffman tree on n symbols has n − 1 internal nodes; Huffman codes are <b>prefix-free</b>, and the two least frequent symbols end up as siblings at the deepest level.
+</div>
+<div class="num"><div class="tag">Worked numerical — knapsack: fractional vs 0/1</div>
+Items (value, weight): (60, 10), (100, 20), (120, 30); capacity 50. Ratios: 6, 5, 4.
+<pre>Fractional (greedy by ratio): all of item 1 (60) + all of item 2 (100) + 20/30 of item 3 (80) = <b>240</b>
+0/1 greedy by ratio: items 1 and 2 → weight 30, value <b>160</b>   (item 3 does not fit whole)
+0/1 optimum (dynamic programming): items 2 and 3 → weight 50, value <b>220</b></pre>
+So greedy is optimal for the fractional version but <b>fails for 0/1 knapsack</b>, which needs DP.
+</div>
+<div class="num"><div class="tag">Worked numerical — coin change where greedy fails</div>
+Coins {1, 3, 4}, amount 6: greedy takes 4 + 1 + 1 = <b>3</b> coins, but 3 + 3 = <b>2</b> coins is optimal. Greedy is correct for canonical systems such as {1, 5, 10, 25} and for {1, 2, 5, 10}.
+</div>
+<div class="num"><div class="tag">Worked numerical — job sequencing with deadlines</div>
+Jobs (profit, deadline): A (100, 2), B (19, 1), C (27, 2), D (25, 1), E (15, 3). Process in decreasing profit: A → slot 2; C → slot 1 (latest free ≤ 2); D and B need slot 1 (taken) → rejected; E → slot 3. Schedule C, A, E with profit 27 + 100 + 15 = <b>142</b>.
+</div>
+<div class="num"><div class="tag">Worked numerical — optimal merge pattern</div>
+Merging files of sizes 20, 30, 10, 5, 30 pairwise with minimum total cost: 5+10 = 15; 15+20 = 35; 30+30 = 60; 35+60 = 95 → total cost 15 + 35 + 60 + 95 = <b>205</b>.
+</div>
+</section>
+
+<section id="dp">
+<h1>5. Dynamic Programming</h1>
+<div class="sub">Solve each subproblem once and store the answer. It applies when the problem has <b>optimal substructure</b> and <b>overlapping subproblems</b>.</div>
+
+<h2>Method</h2>
+<ol style="color:#c9d1e0">
+<li>Define the subproblem (the state) and what the table entry means.</li>
+<li>Write the recurrence that builds a state from smaller ones, plus the base cases.</li>
+<li>Fill the table in an order that respects dependencies (<b>tabulation</b>, bottom-up) or recurse with a cache (<b>memoisation</b>, top-down).</li>
+<li>Time = (number of states) × (work per state); space = table size (often reducible to one or two rows).</li>
+</ol>
+<p><b>DP vs divide &amp; conquer</b>: D&amp;C subproblems are independent; DP subproblems overlap. <b>DP vs greedy</b>: DP examines all choices (guaranteed optimal when the structure holds); greedy commits to one. Naive recursion on overlapping subproblems is exponential — Fibonacci with memoisation drops from Θ(φⁿ) to Θ(n).</p>
+
+<h2>Standard problems</h2>
+<div style="overflow-x:auto">
+<table>
+<tr><th>Problem</th><th>Recurrence</th><th>Time / space</th></tr>
+<tr><td><b>Longest common subsequence</b> (strings of length m, n)</td><td>L[i][j] = L[i−1][j−1] + 1 if x<sub>i</sub> = y<sub>j</sub>, else max(L[i−1][j], L[i][j−1])</td><td>Θ(mn) time; (m+1)(n+1) table</td></tr>
+<tr><td><b>Edit distance</b></td><td>D[i][j] = min(D[i−1][j] + 1, D[i][j−1] + 1, D[i−1][j−1] + [x<sub>i</sub> ≠ y<sub>j</sub>])</td><td>Θ(mn)</td></tr>
+<tr><td><b>0/1 knapsack</b> (n items, capacity W)</td><td>K[i][w] = max(K[i−1][w], v<sub>i</sub> + K[i−1][w − w<sub>i</sub>])</td><td>Θ(nW) — <i>pseudo-polynomial</i></td></tr>
+<tr><td><b>Matrix-chain multiplication</b></td><td>M[i][j] = min<sub>i≤k&lt;j</sub> (M[i][k] + M[k+1][j] + p<sub>i−1</sub>p<sub>k</sub>p<sub>j</sub>)</td><td>Θ(n³) time, Θ(n²) space</td></tr>
+<tr><td><b>Longest increasing subsequence</b></td><td>L[i] = 1 + max L[j] over j &lt; i with a[j] &lt; a[i]</td><td>Θ(n²); Θ(n log n) with binary search</td></tr>
+<tr><td>Coin change (minimum coins)</td><td>C[x] = 1 + min C[x − c]</td><td>Θ(amount · #coins)</td></tr>
+<tr><td>Coin change (number of ways)</td><td>for each coin, W[x] += W[x − c]</td><td>Θ(amount · #coins)</td></tr>
+<tr><td>Subset sum / partition</td><td>reachable[s] |= reachable[s − a<sub>i</sub>]</td><td>Θ(n · sum)</td></tr>
+<tr><td>Floyd–Warshall (all-pairs shortest path)</td><td>d<sup>(k)</sup>[i][j] = min(d<sup>(k−1)</sup>[i][j], d<sup>(k−1)</sup>[i][k] + d<sup>(k−1)</sup>[k][j])</td><td>Θ(V³)</td></tr>
+<tr><td>Rod cutting, optimal BST, Catalan numbers, longest palindromic subsequence</td><td colspan="2">same pattern: states over intervals or prefixes</td></tr>
+</table>
+</div>
+<div class="num"><div class="tag">Worked numerical — LCS table</div>
+<b>Q:</b> Find the length of the LCS of <code>ABCB</code> and <code>BDCAB</code>.
+<pre>       ε  B  D  C  A  B
+  ε    0  0  0  0  0  0
+  A    0  0  0  0  1  1
+  B    0  1  1  1  1  2
+  C    0  1  1  2  2  2
+  B    0  1  1  2  2  3</pre>
+The bottom-right entry is <b>3</b> (the subsequence B C B). Strings <code>AGGTAB</code> and <code>GXTXAYB</code> have an LCS of length <b>4</b> (G T A B); the CLRS strings <code>ABCBDAB</code> and <code>BDCABA</code> also give 4. A recursive solution without memoisation is exponential in the worst case, while the table needs Θ(mn).
+</div>
+<div class="num"><div class="tag">Worked numerical — edit distance</div>
+<code>kitten → sitting</code>: substitute k→s, substitute e→i, insert g = <b>3</b> operations (<code>sunday → saturday</code> also takes 3: insert a, insert t, substitute n→r).
+</div>
+<div class="num"><div class="tag">Worked numerical — 0/1 knapsack</div>
+Weights {1, 3, 4, 5}, values {1, 4, 5, 7}, capacity 7. The best choice is the items of weight 3 and 4 (value 4 + 5 = <b>9</b>). Taking weights 1 + 5 gives only 8, and 1 + 3 gives 5. Runtime Θ(nW) = 4 · 7 table cells.
+</div>
+<div class="num"><div class="tag">Worked numerical — matrix-chain multiplication</div>
+<pre>A1 (10×30), A2 (30×5), A3 (5×60):
+(A1A2)A3 : 10·30·5 + 10·5·60 = 1500 + 3000  = <b>4500</b>
+A1(A2A3) : 30·5·60 + 10·30·60 = 9000 + 18000 = 27000
+Dimensions p = (40, 20, 30, 10, 30) for four matrices → minimum = <b>26000</b> scalar multiplications</pre>
+The number of ways to fully parenthesise n matrices is the Catalan number C(n−1); the table has about n²/2 entries and each takes O(n).
+</div>
+<div class="num"><div class="tag">Worked numerical — LIS and coin change</div>
+LIS of <code>[10, 22, 9, 33, 21, 50, 41, 60]</code> has length <b>5</b> (10, 22, 33, 50, 60). Minimum coins for 11 with {1, 2, 5} = <b>3</b> (5 + 5 + 1). Number of ways to make 5 with {1, 2, 5} = <b>4</b> (5; 2+2+1; 2+1+1+1; 1+1+1+1+1).
+</div>
+<div class="warn"><div class="tag">GATE angle</div>Typical asks: the <b>time or space</b> of a DP, the <b>table size</b>, filling a few cells by hand, whether a problem has overlapping subproblems, and "which of these is solved by DP vs greedy". Remember that 0/1 knapsack and subset sum are <b>pseudo-polynomial</b> (polynomial in the numeric value W, not in its bit length), so they do not contradict NP-completeness.</div>
+</section>
+
+<section id="graph">
+<h1>6. Graph Algorithms</h1>
+<div class="sub">Traversal, topological ordering, strongly connected components, minimum spanning trees and shortest paths. V = number of vertices, E = number of edges.</div>
+
+<h2>Traversal: BFS and DFS</h2>
+<ul style="color:#c9d1e0">
+<li><b>BFS</b> (queue): visits vertices in increasing distance (number of edges) from the source; gives shortest paths in <b>unweighted</b> graphs; Θ(V + E) with adjacency lists, Θ(V²) with a matrix. A graph is <b>bipartite</b> iff BFS can 2-colour it (no odd cycle).</li>
+<li><b>DFS</b> (stack / recursion): records discovery and finish times; Θ(V + E). Edge types in a directed graph: <b>tree, back, forward, cross</b>. A directed graph has a cycle <b>iff DFS finds a back edge</b>; an undirected graph has a cycle iff DFS meets a visited vertex that is not the parent.</li>
+<li>A DFS forest of an undirected graph with c components has V − c tree edges. <b>Articulation points</b> and <b>bridges</b> are found with DFS low-link values in Θ(V + E).</li>
+</ul>
+
+<h2>Topological sort and SCC</h2>
+<ul style="color:#c9d1e0">
+<li>A topological ordering (every edge u → v has u before v) exists <b>iff the graph is a DAG</b>. Two methods, both Θ(V + E): (1) <b>Kahn</b> — repeatedly remove a vertex of in-degree 0; (2) DFS — output vertices in <b>decreasing finish time</b>. The ordering is usually <b>not unique</b>.</li>
+<li><b>Strongly connected components</b>: Kosaraju (DFS on G, then DFS on the transpose in decreasing finish time) or Tarjan (one DFS with low-links), both Θ(V + E). Contracting each SCC gives a DAG.</li>
+</ul>
+<div class="num"><div class="tag">Worked numerical — counting topological orderings</div>
+DAG on vertices 0–5 with edges 5→2, 5→0, 4→0, 4→1, 2→3, 3→1. Kahn's algorithm with the smallest-index rule gives <b>4 5 0 2 3 1</b>. Counting all linear extensions (by testing every permutation of the 6 vertices) gives <b>13</b> valid topological orders.
+</div>
+<div class="num"><div class="tag">Worked numerical — SCCs</div>
+Directed graph: 0→1, 1→2, 2→0, 2→3, 3→4, 4→5, 5→3, 6→5, 6→7, 7→6. SCCs: <b>{0,1,2}</b>, <b>{3,4,5}</b>, <b>{6,7}</b> — three components, and the condensation DAG is {6,7} → {3,4,5} ← {0,1,2}.
+</div>
+
+<h2>Minimum spanning tree</h2>
+<ul style="color:#c9d1e0">
+<li>An MST of a connected weighted graph has V − 1 edges and minimum total weight. If all edge weights are <b>distinct</b>, the MST is <b>unique</b>.</li>
+<li><b>Cut property</b>: for any cut, the lightest crossing edge belongs to some MST. <b>Cycle property</b>: the heaviest edge on a cycle (if unique) belongs to no MST.</li>
+<li><b>Kruskal</b>: sort edges, add the next edge if it joins two different components (union-find). Θ(E log E) = Θ(E log V).</li>
+<li><b>Prim</b>: grow one tree from a start vertex, always adding the cheapest edge leaving it. Θ(E log V) with a binary heap; Θ(V²) with an adjacency matrix and no heap; Θ(E + V log V) with a Fibonacci heap.</li>
+<li>Adding the same constant to every edge, or squaring all positive weights, does not change which spanning tree is minimum (only the ordering of weights matters).</li>
+</ul>
+<div class="num"><div class="tag">Worked numerical — one graph, three algorithms</div>
+Undirected graph on A–F with edges: A–B 4, A–C 2, B–C 1, B–D 5, C–D 8, C–E 10, D–E 2, D–F 6, E–F 3.
+<pre>Kruskal (sorted: 1, 2, 2, 3, 4, 5, 5…):
+  B–C (1) ✔   A–C (2) ✔   D–E (2) ✔   E–F (3) ✔   A–B (4) ✘ cycle   B–D (5) ✔ joins {A,B,C} with {D,E,F}
+  MST weight = 1 + 2 + 2 + 3 + 5 = <b>13</b>
+Prim from A: A–C (2), C–B (1), B–D (5), D–E (2), E–F (3)  → also <b>13</b>
+
+Dijkstra from A:   A 0,  C 2,  B 3 (via C),  D 8 (via B),  E 10 (via D),  F 13 (via E)
+Shortest path to F: A → C → B → D → E → F   with length <b>13</b></pre>
+</div>
+
+<h2>Single-source shortest paths</h2>
+<div style="overflow-x:auto">
+<table>
+<tr><th>Algorithm</th><th>Handles</th><th>Time</th></tr>
+<tr><td>BFS</td><td>unweighted graphs</td><td>Θ(V + E)</td></tr>
+<tr><td><b>Dijkstra</b></td><td>non-negative weights only</td><td>Θ((V + E) log V) with a binary heap; Θ(V²) with an array</td></tr>
+<tr><td><b>Bellman–Ford</b></td><td>negative edges; <b>detects negative cycles</b></td><td>Θ(VE)</td></tr>
+<tr><td>DAG relaxation in topological order</td><td>negative edges, DAG only</td><td>Θ(V + E)</td></tr>
+<tr><td><b>Floyd–Warshall</b></td><td>all pairs; negative edges but no negative cycle</td><td>Θ(V³), Θ(V²) space</td></tr>
+<tr><td>Johnson's algorithm</td><td>all pairs on sparse graphs with negative edges</td><td>Θ(VE + V² log V)</td></tr>
+</table>
+</div>
+<ul style="color:#c9d1e0">
+<li>Relaxation: if d[u] + w(u, v) &lt; d[v], set d[v] = d[u] + w(u, v). Bellman–Ford relaxes every edge V − 1 times; a further improving relaxation means a negative cycle.</li>
+<li><b>Dijkstra fails with negative edges</b> because a vertex's distance is finalised when it is extracted, and a later negative edge could still shorten it.</li>
+</ul>
+<div class="num"><div class="tag">Worked numerical — Bellman–Ford with negative edges</div>
+Directed graph, source s: s→a 6, s→b 7, a→b 8, a→c 5, a→d −4, b→c −3, b→d 9, c→a −2, d→s 2, d→c 7.
+<pre>after V − 1 = 4 passes:  d(s) = 0,  d(a) = 2,  d(b) = 7,  d(c) = 4,  d(d) = <b>−2</b>
+shortest path s → d : s → b → c → a → d, with length 7 + (−3) + (−2) + (−4) = −2 ✔
+One more pass improves nothing → no negative cycle</pre>
+</div>
+<div class="num"><div class="tag">Worked numerical — Floyd–Warshall on 4 vertices</div>
+Initial weights: 1→2 = 3, 1→4 = 7, 2→1 = 8, 2→3 = 2, 3→1 = 5, 3→4 = 1, 4→1 = 2 (others ∞). After the three nested loops (V³ = 64 updates):
+<pre>      1   2   3   4
+ 1    0   3   5   6
+ 2    5   0   2   3
+ 3    3   6   0   1
+ 4    2   5   7   0</pre>
+For example d(1,4) improves from 7 to 6 via 1→2→3→4 (3 + 2 + 1).
+</div>
+<div class="warn"><div class="tag">GATE angle</div>Know the <b>time complexity</b> of each algorithm (and its dependence on the data structure), <b>when it fails</b>, the order in which Dijkstra extracts vertices, and what the first few Kruskal/Prim steps pick. Floyd–Warshall detects a negative cycle by a negative value on the diagonal.</div>
+</section>
+
+<section id="np">
+<h1>7. Amortized Analysis, Hashing & NP-Completeness</h1>
+<div class="sub">Average cost over a sequence of operations, expected cost of hashing, and the classification of problems by how hard they are to solve.</div>
+
+<h2>Amortized analysis</h2>
+<p>The amortized cost of an operation is the <b>average over a worst-case sequence</b> — no probability involved. Three methods: <b>aggregate</b> (total ÷ n), <b>accounting</b> (charge extra credit to cheap operations), <b>potential</b> (a potential function Φ ≥ 0, amortized cost = actual + ΔΦ).</p>
+<div class="num"><div class="tag">Worked numerical — dynamic array doubling</div>
+Push onto an array whose capacity doubles when full. Copies happen at sizes 1, 2, 4, 8, … For n = 16 pushes: 16 writes + (1 + 2 + 4 + 8) = 15 copies = <b>31</b> total, i.e. under 2 per push. In general the total is &lt; 3n, so the amortized cost per push is <b>O(1)</b> even though a single push can cost Θ(n).
+</div>
+<div class="num"><div class="tag">Worked numerical — binary counter</div>
+Incrementing a k-bit counter flips many bits occasionally. Total flips over n increments from 0 equals 2n − (number of 1s in n): n = 8 → 15, n = 16 → <b>31</b>, n = 100 → 197. So the amortized cost per increment is <b>&lt; 2</b> flips = O(1).
+</div>
+<ul style="color:#c9d1e0">
+<li><b>Union–find</b> with union by rank and path compression: m operations cost O(m·α(n)), where α is the inverse Ackermann function (≤ 4 for any practical n).</li>
+<li>Stack with <b>multipop</b>, queue from two stacks, and splay trees are standard amortized examples.</li>
+</ul>
+
+<h2>Hashing — analysis</h2>
+<ul style="color:#c9d1e0">
+<li>With chaining and simple uniform hashing, load factor α = n/m: expected unsuccessful search Θ(1 + α), successful ≈ 1 + α/2. With α = O(1), operations are O(1) expected.</li>
+<li>Open addressing, uniform probing: expected probes ≈ 1/(1 − α) for an unsuccessful search and (1/α)·ln(1/(1 − α)) for a successful one.</li>
+<li>A <b>universal family</b> of hash functions makes the expected number of collisions small regardless of the input. The <b>birthday paradox</b>: collisions are likely once about √m keys are inserted. Cuckoo hashing gives worst-case O(1) lookups.</li>
+</ul>
+
+<h2>P, NP and NP-completeness</h2>
+<div style="overflow-x:auto">
+<table>
+<tr><th>Class</th><th>Definition</th></tr>
+<tr><td><b>P</b></td><td>decision problems solvable in polynomial time by a deterministic algorithm</td></tr>
+<tr><td><b>NP</b></td><td>problems whose "yes" answers can be <b>verified in polynomial time</b> given a certificate (equivalently, solvable by a non-deterministic polynomial-time machine). P ⊆ NP.</td></tr>
+<tr><td><b>NP-hard</b></td><td>at least as hard as every problem in NP (every NP problem reduces to it); need not be in NP</td></tr>
+<tr><td><b>NP-complete</b></td><td>in NP <b>and</b> NP-hard</td></tr>
+</table>
+</div>
+<ul style="color:#c9d1e0">
+<li><b>Polynomial-time reduction</b> A ≤<sub>p</sub> B: an easy translation of instances of A into instances of B. If B is easy then A is easy; if A is hard then B is hard. To prove B NP-hard, reduce a <b>known NP-complete</b> problem <b>to</b> B (direction matters!).</li>
+<li><b>Cook–Levin theorem</b>: SAT is NP-complete (the first one). If any NP-complete problem is in P, then <b>P = NP</b>; if any is proved to need super-polynomial time, then P ≠ NP.</li>
+</ul>
+<div style="overflow-x:auto">
+<table>
+<tr><th>NP-complete</th><th>In P (polynomial time)</th></tr>
+<tr><td>SAT, <b>3-SAT</b>, Clique, Independent Set, Vertex Cover, Hamiltonian cycle/path, Travelling Salesman (decision), Subset Sum, Partition, 3-colouring, 0/1 knapsack (decision), Set cover</td><td><b>2-SAT</b>, shortest paths, MST, matching, maximum flow, 2-colouring (bipartiteness), Euler circuit, linear programming, primality testing (AKS), sorting, searching</td></tr>
+</table>
+</div>
+<div class="num"><div class="tag">Worked numerical — vertex cover and independent set are complements</div>
+<b>Fact:</b> S is a vertex cover of G iff V − S is an independent set. So min vertex cover + max independent set = |V|. Check on the graph with edges 0–1, 1–2, 2–3, 3–4, 4–0, 0–5 (a 5-cycle with a pendant vertex): minimum vertex cover = 3 ({0, 2, 3} works), maximum independent set = 3 ({1, 3, 5}), and 3 + 3 = 6 = |V| (checked by brute force over all subsets).
+</div>
+<ul style="color:#c9d1e0">
+<li><b>Pseudo-polynomial</b> algorithms run in time polynomial in the numeric <i>value</i> of the input (knapsack Θ(nW)); NP-complete problems that have them are only "weakly" NP-complete.</li>
+<li><b>Approximation</b>: vertex cover has a simple 2-approximation (take both endpoints of a maximal matching); metric TSP has a 2-approximation (double the MST) and Christofides' 1.5.</li>
+<li>Relationship of classes believed true: P ⊂ NP ⊂ PSPACE ⊂ EXPTIME (P ≠ NP is an open question). Co-NP contains the complements of NP problems; P ⊆ NP ∩ co-NP.</li>
+</ul>
+<div class="warn"><div class="tag">GATE angle</div>Typical questions: "which of these is not known to be NP-complete / is in P" (2-SAT, shortest path, MST are in P; 3-SAT, Clique, Hamiltonian cycle, Subset Sum are NPC), "what follows if X is in P", and which direction a reduction must go. The decision version of a problem is the one that is NP-complete; the optimisation version is NP-hard.</div>
+</section>
+
+
+<section id="methods">
+<h1>8. Problem → Standard Method Playbook</h1>
+<div class="sub">Standard GATE methods for the remaining high-yield algorithmic patterns. Identify the problem family first, then apply the canonical algorithm.</div>
+
+<div class="card" data-hy-type="must"><h2>Heap Sort — canonical procedure</h2>
+<ol><li>Build a <b>max-heap</b> for ascending order (bottom-up heapify, O(n)).</li><li>Swap the root with the last element of the active heap.</li><li>Reduce heap size by one and max-heapify the root.</li><li>Repeat until one element remains.</li></ol>
+<p>Time: <b>O(n log n)</b> in best/average/worst cases. Auxiliary array space: <b>O(1)</b> for in-place heap sort. It is not stable.</p>
+</div>
+
+<div class="card" data-hy-type="gate"><h2>Open addressing — double hashing</h2>
+<p>For table size m, the standard probe sequence is:</p>
+<div class="card"><code>h(k,i) = (h₁(k) + i·h₂(k)) mod m</code>, i = 0,1,2,…</div>
+<ul><li>Choose h₂(k) relatively prime to m so the sequence can visit the entire table.</li><li>Do not confuse double hashing with linear probing: linear probing adds a fixed step of 1.</li><li>Deletion normally uses a tombstone/deleted marker; simply clearing a slot can break future searches.</li></ul>
+</div>
+
+<div class="card" data-hy-type="must"><h2>BFS / DFS — recognition and invariants</h2>
+<ul><li><b>BFS:</b> queue; explores by nondecreasing distance from the source. In an unweighted graph, first discovery gives a shortest-path distance.</li><li><b>DFS:</b> recursion/explicit stack; timestamps classify edges and support cycle detection, topological ordering, SCCs and articulation/bridge algorithms.</li><li>For an undirected graph, DFS produces tree/back edges; a cross-edge classification from directed DFS should not be imported blindly.</li></ul>
+</div>
+
+<div class="card" data-hy-type="formula"><h2>Articulation point — Tarjan low-link test</h2>
+<p>During DFS, maintain <code>disc[u]</code> and <code>low[u]</code>. For a DFS tree edge u→v:</p>
+<ul><li>If u is not the root: <b>u is an articulation point iff some child v has low[v] ≥ disc[u]</b>.</li><li>If u is the DFS root: it is an articulation point iff it has at least <b>2 DFS children</b>.</li><li>For an undirected graph, a bridge is detected by <code>low[v] &gt; disc[u]</code>.</li></ul>
+</div>
+
+<div class="card" data-hy-type="gate"><h2>Greedy vs DP — selection test</h2>
+<p>Before choosing an algorithm, ask:</p>
+<ol><li>Does a locally optimal choice provably extend to a global optimum? → seek a <b>greedy-choice/exchange proof</b>.</li><li>Do many subproblems overlap and can an optimal solution be decomposed into optimal subsolutions? → use <b>DP</b>.</li><li>If neither property is apparent, do not force greedy or DP; consider graph search, divide-and-conquer, backtracking, or another formulation.</li></ol>
+</div>
+
+<div class="num" data-hy-type="formula"><div class="tag">Worked problem — double hashing</div>
+<b>Table size m=11, h₁(k)=k mod 11, h₂(k)=7−(k mod 7). Insert 22, 33, 44 using open addressing.</b>
+<pre>22: h₁=0, h₂=6 → slot 0.
+33: h₁=0, h₂=2 → slot 0 occupied, then (0+2) mod 11 = 2.
+44: h₁=0, h₂=5 → slot 0 occupied, then 5 is free.
+Final occupied slots: 0→22, 2→33, 5→44.</pre>
+</div>
+
+<div class="num" data-hy-type="formula"><div class="tag">Worked problem — articulation point</div>
+<b>DFS tree:</b> 1→2, 2→3, 3→4, with a back edge 4→2. Is 2 an articulation point?</p>
+<pre>disc[2] &lt; disc[3].
+The subtree rooted at 3 has a back edge to 2, so low[3] = disc[2].
+Articulation condition for non-root 2 is low[3] ≥ disc[2].
+Equality holds → vertex 2 is an articulation point (removing it separates 1 from the {3,4} part).</pre>
+</div>
+
+<div class="num" data-hy-type="formula"><div class="tag">Worked problem — heap sort</div>
+<b>Build a max-heap from [4, 1, 3, 2].</b>
+<pre>Start: [4,1,3,2].
+Heapify index 1: 1 has child 2 → swap → [4,2,3,1].
+Index 0 already has largest child 4.
+Max-heap = [4,2,3,1].
+Then repeatedly swap root with the last active element and heapify the reduced heap.</pre>
+</div>
+</section>
+
+<section id="quiz">
+<h1>8. Practice Quiz — 58 Questions</h1>
+<div class="sub">Covers all 7 topics above. Click an option to check yourself instantly — explanations included.</div>
+<div class="qtopics" id="qtopics"></div><style>.qmode button{cursor:pointer;padding:8px 12px;border:1px solid #888;border-radius:8px;background:transparent}.qmode button.active{font-weight:700}.opt.selected{outline:2px solid currentColor;transform:translateX(2px)}</style><div class="qmode" style="margin:12px 0;display:flex;gap:8px;flex-wrap:wrap"><button id="mcqMode" class="active">MCQ</button><button id="msqMode">MSQ · Select all that apply</button></div>
+<div id="score">Answered <b id="ansCount">0</b>/58 · Correct <b id="corrCount">0</b></div>
+<div id="qlist"></div>
+</section>
+
+<section id="pyq">
+<h1>9. GATE-Level Solved Problems</h1>
+<div class="sub">The 58 quiz questions above check fundamentals. These are heavier, multi-step problems in GATE style — every step shown, and every answer verified by a program (brute force, simulation or direct implementation of the algorithm).</div>
+
+<div class="gq"><div class="gtag">Q1 · Recurrence with a log factor</div>
+<b>The solution of T(n) = 2T(n/2) + n log n (with T(1) = 1) is:</b>
+<ol class="gopts"><li>Θ(n log n)</li><li>Θ(n log² n)</li><li>Θ(n²)</li><li>Θ(n² log n)</li></ol>
+<pre>a = 2, b = 2 → n^(log₂2) = n.   f(n) = n · log¹n   → Master theorem case 2 with k = 1.
+T(n) = Θ(n · log^(k+1) n) = Θ(n log² n).
+Check by recursion tree: every level costs about n log(n/2^i); summing over log n levels gives ≈ ½ n log² n.
+(Evaluating the recurrence numerically: T(n)/(n log² n) ≈ 0.53–0.56 for n = 2¹⁰ … 2¹⁸ — a constant.)</pre>
+<p class="gans">Correct: Option 2 — Θ(n log² n).</p>
+</div>
+
+<div class="gq"><div class="gtag">Q2 · Counting loop iterations</div>
+<b>How many times is count++ executed for n = 100 in the following code?</b>
+<pre>for (i = 1; i &lt;= n; i *= 2)
+    for (j = 1; j &lt;= i; j++)
+        count++;</pre>
+<ol class="gopts"><li>100</li><li>127</li><li>200</li><li>700</li></ol>
+<pre>i takes the values 1, 2, 4, 8, 16, 32, 64 (128 &gt; 100 stops the loop).
+count = 1 + 2 + 4 + 8 + 16 + 32 + 64 = 127.
+In general 2^(⌊log₂n⌋+1) − 1 &lt; 2n, so the code is Θ(n), not Θ(n log n).</pre>
+<p class="gans">Correct: Option 2 — 127.</p>
+</div>
+
+<div class="gq"><div class="gtag">Q3 · Insertion sort shifts</div>
+<b>Insertion sort is applied to the array [3, 8, 2, 5, 1, 4, 7, 6]. The total number of times an element is shifted one position to the right is:</b>
+<ol class="gopts"><li>10</li><li>12</li><li>14</li><li>28</li></ol>
+<pre>Each shift removes exactly one inversion (a pair i &lt; j with a[i] &gt; a[j]), so shifts = number of inversions.
+List the inversions by their larger element:
+   3 : (3,2) (3,1)                                    → 2
+   8 : (8,2) (8,5) (8,1) (8,4) (8,7) (8,6)            → 6
+   2 : (2,1)                                          → 1
+   5 : (5,1) (5,4)                                    → 2
+   7 : (7,6)                                          → 1
+total = 2 + 6 + 1 + 2 + 1 = 12</pre>
+<p class="gans">Correct: Option 2 — 12 shifts (bubble sort would also make 12 swaps; the maximum possible for 8 elements is 28).</p>
+</div>
+
+<div class="gq"><div class="gtag">Q4 · Unbalanced divide and conquer</div>
+<b>The solution of T(n) = T(n/3) + T(2n/3) + n is:</b>
+<ol class="gopts"><li>Θ(n)</li><li>Θ(n log n)</li><li>Θ(n²)</li><li>Θ(n^(log₃2))</li></ol>
+<pre>Recursion tree: the root costs n; its children cost n/3 and 2n/3 (again summing to n); and so on —
+every level costs at most n.
+The shortest root-to-leaf path has length log₃ n and the longest log_(3/2) n, both Θ(log n).
+Total = Θ(n log n).   (Master theorem does not apply: the subproblem sizes differ.)
+Numerical check: T(n)/(n log₂n) ≈ 1.05–1.06 for n = 3⁸ … 3¹².</pre>
+<p class="gans">Correct: Option 2 — Θ(n log n).</p>
+</div>
+
+<div class="gq"><div class="gtag">Q5 · Huffman coding</div>
+<b>A file of 100 characters uses symbols with frequencies a:45, b:13, c:12, d:16, e:9, f:5. What is the total number of bits with an optimal prefix code, and which symbols get the longest codewords?</b>
+<ol class="gopts"><li>224 bits; e and f</li><li>224 bits; a and b</li><li>240 bits; e and f</li><li>300 bits; all symbols</li></ol>
+<pre>Merges: f+e = 14,  c+b = 25,  14+d = 30,  25+30 = 55,  a+55 = 100
+Depths: a = 1, b = 3, c = 3, d = 3, e = 4, f = 4
+Bits = 45·1 + 13·3 + 12·3 + 16·3 + 9·4 + 5·4 = 224   (= 14 + 25 + 30 + 55 + 100)
+The two rarest symbols (f, e) are merged first, so they sit deepest — 4-bit codes.</pre>
+<p class="gans">Correct: Option 1 — 224 bits; e and f have the longest codes.</p>
+</div>
+
+<div class="gq"><div class="gtag">Q6 · 0/1 knapsack (dynamic programming)</div>
+<b>Items have weights {1, 3, 4, 5} and values {1, 4, 5, 7}; the knapsack capacity is 7. The maximum achievable value is:</b>
+<ol class="gopts"><li>8</li><li>9</li><li>10</li><li>12</li></ol>
+<pre>K[i][w] = max(K[i−1][w], v_i + K[i−1][w − w_i])
+Feasible subsets (weight ≤ 7) and their values:
+   {5,1} weight 6 → 8      {4,3} weight 7 → 9      {4,1} weight 5 → 6      {3,1} weight 4 → 5
+   {5} → 7      {4} → 5      {3} → 4      (any set with weights 3 + 4 + 1 = 8 or more exceeds the capacity)
+Maximum = 9 (the items of weight 3 and 4; confirmed by trying all 16 subsets).
+Table size n × W = 4 × 7 → Θ(nW) time.</pre>
+<p class="gans">Correct: Option 2 — 9.</p>
+</div>
+
+<div class="gq"><div class="gtag">Q7 · Matrix-chain multiplication</div>
+<b>Four matrices have dimensions p = (40, 20, 30, 10, 30), i.e. A1 = 40×20, A2 = 20×30, A3 = 30×10, A4 = 10×30. The minimum number of scalar multiplications to compute A1A2A3A4 is:</b>
+<ol class="gopts"><li>26000</li><li>30000</li><li>32000</li><li>36000</li></ol>
+<pre>M[i][j] = min over k of M[i][k] + M[k+1][j] + p(i−1)·p(k)·p(j)
+Single matrices: 0.
+M[1][2] = 40·20·30 = 24000     M[2][3] = 20·30·10 = 6000     M[3][4] = 30·10·30 = 9000
+M[1][3] = min(0 + 6000 + 40·20·10, 24000 + 0 + 40·30·10) = min(14000, 36000) = 14000
+M[2][4] = min(0 + 9000 + 20·30·30, 6000 + 0 + 20·10·30) = min(27000, 12000) = 12000
+M[1][4] = min( M[1][1] + M[2][4] + 40·20·30 = 12000 + 24000 = 36000,
+               M[1][2] + M[3][4] + 40·30·30 = 24000 + 9000 + 36000 = 69000,
+               M[1][3] + M[4][4] + 40·10·30 = 14000 + 12000 = 26000 ) = 26000
+Optimal order: ((A1(A2A3))A4).</pre>
+<p class="gans">Correct: Option 1 — 26000.</p>
+</div>
+
+<div class="gq"><div class="gtag">Q8 · MST and Dijkstra on the same graph</div>
+<b>Undirected weighted graph: A–B 4, A–C 2, B–C 1, B–D 5, C–D 8, C–E 10, D–E 2, D–F 6, E–F 3. What are the weight of a minimum spanning tree and the shortest-path distance from A to F?</b>
+<ol class="gopts"><li>MST 13, distance 13</li><li>MST 11, distance 13</li><li>MST 13, distance 14</li><li>MST 12, distance 12</li></ol>
+<pre>MST (Kruskal): B–C 1 ✔, A–C 2 ✔, D–E 2 ✔, E–F 3 ✔, A–B 4 ✘ (cycle), B–D 5 ✔ → 1 + 2 + 2 + 3 + 5 = 13
+Dijkstra from A (extraction order A, C, B, D, E, F):
+   d(C) = 2, d(B) = 2 + 1 = 3, d(D) = 3 + 5 = 8, d(E) = 8 + 2 = 10, d(F) = 10 + 3 = 13
+   (direct alternatives: C–E gives 12 for E; D–F gives 14 for F)
+The two values happen to coincide here, but they measure different things.</pre>
+<p class="gans">Correct: Option 1 — MST weight 13 and shortest distance 13.</p>
+</div>
+
+<div class="gq"><div class="gtag">Q9 · Bellman–Ford with negative edges</div>
+<b>Directed graph with source s: s→a 6, s→b 7, a→b 8, a→c 5, a→d −4, b→c −3, b→d 9, c→a −2, d→s 2, d→c 7. What is the shortest distance from s to d?</b>
+<ol class="gopts"><li>2</li><li>−2</li><li>0</li><li>−4</li></ol>
+<pre>Relax all edges V − 1 = 4 times:
+ final distances: s = 0, a = 2, b = 7, c = 4, d = −2
+Path: s → b → c → a → d = 7 + (−3) + (−2) + (−4) = −2
+A fifth pass changes nothing, so there is no negative cycle (the cycle a → d → c → a has weight −4 + 7 − 2 = 1 &gt; 0).
+Dijkstra could not be used because of the negative edges.</pre>
+<p class="gans">Correct: Option 2 — −2.</p>
+</div>
+
+<div class="gq"><div class="gtag">Q10 · Strongly connected components</div>
+<b>Directed graph on vertices 0–7 with edges 0→1, 1→2, 2→0, 2→3, 3→4, 4→5, 5→3, 6→5, 6→7, 7→6. How many strongly connected components does it have?</b>
+<ol class="gopts"><li>2</li><li>3</li><li>4</li><li>8</li></ol>
+<pre>Cycle 0 → 1 → 2 → 0           → SCC {0, 1, 2}
+Cycle 3 → 4 → 5 → 3           → SCC {3, 4, 5}
+Cycle 6 → 7 → 6               → SCC {6, 7}
+The edges 2→3 and 6→5 only go between components, so they cannot merge them.
+Kosaraju's algorithm (DFS, then DFS on the transpose) outputs exactly these 3 components in Θ(V + E).</pre>
+<p class="gans">Correct: Option 2 — 3 components.</p>
+</div>
+
+<div class="gq"><div class="gtag">Q11 · NP-completeness reductions — Independent Set ↔ Vertex Cover ↔ Clique</div>
+<b>G is the 7-cycle C₇ (vertices 0–6, edges i–(i+1) mod 7). Its largest independent set has 3 vertices. Using the standard polynomial-time reductions, what is the size of a minimum vertex cover of G, and the size of the largest clique in the complement graph Ḡ?</b>
+<ol class="gopts"><li>4 and 3</li><li>3 and 4</li><li>4 and 4</li><li>3 and 3</li></ol>
+<pre>Reduction 1 (Independent Set ≤p Vertex Cover):  S is an independent set  ⇔  V − S is a vertex cover.
+   Proof: S has no edge inside ⇔ every edge has at least one endpoint outside S ⇔ V − S covers every edge.
+   So  (max independent set) + (min vertex cover) = |V|  ⇒  min VC = 7 − 3 = 4.
+   (Example: S = {0, 2, 4} independent; V − S = {1, 3, 5, 6} covers all 7 edges.)
+
+Reduction 2 (Independent Set ≤p Clique):  S is independent in G  ⇔  S is a clique in the complement Ḡ.
+   ⇒ largest clique in Ḡ = 3.   (Ḡ has C(7,2) − 7 = 14 edges; {0, 2, 4} is a triangle in Ḡ.)
+
+Why this matters:  each map is computable in polynomial time (just complement the vertex set / complement the edge set), and it
+preserves yes/no answers — so because Independent Set is NP-complete (from 3-SAT via the clause–literal gadget graph),
+VERTEX COVER and CLIQUE are NP-complete too.  Membership in NP: a certificate (the set) is checked in polynomial time.
+Direction matters: to prove X is NP-hard, reduce a KNOWN NP-hard problem TO X, not the reverse.
+Brute-force check over all subsets of C₇: max independent set 3, min vertex cover 4, max clique in Ḡ 3.</pre>
+<p class="gans">Correct: Option 1 — minimum vertex cover = 4; largest clique in the complement = 3.</p>
+</div>
+
+<div class="gq"><div class="gtag">Q12 · Amortized analysis — doubling dynamic array</div>
+<b>A dynamic array starts with capacity 1 and doubles its capacity (copying all existing elements) whenever an insertion finds it full. Counting each element copy and each insertion as one unit of work, what is the total work for 17 insertions, and what is the amortized cost per insertion?</b>
+<ol class="gopts"><li>48 units; amortized ≈ 2.8, i.e. O(1)</li><li>33 units; amortized ≈ 1.9, i.e. O(1)</li><li>153 units; amortized ≈ 9, i.e. O(n)</li><li>34 units; amortized = 2 exactly</li></ol>
+<pre>Resizes happen when inserting element number 2, 3, 5, 9 and 17 (the array is full at sizes 1, 2, 4, 8, 16):
+   elements copied:  1 + 2 + 4 + 8 + 16 = 31
+   insertions:       17
+   total work = 31 + 17 = 48      amortized = 48 / 17 ≈ 2.82
+
+General bound (aggregate method): for n insertions the copies form a geometric series 1 + 2 + 4 + … + 2^k < 2n,
+so total work < 3n ⇒ amortized O(1) per insertion even though one insertion can cost Θ(n).
+
+Potential method: Φ = 2·(size) − capacity.   Cheap insert: actual 1 + ΔΦ 2 = 3.   Resizing insert at size = capacity = m: actual m + 1,
+Φ goes from m to 2 (size m+1, capacity 2m) so ΔΦ = 2 − m ⇒ amortized = (m + 1) + (2 − m) = 3.   Every operation has amortized cost 3.
+Contrast: growing by a FIXED +c each time costs Θ(n) amortized, which is why geometric growth is used.</pre>
+<p class="gans">Correct: Option 1 — total work 48 units, amortized ≈ 2.8 = O(1).</p>
+</div>
+
+<div class="gq"><div class="gtag">Q13 · Greedy — job sequencing with deadlines</div>
+<b>Five unit-time jobs have (profit, deadline): J1 (100, 2), J2 (19, 1), J3 (27, 2), J4 (25, 1), J5 (15, 3). Each takes one time slot and only one job runs per slot. What is the maximum total profit and which jobs are scheduled?</b>
+<ol class="gopts"><li>142 with J1, J3, J5</li><li>144 with J1, J4, J5</li><li>127 with J1, J3</li><li>186 with J1, J2, J3, J5</li></ol>
+<pre>Greedy rule: consider jobs in decreasing profit; place each in the LATEST free slot on or before its deadline; skip it if none is free.
+
+Order by profit: J1 100, J3 27, J4 25, J2 19, J5 15
+   J1 (d=2): slot 2 is free → slot 2
+   J3 (d=2): slot 2 taken → slot 1 free → slot 1
+   J4 (d=1): slot 1 taken → reject
+   J2 (d=1): slot 1 taken → reject
+   J5 (d=3): slot 3 free → slot 3
+
+Schedule:  slot 1 = J3,  slot 2 = J1,  slot 3 = J5     profit = 27 + 100 + 15 = 142
+
+Check: only 3 slots exist (max deadline 3), so at most 3 jobs can run; a job with deadline 1 can only use slot 1.
+J1 + J4 + J5 would need J4 in slot 1 and J1 in slot 2: profit 100 + 25 + 15 = 140 < 142 (J3 beats J4).
+Brute force over all 32 job subsets confirms 142.   Complexity: O(n²) with the slot search, O(n log n) with union-find.</pre>
+<p class="gans">Correct: Option 1 — maximum profit 142 using J3, J1, J5 in slots 1, 2, 3.</p>
+</div>
+
+<div class="gq"><div class="gtag">Q14 · Greedy — activity selection</div>
+<b>Activities (start, finish): (1,4), (3,5), (0,6), (5,7), (3,9), (5,9), (6,10), (8,11), (8,12), (2,14), (12,16). Two activities are compatible if one finishes no later than the other starts. What is the maximum number of mutually compatible activities, and which are chosen by the earliest-finish-time greedy rule?</b>
+<ol class="gopts"><li>3 activities</li><li>4 activities: (1,4), (5,7), (8,11), (12,16)</li><li>4 activities: (1,4), (5,7), (6,10), (12,16)</li><li>5 activities</li></ol>
+<pre>Sort by finish time: (1,4) (3,5) (0,6) (5,7) (3,9) (5,9) (6,10) (8,11) (8,12) (2,14) (12,16)
+
+Pick the first: (1,4)           last finish = 4
+(3,5): starts 3 &lt; 4 → skip     (0,6): 0 &lt; 4 → skip
+(5,7): starts 5 ≥ 4 → PICK      last finish = 7
+(3,9), (5,9), (6,10): all start before 7 → skip
+(8,11): starts 8 ≥ 7 → PICK     last finish = 11
+(8,12), (2,14): start before 11 → skip
+(12,16): starts 12 ≥ 11 → PICK  last finish = 16
+
+Selected: (1,4), (5,7), (8,11), (12,16) → 4 activities.
+Option 3 is wrong: (5,7) and (6,10) overlap (6 &lt; 7).
+Why earliest-finish is optimal: exchange argument — any optimal solution's first activity can be swapped for the earliest-finishing one without
+creating a conflict, leaving at least as much room for the rest; induct on the remaining subproblem.  Brute force over all subsets confirms the maximum is 4.
+Other greedy rules (earliest start, shortest duration) fail: e.g. the long early-starting (0,6) blocks both (1,4) and (5,7).</pre>
+<p class="gans">Correct: Option 2 — 4 activities: (1,4), (5,7), (8,11), (12,16).</p>
+</div>
+
+<div class="gq"><div class="gtag">Q15 · Double hashing — probe sequences and total probes</div>
+<b>A hash table has 11 slots (0–10) with h1(k) = k mod 11 and h2(k) = 1 + (k mod 10); the i-th probe is (h1(k) + i·h2(k)) mod 11. The keys 22, 33, 44, 12, 55 are inserted in this order into an empty table. In which slot does 55 land and what is the total number of probes made by the five insertions?</b>
+<ol class="gopts"><li>Slot 4 and 8 probes</li><li>Slot 6 and 10 probes</li><li>Slot 6 and 8 probes</li><li>Slot 7 and 9 probes</li></ol>
+<pre>Key  h1  h2   probe sequence (slots tried)                      result
+ 22   0   3    0 (free)                                         slot 0     1 probe
+ 33   0   4    0 (taken) → (0 + 1×4) = 4 (free)                 slot 4     2 probes
+ 44   0   5    0 (taken) → (0 + 1×5) = 5 (free)                 slot 5     2 probes
+ 12   1   3    1 (free)                                         slot 1     1 probe
+ 55   0   6    0 (taken) → (0 + 1×6) = 6 (free)                 slot 6     2 probes
+
+Total probes = 1 + 2 + 2 + 1 + 2 = 8; the final table is  [0]=22 [1]=12 [4]=33 [5]=44 [6]=55.
+
+Why double hashing: keys with the same h1 get DIFFERENT step sizes h2, so they do not pile up in one cluster (linear probing would put 33, 44 and 55 in slots 1, 2, 3 and make 12 collide).
+For the probe sequence to visit every slot, h2(k) must be relatively prime to the table size — guaranteed here because 11 is prime and 1 ≤ h2 ≤ 10.
+Load factor α = 5/11 ≈ 0.45: expected probes for an unsuccessful search ≈ 1/(1 − α) = 1.83; for a successful search ≈ (1/α) ln(1/(1 − α)) ≈ 1.3 (uniform hashing).
+Check: the insertions were simulated by program; slot 55 → 6, total probes 8.</pre>
+<p class="gans">Correct: Option 3 — 55 lands in slot 6 and the five insertions use 8 probes.</p>
+</div>
+
+<div class="gq"><div class="gtag">Q16 · DFS — articulation points, back edges and finishing order</div>
+<b>An undirected graph has edges A–B, A–C, B–C, B–D, D–E, D–F, E–F and F–G. A DFS starts at A and always visits neighbours in alphabetical order. Which statement is correct?</b>
+<ol class="gopts"><li>Articulation points B, D, F; 2 back edges; finish order C G F E D B A</li><li>Articulation points B and D only; 2 back edges; finish order C G F E D B A</li><li>Articulation points B, D, F; 3 back edges; finish order C G F E D B A</li><li>Articulation points B, D, F; 2 back edges; finish order G F E D C B A</li></ol>
+<pre>DFS from A:  A(1) → B(2) → C(3)  [C sees A: back edge C→A; C finishes at 4]
+             B → D(5) → E(6) → F(7)  [F sees D: back edge F→D]  → G(8), G finishes 9, F 10, E 11, D 12, B 13, A 14.
+Tree edges: A–B, B–C, B–D, D–E, E–F, F–G (6 = |V| − 1);   back edges: C→A and F→D (2);   8 edges in all = 6 + 2.
+Finishing order: C, G, F, E, D, B, A.
+
+Articulation points (Tarjan's low-link test):
+   disc:  A1 B2 C3 D5 E6 F7 G8        low:  A1 B1 C1 D5 E5 F5 G8
+   non-root vertex u with a child v is an articulation point if  low[v] ≥ disc[u]:
+   B (child D: low 5 ≥ disc 2 ✔),  D (child E: low 5 ≥ disc 5 ✔),  F (child G: low 8 ≥ disc 7 ✔).
+   Root A has only ONE DFS child (B), so A is not an articulation point.
+   C has no DFS children and E fails the test (child F has low 5 &lt; disc 6 ✘), so neither is an articulation point.
+So the articulation points are B, D and F (bridges: B–D and F–G).
+Check: low-link values and the set {B, D, F} were confirmed with an independent graph-library computation.
+Trap: the DFS root is an articulation point only if it has TWO or more DFS-tree children.</pre>
+<p class="gans">Correct: Option 1 — articulation points B, D, F; 2 back edges; finish order C G F E D B A.</p>
+</div>
+
+<div class="gq"><div class="gtag">Q17 · Longest common subsequence — table and number of LCSs</div>
+<b>For X = ABCBDAB and Y = BDCABA, what is the length of the longest common subsequence and how many DISTINCT longest common subsequences exist?</b>
+<ol class="gopts"><li>Length 4, exactly 3 distinct LCSs</li><li>Length 4, exactly 1 LCS</li><li>Length 5, exactly 3 distinct LCSs</li><li>Length 4, exactly 2 distinct LCSs</li></ol>
+<pre>Recurrence:  L[i][j] = L[i−1][j−1] + 1  if X[i] = Y[j],   else  max( L[i−1][j], L[i][j−1] ).
+
+        ''  B  D  C  A  B  A
+   ''    0  0  0  0  0  0  0
+   A     0  0  0  0  1  1  1
+   B     0  1  1  1  1  2  2
+   C     0  1  1  2  2  2  2
+   B     0  1  1  2  2  3  3
+   D     0  1  2  2  2  3  3
+   A     0  1  2  2  3  3  4
+   B     0  1  2  2  3  4  4        →  L[7][6] = 4
+
+Tracing back (up when the upper cell is at least as large, left when the left is at least as large — and exploring BOTH when they tie)
+yields the distinct strings  BCAB,  BCBA  and  BDAB.   Time and space are O(mn) (O(min(m, n)) space if only the length is needed).
+Check: a brute-force search over all 2^7 subsequences of X found the same maximum length 4 and exactly these 3 common subsequences.
+Trap: stopping at the first traceback path reports ONE LCS; the LCS is not unique in general.</pre>
+<p class="gans">Correct: Option 1 — length 4, with 3 distinct LCSs (BCAB, BCBA, BDAB).</p>
+</div>
+
+<div class="gq"><div class="gtag">Q18 · Quick sort — first partition and worst-case comparisons</div>
+<b>Quick sort uses Lomuto partitioning with the LAST element as pivot (scan j from the first element, move every element ≤ pivot to the left part, finally place the pivot). For A = [9, 4, 6, 2, 8, 5, 7, 3], what is A after the first partition, and how many comparisons does Quick sort make in total on an already sorted array of 8 elements?</b>
+<ol class="gopts"><li>[2, 3, 6, 9, 8, 5, 7, 4]; 28</li><li>[2, 3, 6, 9, 8, 5, 7, 4]; 24</li><li>[2, 4, 6, 9, 8, 5, 7, 3]; 28</li><li>[3, 4, 6, 2, 8, 5, 7, 9]; 28</li></ol>
+<pre>Pivot = 3 (last element); i starts at −1 and counts the elements ≤ pivot found so far.
+  j=0: 9 &gt; 3   j=1: 4 &gt; 3   j=2: 6 &gt; 3
+  j=3: 2 ≤ 3 → i = 0, swap A[0] ↔ A[3]  → [2, 4, 6, 9, 8, 5, 7, 3]
+  j=4: 8   j=5: 5   j=6: 7   (all &gt; 3)         — 7 comparisons (n − 1) in this partition
+  place the pivot: swap A[i+1] = A[1] with A[7] → [2, 3, 6, 9, 8, 5, 7, 4]   (pivot 3 is now at index 1, final position)
+
+Sorted input with the last element as pivot: the pivot is the maximum, so the partition is as unbalanced as possible (n − 1 and 0).
+   T(n) = T(n − 1) + (n − 1) comparisons  →  7 + 6 + 5 + 4 + 3 + 2 + 1 = 28 = n(n − 1)/2 = Θ(n²).
+A reverse-sorted array also gives 28 with this pivot rule. Choosing a random pivot or the median of three makes the bad case unlikely: expected Θ(n log n).
+Check: Lomuto partition and the full recursion were run by program: array after the first pass [2, 3, 6, 9, 8, 5, 7, 4]; 28 comparisons on sorted input.</pre>
+<p class="gans">Correct: Option 1 — the first pass gives [2, 3, 6, 9, 8, 5, 7, 4] and a sorted array costs 28 comparisons.</p>
+</div>
+</section>
+
+</main>
+</div>
+<footer>Complete · 7 GATE CSE 2027 Algorithms topics · 58-question basic quiz · 18 fully solved GATE-level problems</footer>
+<script>
+const Q = [
+["ASYM","The function 5n² + 3n log n is:",["Θ(n log n)","Θ(n² log n)","Θ(n²)","Θ(n³)"],2,"The n² term dominates: constants and lower-order terms are dropped, so the function is Θ(n²)."],
+["ASYM","Which of the following statements is TRUE?",["log(n!) = Θ(n log n)","2²ⁿ = O(2ⁿ)","n log n = Θ(n)","n! = O(2ⁿ)"],0,"By Stirling's approximation log(n!) ≈ n log n − 1.44n. The first two are false since n! grows faster than 2ⁿ and 4ⁿ is not O(2ⁿ)."],
+["ASYM","The solution of T(n) = 2T(n/2) + n is:",["Θ(n)","Θ(log n)","Θ(n log n)","Θ(n²)"],2,"Master theorem case 2: n^(log₂2) = n = f(n), so T(n) = Θ(n log n)."],
+["ASYM","The solution of T(n) = 4T(n/2) + n² is:",["Θ(n log n)","Θ(n²)","Θ(n³)","Θ(n² log n)"],3,"n^(log₂4) = n² = f(n), which is case 2, so there is an extra log factor."],
+["ASYM","The solution of T(n) = T(n − 1) + n, T(1) = 1, is:",["Θ(n²)","Θ(n log n)","Θ(n)","Θ(2ⁿ)"],0,"Unrolling gives n + (n−1) + … + 1 = n(n+1)/2."],
+["ASYM","The loop  for (i = 1; i <= n; i *= 2) for (j = 1; j <= i; j++) count++;  executes the inner statement:",["Θ(n) times","Θ(log n) times","Θ(n log n) times","Θ(n²) times"],0,"The inner counts 1 + 2 + 4 + … + 2^k < 2n, a geometric sum that is Θ(n) — for n = 16 it is 31."],
+["ASYM","The solution of T(n) = T(√n) + 1 is:",["Θ(1)","Θ(log log n)","Θ(√n)","Θ(log n)"],1,"Each step squares-roots n; it takes log log n steps to reach a constant."],
+["SORT","Any comparison-based sorting algorithm needs, in the worst case, at least:",["Ω(n log n) comparisons","Ω(n²) comparisons","Ω(n) comparisons","Ω(log n) comparisons"],0,"The decision tree has n! leaves, so its height is at least log₂(n!) = Ω(n log n)."],
+["SORT","Which of the following sorting algorithms is stable?",["Heap sort","Selection sort (swap-based)","Quick sort (standard partition)","Merge sort"],3,"Merge sort takes the left element when keys tie, preserving relative order."],
+["SORT","Insertion sort is run on the array [2, 4, 1, 3, 5]. The total number of element shifts is:",["4","3","5","2"],1,"Shifts equal the number of inversions: (2,1), (4,1), (4,3) = 3."],
+["SORT","Quick sort always picks the first element as pivot. For an already sorted array of 6 distinct elements, the number of comparisons is:",["5","9","15","21"],2,"5 + 4 + 3 + 2 + 1 = 15 = n(n−1)/2."],
+["SORT","The maximum number of comparisons performed by merge sort on 8 distinct elements is:",["17","12","16","24"],0,"n log₂n − n + 1 = 24 − 8 + 1 = 17."],
+["SORT","The minimum number of comparisons needed to find both the maximum and the minimum of 100 numbers is:",["150","198","148","99"],2,"⌈3n/2⌉ − 2 = 150 − 2 = 148 (compare in pairs first)."],
+["SORT","The maximum number of comparisons in a binary search of a sorted array with 1000 elements is:",["11","10","1000","9"],1,"⌊log₂ 1000⌋ + 1 = 9 + 1 = 10, since 2¹⁰ = 1024 > 1000."],
+["SORT","Counting sort on n integers in the range 0 to k runs in:",["Θ(nk)","Θ(n log n)","Θ(k log n)","Θ(n + k)"],3,"One pass to count, one pass over the counts, one pass to place the elements."],
+["DC","Strassen's matrix multiplication has a running time of:",["Θ(n^(log₂7))","Θ(n² log n)","Θ(n^(log₂3))","Θ(n³)"],0,"T(n) = 7T(n/2) + Θ(n²), which gives Θ(n^2.81)."],
+["DC","The worst-case time of the median-of-medians selection algorithm is:",["Θ(n log n)","Θ(n²)","Θ(n)","Θ(log n)"],2,"With groups of 5 the recurrence T(n) = T(n/5) + T(7n/10) + O(n) solves to O(n)."],
+["DC","If an 8 × 8 matrix product is computed by Strassen's recursion down to 1 × 1 blocks, the number of scalar multiplications is:",["343","512","49","256"],0,"7³ = 343 (compared with 8³ = 512 for the classical method)."],
+["DC","The closest pair of points among n points in the plane can be found by divide and conquer in:",["Θ(n log n)","Θ(n²)","Θ(n log² n)","Θ(n)"],0,"T(n) = 2T(n/2) + O(n), with a linear strip check at the merge step."],
+["DC","The number of multiplications needed to compute x¹³ with the square-and-multiply method is:",["4","6","12","5"],3,"13 = 1101₂: 3 squarings plus 2 multiplications = 5."],
+["DC","Karatsuba's algorithm multiplies two n-digit numbers in time:",["Θ(n^(log₂3))","Θ(n²)","Θ(n log n)","Θ(n³)"],0,"T(n) = 3T(n/2) + O(n) = Θ(n^1.585)."],
+["GREEDY","In the activity-selection problem, which greedy rule gives an optimal solution?",["Pick the activity with the earliest start time","Pick the activity with the earliest finish time","Pick the shortest activity","Pick the activity that overlaps the fewest others"],1,"Earliest finish leaves the most room for the remaining activities, and an exchange argument proves optimality."],
+["GREEDY","Characters with frequencies a:45, b:13, c:12, d:16, e:9, f:5 (per 100 characters) are Huffman coded. The total number of bits is:",["300","196","224","240"],2,"Code lengths are 1, 3, 3, 3, 4, 4, so 45 + 39 + 36 + 48 + 36 + 20 = 224."],
+["GREEDY","Items (value, weight) = (60, 10), (100, 20), (120, 30) with knapsack capacity 50. The optimal value of the FRACTIONAL knapsack is:",["220","160","280","240"],3,"Take items 1 and 2 whole (160) plus 20/30 of item 3 (80) = 240."],
+["GREEDY","For the same items and capacity, the optimal value of the 0/1 knapsack is:",["220","280","240","160"],0,"Items 2 and 3 give 100 + 120 = 220; greedy by ratio gives only 160."],
+["GREEDY","With coins {1, 3, 4} and amount 6, the greedy strategy (largest coin first) uses ___ coins while the optimum uses ___ coins:",["2 and 2","2 and 3","3 and 2","3 and 3"],2,"Greedy gives 4 + 1 + 1 = 3 coins but 3 + 3 = 2 coins is optimal."],
+["GREEDY","The time complexity of Huffman coding on n symbols using a binary min-heap is:",["Θ(n log n)","Θ(n² log n)","Θ(n²)","Θ(n)"],0,"There are n − 1 merges, each with O(log n) heap operations."],
+["DP","The length of the longest common subsequence of \"AGGTAB\" and \"GXTXAYB\" is:",["6","3","5","4"],3,"The LCS is \"GTAB\" of length 4."],
+["DP","The edit distance (insert, delete, substitute) between \"kitten\" and \"sitting\" is:",["2","5","3","4"],2,"Substitute k→s, substitute e→i, insert g: 3 operations."],
+["DP","For 0/1 knapsack with weights {1, 3, 4, 5}, values {1, 4, 5, 7} and capacity 7, the maximum value is:",["9","8","11","10"],0,"Take the items with weights 3 and 4: value 4 + 5 = 9."],
+["DP","Matrices A1 (10×30), A2 (30×5), A3 (5×60). The minimum number of scalar multiplications to compute A1A2A3 is:",["1800","4500","27000","9000"],1,"(A1A2)A3 costs 1500 + 3000 = 4500; A1(A2A3) costs 27000."],
+["DP","For strings of lengths m and n, the DP table for the longest common subsequence has how many entries?",["2mn","(m + 1)(n + 1)","m n!","m + n"],1,"One extra row and column for the empty prefixes."],
+["DP","The minimum number of coins needed to make 11 using coins {1, 2, 5} is:",["2","3","5","4"],1,"5 + 5 + 1 = 3 coins."],
+["DP","The length of the longest strictly increasing subsequence of [10, 22, 9, 33, 21, 50, 41, 60] is:",["5","7","4","6"],0,"For example 10, 22, 33, 50, 60."],
+["DP","A problem is suited to dynamic programming when it has:",["Only the greedy-choice property","Independent subproblems only","Optimal substructure and overlapping subproblems","A negative-weight cycle"],2,"Overlapping subproblems are what allow stored answers to be reused."],
+["GRAPH","In a directed graph, a DFS finds a back edge. This means the graph:",["Contains a cycle","Is bipartite","Is a DAG","Is strongly connected"],0,"A back edge points to an ancestor still on the DFS stack, closing a cycle (and conversely every cycle produces one)."],
+["GRAPH","A topological ordering of a directed graph exists if and only if the graph:",["Is connected","Is bipartite","Is a DAG","Has no isolated vertex"],2,"A cycle makes it impossible for all its vertices to precede each other."],
+["GRAPH","The DAG with edges 5→2, 5→0, 4→0, 4→1, 2→3, 3→1 on vertices 0–5 has how many topological orderings?",["10","6","13","20"],2,"Enumerating all permutations that respect the edges gives 13."],
+["GRAPH","Kruskal's algorithm on a graph with V vertices and E edges, using sorting and union-find, runs in:",["O(E²)","O(V²)","O(V³)","O(E log E)"],3,"Sorting dominates: O(E log E) = O(E log V)."],
+["GRAPH","An undirected graph has edges A–B 4, A–C 2, B–C 1, B–D 5, C–D 8, C–E 10, D–E 2, D–F 6, E–F 3. The weight of its minimum spanning tree is:",["15","12","13","11"],2,"Kruskal picks B–C 1, A–C 2, D–E 2, E–F 3, B–D 5 = 13."],
+["GRAPH","For the graph in the previous question, the shortest distance from A to F is:",["11","14","16","13"],3,"A → C → B → D → E → F = 2 + 1 + 5 + 2 + 3 = 13."],
+["GRAPH","Dijkstra's algorithm may give incorrect results when the graph has:",["Undirected edges","Parallel paths","Negative-weight edges","Cycles"],2,"It finalises a vertex's distance when extracted, which a later negative edge could invalidate."],
+["GRAPH","The time complexity of the Bellman–Ford algorithm is:",["O(V + E)","O(VE)","O(V³)","O(E log V)"],1,"It relaxes all E edges V − 1 times."],
+["GRAPH","The Floyd–Warshall algorithm for all-pairs shortest paths runs in:",["O(V² log V)","O(V²)","O(V³)","O(VE log V)"],2,"Three nested loops over V vertices."],
+["NP","Which of the following problems is solvable in polynomial time?",["3-SAT","Vertex cover","2-SAT","Hamiltonian cycle"],2,"2-SAT reduces to finding strongly connected components of an implication graph in linear time; the others are NP-complete."],
+["NP","If a single NP-complete problem is shown to be solvable in polynomial time, then:",["P = NP","NP = co-NP only","Nothing follows","P ≠ NP"],0,"Every NP problem reduces to it in polynomial time, so all of NP lies in P."],
+["NP","To prove that a problem X is NP-hard, we should:",["Reduce a known NP-complete problem to X","Show X is in P","Reduce X to a known NP-complete problem","Solve X by brute force"],0,"A ≤p X means X is at least as hard as the NP-complete A."],
+["NP","The amortized cost of a push on a dynamic array that doubles its capacity when full is:",["O(log n)","O(n log n)","O(n)","O(1)"],3,"n pushes cost fewer than 3n element writes in total, i.e. O(1) per push."],
+["NP","A binary counter starts at 0 and is incremented 16 times. The total number of bit flips is:",["16","31","64","32"],1,"The total over n increments is 2n − (number of 1 bits in n) = 32 − 1 = 31."],
+["NP","If S is a vertex cover of a graph G = (V, E), then V − S is:",["An independent set","A clique","A dominating set","Another vertex cover"],0,"Every edge has an endpoint in S, so no edge can have both endpoints in V − S."],
+["SORT", "In the median-of-medians selection algorithm (groups of 5), the recurrence T(n) = T(n/5) + T(7n/10) + O(n) solves to:", ["O(n log n)", "O(n)", "O(n²)", "O(log n)"], 1, "The two recursive sizes add up to n/5 + 7n/10 = 9n/10 < n, so the work per level shrinks geometrically and the total is linear."],
+["DP", "The longest increasing subsequence of n numbers can be found in time:", ["O(n log n)", "O(n)", "O(n³)", "O(2^n)"], 0, "The simple DP is O(n²); keeping the smallest tail of an increasing subsequence of each length and using binary search gives O(n log n)."],
+["DP", "The Held–Karp dynamic programme for the travelling salesman problem runs in time:", ["O(n!)", "O(n³)", "O(n² · 2^n)", "O(n log n)"], 2, "There are n · 2^n states (last city, subset visited), each computed with O(n) transitions. This is far better than n! but still exponential."],
+["GRAPH", "Prim's algorithm with a binary min-heap and adjacency lists has running time:", ["O(V²) always", "O(E + V)", "O(V log E) only for dense graphs", "O(E log V)"], 3, "Each edge relaxation may cause a decrease-key costing O(log V); with a Fibonacci heap this improves to O(E + V log V)."],
+["GRAPH", "A DAG on 3 vertices has no edges at all. The number of distinct topological orderings is:", ["6", "1", "3", "0"], 0, "With no constraints every permutation of the 3 vertices is a valid topological order: 3! = 6."],
+["GRAPH", "After running the Floyd–Warshall algorithm, the graph contains a negative-weight cycle if and only if:", ["Some entry d[i][j] is infinity", "Some diagonal entry d[i][i] is negative", "The final matrix is not symmetric", "Any edge weight is negative"], 1, "A negative cycle through i makes the shortest 'path' from i back to i negative, which shows up as d[i][i] < 0."],
+["NP", "Under simple uniform hashing with chaining and load factor α = n/m, the expected time of an unsuccessful search is:", ["Θ(log n)", "Θ(n)", "Θ(1 + α)", "Θ(α²)"], 2, "Hashing the key takes O(1) and the whole chain of expected length α must be scanned."],
+["GRAPH", "In an unweighted graph, breadth-first search from s finds, for every reachable vertex, a path that:", ["Uses the maximum number of edges", "Has minimum total weight even with negative edges", "Visits the vertices in decreasing degree order", "Uses the minimum number of edges"], 3, "BFS explores vertices in order of distance (number of edges) from s, so the first time a vertex is reached is by a shortest path in edges."]
+];
+const MSQ=[["GRAPH", "Which statements about graph traversal are correct?", ["BFS uses a queue", "DFS can use an explicit stack", "A DFS back edge can indicate a directed cycle", "BFS is an MST algorithm for arbitrary weighted graphs"], [0, 1, 2], "BFS uses a queue; DFS uses a stack/recursion; a back edge indicates a directed cycle. BFS is not an MST algorithm for arbitrary weighted graphs."], ["DP", "Which are standard dynamic-programming ideas?", ["Optimal substructure", "Overlapping subproblems", "Memoization", "Greedy-choice property is always required"], [0, 1, 2], "DP commonly exploits optimal substructure and overlapping subproblems; memoization reuses results. Greedy-choice is not required."]];
+const topics={ASYM:"Asymptotics",SORT:"Sorting & Searching",DC:"Divide & Conquer",GREEDY:"Greedy",DP:"Dynamic Programming",GRAPH:"Graph Algorithms",NP:"Amortized & NP"};
+let filter="ALL",answered=0,correct=0,mode="MCQ";
+function renderMCQ(){
+  const list=document.getElementById('qlist');
+  list.innerHTML="";
+  Q.forEach((item,i)=>{
+    const [t,q,opts,ans,exp]=item;
+    if(filter!=="ALL"&&filter!==t) return;
+    const card=document.createElement('div'); card.className='qcard';
+    const tag=document.createElement('div'); tag.className='qtag'; tag.textContent=topics[t]+" · Q"+(i+1);
+    const qt=document.createElement('div'); qt.className='qtext'; qt.textContent=q;
+    card.appendChild(tag); card.appendChild(qt);
+    const order = opts.map((_,i)=>i);
+    for(let k=order.length-1;k>0;k--){
+      const j=Math.floor(Math.random()*(k+1));
+      [order[k],order[j]]=[order[j],order[k]];
+    }
+    order.forEach(oi=>{
+      const o=opts[oi];
+      const b=document.createElement('button'); b.className='opt'; b.textContent=o;
+      b.onclick=()=>{
+        if(b.dataset.done) return;
+        [...card.querySelectorAll('.opt')].forEach(x=>x.dataset.done=1);
+        const buttons=[...card.querySelectorAll('.opt')];
+        const correctPos=order.indexOf(ans);
+        buttons[correctPos].classList.add('correct');
+        if(oi!==ans) b.classList.add('wrong');
+        card.querySelector('.expl').classList.add('show');
+        answered++; if(oi===ans) correct++;
+        document.getElementById('ansCount').textContent=answered;
+        document.getElementById('corrCount').textContent=correct;
+      };
+      card.appendChild(b);
+    });
+    const e=document.createElement('div'); e.className='expl'; e.textContent=exp;
+    card.appendChild(e);
+    list.appendChild(card);
+  });
+}
+
+function renderMSQ(){
+ const list=document.getElementById('qlist'); list.innerHTML='';
+ MSQ.forEach((item,i)=>{
+  const [t,q,opts,ans,exp]=item; if(filter!=="ALL"&&filter!==t)return;
+  const card=document.createElement('div'); card.className='qcard';
+  const tag=document.createElement('div'); tag.className='qtag'; tag.textContent=(topics[t]||t)+' · MSQ'+(i+1); card.appendChild(tag);
+  const qt=document.createElement('div'); qt.className='qtext'; qt.textContent=q; card.appendChild(qt);
+  const hint=document.createElement('div'); hint.className='sub'; hint.textContent='Select all correct options. Scoring is all-or-nothing.'; card.appendChild(hint);
+  const order=[...opts.keys()]; for(let k=order.length-1;k>0;k--){const j=Math.floor(Math.random()*(k+1));[order[k],order[j]]=[order[j],order[k]];}
+  const selected=new Set();
+  order.forEach(orig=>{const b=document.createElement('button');b.className='opt';b.textContent=opts[orig];b.onclick=()=>{if(card.dataset.submitted)return;if(selected.has(orig)){selected.delete(orig);b.classList.remove('selected');}else{selected.add(orig);b.classList.add('selected');}};card.appendChild(b);});
+  const submit=document.createElement('button');submit.className='hy-btn primary';submit.style.marginTop='10px';submit.textContent='Submit MSQ';submit.onclick=()=>{if(card.dataset.submitted||selected.size===0)return;card.dataset.submitted='1';const correctSet=new Set(ans);const ok=selected.size===correctSet.size&&[...selected].every(x=>correctSet.has(x));const buttons=[...card.querySelectorAll('.opt')];buttons.forEach((b,idx)=>{const orig=order[idx];if(correctSet.has(orig))b.classList.add('correct');if(selected.has(orig)&&!correctSet.has(orig))b.classList.add('wrong');b.dataset.done=1;});card.querySelector('.expl').classList.add('show');answered++;if(ok)correct++;document.getElementById('ansCount').textContent=answered;document.getElementById('corrCount').textContent=correct;};card.appendChild(submit);
+  const e=document.createElement('div');e.className='expl';e.textContent=exp;card.appendChild(e);list.appendChild(card);
+ });
+}
+function render(){mode==='MCQ'?renderMCQ():renderMSQ();}
+
+const bar=document.getElementById('qtopics');
+["ALL",...Object.keys(topics)].forEach(t=>{
+  const b=document.createElement('button'); b.textContent=t==="ALL"?"All "+Q.length:topics[t];
+  if(t==="ALL")b.classList.add('active');
+  b.onclick=()=>{filter=t; [...bar.children].forEach(x=>x.classList.remove('active')); b.classList.add('active'); render();};
+  bar.appendChild(b);
+});
+function resetQuizScore(total){answered=0;correct=0;document.getElementById('ansCount').textContent='0';document.getElementById('corrCount').textContent='0';const sc=document.getElementById('score');if(sc)sc.innerHTML='Answered <b id="ansCount">0</b>/'+total+' · Correct <b id="corrCount">0</b>';}
+document.getElementById('mcqMode').onclick=()=>{mode='MCQ';resetQuizScore(Q.length);document.getElementById('mcqMode').classList.add('active');document.getElementById('msqMode').classList.remove('active');render();};
+document.getElementById('msqMode').onclick=()=>{mode='MSQ';resetQuizScore(MSQ.length);document.getElementById('msqMode').classList.add('active');document.getElementById('mcqMode').classList.remove('active');render();};
+render();
+</script>
+
+<script>
+(function(){
+  const curatedRapid = [["must", "Asymptotic notation: O is an upper bound, Ω a lower bound, and Θ a tight bound."], ["must", "For nested loops, derive the exact iteration count when possible; do not assume every nested loop is O(n²)."], ["formula", "Master theorem: T(n)=aT(n/b)+f(n); compare f(n) with n^{log_b a} before choosing the case."], ["must", "Binary search requires a sorted search space; its standard comparison complexity is O(log n)."], ["formula", "Merge sort: O(n log n) time and O(n) auxiliary space in the usual array implementation."], ["trap", "Quicksort has O(n²) worst-case time; average/expected time is O(n log n) under standard randomisation assumptions."], ["must", "Greedy algorithms require a proof of correctness, typically via greedy-choice and/or exchange arguments."], ["must", "DP is appropriate when subproblems overlap and the problem has optimal substructure."], ["formula", "Dijkstra is valid with non-negative edge weights; it is not a general shortest-path algorithm for negative edges."], ["must", "For an unweighted graph, BFS gives shortest paths in number of edges."], ["must", "A DAG has a topological ordering iff it is acyclic; DFS finishing times can produce one."], ["formula", "Union-Find with path compression + union by rank/size has near-constant amortized cost: O(α(n))."], ["must", "Hash-table performance depends on load factor and collision handling; worst-case search can still be O(n)."], ["gate", "Know the difference between MST algorithms, shortest-path algorithms, and traversal algorithms; they solve different problems."], ["must", "Heap sort: build heap in O(n), then perform n−1 extract-max operations; O(n log n) time and O(1) auxiliary array space."], ["formula", "Double hashing: h(k,i)=(h₁(k)+i·h₂(k)) mod m; choose h₂ relatively prime to m for full-table probing."], ["gate", "Articulation: non-root u is critical when some DFS child v has low[v] ≥ disc[u]; DFS root needs at least two children."], ["must", "BFS gives shortest paths in unweighted graphs; DFS supplies timestamps/low-link structure for cycle, SCC, bridge and articulation problems."],];
+  const labelDefs = {
+    must: ['🟢 Must Remember','hy-must'],
+    trap: ['🟡 Common Trap','hy-trap'],
+    formula: ['🧮 Formula / Rule','hy-formula'],
+    gate: ['⚠️ GATE Favourite','hy-gate'],
+    shortcut: ['💡 Shortcut','hy-shortcut']
+  };
+
+  function addBadge(el, type){
+    if(!el || el.querySelector(':scope > .hy-badge')) return;
+    const [label, cls] = labelDefs[type];
+    el.classList.add('hy-marked');
+    const b=document.createElement('span');
+    b.className='hy-badge '+cls;
+    b.textContent=label;
+    el.insertBefore(b, el.firstChild);
+    el.dataset.hyType=type;
+  }
+
+  function classifyCards(){
+    document.querySelectorAll('main .card').forEach(el=>{
+      const t=el.textContent.replace(/\s+/g,' ').trim().toLowerCase();
+      if(!t || el.closest('#hyRapidPanel')) return;
+      if(/\b(shortcut|quick trick|handy trick|easy trick)\b/.test(t)) addBadge(el,'shortcut');
+      else if(/\b(formula|identity|identities|range\s*=|det\(|log\s*|o\(|theta\(|n\(|probability formula|equation)\b/.test(t)) addBadge(el,'formula');
+      else if(/\b(theorem|key fact|must remember|remember|important|property|properties|rule of thumb|definition|distinction|difference between|classic)\b/.test(t)) addBadge(el,'must');
+    });
+    document.querySelectorAll('main .warn').forEach(el=>{
+      const t=el.textContent.replace(/\s+/g,' ').trim().toLowerCase();
+      addBadge(el, /gate (angle|trap|strategy|note|convention|favourite|favorite)/.test(t) ? 'gate' : 'trap');
+    });
+    document.querySelectorAll('main .num').forEach(el=>{
+      const t=el.textContent.replace(/\s+/g,' ').trim().toLowerCase();
+      if(/\b(rule of thumb|formula|shortcut|range|identity|key|remember)\b/.test(t)) addBadge(el,'formula');
+    });
+    document.querySelectorAll('main .gq').forEach(el=>addBadge(el,'gate'));
+  }
+
+  function makeToolbar(){
+    if(document.querySelector('.hy-toolbar')) return;
+    const main=document.querySelector('.wrap>main');
+    if(!main) return;
+    const toolbar=document.createElement('div');
+    toolbar.className='hy-toolbar';
+    toolbar.innerHTML=`
+      <div class="hy-toolbar-row">
+        <div>
+          <div class="hy-title">⚡ <span>Revision Layer</span></div>
+          <div class="hy-sub">Use Last-Minute mode for a rapid recall pass before solving PYQs.</div>
+        </div>
+        <div class="hy-actions">
+          <button class="hy-btn primary" id="hyRapidOn">⚡ Last-Minute Revision</button>
+          <button class="hy-btn secondary" id="hyRapidOff">↩ Full Notes</button>
+        </div>
+      </div>
+      <div class="hy-legend">
+        <span class="hy-must">🟢 Must Remember</span>
+        <span class="hy-trap">🟡 Common Trap</span>
+        <span class="hy-formula">🧮 Formula / Rule</span>
+        <span class="hy-gate">⚠️ GATE Favourite</span>
+        <span class="hy-shortcut">💡 Shortcut</span>
+      </div>`;
+    main.insertBefore(toolbar, main.firstElementChild);
+    document.getElementById('hyRapidOn').onclick=()=>{buildRapid(); document.body.classList.add('rapid-mode'); window.scrollTo({top:0,behavior:'smooth'});};
+    document.getElementById('hyRapidOff').onclick=()=>{document.body.classList.remove('rapid-mode'); window.scrollTo({top:0,behavior:'smooth'});};
+  }
+
+  function buildRapid(){
+    let panel=document.getElementById('hyRapidPanel');
+    if(panel) return;
+    panel=document.createElement('section');
+    panel.id='hyRapidPanel';
+    panel.innerHTML='<h1>⚡ Last-Minute Revision</h1><p class="rapid-intro">A manually curated recall pass for the final 15–30 minutes before PYQs. Start here, then switch to the full notes only if a point needs clarification.</p>';
+    const curatedBox=document.createElement('div'); curatedBox.className='rapid-curated';
+    curatedBox.innerHTML='<h2>🎯 High-Yield Recall</h2><p class="rapid-note">These points are intentionally selected for quick GATE-oriented recall.</p>';
+    const groups={must:[],trap:[],formula:[],gate:[],shortcut:[]};
+    curatedRapid.forEach(([type,text])=>groups[type]?.push(text));
+    const labels={must:'🟢 Must Remember',trap:'🟡 Common Trap',formula:'🧮 Formula / Rule',gate:'⚠️ GATE Favourite',shortcut:'💡 Shortcut'};
+    Object.entries(groups).forEach(([type,items])=>{
+      if(!items.length) return;
+      const g=document.createElement('div'); g.className='rapid-group '+type;
+      g.innerHTML='<h3>'+labels[type]+'</h3>';
+      const ul=document.createElement('ul'); items.forEach(x=>{const li=document.createElement('li'); li.textContent=x; ul.appendChild(li);});
+      g.appendChild(ul); curatedBox.appendChild(g);
+    });
+    panel.appendChild(curatedBox);
+    const sourceSections=[...document.querySelectorAll('main>section')].filter(s=>s.id!=='quiz'&&s.id!=='pyq'&&s.id!=='hyRapidPanel');
+    let total=0;
+    sourceSections.forEach(sec=>{
+      const items=[...sec.querySelectorAll(':scope > .card, :scope > .warn, :scope > .num, :scope > .gq')]
+        .filter(el=>el.dataset.hyType);
+      if(!items.length) return;
+      const rs=document.createElement('div'); rs.className='rapid-section';
+      const title=sec.querySelector('h1')?.textContent.trim() || sec.id;
+      rs.innerHTML='<h2>'+escapeHtml(title)+'</h2>';
+      items.forEach(el=>{
+        // Last-minute mode keeps high-yield cards and warnings, plus only explicitly formula/rule numericals.
+        const type=el.dataset.hyType;
+        if(el.classList.contains('num') && type!=='formula') return;
+        const wrap=document.createElement('div'); wrap.className='rapid-source';
+        wrap.appendChild(el.cloneNode(true));
+        rs.appendChild(wrap); total++;
+      });
+      if(rs.children.length>1) panel.appendChild(rs);
+    });
+    if(!total){
+      const e=document.createElement('div'); e.className='rapid-empty'; e.textContent='No high-yield blocks were detected in this subject.'; panel.appendChild(e);
+    }
+    document.querySelector('.wrap>main').appendChild(panel);
+  }
+
+  function escapeHtml(s){return s.replace(/[&<>'"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[c]));}
+  function init(){classifyCards(); makeToolbar();}
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',init); else init();
+})();
+</script>
+
+<script>
+/* Randomise the position of the correct option in each solved problem on every page load,
+   and rewrite the "Correct: Option N" line to match. Problems whose options or explanation
+   refer to other options by position or say "all/none of the above" keep their order. */
+(function(){
+  var PIN=/\b(above|both of these|all of these|none of these|neither of these)\b/i;
+  var POSREF=/\b[Oo]ptions?\s*\(?[1-4A-Da-d]\)?(?![\w-])|\([a-d]\)\s|\bchoice\s*\(?[1-4A-D]\)?/;
+  document.querySelectorAll('.gq').forEach(function(g){
+    var ol=g.querySelector('.gopts'), ans=g.querySelector('.gans'); if(!ol||!ans) return;
+    var m=ans.innerHTML.match(/Option (\d)/); if(!m) return;
+    var lis=Array.prototype.slice.call(ol.children); if(lis.length<2) return;
+    var ci=parseInt(m[1],10)-1; if(ci<0||ci>=lis.length) return;
+    if(lis.some(function(li){return PIN.test(li.textContent)||POSREF.test(li.textContent);})) return;
+    var pre=g.querySelector('pre'); if(pre&&POSREF.test(pre.textContent)) return;
+    if(POSREF.test(ans.textContent.replace(/Option \d/,''))) return;
+    var correct=lis[ci], order=lis.slice();
+    for(var i=order.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=order[i];order[i]=order[j];order[j]=t;}
+    order.forEach(function(li){ol.appendChild(li);});
+    ans.innerHTML=ans.innerHTML.replace(/Option \d/,'Option '+(order.indexOf(correct)+1));
+  });
+})();
+</script>
+<!-- readiness:start -->
+<script>window.__READINESS_CFG__={review:{"ASYM": {"sec": "asym", "label": "Asymptotics & Recurrences", "h2": ["Solving recurrences"]}, "SORT": {"sec": "sort", "label": "Searching & Sorting", "h2": ["Comparison sorts"]}, "DC": {"sec": "dc", "label": "Divide & Conquer", "h2": ["The pattern"]}, "GREEDY": {"sec": "greedy", "label": "Greedy Algorithms", "h2": ["Classic problems"]}, "DP": {"sec": "dp", "label": "Dynamic Programming", "h2": ["Standard problems"]}, "GRAPH": {"sec": "graph", "label": "Graph Algorithms", "h2": ["Single-source shortest paths"]}, "NP": {"sec": "np", "label": "Amortized, Hashing & NP", "h2": ["P, NP"]}}};</script>
+<script>
+(function(){
+  /* ===== Revision Readiness: turns the quiz into a revision loop ===== */
+  var CFG = window.__READINESS_CFG__ || {};
+  var NAME = (location.pathname.split('/').pop()||'page').replace(/\.html?$/,'');
+  var KEY = 'readiness:'+NAME;
+  var STRONG=75, WEAK=55, MIN_ATT=3;
+  var results = {};             // "Q12" / "MSQ3" -> 1 (correct) | 0 (wrong); latest attempt wins
+  try{ var raw=localStorage.getItem(KEY); if(raw) results=JSON.parse(raw)||{}; }catch(e){}
+  function save(){ try{ localStorage.setItem(KEY, JSON.stringify(results)); }catch(e){} }
+
+  var score=document.getElementById('score'), qlist=document.getElementById('qlist');
+  if(!score||!qlist||typeof Q==='undefined'||typeof topics==='undefined') return;
+
+  // ---- denominators per topic (MCQ + MSQ) ----
+  var totals={}, order=[];
+  function addTotal(arr){ (arr||[]).forEach(function(it){ var k=it[0]; if(!(k in totals)){totals[k]=0;order.push(k);} totals[k]++; }); }
+  addTotal(Q); if(typeof MSQ!=='undefined') addTotal(MSQ);
+  var totalQ=Q.length+(typeof MSQ!=='undefined'?MSQ.length:0);
+  function topicOf(id){
+    var m=/^(MSQ|Q)(\d+)$/.exec(id); if(!m) return null;
+    var arr=(m[1]==='Q')?Q:MSQ; var it=arr[+m[2]-1]; return it?it[0]:null;
+  }
+  function label(k){ return topics[k]||k; }
+
+  // ---- panel ----
+  var panel=document.createElement('div'); panel.id='readiness'; panel.className='rd-panel';
+  score.parentNode.insertBefore(panel, score.nextSibling);
+  var css=document.createElement('style');
+  css.textContent=
+   '.rd-panel{margin:16px 0 22px;padding:16px 18px;border:1px solid var(--border,#242b3a);border-radius:14px;background:linear-gradient(135deg,var(--panel,#12161f),var(--panel2,#181d29));display:none}'+
+   '.rd-panel.show{display:block}'+
+   '.rd-head{display:flex;align-items:baseline;justify-content:space-between;gap:10px;flex-wrap:wrap}'+
+   '.rd-title{font-size:12px;letter-spacing:1px;text-transform:uppercase;font-weight:800;color:var(--accent,#5ee6c8)}'+
+   '.rd-big{font-size:30px;font-weight:800;line-height:1.1;margin:4px 0 0;color:var(--text,#e6e9f0)}'+
+   '.rd-big small{font-size:13px;font-weight:600;color:var(--muted,#93a0b8);margin-left:8px}'+
+   '.rd-verdict{font-size:13px;font-weight:700;padding:4px 10px;border-radius:999px;border:1px solid}'+
+   '.rd-v-good{color:#7ee787;border-color:#7ee78766;background:#7ee78722}.rd-v-mid{color:#ffc978;border-color:#ffb45466;background:#ffb45422}.rd-v-low{color:#ff9b9b;border-color:#ff6b6b66;background:#ff6b6b22}'+
+   '.rd-cov{font-size:12.5px;color:var(--muted,#93a0b8);margin:8px 0 12px}'+
+   '.rd-rows{display:grid;gap:7px;margin:10px 0}'+
+   '.rd-row{display:grid;grid-template-columns:minmax(96px,34%) 1fr 74px;gap:10px;align-items:center;font-size:12.5px}'+
+   '.rd-name{color:var(--text,#e6e9f0);overflow-wrap:anywhere}'+
+   '.rd-bar{height:9px;border-radius:99px;background:#ffffff14;overflow:hidden}'+
+   '.rd-bar i{display:block;height:100%;border-radius:99px}'+
+   '.rd-pct{text-align:right;color:var(--muted,#93a0b8);white-space:nowrap}'+
+   '.rd-sec{margin:14px 0 4px;font-size:13px;color:#c9d1e0;line-height:1.55}'+
+   '.rd-sec b.g{color:#7ee787}.rd-sec b.w{color:#ff9b9b}.rd-sec b.d{color:#ffc978}'+
+   '.rd-rec{margin:14px 0 0;padding:12px 14px;border-left:3px solid var(--accent2,#7c9fff);background:#00000022;border-radius:0 10px 10px 0;font-size:13px;color:#c9d1e0}'+
+   '.rd-rec .t{font-size:11px;letter-spacing:1px;text-transform:uppercase;font-weight:800;color:var(--accent2,#7c9fff);margin-bottom:6px}'+
+   '.rd-rec a{color:var(--accent,#5ee6c8);font-weight:700;text-decoration:none}.rd-rec a:hover{text-decoration:underline}'+
+   '.rd-rec div.l{margin:5px 0}'+
+   '.rd-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}'+
+   '.rd-btn{border:1px solid var(--border,#242b3a);background:var(--panel2,#181d29);color:var(--text,#e6e9f0);padding:8px 12px;border-radius:9px;font-size:12.5px;font-weight:700;cursor:pointer}'+
+   '.rd-btn:hover{border-color:var(--accent2,#7c9fff);color:var(--accent,#5ee6c8)}.rd-btn[disabled]{opacity:.45;cursor:default}'+
+   '.rd-note{font-size:11.5px;color:var(--muted,#93a0b8);margin-top:10px}'+
+   '.qcard.rd-hide{display:none}';
+  document.head.appendChild(css);
+
+  function pct(c,n){ return n? Math.round(100*c/n):0; }
+  function colour(p){ return p>=STRONG?'#7ee787':(p>=WEAK?'#ffc978':'#ff6b6b'); }
+
+  function sectionLink(t){
+    var c=(CFG.review||{})[t]; if(!c) return null;
+    if(c.href) return '<a href="'+c.href+'">'+c.label+'</a>';
+    var sec=document.getElementById(c.sec); if(!sec) return null;
+    var parts=['<a href="#'+c.sec+'">'+c.label+'</a>'];
+    (c.h2||[]).forEach(function(h){
+      var hs=sec.querySelectorAll('h2'); 
+      for(var i=0;i<hs.length;i++){
+        if(hs[i].textContent.replace(/\s+/g,' ').toLowerCase().indexOf(h.toLowerCase())>-1){
+          if(!hs[i].id) hs[i].id=c.sec+'-rd-'+i;
+          parts.push('<a href="#'+hs[i].id+'">'+hs[i].firstChild.textContent.replace(/\s+$/,'')+'</a>'); break;
+        }
+      }
+    });
+    return parts.join(' → ');
+  }
+
+  function build(){
+    var att=0,cor=0,per={};
+    order.forEach(function(k){per[k]={a:0,c:0};});
+    Object.keys(results).forEach(function(id){
+      var k=topicOf(id); if(!k||!per[k]) return;
+      per[k].a++; att++; if(results[id]===1){per[k].c++; cor++;}
+    });
+    if(!att){ panel.className='rd-panel'; return; }
+    var overall=pct(cor,att);
+    var cov=Math.round(100*att/totalQ);
+    var verdict, vcls;
+    if(overall>=80){verdict='Exam-ready here';vcls='rd-v-good';}
+    else if(overall>=65){verdict='Nearly there';vcls='rd-v-mid';}
+    else if(overall>=50){verdict='Needs revision';vcls='rd-v-mid';}
+    else {verdict='Revise before PYQs';vcls='rd-v-low';}
+    var strong=[],weak=[],dev=[],thin=[];
+    order.forEach(function(k){
+      var p=per[k]; if(p.a<MIN_ATT){ thin.push(k); return; }
+      var x=pct(p.c,p.a);
+      if(x>=STRONG) strong.push([k,x]); else if(x<WEAK) weak.push([k,x]); else dev.push([k,x]);
+    });
+    weak.sort(function(a,b){return a[1]-b[1];}); dev.sort(function(a,b){return a[1]-b[1];});
+    var h='<div class="rd-head"><div><div class="rd-title">Revision readiness</div>'+
+      '<div class="rd-big">Revision Score: '+overall+'%<small>'+cor+' / '+att+' answered correctly</small></div></div>'+
+      '<span class="rd-verdict '+vcls+'">'+verdict+'</span></div>';
+    h+='<div class="rd-cov">Coverage: '+att+' of '+totalQ+' questions attempted ('+cov+'%)'+(cov<50?' — provisional; attempt more questions for a reliable reading.':'.')+'</div>';
+    h+='<div class="rd-rows">';
+    order.forEach(function(k){
+      var p=per[k], x=pct(p.c,p.a);
+      h+='<div class="rd-row"><span class="rd-name">'+label(k)+'</span><span class="rd-bar"><i style="width:'+(p.a?x:0)+'%;background:'+(p.a?colour(x):'transparent')+'"></i></span><span class="rd-pct">'+(p.a?x+'% · '+p.c+'/'+p.a:'not tried')+'</span></div>';
+    });
+    h+='</div>';
+    function names(a){return a.map(function(z){return label(z[0])+' ('+z[1]+'%)';}).join(', ');}
+    if(strong.length) h+='<div class="rd-sec"><b class="g">Strong:</b> '+names(strong)+'</div>';
+    if(dev.length) h+='<div class="rd-sec"><b class="d">Developing:</b> '+names(dev)+'</div>';
+    if(weak.length) h+='<div class="rd-sec"><b class="w">Weak:</b> '+names(weak)+'</div>';
+    if(thin.length) h+='<div class="rd-sec" style="color:var(--muted,#93a0b8)">Too few attempts to judge (under '+MIN_ATT+'): '+thin.map(label).join(', ')+'</div>';
+    // recommendation
+    var focus=weak.concat(dev).slice(0,3), lines=[];
+    focus.forEach(function(z){ var l=sectionLink(z[0]); if(l) lines.push('<div class="l">Review → '+l+'</div>'); });
+    var pyq=document.getElementById('pyq');
+    h+='<div class="rd-rec"><div class="t">Recommendation</div>';
+    if(lines.length){
+      h+=lines.join('')+'<div class="l">Then retry the questions you missed, and after that'+(pyq?' attempt the <a href="#pyq">solved PYQ-style problems</a>':' attempt PYQs')+'.</div>';
+    } else if(thin.length&&!strong.length){
+      h+='<div class="l">Answer a few more questions in each topic to get a reliable reading.</div>';
+    } else {
+      h+='<div class="l">No weak topics so far. Move on to '+(pyq?'<a href="#pyq">the PYQ-style problems</a>':'PYQs')+'.'+(cov<60?' Cover the untried topics first for a trustworthy score.':'')+'</div>';
+    }
+    h+='</div>';
+    var missed=Object.keys(results).filter(function(id){return results[id]===0;});
+    h+='<div class="rd-actions"><button class="rd-btn" id="rdRetry"'+(missed.length?'':' disabled')+'>Retry missed ('+missed.length+')</button><button class="rd-btn" id="rdReset">Reset results</button></div>';
+    h+='<div class="rd-note">Scores are saved in this browser. A question\'s latest attempt counts, so re-answering a missed question updates the report. The sub-heading shown is the highest-yield part of a weak topic. Topic labels need at least '+MIN_ATT+' attempts: Strong ≥ '+STRONG+'%, Weak &lt; '+WEAK+'%.</div>';
+    panel.innerHTML=h; panel.className='rd-panel show';
+    var r=document.getElementById('rdRetry'); if(r) r.onclick=retry;
+    var z=document.getElementById('rdReset'); if(z) z.onclick=function(){ if(confirm('Clear saved quiz results for this subject?')){results={};save();build();} };
+  }
+
+  function currentMode(){ try{ return (typeof mode!=='undefined')?mode:'MCQ'; }catch(e){ return 'MCQ'; } }
+  function retry(){
+    var m=currentMode(), pre=(m==='MSQ')?'MSQ':'Q';
+    var missed=Object.keys(results).filter(function(id){return results[id]===0 && id.indexOf(pre)===0 && (pre==='MSQ'||id.indexOf('MSQ')!==0);});
+    if(!missed.length){
+      // missed questions exist only in the other mode
+      var other=(m==='MSQ')?'mcqMode':'msqMode', b=document.getElementById(other); if(b) b.click();
+      pre=(pre==='Q')?'MSQ':'Q';
+      missed=Object.keys(results).filter(function(id){return results[id]===0 && (pre==='MSQ'?id.indexOf('MSQ')===0:/^Q\d/.test(id));});
+    }
+    if(typeof filter!=='undefined'){ try{ filter='ALL'; }catch(e){} }
+    var all=document.querySelector('#qtopics button'); if(all) all.click();   // re-renders with ALL
+    var set={}; missed.forEach(function(id){set[id]=1;});
+    var shown=0;
+    qlist.querySelectorAll('.qcard').forEach(function(c){
+      var t=c.querySelector('.qtag'); var mm=t&&/·\s*(MSQ|Q)(\d+)/.exec(t.textContent);
+      var id=mm?mm[1]+mm[2]:null;
+      if(id&&set[id]){shown++;} else c.classList.add('rd-hide');
+    });
+    qlist.scrollIntoView({behavior:'smooth',block:'start'});
+  }
+
+  // ---- capture answers: after each click, read the card's final state ----
+  function outcome(card, id){
+    if(!card.querySelector('.expl.show')) return null;            // not answered/submitted yet
+    if(card.querySelector('.opt.wrong')) return 0;
+    if(id.indexOf('MSQ')===0){                                      // a missed correct option is not marked wrong
+      var cs=card.querySelectorAll('.opt.correct');
+      for(var i=0;i<cs.length;i++) if(!cs[i].classList.contains('selected')) return 0;
+    }
+    return 1;
+  }
+  qlist.addEventListener('click',function(e){
+    var card=e.target.closest&&e.target.closest('.qcard'); if(!card) return;
+    setTimeout(function(){
+      var t=card.querySelector('.qtag'); var mm=t&&/·\s*(MSQ|Q)(\d+)/.exec(t.textContent); if(!mm) return;
+      var id=mm[1]+mm[2], r=outcome(card,id);
+      if(r===null) return;
+      if(card.dataset.rdRecorded) return; card.dataset.rdRecorded='1';
+      results[id]=r; save(); build();
+    },0);
+  },true);
+
+  build();
+})();
+
+</script>
+<!-- readiness:end -->
+<script id="ux-fix-v11-js">
+(function(){
+  var nav=document.getElementById('side'); if(!nav) return;
+  var scrim=document.createElement('div'); scrim.id='navScrim'; document.body.appendChild(scrim);
+  var fab=document.createElement('button'); fab.id='navFab'; fab.type='button'; fab.setAttribute('aria-label','Topics'); fab.textContent='\u2630';
+  fab.addEventListener('click',function(){ nav.classList.toggle('open'); });
+  document.body.appendChild(fab);
+  function sync(){ document.body.classList.toggle('nav-open', nav.classList.contains('open')); }
+  new MutationObserver(sync).observe(nav,{attributes:true,attributeFilter:['class']});
+  function close(){ nav.classList.remove('open'); }
+  function outside(e){
+    if(!nav.classList.contains('open')) return;
+    var t=e.target; if(!t||!t.closest) return;
+    if(t.closest('#menuBtn')||t.closest('#navFab')) return;                  // button handles its own toggle
+    if(!t.closest('#side') || (e.type==='click' && t.closest('#side a'))) close();
+  }
+  document.addEventListener('pointerdown',outside,true);
+  document.addEventListener('touchstart',outside,{capture:true,passive:true});
+  document.addEventListener('click',outside,true);
+  scrim.addEventListener('click',close);
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape') close(); });
+})();
+</script>
+<script id="fmt-v12-js">
+(function(){
+  var EQ=/[=≤≥⇔→⇒≠≈∑Σπ⌈⌊]|\^|_\{|\bO\(|\blog\b|\bmod\b/;
+  function esc(s){return s.replace(/[&<>]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;'}[c];});}
+  function fmtItem(li,isFormula){
+    if(li.dataset.fmt) return; li.dataset.fmt='1';
+    var t=li.textContent.trim(), label='', body=t;
+    var m=t.match(/^([^:=]{2,44}?):\s+([\s\S]+)$/);
+    if(m && m[1].split(/\s+/).length<=6){label=m[1];body=m[2];}
+    var html='';
+    if(label) html+='<span class="rg-label">'+esc(label)+'</span>';
+    if(isFormula){
+      var parts=body.split(/;\s+|\.\s+(?=[A-Z])/).map(function(x){return x.trim();}).filter(Boolean);
+      parts.forEach(function(x,i){
+        var last=(i===parts.length-1);
+        var txt=x; if(!/[.!?)]$/.test(txt) && !last) txt=x; 
+        var prose=(x.match(/\b[a-z]{4,}\b/g)||[]).length; var isEq=EQ.test(x)&&(prose<=3||(/[=≤≥⇔]/.test(x)&&x.length<=70));
+        html+='<span class="'+(isEq?'rg-eq':'rg-txt')+'">'+esc(x)+'</span>';
+      });
+    } else {
+      html+='<span class="rg-body">'+esc(body)+'</span>';
+    }
+    li.innerHTML=html;
+  }
+  function enhance(panel){
+    if(panel.dataset.fmt) return; panel.dataset.fmt='1';
+    var groups=panel.querySelectorAll('.rapid-group'), chips=[];
+    groups.forEach(function(g,i){
+      var type=(g.className.match(/\b(must|trap|formula|gate|shortcut)\b/)||[])[1]; if(!type) return;
+      g.id='rg-'+type;
+      var items=g.querySelectorAll('li');
+      items.forEach(function(li){fmtItem(li,type==='formula');});
+      var h=g.querySelector('h3'); var c=document.createElement('span'); c.className='rg-count'; c.textContent=items.length; h.appendChild(c);
+      chips.push('<a href="#rg-'+type+'">'+h.firstChild.textContent.trim()+' <b>'+items.length+'</b></a>');
+    });
+    if(chips.length){
+      var j=document.createElement('nav'); j.className='rapid-jump'; j.setAttribute('aria-label','Jump to group'); j.innerHTML=chips.join('');
+      var cur=panel.querySelector('.rapid-curated'); if(cur){var note=cur.querySelector('.rapid-note'); (note||cur.firstChild).insertAdjacentElement('afterend',j);}
+      j.addEventListener('click',function(e){var a=e.target.closest('a'); if(!a) return; e.preventDefault();
+        var el=document.querySelector(a.getAttribute('href')); if(el) el.scrollIntoView({behavior:'smooth',block:'start'});});
+    }
+  }
+  function check(){var p=document.getElementById('hyRapidPanel'); if(p) enhance(p);}
+  var main=document.querySelector('.wrap>main'); if(main){ new MutationObserver(check).observe(main,{childList:true}); }
+  check();
+})();
+</script>
+<a id="homeFab" href="index.html" aria-label="Back to Study Hub">🏠</a>
+<!-- gatetest:start -->
+<script src="gate-test.js"></script>
+<script>(function(){var a=document.getElementById("qtopics");if(a&&window.GateTest)GateTest.mountLauncher("alg",a);})();</script>
+<!-- gatetest:end -->
+<!-- pwa-reg:start -->
+<script>if('serviceWorker' in navigator&&(location.protocol==='https:'||location.hostname==='localhost'||location.hostname==='127.0.0.1')){window.addEventListener('load',function(){navigator.serviceWorker.register('sw.js').catch(function(){});});}</script>
+<!-- pwa-reg:end -->
+</body>
+</html>

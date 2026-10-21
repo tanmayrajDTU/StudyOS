@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Full Mock Exam — GATE CSE 2027</title>
+<style>
+:root{--bg:#070916;--panel:#0f1330;--panel2:#161b3f;--border:#2a3166;--text:#eef1ff;--muted:#9ea8d4;--accent:#4ff0d0;--accent2:#8aa4ff;--warn:#ffb454}
+*{box-sizing:border-box}html{background:#070916}
+body{margin:0;color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.55;padding-bottom:env(safe-area-inset-bottom,0px)}
+body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;background:radial-gradient(60% 40% at 8% 0%,rgba(124,92,255,.28),transparent 70%),radial-gradient(50% 35% at 100% 6%,rgba(25,211,255,.18),transparent 70%),#070916}
+a{color:#8fe9ff}
+.bar{display:flex;align-items:center;gap:12px;padding:calc(12px + env(safe-area-inset-top,0px)) 18px 12px;border-bottom:1px solid var(--border);background:rgba(14,18,48,.9)}
+.bar a{text-decoration:none;font-weight:700;font-size:14px}
+main{max-width:860px;margin:0 auto;padding:26px 18px 70px}
+h1{font-size:clamp(26px,6vw,36px);line-height:1.15;margin:0 0 8px}
+.lead{color:var(--muted);margin:0 0 22px;max-width:62ch}
+.panel{background:var(--panel);border:1px solid var(--border);border-radius:16px;padding:18px;margin:16px 0}
+.panel h2{font-size:15px;margin:0 0 10px;color:var(--accent)}
+table{width:100%;border-collapse:collapse;font-size:13.5px}
+th,td{text-align:left;padding:7px 8px;border-bottom:1px solid rgba(138,150,255,.2);font-variant-numeric:tabular-nums}
+th{color:var(--muted);font-size:12px}td.n,th.n{text-align:right}
+tfoot td{font-weight:800;border-bottom:0}
+ul.rules{margin:0;padding-left:20px;color:#c9d1e0;font-size:14px}ul.rules li{margin:6px 0}
+.act{display:flex;gap:10px;flex-wrap:wrap;margin:18px 0 6px}
+.btn{border:1px solid var(--border);background:var(--panel2);color:var(--text);padding:13px 20px;border-radius:12px;font-size:15px;font-weight:800;cursor:pointer;font-family:inherit}
+.btn.pri{background:var(--accent);border-color:var(--accent);color:#062019}.btn.pur{border-color:#b58cff99;color:#d4bcff}
+.btn[disabled]{opacity:.5}
+.note{font-size:12.5px;color:var(--muted)}
+.hist{font-size:13.5px}.hist li{margin:5px 0}
+.err{color:#ff9b9b;font-size:13px;margin-top:8px}
+@media(max-width:560px){.btn{width:100%}}
+</style>
+<!-- pwa:start -->
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#070916">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="GATE 2027">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="icon" type="image/png" href="favicon-64.png">
+<!-- pwa:end -->
+</head>
+<body>
+<div class="bar"><a href="index.html">← Study Hub</a></div>
+<main>
+  <h1>Full mock exam</h1>
+  <p class="lead">A 65-question, 100-mark, 3-hour paper in the GATE CSE pattern, drawn from every subject in this hub. Answers stay hidden until you submit, and the result shows where the marks went.</p>
+
+  <div class="act">
+    <button class="btn pri" id="start">Start full mock</button>
+    <button class="btn pur" id="resume" hidden>Resume saved test</button>
+  </div>
+  <div class="err" id="err" role="alert"></div>
+
+  <div class="panel">
+    <h2>Paper pattern</h2>
+    <table id="pat"><thead><tr><th>Subject</th><th class="n">1-mark</th><th class="n">2-mark</th><th class="n">Marks</th></tr></thead><tbody></tbody><tfoot></tfoot></table>
+  </div>
+
+  <div class="panel">
+    <h2>Marking and rules</h2>
+    <ul class="rules">
+      <li><b>MCQ:</b> a wrong answer costs ⅓ of the question’s marks (−⅓ for 1 mark, −⅔ for 2 marks). Leaving it blank costs nothing.</li>
+      <li><b>MSQ:</b> select every correct option. You score only for the exact correct set, and there is no negative marking.</li>
+      <li><b>NAT:</b> type a number. It is accepted if it is within the stated tolerance. No negative marking.</li>
+      <li><b>Time:</b> 180 minutes. The test submits itself when the clock reaches zero. Pause exists for real interruptions; the real exam has none.</li>
+      <li><b>Progress is saved</b> on this device, so you can leave and resume.</li>
+    </ul>
+  </div>
+
+  <div class="panel" id="histbox" hidden>
+    <h2>Your full mocks</h2>
+    <ul class="hist" id="hist" style="margin:0;padding-left:18px"></ul>
+  </div>
+
+  <p class="note">Each mock is a random draw from the hub’s question banks (about 1,190 questions including numerical-answer ones), so repeated mocks will overlap. Which questions count for 1 or 2 marks is assigned by length and effort, because the original practice questions carry no marks. Treat the score as a practice signal, not a prediction of your GATE score.</p>
+</main>
+<script src="gate-test.js"></script>
+<script>
+(function(){
+  var NAMES={'ga':'General Aptitude','em':'Engineering Mathematics','discrete-math':'Discrete Mathematics','dl':'Digital Logic','coa':'Computer Organization & Architecture','pds':'Programming & Data Structures','alg':'Algorithms','os':'Operating Systems','toc':'Theory of Computation','cn':'Computer Networks','dbms':'DBMS','cd':'Compiler Design'};
+  var body=document.querySelector('#pat tbody'), foot=document.querySelector('#pat tfoot'), t1=0,t2=0;
+  GateTest.ORDER.forEach(function(k){var q=GateTest.QUOTA[k];t1+=q[0];t2+=q[1];
+    body.insertAdjacentHTML('beforeend','<tr><td>'+NAMES[k]+'</td><td class="n">'+q[0]+'</td><td class="n">'+q[1]+'</td><td class="n">'+(q[0]+2*q[1])+'</td></tr>');});
+  foot.innerHTML='<tr><td>Total · '+(t1+t2)+' questions</td><td class="n">'+t1+'</td><td class="n">'+t2+'</td><td class="n">'+(t1+2*t2)+'</td></tr>';
+  var startB=document.getElementById('start'), resB=document.getElementById('resume'), err=document.getElementById('err');
+  function refresh(){
+    var a=GateTest.hasActive(); resB.hidden=!a; if(a) resB.textContent='Resume: '+a.cfg.title.replace(/ — GATE-style test$/,'');
+    var h=GateTest.history().filter(function(x){return x.mode==='full';}).slice(-8).reverse();
+    document.getElementById('histbox').hidden=!h.length;
+    document.getElementById('hist').innerHTML=h.map(function(x){var d=new Date(x.date);return '<li><b>'+GateTest.fmtMarks(x.score)+' / '+x.total+'</b> ('+x.pct+'%) · '+x.corr+' correct, '+x.wrong+' wrong · '+GateTest.fmtTime(x.secs)+' · '+d.toLocaleDateString()+'</li>';}).join('');
+  }
+  GateTest.onChange=refresh; refresh();
+  startB.onclick=function(){err.textContent='';startB.disabled=true;startB.textContent='Preparing paper…';
+    GateTest.startFull().then(function(){startB.disabled=false;startB.textContent='Start full mock';})
+    .catch(function(e){startB.disabled=false;startB.textContent='Start full mock';err.textContent=e.message;});};
+  resB.onclick=function(){GateTest.resume().then(function(ok){if(!ok)err.textContent='That test could not be restored.';refresh();});};
+})();
+</script>
+<!-- pwa-reg:start -->
+<script>if('serviceWorker' in navigator&&(location.protocol==='https:'||location.hostname==='localhost'||location.hostname==='127.0.0.1')){window.addEventListener('load',function(){navigator.serviceWorker.register('sw.js').catch(function(){});});}</script>
+<!-- pwa-reg:end -->
+</body>
+</html>
